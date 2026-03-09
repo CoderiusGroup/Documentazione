@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coderius | SWE Project</title>
+    <link rel="icon" type="image/png" href="assets/logoCoderius.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <img src="assets/logoCoderius.png" alt="Logo Coderius" class="logo-img">
+                <h1>Coderius</h1>
+            </a>
+            <nav class="site-nav">
+                <a href="#docs">Documentazione</a>
+                <!-- <a href="glossario.html">Glossario</a> -->
+                <a href="#team">Team</a>
+                <a href="#repositories">Repository</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Coderius Group</h1>
+            <p>Progetto di Ingegneria del Software 2025/2026</p>
+            <div class="hero-actions">
+                <a href="https://github.com/CoderiusGroup" class="btn btn-primary" target="_blank">Github</a>
+                <a href="mailto:coderius01@gmail.com" class="btn btn-outline">Contattaci</a>
+            </div>
+        </section>
+
+        <section id="docs" class="docs-container">
+            <h2 class="section-title">Documentazione di Progetto</h2>
+            
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-target="candidatura">Candidatura</button>
+                <!--
+                <button class="tab-btn" data-target="rtb">RTB</button>
+                <button class="tab-btn" data-target="pb">PB</button>
+            -->
+            </div>
+
+            <div id="candidatura" class="tab-content active">
+                <div class="doc-grid">
+                    <h4 class="doc-group-title">Documenti Principali</h4>
+                    <h4 class="doc-group-title">Verbali Interni</h4>
+                    <h4 class="doc-group-title">Verbali Esterni</h4>
+                </div>
+            </div>
+        <!--
+            <div id="rtb" class="tab-content">
+                <div class="doc-grid">
+                    <p class="coming-soon">RTB in arrivo...</p>
+                </div>
+            </div>
+
+            <div id="pb" class="tab-content">
+                <div class="doc-grid">
+                    <p class="coming-soon">PB in arrivo...</p>
+                </div>
+            </div>
+        -->
+        </section>
+        <section id="repositories" class="content-section">
+            <h2 class="section-title">Le Nostre Repository</h2>
+            <div class="repo-grid">
+                <a href="https://github.com/CoderiusGroup/Documentazione" class="repo-card" target="_blank" rel="noopener">
+                    <div class="repo-info">
+                        <h3>Documentazione</h3>
+                        <p>Documentazione ufficiale del progetto</p>
+                        <span class="repo-action">Apri repository su GitHub</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+        <section id="team">
+            <h2 class="section-title">Il nostro Team</h2>
+            <div class="team-grid">
+                <a href="https://github.com/albertocnve1" class="member-card" target="_blank">
+                    <img src="https://avatars.githubusercontent.com/u/158286084?v=4" alt="" class="member-avatar">
+                    <div class="member-name">Alberto Canavese</div>
+                </a>
+                <a href="https://github.com/Leddosja" class="member-card" target="_blank">
+                    <img src="https://avatars.githubusercontent.com/u/149975881?v=4" alt="" class="member-avatar">
+                    <div class="member-name">Edis Hodja</div>
+                </a>
+                <a href="https://github.com/membro1" class="member-card" target="_blank">
+                    <img src="https://github.com/identicons/coderius.png" alt="" class="member-avatar">
+                    <div class="member-name">Filippo Zonta Rocha</div>
+                </a>
+                <a href="https://github.com/Giox333" class="member-card" target="_blank">
+                    <img src="https://avatars.githubusercontent.com/u/186103763?v=4" alt="" class="member-avatar">
+                    <div class="member-name">Giovanni Angelo Marco Bronte</div>
+                </a>
+                <a href="https://github.com/inesiadadi" class="member-card" target="_blank">
+                    <img src="https://avatars.githubusercontent.com/u/199393702?v=4g" alt="" class="member-avatar">
+                    <div class="member-name">Ines Iadadi</div>
+                </a>
+                <a href="https://github.com/L3onard004" class="member-card" target="_blank">
+                    <img src="https://avatars.githubusercontent.com/u/203693228?v=4" alt="" class="member-avatar">
+                    <div class="member-name">Leonardo Lorenzin</div>
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2026 Coderius Group — Università degli Studi di Padova</p>
+    </footer>
+</body>
+</html>
