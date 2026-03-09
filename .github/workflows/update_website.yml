@@ -1,0 +1,36 @@
+name: Aggiorna Sito Documentazione
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'Candidatura/**/*.pdf'
+      - 'RTB/**/*.pdf'
+      - 'PB/**/*.pdf'
+      - '.github/update_website.py'
+
+jobs:
+  aggiorna-html:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Scarica la repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Esegui lo script Python
+        run: python .github/update_website.py
+
+      - name: Commit e Push delle modifiche
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "auto: aggiornato index.html con i nuovi documenti"
+          file_pattern: website/index.html
