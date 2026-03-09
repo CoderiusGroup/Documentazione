@@ -48,6 +48,23 @@ body::before {
     z-index: -1;
 }
 
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    pointer-events: none;
+    z-index: 9998;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-color); }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--icy-blue-dark); }
+
+
 /* --- header e nav --- */
 .site-header {
     position: fixed;
@@ -103,24 +120,96 @@ body::before {
     color: var(--icy-blue);
 }
 
-/* --- main  --- */
+.site-nav a.nav-active {
+    color: var(--icy-blue);
+}
+
+/* --- layout --- */
 main {
+    width: 100%;
+    padding: 0;
+}
+
+.container {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
-    padding: 8rem 2rem 4rem;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+section {
+    padding: 6rem 0;
+}
+
+.section-alt {
+    background-color: color-mix(in srgb, var(--surface-color) 40%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    position: relative;
+    padding: 6rem 0;
+}
+
+.section-alt::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 150px; 
+    background: linear-gradient(to bottom, var(--bg-color) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.section-alt::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px; 
+    background: linear-gradient(to top, var(--bg-color) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* hero section */
 .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5rem;
     text-align: center;
-    padding: 4rem 0 6rem;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(0, 229, 255, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
     font-size: 5rem;
     font-weight: 800;
     margin-bottom: 1rem;
-    background: linear-gradient(to right, #fff, var(--icy-blue));
+    background: linear-gradient(to right, #fff, var(--icy-blue), #fff);
+    background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -130,6 +219,7 @@ main {
     font-size: 1.4rem;
     color: var(--text-secondary);
     margin-bottom: 2.5rem;
+    letter-spacing: 0.03em;
 }
 
 .hero-actions {
@@ -161,6 +251,7 @@ main {
     background-color: transparent;
     color: var(--icy-blue);
     border: 2px solid var(--icy-blue);
+    padding: 0.75rem 1.2rem;
 }
 
 .btn-outline:hover {
@@ -168,6 +259,20 @@ main {
 }
 
 /*sections*/
+.section-eyebrow {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--icy-blue);
+    margin-bottom: 0.75rem;
+}
+
+.section-title.reveal {
+    transition-delay: 0.08s;
+}
+
 .section-title {
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -186,16 +291,12 @@ main {
     margin-top: 0.5rem;
 }
 
-/* tabs docu*/
-.docs-container {
-    margin-bottom: 6rem;
-}
-
 .tab-buttons {
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
     border-bottom: 1px solid var(--border-color);
+    position: relative;
 }
 
 .tab-btn {
@@ -241,7 +342,7 @@ main {
 /*cards documenti */
 .doc-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
@@ -284,18 +385,13 @@ main {
     margin-top: 1.5rem;
     color: var(--icy-blue-dark);
     font-size: 1.2rem;
+    text-transform: uppercase;
 }
 
-
-
-
-
-
-.repo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
+.repo-featured {
+    max-width: 520px;
 }
+
 
 .repo-card {
     background-color: var(--surface-color);
@@ -379,12 +475,6 @@ main {
     padding-left: 1rem;
 }
 
-@media (max-width: 768px) {
-    .repo-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 /*team section */
 .team-grid {
     display: grid;
@@ -416,11 +506,31 @@ main {
     text-decoration: none;
     color: inherit;
     display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.member-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--icy-blue-dark), var(--icy-blue));
+    opacity: 0.5;
+    transition: var(--transition);
+}
+
+.member-card:hover::before {
+    opacity: 1;
+    box-shadow: 0 0 10px var(--icy-blue);
 }
 
 .member-card:hover {
     border-color: var(--icy-blue);
     background-color: var(--surface-hover);
+    transform: translateY(-4px);
 }
 
 .member-avatar {
@@ -431,22 +541,147 @@ main {
     border: 2px solid var(--icy-blue);
     padding: 4px;
     background-color: var(--bg-color);
+    transition: var(--transition);
+}
+
+.member-card:hover .member-avatar {
+    box-shadow: 0 0 15px var(--icy-glow);
+    border-width: 3px;
 }
 
 .member-name {
     font-weight: 600;
     font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.member-card:hover .member-name {
+    color: var(--icy-blue);
 }
 
 /* --- footer --- */
 footer {
-    text-align: center;
-    padding: 2rem;
-    color: var(--text-secondary);
+    background-color: var(--surface-color);
     border-top: 1px solid var(--border-color);
-    font-size: 0.9rem;
 }
 
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.footer-logo span {
+    color: var(--icy-blue);
+    text-shadow: 0 0 10px var(--icy-glow);
+}
+
+.footer-logo-img {
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--icy-blue);
+}
+
+.footer-bottom {
+    padding: 1.5rem 0;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+@media (max-width: 600px) {
+    .footer-top {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+}
+
+/* member cards on section-alt need contrast against the lighter background */
+.section-alt .member-card {
+    background-color: var(--bg-color);
+}
+
+.section-alt .member-card:hover {
+    background-color: rgba(11, 17, 32, 0.7);
+}
+
+/* hero entrance */
+.hero h1 {
+    animation: fadeIn 0.6s ease both, shimmer 5s linear 0.6s infinite;
+}
+
+@keyframes shimmer {
+    0%   { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+.hero p {
+    animation: none;
+    opacity: 0;
+}
+
+.hero-actions {
+    animation: fadeIn 0.6s ease 0.3s both;
+}
+
+.scroll-indicator {
+    margin-top: 2.5rem;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    animation: fadeIn 0.6s ease 0.45s both, bounce 2s ease-in-out 1.2s infinite;
+    display: block;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+}
+
+/* scroll reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* --- stile glossario per il futuro--- */
 
