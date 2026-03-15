@@ -76,7 +76,6 @@
 
   pagebreak()
 
-  //--- indice ---
   show outline.entry.where(level: 1): set block(above: 1.5em)
   outline(
     title: text(weight: "bold")[Indice],

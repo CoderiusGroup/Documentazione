@@ -6,7 +6,12 @@ on:
       - main
     paths:
       - 'website/**'
-
+  workflow_run:
+    workflows: ["Aggiorna Sito Documentazione"]
+    types:
+      - completed
+    branches:
+      - main
 permissions:
   contents: read
   pages: write
@@ -18,6 +23,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: ${{ github.event_name == 'push' || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success') }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -28,6 +34,14 @@ jobs:
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
+      
+      - name: Copia i documenti nel sito
+        run: |
+          mkdir -p website/docs
+          
+          [ -d "Candidatura" ] && cp -r Candidatura website/docs/
+          [ -d "RTB" ] && cp -r RTB website/docs/
+          [ -d "PB" ] && cp -r PB website/docs/
 
       - name: Carica i file del sito
         uses: actions/upload-pages-artifact@v3
