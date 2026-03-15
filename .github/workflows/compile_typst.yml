@@ -1,0 +1,41 @@
+name: Compila Documenti Typst
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'src/**/*.typ'
+      - '!src/templates/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compila Typst e Genera Struttura
+        run: |
+          find src -name "*.typ" -not -path "src/templates/*" | while read typst_file; do
+            
+            percorso_relativo="${typst_file#src/}"
+            
+            cartella_destinazione=$(dirname "$percorso_relativo")
+            
+            nome_pdf=$(basename "$typst_file" .typ).pdf
+            pdf_finale="$cartella_destinazione/$nome_pdf"
+            
+            mkdir -p "$cartella_destinazione"
+            
+            echo "Compilazione di $typst_file -> $pdf_finale"
+            docker run --rm -v $(pwd):/app -w /app ghcr.io/typst/typst:latest compile --root . "$typst_file" "$pdf_finale"
+            
+          done
+
+      - name: Commit e Push dei PDF
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "docs: generazione automatica PDF da src/ [skip ci]"
+          file_pattern: '**/*.pdf'

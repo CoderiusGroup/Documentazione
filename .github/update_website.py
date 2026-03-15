@@ -11,17 +11,12 @@ def genera_card_html(file_path):
     percorso_html = f"../{rel_to_root}"
     nome_pulito = file_path.stem.replace('_', ' ')
     
-    icona = "📝" if "verbali" in rel_to_root.lower() else "📄"
-    if any(parola in rel_to_root.lower() for parola in ["glossario", "norme", "piano", "analisi"]):
-        icona = "📘"
-        
     return f'''
                     <a href="{percorso_html}" class="doc-card" target="_blank">
                         <div class="doc-info">
                             <h3>{nome_pulito}</h3>
                             <p>Clicca per visualizzare</p>
                         </div>
-                        <div class="doc-icon">{icona}</div>
                     </a>'''
 
 def aggiorna_html():
@@ -41,7 +36,6 @@ def aggiorna_html():
         "PB": []
     }
 
-    # Scansiona la root ignorando le cartelle di sistema e il sito
     for file_path in BASE_DIR.rglob("*.pdf"):
         percorso_str = file_path.as_posix().lower()
         
@@ -49,26 +43,26 @@ def aggiorna_html():
             continue
 
         card_html = genera_card_html(file_path)
-        if "candidatura" in percorso_str:
-            if "verbali/interni" in percorso_str:
+        if "Candidatura" in percorso_str:
+            if "Verbali/Interni" in percorso_str:
                 categorie["CANDIDATURA_INTERNI"].append(card_html)
-            elif "verbali/esterni" in percorso_str:
+            elif "Verbali/Esterni" in percorso_str:
                 categorie["CANDIDATURA_ESTERNI"].append(card_html)
-            elif "documenti" in percorso_str:
+            else:
                 categorie["CANDIDATURA_PRINCIPALI"].append(card_html)
                 
-        elif "rtb" in percorso_str:
-            if "verbali/interni" in percorso_str:
+        elif "RTB" in percorso_str:
+            if "Verbali/Interni" in percorso_str:
                 categorie["RTB_INTERNI"].append(card_html)
-            elif "verbali/esterni" in percorso_str:
+            elif "Verbali/Esterni" in percorso_str:
                 categorie["RTB_ESTERNI"].append(card_html)
-            elif "documenti" in percorso_str:
+            else:
                 categorie["RTB_PRINCIPALI"].append(card_html)
                 
-        elif "pb" in percorso_str:
+        elif "PB" in percorso_str:
             categorie["PB"].append(card_html)
 
-    # Ordina in modo decrescente (i file più recenti o con lettera più alta in cima)
+    # ordina in modo decrescente
     for cat in categorie:
         categorie[cat].sort(reverse=True)
 
