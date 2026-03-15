@@ -26,7 +26,6 @@
   set text(font: "Libertinus Serif", size: 11pt, lang: "it")
   set heading(numbering: "1.1.")
 
-  //copertina
   align(center)[
     #v(4em)
     #image("../../../images/logoCoderius.jpg", width: 50%)
