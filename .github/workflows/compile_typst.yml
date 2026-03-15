@@ -28,7 +28,7 @@ jobs:
             mkdir -p "$cartella_destinazione"
             
             echo "Compilazione di $typst_file -> $pdf_finale"
-            docker run --rm -v $(pwd):/app -w /app ghcr.io/typst/typst:latest compile "$typst_file" "$pdf_finale"
+            docker run --rm -v $(pwd):/app -w /app ghcr.io/typst/typst:latest compile --root . "$typst_file" "$pdf_finale"
             
           done
 
