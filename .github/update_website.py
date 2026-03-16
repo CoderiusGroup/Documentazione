@@ -8,8 +8,8 @@ INDEX_FILE = BASE_DIR / "website" / "index.html"
 
 def genera_card_html(file_path):
     rel_to_root = file_path.relative_to(BASE_DIR).as_posix()
-    percorso_html = f"../{rel_to_root}"
-    nome_pulito = file_path.stem.replace('_', ' ')
+    percorso_html = f"docs/{rel_to_root}"
+    nome_pulito = file_path.stem.replace('_', ' ').replace('-', ' ')
     
     return f'''
                     <a href="{percorso_html}" class="doc-card" target="_blank">
@@ -33,11 +33,11 @@ def aggiorna_html():
         "RTB_PRINCIPALI": [],
         "RTB_INTERNI": [],
         "RTB_ESTERNI": [],
-        "PB": []
+        "PB_PRINCIPALI": []
     }
 
     for file_path in BASE_DIR.rglob("*.pdf"):
-        percorso_str = file_path.as_posix().lower()
+        percorso_str = file_path.as_posix()
         
         if "website" in percorso_str or ".github" in percorso_str:
             continue
@@ -60,7 +60,7 @@ def aggiorna_html():
                 categorie["RTB_PRINCIPALI"].append(card_html)
                 
         elif "PB" in percorso_str:
-            categorie["PB"].append(card_html)
+            categorie["PB_PRINCIPALI"].append(card_html)
 
     # ordina in modo decrescente
     for cat in categorie:
@@ -70,10 +70,10 @@ def aggiorna_html():
         if cards:
             blocco_html = "\n".join(cards)
         else:
-            blocco_html = '<p style="color: var(--text-secondary); font-style: italic;">Nessun documento presente in questa sezione.</p>'
+            blocco_html = '<p style="color: var(--text-secondary); font-style: italic; grid-column: 1 / -1;">Nessun documento presente in questa sezione.</p>'
         
-        pattern = f"()(.*?)()"
-        sostituzione = f"\\1\n{blocco_html}\n                    \\3"
+        pattern = rf"<!--\s*{categoria}_START\s*-->(.*?)<!--\s*{categoria}_END\s*-->"
+        sostituzione = f"<!-- {categoria}_START -->\n{blocco_html}\n<!-- {categoria}_END -->"
         html_content = re.sub(pattern, sostituzione, html_content, flags=re.DOTALL)
 
     INDEX_FILE.write_text(html_content, encoding="utf-8")
