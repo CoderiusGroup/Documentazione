@@ -64,8 +64,7 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [16/03/2026], [Ines Iadadi], [], [Prima stesura del verbale],
-      // aggiungi nuova riga quando viene aggiornato
+      [0.1.0], [16/03/2026], [Ines Iadadi], [Filippo Zonta Rocha], [Prima stesura del verbale],
     )
   ]
 
@@ -113,7 +112,7 @@
   luogo: "Google Meet",
   scriba: "Alberto Canavese",
   azienda: "Eggon",
-  partecipanti_esterni: "Luca Iuzzolino, Gianpaolo Ferrarin"
+  partecipanti_esterni: "Gianpaolo Ferrarin, Luca Iuzzolino"
 )
 
 #heading(outlined: false, numbering: none)[Partecipanti Interni]
@@ -163,14 +162,14 @@ Di seguito vengono riportati le domande poste dal team e le relative risposte fo
 *Domanda:* Quali sono le scadenze previste dall'azienda per la conclusione del progetto? \
 *Risposta:* L'azienda non impone scadenze stringenti. Le tempistiche di consegna andranno concordate in autonomia dal team in base alle scadenze accademiche stabilite dal docente.
 
-*Raccomandazione del Referente (G. Ferrarin):* Si consiglia caldamente di strutturare un calendario chiaro fin da subito. Il team dovrebbe suddividere il lavoro in fasi misurabili, partendo dalla progettazione (design UI/UX e architettura funzionale) per poi stimare i tempi di sviluppo effettivo.
+*Raccomandazione del referente Gianpaolo Ferrarin:* Si consiglia caldamente di strutturare un calendario chiaro fin da subito. Il team dovrebbe suddividere il lavoro in fasi misurabili, partendo dalla progettazione (design UI/UX e architettura funzionale) per poi stimare i tempi di sviluppo effettivo.
 
 = Conclusione
 Il team Coderius ringrazia i referenti di Eggon per la disponibilità e per i chiarimenti forniti, i quali permetteranno al gruppo di finalizzare la valutazione del capitolato. La riunione si dichiara conclusa alle ore 11:20.
 
 #v(6em)
 #align(right)[
-  #text(weight: "bold")[Approvazione del Referente Aziendale] \
+  #text(weight: "bold")[Per presa visione e approvazione] \
   #v(3em)
   *Nome:* #box(baseline: 0.2em)[#line(length: 4.5cm, stroke: 0.8pt)]\ #h(1.5em)
   #v(2em)
