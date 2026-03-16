@@ -39,9 +39,9 @@ jobs:
         run: |
           mkdir -p website/docs
           
-          [ -d "Candidatura" ] && cp -r Candidatura website/docs/
-          [ -d "RTB" ] && cp -r RTB website/docs/
-          [ -d "PB" ] && cp -r PB website/docs/
+          if [ -d "Candidatura" ]; then cp -r Candidatura website/docs/; fi
+          if [ -d "RTB" ]; then cp -r RTB website/docs/; fi
+          if [ -d "PB" ]; then cp -r PB website/docs/; fi
 
       - name: Carica i file del sito
         uses: actions/upload-pages-artifact@v3
