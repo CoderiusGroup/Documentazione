@@ -31,7 +31,7 @@
   // --- COPERTINA ---
   align(center)[
     #v(4em)
-    #image("logoCoderius.jpg", width: 50%)
+    #image("../../../images/logoCoderius.jpg", width: 50%)
     #link("mailto:coderius01@gmail.com")[
       #text(size: 1.2em)[coderius01\@gmail.com]
     ]
