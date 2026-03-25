@@ -24,19 +24,25 @@
   set heading(numbering: "1.1.")
 
   align(center)[
-    #v(4em)
-    #image("/logoCoderius.jpg", width: 50%)
+    #v(8em)
+    
+    #image("/src/images/logoCoderius.jpg", width: 60%)
+    
+    #line(length: 70%, stroke: 1pt)
+    #v(1em)
+    
+    #text(size: 26pt, weight: "bold")[#titolo]
+    
+    #v(1em)
+    #line(length: 70%, stroke: 1pt)
+    
+    #v(1.5em)
+    
+    #text(size: 16pt)[*Gruppo Coderius*] \
+    #v(2pt)
     #link("mailto:coderius01@gmail.com")[
       #text(size: 1.2em)[coderius01\@gmail.com]
     ]
-    #v(3em)
-    #line(length: 80%, stroke: 1.5pt)
-    #v(1em)
-    #text(size: 2.2em, weight: "bold")[#titolo]
-    #v(1em)
-    #line(length: 80%, stroke: 1.5pt)
-    #v(4em)
-  
   ]
   pagebreak()
   
@@ -58,7 +64,7 @@
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
       // aggiungi nuova riga quando aggiorni
-      [0.1.0], [2026/03/22], [Leonardo Lorenzin], [], [Prima stesura della lettera di presentazione],
+      [0.1.0], [2026/03/20], [Leonardo Lorenzin], [], [Prima stesura della lettera di presentazione],
       
       
     )
@@ -94,7 +100,7 @@ La scelta è maturata a seguito di un confronto interno tra i membri del gruppo,
 #v(1em)
 *Piano di lavoro*
 #v(0.5em)
-Il gruppo *Coderius* garantisce una disponibilità alta e un impegno costante per l'intera durata del capitolato, la cui conclusione è prevista per il giorno *18 Settembre 2026*. Per il raggiungimento di tale traguardo, ogni componente del team si impegna a dedicare *93 ore* produttive individuali, per un monte ore complessivo pari a *558 ore*. Sulla base di quanto scritto, il costo stimato per la realizzazione del progetto ammonta a *10680 €*.
+Il gruppo *Coderius* garantisce una disponibilità alta e un impegno costante per l'intera durata del capitolato, la cui conclusione è prevista per il giorno *18 Settembre 2026*. Per il raggiungimento di tale traguardo, ogni componente del team si impegna a dedicare *93 ore* produttive individuali, per un monte ore complessivo pari a *558 ore*. Sulla base di quanto scritto, il costo stimato per la realizzazione del progetto ammonta a *10 680 €*.
 
 
 Ulteriori informazioni riguardanti il gruppo e il progetto sono consultabili presso il nostro repository pubblico e sul sito di riferimento:
@@ -106,9 +112,9 @@ Ulteriori informazioni riguardanti il gruppo e il progetto sono consultabili pre
 
 dove sono presenti:
 #set list(indent: 1em, marker: [$-$])
-- la Lettera di presentazione;
-- la Dichiarazione d'impegni;
-- l'Analisi dei capitolati e le motivazioni della scelta;
+- la Lettera di Presentazione;
+- la Dichiarazione d'Impegni;
+- l'Analisi dei Capitolati e le motivazioni della scelta;
 - i Verbali interni di coordinamento;
 - i Verbali esterni
 
@@ -119,9 +125,9 @@ Cordiali Saluti,
 *Il gruppo Coderius*\
 Componenti del gruppo:
 #set list(indent: 1em, marker: [•])
-- Lorenzin Leonardo  [2116434]
 - Bronte Giovanni Angelo Marco  [2041845]
 - Canavese Alberto  [2076423]
 - Hodja Edis  [2116422]
-- Zonta Rocha Filippo [1149339]
 - Iadadi Ines  [2113175]
+- Lorenzin Leonardo  [2116434]
+- Zonta Rocha Filippo [1149339]
