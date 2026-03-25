@@ -21,7 +21,7 @@
 
 #align(center)[
   #v(8em)
-  #image("../../../images/logoCoderius.jpg", width: 60%)
+  #image("../images/logoCoderius.jpg", width: 60%)
   #line(length: 70%, stroke: 1pt)
   #v(1em)
   #text(size: 26pt, weight: "bold")[Dichiarazione degli impegni]
@@ -123,7 +123,7 @@ Dall'analisi effettuata sono risultati significativi i *ruoli* di _Analista_, _V
 
 #figure(
   align(center)[
-  #image(""../../../images/graficoRuoli.jpg", width: 70%)
+  #image("../images/graficoRuoli.png", width: 70%)
   ],
   caption: [Grafo della distribuzione oraria.]
 )
