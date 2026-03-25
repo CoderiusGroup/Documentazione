@@ -64,7 +64,8 @@
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
       // aggiungi nuova riga quando aggiorni
-      [0.1.0], [2026/03/20], [Leonardo Lorenzin], [], [Prima stesura della lettera di presentazione],
+      [1.0.0], [2026/03/25], [Leonardo Lorenzin], [Alberto Canavese], [Validazione della lettera di presentazione],
+      [0.1.0], [2026/03/20], [Leonardo Lorenzin], [Alberto Canavese], [Prima stesura della lettera di presentazione],
       
       
     )
