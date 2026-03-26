@@ -49,13 +49,12 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    
-    // aggiungi nuova riga quando aggiorni ^
-    [1.4],[14/03/2026],[Filippo Zonta Rocha],[],[Analisi capitolato C5],
-    [1.3],[14/03/2026],[Edis Hodja],[],[Analisi capitolato C4],
-    [1.2],[14/03/2026],[Giovanni Bronte],[],[Analisi capitolato C1],
-    [1.1],[13/03/2026],[Leonardo Lorenzin],[],[Analisi capitolato C6],
-    [1.0], [13/03/2026], [Alberto Canavese], [],[Analisi capitolato C2],
+    [1.0.0],[2026/03/26],[Ines Iadadi],[],[Approvazione del documento],
+    [0.1.4],[2026/03/14],[Filippo Zonta Rocha],[Ines Iadadi],[Analisi capitolato C5],
+    [0.1.3],[2026/03/14],[Edis Hodja],[Ines Iadadi],[Analisi capitolato C4],
+    [0.1.2],[2026/03/14],[Giovanni Bronte],[Ines Iadadi],[Analisi capitolato C1],
+    [0.1.1],[2026/03/13],[Leonardo Lorenzin],[Ines Iadadi],[Analisi capitolato C6],
+    [0.1.0], [2026/03/13], [Alberto Canavese], [Ines Iadadi],[Analisi capitolato C2],
   )
 ]
 #pagebreak()
@@ -70,31 +69,29 @@
 #counter(page).update(1)
 
 = Introduzione
-In questo documento sono analizzati i 5 capitolati proposti per l'anno accademico 2025/2026, con il fine di determinare quale sia il migliore capitolato scelto dal gruppo di progetto Coderius.
-Verrà analizzato con particolare riguardo il capitolato C1, dato che è il capitolato scelto. 
+In questo documento sono analizzati i 5 Capitolati di Progetto proposti per il II lotto dell'anno accademico 2025/2026, con il fine di determinarne possibili rischi, pregi e opportunità di crescita, al fine di motivare la scelta del gruppo Coderius.
+Verrà analizzato con particolare riguardo il Capitolato C1, in quanto capitolato selezionato. 
 
 = Capitolato scelto: C1 - Automated EN18031 Compliance Verification
 
 == Descrizione
-Il capitolato prevede lo sviluppo di un'interfaccia grafica che guida nella compilazione delle domande presenti nelle decision tree relative ai requisiti descritti nello standard tecnico EN13031, il quale viene utilizzato come norma armonizzata per la RED (Direttiva sulle apparecchiature radio 2014/53/UE)
+Il capitolato prevede lo sviluppo di un'interfaccia grafica che guida nella compilazione delle domande presenti nei decision tree relativi ai requisiti descritti nello standard tecnico EN18031, il quale viene utilizzato come norma armonizzata per la RED (Direttiva sulle apparecchiature radio 2014/53/UE). Il software dovrà importare documenti descrittivi delle componenti di rete del caso da analizzare, importare i file che definiscono i decision tree (es. XML, JSON), eseguirli rispettando le dipendenze gerarchiche tra requisiti e restituire per ciascuno un output chiaro (Pass / Fail / Not Applicable), il tutto visualizzabile tramite una dashboard interattiva.
 
 == Dominio Applicativo
 Il progetto è concepito per automatizzare il processo manuale della certificazione dei dispositivi radio, processo lento e soggetto ad errori. Grazie ad un'interfaccia grafica e all'uso di decision tree l'utente verrà guidato nella compilazione delle verifiche che produrrannò un report di conformità chiaro e tracciabile.
 
-== Dominio tecnologico
-Non sono imposti vincoli sulle tecnologie usate, tuttavia viene suggerito l'uso dall'azienda di Python 3.x per la realizzazione del backend, gestito con un Python Packaging (in caso venga diviso in Backend e Frontend)
+== Dominio Tecnologico
+Non sono imposti vincoli sulle tecnologie utilizzate, tuttavia viene suggerito l'uso dall'azienda di Python 3.x per il backend, gestito tramite Python Packaging. I formati standard previsti per l'importazione e l'esportazione dei dati sono CSV, XML e JSON.
 
 == Motivi della scelta di questo capitolato
 Questo capitolato è stato scelto dal gruppo per vari motivi:
-- *Progetto realistico*: il software richiesto da Bluewind ha un chiaro risvolto pratico e realistico definito nella documentazione, inoltre si sofferma solo su alcuni dei requisiti richiesti, rendendo questo progetto fattibile nel tempo che abbiamo a disposizione
-- *Interesse per la cybersecurity*: Lo standard EN18031 ha riscontrato un certo interesse nel nostro gruppo, in quanto si tratta di un tema molto attuale e la sua conoscenza può aiutare nel futuro in successivi progetti.
-- *Supporto dell'azienda*: Durante il colloquio con Bluewind, l'azienda si è dimostrata molto disponibile ad aiutarci durante la durata del progetto mettendo a disposizione un canale di comunicazione diretto, incontri periodici e materiale specifico per poter comprendere al meglio lo standard EN18031.
-- *Flessibilità tecnologica*: L'azienda suggerisce alcune tecnologie da usare come Python 3.x, ma non impone nessun vincolo per le tecnologie da usare nel progetto. Questo lascia la possibilità al nostro gruppo di usare tecnologie più familiari a noi o di sperimentare con nuove tecnologie. 
+- *Progetto realistico*: il software richiesto da Bluewind ha un chiaro risvolto pratico e realistico definito nella documentazione, inoltre si sofferma solo su alcuni dei requisiti richiesti dallo standard EN18031, rendendo il progetto più gestibile e focalizzato.
+- *Interesse per la cybersecurity*: Lo standard EN18031 ha riscontrato un certo interesse nel nostro gruppo, in quanto si tratta di un tema molto attuale.
+- *Supporto dell'azienda*: Durante il colloquio con Bluewind, l'azienda si è dimostrata molto disponibile ad aiutarci durante lo sviluppo del progetto, offrendoci supporto tramite un canale di comunicazione diretto e incontri periodici.
+- *Flessibilità tecnologica*: L'azienda suggerisce alcune tecnologie da usare per il backend, ma non impone nessun vincolo per le tecnologie da usare nel progetto. Questo lascia la possibilità al gruppo di scegliere le tecnologie più adatte alle proprie preferenze, rendendo il progetto più stimolante e personalizzabile.
 
 == Conclusioni
-Il nostro gruppo non ha riscontrato rischi critici per quanto riguarda il capitolato.
-Uno dei fattori principali che hanno portato alla scelta di questo capitolato è il supporto e la professionalità che Bluewind ha dimostrato durante il colloquio conoscitivo.
-Il progetto tratta di un argomento attuale in un contesto realistico e pratico e libertà data per quanto riguarda la scelta sulla tecnologia da usare sono tutti fattori che hanno portato il nostro gruppo a scegliere questo capitolato come prima scelta.
+Il capitolato C1 rappresenta la prima scelta del gruppo Coderius, in quanto coniuga un contesto applicativo attuale e realistico con un proponente professionale e disponibile a supportarci durante lo sviluppo, come espresso nell'incontro del 2026/03/17. Inoltre, la flessibilità tecnologica permette al gruppo di scegliere le tecnologie più adatte alle nostre competenze e preferenze.
 
 
 
@@ -118,7 +115,7 @@ Obiettivi del progetto:
 - *Cruscotto riassuntivo web:* realizzazione di un'interfaccia utente (basata su React) per mostrare visivamente e in tempo reale lo stato di salute del progetto (livello di aggiornamento, completezza della documentazione, sicurezza e validità dei collaudi).
 Al termine di ogni analisi, il sistema genera un resoconto contenente indicatori quantitativi sulle metriche valutate. Per ogni criticità individuata, la piattaforma propone degli interventi risolutivi, fornendo suggerimenti pratici per migliorare la qualità del codice, la sicurezza e l'affidabilità.
 
-=== Dominio tecnologico
+=== Dominio Tecnologico
 - *Backend / orchestratore:* Node.js, Python
 - *Frontend:* React.js
 - *Database:* MongoDB o PostgreSQL
@@ -144,18 +141,17 @@ Il progetto costituisce un banco di prova eccellente nel campo dell'analisi auto
 
 == C4 - L'app che Protegge e Trasforma
 === Descrizione
-Il proponente del seguente progetto richiede lo sviluppo di un'*applicazione mobile* (iOS e Android) denominata "L'app che Protegge e Trasforma" con lo scopo di *prevenire* e fornire *supporto* a soggetti vittime di violenza di genere. 
+Il proponente del seguente progetto richiede lo sviluppo di un'applicazione mobile (iOS e Android) denominata "L'app che Protegge e Trasforma" con lo scopo di prevenire e fornire supporto a soggetti vittime di violenza di genere. 
 
 === Dominio Applicativo
-Lo sviluppo applicativo deve essere svolto utilizzando un'interfaccia intuitiva, agibile e da richiesta anche personalizzabile oltre che a sicura e conforme al #link("https://it.wikipedia.org/wiki/Regolamento_generale_sulla_protezione_dei_dati")[
-  #underline[#text(fill: blue)[GDPR]]]. \
-Tra le varie *funzionalità* vengono richieste:
+Lo sviluppo applicativo deve essere svolto utilizzando un'interfaccia intuitiva, agibile e da richiesta anche personalizzabile oltre che a sicura e conforme al GDPR. \
+Tra le varie funzionalità vengono richieste:
 
-- Identificazione di situazioni di *rischio* e l'invio di *alert* a contatti stretti;
-- *Servizi di supporto* in qualità di numeri d'emergenza, centri antiviolenza, supporto psicologico e legale oltre a informazioni come l'allontanamento da relazioni tossiche;
-- Strumenti per gestire la *privacy* e *sicurezza* dell'utente finale;
-- Consapevolizzare gli utenti sul tema della *violenza di genere* e adottare *strategie di empowerment*;
-- Area dedicata ad una *community* volta alla condivisione di esperienze pur sempre mantenendo professionalità e riservatezza dei dati sensibili. 
+- Identificazione di situazioni di rischio e l'invio di alert a contatti stretti;
+- Servizi di supporto in qualità di numeri d'emergenza, centri antiviolenza, supporto psicologico e legale oltre a informazioni come l'allontanamento da relazioni tossiche;
+- Strumenti per gestire la privacy e sicurezza dell'utente finale;
+- Consapevolizzare gli utenti sul tema della violenza di genere e adottare strategie di empowerment;
+- Area dedicata ad una community volta alla condivisione di esperienze pur sempre mantenendo professionalità e riservatezza dei dati sensibili. 
 
 === Dominio Tecnologico
 Il proponente dichiara nel capitolato fornito una serie di tecnologie e strumenti quali:
@@ -168,17 +164,17 @@ Il proponente dichiara nel capitolato fornito una serie di tecnologie e strument
 
 === Aspetti positivi
 
-- *Impatto sociale* molto alto con forte valore etico e sociale;
-- Impiego di architettura *serverless*, servizi cloud AWS avanzati;
-- Integrazione di modelli di machine learning (*AI*);
-- Esperienza reale su mobile cross-platform (*Flutter*).
+- Impatto sociale molto alto con forte valore etico e sociale;
+- Impiego di architettura serverless, servizi cloud AWS avanzati;
+- Integrazione di modelli di machine learning (AI);
+- Esperienza reale su mobile cross-platform (Flutter).
 
 === Aspetti negativi
 
-- Elevata *responsabilità* etica e legale in cui errori nel sistema potrebbero comportare conseguenze fortemente impattanti nella vita degli utenti;
-- Richiesta di una *solida conoscenza* su cloud, AI, sicurezza e sviluppo mobile;
-- *Difficoltà implementative* relative a geolocalizzazione, sicurezza e community;
-- Requisiti di *sicurezza* molto stringenti (GDPR).
+- Elevata responsabilità etica e legale in cui errori nel sistema potrebbero comportare conseguenze fortemente impattanti nella vita degli utenti;
+- Richiesta di una solida conoscenza su cloud, AI, sicurezza e sviluppo mobile;
+- Difficoltà implementative relative a geolocalizzazione, sicurezza e community;
+- Requisiti di sicurezza molto stringenti (GDPR).
 
 === Conclusioni
 
@@ -189,46 +185,44 @@ Nonostante il gruppo abbia riconosciuto un impatto molto positivo della proposta
 
 == C5 - Nexum
 === Descrizione
-Il progetto presentato da *Eggon Srl* riguarda lo svilluppo di nuove funzioni per loro piattaforma *Nexum*. Si prospetta di migliorare per la gestione *HR*, la comunicazione tra consulenti e semplificare l'uso per i dipendenti.
+Il capitolato presentato da Eggon Srl riguarda lo sviluppo di nuove funzionalità per la piattaforma Nexum, sviluppata dall'azienda. Si prospetta di migliorare la gestione HR e la comunicazione tra i consulenti, semplificandone al contempo l'uso per i dipendenti.
 === Dominio Applicativo
-Il progetto  si propone di evolvere la piattaforma rendendolo un ecosistema hr completo in grado di gestire diversi task in maniera efficiente, per esempio utilizzando diversi strumenti fortemente legati all'*IA* per la gestione dei dati. In generale  si pone l'obbiettivo di creare un prodotto scalabile,modulare e di facile d'uso.
+Il capitolato si propone di evolvere la piattaforma, rendendola un ecosistema HR completo e in grado di gestire molteplici task in maniera efficiente, ad esempio integrando diversi strumenti basati sull'AI per la gestione dei dati. L'obiettivo generale è creare un prodotto software scalabile, modulare e di facile utilizzo.
 === Dominio Tecnologico
 Le tecnologie indicate dal proponente includono:
 
-- *Angular* per la realizzazione della dashboard amministrativa e *Next.js* per l’interfaccia destinata agli utenti finali;
+- *Angular* per la realizzazione della dashboard amministrativa 
+- *Next.js* per l’interfaccia destinata agli utenti finali;
 - *Ruby on Rails* per lo sviluppo del backend;
 - *PostgreSQL* come database relazionale per la gestione dei dati;
-- Implementazioni di *sicurezza* con vari servizi, per la gestione interna ma anche quella esterna per quel che riguarda le comunicazione di dati.
-- *Architettura* come anticipato prodotta per essere mantenibile.
 === Aspetti positivi
-- Progetto interessante perchè realisticamente applicabile al sistema del mondo del lavoro verso la *digitalizzazione dei servizi HR*.
-- Forte presenza di strumenti con IA per l'*automazioni* di alcuni processi
-- Piattaforma *modulabile*
+- Progetto interessante e realisticamente applicabile al sistema del mondo del lavoro, orientato alla digitalizzazione dei servizi HR.
+- Integrazione di strumenti basati sull'AI per l'automazione di vari processi
+- Architettura modulare
 === Aspetti negativi
-- Necessità di conoscere in maniera esaustiva diversi strumenti e tecnologie
-- I *vincoli* richiesti portano a tempi di sviluppo importanti
+- Necessità di apprendere in maniera approfondita uno stack tecnologico ampio e variegato;
+- I rigidi vincoli di progetto comportano tempi di sviluppo potenzialmente dilatati.
 === Conclusioni
-Il progetto proposto da nexum  si presenta come un progetto realistico e pragmatico per efficientare l'ambito HR e relative pertinenza.
-Ciononostante ha portato il gruppo ad escludere la proposta. La necessità di gestire diversi strumenti tecnologici e mantenere la modularità in quanto i tempi di sviluppo ne sarebbero derivati dilazioniati, si è quindi scelto di direzionare le nostre preferenza verso altri candidati.
+Il capitolato proposto da Eggon Srl si presenta come un progetto realistico e pragmatico per l'ottimizzazione del settore HR e delle relative pertinenze. Ciononostante, il gruppo ha deciso di escludere questa proposta. La necessità di padroneggiare molteplici strumenti tecnologici e di garantire fin da subito un'alta modularità comporterebbe un eccessivo dilatamento dei tempi di sviluppo. Di conseguenza, si è scelto di orientare le nostre preferenze verso altri capitolati.
 
 
 
 == C6 - Second Brain
 
 === Descrizione
-Il capitolato prevede lo sviluppo di un'applicazione, più specificatamente un editor di testo basato sul linguaggio di markup *Markdown*, che consenta di testare le potenzialità dei *Large Language Models (LLM)* nella manipolazione di un testo.
+Il capitolato prevede lo sviluppo di un'applicazione, più specificatamente un editor di testo basato sul linguaggio di markup Markdown, che consenta di testare le potenzialità dei Large Language Models (LLM) nella manipolazione di un testo.
 
 === Dominio Applicativo
 Il progetto ha come obiettivo finale quello di consentire, mediante l'editor di testo, operazioni come:
-- *Editing e rendering*: scrittura di contenuti in formato *Markdown* e relativa visualizzazione grafica.
+- *Editing e rendering*: scrittura di contenuti in formato Markdown e relativa visualizzazione grafica.
 - *Rielaborazione*: possibilità di riassumere, tradurre o cambiare lo stile di una porzione di testo.
-- *Analisi critica*: applicare al testo il modello dei *"sei cappelli per pensare"* per poterlo esaminare sotto  vari punti di vista (es. logico, creativo, emotivo).
+- *Analisi critica*: applicare al testo il modello dei "sei cappelli per pensare" per poterlo esaminare sotto  vari punti di vista (es. logico, creativo, emotivo).
 - *Distant Writing*: generazione automatica di testo a partire da un prompt di specifiche fornito dall'utente.
 
 === Dominio Tecnologico
 Il progetto prevede l'implementazione di un'applicazione mediante le seguenti tecnologie:
-- *HTML* e librerie per il rendering *Markdown* per quanto riguarda il frontend.
-- Integrazione con modelli *LLM* come *Gemini*, *Mistral* e *Gemma* tramite *API OpenAI-compatibili*.
+- *HTML* e librerie per il rendering Markdown per quanto riguarda il frontend.
+- Integrazione con *modelli LLM* come Gemini, Mistral e Gemma tramite API OpenAI-compatibili.
 - *Java* oppure *Python* per l'eventuale gestione del backend.
 - *HTTP* come protocollo per la comunicazione client-server.
 
@@ -238,7 +232,7 @@ Il progetto prevede l'implementazione di un'applicazione mediante le seguenti te
 - *Chiarezza dei requisiti*: il capitolato è ben definito, senza lasciare dubbi sul processo di sviluppo dei vari requisiti  
 === Aspetti negativi
 - *Complessità del testing*: essendo un software basato su intelligenza artificiale, è difficile garantire una copertura di test automatici che sia sempre affidabile.
-- *Dipendenza da servizi esterni*: il funzionamento dell'app è strettamente legato a modelli e API esterne,i cui servizi potrebbero non essere sempre disponibili  durante lo sviluppo.
+- *Dipendenza da servizi esterni*: il funzionamento dell'app è strettamente legato a modelli e API esterne, i cui servizi potrebbero non essere sempre disponibili  durante lo sviluppo.
 - *Interesse ridotto*: il gruppo non è  particolarmente stimolato nel trattare l'argomento degli LLM.
 === Conclusioni
-Nonostante il progetto proposto da Zucchetti tratti argomenti interessanti e attuali, le incertezze riguardo alla gestione degli LLM e alla forte dipendenza dai servizi legati ad essi, unite alla necessità  di un'alta copertura di test su contenuti generati dall'intelligenza artificiale, sono risultate un possibile ostacolo. Per questo motivo,in seguito ad un confronto tra i membri, il gruppo ha scelto di non selezionare questo capitolato, preferendo orientarsi verso proposte ritenute più stimolanti.
+Nonostante il progetto proposto da Zucchetti tratti argomenti interessanti e attuali, le incertezze riguardo alla gestione degli LLM e alla forte dipendenza dai servizi legati ad essi, unite alla necessità di un'alta copertura di test su contenuti generati dall'intelligenza artificiale, sono risultate un possibile ostacolo. Per questo motivo, in seguito ad un confronto tra i membri, il gruppo ha scelto di non selezionare questo capitolato, preferendo orientarsi verso proposte ritenute più stimolanti.
