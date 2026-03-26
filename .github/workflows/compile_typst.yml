@@ -2,7 +2,7 @@ name: Compila Documenti Typst
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main ]
     paths:
       - 'src/**/*.typ'
       - '!src/templates/**'
