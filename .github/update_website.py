@@ -9,13 +9,13 @@ INDEX_FILE = BASE_DIR / "website" / "index.html"
 def genera_card_html(file_path):
     rel_to_root = file_path.relative_to(BASE_DIR).as_posix()
     percorso_html = f"docs/{rel_to_root}"
-    nome_pulito = file_path.stem.replace('_', ' ').replace('-', ' ')
+    nome_completo = file_path.stem
     
     return f'''
                     <a href="{percorso_html}" class="doc-card" target="_blank">
                         <div class="doc-info">
-                            <h3>{nome_pulito}</h3>
-                            <p>Clicca per visualizzare</p>
+                            <h5>{nome_completo}</h5>
+                            <p>Apri in nuova scheda ↗</p>
                         </div>
                     </a>'''
 
@@ -41,7 +41,8 @@ def aggiorna_html():
         
         if "website" in percorso_str or ".github" in percorso_str:
             continue
-
+        if "Verbali/Esterni" in percorso_str and not file_path.stem.endswith("_firmato"):
+            continue
         card_html = genera_card_html(file_path)
         if "Candidatura" in percorso_str:
             if "Verbali/Interni" in percorso_str:
