@@ -68,7 +68,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [25/03/2026], [Alberto Canavese], [], [Prima stesura del verbale],
+      [1.0.0], [27/03/2026], [Leonardo Lorenzin], [], [Approvazione verbale],
+      [0.1.0], [25/03/2026], [Alberto Canavese], [Leonardo Lorenzin], [Prima stesura del verbale],
     )
   ]
 
@@ -91,10 +92,10 @@
 
 #show: verbale.with(
   titolo: "Verbale Riunione Interna",
-  data: "25/03/2026",
+  data: "2026/03/25",
   ora_inizio: "09:00",
   ora_fine: "10:30",
-  luogo: "Discord",
+  luogo: "Canale Vocale Discord",
 )
 
 
@@ -118,7 +119,7 @@
 = Svolgimento della Riunione
 
 == Approvazione strumenti organizzativi e di tracciamento
-Il gruppo ha discusso la necessità di adottare strumenti idonei per la gestione ottimale dei task. È stata approvata la creazione e l'adozione di un Issue Tracking System (ITS) per tracciare i TODO di progetto. Inoltre, per migliorare la tracciabilità delle singole azioni decise durante gli incontri, si è stabilito di aggiungere una sezione "TODO" dedicata all'interno del template dei verbali interni.
+Il gruppo ha discusso la necessità di adottare strumenti idonei per la gestione ottimale dei task. È stata approvata la creazione e l'adozione di un *Issue Tracking System* (ITS) per tracciare i TODO di progetto. Inoltre, per migliorare la tracciabilità delle singole azioni decise durante gli incontri, si è stabilito di aggiungere una sezione "*TODO*" dedicata all'interno del template dei verbali interni.
 
 #v(0.3cm)
 
@@ -128,12 +129,12 @@ Il gruppo ha analizzato lo stato del sito web destinato a ospitare la documentaz
 #v(0.3cm)
 
 == Approvazione e invio della candidatura ufficiale
-I documenti redatti per la candidatura sono stati visionati e validati collettivamente. A valle dell'approvazione, il gruppo ha autorizzato l'invio ufficiale della comunicazione via email alle aziende, ai professori referenti e ai contatti indicati.
+I documenti redatti per la candidatura sono stati visionati e validati collettivamente. A valle dell'approvazione, il gruppo ha autorizzato l'invio ufficiale della comunicazione via email ai professori referenti.
 
 #v(0.3cm)
 
 == Definizione ufficiale dei messaggi di commit
-Al fine di garantire standardizzazione nel repository di progetto, il gruppo ha approvato una convenzione ufficiale per i messaggi di commit, imponendo l'uso esclusivo dei prefissi "fix", "update" e "new".
+Al fine di garantire standardizzazione nel repository di progetto, il gruppo ha approvato una convenzione ufficiale per i messaggi di commit, imponendo l'uso esclusivo dei prefissi "*fix*", "*update*" e "*new*".
 
 #v(0.5cm)
 #pagebreak()
