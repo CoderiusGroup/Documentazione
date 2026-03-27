@@ -144,3 +144,16 @@
 + Ord1
 + Ord2
 + Ord3
+
+= TODO
+Elenco dei compiti assegnati ai membri del team in vista della prossima riunione.
+#align(center)[
+  #table(
+    columns: (auto, 1fr, auto, auto),
+    align: (center, left, center, center),
+    [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
+    [TD-0.1], [Prima attività da completare], [], [VI-0.1],
+    [TD-0.2], [Seconda attività da completare], [],[VI-0.2],
+    [TD-0.3], [Terza attività da completare], [Da assegnare],[VI-0.3]
+  )
+]
