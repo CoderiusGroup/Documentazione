@@ -70,8 +70,8 @@
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
       // aggiungi nuova riga quando aggiorni
-      [1.0.0], [], [], [], [Approvazione verbale],
-      [0.2.0], [2026/03/18], [Leonardo Lorenzin], [], [Correzione refusi e rifinitura del verbale],
+      [1.0.0], [2026/03/27], [Alberto Canavese], [], [Approvazione verbale],
+      [0.2.0], [2026/03/18], [Leonardo Lorenzin], [Alberto Canavese], [Correzione refusi e rifinitura del verbale],
       [0.1.0], [2026/03/18], [Giovanni Bronte], [Leonardo Lorenzin], [Prima stesura del verbale],
       
       
