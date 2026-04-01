@@ -398,14 +398,55 @@ section {
     font-size: 1.5rem;
 }
 
-.doc-group-title {
-    grid-column: 1 / -1;
+.doc-accordion {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+summary.doc-group-title {
     margin-top: 1.5rem;
-    padding-bottom: 0.5rem;
+    padding: 0.75rem 0.5rem; 
     border-bottom: 1px solid var(--border-color);
     color: var(--icy-blue-dark);
     font-size: 1.2rem;
     text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none; 
+    user-select: none;
+    transition: var(--transition);
+}
+
+summary.doc-group-title:hover {
+    color: var(--icy-blue);
+    border-bottom-color: var(--icy-blue);
+}
+
+summary.doc-group-title:hover .chevron {
+    color: var(--icy-blue);
+}
+
+summary.doc-group-title::-webkit-details-marker {
+    display: none;
+}
+
+.chevron {
+    transition: transform 0.3s ease;
+    color: var(--icy-blue-dark);
+}
+
+details[open] .chevron {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    padding-top: 1rem; 
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
 }
 
 .repo-featured {
