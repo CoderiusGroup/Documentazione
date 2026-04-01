@@ -39,7 +39,7 @@
     #line(length: 80%, stroke: 1.5pt)
     #v(4em)
 
-     #grid(
+    #grid(
       columns: (1fr, 1fr),
       align: left,
       gutter: 2em,
@@ -47,11 +47,11 @@
         *Ora inizio:* 9:00 \
         *Ora fine:* 9:30 \
         *Luogo:* Canale Vocale Discord ],
-          )
+    )
   ]
   pagebreak()
 
-   // --- REGISTRO DELLE MODIFICHE ---
+  // --- REGISTRO DELLE MODIFICHE ---
   heading(numbering: none, outlined: false)[Tabella di versionamento]
   v(2em)
 
@@ -69,7 +69,7 @@
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
       [], [2026/03/31], [], [], [],
-      [0.1.0], [2026/03/31], [Filippo Zonta Rocha], [], [Prima stesura del verbale],
+      [0.1.0], [2026/03/31], [Filippo Zonta Rocha], [Alberto Canavese], [Prima stesura del verbale],
     )
   ]
 
@@ -109,7 +109,7 @@
 #v(0.5cm)
 
 = Ordine del Giorno
-+ Riunione di allineamento a seguito di aggiundicamento appalto.
++ Riunione di allineamento a seguito di aggiudicazione appalto.
 + Pianificazione attività successive.
 
 
@@ -118,11 +118,11 @@
 
 = Svolgimento della Riunione
 
-== Contatto con l'azienda 
-Il gruppo ha discusso su come procedere a seguito dell'aggiudicazione dell' appalto presso Bluewind srl, pianificando di prendere contatto con l'azienda in tempi utili per richiedere un incontro e la documentazione tecnica necessaria per il proseguimento preliminare del progetto.
+== Contatto con l'azienda
+Il gruppo ha discusso su come procedere a seguito dell'aggiudicazione dell'appalto presso Bluewind srl, pianificando di prendere contatto con l'azienda in tempi utili per richiedere un incontro e la documentazione tecnica necessaria per il proseguimento preliminare del progetto.
 
 == Creazione Milestone RTB
-E' stato concordato la necessità di creare una milestone dedicata alla fase di Realizzazione.
+È stata concordata la necessità di creare una milestone dedicata alla fase di realizzazione.
 
 == Aggiornamento sito e creazione template Diario di Bordo
 Si è deciso di aggiornare il sito web del progetto e di creare un template per il Diario di Bordo, al fine di migliorare la comunicazione interna e la documentazione delle attività svolte durante il progetto.
@@ -149,7 +149,7 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
     [TD-2.1], [Invio email di contatto con azienda Bluewind srl], [Hodja Edis], [VI-2.1],
     [TD-2.2], [Creare milestone RTB], [Giovanni Angelo Marco Bronte], [VI-2.2],
-    [TD-2.3],  [Aggiornamento sito e creazione template Diario di Bordo], [Ines Iadadi],  [VI-2.3],
+    [TD-2.3], [Aggiornamento sito e creazione template Diario di Bordo], [Ines Iadadi], [VI-2.3],
   )
 ]
 
