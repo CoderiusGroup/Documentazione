@@ -147,9 +147,9 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-2.1], [Invio email di contatto con azienda Bluewind srl], [Hodja Edis], [VI-2.1],
-    [TD-2.2], [Creare milestone RTB], [Giovanni Angelo Marco Bronte], [VI-2.2],
-    [TD-2.3], [Aggiornamento sito e creazione template Diario di Bordo], [Ines Iadadi], [VI-2.3],
+    [TD-1.1], [Invio email di contatto con azienda Bluewind srl], [Hodja Edis], [VI-2.1],
+    [TD-1.2], [Creare milestone RTB], [Giovanni Angelo Marco Bronte], [VI-2.2],
+    [TD-1.3], [Aggiornamento sito e creazione template Diario di Bordo], [Ines Iadadi], [VI-2.3],
   )
 ]
 
