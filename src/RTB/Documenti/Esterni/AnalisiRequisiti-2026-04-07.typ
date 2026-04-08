@@ -21,7 +21,7 @@
 
 #align(center)[
   #v(8em)
-  #image("../images/logoCoderius.jpg", width: 60%)
+  #image("../../../images/logoCoderius.jpg", width: 60%)
   #line(length: 70%, stroke: 1pt)
   #v(1em)
   #text(size: 26pt, weight: "bold")[Analisi dei Requisiti \ di Progetto 2025/2026]
