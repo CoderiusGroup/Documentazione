@@ -64,6 +64,7 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+      [0.2.0], [2026/04/08], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Correzione refusi],
       [0.1.0], [2026/04/03], [Ines Iadadi], [Leonardo Lorenzin], [Prima stesura del verbale]
     )
   ]
@@ -124,13 +125,13 @@
 - Leonardo Lorenzin
 
 = Ordine del Giorno
-+ Domande riguardanti il progetto in seguito all'aggiudicamento dell'appalto
++ Domande riguardanti il progetto in seguito all'aggiudicazione dell'appalto
 
 = Svolgimento della Riunione
 La riunione si è focalizzata sul chiarimento di alcuni aspetti del progetto, in particolare riguardo ai requisiti funzionali e non funzionali e alle modalità di comunicazione con l'azienda. Di seguito vengono riportati i punti principali discussi durante l'incontro.
 
 == Domande e Risposte
-Di seguito vengono riportati le domande poste dal team e le risposte fornite dal referente aziendale.
+Di seguito vengono riportate le domande poste dal team e le risposte fornite dal referente aziendale.
 
 #heading(level: 3, numbering: none, outlined: false)[1. Documentazione tecnica]
 *Domanda:* Quando sarà possibile ottenere  la documentazione riguardante lo standard e il caso d’uso da voi proposto in modo da approcciare al meglio l’analisi dei requisiti? \
@@ -151,7 +152,7 @@ Di seguito vengono riportati le domande poste dal team e le risposte fornite dal
 
 #heading(level: 3, numbering: none, outlined: false)[5. Vincoli Tecnici per l'Applicazione Web-Based]
 *Domanda:* In caso decidessimo di procedere con un'applicazione web-based, considerata preferibile, oltre alla compatibilità con più browser, che altre funzionalità o vincoli tecnici dovremmo tenere in considerazione? \
-*Risposta:* Il referente ha confermato che internamente l'azienda utilizza sistemi Linux, pertanto l'applicazione dovrà essere testata e pienamente funzionante in tale ambiente.  È inoltre fondamentale garantire una gestione robusta della persistenza dei dati, è stata suggerita la possibilità di utilizzare tecnologie web standard come il Local Storage, riservandosi di approfondire ulteriormente i dettagli tecnici in un secondo momento.
+*Risposta:* Il referente ha confermato che l'azienda utilizza internamente sistemi Linux; pertanto, l'applicazione dovrà essere testata e pienamente funzionante in tale ambiente. È stata inoltre sottolineata l'importanza di garantire una gestione robusta della persistenza dei dati. A tal proposito, è stato suggerito l'impiego di tecnologie web standard come il Local Storage, riservandosi di approfondire i dettagli tecnici in un secondo momento.
 
 = Conclusione e Decisioni Prese
 In seguito alla discussione è stato fissato un primo incontro di follow-up per il 17 Aprile 2026, durante il quale si discuteranno eventuali dubbi emersi durante l'apprendimento della norma. Il referente aziendale ha espresso la propria disponibilità a fornire supporto continuo tramite il canale Telegram e durante le riunioni programmate.
