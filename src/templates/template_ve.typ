@@ -146,7 +146,30 @@ Di seguito vengono riportati le domande poste dal team e le relative risposte fo
 *Domanda:* D3 \
 *Risposta:* R3
 
-= Conclusione
+= Conclusione e Decisioni Prese
+#align(center)[
+  #table(
+    columns: (auto, 1fr),
+    align: (center, left),
+    [*Codice*], [*Descrizione*],
+    [VE-0.1], [],
+    [VE-0.2], [],
+    [VE-0.3], [],
+  )
+]
+
+= TODO
+Elenco dei compiti assegnati ai membri del team in vista della prossima riunione.
+#align(center)[
+  #table(
+    columns: (auto, 1fr, auto, auto),
+    align: (center, left, center, center),
+    [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
+    [TD-0.1], [Prima attività da completare], [], [VE-0.1],
+    [TD-0.2], [Seconda attività da completare], [],[VE-0.2],
+    [TD-0.3], [Terza attività da completare], [Da assegnare],[VE-0.3]
+  )
+]
 
 #v(6em)
 #align(right)[
