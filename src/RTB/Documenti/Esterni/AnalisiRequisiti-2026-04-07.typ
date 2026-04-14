@@ -18,6 +18,7 @@
 #set text(font: "Libertinus Serif",size: 12pt,lang: "it")
 
 #set heading(numbering: "1.")
+#show figure: set figure(supplement: none)
 
 #align(center)[
   #v(8em)
@@ -32,7 +33,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(3em)
-  #text(size: 20pt)[*Versione 0.1.0*]
+  #text(size: 20pt)[*Versione 0.1.2*]
 ]
 
 #pagebreak()
@@ -52,6 +53,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.1.2], [2026/04/13], [Edis Hodja], [],[Integrazione casi d'uso: UC1 to UC8],
+    [0.1.1], [2026/04/10], [Edis Hodja], [],[Integrazione descrizione del prodotto],
     [0.1.0], [2026/04/07], [Edis Hodja], [],[Redazione preliminare del documento]
   )
 ]
@@ -60,6 +63,11 @@
 #show outline.entry.where(level: 1): set block(above: 1.5em)
 #text(size: 18pt, weight: "bold")[Indice]
 #outline(title: none, depth: 2)
+
+#outline(
+  title: [Elenco delle Figure],
+  target: figure.where(kind: image),
+)
 
 #pagebreak()
 
@@ -165,14 +173,9 @@ capitolo precedente.
 Il sistema ha lo scopo di guidare l'utente nella valutazione di conformità
 di un dispositivo radio ai requisiti della norma EN 18031, con particolare
 riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
-L'automazione del processo riduce il rischio di errori interpretativi e
-garantisce tracciabilità e riproducibilità dei risultati.
 
 == Elenco dei Casi d'Uso
 #v(1em)
-Prima di procedere con la descrizione dei singoli casi d'uso, si fornisce
-una breve spiegazione degli elementi che compongono ciascuna scheda:
-
 - *Attori:* soggetti esterni al sistema che interagiscono con esso
   nell'ambito del caso d'uso, siano essi persone o altri sistemi;
 
@@ -189,151 +192,199 @@ una breve spiegazione degli elementi che compongono ciascuna scheda:
 - *Scenari alternativi:* varianti del flusso principale che si verificano
   in presenza di condizioni particolari, errori o scelte diverse da parte
   dell'attore; ciascuno scenario alternativo è identificato dal numero del
-  passo da cui si discosta, seguito da una lettera (es. _2a_).
+  passo.
 
-== UC1 — Importazione del documento di configurazione del dispositivo
+#v(2em)
+
+== UC-1 : Importazione del documento di configurazione del dispositivo
 #v(1em)
-#figure(
-  image("https://kroki.io/plantuml/svg/eNpVUMtqw0AMvOsrhO8pJMcQTMBQyDn45otqy-6S3ZXZldMX_ffK61DamzTDPKRzVkq6BA-eR0UVTG56VRxc4l6dRMg3F2dKFJB6lXTVD89Ib5wl8B9ypv5GE2_0qqU4eQYoIqxa5ahcIWVsAX55rK4uKweq8AsQl8w9ZUPbZt_FS5glKX1aC8ZB-iWYh3RxcNhLHN20pI3cbJv9f4dDF58lBbKbRue5i1Ei3sm7QR6CA3wDtLjb1UVtAD6VEY94OvG7dR5yXQNEUcYXUZWAMhYlYiPWpOQfbbv4koJrSHJ5ZlUy2Bn8KEGq9jQwT1z94GyTPf4HM5mDDQ==", width: 80%),
-  caption: [UC1 - Importazione documento di configurazione]
-)
 
-*Attori coinvolti:* Utente \
-*Precondizioni:* L'utente dispone di un file di configurazione del
-dispositivo in un formato supportato (es. CSV, XML, JSON). \
-*Postcondizioni:* Il sistema ha acquisito le informazioni relative al
-dispositivo e le rende disponibili per il processo di verifica. \
-*Scenario principale:*
-+ L'utente accede alla funzionalità di importazione.
-+ L'utente seleziona o trascina il file di configurazione.
-+ Il sistema valida il formato e la struttura del file.
-+ Il sistema acquisisce le informazioni sul dispositivo (asset, interfacce, configurazioni di rete).
-+ Il sistema conferma l'avvenuta importazione e mostra un riepilogo delle informazioni caricate.
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* L'utente dispone di un file di configurazione del dispositivo in un formato supportato (es. CSV, XML, JSON). \
+
+- *Postcondizioni:* Il sistema ha acquisito le informazioni relative al dispositivo e le rende disponibili per il processo di verifica. \
+
+- *Scenario principale:*
+ + L'utente accede alla funzionalità di importazione.
+ + L'utente seleziona o trascina il file di configurazione.
+ + Il sistema valida il formato e la struttura del file.
+ + Il sistema acquisisce le informazioni sul dispositivo (asset, interfacce, configurazioni di rete).
+ + Il sistema conferma l'avvenuta importazione e mostra un riepilogo delle informazioni caricate.
 
 *Scenari alternativi:*
-- *4a.* Il file non rispetta il formato atteso: il sistema notifica l'errore e
+- *1a.* Il file non rispetta il formato atteso: il sistema notifica l'errore e
   richiede all'utente di fornire un file valido.
 
----
+#figure(
+  image("../../../images/diagrammiUML/UC-1.png", width: 50%),
+  caption: [UC-1 : Importazione del documento di configurazione del dispositivo]
+)
 
-== UC2 — Importazione del file di definizione dei decision tree
+#v(2em)
+
+== UC-2 : Importazione del file di definizione dei decision tree
 #v(1em)
-*Attori coinvolti:* Utente \
-*Precondizioni:* L'utente dispone di uno o più file che descrivono i
-decision tree dei requisiti EN 18031 in un formato supportato (es. XML, JSON). \
-*Postcondizioni:* Il sistema ha acquisito la struttura dei decision tree e
-li rende disponibili per l'esecuzione. \
-*Scenario principale:*
-+ L'utente accede alla funzionalità di importazione dei decision tree.
-+ L'utente seleziona il file o i file da importare.
-+ Il sistema valida la struttura dei decision tree (nodi, rami, esiti).
-+ Il sistema carica i decision tree e li associa ai requisiti corrispondenti.
-+ Il sistema conferma il caricamento e mostra l'elenco dei requisiti disponibili.
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* L'utente dispone di uno o più file che descrivono i decision tree dei requisiti EN 18031 in un formato supportato (es. XML, JSON). \
+
+- *Postcondizioni:* Il sistema ha acquisito la struttura dei decision tree e li rende disponibili per l'esecuzione. \
+
+- *Scenario principale:*
+ + L'utente accede alla funzionalità di importazione dei decision tree.
+ + L'utente seleziona il file o i file da importare.
+ + Il sistema valida la struttura dei decision tree (nodi, rami, esiti).
+ + Il sistema carica i decision tree e li associa ai requisiti corrispondenti.
+ + Il sistema conferma il caricamento e mostra l'elenco dei requisiti disponibili.
 
 *Scenari alternativi:*
-- *3a.* Il file contiene errori strutturali: il sistema segnala le incongruenze
+- *2a.* Il file contiene errori strutturali: il sistema segnala le incongruenze
   e non procede con il caricamento.
 
----
+#figure(
+  image("../../../images/diagrammiUML/UC-2.png", width: 40%),
+  caption: [UC-2 : Importazione del file di definizione dei decision tree]
+)
 
-== UC3 — Selezione dei requisiti applicabili
+#v(2em)
+
+== UC-3 : Selezione dei requisiti applicabili
 #v(1em)
-*Attori coinvolti:* Utente \
-*Precondizioni:* Il documento di configurazione del dispositivo è stato
-importato (UC1). I decision tree sono stati caricati (UC2). \
-*Postcondizioni:* L'utente ha selezionato l'insieme di requisiti da
-verificare per il dispositivo in esame. \
-*Scenario principale:*
-+ Il sistema presenta l'elenco dei requisiti disponibili, suddivisi per
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* Il documento di configurazione del dispositivo è stato importato (UC-1). I decision tree sono stati caricati (UC-2). \
+
+- *Postcondizioni:* L'utente ha selezionato l'insieme di requisiti da verificare per il dispositivo in esame. \
+
+- *Scenario principale:*
+ + Il sistema presenta l'elenco dei requisiti disponibili, suddivisi per
   categoria (es. ACM — Access Control Mechanism, AUM — Authentication
   Mechanism).
-+ L'utente visualizza le descrizioni dei requisiti.
-+ L'utente seleziona i requisiti da sottoporre a verifica.
-+ Il sistema conferma la selezione e prepara il percorso di verifica.
+ + L'utente visualizza le descrizioni dei requisiti.
+ + L'utente seleziona i requisiti da sottoporre a verifica.
+ + Il sistema conferma la selezione e prepara il percorso di verifica.
 
----
+#figure(
+  image("../../../images/diagrammiUML/UC-3.png", width: 70%),
+  caption: [UC-3 : Selezione dei requisiti applicabili]
+)
 
-== UC4 — Esecuzione del decision tree per un requisito
+#v(2em)
+
+== UC-4 : Esecuzione del decision tree per un requisito
 #v(1em)
-*Attori coinvolti:* Utente \
-*Precondizioni:* Almeno un requisito è stato selezionato (UC3). \
-*Postcondizioni:* Il sistema ha eseguito l'intero percorso del decision tree
-per il requisito selezionato e ha determinato un esito. \
-*Scenario principale:*
-+ Il sistema presenta all'utente la prima domanda del decision tree associato
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* Almeno un requisito è stato selezionato (UC-3). \
+
+- *Postcondizioni:* Il sistema ha eseguito l'intero percorso del decision tree per il requisito selezionato e ha determinato un esito. \
+
+- *Scenario principale:*
+ + Il sistema presenta all'utente la prima domanda del decision tree associato
   al requisito.
-+ L'utente risponde alla domanda (es. _Yes_ / _No_).
-+ Il sistema avanza al nodo successivo in base alla risposta fornita.
-+ I passi 2–3 si ripetono fino al raggiungimento di un nodo foglia.
-+ Il sistema registra l'esito del requisito: *PASS*, *FAIL* o
+ + L'utente risponde alla domanda (es. _Yes_ / _No_).
+ + Il sistema avanza al nodo successivo in base alla risposta fornita.
+ + I passi 2–3 si ripetono fino al raggiungimento di un nodo foglia.
+ + Il sistema registra l'esito del requisito: *PASS*, *FAIL* o
   *NOT APPLICABLE*.
 
 *Scenari alternativi:*
-- *2a.* L'utente non comprende la domanda: può consultare la descrizione
+- *4a.* L'utente non comprende la domanda: può consultare la descrizione
   estesa del nodo prima di rispondere.
-- *3a.* L'utente desidera tornare indietro: il sistema consente di
+- *4b.* L'utente desidera tornare indietro: il sistema consente di
   annullare l'ultima risposta e riprendere dal nodo precedente.
 
----
+#figure(
+  image("../../../images/diagrammiUML/UC-4.png", width: 70%),
+  caption: [UC-4 : Esecuzione del decision tree per un requisito]
+)
 
-== UC5 — Visualizzazione dello stato di avanzamento della verifica
+#v(2em)
+
+== UC-5 : Visualizzazione dello stato di avanzamento della verifica
 #v(1em)
-*Attori coinvolti:* Utente \
-*Precondizioni:* È in corso almeno una sessione di verifica. \
-*Postcondizioni:* L'utente ha preso visione dello stato corrente del
-percorso di verifica. \
-*Scenario principale:*
-+ In qualsiasi momento durante la navigazione del decision tree, il sistema
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* È in corso almeno una sessione di verifica. \
+
+- *Postcondizioni:* L'utente ha preso visione dello stato corrente del percorso di verifica. \
+
+- *Scenario principale:*
+ + In qualsiasi momento durante la navigazione del decision tree, il sistema
   mostra una rappresentazione visiva del percorso percorso e del nodo
   corrente.
-+ L'utente può visualizzare le domande già risposte e le risposte fornite.
-+ Il sistema indica quanti requisiti sono stati completati e quanti sono
+ + L'utente può visualizzare le domande già risposte e le risposte fornite.
+ + Il sistema indica quanti requisiti sono stati completati e quanti sono
   ancora in attesa.
 
----
+#figure(
+  image("../../../images/diagrammiUML/UC-5.png", width: 60%),
+  caption: [UC-5 : Visualizzazione dello stato di avanzamento della verifica]
+)
 
-== UC6 — Visualizzazione della dashboard dei risultati
+#v(2em)
+
+== UC-6 : Visualizzazione della dashboard dei risultati
 #v(1em)
-*Attori coinvolti:* Utente \
-*Precondizioni:* Almeno un requisito ha ricevuto un esito (UC4). \
-*Postcondizioni:* L'utente ha consultato il riepilogo degli esiti dei
-requisiti verificati. \
-*Scenario principale:*
-+ L'utente accede alla dashboard.
-+ Il sistema mostra per ciascun requisito verificato l'esito ottenuto
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* Almeno un requisito ha ricevuto un esito (UC-4). \
+
+- *Postcondizioni:* L'utente ha consultato il riepilogo degli esiti dei requisiti verificati. \
+
+- *Scenario principale:*
+ + L'utente accede alla dashboard.
+ + Il sistema mostra per ciascun requisito verificato l'esito ottenuto
   (*PASS*, *FAIL* o *NOT APPLICABLE*).
-+ L'utente può selezionare un singolo requisito per visualizzare il
+ + L'utente può selezionare un singolo requisito per visualizzare il
   dettaglio del percorso seguito nel decision tree e le risposte fornite.
 
----
+#figure(
+  image("../../../images/diagrammiUML/UC-6.png", width: 45%),
+  caption: [UC-6 : Visualizzazione della dashboard dei risultati]
+)
 
-== UC7 — Riesame delle risposte fornite
+#v(2em)
+
+== UC-7 : Riesame delle risposte fornite
 #v(1em)
-*Attori coinvolti:* Utente \
-*Precondizioni:* Un requisito ha già ricevuto un esito. \
-*Postcondizioni:* L'utente ha consultato o modificato le risposte fornite
-durante la verifica di un requisito. \
-*Scenario principale:*
-+ Dalla dashboard o dal dettaglio di un requisito, l'utente richiede il
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* Un requisito ha già ricevuto un esito. \
+
+- *Postcondizioni:* L'utente ha consultato o modificato le risposte fornite durante la verifica di un requisito. \
+
+- *Scenario principale:*
+ + Dalla dashboard o dal dettaglio di un requisito, l'utente richiede il
   riesame delle risposte.
-+ Il sistema mostra la sequenza di domande e risposte registrate per quel
+ + Il sistema mostra la sequenza di domande e risposte registrate per quel
   requisito.
-+ L'utente può modificare una risposta precedente.
-+ Il sistema ricalcola l'esito del requisito a partire dal nodo modificato.
+ + L'utente può modificare una risposta precedente.
+ + Il sistema ricalcola l'esito del requisito a partire dal nodo modificato.
 
----
+#figure(
+  image("../../../images/diagrammiUML/UC-7.png", width: 70%),
+  caption: [UC-7 : Riesame delle risposte fornite]
+)
 
-== UC8 — Esportazione dei risultati
+
+== UC-8 : Esportazione dei risultati
 #v(1em)
-*Attori coinvolti:* Utente \
-*Precondizioni:* Almeno un requisito ha ricevuto un esito. \
-*Postcondizioni:* Il sistema ha prodotto e reso disponibile all'utente un
-file contenente i risultati della verifica. \
-*Scenario principale:*
-+ L'utente richiede l'esportazione dei risultati.
-+ L'utente seleziona il formato desiderato (es. PDF, CSV, JSON, XML).
-+ Il sistema genera il file con l'elenco dei requisiti, gli esiti e le
-  relative giustificazioni.
-+ Il sistema mette a disposizione il file per il download.
+- *Attori coinvolti:* Utente \
 
-_Nota: questo caso d'uso corrisponde a un requisito opzionale del capitolato._
+- *Precondizioni:* Almeno un requisito ha ricevuto un esito. \
+
+- *Postcondizioni:* Il sistema ha prodotto e reso disponibile all'utente un file contenente i risultati della verifica. \
+
+- *Scenario principale:*
+ + L'utente richiede l'esportazione dei risultati.
+ + L'utente seleziona il formato desiderato (es. PDF, CSV, JSON, XML).
+ + Il sistema genera il file con l'elenco dei requisiti, gli esiti e le
+  relative giustificazioni.
+ + Il sistema mette a disposizione il file per il download.
+
+#figure(
+  image("../../../images/diagrammiUML/UC-8.png", width: 70%),
+  caption: [UC-8 : Esportazione dei risultati]
+)
