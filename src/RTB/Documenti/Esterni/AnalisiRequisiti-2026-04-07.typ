@@ -163,7 +163,177 @@ e il sistema al fine di soddisfare i requisiti funzionali definiti nel
 capitolo precedente.
 
 Il sistema ha lo scopo di guidare l'utente nella valutazione di conformità
-di un dispositivo radio ai requisiti della norma EN 18031-1, con particolare
+di un dispositivo radio ai requisiti della norma EN 18031, con particolare
 riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 L'automazione del processo riduce il rischio di errori interpretativi e
 garantisce tracciabilità e riproducibilità dei risultati.
+
+== Elenco dei Casi d'Uso
+#v(1em)
+Prima di procedere con la descrizione dei singoli casi d'uso, si fornisce
+una breve spiegazione degli elementi che compongono ciascuna scheda:
+
+- *Attori:* soggetti esterni al sistema che interagiscono con esso
+  nell'ambito del caso d'uso, siano essi persone o altri sistemi;
+
+- *Precondizioni:* condizioni che devono essere verificate affinché il caso
+  d'uso possa essere avviato;
+
+- *Postcondizioni:* stato del sistema al termine dell'esecuzione del caso
+  d'uso, in seguito al completamento con successo dello scenario principale;
+
+- *Scenario principale:* sequenza ordinata di passi che descrive
+  l'interazione nominale tra l'attore e il sistema, ovvero il flusso atteso
+  in assenza di errori o eccezioni;
+
+- *Scenari alternativi:* varianti del flusso principale che si verificano
+  in presenza di condizioni particolari, errori o scelte diverse da parte
+  dell'attore; ciascuno scenario alternativo è identificato dal numero del
+  passo da cui si discosta, seguito da una lettera (es. _2a_).
+
+== UC1 — Importazione del documento di configurazione del dispositivo
+#v(1em)
+#figure(
+  image("https://kroki.io/plantuml/svg/eNpVUMtqw0AMvOsrhO8pJMcQTMBQyDn45otqy-6S3ZXZldMX_ffK61DamzTDPKRzVkq6BA-eR0UVTG56VRxc4l6dRMg3F2dKFJB6lXTVD89Ib5wl8B9ypv5GE2_0qqU4eQYoIqxa5ahcIWVsAX55rK4uKweq8AsQl8w9ZUPbZt_FS5glKX1aC8ZB-iWYh3RxcNhLHN20pI3cbJv9f4dDF58lBbKbRue5i1Ei3sm7QR6CA3wDtLjb1UVtAD6VEY94OvG7dR5yXQNEUcYXUZWAMhYlYiPWpOQfbbv4koJrSHJ5ZlUy2Bn8KEGq9jQwT1z94GyTPf4HM5mDDQ==", width: 80%),
+  caption: [UC1 - Importazione documento di configurazione]
+)
+
+*Attori coinvolti:* Utente \
+*Precondizioni:* L'utente dispone di un file di configurazione del
+dispositivo in un formato supportato (es. CSV, XML, JSON). \
+*Postcondizioni:* Il sistema ha acquisito le informazioni relative al
+dispositivo e le rende disponibili per il processo di verifica. \
+*Scenario principale:*
++ L'utente accede alla funzionalità di importazione.
++ L'utente seleziona o trascina il file di configurazione.
++ Il sistema valida il formato e la struttura del file.
++ Il sistema acquisisce le informazioni sul dispositivo (asset, interfacce, configurazioni di rete).
++ Il sistema conferma l'avvenuta importazione e mostra un riepilogo delle informazioni caricate.
+
+*Scenari alternativi:*
+- *4a.* Il file non rispetta il formato atteso: il sistema notifica l'errore e
+  richiede all'utente di fornire un file valido.
+
+---
+
+== UC2 — Importazione del file di definizione dei decision tree
+#v(1em)
+*Attori coinvolti:* Utente \
+*Precondizioni:* L'utente dispone di uno o più file che descrivono i
+decision tree dei requisiti EN 18031 in un formato supportato (es. XML, JSON). \
+*Postcondizioni:* Il sistema ha acquisito la struttura dei decision tree e
+li rende disponibili per l'esecuzione. \
+*Scenario principale:*
++ L'utente accede alla funzionalità di importazione dei decision tree.
++ L'utente seleziona il file o i file da importare.
++ Il sistema valida la struttura dei decision tree (nodi, rami, esiti).
++ Il sistema carica i decision tree e li associa ai requisiti corrispondenti.
++ Il sistema conferma il caricamento e mostra l'elenco dei requisiti disponibili.
+
+*Scenari alternativi:*
+- *3a.* Il file contiene errori strutturali: il sistema segnala le incongruenze
+  e non procede con il caricamento.
+
+---
+
+== UC3 — Selezione dei requisiti applicabili
+#v(1em)
+*Attori coinvolti:* Utente \
+*Precondizioni:* Il documento di configurazione del dispositivo è stato
+importato (UC1). I decision tree sono stati caricati (UC2). \
+*Postcondizioni:* L'utente ha selezionato l'insieme di requisiti da
+verificare per il dispositivo in esame. \
+*Scenario principale:*
++ Il sistema presenta l'elenco dei requisiti disponibili, suddivisi per
+  categoria (es. ACM — Access Control Mechanism, AUM — Authentication
+  Mechanism).
++ L'utente visualizza le descrizioni dei requisiti.
++ L'utente seleziona i requisiti da sottoporre a verifica.
++ Il sistema conferma la selezione e prepara il percorso di verifica.
+
+---
+
+== UC4 — Esecuzione del decision tree per un requisito
+#v(1em)
+*Attori coinvolti:* Utente \
+*Precondizioni:* Almeno un requisito è stato selezionato (UC3). \
+*Postcondizioni:* Il sistema ha eseguito l'intero percorso del decision tree
+per il requisito selezionato e ha determinato un esito. \
+*Scenario principale:*
++ Il sistema presenta all'utente la prima domanda del decision tree associato
+  al requisito.
++ L'utente risponde alla domanda (es. _Yes_ / _No_).
++ Il sistema avanza al nodo successivo in base alla risposta fornita.
++ I passi 2–3 si ripetono fino al raggiungimento di un nodo foglia.
++ Il sistema registra l'esito del requisito: *PASS*, *FAIL* o
+  *NOT APPLICABLE*.
+
+*Scenari alternativi:*
+- *2a.* L'utente non comprende la domanda: può consultare la descrizione
+  estesa del nodo prima di rispondere.
+- *3a.* L'utente desidera tornare indietro: il sistema consente di
+  annullare l'ultima risposta e riprendere dal nodo precedente.
+
+---
+
+== UC5 — Visualizzazione dello stato di avanzamento della verifica
+#v(1em)
+*Attori coinvolti:* Utente \
+*Precondizioni:* È in corso almeno una sessione di verifica. \
+*Postcondizioni:* L'utente ha preso visione dello stato corrente del
+percorso di verifica. \
+*Scenario principale:*
++ In qualsiasi momento durante la navigazione del decision tree, il sistema
+  mostra una rappresentazione visiva del percorso percorso e del nodo
+  corrente.
++ L'utente può visualizzare le domande già risposte e le risposte fornite.
++ Il sistema indica quanti requisiti sono stati completati e quanti sono
+  ancora in attesa.
+
+---
+
+== UC6 — Visualizzazione della dashboard dei risultati
+#v(1em)
+*Attori coinvolti:* Utente \
+*Precondizioni:* Almeno un requisito ha ricevuto un esito (UC4). \
+*Postcondizioni:* L'utente ha consultato il riepilogo degli esiti dei
+requisiti verificati. \
+*Scenario principale:*
++ L'utente accede alla dashboard.
++ Il sistema mostra per ciascun requisito verificato l'esito ottenuto
+  (*PASS*, *FAIL* o *NOT APPLICABLE*).
++ L'utente può selezionare un singolo requisito per visualizzare il
+  dettaglio del percorso seguito nel decision tree e le risposte fornite.
+
+---
+
+== UC7 — Riesame delle risposte fornite
+#v(1em)
+*Attori coinvolti:* Utente \
+*Precondizioni:* Un requisito ha già ricevuto un esito. \
+*Postcondizioni:* L'utente ha consultato o modificato le risposte fornite
+durante la verifica di un requisito. \
+*Scenario principale:*
++ Dalla dashboard o dal dettaglio di un requisito, l'utente richiede il
+  riesame delle risposte.
++ Il sistema mostra la sequenza di domande e risposte registrate per quel
+  requisito.
++ L'utente può modificare una risposta precedente.
++ Il sistema ricalcola l'esito del requisito a partire dal nodo modificato.
+
+---
+
+== UC8 — Esportazione dei risultati
+#v(1em)
+*Attori coinvolti:* Utente \
+*Precondizioni:* Almeno un requisito ha ricevuto un esito. \
+*Postcondizioni:* Il sistema ha prodotto e reso disponibile all'utente un
+file contenente i risultati della verifica. \
+*Scenario principale:*
++ L'utente richiede l'esportazione dei risultati.
++ L'utente seleziona il formato desiderato (es. PDF, CSV, JSON, XML).
++ Il sistema genera il file con l'elenco dei requisiti, gli esiti e le
+  relative giustificazioni.
++ Il sistema mette a disposizione il file per il download.
+
+_Nota: questo caso d'uso corrisponde a un requisito opzionale del capitolato._
