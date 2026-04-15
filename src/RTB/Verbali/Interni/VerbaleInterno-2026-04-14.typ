@@ -68,6 +68,7 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+      [0.3.0], [2026/04/15], [Filippo Zonta Rocha], [Filippo Zonta Rocha], [Validazione finale],
       [0.2.0], [2026/04/15], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiornamento contenuti e correzione refusi],
       [0.1.0], [2026/04/14], [Alberto Canavese], [Leonardo Lorenzin], [Prima stesura del verbale],
     )
