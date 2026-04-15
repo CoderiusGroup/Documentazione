@@ -6,7 +6,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 INDEX_FILE = BASE_DIR / "website" / "index.html"
 GLOSSARIO_HTML = BASE_DIR / "website" / "glossario.html"
-GLOSSARIO_TYP = BASE_DIR / "src" / "RTB" / "Documenti" / "Interni" / "glossario.typ"
+GLOSSARIO_TYP = BASE_DIR / "src" / "RTB" / "Documenti" / "Interni" / "definizioni.typ"
 
 def genera_card_html(file_path):
     rel_to_root = file_path.relative_to(BASE_DIR).as_posix()
