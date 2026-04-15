@@ -18,7 +18,6 @@
 )
 
 #set text(font: "Libertinus Serif", size: 12pt, lang: "it")
-#set heading(numbering: "1.")
 #show figure: set figure(supplement: none)
 
 // --- Frontespizio ---
@@ -34,8 +33,6 @@
   #text(size: 16pt)[*Gruppo Coderius*] \
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
-  #v(3em)
-  #text(size: 20pt)[*Versione 0.1.0*]
 ]
 
 #pagebreak()
@@ -56,7 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.1.0], [2026/04/15], [Bronte Giovanni], [], [Redazione preliminare e suddivisione alfabetica]
+    [0.1.0], [2026/04/15], [Bronte Giovanni], [Ines Iadadi], [Prima stesura del documento],
   )
 ]
 
@@ -73,7 +70,7 @@
 #counter(page).update(1)
 
 = Introduzione
-Il presente documento ha lo scopo di definire in modo univoco i termini tecnici, le abbreviazioni e i concetti chiave utilizzati nella documentazione di progetto, al fine di garantire la massima chiarezza e comprensione tra tutti gli stakeholder.
+Il presente documento ha lo scopo di definire in modo univoco i termini tecnici, le abbreviazioni e i concetti chiave utilizzati nella documentazione di progetto, al fine di garantire la massima chiarezza.
 
 #pagebreak()
 
