@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Glossario | Coderius SWE</title>
+        <link rel="icon" type="image/png" href="assets/logoCoderius.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <img src="assets/logoCoderius.png" alt="Logo Coderius" class="logo-img">
+                    <h1>Coderius</h1>
+                </a>
+                <nav class="site-nav">
+                    <a href="glossario.html" class="active-nav">Glossario</a>
+                    <a href="index.html#docs">Documentazione</a>
+                    <a href="index.html#repositories">Repository</a>
+                    <a href="index.html#team">Team</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="page-content">
+            <section class="docs">
+                <div class="container">
+                    <span class="section-eyebrow">— Glossario</span>
+                    <h1 class="section-title">Glossario di Progetto</h1>
+                    <p class="page-description">
+                    Elenco dei termini e delle abbreviazioni utilizzati nella documentazione del team Coderius.
+                    </p>
+                    <div class="glossary-search-wrapper">
+                        <input type="text" id="glossary-search" placeholder="Cerca un termine..." autocomplete="off">
+                        <p class="search-stats">
+                            <span id="found-count">4</span> termini trovati su <span id="total-count">4</span> totali
+                        </p>
+                    </div>
+                    <nav class="glossary-index">
+                    <!-- GLOSSARIO_INDEX_START -->
+                    <!-- GLOSSARIO_INDEX_END -->
+                    </nav>
+                    <div class="glossary-container">
+                        <p id="no-results" style="display: none;">
+                            Nessun termine trovato con i criteri di ricerca inseriti.
+                        </p>
+                    <!-- GLOSSARIO_LIST_START -->
+                    <!-- GLOSSARIO_LIST_END -->
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="footer-inner">
+                <div class="footer-top">
+                    <a href="#" class="footer-logo">
+                        <img src="assets/logoCoderius.png" alt="Logo Coderius" class="footer-logo-img">
+                        <span>Coderius</span>
+                    </a>
+                    <nav class="footer-nav">
+                        <a href="#docs">Documentazione</a>
+                        <a href="#repositories">Repository</a>
+                        <a href="#team">Team</a>
+                    </nav>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2026 Coderius Group — Università degli Studi di Padova</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

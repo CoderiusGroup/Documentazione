@@ -18,7 +18,7 @@ jobs:
 
       - name: Compila Typst e Genera Struttura
         run: |
-          find src -name "*.typ" -not -path "src/templates/*" | while read typst_file; do
+          find src -name "*.typ" -not -name "definizioni.typ" -not -path "src/templates/*" | while read typst_file; do
             
             percorso_relativo="${typst_file#src/}"
             

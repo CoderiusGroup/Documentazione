@@ -744,8 +744,6 @@ footer {
     transform: translateY(0);
 }
 
-/* --- stile glossario per il futuro--- */
-
 .page-content {
     padding-top: 10rem;
     min-height: 80vh;
@@ -770,11 +768,12 @@ footer {
 
 .glossary-letter {
     color: var(--text-secondary);
-    font-size: 2rem;
+    font-size: 3rem;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 0.5rem;
     margin-top: 2rem;
     margin-bottom: 1.5rem;
+    font-weight: 800;
 }
 
 .glossary-container .glossary-letter:first-child {
@@ -791,6 +790,7 @@ footer {
 
 .glossary-term h3 {
     color: var(--icy-blue);
+    font-weight: 600;
     margin-bottom: 0.5rem;
     font-size: 1.3rem;
 }
@@ -809,14 +809,16 @@ footer {
     background-color: rgba(30, 41, 59, 0.5);
     border-radius: 8px;
     border: 1px solid var(--border-color);
+    justify-content: center;
+    background-color: rgba(15, 23, 42, 0.4);
 }
 
 .glossary-index a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 2.1rem;
+    height: 2.1rem;
     border-radius: 6px;
     background-color: var(--surface-color);
     color: var(--text-primary);
@@ -847,4 +849,47 @@ footer {
     margin-top: 2rem;
     margin-bottom: 1.5rem;
     scroll-margin-top: 120px; 
+}
+
+.glossary-search-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+#glossary-search {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+#glossary-search:focus {
+    border-color: var(--icy-blue);
+    box-shadow: 0 0 15px var(--icy-glow);
+    background-color: rgba(30, 41, 59, 0.8);
+}
+.search-stats {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+#found-count {
+    color: var(--icy-blue);
+    font-weight: 600;
+}
+
+#no-results {
+    padding: 3rem;
+    text-align: center;
+    background-color: rgba(30, 41, 59, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin: 2rem;
 }
