@@ -28,7 +28,7 @@ def aggiorna_glossario():
 
     content_typ = GLOSSARIO_TYP.read_text(encoding="utf-8")
 
-    pattern_typ = r'termine:\s*"(.*?)",\s*definizione:\s*"(.*?)"'
+    pattern_typ = r'"([^"]+)":\s*\[((?:[^\[\]]|\[[^\[\]]*\])*)\]'
     matches = sorted(re.findall(pattern_typ, content_typ, re.DOTALL), key=lambda x: x[0].upper())
     
     valore_conteggio = str(len(matches))
