@@ -63,8 +63,9 @@
       ),
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
-      [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026/04/17], [Edis Hodja], [], [Prima stesura del verbale]
+      [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],  
+      [0.2.0], [2026/04/17], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Correzzione di errori e refusi presenti nella prima stesura del verbale],
+      [0.1.0], [2026/04/17], [Edis Hodja], [Filippo Zonta Rocha], [Prima stesura del verbale]
     )
   ]
 
@@ -134,18 +135,18 @@ Di seguito vengono riportate le domande poste dal team e le risposte fornite dal
 
 #heading(level: 3, numbering: none, outlined: false)[1. Identificazione del dispositivo]
 *Domanda:* È necessario che il sistema identifichi automaticamente il tipo di dispositivo oppure è sufficiente richiedere all’utente il caricamento di un documento con le specifiche tecniche? È previsto anche un form per l’inserimento manuale di tali dati? \
-*Risposta:* Non serve che venga fatto in automatico anche perché comunque le specifiche tecniche alla fine sono più informative che utili poi alla compilazione dei decision tree. Per specifiche tecniche viene inteso ad esempio il sistema operativo utilizzato e altre informazioni di questo tipo specifiche del dispositivo.
+*Risposta:* L'automazione non è necessaria, in quanto le specifiche tecniche hanno una finalità prevalentemente informativa rispetto alla compilazione dei decision tree. Per specifiche tecniche viene inteso ad esempio il sistema operativo utilizzato e altre informazioni di questo tipo specifiche del dispositivo.
 
 #pagebreak()
 
 #heading(level: 3, numbering: none, outlined: false)[2. Categorizzazione e guida introduttiva agli asset]
 *Domanda:* Considerato che il flusso principale dell’applicazione è guidare l’utente attraverso i decision tree, ma per poter fare i decision tree bisogna capire prima quali asset e quanti sono presenti nel dispositivo, è necessario fornire prima una guida introduttiva sulle tipologie di assets (security, network, privacy, financial)? Quali categorie sono previste e qual è il loro numero totale? \
-*Risposta:* Una guida può anche non servire perché nel documento che verrà caricato all'inizio e che descrive il dispositivo viene immaginato che ci sia una lista di asset relativi a quel dispositivo che sono divisi principalmente in _security asset_ e _network asset_, che sono presenti sostanzialmente nei requisiti forniti e sono divisi in categorie distinte: security function, security parameters, network function, network configuration. \
-Alla fine ci saranno quattro tipi in totale con due liste dedicate a security asset e newtork asset, ciascuno potrà avere uno dei due tipi e uno dei due sottotipi.
+*Risposta:* Una guida può anche non servire perché nel documento che verrà caricato all'inizio e che descrive il dispositivo si ipotizza ci sia una lista di asset relativi a quel dispositivo che sono divisi principalmente in _security asset_ e _network asset_, che sono presenti sostanzialmente nei requisiti forniti e sono divisi in categorie distinte: security function, security parameters, network function, network configuration. \
+Alla fine ci saranno quattro tipi in totale con due liste dedicate a security asset e network asset, ciascuno potrà avere uno dei due tipi e uno dei due sottotipi.
 
 #heading(level: 3, numbering: none, outlined: false)[3. Modalità di inserimento degli asset]
 *Domanda:* In riferimento al workflow discusso nella riunione precedente: una volta che l’utente ha caricato il documento di specifiche del dispositivo radio, con quale modalità vengono inseriti gli asset? È previsto che vengano aggiunti singolarmente tramite input manuale, importati tramite file in uno dei formati supportati dall’applicazione, o è previsto che il sistema li suggerisca automaticamente? \
-*Risposta:* Questo potrebbe rientrare nei requisiti opzionali e possiamo partire da un'idea secondo cui carichiamo tutto col file di configurazione iniziale. Magari col tempo sarà possibile prevedere anche l'inserimento da parte dell'utente che si ritrova a caricare un file vuoto o vuole partire da zero senza possedere un file di configurazione e di conseguenza permettergli di crearlo per il dispositivo testato inserendo le informazioni in generali manualmente e poi la lista di asset. \ In ogni caso, questo viene considerato un requisito opzionale.
+*Risposta:* Questo potrebbe rientrare nei requisiti opzionali e possiamo partire da un'idea secondo cui carichiamo tutto col file di configurazione iniziale. Magari col tempo sarà possibile prevedere anche l'inserimento da parte dell'utente che si ritrova a caricare un file vuoto o vuole partire da zero senza possedere un file di configurazione e di conseguenza permettergli di crearlo per il dispositivo testato inserendo le informazioni generali manualmente e poi la lista di asset. \ In ogni caso, questo viene considerato un requisito opzionale.
 
 #heading(level: 3, numbering: none, outlined: false)[4. Verifica e lista di riferimento degli asset]
 *Domanda:*  Sempre in merito agli asset, è richiesta una verifica della correttezza degli asset inseriti, ovvero una conferma che esistano? In tal caso esiste una lista di riferimento completa degli assets possibili per ciascuna tipologia di dispositivo? \
@@ -155,7 +156,7 @@ Riguardo al nome, alla descrizione e a tutti gli altri campi non è presente una
 
 #heading(level: 3, numbering: none, outlined: false)[5. Validazione del tipo di asset in fase di caricamento del file di configurazione]
 *Domanda:* Considerato che gli asset possono appartenere a categorie diverse (security, network, ecc.), è prevista una validazione del tipo di ciascun asset in fase di caricamento? Se sì, come verrebbe implementata? \
-*Risposta:* Si ipotizza che il file di configurazione del dispositivo sia in un formato strutturato (JSON, XML o simile). All'interno di tale file, ogni asset dovrebbe avere un campo dedicato alla propria tipologia. In fase di caricamento, il sistema effettuerebbe il parsing del file e verificherebbe che il tipo dichiarato per ciascun asset sia tra quelli ammessi. In caso contrario, il sistema bloccherebbe il caricamento e mostrerebbe un messaggio di errore che segnala la non validità del file, impedendo all'utente di proseguire.
+*Risposta:* Si ipotizza che il file di configurazione del dispositivo sia in un formato strutturato (JSON, XML o simile). All'interno di tale file, ogni asset dovrebbe avere un campo dedicato alla propria tipologia. In fase di caricamento, il sistema effettuerebbe il parsing del file e verificherebbe che il tipo dichiarato per ciascun asset sia tra quelli ammessi. In caso contrario, il sistema blocca il caricamento e mostra un messaggio di errore che segnala la non validità del file, impedendo all'utente di proseguire.
 
 
 #heading(level: 3, numbering: none, outlined: false)[6. Reperibilità di esempi di documenti tecnici compilati]
