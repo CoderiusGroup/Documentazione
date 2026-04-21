@@ -64,6 +64,7 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],  
+      [1.0.0], [2026/04/21], [Leonardo Lorenzin], [], [Approvazione del  verbale],
       [0.2.0], [2026/04/17], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Correzione di errori e refusi presenti nella prima stesura del verbale],
       [0.1.0], [2026/04/17], [Edis Hodja], [Filippo Zonta Rocha], [Prima stesura del verbale]
     )
@@ -125,10 +126,10 @@
 - Leonardo Lorenzin
 
 = Ordine del Giorno
-+ Domande principalmente riguardanti la documentazione fornita dal proponente tramite il canale di comunicazione Telegram.
++ Domande riguardanti principalmente la documentazione fornita dal proponente tramite il canale di comunicazione Telegram.
 
 = Svolgimento della Riunione
-La riunione è stata svolta a seguito dello studio della documentazione tecnica fornita dal proponente, da parte di tutti i membri del team, con il contributo in particolare degli _Analisti_. L’incontro con l’azienda ha lo scopo di chiarire i dubbi emersi, validare la comprensione dei requisiti e approfondire gli aspetti rilevanti per lo sviluppo del progetto.
+La riunione si è svolta a seguito dello studio della documentazione tecnica fornita dal proponente, da parte di tutti i membri del team, con il contributo in particolare degli _Analisti_. L’incontro con l’azienda ha lo scopo di chiarire i dubbi emersi, validare la comprensione dei requisiti e approfondire gli aspetti rilevanti per lo sviluppo del progetto.
 
 == Domande e Risposte
 Di seguito vengono riportate le domande poste dal team e le risposte fornite dal referente aziendale.
@@ -140,7 +141,7 @@ Di seguito vengono riportate le domande poste dal team e le risposte fornite dal
 #pagebreak()
 
 #heading(level: 3, numbering: none, outlined: false)[2. Categorizzazione e guida introduttiva agli asset]
-*Domanda:* Considerato che il flusso principale dell’applicazione è guidare l’utente attraverso i decision tree, ma per poter costruire i decision tree bisogna capire prima quali asset e quanti sono presenti nel dispositivo, è necessario fornire prima una guida introduttiva sulle tipologie di assets (security, network, privacy, financial)? Quali categorie sono previste e qual è il loro numero totale? \
+*Domanda:* Considerato che il flusso principale dell’applicazione è guidare l’utente attraverso i decision tree, ma per poter costruire i decision tree bisogna capire prima quali asset e quanti sono presenti nel dispositivo, è necessario fornire prima una guida introduttiva sulle tipologie di asset (security, network, privacy, financial)? Quali categorie sono previste e qual è il loro numero totale? \
 *Risposta:* Una guida può anche non servire perché nel documento che verrà caricato all'inizio e che descrive il dispositivo si ipotizza ci sia una lista di asset relativi a quel dispositivo che sono divisi principalmente in _security asset_ e _network asset_, che sono presenti sostanzialmente nei requisiti forniti e sono divisi in categorie distinte: security function, security parameters, network function, network configuration. \
 Alla fine ci saranno quattro tipi in totale con due liste dedicate a security asset e network asset, ciascuno potrà avere uno dei due tipi e uno dei due sottotipi.
 
