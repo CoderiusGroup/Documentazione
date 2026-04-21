@@ -53,6 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.1.3], [2026/04/21], [Bronte Giovanni], [],[Integrazione casi d'uso: UC9 to UC13],
     [0.1.2], [2026/04/13], [Edis Hodja], [],[Integrazione casi d'uso: UC1 to UC8],
     [0.1.1], [2026/04/10], [Edis Hodja], [],[Integrazione descrizione del prodotto],
     [0.1.0], [2026/04/07], [Edis Hodja], [],[Redazione preliminare del documento]
