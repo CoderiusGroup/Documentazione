@@ -17,7 +17,7 @@
 
 #set text(font: "Libertinus Serif",size: 12pt,lang: "it")
 
-#set heading(numbering: "1.")
+#set heading(numbering: "1.1.")
 #show figure: set figure(supplement: none)
 
 #align(center)[
@@ -62,7 +62,7 @@
 
 #show outline.entry.where(level: 1): set block(above: 1.5em)
 #text(size: 18pt, weight: "bold")[Indice]
-#outline(title: none, depth: 2)
+#outline(title: none, depth: 5)
 
 #outline(
   title: [Elenco delle Figure],
@@ -222,6 +222,20 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 )
 
 #v(2em)
+
+=== UC-1.1: Annullamento di importazione del documento di configurazione del dispositivo
+
+- *Attori coinvolti*: Utente
+- *Precondizioni*: 
++ Il sistema è attivo
++ L'utente sta inserendo un nuovo dispositivo
+- *Postcondizioni*: L'inserimento del file di configurazione del dispositivo è stato annullato
+- *Scenario principale*: L'utente seleziona la funzionalità di annullamento dell'inserimento del dispositivo.
+
+#figure(
+  image("../../../images/diagrammiUML/UC-1.1.png", width: 70%),
+  caption: [UC-1.1: Annullamento di dimportazione del documento di configurazione del dispositivo]
+)
 
 == UC-2 : Importazione del file di definizione dei decision tree
 #v(1em)
@@ -386,5 +400,290 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 
 #figure(
   image("../../../images/diagrammiUML/UC-8.png", width: 70%),
-  caption: [UC-8 : Esportazione dei risultati]
+  caption: [UC-9 : Esportazione dei risultati]
 )
+
+== UC-9: Inserisci asset
+#v(1em)
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* L'utente ha inserito il documento di configurazione del dispositivo. \
+
+- *Postcondizioni:* Il sistema ha aggiunto un nuovo asset alla lista di assets. \
+
+- *Scenario principale:*
++ L'utente inserisce il nome dell'asset.
++ L'utente inserisce il tipo di asset.
++ L'utente inserisce una descrizione per l'asset.
+
+- *Scenari alternativi:* 
++ L'utente annulla l'inserimento dell'asset.
++ L'utente inserisce un asset con il tipo sbagliato
+
+#figure(
+  image("../../../images/diagrammiUML/UC-9.png", width: 70%),
+  caption: [UC-9 : Inserisci asset]
+)
+
+=== UC-9.1: Inserisci nome asset
+
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* L'utente ha inserito il documento di configurazione del dispositivo. \
+
+- *Postcondizioni:* Il sistema ha aggiunto un nome al nuovo asset. \
+
+- *Scenario principale:*
++ L'utente inserisce il nome dell'asset.
+
+- *Scenari alternativi:* 
++ L'utente annulla l'inserimento dell'asset.
++ L'utente annulla l'inserimento del nome dell'asset.
+
+#figure(
+  image("../../../images/diagrammiUML/UC-9.1.png", width: 70%),
+  caption: [UC-9.1 : Inserisci nome asset]
+)
+
+=== UC-9.2: Inserisci tipo asset
+
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* L'utente ha inserito il documento di configurazione del dispositivo. \
+
+- *Postcondizioni:* Il sistema ha aggiunto un tipo al nuovo asset. \
+
+- *Scenario principale:*
++ L'utente inserisce il tipo dell'asset.
+
+- *Scenari alternativi:* 
++ L'utente annulla l'inserimento dell'asset.
++ L'utente annulla l'inserimento del tipo dell'asset.
++ L'utente inserisce un tipo di asset non valido per l'asset messo.
+
+- *Specializzazioni:*
+- UC-9.2.1
+- UC-9.2.2
+- UC-9.2.3
+- UC-9.2.4
+
+#figure(
+  image("../../../images/diagrammiUML/UC-9.2.png", width: 70%),
+  caption: [UC-9.2 : Inserisci tipo asset]
+)
+
+==== UC-9.2.1: Seleziona network asset
+
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* L'utente ha premuto il tasto di modifica o inserisci asset.\
+
+- *Postcondizioni:* Il sistema ha modificato il tipo di asset. \
+
+- *Scenario principale:*
++ L'utente seleziona network asset.
+
+==== UC-9.2.2: Seleziona security asset
+
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* L'utente ha premuto il tasto di modifica o inserisci asset.\
+
+- *Postcondizioni:* Il sistema ha modificato il tipo di asset. \
+
+- *Scenario principale:*
++ L'utente seleziona security asset.
+
+==== UC-9.2.3: Seleziona privacy asset
+
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* L'utente ha premuto il tasto di modifica o inserisci asset.\
+
+- *Postcondizioni:* Il sistema ha modificato il tipo di asset. \
+
+- *Scenario principale:*
++ L'utente seleziona privacy asset.
+
+==== UC-9.2.4: Seleziona financial asset
+
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* L'utente ha premuto il tasto di modifica o inserisci asset.\
+
+- *Postcondizioni:* Il sistema ha modificato il tipo di asset. \
+
+- *Scenario principale:*
++ L'utente seleziona financial asset.
+
+=== UC-9.3: Inserisci descrizione asset
+
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* L'utente ha inserito il documento di configurazione del dispositivo. \
+
+- *Postcondizioni:* Il sistema ha aggiunto una descrizione al nuovo asset. \
+
+- *Scenario principale:*
++ L'utente inserisce una descrizione per l'asset.
+
+#figure(
+  image("../../../images/diagrammiUML/UC-9.3.png", width: 70%),
+  caption: [UC-9.3 : Inserisci descrizione asset]
+)
+
+== UC-10: Annulla inserimento asset
+
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* 
++ L'utente ha inserito il documento di configurazione del dispositivo. 
++ L'utente ha aggiunto un asset tramite un documento o tramite tasto di aggiunta di un asset.\
+
+- *Postcondizioni:* Il sistema ha annullato l'inserimento dell'asset. \
+
+- *Scenario principale:*
++ L'utente preme il tasto di annullamento di inserimento dell'asset.
+
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 70%),
+  caption: [UC-10 : Annulla inserimento asset]
+)
+
+== UC-11: Elimina Asset
+
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* 
++ L'utente ha inserito il documento di configurazione del dispositivo.
++ L'utente ha inserito almeno un asset\
+
+- *Postcondizioni:* L'utente ha eliminato un asset. \
+
+- *Scenario principale:*
++ L'utente seleziona uno degli asset inseriti precedentemente per eliminarlo.
++ Il sistema mostra un avviso.
++ L'utente conferma l'eliminazione dell'asset.
++ Il sistema elimina l'asset selezionato.
+
+#figure(
+  image("../../../images/diagrammiUML/UC-11.png", width: 70%),
+  caption: [UC-11 : Elimina asset]
+)
+
+== UC-12: Modifica Asset
+
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* 
++ L'utente ha inserito il documento di configurazione del dispositivo.
++ L'utente ha inserito almeno un asset\
+
+- *Postcondizioni:* L'utente ha modificato un asset. \
+
+- *Scenario principale:*
++ L'utente seleziona uno degli asset inseriti precedentemente per modifcarlo.
++ L'utente modifica il nome dell'asset.
++ L'utente modifica il tipo di asset.
++ L'utente modifica la descrizione dell'asset.
+
+#figure(
+  image("../../../images/diagrammiUML/UC-12.png", width: 70%),
+  caption: [UC-12 : Visualizza dati dispositivo]
+)
+
+=== UC-12.1: Modifica nome asset
+
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* L'utente ha premuto il tasto di modifica di un asset.\
+
+- *Postcondizioni:* L'utente ha modificato il nome di un asset. \
+
+- *Scenario principale:*
++ L'utente modifica il nome di un asset.
+
+=== UC-12.2: Modifica tipo asset
+
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* L'utente ha premuto il tasto di modifica di un asset.\
+
+- *Postcondizioni:* L'utente ha modificato il tipo di un asset. \
+
+- *Scenario principale:*
++ L'utente modifica il tipo di un asset.
+
+- *Scenari alternativi:*
++ L'utente modifica il tipo di un asset in un tipo non valido
+
+=== UC-12.3: Modifica descrizione asset
+
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* L'utente ha premuto il tasto di modifica di un asset.\
+
+- *Postcondizioni:* L'utente ha modificato la descrizione di un asset. \
+
+- *Scenario principale:*
++ L'utente modifica la descrizione di un asset.
+
+#pagebreak()
+
+
+== UC-13: Visualizza dati dispositivo
+
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* 
+ L'utente ha inserito il documento di configurazione del dispositivo.\
+
+- *Postcondizioni:* L'utente ha visualizzato i dati del dispositivo. \
+
+- *Scenario principale:*
++ L'utente seleziona uno dei dispositivi caricati per visualizzarlo.
++ L'utente visualizza il nome del dispositivo.
++ L'utente visualizza il sistema operativo del dispositivo.
++ L'utente visualizza la descrizione del dispositivo.
+
+#figure(
+  image("../../../images/diagrammiUML/UC-13.png", width: 70%),
+  caption: [UC-13 : Visualizza dati dispositivo]
+)
+
+=== UC-13.1: Visualizza nome dispositivo
+
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* 
++ L'utente ha premuto il tasto di visualizzazione dei dati del dispositivo.\
+
+- *Postcondizioni:* L'utente ha visualizzato il nome del dispositivo. \
+
+- *Scenario principale:*
++ L'utente visualizza il nome del dispositivo.
+
+=== UC-13.2: Visualizza sistema operativo dispositivo
+
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* 
++ L'utente ha premuto il tasto di visualizzazione dei dati del dispositivo.\
+
+- *Postcondizioni:* L'utente ha visualizzato il sistema operativo del dispositivo.\
+
+- *Scenario principale:*
++ L'utente visualizza il sistema operativo del dispositivo.
+
+=== UC-13.3: Visualizza descrizione dispositivo
+
+- *Attori coinvolti:* Utente \
+
+- *Precondizioni:* 
++ L'utente ha premuto il tasto di visualizzazione dei dati del dispositivo.\
+
+- *Postcondizioni:* L'utente ha visualizzato la descrizione del dispositivo. \
+
+- *Scenario principale:*
++ L'utente visualizza la descrizione del dispositivo.
+
