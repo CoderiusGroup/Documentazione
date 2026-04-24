@@ -53,10 +53,10 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.1.3], [2026/04/21], [Bronte Giovanni], [],[Integrazione casi d'uso: UC9 to UC13],
-    [0.1.2], [2026/04/13], [Edis Hodja], [],[Integrazione casi d'uso: UC1 to UC8],
-    [0.1.1], [2026/04/10], [Edis Hodja], [],[Integrazione descrizione del prodotto],
-    [0.1.0], [2026/04/07], [Edis Hodja], [],[Redazione preliminare del documento]
+    [0.1.3], [2026/04/21], [Bronte Giovanni], [Filippo Zonta Rocha],[Integrazione casi d'uso: UC9 a UC13],
+    [0.1.2], [2026/04/13], [Edis Hodja], [Filippo Zonta Rocha],[Integrazione casi d'uso: UC1 a UC8],
+    [0.1.1], [2026/04/10], [Edis Hodja], [Filippo Zonta Rocha],[Integrazione descrizione del prodotto],
+    [0.1.0], [2026/04/07], [Edis Hodja], [Filippo Zonta Rocha],[Redazione preliminare del documento]
   )
 ]
 #pagebreak()
@@ -105,7 +105,7 @@ Sono state inoltre considerate le indicazioni metodologiche fornite nell’ambit
 #v(2pt)
 - #text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1p.pdf")[C1: Automated EN18031 Compliance Verification - Bluewind S.r.l.])]
 #v(2pt)
-- #text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf")[Regolamento del Progetto Didattivo a.a. 2025-2026])]
+- #text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf")[Regolamento del Progetto Didattico a.a. 2025-2026])]
 #v(2pt)
 
 #heading(level: 3, numbering: none)[Riferimenti Informativi]
@@ -235,7 +235,7 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 
 #figure(
   image("../../../images/diagrammiUML/UC-1.1.png", width: 70%),
-  caption: [UC-1.1: Annullamento di dimportazione del documento di configurazione del dispositivo]
+  caption: [UC-1.1: Annullamento  d'importazione del documento di configurazione del dispositivo]
 )
 
 == UC-2 : Importazione del file di definizione dei decision tree
@@ -583,7 +583,7 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 - *Postcondizioni:* L'utente ha modificato un asset. \
 
 - *Scenario principale:*
-+ L'utente seleziona uno degli asset inseriti precedentemente per modifcarlo.
++ L'utente seleziona uno degli asset inseriti precedentemente per modificarlo.
 + L'utente modifica il nome dell'asset.
 + L'utente modifica il tipo di asset.
 + L'utente modifica la descrizione dell'asset.
