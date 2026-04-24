@@ -17,5 +17,4 @@
   "Nodo": [In questo contesto il nodo è un elemento del decisione tree che può contenere una domanda per verificare il corretto passaggio di un requisito. Oppure può contenere l'esito finale della valutazione del decision tree.],
   "Requisiti": [In questo contesto con requisiti intendiamo i vari controlli che sono richiesti ad un dispositivo radio per poter essere considerato conforme alla normativa RED DA.],
   "Use Case": [Tradotto dall'inglese = caso d'uso, è un elenco di azioni o fasi che in genere definiscono le interazioni tra un ruolo (in questo caso noto come attore) e un sistema per raggiungere un obbiettivo.],
-
 )
