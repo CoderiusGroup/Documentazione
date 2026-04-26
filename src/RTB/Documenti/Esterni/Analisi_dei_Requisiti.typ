@@ -33,7 +33,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(3em)
-  #text(size: 20pt)[*Versione 0.1.2*]
+  #text(size: 20pt)[*Versione 0.1.4*]
 ]
 
 #pagebreak()
@@ -53,7 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.1.4], [2026/04/24], [Bronte Giovanni], [],[Integrazione casi d'uso: da UC-2 a UC-7 e UC-17 con le appropriate sottosezioni e diagrammi UML. Modificate le numerazioni di vari use case  assieme ai loro diagrammi UML in modo da essere più coerenti.],
+    [0.1.4], [2026/04/24], [Bronte Giovanni], [Filippo Zonta Rocha],[Integrazione casi d'uso: da UC-2 a UC-7 e UC-17 con le appropriate sottosezioni e diagrammi UML. Modificate le numerazioni di vari use case  assieme ai loro diagrammi UML in modo da essere più coerenti.],
     [0.1.3], [2026/04/21], [Bronte Giovanni], [Filippo Zonta Rocha],[Integrazione casi d'uso: UC9 a UC13],
     [0.1.2], [2026/04/13], [Edis Hodja], [Filippo Zonta Rocha],[Integrazione casi d'uso: UC1 a UC8],
     [0.1.1], [2026/04/10], [Edis Hodja], [Filippo Zonta Rocha],[Integrazione descrizione del prodotto],
@@ -253,17 +253,17 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 - *Precondizioni*: 
 + Il sistema è attivo
 + L'utente sta inserendo un nuovo dispositivo
-- *Postcondizioni*: L'inserimento del file di configurazione del dispositivo è stato annullato
-- *Scenario principale*: L'utente seleziona la funzionalità di annullamento dell'inserimento del dispositivo.
+- *Postcondizioni:* L'inserimento del file di configurazione del dispositivo è stato annullato.
+- *Scenario principale:* L'utente seleziona la funzionalità di annullamento dell'inserimento del dispositivo.
 
 #figure(
   image("../../../images/diagrammiUML/UC-3(modificato).png", width: 50%),
-  caption: [UC-2: Formato file non valido]
+  caption: [UC-3: Annullamento di importazione del documento di configurazione del dispositivo]
 )
 
 #pagebreak()
 
-== UC-4 : Aggiunta nuova dispositivo manuale
+== UC-4 : Aggiunta nuovo dispositivo manuale
 #v(1em)
 - *Attori coinvolti:* Utente \
 
@@ -283,7 +283,7 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 
 #figure(
   image("../../../images/diagrammiUML/UC-4.png", width: 100%),
-  caption: [UC-4 : Aggiunta nuova dispositivo manuale]
+  caption: [UC-4 : Aggiunta nuovo dispositivo manuale]
 )
 
 
@@ -343,7 +343,7 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 - *Postcondizioni:* L'utente ha selezionato che modalità usare per scegliere l'insieme di requisiti da verificare per il dispositivo in esame. \
 
 - *Scenario principale:*
- + Il sistema presenta una scelta tra selezione dei requisiti manuale o tramite domande
+ + Il sistema presenta una scelta tra selezione dei requisiti, manuale o tramite domande
  + L'utente sceglie una delle due opzioni.
 
 #figure(
@@ -355,7 +355,7 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 #v(1em)
 - *Attori coinvolti:* Utente \
 
-- *Precondizioni:* La modalità per la selezione del requisiti è stata scelta.\
+- *Precondizioni:* La modalità per la selezione dei requisiti è stata scelta.\
 
 - *Postcondizioni:* L'utente ha selezionato l'insieme di requisiti da verificare per il dispositivo in esame. \
 
@@ -374,13 +374,13 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 #v(1em)
 - *Attori coinvolti:* Utente \
 
-- *Precondizioni:* La modalità per la selezione del requisiti è stata scelta. \
+- *Precondizioni:* La modalità per la selezione dei requisiti è stata scelta. \
 
 - *Postcondizioni:* Il sistema ha selezionato l'insieme di requisiti da verificare per il dispositivo in esame. \
 
 - *Scenario principale:*
  + Il sistema presenta una serie di domande per l'utente
- + L'utente visualizza e risponde in modo appripriato alle domande.
+ + L'utente visualizza e risponde in modo appropriato alle domande.
  + Il sistema seleziona i requisiti da sottoporre a verifica in base alle risposte fornite.
  + Il sistema conferma la selezione e prepara il percorso di verifica.
 
@@ -401,7 +401,7 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 
 #figure(
   image("../../../images/diagrammiUML/UC-6.png", width: 60%),
-  caption: [UC-6 : Importazione del file di definizione dei decision tree]
+  caption: [UC-6 : Annulla inserimento dispositivo]
 )
 
 #pagebreak()
@@ -435,7 +435,7 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 
 - *Scenario principale:*
  + In qualsiasi momento durante la navigazione del decision tree, il sistema
-  mostra una rappresentazione visiva del percorso percorso e del nodo
+  mostra una rappresentazione visiva del percorso e del nodo
   corrente.
  + L'utente può visualizzare le domande già risposte e le risposte fornite.
  + Il sistema indica quanti requisiti sono stati completati e quanti sono
@@ -524,7 +524,7 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 
 - *Precondizioni:* L'utente ha inserito il documento di configurazione del dispositivo. \
 
-- *Postcondizioni:* Il sistema ha aggiunto un nuovo asset alla lista di assets. \
+- *Postcondizioni:* Il sistema ha aggiunto un nuovo asset alla lista degli assets. \
 
 - *Scenario principale:*
 + L'utente inserisce il nome dell'asset.
@@ -533,7 +533,7 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 
 - *Scenari alternativi:* 
 + L'utente annulla l'inserimento dell'asset.
-+ L'utente inserisce un asset con il tipo sbagliato
++ L'utente inserisce un asset con il tipo sbagliato.
 
 #figure(
   image("../../../images/diagrammiUML/UC-12.png", width: 70%),
@@ -574,7 +574,7 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 - *Scenari alternativi:* 
 + L'utente annulla l'inserimento dell'asset.
 + L'utente annulla l'inserimento del tipo dell'asset.
-+ L'utente inserisce un tipo di asset non valido per l'asset messo.
++ L'utente inserisce un tipo di asset non valido per l'asset inserito.
 
 - *Specializzazioni:*
 - UC-9.2.1
@@ -643,7 +643,7 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 + L'utente inserisce una descrizione per l'asset.
 
 #figure(
-  image("../../../images/diagrammiUML/UC-9.3.png", width: 70%),
+  image("../../../images/diagrammiUML/UC-12.3.png", width: 70%),
   caption: [UC-12.3 : Inserisci descrizione asset]
 )
 
@@ -669,13 +669,13 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 
 #pagebreak()
 
-== UC-14: Elimina Asset
+== UC-14: Elimina asset
 
 - *Attori coinvolti:* Utente \
 
-- *Precondizioni:* 
+- *Precondizioni:*
 + L'utente ha inserito il documento di configurazione del dispositivo.
-+ L'utente ha inserito almeno un asset\
++ L'utente ha inserito almeno un asset.
 
 - *Postcondizioni:* L'utente ha eliminato un asset. \
 
@@ -692,13 +692,13 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 
 #pagebreak()
 
-== UC-15: Modifica Asset
+== UC-15: Modifica asset
 
 - *Attori coinvolti:* Utente \
 
-- *Precondizioni:* 
+- *Precondizioni:*
 + L'utente ha inserito il documento di configurazione del dispositivo.
-+ L'utente ha inserito almeno un asset\
++ L'utente ha inserito almeno un asset.
 
 - *Postcondizioni:* L'utente ha modificato un asset. \
 
@@ -710,7 +710,7 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 
 #figure(
   image("../../../images/diagrammiUML/UC-15.png", width: 70%),
-  caption: [UC-15 : Visualizza dati dispositivo]
+  caption: [UC-15 : Modifica asset]
 )
 
 === UC-15.1: Modifica nome asset
@@ -736,7 +736,7 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 + L'utente modifica il tipo di un asset.
 
 - *Scenari alternativi:*
-+ L'utente modifica il tipo di un asset in un tipo non valido
++ L'utente modifica il tipo di un asset in un tipo non valido.
 
 === UC-15.3: Modifica descrizione asset
 
@@ -756,8 +756,7 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 
 - *Attori coinvolti:* Utente \
 
-- *Precondizioni:* 
- L'utente ha inserito il documento di configurazione del dispositivo.\
+- *Precondizioni:* L'utente ha inserito il documento di configurazione del dispositivo.
 
 - *Postcondizioni:* L'utente ha visualizzato i dati del dispositivo. \
 
@@ -820,10 +819,10 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 + L'utente ha inserito il documento di configurazione del dispositivo.
 + L'utente ha inserito almeno un asset.\
 
-- *Postcondizioni:* L'utente ha visualizzato la lista di assets. \
+- *Postcondizioni:* L'utente ha visualizzato la lista di asset. \
 
 - *Scenario principale:*
-+ L'utente seleziona la lista di asset da vedere
++ L'utente seleziona la lista degli asset da vedere
 + Per ogni asset nella lista l'utente:
   - 2.1: L'utente visualizza le informazioni di un singolo asset
 #figure(
@@ -836,7 +835,7 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 
 - *Attori coinvolti:* Utente \
 
-- *Precondizioni:* L'utente ha selezionato di visualizzare la lista di asset.\
+- *Precondizioni:* L'utente ha selezionato di visualizzare la lista degli asset.\
 
 - *Postcondizioni:* L'utente ha visualizzato le informazioni di un singolo asset. \
 
@@ -880,7 +879,7 @@ riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
 
 - *Attori coinvolti:* Utente \
 
-- *Precondizioni:* L'utente ha selezionato di visualizzare la descriozione di un asset.\
+- *Precondizioni:* L'utente ha selezionato di visualizzare la descrizione di un asset.\
 
 - *Postcondizioni:* L'utente ha visualizzato la descrizione di un singolo asset. \
 
