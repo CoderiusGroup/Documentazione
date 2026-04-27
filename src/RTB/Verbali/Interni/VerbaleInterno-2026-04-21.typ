@@ -68,8 +68,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026/04/03], [Filippo Zonta Rocha], [Alberto Canavese], [Prima stesura del verbale],
+      [0.1.0], [2026/04/21], [Filippo Zonta Rocha], [Alberto Canavese], [Prima stesura del verbale],
+      [0.2.0], [2026/04/21], [Alberto Canavese], [Leonardo Lorenzin], [Aggiornamento contenuti e correzione refusi],
     )
   ]
 
@@ -119,7 +119,7 @@
 
 = Svolgimento della Riunione
 == Scelta delle tecnologie per il backend
-Il team dopo aver approfondito personalmente le tecnologie proposte precedentemente ha scelto di utilizzare Flask come framework per lo sviluppo del backend, in quanto ritenuto più adatto alle esigenze.
+Il team, dopo aver approfondito personalmente le tecnologie proposte precedentemente, ha scelto di utilizzare Flask come framework per lo sviluppo del backend, in quanto ritenuto più adatto alle esigenze.
 
 
 == Stesura iniziale del documento Piano di progetto
@@ -129,13 +129,13 @@ Il team ha discusso e definito la struttura iniziale del documento Piano di prog
 Il team ha iniziato a delineare le Norme di progetto, identificando le regole e le linee guida che guideranno lo sviluppo del progetto, inclusi standard di codifica, processi di revisione e comunicazione interna.
 
 == Continuazione del documento Analisi dei requisiti
-Si procede ad approfondire ulteriormente l'Analisi dei requisiti, procedendo per step atte all' avanzamento del documento, con particolare attenzione alla definizione dei requisiti funzionali e non funzionali del progetto.
+Si procede ad approfondire ulteriormente l'Analisi dei requisiti, procedendo per step atti all'avanzamento del documento, con particolare attenzione alla definizione dei requisiti funzionali e non funzionali del progetto.
 == Continuazione del documento Glossario
 Il team ha continuato a lavorare sul Glossario, aggiungendo nuovi termini e definizioni rilevanti per il progetto, al fine di garantire la coerenza documentale.
-== Redistribuzione dei ruoli 
-Il team ha discusso e redistribuito i ruoli all'interno del progetto per andare incontro alle esigenze attuali di stesura dei documenti. 
+== Redistribuzione dei ruoli
+Il team ha discusso e redistribuito i ruoli all'interno del progetto per andare incontro alle esigenze attuali di stesura dei documenti.
 == Preparazione domande da porre a Bluewind Srl
-È stato preparato un insieme di domande da sottoporre all’azienda *Bluewind Srl* durante la riunione programmata per Lunedi 4 maggio 2026.
+È stato preparato un insieme di domande da sottoporre all’azienda *Bluewind Srl* durante la riunione programmata per Lunedì 4 maggio 2026.
 
 
 #pagebreak()
@@ -152,7 +152,7 @@ Il team ha discusso e redistribuito i ruoli all'interno del progetto per andare 
     [VI-3.4], [Continuazione del documento Analisi dei requisiti],
     [VI-3.5], [Continuazione del documento Glossario],
     [VI-3.6], [Stesura del Diario di bordo],
-    [VI-3.7], [Domande per Bluewind per l'incontro del 26/05/04]
+    [VI-3.7], [Domande per Bluewind per l'incontro del 2026/05/04],
   )
 ]
 
@@ -161,7 +161,7 @@ Il team ha discusso e redistribuito i ruoli all'interno del progetto per andare 
 == Ordine del Giorno prossimo incontro
 I seguenti punti saranno affrontati nella prossima riunione interna:
 + Verifica avanzamento lavori.
-+ Iniziare stesura piano di qualifica.
++ Stesura del Diario di Bordo.
 
 #v(0.5cm)
 
@@ -172,14 +172,14 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-3.1], [Scelta delle tecnologie per il backend], [Team], [VI-3.1],
-    [TD-3.2], [Stesura del documento Piano di progetto], [Ines Iadadi], [VI-3.2],
-    [TD-3.3], [Stesura del documento Norme di progetto], [Leonardo Lorenzin \ Giovanni Angelo Marco Bronte], [VI-3.3],
-    [TD-3.4], [Continuazione del documento Analisi dei requisiti], [Edis Hodja, Ines Iadadi], [VI-3.4],
-    [TD-3.5], [Continuazione del documento Glossario], [Team], [VI-3.5],
-    [TD-3.6], [Stesura del Diario di bordo], [Filippo Zonta Rocha], [VI-3.6],
-    [TD-3.7], [Domande per Bluewind per l'incontro del 26/05/04], [Team], [VI-3.7]
+    [TD-3.1], [Stesura relativa al primo sprint del documento Piano di Progetto], [Ines Iadadi], [VI-3.2],
+    [TD-3.2],
+    [Stesura iniziale del documento Norme di Progetto],
+    [Leonardo Lorenzin, \ Giovanni Angelo Marco Bronte],
+    [VI-3.3],
 
-
+    [TD-3.3], [Continuazione del documento Analisi dei requisiti], [Edis Hodja, Ines Iadadi], [VI-3.4],
+    [TD-3.4], [Continuazione del documento Glossario], [Team], [VI-3.5],
+    [TD-3.5], [Domande per Bluewind per l'incontro del 2026/05/04], [Team], [VI-3.7],
   )
 ]
