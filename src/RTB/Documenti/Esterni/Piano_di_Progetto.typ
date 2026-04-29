@@ -1,21 +1,20 @@
 #set page(
-    paper: "a4",
-    margin: (x: 2.5cm, y: 3cm),
-    header: context {
+  paper: "a4",
+  margin: (x: 2.5cm, y: 3cm),
+  header: context {
     if counter(page).get().first() > 1 [
       #set text(size: 9pt, fill: luma(100))
       #grid(
         columns: (1fr, 1fr),
-        align(left)[Piano di Progetto],
-        align(right)[Coderius Group]
+        align(left)[Piano di Progetto], align(right)[Coderius Group],
       )
       #v(-0.5em)
       #line(length: 100%, stroke: 0.4pt + luma(150))
     ]
-  }
-  )
+  },
+)
 
-#set text(font: "Libertinus Serif",size: 12pt,lang: "it")
+#set text(font: "Libertinus Serif", size: 12pt, lang: "it")
 
 #set heading(numbering: "1.")
 
@@ -34,14 +33,14 @@
       ),
       inset: (x: 10pt, y: 7pt),
       fill: (x, _) => if x == 0 { luma(240) } else { none },
-      [*Codice*],            [#id],
-      [*Denominazione*],     [#nome],
-      [*Categoria*],         [#tipo],
-      [*Probabilità*],       [#prob],
-      [*Impatto*],           [#impatto],
-      [*Prevenzione*],       [#prevenzione],
+      [*Codice*], [#id],
+      [*Denominazione*], [#nome],
+      [*Categoria*], [#tipo],
+      [*Probabilità*], [#prob],
+      [*Impatto*], [#impatto],
+      [*Prevenzione*], [#prevenzione],
       [*Piano di risposta*], [#risposta],
-    )
+    ),
   )
   v(0.8em)
 }
@@ -63,7 +62,7 @@
         role-header[*Verificatore*],
         role-header[*Totale*],
       ),
-      ..rows.flatten()
+      ..rows.flatten(),
     ),
     caption: caption-text,
   )
@@ -99,8 +98,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    // aggiungi nuova riga quando aggiorni ^
-    [0.1.0], [2026/04/21], [Ines Iadadi], [Alberto Canavese],[Prima stesura del documento e redazione Sprint 1],
+    [0.2.0], [2026/04/21], [Alberto Canavese], [Filippo Zonta Rocha], [Correzione refusi],
+    [0.1.0], [2026/04/21], [Ines Iadadi], [Alberto Canavese], [Prima stesura del documento e redazione Sprint 1],
   )
 ]
 #pagebreak()
@@ -117,9 +116,9 @@
 = Introduzione
 
 == Scopo del documento
-Il presente Piano di Progetto si configura come lo strumento cardine per la direzione operativa del gruppo Coderius, delineando i criteri fondamentali per garantire l'efficienza dei processi lungo l'intero ciclo di vita del software. 
+Il presente Piano di Progetto si configura come lo strumento cardine per la direzione operativa del gruppo Coderius, delineando i criteri fondamentali per garantire l'efficienza dei processi lungo l'intero ciclo di vita del software.
 
-La sua funzione primaria è quella di fornire un quadro d'insieme che permetta al team e agli stakeholder di monitorare l'evoluzione del prodotto, partendo dalla gestione proattiva dei rischi per neutralizzarli prima che possano impattare sui requisiti. A tal fine, il documento stabilisce una schedulazione puntuale dei task e identifica le milestone per il rispetto delle scadenze, integrando queste informazioni con una stima dei costi e una distribuzione equilibrata del lavoro tra i ruoli. 
+La sua funzione primaria è quella di fornire un quadro d'insieme che permetta al team e agli stakeholder di monitorare l'evoluzione del prodotto, partendo dalla gestione proattiva dei rischi per neutralizzarli prima che possano impattare sui requisiti. A tal fine, il documento stabilisce una schedulazione puntuale dei task e identifica le milestone per il rispetto delle scadenze, integrando queste informazioni con una stima dei costi e una distribuzione equilibrata del lavoro tra i ruoli.
 
 Il documento viene aggiornato a ogni sprint e rappresenta la memoria storica del progetto.
 
@@ -149,13 +148,19 @@ Per garantire che ogni termine tecnico sia compreso correttamente e per evitare 
 
 === Riferimenti normativi
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[#text(fill: blue)[Capitolato C1 - _Automated EN18031 Compliance Verification_, Bluewind S.r.l.]]
+- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[#text(
+    fill: blue,
+  )[Capitolato C1 - _Automated EN18031 Compliance Verification_, Bluewind S.r.l.]]
 
 === Riferimenti informativi
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf")[#text(fill: blue)[Slide IS A.A. 2025/2026 - _Regolamento del progetto didattico_ ]]
+- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf")[#text(
+    fill: blue,
+  )[Slide IS A.A. 2025/2026 - _Regolamento del progetto didattico_ ]]
 
-- #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Glossario.pdf")[#text(fill: blue)[Glossario]]
+- #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Glossario.pdf")[#text(
+    fill: blue,
+  )[Glossario]]
 
 
 = Informazioni sul progetto
@@ -179,23 +184,19 @@ Di seguito è riportato il preventivo economico, dove i costi del progetto sono 
       columns: (1fr, 1fr, 1fr, 1fr),
       align: (left, center, center, center, right),
       stroke: 0.5pt + luma(100),
-      table.header(
-        [*Ruolo*], 
-        [*Costo (€/h)*], 
-        [*Ore Totali*],
-        [*Costo Totale (€)*]
-      ),
-      [Responsabile],   [30], [60], [1800],
+      table.header([*Ruolo*], [*Costo (€/h)*], [*Ore Totali*], [*Costo Totale (€)*]),
+      [Responsabile], [30], [60], [1800],
       [Amministratore], [20], [54], [1080],
-      [Analista],       [25], [84], [1800],
-      [Progettista],    [25], [120], [2400],
-      [Programmatore],  [15], [108], [1620],
-      [Verificatore],   [15], [132], [1980],
-      table.cell(colspan: 2, align: center, fill: luma(220))[*Totale Complessivo*], [*558*], [*10 680*]
+      [Analista], [25], [72], [1800],
+      [Progettista], [25], [96], [2400],
+      [Programmatore], [15], [108], [1620],
+      [Verificatore], [15], [132], [1980],
+      table.cell(colspan: 2, align: center, fill: luma(220))[*Totale Complessivo*], [*522*], [*10 680*],
     ),
-    caption: [Preventivo dei costi ripartito per ruoli.]
+    caption: [Preventivo dei costi ripartito per ruoli.],
   )<tabella-preventivo>
 ]
+#pagebreak()
 
 == Milestone
 
@@ -204,9 +205,9 @@ Di seguito è riportato il preventivo economico, dove i costi del progetto sono 
     columns: (1fr, auto),
     stroke: 0.5pt + luma(100),
     inset: 7pt,
-    [*Revisione*],[*Data prevista*],
-    [Requirements and Technology Baseline (RTB)],[2026/--/--],
-    [Product Baseline (PB)],[2026/--/--],
+    [*Revisione*], [*Data prevista*],
+    [Requirements and Technology Baseline (RTB)], [2026/--/--],
+    [Product Baseline (PB)], [2026/--/--],
   )
 ]
 
@@ -214,7 +215,7 @@ Di seguito è riportato il preventivo economico, dove i costi del progetto sono 
 
 = Analisi dei rischi
 
-In questa sezione vengono elencate le situazioni che potrebbero compromettere il raggiungimento degli obiettivi, valutandone la probabilità di occorrenza e l'impatto atteso, e defininendo in anticipo le azioni da intraprendere per prevenirle o limitarne le conseguenze.
+In questa sezione vengono elencate le situazioni che potrebbero compromettere il raggiungimento degli obiettivi, valutandone la probabilità di occorrenza e l'impatto atteso, e definendo in anticipo le azioni da intraprendere per prevenirle o limitarne le conseguenze.
 Nel contesto di questo progetto, l'analisi dei rischi è strutturata in quattro fasi ricorrenti che si ripetono per ogni sprint:
 
 - *Identificazione:* si elencano le fonti di rischio potenziali, tenendo conto delle caratteristiche specifiche del progetto, come la novità del dominio applicativo, le tecnologie adottate, la composizione e l'esperienza del team, e i vincoli temporali imposti dal calendario accademico.
@@ -241,9 +242,9 @@ I rischi sono classificati in tre categorie, identificate dal prefisso del codic
   [Alta],
   [Alto],
   [Prima di iniziare a sviluppare, il team dedica tempo allo studio delle
-   tecnologie scelte. I membri con più esperienza in un'area affiancano gli altri.],
+    tecnologie scelte. I membri con più esperienza in un'area affiancano gli altri.],
   [Se durante uno sprint emerge un blocco tecnico prolungato, si valutano
-   soluzioni alternative più semplici o si chiede supporto a Bluewind.]
+    soluzioni alternative più semplici o si chiede supporto a Bluewind.],
 )
 
 #scheda-rischio(
@@ -253,10 +254,10 @@ I rischi sono classificati in tre categorie, identificate dal prefisso del codic
   [Media],
   [Alto],
   [Lo studio della norma avviene collettivamente, il team condivide le proprie interpretazioni e si confronta per allinearle.
-   I dubbi interpretativi vengono portati a Bluewind negli incontri periodici.],
+    I dubbi interpretativi vengono portati a Bluewind negli incontri periodici.],
   [
     Se emergono errori di interpretazione dopo la stesura dell'Analisi dei Requisiti, si correggono tempestivamente i documenti e si adattano le attività di sviluppo per riallinearsi ai requisiti corretti, minimizzando l'impatto sui tempi.
-  ]
+  ],
 )
 
 == Rischi organizzativi
@@ -268,10 +269,10 @@ I rischi sono classificati in tre categorie, identificate dal prefisso del codic
   [Alta],
   [Medio],
   [Le attività vengono scomposte in task piccoli e verificabili. Nei primi
-   sprint si accetta un margine di errore più alto, e si usano le retrospettive
-   per calibrare le stime successive man mano che si accumulano dati storici.],
+    sprint si accetta un margine di errore più alto, e si usano le retrospettive
+    per calibrare le stime successive man mano che si accumulano dati storici.],
   [Se uno sprint si chiude con uno scostamento rilevante, si analizzano le
-   cause in retrospettiva e si adatta il metodo di stima. ]
+    cause in retrospettiva e si adatta il metodo di stima. ],
 )
 
 #scheda-rischio(
@@ -281,12 +282,12 @@ I rischi sono classificati in tre categorie, identificate dal prefisso del codic
   [Media],
   [Alto],
   [I task vengono assegnati tenendo conto della disponibilità reale di ogni
-   membro. Lo stato di avanzamento viene monitorato tramite GitHub Projects e
-   discusso nel punto di metà sprint.],
+    membro. Lo stato di avanzamento viene monitorato tramite GitHub Projects e
+    discusso nel punto di metà sprint.],
   [Se un task non viene completato entro lo sprint, entra nel backlog del
-   successivo con priorità alta. La causa viene discussa in retrospettiva per
-   capire se si tratta di una stima sbagliata, di un imprevisto o di un
-   problema organizzativo da correggere.]
+    successivo con priorità alta. La causa viene discussa in retrospettiva per
+    capire se si tratta di una stima sbagliata, di un imprevisto o di un
+    problema organizzativo da correggere.],
 )
 
 #scheda-rischio(
@@ -296,10 +297,10 @@ I rischi sono classificati in tre categorie, identificate dal prefisso del codic
   [Bassa],
   [Medio],
   [Le comunicazioni con Bluewind vengono pianificate con anticipo. I dubbi
-   vengono raccolti e presentati in modo raggruppato durante gli incontri.],
+    vengono raccolti e presentati in modo raggruppato durante gli incontri.],
   [Se un'attività è bloccata in attesa di una risposta, il team si sposta
-   su task non dipendenti e documenta le decisioni prese autonomamente,
-   da sottoporre a validazione al primo incontro utile.]
+    su task non dipendenti e documenta le decisioni prese autonomamente,
+    da sottoporre a validazione al primo incontro utile.],
 )
 
 == Rischi individuali
@@ -311,11 +312,11 @@ I rischi sono classificati in tre categorie, identificate dal prefisso del codic
   [Alta],
   [Alto],
   [All'inizio di ogni sprint ciascun membro comunica la propria disponibilità
-   prevista. La pianificazione viene adattata di conseguenza, evitando di
-   concentrare lavoro critico nei periodi di sessione d'esame.],
+    prevista. La pianificazione viene adattata di conseguenza, evitando di
+    concentrare lavoro critico nei periodi di sessione d'esame.],
   [Se un membro risulta temporaneamente indisponibile, le sue attività vengono
-   ridistribuite. La documentazione è mantenuta aggiornata in modo che il
-   subentro di un altro membro sia rapido e senza perdite di lavoro già svolto.]
+    ridistribuite. La documentazione è mantenuta aggiornata in modo che il
+    subentro di un altro membro sia rapido e senza perdite di lavoro già svolto.],
 )
 
 #pagebreak()
@@ -340,9 +341,9 @@ in modo diretto quanto pianificato con quanto effettivamente realizzato:
   columns: (0.3fr, 1fr),
   stroke: none,
   inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
-  [*Inizio:*],        [2026/04/03],
+  [*Inizio:*], [2026/04/03],
   [*Fine prevista:*], [2026/04/21],
-  [*Fine reale:*],    [2026/04/21],
+  [*Fine reale:*], [2026/04/21],
 )
 #v(0.3em)
 
@@ -372,29 +373,29 @@ In questo sprint ci si aspetta principalmente tre tipologie di problema:
 === Preventivo
 #figure(
   tabella-ore((
-    ([Alberto Canavese],   [6],[-],[-],[-],[-],[-],[6]),
-    ([Edis Hodja],         [-],[-],[8],[-],[-],[-],[8]),
-    ([Filippo Zonta Rocha],[-],[-],[-],[-],[-],[6],[6]),
-    ([Giovanni Angelo Marco Bronte],    [-],[-],[8],[-],[-],[-],[8]),
-    ([Ines Iadadi],        [-],[7],[-],[-],[-],[-],[7]),
-    ([Leonardo Lorenzin],  [-],[-],[-],[-],[-],[6],[6]),
-    (table.cell(align: center, fill: luma(220))[*Totale*],[*6*],[*7*],[*16*],[*0*],[*0*],[*12*],[*41*]),
+    ([Alberto Canavese], [6], [-], [-], [-], [-], [-], [6]),
+    ([Edis Hodja], [-], [-], [8], [-], [-], [-], [8]),
+    ([Filippo Zonta Rocha], [-], [-], [-], [-], [-], [6], [6]),
+    ([Giovanni Angelo Marco Bronte], [-], [-], [8], [-], [-], [-], [8]),
+    ([Ines Iadadi], [-], [7], [-], [-], [-], [-], [7]),
+    ([Leonardo Lorenzin], [-], [-], [-], [-], [-], [6], [6]),
+    (table.cell(align: center, fill: luma(220))[*Totale*], [*6*], [*7*], [*16*], [*0*], [*0*], [*12*], [*41*]),
   )),
-    caption: [Preventivo ore per membro - Sprint 1]
+  caption: [Preventivo ore per membro - Sprint 1],
 )
 
 === Consuntivo
 #figure(
- tabella-ore((
-    ([Alberto Canavese],   [5#text(fill: green)[(-1)]],[-],[-],[-],[-],[-],[5]),
-    ([Edis Hodja],         [-],[-],[7#text(fill: green)[(-1)]],[-],[-],[-],[7]),
-    ([Filippo Zonta Rocha],[-],[-],[-],[-],[-],[6],[6]),
-    ([Giovanni Angelo Marco Bronte],      [-],[-],[9#text(fill: red)[(+1)]],[-],[-],[-],[9]),
-    ([Ines Iadadi],          [-],[7],[-],[-],[-],[-],[7]),
-    ([Leonardo Lorenzin],    [-],[-],[-],[-],[-],[7#text(fill: red)[(+1)]],[7]),
-    (table.cell(align: center, fill: luma(220))[*Totale*],[*5*],[*7*],[*16*],[*0*],[*0*],[*13*],[*41*]),
-
-  )), caption: [Consuntivo ore per membro - Sprint 1]
+  tabella-ore((
+    ([Alberto Canavese], [5#text(fill: green)[(-1)]], [-], [-], [-], [-], [-], [5]),
+    ([Edis Hodja], [-], [-], [7#text(fill: green)[(-1)]], [-], [-], [-], [7]),
+    ([Filippo Zonta Rocha], [-], [-], [-], [-], [-], [6], [6]),
+    ([Giovanni Angelo Marco Bronte], [-], [-], [9#text(fill: red)[(+1)]], [-], [-], [-], [9]),
+    ([Ines Iadadi], [-], [7], [-], [-], [-], [-], [7]),
+    ([Leonardo Lorenzin], [-], [-], [-], [-], [-], [7#text(fill: red)[(+1)]], [7]),
+    (table.cell(align: center, fill: luma(220))[*Totale*], [*5*], [*7*], [*16*], [*0*], [*0*], [*13*], [*41*]),
+  )),
+  caption: [Consuntivo ore per membro - Sprint 1],
 )
 
 === Risorse rimanenti
@@ -404,15 +405,15 @@ In questo sprint ci si aspetta principalmente tre tipologie di problema:
     align: (left, center, center, right, center, right),
     stroke: 0.5pt + luma(100),
     inset: (x: 8pt, y: 6pt),
-    [*Ruolo*],[*€/h*],[*Ore sprint*],[*Costo sprint*],
-    [*Ore residue*],[*Budget residuo*],
-    [Responsabile],   [30],[5], [ 150€],[55],[1650€],
-    [Amministratore], [20],[7], [ 140€],[47],[940€],
-    [Analista],       [25],[16],[ 400€],[68],[1400€],
-    [Progettista],    [25],[0], [   0€],[120],[2400€],
-    [Programmatore],  [15],[0], [   0€],[108],[1620€],
-    [Verificatore],   [15],[13], [ 195€],[119],[1785€],
-    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*],[*41*],[*595€*],[*517*],[*9795€*],
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [5], [ 150€], [55], [1650€],
+    [Amministratore], [20], [7], [ 140€], [47], [940€],
+    [Analista], [25], [16], [ 400€], [56], [1400€],
+    [Progettista], [25], [0], [   0€], [96], [2400€],
+    [Programmatore], [15], [0], [   0€], [108], [1620€],
+    [Verificatore], [15], [13], [ 195€], [119], [1785€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*41*], [*885€*], [*481*], [*9795€*],
   )
 ]
 
@@ -434,6 +435,6 @@ L'incontro con Bluewind ha contribuito in modo significativo alla comprensione d
 
 ==== *Criticità emerse*
 
-La complessità dello standard EN 18031 ha richiesto più tempo del previsto nella fase di analisi individuale, rendendo necessario un confronto interno supplementare per allineare le interpretazioni prima di procedere con la stesura dell'Analisi dei Requisiti, il team cerchera di mitigare questo rischio condividendo in modo più strutturato i risultati dello studio individuale, pianificando momenti di confronto più frequenti durante lo sprint.
+La complessità dello standard EN 18031 ha richiesto più tempo del previsto nella fase di analisi individuale, rendendo necessario un confronto interno supplementare per allineare le interpretazioni prima di procedere con la stesura dell'Analisi dei Requisiti. Il team cercherà di mitigare questo rischio condividendo in modo più strutturato i risultati dello studio individuale, pianificando momenti di confronto più frequenti durante lo sprint.
 
 Negli sprint successivi sarà inoltre importante migliorare la comunicazione interna per operare in modo più efficace, soprattutto per le attività che richiedono collaborazione stretta tra i membri.
