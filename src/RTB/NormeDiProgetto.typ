@@ -21,8 +21,9 @@
 #show figure: set figure(supplement: none)
 
 #align(center)[
+
   #v(8em)
-  #image("../../../images/logoCoderius.jpg", width: 60%)
+  #image("../images/logoCoderius.jpg", width: 60%)
   #line(length: 70%, stroke: 1pt)
   #v(1em)
   #text(size: 26pt, weight: "bold")[Norme di Progetto]
@@ -52,6 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.3.0], [2026/04/30], [Giovanni Bronte], [],[Aggiunta della sezione 3.2],
     [0.2.0], [2026/04/27], [Lorenzin Leonardo], [],[Aggiunta delle sezioni 3.1 e 3.3],
     [0.1.0], [2026/04/23], [Lorenzin Leonardo], [],[Prima stesura del documento]
   )
@@ -597,6 +599,50 @@ Nel caso in cui i documenti necessitino di modifiche a causa di eventuali errori
 + Aprire una Pull Request in modo che tale che il documento aggiornato possa essere verificato dal membro del gruppo assegnato a tale attività;
 
 + Aggiungere il documento revisionato nel branch dedicato a quest'ultimo (es. feature/norme-progetto).
+
+
+== Gestione della configurazione
+#v(0.5em)
+Questa sezione ha l'obiettivo di descrivere come il gruppo Coderius gestisce le componenti software nel progetto, al fine di garantire tracciabilità, coerenza e controllo delle modifiche.
+
+=== Attività previste
+#v(0.5em)
+La gestione delle attività previste avviene nel seguente ordine:
++ *Identificazione della configurazione*
++ *Controllo della configurazione*
++ *Rendicontazione dello stato della configurazione*
++ *Valutazione della configurazione*
+
+=== Identificazione della configurazione
+#v(0.5em)
+Secondo lo standard ISO/IEC 12207:1995 l'attività di identificazione della configurazione consiste nell'individuazione di tutte le componenti, questo include tutti i componenti composti da codice ma anche la parte documentale.\
+Questa attività sarà effettuata durante la fase di progettazione e schematizza l'architettura del software, la quale verrà in seguito implementata dagli sviluppatori.
+=== Controllo della configurazione
+#v(0.5em)
+Per poter svolgere al meglio questa attività, il gruppo Coderius ha deciso di usare i seguenti strumenti: 
+- *Pull Request*: la pull request permette al nostro team di revisionare il lavoro fatto e approvarlo tramite una merge prima di poterlo integrare nel main branch, questo viene fatto per ridurre al minimo gli errori prima di caricare un documento considerato concluso.
+- *Issue*: le issue permettono di tracciare, gestire e pianificare le attività per un progetto. Nel nostro caso vengono usate prima di creare un nuovo documento e per assegnare il lavoro alla persona con il ruolo più adatto per quello sprint.
+- *Project Board*: è una tavola digitale utilizzata per tracciare il lavoro che sta venendo svolto al momento. È suddivisa in backlog, Ready, In progress, In review, Done.
+Questi strumenti sono forniti gratuitamente dalla piattaforma Github.
+
+=== Rendicontazione dello stato della configurazione
+#v(0.5em)
+La rendicontazione dello stato della configurazione consiste nel definire come viene versionato un documento, il nostro gruppo ha adottato il seguente metodo: *MAJOR.MINOR.PATCH*.\
+- *MAJOR*: viene incrementata solo in caso di approvazione ufficiale  e indica che il file in questione è concluso.
+- *MINOR*: viene incrememtata in caso di modifiche sostanziali che alterano la struttura complessiva del file.
+- *PATCH*: viene incrementata in caso di modifiche minori, come errori ortografici. 
+
+
+=== Valutazione della configurazione
+#v(0.5em)
+Questa attività serve a controllare che il software prodotto sia funzionale e completo rispetto ai requisiti rilevati. Quest'ultima è impostata grazie ad un tracciamento dei requisiti, definito all'interno del documento "Analisi dei requisiti".
+
+=== Strumenti utilizzati
+#v(0.5em)
+Gli strumenti per la gestione della configurazione che il gruppo ha deciso di adottare sono i seguenti:
+- *GitHub*: principale strumento per creare, modificare e gestire tutti i documenti legati al progetto. Permette inoltre di poter creare delle milestone, assegnare ruoli e tracciare il lavoro.
+- *Github Pages*: strumento di Github utilizzato per la realizzazione del sito web, sempre attivo e direttamente connesso con la nostra repository di GitHub. Il suo scopo principale è quello di consentire la visualizzazione al gruppo, al proponente e ai committenti di tutta la documentazione prodotta in formato PDF.
+
 
 
 == Garanzia della qualità
