@@ -52,6 +52,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.2.0], [2026/04/27], [Lorenzin Leonardo], [],[Aggiunta delle sezioni 3.1 e 3.3],
     [0.1.0], [2026/04/23], [Lorenzin Leonardo], [],[Prima stesura del documento]
   )
 ]
@@ -495,6 +496,120 @@ Il gruppo si impegna a partecipare alle milestone di avanzamento previste:
 - *RTB (Requirements and Technology Baseline)*: momento di revisione che prevede la consegna della documentazione (AdR, NdP, PdP, PdQ, Glossario) e la presentazione di un *PoC* (Proof of Concept) per dimostrare la fattibilità tecnica della soluzione scelta;
 
 - *PB (Product Baseline)*: fase finale che prevede la consegna della documentazione tecnica completa e la presentazione dell'applicazione funzionante per la verifica della conformità allo standard* EN 18031*.
+= Processi di Supporto
+#v(0.5em)
+La seguente sezione descrive i processi di supporto secondo lo standard ISO/IEC 12207, che hanno lo scopo di garantire l'efficace gestione, controllo e qualità delle attività del ciclo di vita del progetto.\
+I processi di supporto che verranno descritti in questa sezione sono i seguenti:
+- *Documentazione*
+- *Gestione delle configurazioni*
+- *Accertamento della qualità*
+- *Verifica*
+- *Validazione*
 
+#v(1em)
+
+== Documentazione
+#v(0.5em)
+Il processo di documentazione ha lo scopo di raccogliere, organizzare e gestire l'insieme dei documenti prodotti durante l'intero ciclo di vita del progetto. Non rappresenta una semplice attività di archiviazione, ma costituisce il fondamento per garantire la trasparenza, la manutenibilità e la continuità del lavoro tra i membri del gruppo.
+
+Ogni attività, decisione tecnica o organizzativa deve essere formalizzata per permettere:
+- *Tracciabilità*: ricostruire l'evoluzione del progetto e le motivazioni dietro ogni scelta architetturale o normativa;
+- *Qualità*: assicurare che ogni documento prodotto rispetti gli standard definiti e sia sottoposto a verifica prima del rilascio;
+- *Comunicazione*: facilitare lo scambio di informazioni tra i componenti del team e verso la proponente e i committenti.
+
+=== Tipologie di documenti
+#v(0.5em)
+Il gruppo ha definito dei template specifici per garantire l'uniformità e la professionalità della documentazione. I documenti che dispongono di una struttura predefinita sono:
+
+- *Verbale interno*: resoconto delle riunioni di coordinamento del team;
+- *Verbale esterno*: documentazione degli incontri con il proponente (BlueWind S.r.l.) o il committente;
+- *Diario di bordo*: documento informativo periodico sullo stato di avanzamento del progetto.
+
+==== Verbali
+#v(0.5em)
+I verbali del gruppo Coderius seguono una struttura fissa per facilitare la reperibilità delle informazioni:
+
+- *Frontespizio*: include il logo del gruppo, i dati di contatto (#link("mailto:coderius01@gmail.com")), la tipologia di documento e i riferimenti temporali (data, ora di inizio e fine) e logici (luogo o canale di comunicazione) della riunione;
+- *Tabella di versionamento*: riporta lo storico delle modifiche, indicando versione, data, autore, verificatore e descrizione dell'aggiornamento;
+- *Indice*: elenco numerato delle sezioni per una navigazione rapida del documento;
+- *Partecipanti*: lista dei membri del team presenti all'incontro;
+- *Ordine del Giorno*: elenco sintetico dei punti che si intendono affrontare durante la seduta;
+- *Svolgimento della Riunione*: trattazione dettagliata di ogni punto dell'ordine del giorno e discussioni su varie altre decisoni prese per l'avanzamento del progetto;
+- *Conclusioni e Decisioni prese*: riassunto di quanto è stato discusso durante la riunione, tramite una tabella.
+- *Ordine del giorno prossimo incontro*: elenco degli argomenti principali di cui discutere durante il successivo incontro. 
+- *TODO (Attività da svolgere)*: tabella riassuntiva che elenca i compiti assegnati in vista dell'incontro successivo.
+#v(0.5em)
+*Convenzioni di nomenclatura e codifica*
+#v(0.5em)
+Per garantire la tracciabilità tra discussioni e azioni, il gruppo adotta i seguenti formati:
+
+- *Attività (TODO)*: identificate dal codice *TD-x.y* (dove $x$ è il numero progressivo del verbale e $y$ l'identificativo dell'attività);
+- *Decisioni di riferimento*: collegate alle attività tramite il codice $V I_G - x.y$ per i verbali interni (dove $G$ a pedice indica il riferimento al Glossario);
+- *Date*: espresse nel formato *AAAA/MM/GG* per uniformità con il registro delle modifiche e gli standard internazionali.
+
+==== Diario di bordo
+#v(0.5em)
+Questa tipologia di documento ha la funzione di monitorare periodicamente lo stato di avanzamento del gruppo e possiede una finalità prettamente informativa. La struttura dei Diari di Bordo si articola in tre punti chiave:
+
+- *Risultati raggiunti*: elenco dettagliato delle attività portate a termine nel periodo di riferimento ;
+- *Attività successive*: pianificazione dei task previsti per il periodo successivo;
+- *Difficoltà riscontrate*: analisi di eventuali criticità o ostacoli emersi durante lo svolgimento del lavoro.
+
+==== Denominazione dei documenti
+#v(0.5em)
+Al fine di garantire un ordinamento cronologico intuitivo e una gestione efficiente dei file nel repository, il gruppo ha stabilito una nomenclatura standard basata sul formato *NomeDocumento-AAAA-MM-GG*. Nello specifico:
+
+- *Verbali interni*: `VerbaleInterno-AAAA-MM-GG`;
+- *Verbali esterni*: `VerbaleEsterno-AAAA-MM-GG`;
+- *Diari di bordo*: `DiarioDiBordo-AAAA-MM-GG`.
+
+=== Strumenti per la documentazione
+#v(0.5em)
+Per la redazione e la gestione della documentazione, il gruppo ha deciso di utilizzare i seguenti strumenti:
+
+- *Typst*: è il principale linguaggio di markup utilizzato per l'intera documentazione di progetto. A differenza di sistemi più datati come LaTeX, Typst offre una compilazione istantanea e una sintassi più moderna e leggibile. Questo permette al gruppo di mantenere un alto standard qualitativo dei documenti, garantendo al contempo una maggiore velocità nella revisione dei contenuti e nella gestione dei template personalizzati;
+
+- *GitHub*: rappresenta il fulcro del sistema di conservazione e controllo dei documenti. L'utilizzo di repository dedicate permette di tracciare ogni singola modifica tramite il versionamento del codice sorgente dei file `.typ`. Il gruppo sfrutta inoltre le seguenti funzionalità:
+  - *Pull Request*: per gestire i processi di verifica e approvazione in modo strutturato prima dell'integrazione definitiva;
+  - *GitHub Actions*: per automatizzare la generazione dei PDF a partire dai sorgenti Typst, garantendo che l'ultima versione prodotta sia sempre disponibile e correttamente formattata;
+  - *Issue e Projects*: per la pianificazione dei task documentali e il monitoraggio delle scadenze.
+
+=== Produzione 
+#v(0.5em)
+Per la produzione di un documento il nostro gruppo opera nel seguente modo:
+- *Creazione Issue e Branch dedicato*: Inizialmente viene creata una issue su Github dal responsabile assegnato in quello sprint. Successivamente, se il documento ha una certa importanza, viene creato un branch di feature a parte per poter effetuare modifiche senza modificare il main. Se il documento da creare è invece di minore importanza, come un verbale, questo viene creato nel branch apposito: feature/verbali.
+- *Stesura del documento*: Il documento viene assegnato ad uno dei membri del team che ricopre il ruolo adatto per la stesura del documento per quello sprint e inizia a lavorare sulla stesura del documento. 
+- *Verifica del documento*: Ogni volta che il documento viene aggiornato, quest'ultimo deve essere verificato dal chi copre il ruolo verificatore e aggiornare la tabella di versionamento di conseguenza con il nome di chi ha effetuato la verifica.
+- *Approvazione e Merge*: Una volta che il documento è concluso viene aperta una pull request su github, la quale viene in seguito approvata dal responsabile che esegue il merge del branch dedicato al main. Una volta che il documento è caricato sul main branch viene considerato concluso e grazie all'automazione di Github, viene generato il pdf in automatico.  
+
+=== Manutenzione
+#v(0.5em)
+Nel caso in cui i documenti necessitino di modifiche a causa di eventuali errori presenti all'interno del loro contenuto, il gruppo segue i seguenti passaggi:
+
++ Creare un nuovo branch di lavoro dedicato per la correzione degli errori (es.feature/norme-progetto-fix).
+
++ Apportare le modifiche necessarie in locale;
+
++ Integrare la tabella di versionamento dello specifico documento inserendo una nuova riga che spiega quanto fatto;
+
++ Effettuare il push sul branch di lavoro;
+
++ Aprire una Pull Request in modo che tale che il documento aggiornato possa essere verificato dal membro del gruppo assegnato a tale attività;
+
++ Aggiungere il documento revisionato nel branch dedicato a quest'ultimo (es. feature/norme-progetto).
+
+
+== Garanzia della qualità
+#v(0.5em)
+Il gruppo implementa il processo di Garanzia della Qualità (Quality Assurance) con l'obiettivo di fornire evidenze concrete e verificabili che il prodotto software, i processi di sviluppo e tutta la documentazione prodotta siano conformi ai requisiti definiti, agli standard adottati e alle pianificazioni stabilite.
+
+=== Attività previste
+#v(0.5em)
+Il processo di garanzia della qualità prevede le seguenti attività:
+
+- *Implementazione del processo*: definizione e adozione delle metriche e delle procedure di qualità che verranno applicate durante l'intero ciclo di vita del progetto.
+- *Controllo di processo*: verifica periodica che le attività svolte dai membri del gruppo siano aderenti alle procedure e agli standard stabiliti
+- *Accertamento del prodotto*: verifica costante che il prodotto software e la relativa documentazione rispettino i requisiti specificati e le convenzioni stabilite dal gruppo;
+- *Valutazione oggettiva*: la verifica e garanzia della qualità, quando possibile, viene affidata a membri del team che non hanno partecipato attivamente alla stesura del documento o porzione di codice in questione.
 
 
