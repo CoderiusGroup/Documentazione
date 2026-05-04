@@ -53,6 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.4.0], [2026/04/30], [Giovanni Bronte], [],[Aggiunta della sezione 3.4],
     [0.3.0], [2026/04/30], [Giovanni Bronte], [],[Aggiunta della sezione 3.2],
     [0.2.0], [2026/04/27], [Lorenzin Leonardo], [],[Aggiunta delle sezioni 3.1 e 3.3],
     [0.1.0], [2026/04/23], [Lorenzin Leonardo], [],[Prima stesura del documento]
@@ -658,4 +659,38 @@ Il processo di garanzia della qualità prevede le seguenti attività:
 - *Accertamento del prodotto*: verifica costante che il prodotto software e la relativa documentazione rispettino i requisiti specificati e le convenzioni stabilite dal gruppo;
 - *Valutazione oggettiva*: la verifica e garanzia della qualità, quando possibile, viene affidata a membri del team che non hanno partecipato attivamente alla stesura del documento o porzione di codice in questione.
 
+
+== Verifica
+Il processo di Verifica ha lo scopo di valutare e determinare se il lavoro svolto soddisfi i requisiti concordati con il proponente. L' obbiettivo di questo processo è di dimostrare in modo oggettivo la correttezza del prodotto per le richieste dell'utente. Questo processo è continuo per la durata del processo ed è definito nel Piano di Qualifica.
+
+=== Attività previste
+Secondo lo standard ISO/IEC 12207:1995 il processo di verifica è previsto con le seguenti attività:
+- *Implementazione del processo*: questa attività consiste unicamente nel predisporre il piano di Verifica che effetuerà il controllo del lavoro svolto. Consiste nell' individuare le criticità e i rischi di non conformità del progetto.
+- *Verifica*: //(da discutere col team)
+
+=== Implementazione del processo
+La seguente attività ha come scopo principale l' individuazione delle criticità che possono essere trovate durante la realizzazione del progetto.Tutte le criticità che possono essere riscontrate è stata condotta un analisi accurata nella sezione 3 del documento "Piano di Progetto". Questa analisi include anche: probabilità di occorrenza, gravità della criticità, strategie di mitigazione e di prevenzione.
+=== Verifica
+//da discuterne con il team 
+In generale la verifica viene eseguita in due modi diversi: l'analisi statistica e l'analisi dinamica.
+
+=== Analisi statica
+L'analsi statica viene così definita in quanto non richiede l'esecuzione del programma esaminato. Il suo scopo è verificare la sintassi e correttezza del documento o codice in esame.
+Questa analisi può essere effettuata coni seguenti metodi:
+- *Walktrough*: metodo manuale che richiede di effettuare un analisi critica di tutto il file in questione. Viene principalemnte usata solo quando si è a conoscenza della presenza di un errore, ma senza sapere dov'è o cos'è. Questo metodo è molto dispendioso in termini di tempo e di costi, per questo il nostro team punta ad usarla il meno possibile e solo nei casi in cui è strettamente necessaria, in favore di una verifica più automatizzabile come l' inspection.
+- *Inspection*: metodo automatizzabile e guidato da una checklist predefinita. Questa checklist ha lo scopo di controllare tutti gli errori ricorrenti e criteri di qualità specifici. Dato che è un metodo automatizzabile il nostro gruppo predilige l'uso dell'ispection rispetto al walktrough, anche se l'inspection è meno approfondita del walktrough.
+
+=== Analisi dinamica
+L'analisi dinamica, in confronto all'analisi statica, richiede l'esecuzione del programma per poter rilevare gli errori. Per poter rilevare gli errori vengono eseguiti dei *Test* che devono essere ripetibili e automatizzabili, in quanto se si presenta nuovamnete un errore che era stato precedentemente risolto, il test deve essere eseguito nuovamente per poter trovare cosa altro causa questo errore.\
+Ogni test è definito dai seguenti elementi: stato iniziale,serie di input,output attesi.\
+I test sono divisi nelle seguenti 4 categorie:
+- *Test di Unità*
+- *Test di Integrazione*
+- *Test di Sistema*
+- *Test di Regressione* 
+
+
+#pagebreak()
+
+== Validazione
 
