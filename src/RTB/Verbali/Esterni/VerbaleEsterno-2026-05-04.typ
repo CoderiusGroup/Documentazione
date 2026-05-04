@@ -44,7 +44,7 @@
     #v(2em)
     #text(size: 1.6em, weight: "bold")[Incontro con #azienda]
     #v(4em)
-    #text(size: 20pt)[*Versione 0.1.0*]
+    #text(size: 20pt)[*Versione 0.2.0*]
   ]
   pagebreak()
 
@@ -65,7 +65,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],  
-      [0.1.0], [2026/04/05], [Edis Hodja], [], [Prima stesura del verbale]
+      [0.2.0], [2026/04/05], [Filippo Zonta Rocha], [], [Aggiornamento contenuti e correzione refusi],
+      [0.1.0], [2026/04/05], [Edis Hodja], [Filippo Zonta Rocha], [Prima stesura del verbale]
     )
   ]
 
@@ -128,7 +129,7 @@
 + Domande e chiarimenti su requisiti funzionali, gestione del sistema e aspetti progettuali emersi dalla documentazione.
 
 = Svolgimento della Riunione
-La riunione si è svolta in seguito all'avvio vero e proprio delle attività di stesura relative alla documentazione specifica RTB, a cui ciascun membro, in base al ruolo assegnato, ha contribuito in maniera efficiente ed esaustiva.
+La riunione si è svolta in seguito all'avvio effettivo delle attività di stesura relative alla documentazione specifica RTB, a cui ciascun membro, in base al ruolo assegnato, ha contribuito in maniera efficiente ed esaustiva.
 L’incontro con l’azienda ha avuto lo scopo di chiarire i dubbi emersi, validare la comprensione dei requisiti e approfondire gli aspetti rilevanti per lo sviluppo del progetto.
 
 == Domande e Risposte
@@ -212,25 +213,19 @@ ciascun ruolo.
 
 #heading(level: 3, numbering: none, outlined: false)[7. Report finale e formati export]
 *Domanda:* Quali informazioni deve contenere il report finale oltre all’esito per
-ogni requisito? Devono essere supportati altri formati oltre al PDF per
-l’export? \
-*Risposta:* Il report deve includere l'esito finale di ogni albero decisionale e la
-"traccia" del percorso logico seguito (ovvero la sequenza di risposte fornite)
-per giungere a tale risultato. Oltre al PDF, è opportuno supportare
-l'esportazione in formati che ne consentano il salvataggio come file di dati.
+ogni requisito? Devono essere supportati altri formati oltre al PDF per l’export? \
+*Risposta:* Il report finale deve includere, oltre all’esito associato a ciascun requisito, anche l’esito conclusivo di ogni albero decisionale e la traccia del percorso logico seguito per raggiungere tale risultato, ossia la sequenza delle risposte fornite durante il processo di valutazione. Oltre al PDF, è opportuno supportare l'esportazione in formati che ne consentano il salvataggio come file di dati.
 
 
 #heading(level: 3, numbering: none, outlined: false)[8. Prossimi passi e allineamento analisi requisiti]
 *Domanda:*  Sarebbe possibile nella prossima chiamata consultare l’analisi dei requisiti assieme? Dato che vorremmo avere la vostra opinione su come stiamo implementando i casi d’uso o i requisiti in
 modo da allinearci meglio con le vostre aspettative. \
-*Risposta:* La proposta è accolta favorevolmente. Il team può condividere
-una bozza del documento di analisi prima della riunione per consentire una
-revisione asincrona (via mail o tramite canali di comunicazione). La prossima riunione è confermata per il giorno 2026-05-18 alle ore 15:00.
+*Risposta:* La proposta è stata accolta favorevolmente. Il team può condividere una bozza del documento di analisi prima della riunione, in modo da consentirne una revisione asincrona tramite e-mail o altri canali di comunicazione. \ La prossima riunione è confermata per il giorno 2026-05-18 alle ore 15:00.
 
 = Conclusione e Decisioni Prese
-In conclusione, il proponente oltre a mostrarsi disponibile per qualsiasi altro dubbio o quesito ha fissato nell'istante l'incontro per il prossimo incontro fissandolo nel calendario.
+In conclusione, il proponente si è reso disponibile a chiarire eventuali ulteriori dubbi o quesiti e ha fissato contestualmente, il successivo incontro, inserendolo a calendario.
 
-Al termine della riunione, il team si è riunito internamente tramite il canale di comunicazione, Discord, per discutere le risposte ricevute consolidandole al meglio.
+Al termine della riunione, il team si è riunito internamente tramite il canale di comunicazione Discord per discutere le risposte ricevute e consolidarne i contenuti in modo strutturato.
 
   #table(
     columns: (auto, 1fr),
