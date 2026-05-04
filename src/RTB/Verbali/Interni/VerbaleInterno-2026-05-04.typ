@@ -69,8 +69,8 @@
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
       [1.0.0], [2026/05/04], [Leonardo Lorenzin], [], [Approvazione del verbale],
-      [0.2.0], [2026/05/04], [Edis Hodja], [], [Aggiornamento delle sezioni e aggiunta: 2.8, 2.9],
-      [0.1.0], [2026/05/04], [Filippo Zonta Rocha], [], [Prima stesura del verbale],
+      [0.2.0], [2026/05/04], [Edis Hodja], [Leonardo Lorenzin], [Aggiornamento delle sezioni e aggiunta: 2.8, 2.9],
+      [0.1.0], [2026/05/04], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Prima stesura del verbale],
     )
   ]
 
