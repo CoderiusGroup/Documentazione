@@ -343,17 +343,6 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
   numbering: "1",
 )
 
-- *Norme di Progetto*: definisce le regole operative, le convenzioni e gli standard tecnici che il gruppo deve adottare per garantire l'uniformità dei processi;
-- *Piano di Progetto*: stabilisce la pianificazione delle attività, la gestione delle risorse, l'analisi dei rischi e la ripartizione dei costi;
-- *Piano di Qualifica*: specifica gli obiettivi di qualità, le metriche di misurazione e i test necessari a validare il software e i documenti prodotti;
-- *Analisi dei Requisiti*: formalizza le necessità della proponente in una lista strutturata di requisiti funzionali, qualitativi e di vincolo;
-- *Glossario*: raccoglie la terminologia tecnica e i termini potenzialmente ambigui per assicurare una comprensione univoca di tutta la documentazione;
-- *Verbali Interni*: documenti di coordinamento che registrano l'esito delle riunioni del team e l'assegnazione dei compiti interni;
-- *Verbali Esterni*: resoconti ufficiali dei meeting con *BlueWind S.r.l.* che tracciano decisioni, risposte e vincoli concordati;
-- *Lettera di Presentazione*: documento formale per la presentazione del gruppo;
-- *Valutazione dei Capitolati*: descrive l'analisi comparativa effettuata sulle diverse proposte per giustificare la scelta del progetto finale;
-- *Dichiarazione degli Impegni*: atto formale in cui il gruppo dichiara le responsabilità assunte e la data di consegna prevista per i prodotti.
-
 === Gestione delle comunicazioni
 #v(0.5em)
 Per mantenere una comunicazione trasparente e tracciabile, a seconda della tipologia di incontro, il gruppo adotta le seguenti regole:
