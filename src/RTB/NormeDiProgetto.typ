@@ -53,7 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.4.0], [2026/04/30], [Giovanni Bronte], [],[Aggiunta della sezione 3.4],
+    [0.4.0], [2026/05/04], [Giovanni Bronte], [],[Aggiunta della sezione 3.4],
     [0.3.0], [2026/04/30], [Giovanni Bronte], [],[Aggiunta della sezione 3.2],
     [0.2.0], [2026/04/27], [Lorenzin Leonardo], [],[Aggiunta delle sezioni 3.1 e 3.3],
     [0.1.0], [2026/04/23], [Lorenzin Leonardo], [],[Prima stesura del documento]
