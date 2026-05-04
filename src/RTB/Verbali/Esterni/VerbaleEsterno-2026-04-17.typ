@@ -44,6 +44,7 @@
     #v(2em)
     #text(size: 1.6em, weight: "bold")[Incontro con #azienda]
     #v(4em)
+    #text(size: 20pt)[*Versione 1.0.0*]
   ]
   pagebreak()
 
