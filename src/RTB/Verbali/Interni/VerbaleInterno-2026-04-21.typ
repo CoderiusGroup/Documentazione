@@ -48,6 +48,8 @@
         *Ora fine:* #ora_fine \
         *Luogo:* #luogo ],
     )
+    #v(4em)
+    #text(size: 20pt)[*Versione 0.3.0*]
   ]
   pagebreak()
 
