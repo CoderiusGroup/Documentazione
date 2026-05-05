@@ -98,7 +98,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.3.0], [2026/05/04], [Giovanni Bronte], [], [Aggiunta sezione 4.2(sprint 2) e sezioni da 4.3.1 a 4.3.4 (inizio sprint 3). Aggiunti inoltre i rischi RO-4 e RI-2.],
+    [0.3.0], [2026/05/04], [Giovanni Bronte], [Filippo Zonta Rocha], [Aggiunta sezione 4.2(sprint 2) e sezioni da 4.3.1 a 4.3.4 (inizio sprint 3). Aggiunti i rischi RO-4 e RI-2.],
     [0.2.0], [2026/04/21], [Alberto Canavese], [Filippo Zonta Rocha], [Correzione refusi],
     [0.1.0], [2026/04/21], [Ines Iadadi], [Alberto Canavese], [Prima stesura del documento e redazione Sprint 1],
   )
@@ -311,7 +311,7 @@ I rischi sono classificati in tre categorie, identificate dal prefisso del codic
   [Bassa],
   [Alto],
   [Il team si incontra almeno una volta a settimana per discutere su come spartirsi il lavoro al meglio. Inoltre abbiamo canali di comunicazione molto rapidi per poter coordinarci anche fuori dai meeting prefissati.],
-  [Viene fissato un incontro di emergenza il più velocemente possibile in caso di grave scordinamento del team, nel quale si discute del problema e si rialineano i compiti in modo che non si sovrappongano e svolgano il lavoro nel modo più efficiente possibile. In caso di problema minore si usano i canali di comunicazione rapidi (whatsapp e discord) per avvisare il team e gestire il lavoro.],
+  [Viene fissato un incontro di emergenza il più velocemente possibile in caso di grave scordinamento del team, nel quale si discute del problema e si riallineano i compiti in modo che non si sovrappongano e svolgano il lavoro nel modo più efficiente possibile. In caso di problema minore si usano i canali di comunicazione rapidi (whatsapp e discord) per avvisare il team e gestire il lavoro.],
 )
 
 == Rischi individuali
@@ -476,11 +476,11 @@ Negli sprint successivi sarà inoltre importante migliorare la comunicazione int
 === Attività pianificate
 
 Nel secondo sprint il team si concentrerà sulla stesura dei vari Use case per l'analisi dei requisiti e il continuo della stesura dei seguenti documenti: Norme di Progetto, Piano di progetto. Le attività principali saranno:\
-- Continuo della stesura dell'analisi dei reuisiti: in particolar modo sono stati definiti gli use case da UC-1 a UC-19 e modificati alcuni scritti precedentemente.
+- Continuo della stesura dell'analisi dei requisiti: in particolar modo sono stati definiti gli use case da UC-1 a UC-19 e modificati alcuni scritti precedentemente.
 - Prima stesura delle Norme di Progetto: redazione dell'introduzione, dei processi primari e dei processi di supporto.
 - Aggiornamento del glossario: aggiunta di vari termini usati nei vari documenti stesi in questo sprint.
-- Incontro Bluewind: riunione con l'azienda con un particolare focus sulle domande proposte dagli analisti per comprendere i requsiti dell'azienda, dopo che la normativa EN18031 è stata studiata a fondo.
-- Aggiunta ricerca automatica glossario: è stata implementata una funzione in github per ricercare i termini presenti nel glossario nei vari documenti caricati e aggiungere un appendice G per poterli identificare.
+- Incontro Bluewind: riunione con l'azienda con un particolare focus sulle domande proposte dagli analisti per comprendere i maniera ottimale i requisiti richiesti dall'azienda, dopo che la normativa EN18031 è stata approfondita.
+- Aggiunta ricerca automatica glossario: è stata implementata una funzione nella repository  github per ricercare i termini presenti nel glossario nei vari documenti caricati e aggiungere un appendice G per poterli identificare.
 
 === Rischi attesi
 - *RO-1*: La difficoltà di stimare le ore in modo non accurato potrebbe essere un problema per questo sprint e per i successivi, fino a quando il team non prende più confidenza su come lavorare al meglio per la riuscita del progetto.
@@ -534,7 +534,7 @@ Nel secondo sprint il team si concentrerà sulla stesura dei vari Use case per l
 
 
 === Rischi incontrati
-*RO-1*: Per questo sprint abbiamo assegnato a due persone il ruolo di amministratore, a causa di questo le ore rimaste per il ruolo di amministratore sono diminuite di più del previsto. Per il futuro il ruolo di amministratore sarà assegnato ad una sola persona per sprint e le ore preventivate saranno aggiustate di conseguenza.
+*RO-1*: Per questo sprint abbiamo assegnato a due persone il ruolo di amministratore, a causa di questo le ore rimaste a budget per il ruolo di amministratore sono risultate minori del previsto. Per il futuro il ruolo di amministratore sarà assegnato ad una sola persona per sprint e le ore preventivate saranno aggiustate di conseguenza.
 
 === Retrospettiva
 Il team ha continuato la stesura di vari documenti essenziali per il Requirement and Product Baseline (RTB) quali: *Piano di Progetto*, *Analisi dei requisiti*, *Glossario*. Inoltre ha iniziato la stesura di un altro documento fondamentale per il progetto: le *Norme di Progetto*.\
@@ -562,9 +562,9 @@ Per questo sprint sono state assegnate due persone al ruolo di amministratore, q
 Per il terzo sprint il nostro team si concentrerà sulla continuazione della stesura di vari documenti essenziali per 
 per l'RTB, quali: Norme di Progetto, Piano di Progetto, Analisi dei requisiti.
 Le attività principali saranno:
-- Continua stesura dell'analisi dei requisiti, il team si prefissa di arrivare ad un punto del documento dove è quasi completo così che sia possibile inviarlo all'azienda proponente in modo da avere la loro opinione sul lavoro svolto fino ad ora prima di chiedere l'opinione del committente.
+- Continua stesura dell'analisi dei requisiti, il team si prefissa di arrivare ad una fase terminale del documento cosi facendo avendo una versione quasi definitiva, inviarlo all'azienda proponente per avere un feedback sullo stato di accuratezza del documento.
 - Aggiornamento con Bluewind: è stato fissato un incontro per il 2026/05/04 per fare varie domande all'azienda in modo da chiarire alcuni dei dubbi sorti durante l'analisi dei requisiti.
-- Stesura del Diario di Bordo, stesura di un altro documento fatta da tutto il team che ha lo scopo di riassumere quanto fatto fino al giorno della redazione del documento per poterlo esporre durante l'incontro omonimo.
+- Stesura del Diario di Bordo, stesura di un altro documento fatta da tutto il team che ha lo scopo di riassumere quanto fatto fino al giorno della redazione del documento per poterlo esporre durante l'attività omonima.
 - Aggiornamento del sito, aggiungendo una sezione per il Diario di Bordo.
 - Stesura dei vari Verbali esterni e interni.
 
