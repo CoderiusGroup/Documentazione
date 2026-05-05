@@ -48,6 +48,8 @@
         *Ora fine:* 9:30 \
         *Luogo:* Canale Vocale Discord ],
     )
+    #v(4em)
+    #text(size: 20pt)[*Versione 1.0.0*]
   ]
   pagebreak()
 
