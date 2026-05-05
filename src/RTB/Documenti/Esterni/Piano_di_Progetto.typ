@@ -98,6 +98,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.3.0], [2026/05/04], [Giovanni Bronte], [], [Aggiunta sezione 4.2(sprint 2) e sezioni da 4.3.1 a 4.3.4 (inizio sprint 3). Aggiunti inoltre i rischi RO-4 e RI-2.],
     [0.2.0], [2026/04/21], [Alberto Canavese], [Filippo Zonta Rocha], [Correzione refusi],
     [0.1.0], [2026/04/21], [Ines Iadadi], [Alberto Canavese], [Prima stesura del documento e redazione Sprint 1],
   )
@@ -303,6 +304,16 @@ I rischi sono classificati in tre categorie, identificate dal prefisso del codic
     da sottoporre a validazione al primo incontro utile.],
 )
 
+#scheda-rischio(
+  [RO-4],
+  [Difficoltà nel coordinamento nel team Coderius],
+  [Di progetto],
+  [Bassa],
+  [Alto],
+  [Il team si incontra almeno una volta a settimana per discutere su come spartirsi il lavoro al meglio. Inoltre abbiamo canali di comunicazione molto rapidi per poter coordinarci anche fuori dai meeting prefissati.],
+  [Viene fissato un incontro di emergenza il più velocemente possibile in caso di grave scordinamento del team, nel quale si discute del problema e si rialineano i compiti in modo che non si sovrappongano e svolgano il lavoro nel modo più efficiente possibile. In caso di problema minore si usano i canali di comunicazione rapidi (whatsapp e discord) per avvisare il team e gestire il lavoro.],
+)
+
 == Rischi individuali
 
 #scheda-rischio(
@@ -317,6 +328,16 @@ I rischi sono classificati in tre categorie, identificate dal prefisso del codic
   [Se un membro risulta temporaneamente indisponibile, le sue attività vengono
     ridistribuite. La documentazione è mantenuta aggiornata in modo che il
     subentro di un altro membro sia rapido e senza perdite di lavoro già svolto.],
+)
+
+#scheda-rischio(
+  [RI-2],
+  [Disponibilità ridotta per imprevisti o impegno improvviso],
+  [Di progetto],
+  [Media],
+  [Alto],
+  [È impossibile prevedere se o quanti imprevisti o impegni improvvisi ci saranno, l'unica cosa che si può fare è avere un piano di risposta solido, repentino ed efficace per ridurre il rallentamento del lavoro al minimo.],
+  [La persona coinvolta avvisa il resto del gruppo il più tempestivamente possibile, in modo che gli altri membri possano dividersi il lavoro rimasto o alternativamente rimandarlo se non è urgente che venga completato.],
 )
 
 #pagebreak()
@@ -438,3 +459,138 @@ L'incontro con Bluewind ha contribuito in modo significativo alla comprensione d
 La complessità dello standard EN 18031 ha richiesto più tempo del previsto nella fase di analisi individuale, rendendo necessario un confronto interno supplementare per allineare le interpretazioni prima di procedere con la stesura dell'Analisi dei Requisiti. Il team cercherà di mitigare questo rischio condividendo in modo più strutturato i risultati dello studio individuale, pianificando momenti di confronto più frequenti durante lo sprint.
 
 Negli sprint successivi sarà inoltre importante migliorare la comunicazione interna per operare in modo più efficace, soprattutto per le attività che richiedono collaborazione stretta tra i membri.
+
+== Sprint 2
+
+=== Periodo 
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/04/21],
+  [*Fine prevista:*], [2026/04/30],
+  [*Fine reale:*],    [2026/04/30],
+)
+#v(0.3em)
+
+=== Attività pianificate
+
+Nel secondo sprint il team si concentrerà sulla stesura dei vari Use case per l'analisi dei requisiti e il continuo della stesura dei seguenti documenti: Norme di Progetto, Piano di progetto. Le attività principali saranno:\
+- Continuo della stesura dell'analisi dei reuisiti: in particolar modo sono stati definiti gli use case da UC-1 a UC-19 e modificati alcuni scritti precedentemente.
+- Prima stesura delle Norme di Progetto: redazione dell'introduzione, dei processi primari e dei processi di supporto.
+- Aggiornamento del glossario: aggiunta di vari termini usati nei vari documenti stesi in questo sprint.
+- Incontro Bluewind: riunione con l'azienda con un particolare focus sulle domande proposte dagli analisti per comprendere i requsiti dell'azienda, dopo che la normativa EN18031 è stata studiata a fondo.
+- Aggiunta ricerca automatica glossario: è stata implementata una funzione in github per ricercare i termini presenti nel glossario nei vari documenti caricati e aggiungere un appendice G per poterli identificare.
+
+=== Rischi attesi
+- *RO-1*: La difficoltà di stimare le ore in modo non accurato potrebbe essere un problema per questo sprint e per i successivi, fino a quando il team non prende più confidenza su come lavorare al meglio per la riuscita del progetto.
+- *RT-2*: La normativa EN18031 è molto complessa e richiede normalmente svariati mesi per essere studiata completamente, per questo motivo potrebbe causare fraintendimenti ed errori nell'analisi dei requisiti.
+
+=== Preventivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[-],[-],[8],[8]),
+    ([Edis Hodja],         [-],[-],[8],[-],[-],[-],[8]),
+    ([Filippo Zonta Rocha],[6],[-],[-],[-],[-],[-],[6]),
+    ([Giovanni Angelo Marco Bronte],    [-],[2],[-],[-],[-],[-],[6]),
+    ([Ines Iadadi],        [-],[-],[8],[-],[-],[-],[8]),
+    ([Leonardo Lorenzin],  [-],[2],[-],[-],[-],[-],[6]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*6*],[*4*],[*16*],[*0*],[*0*],[*8*],[*42*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 2]
+)
+
+=== Consuntivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese], [-], [-], [-], [-], [-], [7#text(fill: green)[(-1)]], [7]),
+    ([Edis Hodja], [-], [-], [7#text(fill: green)[(-1)]], [-], [-], [-], [7]),
+    ([Filippo Zonta Rocha], [5#text(fill: green)[(-1)]], [-], [-], [-], [-], [-], [5]),
+    ([Giovanni Angelo Marco Bronte], [-], [3#text(fill: red)[(+1)]], [], [-], [-], [-], [8]),
+    ([Ines Iadadi], [-], [-], [8#text(fill: red)[(+1)]], [-], [-], [-], [8]),
+    ([Leonardo Lorenzin], [-], [4#text(fill: red)[(+2)]], [-], [-], [-], [-], [8]),
+    (table.cell(align: center, fill: luma(220))[*Totale*], [*5*], [*7*], [*15*], [*0*], [*0*], [*7*], [*43*]),
+  )),
+  caption: [Consuntivo ore per membro - Sprint 2],
+)
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [5], [ 150€], [50], [1500€],
+    [Amministratore], [20], [7], [140€], [40], [800€],
+    [Analista], [25], [15], [375€], [41], [1025€],
+    [Progettista], [25], [0], [   0€], [96], [2400€],
+    [Programmatore], [15], [0], [   0€], [108], [1620€],
+    [Verificatore], [15], [7], [ 105€], [112], [1680€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*43*], [*950€*], [*438*], [*8845€*], 
+  )
+]
+
+
+=== Rischi incontrati
+*RO-1*: Per questo sprint abbiamo assegnato a due persone il ruolo di amministratore, a causa di questo le ore rimaste per il ruolo di amministratore sono diminuite di più del previsto. Per il futuro il ruolo di amministratore sarà assegnato ad una sola persona per sprint e le ore preventivate saranno aggiustate di conseguenza.
+
+=== Retrospettiva
+Il team ha continuato la stesura di vari documenti essenziali per il Requirement and Product Baseline (RTB) quali: *Piano di Progetto*, *Analisi dei requisiti*, *Glossario*. Inoltre ha iniziato la stesura di un altro documento fondamentale per il progetto: le *Norme di Progetto*.\
+L'incontro con Bluewind è stato inoltre fondamentale per l'Analisi dei requisiti, in quanto ha chiarito molte delle domande poste dagli analisti, questo ha evitato il rischio *RT-2* che avrebbe potuto causare un rallentamento nel progetto. 
+
+==== *Criticità emerse*
+Per questo sprint sono state assegnate due persone al ruolo di amministratore, questo ha causato una riduzione delle ore disponibili per il ruolo di amministratore superiore a quanto previsto. D'ora in avanti il team assegnerà una sola persona al ruolo di amministratore per sprint, in modo da evitare di andare oltre il numero di ore e budget stimato previsto dal documento: *DichiarazioneImpegni-2026-03-20*.
+
+#pagebreak()
+
+== Sprint 3
+
+=== Periodo 
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/05/01],
+  [*Fine prevista:*], [2026/05/14],
+  [*Fine reale:*],    [2026/05/14],
+)
+#v(0.3em)
+
+=== Attività pianificate
+Per il terzo sprint il nostro team si concentrerà sulla continuazione della stesura di vari documenti essenziali per 
+per l'RTB, quali: Norme di Progetto, Piano di Progetto, Analisi dei requisiti.
+Le attività principali saranno:
+- Continua stesura dell'analisi dei requisiti, il team si prefissa di arrivare ad un punto del documento dove è quasi completo così che sia possibile inviarlo all'azienda proponente in modo da avere la loro opinione sul lavoro svolto fino ad ora prima di chiedere l'opinione del committente.
+- Aggiornamento con Bluewind: è stato fissato un incontro per il 2026/05/04 per fare varie domande all'azienda in modo da chiarire alcuni dei dubbi sorti durante l'analisi dei requisiti.
+- Stesura del Diario di Bordo, stesura di un altro documento fatta da tutto il team che ha lo scopo di riassumere quanto fatto fino al giorno della redazione del documento per poterlo esporre durante l'incontro omonimo.
+- Aggiornamento del sito, aggiungendo una sezione per il Diario di Bordo.
+- Stesura dei vari Verbali esterni e interni.
+
+=== Rischi attesi
+- *RO-2*: Per questo sprint sono presenti delle attività che il gruppo Coderius si è fissato di completare o di raggiungere un certo livello di completamento per poter procedere con il resto del progetto senza avere problemi di tempo in futuro. Per questo motivo c'è un rischio che possano rimanere incompiute.
+- *RO-1*: Dopo il problema riscontrato nello scorso sprint il team starà molto più attento al quantitativo di ore rimaste per completare il progetto entro il quantitativo di ore prefissato, tuttavia potrebbe questo rischio potrebbe essere nuovamente presente in questo sprint data la poca esperienza del gruppo in questo ambito. 
+=== Preventivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[8],[-],[-],[],[8]),
+    ([Edis Hodja],         [-],[4],[-],[-],[-],[-],[4]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[-],[7],[7]),
+    ([Giovanni Angelo Marco Bronte],    [6],[-],[-],[-],[-],[-],[6]),
+    ([Ines Iadadi],        [-],[-],[8],[-],[-],[-],[8]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[-],[-],[7],[7]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*6*],[*4*],[*16*],[*0*],[*0*],[*14*],[*40*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 3]
+)
+
+=== Consuntivo
+
+=== Risorse rimanenti
+
+=== Rischi incontrati
+
+=== Retrospettiva
+
+==== *Criticità emerse*
