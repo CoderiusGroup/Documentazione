@@ -44,7 +44,7 @@
     #v(2em)
     #text(size: 1.6em, weight: "bold")[Incontro con #azienda]
     #v(4em)
-    #text(size: 20pt)[*Versione 0.2.0*]
+    #text(size: 20pt)[*Versione 1.0.0*]
   ]
   pagebreak()
 
@@ -64,9 +64,10 @@
       ),
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
-      [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],  
-      [0.2.0], [2026/04/05], [Filippo Zonta Rocha], [], [Aggiornamento contenuti e correzione refusi],
-      [0.1.0], [2026/04/05], [Edis Hodja], [Filippo Zonta Rocha], [Prima stesura del verbale]
+      [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*], 
+      [1.0.0], [2026/05/05], [Leonardo Lorenzin], [], [Approvazione del verbale], 
+      [0.2.0], [2026/05/04], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Aggiornamento contenuti e correzione refusi],
+      [0.1.0], [2026/05/04], [Edis Hodja], [Filippo Zonta Rocha], [Prima stesura del verbale]
     )
   ]
 
@@ -144,7 +145,7 @@ immediatamente precedente o qualsiasi nodo già attraversato? \
 funzionalità ideale, essa comporta criticità logiche legate alla coerenza dei
 dati. Qualora si permettesse il ritorno a un nodo arbitrario, il sistema
 dovrebbe invalidare automaticamente tutti i nodi successivi dipendenti dalla
-modifica eﬀettuata. Una soluzione funzionale potrebbe essere
+modifica effettuata. Una soluzione funzionale potrebbe essere
 l’implementazione di un meccanismo di "undo" per risalire la cronologia dei
 nodi. La scelta tecnica specifica è lasciata alla discrezione del team di
 sviluppo, privilegiando la semplicità implementativa.
@@ -165,7 +166,7 @@ sviluppatori.
 validi il sistema deve bloccare il caricamento con un messaggio di errore
 oppure permettere all’utente di procedere, ad esempio inserendo
 manualmente le informazioni mancanti? \
-*Risposta:* In caso di asset non validi, è suﬃciente che il sistema restituisca
+*Risposta:* In caso di asset non validi, è sufficiente che il sistema restituisca
 un messaggio di errore bloccante. L'inserimento manuale delle informazioni
 mancanti è considerato una funzionalità separata non prioritaria al momento.
 Poiché i file di configurazione sono in formato leggibile ("human-readable"),
