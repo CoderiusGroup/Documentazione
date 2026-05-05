@@ -42,7 +42,7 @@
 #v(0.5cm)
 #align(center)[
   #table(
-    columns: (auto, auto, auto, auto, 1fr),
+    columns: (0.4fr, auto, auto, auto, 1fr),
     align: (center, center, center, center, left),
     stroke: (x, y) => (
       bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
@@ -90,7 +90,7 @@ Questo documento verrà redatto contestualmente all'avanzamento delle attività;
 == Scopo del prodotto
 #v(0.5em)
 Il prodotto finale è un'applicazione _web-based_ sviluppata per automatizzare la verifica della conformità alla norma *EN 18031*, ossia lo standard tecnico europeo che stabilisce i requisiti di sicurezza dei dispositivi radio wireless.
-Lo scopo dell'applicazione è quello di guidare l'utente attraverso un'analisi strutturata basata su *Decision Tree*, che consentono di percorrere i flussi logici della normativa in modo sistematico. Questo approccio non solo velocizza l'intero processo di valutazione, ma ne aumenta l'affidabilità riducendo il rischio di sviste manuali. Infine, il sistema è in grado di produrre automaticamente i report e la documentazione tecnica necessaria per attestare l'esito dell'analisi svolta.
+Lo scopo dell'applicazione è quello di guidare l'utente attraverso un'analisi strutturata basata su *decision tree*, che consentono di percorrere i flussi logici della normativa in modo sistematico. Questo approccio non solo velocizza l'intero processo di valutazione, ma ne aumenta l'affidabilità riducendo il rischio di sviste manuali. Infine, il sistema è in grado di produrre automaticamente i report e la documentazione tecnica necessaria per attestare l'esito dell'analisi svolta.
 
 == Glossario
 #v(0.5em)
@@ -166,7 +166,7 @@ Di seguito le principali attività comprese nel processo di fornitura:
 - *Studio di fattibilità*: valutazione della sostenibilità del progetto in termini di risorse, tempi e competenze tecniche;
 - *Pianificazione*: organizzazione temporale delle attività e delle risorse, formalizzata nel *Piano di Progetto*;
 - *Monitoraggio e Controllo*: verifica costante dell'avanzamento dei lavori e della qualità dei prodotti intermedi, anche a seguito di eventuali feedback da parte del proponente;
-- *Rilascio e Accettazione*: procedure di consegna del software e della documentazione, con successiva validazione da parte della proponente.
+- *Rilascio e Accettazione*: procedure di consegna del software e della documentazione, con successiva validazione da parte del proponente.
 
 === Documentazione coinvolta
 #v(0.5em)
@@ -237,7 +237,7 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     table.header(
       table.cell(colspan: 2, fill:rgb("#99d6ff"), align: center)[*Analisi dei Requisiti*],
     ),
-    [*Redattore*], [Analisti],
+    [*Redattore*], [Analista],
     [*Tipo di documento*], [Esterno],
     [*Scopo*], [
       Formalizza le necessità della proponente in una lista strutturata di requisiti funzionali, qualitativi e di vincolo;
@@ -256,7 +256,7 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     table.header(
       table.cell(colspan: 2, fill:rgb("#99d6ff"), align: center)[*Glossario*],
     ),
-    [*Redattore*], [Analisti],
+    [*Redattore*], [Analista],
     [*Tipo di documento*], [Esterno],
     [*Scopo*], [
       Raccoglie la terminologia tecnica e i termini potenzialmente ambigui per assicurare una comprensione univoca di tutta la documentazione;
@@ -275,7 +275,7 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     table.header(
       table.cell(colspan: 2, fill:rgb("#99d6ff"), align: center)[*Verbali*],
     ),
-    [*Redattore*], [Amministratore],
+    [*Redattore*], [Team (assegnazione dinamica)],
     [*Tipo di documento*], [Esterno/Interno],
     [*Scopo*], [
       Documenti di coordinamento che registrano l'esito delle riunioni, l'assegnazione dei compiti interni e dei ruoli assegnati. Possono essere sia interni che esterni, nel caso dei verbali esterni, hanno anche lo scopo di tracciare decisioni, risposte e vincoli concordati.
@@ -350,15 +350,15 @@ Per mantenere una comunicazione trasparente e tracciabile, a seconda della tipol
 #v(0.5em)
 Riguardano tutti i contatti ufficiali tra il gruppo *Coderius* e *BlueWind S.r.l.* .
 
-- *Incontri (Meeting)*: ogni incontro con la proponente deve essere documentato in un *Verbale Esterno*, che riporti decisioni prese e chiarimenti ottenuti;
+- *Incontri (meeting)*: ogni incontro con il proponente deve essere documentato in un *verbale esterno* , denominato secondo il formato _VerbaleEsterno-AAAA-MM-GG_, che riporti decisioni prese e chiarimenti ottenuti;
 - *Comunicazioni formali*: per l'invio di documenti e comunicazioni ufficiali si utilizza esclusivamente la posta elettronica;
-- *Canali rapidi*: per chiarimenti immediati e coordinamento si utilizzano strumenti di messaggistica istantanea (Telegram);
+- *Canali rapidi*: per chiarimenti immediati e coordinamento si utilizzano strumenti di messaggistica istantanea (Telegram), attraverso i quali il proponente condivide risorse tecniche di riferimento;
 
 ==== Comunicazioni interne
 #v(0.5em)
 Riguardano il coordinamento tra i membri del gruppo *Coderius*.
 
-- *Incontri (Meeting)*: ogni incontro tra i componenti del gruppo deve essere documentato in un *Verbale Interno*, che riporti decisioni prese e compiti da svolgere;
+- *Incontri (meeting)*: ogni incontro tra i componenti del gruppo deve essere documentato in un *verbale interno*, denominato secondo il formato _VerbaleInterno-AAAA-MM-GG_, che riporti decisioni prese e compiti da svolgere;
 - *Canali rapidi*: per coordinamento e aggiornamenti si utilizzano strumenti di messaggistica istantanea (WhatsApp, Discord);
 
 === Strumenti a supporto
@@ -367,33 +367,35 @@ Per il corretto svolgimento delle attività del processo di fornitura, il gruppo
 
 #set list(spacing: 1.5em)
 
-==== Strumenti per la proponente
+==== Strumenti di comunicazione con il proponente
 #v(0.5em)
 
-- *Gmail*:utilizzato per comunicazioni formali, convocazione dei meeting;
+- *Gmail*: utilizzato per comunicazioni formali, convocazione dei meeting;
 
 - *Telegram*: utilizzato per chiarimenti immediati;
 
-- *Zoom*: utilizzato per lo svolgimento dei meeting.
+- *Zoom*: utilizzato per lo svolgimento dei meeting programmati per tempo.
 
 ==== Strumenti per il gruppo
 #v(0.5em)
 
-- *GitHub*: utilizzato per il versionamento e la conservazione di tutto il materiale prodotto (codice e documentazione), garantendo la tracciabilità delle modifiche;
+- *GitHub*: utilizzato per il versionamento e la conservazione di tutto il materiale prodotto (codice e documentazione), garantendo la tracciabilità delle versioni e delle modifiche;
 
 - *Discord / WhatsApp*: utilizzati per il coordinamento quotidiano e incontri tra i componenti del gruppo;
 
 - *Google Drive*: utilizzato per la condivisione di bozze, materiali di supporto .
 
+- *Google Docs*: utilizzato per la collaborazione in tempo reale, in particolare per attività di brainstorming e redazione condivisa (es. definizione delle domande per gli incontri con il proponente).
+
 == Processo di Sviluppo
 #v(0.5em)
-Il processo di sviluppo comprende l'insieme delle attività tecniche e metodologiche necessarie alla realizzazione del prodotto software,a cominciare dall'analisi dei requisiti fino alla consegna e verifica finale. L'obiettivo principale è garantire un ciclo di vita del software controllato, dove ogni fase contribuisce alla creazione di un sistema *robusto, sicuro, mantenibile nel tempo e conforme* alle specifiche della proponente.
+Il processo di sviluppo comprende l'insieme delle attività tecniche e metodologiche necessarie alla realizzazione del prodotto software, a cominciare dall'analisi dei requisiti fino alla consegna e verifica finale. L'obiettivo principale è garantire un ciclo di vita del software controllato, dove ogni fase contribuisce alla creazione di un sistema *robusto, sicuro, mantenibile nel tempo e conforme* alle specifiche della proponente.
 
 === Attività principali
 #v(0.5em)
 Di seguito le principali attività comprese nel processo di sviluppo:
 
-- *Analisi dei Requisiti*: processo di individuazione, classificazione e formalizzazione delle necessità della proponente e dei vincoli normativi;
+- *Analisi dei Requisiti*: processo di individuazione, classificazione e formalizzazione delle necessità della proponente e dei vincoli normativi, comprensivo della definizione dei casi d'uso del sistema;
 
 - *Progettazione dell'architettura*: definizione della struttura ad alto livello del sistema, individuando i componenti principali e le loro interazioni;  
 
@@ -401,28 +403,31 @@ Di seguito le principali attività comprese nel processo di sviluppo:
 
 - *Codifica*: implementazione del codice sorgente seguendo le convenzioni e gli standard di stile stabiliti dal gruppo in fase di progettazione;
 
-- *Test e Integrazione*: attività volta a verificare il corretto funzionamento dei singoli componente la loro successiva combinazione, assicurando la coerenza e l'interoperabilità dell'intero sistema.
+- *Test e Integrazione*: attività volta a verificare il corretto funzionamento dei singoli componenti e la loro successiva combinazione, assicurando la coerenza e l'interoperabilità dell'intero sistema realizzato.
 
 === Analisi dei Requisiti
 #v(0.5em)
 Questa fase mira a definire con precisione cosa il software debba fare. Il gruppo adotta le seguenti procedure:
 
 - *Analisi delle fonti*: studio del capitolato e della documentazione messa a disposizione dal proponente al fine di estrarre i vincoli tecnici e normativi;
-- *Individuazione dei Casi d'Uso*: descrizione delle interazioni tra gli attori e il software tramite diagrammi e scenari (principali o alternativi);
-- *Classificazione dei requisiti*: ogni requisito viene catalogato come funzionale, di qualità, di vincolo o prestazionali;
+- *Individuazione dei casi d'uso (UC)*: descrizione delle interazioni tra gli attori e il software tramite diagrammi UML e scenari (principali o alternativi);
+- *Classificazione dei requisiti*: ogni requisito viene catalogato come funzionale, di qualità, di vincolo o prestazionale;
 - *Attribuzione della priorità*: a ogni requisito viene assegnata una priorità (obbligatorio, desiderabile o opzionale) e un identificativo univoco secondo una specifica nomenclatura;
 - *Tracciamento*: associazione costante tra requisiti e casi d'uso per garantire che ogni necessità richiesta dal capitolato sia soddisfatta e che ogni caso d'uso non sia superfluo.
 
 ==== Nomenclatura Casi D'uso
-Per i casi d'uso viene usata la seguente nomenclatura:
-#align(center, text(1.2em)[*'UC-[IndiceRadice].[IndiceAnnidato]-Titolo'*])
+I casi d'uso sono identificati mediante la seguente convenzione:
+#align(center, text(1.2em)[
+  *UC-[IndiceRadice].[IndiceAnnidato]: Titolo*
+])
 
-il quale significa:\ 
-*UC*: Acronimo di use case, che tradotto dall'inglese sta per caso d'uso.\
-*IndiceRadice*: Numero crescente e identificativo  per ogni use case.\
-*IndiceAnnidato*: Numero crescente che indica la sottosezione di un particolare use case, può essere annidato più volte in caso di multiple sottosezioni per lo stesso use case.\
-*Titolo*: Nome per ogni use case per differenziarlo e riassumere il suo scopo al fine di essere più leggibile.\
-IndiceRadice e IndiceAnnidato insieme formano una chiave univoca che non può essere duplicata.\
+Dove:\ 
+- *UC*: acronimo di *Use Case* (caso d'uso);\
+- *IndiceRadice*: numero progressivo che identifica un caso d'uso principale;\
+- *IndiceAnnidato*: numero crescente che indica la sottosezione di un particolare use case, può essere ulteriormente annidato per rappresentare livelli successivo;\
+- *Titolo*: nome per ogni use case per differenziarlo e riassumere il suo scopo al fine di essere più leggibile.\
+La combinazione tra *IndiceRadice* e *IndiceAnnidato* costituisce un identificativo univoco e non duplicabile.\
+
 *Esempio*: \ UC-4 : Aggiunta nuova dispositivo manuale;\ UC-4.1: Inserimento nome dispositivo;\ UC-4.2: Inserimento sistema operativo del dispositivo.
 
 ==== Nomenclatura Requisiti
