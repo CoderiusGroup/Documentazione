@@ -465,7 +465,7 @@ Per lo sviluppo, il gruppo utilizza strumenti mirati a garantire qualità, tracc
 
 - *Discord / WhatsApp*: utilizzati per il coordinamento quotidiano e incontri tra i componenti del gruppo;
 
-- *Draw.io/PlantUML*: utilizzati per la realizzazione dei diagrammi UML che sono essenziali per l'analisi dei requisiti.
+- *Draw.io*: utilizzato per la realizzazione dei diagrammi UML che sono essenziali per l'analisi dei requisiti, in particolar modo per l'interpretazione dei casi d'uso.
 
 === Rapporti con la proponente
 #v(0.5em)
@@ -526,7 +526,7 @@ Il gruppo ha definito dei template specifici per garantire l'uniformità e la pr
 #v(0.5em)
 I verbali del gruppo Coderius seguono una struttura fissa per facilitare la reperibilità delle informazioni:
 
-- *Frontespizio*: include il logo del gruppo, i dati di contatto (#link("mailto:coderius01@gmail.com")), la tipologia di documento e i riferimenti temporali (data, ora di inizio e fine) e logici (luogo o canale di comunicazione) della riunione;
+- *Frontespizio*: include il logo del gruppo, i dati di contatto (#link("mailto:coderius01@gmail.com")), la tipologia di documento e i riferimenti temporali (data, ora di inizio e fine) e logici (luogo o canale di comunicazione) della riunione, la versione più recente reperita dalla tabella di versionamento;
 - *Tabella di versionamento*: riporta lo storico delle modifiche, indicando versione, data, autore, verificatore e descrizione dell'aggiornamento;
 - *Indice*: elenco numerato delle sezioni per una navigazione rapida del documento;
 - *Partecipanti*: lista dei membri del team presenti all'incontro;
