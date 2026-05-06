@@ -53,6 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.5.0], [2026/05/05], [Edis Hodja], [], [Aggiornamento delle seguenti sezioni: 2.2.2, 2.2.3, 2.2.4, 2.3.2, 2.3.5, 3.2.3, 3.3],
     [0.4.0], [2026/05/04], [Giovanni Bronte], [],[Aggiunta della sezione 3.4],
     [0.3.0], [2026/04/30], [Giovanni Bronte], [],[Aggiunta della sezione 3.2],
     [0.2.0], [2026/04/27], [Lorenzin Leonardo], [],[Aggiunta delle sezioni 3.1 e 3.3],
@@ -383,8 +384,6 @@ Per il corretto svolgimento delle attività del processo di fornitura, il gruppo
 
 - *Discord / WhatsApp*: utilizzati per il coordinamento quotidiano e incontri tra i componenti del gruppo;
 
-- *Google Drive*: utilizzato per la condivisione di bozze, materiali di supporto .
-
 - *Google Docs*: utilizzato per la collaborazione in tempo reale, in particolare per attività di brainstorming e redazione condivisa (es. definizione delle domande per gli incontri con il proponente).
 
 == Processo di Sviluppo
@@ -602,7 +601,8 @@ Questa sezione ha l'obiettivo di descrivere come il gruppo Coderius gestisce le 
 
 === Attività previste
 #v(0.5em)
-La gestione delle attività previste avviene nel seguente ordine:
+La gestione delle attività previste avviene nel seguente ordine:\
+
 + *Identificazione della configurazione*
 + *Controllo della configurazione*
 + *Rendicontazione dello stato della configurazione*
@@ -616,9 +616,18 @@ Questa attività sarà effettuata durante la fase di progettazione e schematizza
 #v(0.5em)
 Per poter svolgere al meglio questa attività, il gruppo Coderius ha deciso di usare i seguenti strumenti: 
 - *Pull Request*: la pull request permette al nostro team di revisionare il lavoro fatto e approvarlo tramite una merge prima di poterlo integrare nel main branch, questo viene fatto per ridurre al minimo gli errori prima di caricare un documento considerato concluso.
-- *Issue*: le issue permettono di tracciare, gestire e pianificare le attività per un progetto. Nel nostro caso vengono usate prima di creare un nuovo documento e per assegnare il lavoro alla persona con il ruolo più adatto per quello sprint.
-- *Project Board*: è una tavola digitale utilizzata per tracciare il lavoro che sta venendo svolto al momento. È suddivisa in backlog, Ready, In progress, In review, Done.
-Questi strumenti sono forniti gratuitamente dalla piattaforma Github.
+- *Issue*: le issue permettono di tracciare, gestire e pianificare le attività per un progetto. Nel nostro caso vengono usate prima di creare un nuovo documento e per assegnare il lavoro alla persona con il ruolo più adatto per quello sprint. Ciascuna issue:
+  - è identificata all’interno di GitHub tramite la notazione `#NUMERO`, dove `NUMERO` rappresenta un identificativo univoco del repository;
+  - descrive l’attività da svolgere o la modifica richiesta;
+  - può essere assegnata a uno o più membri del team;
+  - viene aggiornata durante l’avanzamento dei lavori fino alla sua chiusura.
+
+- *Project Board*: è una tavola digitale utilizzata per tracciare il lavoro che sta venendo svolto al momento. Le colonne principali utilizzate sono:
+  - *Backlog*: attività da pianificare e non ancora avviata;
+  - *Ready*: attività pronte per essere sviluppate;
+  - *In Progress*: attività attualmente in sviluppo;
+  - *In Review*: attività in fase di revisione;
+  - *Done*: attività completate;
 
 === Rendicontazione dello stato della configurazione
 #v(0.5em)
@@ -630,19 +639,19 @@ La rendicontazione dello stato della configurazione consiste nel definire come v
 
 === Valutazione della configurazione
 #v(0.5em)
-Questa attività serve a controllare che il software prodotto sia funzionale e completo rispetto ai requisiti rilevati. Quest'ultima è impostata grazie ad un tracciamento dei requisiti, definito all'interno del documento "Analisi dei requisiti".
+Questa attività serve a controllare che il software prodotto sia funzionale e completo rispetto ai requisiti rilevati. Quest'ultima è impostata grazie ad un tracciamento dei requisiti, definito all'interno del documento _Analisi dei requisiti_.
 
 === Strumenti utilizzati
 #v(0.5em)
 Gli strumenti per la gestione della configurazione che il gruppo ha deciso di adottare sono i seguenti:
 - *GitHub*: principale strumento per creare, modificare e gestire tutti i documenti legati al progetto. Permette inoltre di poter creare delle milestone, assegnare ruoli e tracciare il lavoro.
-- *Github Pages*: strumento di Github utilizzato per la realizzazione del sito web, sempre attivo e direttamente connesso con la nostra repository di GitHub. Il suo scopo principale è quello di consentire la visualizzazione al gruppo, al proponente e ai committenti di tutta la documentazione prodotta in formato PDF.
+- *GitHub Pages*: strumento di GitHub utilizzato per la realizzazione del sito web, sempre attivo e direttamente connesso con la nostra repository di GitHub. Il suo scopo principale è quello di consentire la visualizzazione al gruppo, al proponente e ai committenti di tutta la documentazione prodotta in formato PDF consultabile dal sito.
 
 
 
 == Garanzia della qualità
 #v(0.5em)
-Il gruppo implementa il processo di Garanzia della Qualità (Quality Assurance) con l'obiettivo di fornire evidenze concrete e verificabili che il prodotto software, i processi di sviluppo e tutta la documentazione prodotta siano conformi ai requisiti definiti, agli standard adottati e alle pianificazioni stabilite.
+Il gruppo implementa il processo di garanzia della qualità (_Quality Assurance_) con l'obiettivo di fornire evidenze concrete e verificabili che il prodotto software, i processi di sviluppo e tutta la documentazione prodotta siano conformi ai requisiti definiti, agli standard adottati e alle pianificazioni stabilite.
 
 === Attività previste
 #v(0.5em)
@@ -653,30 +662,79 @@ Il processo di garanzia della qualità prevede le seguenti attività:
 - *Accertamento del prodotto*: verifica costante che il prodotto software e la relativa documentazione rispettino i requisiti specificati e le convenzioni stabilite dal gruppo;
 - *Valutazione oggettiva*: la verifica e garanzia della qualità, quando possibile, viene affidata a membri del team che non hanno partecipato attivamente alla stesura del documento o porzione di codice in questione.
 
+=== Linee guida
+#v(0.5em)
+
+Il processo di garanzia della qualità segue le seguenti linee guida:
+
+- *Prevenzione prima della correzione*: il gruppo privilegia pratiche preventive, come revisioni e verifiche periodiche, rispetto alla correzione a posteriori delle anomalie;
+- *Tracciabilità*: modifiche, verifiche e anomalie vengono documentate e tracciate tramite gli strumenti adottati dal team;
+- *Miglioramento continuo*: procedure e modalità operative vengono periodicamente rivalutate per migliorarne efficacia ed efficienza;
+- *Responsabilità condivisa*: la qualità del prodotto e della documentazione è responsabilità condivisa da tutti i membri del gruppo;
+- *Conformità agli standard*: ogni artefatto prodotto deve rispettare convenzioni, requisiti e standard definiti dal gruppo.
+
+=== Ruoli
+#v(0.5em)
+Nella seguente tabella sono riportati i ruoli principali ed essenziali per garantire la qualità del prodotto e della documentazione riguardante:
+#v(0.5em)
+
+#align(center,
+  table(
+    columns: (30%, 70%),
+
+    [*Ruolo*], [*Specifica*],
+
+    [Responsabile],
+    [Supervisiona le attività di garanzia della qualità e il rispetto degli standard definiti.],
+
+    [Verificatori],
+    [Eseguono verifiche su documentazione, codice e artefatti prodotti.],
+
+    [Amministratore],
+    [Gestisce gli strumenti di automazione e supporto alle verifiche.],
+
+    [Membri del gruppo],
+    [Contribuiscono al mantenimento della qualità seguendo procedure e convenzioni condivise.]
+  )
+)
+
 
 == Verifica
-Il processo di Verifica ha lo scopo di valutare e determinare se il lavoro svolto soddisfi i requisiti concordati con il proponente. L' obbiettivo di questo processo è di dimostrare in modo oggettivo la correttezza del prodotto per le richieste dell'utente. Questo processo è continuo per la durata del processo ed è definito nel Piano di Qualifica.
+Il processo di verifica è tecnico e oggettivo; ha lo scopo di valutare e determinare se il lavoro svolto (codifica e documentazione prodotta) soddisfi i requisiti concordati con il proponente. L'obbiettivo di questo processo è di dimostrare in modo oggettivo la correttezza del prodotto per le richieste documentate nel capitolato di progetto e destinate all'utilizzo dell'utenza finale. Questo processo è continuo per la durata del progetto ed è definito nel _Piano di Qualifica_.
 
 === Attività previste
-Secondo lo standard ISO/IEC 12207:1995 il processo di verifica è previsto con le seguenti attività:
-- *Implementazione del processo*: questa attività consiste unicamente nel predisporre il piano di Verifica che effetuerà il controllo del lavoro svolto. Consiste nell' individuare le criticità e i rischi di non conformità del progetto.
-- *Verifica*: //(da discutere col team)
+#v(0.5em)
+
+Secondo lo standard ISO/IEC 12207:1995, il processo di verifica prevede le seguenti attività:
+
+- *Implementazione del processo*: questa attività consiste unicamente nel predisporre il piano di verifica che effetuerà il controllo del lavoro svolto. Consiste nell' individuare le criticità e i rischi di non conformità del progetto.
+
+- *Verifica*: esecuzione di attività di controllo e revisione su documentazione, codice e altri artefatti prodotti dal gruppo, al fine di individuare eventuali non conformità e garantirne la correttezza;
 
 === Implementazione del processo
-La seguente attività ha come scopo principale l' individuazione delle criticità che possono essere trovate durante la realizzazione del progetto.Tutte le criticità che possono essere riscontrate è stata condotta un analisi accurata nella sezione 3 del documento "Piano di Progetto". Questa analisi include anche: probabilità di occorrenza, gravità della criticità, strategie di mitigazione e di prevenzione.
+La seguente attività ha come scopo principale l'individuazione delle criticità che possono essere trovate durante la realizzazione del progetto. Per tutte le criticità che possono essere riscontrate è stata condotta un'analisi accurata nella sezione 3 del documento _Piano di Progetto_. Questa analisi include anche: probabilità di occorrenza, gravità della criticità, strategie di mitigazione e di prevenzione.
 === Verifica
 //da discuterne con il team 
-In generale la verifica viene eseguita in due modi diversi: l'analisi statistica e l'analisi dinamica.
+Le attività di verifica vengono svolte tramite il sistema di _Pull Request_ adottato dal gruppo su GitHub.  
+Ogni modifica viene sottoposta a revisione prima dell’integrazione nel ramo principale del repository.
+
+Per ciascuna Pull Request viene assegnato un _reviewer_, generalmente corrispondente al verificatore dello sprint corrente, incaricato di controllare la conformità dell’artefatto rispetto ai requisiti, alle convenzioni e agli standard definiti dal gruppo.
+
+Le attività di verifica vengono svolte da membri differenti dagli autori degli artefatti analizzati, così da garantire una valutazione quanto più oggettiva possibile.
 
 === Analisi statica
-L'analsi statica viene così definita in quanto non richiede l'esecuzione del programma esaminato. Il suo scopo è verificare la sintassi e correttezza del documento o codice in esame.
-Questa analisi può essere effettuata coni seguenti metodi:
-- *Walktrough*: metodo manuale che richiede di effettuare un analisi critica di tutto il file in questione. Viene principalemnte usata solo quando si è a conoscenza della presenza di un errore, ma senza sapere dov'è o cos'è. Questo metodo è molto dispendioso in termini di tempo e di costi, per questo il nostro team punta ad usarla il meno possibile e solo nei casi in cui è strettamente necessaria, in favore di una verifica più automatizzabile come l' inspection.
-- *Inspection*: metodo automatizzabile e guidato da una checklist predefinita. Questa checklist ha lo scopo di controllare tutti gli errori ricorrenti e criteri di qualità specifici. Dato che è un metodo automatizzabile il nostro gruppo predilige l'uso dell'ispection rispetto al walktrough, anche se l'inspection è meno approfondita del walktrough.
+L'analisi statica viene così definita in quanto non richiede l'esecuzione del programma esaminato. Il suo scopo è verificare la sintassi e correttezza del documento o codice in esame.
+Questa analisi può essere effettuata con i seguenti metodi:
+- *Walktrough*: metodo manuale che richiede di effettuare un analisi critica di tutto il file in questione. Viene principalemnte usata solo quando si è a conoscenza della presenza di un errore, ma senza sapere dov'è o cos'è. Questo metodo è molto dispendioso in termini di tempo e di costi, per questo il nostro team punta ad usarla il meno possibile e solo nei casi in cui è strettamente necessaria, in favore di una verifica più automatizzabile come l'inspection.
+- *Inspection*: metodo automatizzabile e guidato da una checklist predefinita. Questa checklist ha lo scopo di controllare tutti gli errori ricorrenti e criteri di qualità specifici. Dato che è un metodo automatizzabile il nostro gruppo predilige l'uso dell'inspection rispetto al walktrough, anche se l'inspection è meno approfondita del walktrough.
 
-=== Analisi dinamica
-L'analisi dinamica, in confronto all'analisi statica, richiede l'esecuzione del programma per poter rilevare gli errori. Per poter rilevare gli errori vengono eseguiti dei *Test* che devono essere ripetibili e automatizzabili, in quanto se si presenta nuovamnete un errore che era stato precedentemente risolto, il test deve essere eseguito nuovamente per poter trovare cosa altro causa questo errore.\
-Ogni test è definito dai seguenti elementi: stato iniziale,serie di input,output attesi.\
+=== Analisi dinamica 
+// SEZIONE PIÙ SPECIFICA PER QUANDO INTEGREREMO CODIFICA
+L'analisi dinamica, a differenza di quella statica, richiede l'esecuzione del programma per rilevare errori e anomalie nel comportamento a runtime. 
+Lo strumento principale di questa tecnica è il _TEST_, che per essere efficace deve rispettare due proprietà fondamentali: la ripetibilità, ovvero la capacità di produrre gli stessi risultati a parità di condizioni, e l'automatizzabilità, ovvero la possibilità di essere eseguito senza intervento manuale. 
+
+Queste proprietà sono essenziali per supportare la regressione: se un errore precedentemente risolto dovesse ripresentarsi, i test automatizzati permettono di individuarlo e di determinare quale modifica ha reintrodotto il problema.\
+Ogni test è definito dai seguenti elementi: stato iniziale, serie di input, output attesi.\
 I test sono divisi nelle seguenti 4 categorie:
 - *Test di Unità*
 - *Test di Integrazione*
