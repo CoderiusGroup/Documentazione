@@ -55,7 +55,8 @@ def aggiorna_glossario():
             last_letter = current_letter
             list_html += f'<div class="glossary-letter" id="letter-{last_letter}">{last_letter}</div>\n'
         
-        list_html += f'<div class="glossary-term"><h3>{term_clean}</h3><p>{desc_clean}</p></div>\n'
+        term_id = f"term-{term_clean.lower().replace(' ', '-')}"
+        list_html += f'<div class="glossary-term" id="{term_id}"><h3>{term_clean}</h3><p>{desc_clean}</p></div>\n'
 
     html_content = GLOSSARIO_HTML.read_text(encoding="utf-8")
 

@@ -782,6 +782,7 @@ footer {
 
 .glossary-term {
     margin-bottom: 1.5rem;
+    scroll-margin-top: 120px;
 }
 
 .glossary-term:last-child {
