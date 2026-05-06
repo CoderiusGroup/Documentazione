@@ -33,4 +33,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "auto: aggiornato index.html con i nuovi documenti [skip ci]"
-          file_pattern: website/index.html
+          file_pattern: 'website/index.html website/glossario.html'
