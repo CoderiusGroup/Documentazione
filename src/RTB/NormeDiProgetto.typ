@@ -114,7 +114,7 @@ I documenti elencati di seguito rappresentano i vincoli diretti e le norme da ri
 - #link("https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.
 pdf")[*Standard ISO/IEC 12207:1995*] #nota[(ultimo accesso: 2026-04-24)]
 
-- *Standard EN 18031* #nota[(Consultato tramite copia fornita dal proponente)]
+- *Standard EN 18031* #nota[(Consultato tramite copia fornita dalla proponente)]
 \
 === Riferimenti Informativi
 #v(0.5em)
@@ -151,7 +151,7 @@ A tal fine è necessario adottare un modello di lavoro basato su *procedure chia
 
 Seguendo lo standard *ISO/IEC 12207*, i processi primari principali si suddividono in:
 
-- *Fornitura*: riguarda tutto ciò che serve per gestire il rapporto con il proponente esterno;
+- *Fornitura*: riguarda tutto ciò che serve per gestire il rapporto con la proponente esterno;
 
 - *Sviluppo*: riguarda le attività pratiche per costruire il software vero e proprio.
 
@@ -166,8 +166,8 @@ Di seguito le principali attività comprese nel processo di fornitura:
 - *Analisi del capitolato*: esame critico del documento di proposta per identificare requisiti e vincoli tecnici;
 - *Studio di fattibilità*: valutazione della sostenibilità del progetto in termini di risorse, tempi e competenze tecniche;
 - *Pianificazione*: organizzazione temporale delle attività e delle risorse, formalizzata nel *Piano di Progetto*;
-- *Monitoraggio e Controllo*: verifica costante dell'avanzamento dei lavori e della qualità dei prodotti intermedi, anche a seguito di eventuali feedback da parte del proponente;
-- *Rilascio e Accettazione*: procedure di consegna del software e della documentazione, con successiva validazione da parte del proponente.
+- *Monitoraggio e Controllo*: verifica costante dell'avanzamento dei lavori e della qualità dei prodotti intermedi, anche a seguito di eventuali feedback da parte della proponente;
+- *Rilascio e Accettazione*: procedure di consegna del software e della documentazione, con successiva validazione da parte della proponente.
 
 === Documentazione coinvolta
 #v(0.5em)
@@ -351,9 +351,9 @@ Per mantenere una comunicazione trasparente e tracciabile, a seconda della tipol
 #v(0.5em)
 Riguardano tutti i contatti ufficiali tra il gruppo *Coderius* e *BlueWind S.r.l.* .
 
-- *Incontri (meeting)*: ogni incontro con il proponente deve essere documentato in un *verbale esterno* , denominato secondo il formato _VerbaleEsterno-AAAA-MM-GG_, che riporti decisioni prese e chiarimenti ottenuti;
+- *Incontri (meeting)*: ogni incontro con la proponente deve essere documentato in un *verbale esterno* , denominato secondo il formato _VerbaleEsterno-AAAA-MM-GG_, che riporti decisioni prese e chiarimenti ottenuti;
 - *Comunicazioni formali*: per l'invio di documenti e comunicazioni ufficiali si utilizza esclusivamente la posta elettronica;
-- *Canali rapidi*: per chiarimenti immediati e coordinamento si utilizzano strumenti di messaggistica istantanea (Telegram), attraverso i quali il proponente condivide risorse tecniche di riferimento;
+- *Canali rapidi*: per chiarimenti immediati e coordinamento si utilizzano strumenti di messaggistica istantanea (Telegram), attraverso i quali la proponente condivide risorse tecniche di riferimento;
 
 ==== Comunicazioni interne
 #v(0.5em)
@@ -368,7 +368,7 @@ Per il corretto svolgimento delle attività del processo di fornitura, il gruppo
 
 #set list(spacing: 1.5em)
 
-==== Strumenti di comunicazione con il proponente
+==== Strumenti di comunicazione con la proponente
 #v(0.5em)
 
 - *Gmail*: utilizzato per comunicazioni formali, convocazione dei meeting;
@@ -384,7 +384,7 @@ Per il corretto svolgimento delle attività del processo di fornitura, il gruppo
 
 - *Discord / WhatsApp*: utilizzati per il coordinamento quotidiano e incontri tra i componenti del gruppo;
 
-- *Google Docs*: utilizzato per la collaborazione in tempo reale, in particolare per attività di brainstorming e redazione condivisa (es. definizione delle domande per gli incontri con il proponente).
+- *Google Docs*: utilizzato per la collaborazione in tempo reale, in particolare per attività di brainstorming e redazione condivisa (es. definizione delle domande per gli incontri con la proponente).
 
 == Processo di Sviluppo
 #v(0.5em)
@@ -408,7 +408,7 @@ Di seguito le principali attività comprese nel processo di sviluppo:
 #v(0.5em)
 Questa fase mira a definire con precisione cosa il software debba fare. Il gruppo adotta le seguenti procedure:
 
-- *Analisi delle fonti*: studio del capitolato e della documentazione messa a disposizione dal proponente al fine di estrarre i vincoli tecnici e normativi;
+- *Analisi delle fonti*: studio del capitolato e della documentazione messa a disposizione dalla proponente al fine di estrarre i vincoli tecnici e normativi;
 - *Individuazione dei casi d'uso (UC)*: descrizione delle interazioni tra gli attori e il software tramite diagrammi UML e scenari (principali o alternativi);
 - *Classificazione dei requisiti*: ogni requisito viene catalogato come funzionale, di qualità, di vincolo o prestazionale;
 - *Attribuzione della priorità*: a ogni requisito viene assegnata una priorità (obbligatorio, desiderabile o opzionale) e un identificativo univoco secondo una specifica nomenclatura;
@@ -518,7 +518,7 @@ Ogni attività, decisione tecnica o organizzativa deve essere formalizzata per p
 Il gruppo ha definito dei template specifici per garantire l'uniformità e la professionalità della documentazione. I documenti che dispongono di una struttura predefinita sono:
 
 - *Verbale interno*: resoconto delle riunioni di coordinamento del team;
-- *Verbale esterno*: documentazione degli incontri con il proponente (BlueWind S.r.l.) o il committente;
+- *Verbale esterno*: documentazione degli incontri con la proponente (BlueWind S.r.l.) o il committente;
 - *Diario di bordo*: documento informativo periodico sullo stato di avanzamento del progetto.
 
 ==== Verbali
@@ -645,7 +645,7 @@ Questa attività serve a controllare che il software prodotto sia funzionale e c
 #v(0.5em)
 Gli strumenti per la gestione della configurazione che il gruppo ha deciso di adottare sono i seguenti:
 - *GitHub*: principale strumento per creare, modificare e gestire tutti i documenti legati al progetto. Permette inoltre di poter creare delle milestone, assegnare ruoli e tracciare il lavoro.
-- *GitHub Pages*: strumento di GitHub utilizzato per la realizzazione del sito web, sempre attivo e direttamente connesso con la nostra repository di GitHub. Il suo scopo principale è quello di consentire la visualizzazione al gruppo, al proponente e ai committenti di tutta la documentazione prodotta in formato PDF consultabile dal sito.
+- *GitHub Pages*: strumento di GitHub utilizzato per la realizzazione del sito web, sempre attivo e direttamente connesso con la nostra repository di GitHub. Il suo scopo principale è quello di consentire la visualizzazione al gruppo, alla proponente e ai committenti di tutta la documentazione prodotta in formato PDF consultabile dal sito.
 
 
 
@@ -700,7 +700,7 @@ Nella seguente tabella sono riportati i ruoli principali ed essenziali per garan
 
 
 == Verifica
-Il processo di verifica è tecnico e oggettivo; ha lo scopo di valutare e determinare se il lavoro svolto (codifica e documentazione prodotta) soddisfi i requisiti concordati con il proponente. L'obbiettivo di questo processo è di dimostrare in modo oggettivo la correttezza del prodotto per le richieste documentate nel capitolato di progetto e destinate all'utilizzo dell'utenza finale. Questo processo è continuo per la durata del progetto ed è definito nel _Piano di Qualifica_.
+Il processo di verifica è tecnico e oggettivo; ha lo scopo di valutare e determinare se il lavoro svolto (codifica e documentazione prodotta) soddisfi i requisiti concordati con la proponente. L'obbiettivo di questo processo è di dimostrare in modo oggettivo la correttezza del prodotto per le richieste documentate nel capitolato di progetto e destinate all'utilizzo dell'utenza finale. Questo processo è continuo per la durata del progetto ed è definito nel _Piano di Qualifica_.
 
 === Attività previste
 #v(0.5em)
@@ -745,4 +745,20 @@ I test sono divisi nelle seguenti 4 categorie:
 #pagebreak()
 
 == Validazione
+
+Il processo di validazione rappresenta la fase conclusiva attraverso cui si accerta che il prodotto sviluppato soddisfi i requisiti definiti dalla proponente e risponda correttamente agli obiettivi del progetto. La validazione ha lo scopo di verificare che il sistema realizzato sia conforme alle esigenze espresse nel capitolato e che le funzionalità implementate risultino adeguate al contesto applicativo.
+
+Nel contesto del progetto, il soggetto di riferimento per la validazione è l’azienda proponente, in qualità di committente del prodotto software.
+
+=== Attività previste
+
+- *Implementazione del processo*: definisce le modalità operative attraverso cui viene accertata la conformità del prodotto rispetto ai requisiti specificati nel capitolato e nella documentazione di progetto.
+
+  La validazione viene inoltre supportata dall’utilizzo del caso studio fornito dal proponente, così da verificare il comportamento del sistema in un contesto applicativo realistico e coerente con gli obiettivi del progetto. Gli esiti dei test svolti vengono tracciati nel _Piano di Qualifica_.
+
+- *Validazione*: ha lo scopo di accertare che il sistema sviluppato soddisfi i requisiti funzionali e gli obiettivi definiti nel capitolato di progetto.
+
+  Le attività di validazione coinvolgono il ruolo di _Verificatore_, che controlla la correttezza funzionale delle componenti realizzate, con particolare attenzione all’esecuzione dei decision tree, alla gestione dei requisiti EN18031 e alla produzione degli esiti previsti (*PASS*, *FAIL*, *NOT APPLICABLE*).
+
+
 
