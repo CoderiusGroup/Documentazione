@@ -99,7 +99,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.1.1], [2026/05/11], [Leonardo Lorenzin], [], [Correzione refusi e aggiornamento sezioni 1.1, 1.2, 1.3],
+    [0.1.1], [2026/05/11], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Correzione refusi e aggiornamento sezioni 1.1, 1.2, 1.3],
     [0.1.0], [2026/04/21], [Giovanni Bronte], [Leonardo Lorenzin], [Prima stesura del documento con sezione 1],
   )
 ]
