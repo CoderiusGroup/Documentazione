@@ -18,20 +18,23 @@ jobs:
 
       - name: Compila Typst e Genera Struttura
         run: |
-          find src -name "*.typ" -not -name "definizioni.typ" -not -path "src/templates/*" | while read typst_file; do
-            
+          find src -name "*.typ" -not -name "definizioni.typ" -not -name "__glossary_tmp__*" -not -path "src/templates/*" | while read typst_file; do
+
             percorso_relativo="${typst_file#src/}"
-            
             cartella_destinazione=$(dirname "$percorso_relativo")
-            
             nome_pdf=$(basename "$typst_file" .typ).pdf
             pdf_finale="$cartella_destinazione/$nome_pdf"
-            
+
             mkdir -p "$cartella_destinazione"
-            
+
+            temp_file="$(dirname "$typst_file")/__glossary_tmp__$(basename "$typst_file")"
+            cat .github/glossary_header.typ "$typst_file" > "$temp_file"
+
             echo "Compilazione di $typst_file -> $pdf_finale"
-            docker run --rm -v $(pwd):/app -w /app ghcr.io/typst/typst:latest compile --root . "$typst_file" "$pdf_finale"
-            
+            docker run --rm -v $(pwd):/app -w /app ghcr.io/typst/typst:latest compile --root . "$temp_file" "$pdf_finale"
+
+            rm -f "$temp_file"
+
           done
 
       - name: Commit e Push dei PDF

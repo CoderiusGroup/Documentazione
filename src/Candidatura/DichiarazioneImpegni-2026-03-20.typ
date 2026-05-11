@@ -70,7 +70,7 @@ Il presente documento costituisce la _Dichiarazione degli Impegni_ del gruppo 22
 L'obiettivo di questa stesura è definire l'impegno orario, la suddivisione dei ruoli, la descrizione di tali e il preventivo dei costi previsti fino alla consegna del prodotto finale.
 
 = Impegno orario e preventivo dei costi
-Per quanto riguarda la gestione e l'organizzazione delle tempistiche, il gruppo *Coderius* dichiara di dedicare un totale di *93 ore* di lavoro effettive per membro, per un totale di *558 ore* calcolate in base alla disponibilità dei membri e ad un'attenta analisi del documento di progetto. \
+Per quanto riguarda la gestione e l'organizzazione delle tempistiche, il gruppo *Coderius* dichiara di dedicare un totale di *87 ore* di lavoro effettive per membro, per un totale di *522 ore* calcolate in base alla disponibilità dei membri e ad un'attenta analisi del documento di progetto. \
 #align(center)[
   #box(width: 70%)[
     #figure(
@@ -82,13 +82,13 @@ Per quanto riguarda la gestione e l'organizzazione delle tempistiche, il gruppo 
           [*Membro*], 
           [*Impegno orario (h)*]
         ),
-        [Bronte Giovanni Angelo Marco],[93],
-        [Canavese Alberto],[93],
-        [Hodja Edis],[93],
-        [Iadadi Ines],[93],
-        [Lorenzin Leonardo],[93],
-        [Zonta Rocha Filippo],[93],
-        table.cell(fill: luma(220))[*Totale*],[558]
+        [Bronte Giovanni Angelo Marco],[87],
+        [Canavese Alberto],[87],
+        [Hodja Edis],[87],
+        [Iadadi Ines],[87],
+        [Lorenzin Leonardo],[87],
+        [Zonta Rocha Filippo],[87],
+        table.cell(fill: luma(220))[*Totale*],[522]
       ),
       caption: [Divisione oraria tra i membri.]
     )<tabella-orario>
@@ -111,11 +111,11 @@ Dall'analisi effettuata sono risultati significativi i *ruoli* di _Analista_, _V
       ),
       [Responsabile],   [30], [10], [60], [1800],
       [Amministratore], [20], [9], [54], [1080],
-      [Analista],       [25], [14], [84], [1800],
-      [Progettista],    [25], [20], [120], [2400],
+      [Analista],       [25], [12], [72], [1800],
+      [Progettista],    [25], [16], [96], [2400],
       [Programmatore],  [15], [18], [108], [1620],
       [Verificatore],   [15], [22], [132], [1980],
-      table.cell(colspan: 2, align: center, fill: luma(220))[*Totale Complessivo*], [*93*], [*558*], [*10 680*]
+      table.cell(colspan: 2, align: center, fill: luma(220))[*Totale Complessivo*], [*87*], [*522*], [*10 680*]
     ),
     caption: [Preventivo dei costi stimati ripartito per ruoli.]
   )<tabella-preventivo>
@@ -156,7 +156,7 @@ Questo approccio consente a tutti i componenti di acquisire una visione completa
 #pagebreak()
 
 = Termine del Progetto
-Il gruppo *Coderius* prevede un impegno complessivo di *558 ore* di lavoro, corrispondenti ad un costo totale stimato di *10 680€*. \ La conclusione e la consegna del progetto del capitolato *C1 – Automated EN18031 Compliance Verification*, proposto dall'azienda *Bluewind S.r.l.*, sono previste entro e non oltre il *18 settembre 2026*.
+Il gruppo *Coderius* prevede un impegno complessivo di *522 ore* di lavoro, corrispondenti ad un costo totale stimato di *10 680€*. \ La conclusione e la consegna del progetto del capitolato *C1 – Automated EN18031 Compliance Verification*, proposto dall'azienda *Bluewind S.r.l.*, sono previste entro e non oltre il *18 settembre 2026*.
 
 == Rischi attesi e loro mitigazione
 === Ritardi nello sviluppo \

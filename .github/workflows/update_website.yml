@@ -32,5 +32,5 @@ jobs:
       - name: Commit e Push delle modifiche
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "auto: aggiornato index.html con i nuovi documenti [skip ci]"
-          file_pattern: website/index.html
+          commit_message: "auto: aggiornato index e glossario [skip ci]"
+          file_pattern: 'website/*'
