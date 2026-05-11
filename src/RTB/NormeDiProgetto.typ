@@ -53,6 +53,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.4.0], [2026/05/11], [Edis Hodja], [],[Aggiunta delle seguenti sezioni: 4.1, 4.2],
+    [0.6.0], [2026/05/08], [Edis Hodja], [],[Aggiunta della sezione 3.5],
     [0.5.0], [2026/05/05], [Edis Hodja], [], [Aggiornamento delle seguenti sezioni: 2.2.2, 2.2.3, 2.2.4, 2.3.2, 2.3.5, 3.2.3, 3.3],
     [0.4.0], [2026/05/04], [Giovanni Bronte], [],[Aggiunta della sezione 3.4],
     [0.3.0], [2026/04/30], [Giovanni Bronte], [],[Aggiunta della sezione 3.2],
@@ -700,7 +702,7 @@ Nella seguente tabella sono riportati i ruoli principali ed essenziali per garan
 
 
 == Verifica
-Il processo di verifica è tecnico e oggettivo; ha lo scopo di valutare e determinare se il lavoro svolto (codifica e documentazione prodotta) soddisfi i requisiti concordati con la proponente. L'obbiettivo di questo processo è di dimostrare in modo oggettivo la correttezza del prodotto per le richieste documentate nel capitolato di progetto e destinate all'utilizzo dell'utenza finale. Questo processo è continuo per la durata del progetto ed è definito nel _Piano di Qualifica_.
+Il processo di verifica è tecnico e oggettivo; ha lo scopo di valutare e determinare se il lavoro svolto (codifica e documentazione prodotta) soddisfi i requisiti concordati con la proponente. L'obiettivo di questo processo è di dimostrare in modo oggettivo la correttezza del prodotto per le richieste documentate nel capitolato di progetto e destinate all'utilizzo dell'utenza finale. Questo processo è continuo per la durata del progetto ed è definito nel _Piano di Qualifica_.
 
 === Attività previste
 #v(0.5em)
@@ -741,9 +743,6 @@ I test sono divisi nelle seguenti 4 categorie:
 - *Test di Sistema*
 - *Test di Regressione* 
 
-
-#pagebreak()
-
 == Validazione
 
 Il processo di validazione rappresenta la fase conclusiva attraverso cui si accerta che il prodotto sviluppato soddisfi i requisiti definiti dalla proponente e risponda correttamente agli obiettivi del progetto. La validazione ha lo scopo di verificare che il sistema realizzato sia conforme alle esigenze espresse nel capitolato e che le funzionalità implementate risultino adeguate al contesto applicativo.
@@ -759,6 +758,8 @@ Nel contesto del progetto, il soggetto di riferimento per la validazione è l’
 - *Validazione*: ha lo scopo di accertare che il sistema sviluppato soddisfi i requisiti funzionali e gli obiettivi definiti nel capitolato di progetto.
 
   Le attività di validazione coinvolgono il ruolo di _Verificatore_, che controlla la correttezza funzionale delle componenti realizzate, con particolare attenzione all’esecuzione dei decision tree, alla gestione dei requisiti EN18031 e alla produzione degli esiti previsti (*PASS*, *FAIL*, *NOT APPLICABLE*).
+
+#pagebreak()
 
 = Processi Organizzativi
 
@@ -778,9 +779,7 @@ Nel contesto del progetto, i processi organizzativi riguardano in particolare:
 La gestione del processo definisce le modalità con cui il gruppo pianifica, organizza e monitora le attività necessarie allo sviluppo del progetto.
 L’obiettivo principale è garantire una distribuzione efficace del lavoro, il rispetto delle scadenze concordate e il controllo continuo dell’avanzamento delle attività.
 
-=== Pianificazione delle attività
-
-==== Metodologia di sviluppo
+=== Metodologia di sviluppo
 Il gruppo adotta un approccio di sviluppo Agile, basato su cicli iterativi e incrementali della durata di due settimane ciascuno, denominati sprint. Questa scelta nasce dalla natura del progetto, che richiede un confronto frequente con il proponente e la capacità di adattarsi rapidamente a eventuali modifiche o affinamenti dei requisiti. \
 In particolare, il modello adottato si caratterizza per i seguenti aspetti:
 
@@ -788,35 +787,45 @@ In particolare, il modello adottato si caratterizza per i seguenti aspetti:
 - _Sviluppo incrementale_: ogni sprint produce un incremento funzionante del sistema, riducendo il rischio di accumulare lavoro non verificato e rendendo più agevole il controllo della qualità nel tempo.
 - _Adattabilità_: la struttura iterativa permette al gruppo di reagire tempestivamente a cambiamenti nei requisiti o a criticità emerse durante lo sviluppo, senza compromettere la stabilità complessiva del progetto.
 
-==== Organizzazione del team e ruoli
-Ciascuno dei membri del gruppo ricopre un ruolo che varia ad ogni sprint in base ad un criterio di rotazione equo e distribuito. Questa scelta, oltre a essere un requisito del corso, garantisce che ogni membro acquisisca nel tempo una visione completa del progetto e del processo di sviluppo, riducendo la dipendenza da singole figure e favorendo una collaborazione più consapevole.
+=== Organizzazione del team e ruoli
+Ciascuno dei membri del gruppo ricopre un ruolo che varia ad ogni sprint in base ad un criterio di rotazione equo e distribuito. Questa scelta, oltre a essere un requisito del corso, garantisce che ogni membro acquisisca nel tempo una visione completa del progetto e del processo di sviluppo, riducendo la dipendenza da singole figure e favorendo una collaborazione più consapevole. \
+Di seguito vengono riportati i vari ruoli e vengono descritte le responsabilità associate a ciascuno di essi:
+- *Responsabile*\
+  Si occupa del monitoraggio delle risorse e gestisce le scadenze ed eventuali rischi. È il ruolo cruciale che autorizza il rilascio dei prodotto, che siano parziali o finali. Il suo impegno è richiesto in maniera costante per l'intera fase di sviluppo progettuale.
 
-==== Pianificazione delle milestone
+- *Amministratore*\
+  Assicura l’efficienza di procedure, strumenti e tecnologie a supporto del Way of Working del team. La sua presenza è costante per l’intero progetto.
 
+- *Analista*\
+  Si occupa dell'intera analisi e stesura della documentazione relativa all'_Analisi dei Requisiti_, impegnandosi a determinare e soddisfare tutti i requisiti richiesti dalla proponente in maniera che l'intero team riesca ad operare in maniera efficace.
 
-#pagebreak()
+- *Progettista*\
+  Stabilisce la struttura del software, rappresentante il prodotto richiesto, definendo l'architettura dell'applicazione e la suddivisione tra i componenti Frontend e Backend.
+
+- *Programmatore*\
+  Ruolo cruciale nella fase di implementazione e codifica, in quanto si occupa di sviluppare il codice sorgente, collaborando con il _Progettista_ riguardo alle decisioni stabilite.
+
+=== Pianificazione delle milestone
+
+Il progetto prevede diverse revisioni di avanzamento e il superamento di ciascuna di esse consente al team di proseguire con l'operato in maniera supervisionata. In particolare sono due le principali pianificazioni riportate per ordine di avanzamento:
+- *RTB Requirements and Technology Baseline*: fissa i requisiti da soddisfare in accordo con la proponente, nella documentazione dedicata all'_Analisi dei Requisiti_, vengono motivate le tecnologie adottate e ne si dimostra adeguatezza e interoperabilità tramite il _Proof of Concept_.
+
+- *PB Product Baseline*: vaglia la maturità della baseline architetturale del prodotto software e la sua realizzazione e prevede l'integrazione di:
+  - *Specifica Tecnica*: documentazione dedicata all'architettura logica del prodotto, per componenti, ruoli, connessioni e interazioni;
+  - *Minimum Viable Product*: approssima da vicino il prodotto atteso, non necessariamente finale, per una conferma definitiva del completamento del prodotto.
+
+=== Verbali
+Ciascuna delle riunioni, interne al gruppo ed esterne con la proponente, vengono verbalizzate e documentate in appositi verbali redatti da un membro del gruppo. \
+Ogni verbale riporta la data, i partecipanti, gli argomenti discussi, le decisioni prese e le eventuali azioni da intraprendere, costituendo così una traccia formale e consultabile dell'avanzamento del progetto e delle scelte effettuate nel tempo.
 
 === Gestione degli sprint
+Il team adotta un approccio Agile per assicurare massima produttività e organizzazione operativa. Il lavoro viene organizzato in periodi temporali definiti _SPRINT_, solitamente con una durata di due settimane, che prevedono una schematica coordinazione:
+- *Fase iniziale di pianificazione*: vengono prefissati dal team gli obiettivi che in quella durata bisettimanale dovranno essere raggiunti, suddividendoli in unità specifiche (issue) e categorizzando ciascuna di esse in termini di priorità tramite le label.
+- *Stato intermedio*: il gruppo tramite i canali di comunicazione stabiliti si ritrova a discutere e ad aggiornarsi sullo stato di avanzamento.
+- *Valutazione e consuntivo*: al termine del ciclo lavorativo vengono tratte delle conclusioni circa le procedure adottate e il punto di arrivo di ogni membro, dichiarando le unità definite inizialmente come complete o work in progress. 
+
 === Monitoraggio dell’avanzamento
-=== Gestione dei rischi
-
-
-
-== Gestione dell’infrastruttura
-=== Repository e hosting
-=== Infrastruttura di sviluppo
-=== Automazione e CI/CD
-=== Backup e disponibilità dei dati
-
-== Miglioramento del processo
-=== Retrospettive e revisione interna
-=== Gestione delle criticità
-=== Aggiornamento delle procedure
-
-== Formazione
-=== Condivisione delle conoscenze
-=== Studio delle tecnologie
-=== Supporto tra membri del gruppo
+L'andamento procedurale delle unità di lavoro in cui vengono divisi gli obiettivi è gestito tramite una _Project Board_ (Kanban) organizzata in fasi di avanzamento che rispecchiano il ciclo di vita di ciascuna attività: dalla sua definizione e inserimento nel backlog di progetto (*Backlog*), alla selezione e preparazione per lo sprint corrente (*Ready*), fino alla presa in carico da parte del membro assegnato (*In Progress*), alla fase di revisione da parte del _Verificatore_ (*In Review*) e alla sua chiusura definitiva a seguito dell'approvazione (*Done*) con integrazione al ramo principale da parte del _Responsabile_.
 
 
 
