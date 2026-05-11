@@ -760,5 +760,63 @@ Nel contesto del progetto, il soggetto di riferimento per la validazione è l’
 
   Le attività di validazione coinvolgono il ruolo di _Verificatore_, che controlla la correttezza funzionale delle componenti realizzate, con particolare attenzione all’esecuzione dei decision tree, alla gestione dei requisiti EN18031 e alla produzione degli esiti previsti (*PASS*, *FAIL*, *NOT APPLICABLE*).
 
+= Processi Organizzativi
+
+== Introduzione ai processi organizzativi
+I processi organizzativi definiscono l’insieme delle attività e delle procedure adottate dal gruppo per coordinare il lavoro, gestire le risorse e garantire il corretto avanzamento del progetto durante l’intero ciclo di vita del software.
+
+L’obiettivo principale di questi processi è garantire continuità operativa, collaborazione efficace tra i membri del gruppo e capacità di adattamento rispetto alle esigenze emerse durante lo sviluppo del progetto.
+
+Nel contesto del progetto, i processi organizzativi riguardano in particolare:
+- *Gestione del Processo*
+- *Gestione dell'Infrastruttura*
+- *Ottimizzazione del Processo*
+- *Formazione*
+
+== Gestione del Processo
+
+La gestione del processo definisce le modalità con cui il gruppo pianifica, organizza e monitora le attività necessarie allo sviluppo del progetto.
+L’obiettivo principale è garantire una distribuzione efficace del lavoro, il rispetto delle scadenze concordate e il controllo continuo dell’avanzamento delle attività.
+
+=== Pianificazione delle attività
+
+==== Metodologia di sviluppo
+Il gruppo adotta un approccio di sviluppo Agile, basato su cicli iterativi e incrementali della durata di due settimane ciascuno, denominati sprint. Questa scelta nasce dalla natura del progetto, che richiede un confronto frequente con il proponente e la capacità di adattarsi rapidamente a eventuali modifiche o affinamenti dei requisiti. \
+In particolare, il modello adottato si caratterizza per i seguenti aspetti:
+
+- _Iterazioni brevi e cadenzate_: ogni sprint ha una durata fissa di due settimane, al termine delle quali il gruppo valuta i risultati ottenuti e pianifica le attività successive.
+- _Sviluppo incrementale_: ogni sprint produce un incremento funzionante del sistema, riducendo il rischio di accumulare lavoro non verificato e rendendo più agevole il controllo della qualità nel tempo.
+- _Adattabilità_: la struttura iterativa permette al gruppo di reagire tempestivamente a cambiamenti nei requisiti o a criticità emerse durante lo sviluppo, senza compromettere la stabilità complessiva del progetto.
+
+==== Organizzazione del team e ruoli
+Ciascuno dei membri del gruppo ricopre un ruolo che varia ad ogni sprint in base ad un criterio di rotazione equo e distribuito. Questa scelta, oltre a essere un requisito del corso, garantisce che ogni membro acquisisca nel tempo una visione completa del progetto e del processo di sviluppo, riducendo la dipendenza da singole figure e favorendo una collaborazione più consapevole.
+
+==== Pianificazione delle milestone
+
+
+#pagebreak()
+
+=== Gestione degli sprint
+=== Monitoraggio dell’avanzamento
+=== Gestione dei rischi
+
+
+
+== Gestione dell’infrastruttura
+=== Repository e hosting
+=== Infrastruttura di sviluppo
+=== Automazione e CI/CD
+=== Backup e disponibilità dei dati
+
+== Miglioramento del processo
+=== Retrospettive e revisione interna
+=== Gestione delle criticità
+=== Aggiornamento delle procedure
+
+== Formazione
+=== Condivisione delle conoscenze
+=== Studio delle tecnologie
+=== Supporto tra membri del gruppo
+
 
 
