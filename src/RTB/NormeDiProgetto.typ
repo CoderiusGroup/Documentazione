@@ -53,7 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.4.0], [2026/05/11], [Edis Hodja], [],[Aggiunta delle seguenti sezioni: 4.1, 4.2],
+    [0.7.0], [2026/05/11], [Edis Hodja], [],[Aggiunta delle seguenti sezioni: 4.1, 4.2],
     [0.6.0], [2026/05/08], [Edis Hodja], [],[Aggiunta della sezione 3.5],
     [0.5.0], [2026/05/05], [Edis Hodja], [], [Aggiornamento delle seguenti sezioni: 2.2.2, 2.2.3, 2.2.4, 2.3.2, 2.3.5, 3.2.3, 3.3],
     [0.4.0], [2026/05/04], [Giovanni Bronte], [],[Aggiunta della sezione 3.4],
@@ -779,8 +779,18 @@ Nel contesto del progetto, i processi organizzativi riguardano in particolare:
 La gestione del processo definisce le modalità con cui il gruppo pianifica, organizza e monitora le attività necessarie allo sviluppo del progetto.
 L’obiettivo principale è garantire una distribuzione efficace del lavoro, il rispetto delle scadenze concordate e il controllo continuo dell’avanzamento delle attività.
 
+=== Attività previste
+#v(0.5em)
+
+- *Definizione della metodologia di sviluppo*
+- *Organizzazione del team e assegnazione dei ruoli*
+- *Pianificazione delle milestone e degli sprint*
+- *Gestione operativa delle attività*
+- *Monitoraggio dell’avanzamento del progetto*
+- *Gestione delle comunicazioni e della documentazione organizzativa*
+
 === Metodologia di sviluppo
-Il gruppo adotta un approccio di sviluppo Agile, basato su cicli iterativi e incrementali della durata di due settimane ciascuno, denominati sprint. Questa scelta nasce dalla natura del progetto, che richiede un confronto frequente con il proponente e la capacità di adattarsi rapidamente a eventuali modifiche o affinamenti dei requisiti. \
+Il gruppo adotta un approccio di sviluppo Agile, basato su cicli iterativi e incrementali della durata di due settimane ciascuno, denominati sprint. Questa scelta nasce dalla natura del progetto, che richiede un confronto frequente con il proponente e la necessità di affinare progressivamente l’interpretazione dei requisiti e delle soluzioni progettuali. \
 In particolare, il modello adottato si caratterizza per i seguenti aspetti:
 
 - _Iterazioni brevi e cadenzate_: ogni sprint ha una durata fissa di due settimane, al termine delle quali il gruppo valuta i risultati ottenuti e pianifica le attività successive.
@@ -805,21 +815,23 @@ Di seguito vengono riportati i vari ruoli e vengono descritte le responsabilità
 - *Programmatore*\
   Ruolo cruciale nella fase di implementazione e codifica, in quanto si occupa di sviluppare il codice sorgente, collaborando con il _Progettista_ riguardo alle decisioni stabilite.
 
+Pur essendo assegnati ruoli specifici per ciascuno sprint, le attività vengono svolte in modo collaborativo tra i membri del gruppo.
+
 === Pianificazione delle milestone
 
 Il progetto prevede diverse revisioni di avanzamento e il superamento di ciascuna di esse consente al team di proseguire con l'operato in maniera supervisionata. In particolare sono due le principali pianificazioni riportate per ordine di avanzamento:
-- *RTB Requirements and Technology Baseline*: fissa i requisiti da soddisfare in accordo con la proponente, nella documentazione dedicata all'_Analisi dei Requisiti_, vengono motivate le tecnologie adottate e ne si dimostra adeguatezza e interoperabilità tramite il _Proof of Concept_.
+- *RTB Requirements and Technology Baseline*: fissa i requisiti da soddisfare in accordo con la proponente, nella documentazione dedicata all'_Analisi dei Requisiti_, vengono motivate le tecnologie adottate e se ne dimostra adeguatezza e interoperabilità tramite il _Proof of Concept_.
 
 - *PB Product Baseline*: vaglia la maturità della baseline architetturale del prodotto software e la sua realizzazione e prevede l'integrazione di:
   - *Specifica Tecnica*: documentazione dedicata all'architettura logica del prodotto, per componenti, ruoli, connessioni e interazioni;
-  - *Minimum Viable Product*: approssima da vicino il prodotto atteso, non necessariamente finale, per una conferma definitiva del completamento del prodotto.
+  - *Minimum Viable Product*: approssima da vicino il prodotto atteso, non ancora definitivo, per una conferma definitiva del completamento del prodotto.
 
 === Verbali
 Ciascuna delle riunioni, interne al gruppo ed esterne con la proponente, vengono verbalizzate e documentate in appositi verbali redatti da un membro del gruppo. \
 Ogni verbale riporta la data, i partecipanti, gli argomenti discussi, le decisioni prese e le eventuali azioni da intraprendere, costituendo così una traccia formale e consultabile dell'avanzamento del progetto e delle scelte effettuate nel tempo.
 
 === Gestione degli sprint
-Il team adotta un approccio Agile per assicurare massima produttività e organizzazione operativa. Il lavoro viene organizzato in periodi temporali definiti _SPRINT_, solitamente con una durata di due settimane, che prevedono una schematica coordinazione:
+Il team adotta un approccio Agile per assicurare massima produttività e organizzazione operativa. Il lavoro viene organizzato in periodi temporali definiti _sprint_, solitamente con una durata di due settimane, che prevedono una schematica coordinazione:
 - *Fase iniziale di pianificazione*: vengono prefissati dal team gli obiettivi che in quella durata bisettimanale dovranno essere raggiunti, suddividendoli in unità specifiche (issue) e categorizzando ciascuna di esse in termini di priorità tramite le label.
 - *Stato intermedio*: il gruppo tramite i canali di comunicazione stabiliti si ritrova a discutere e ad aggiornarsi sullo stato di avanzamento.
 - *Valutazione e consuntivo*: al termine del ciclo lavorativo vengono tratte delle conclusioni circa le procedure adottate e il punto di arrivo di ogni membro, dichiarando le unità definite inizialmente come complete o work in progress. 
@@ -827,5 +839,38 @@ Il team adotta un approccio Agile per assicurare massima produttività e organiz
 === Monitoraggio dell’avanzamento
 L'andamento procedurale delle unità di lavoro in cui vengono divisi gli obiettivi è gestito tramite una _Project Board_ (Kanban) organizzata in fasi di avanzamento che rispecchiano il ciclo di vita di ciascuna attività: dalla sua definizione e inserimento nel backlog di progetto (*Backlog*), alla selezione e preparazione per lo sprint corrente (*Ready*), fino alla presa in carico da parte del membro assegnato (*In Progress*), alla fase di revisione da parte del _Verificatore_ (*In Review*) e alla sua chiusura definitiva a seguito dell'approvazione (*Done*) con integrazione al ramo principale da parte del _Responsabile_.
 
+== Gestione dell’infrastruttura
+La gestione dell'infrastruttura ha lo scopo di definire, realizzare e mantenere nel tempo l'insieme delle infrastrutture, degli ambienti di lavoro e degli strumenti di supporto adottati dal gruppo durante l'intero ciclo di vita del progetto, garantendo che siano sempre adeguati alle esigenze operative e coerenti con il _Way of Working_ stabilito.
 
+=== Attività previste
+#v(0.5em)
+
+- *Gestione del repository e dei servizi di hosting*
+- *Configurazione degli ambienti di sviluppo*
+- *Automazione dei processi di integrazione e distribuzione*
+- *Gestione della disponibilità e conservazione dei dati*
+
+=== Repository e hosting
+Per la gestione centralizzata del codice e della documentazione viene utilizzato GitHub, adottando un modello ispirato a GitHub Flow che permette di mantenere un workflow semplice, ordinato e coerente con l'approccio Agile. Il modello è il seguente:
+- *Struttura dei branch*: il ramo principale dell'intera struttura è rappresentata dal _main_ in cui viene pubblicata la documentazione e la codifica verificata e quasi sempre definitiva. Prima di essere approvate, le nuove pubblicazioni vengono validate dal _Verificatore_, che effettua una review approfondita nel branch _develop_. \ Successivamente il _Responsabile_ è abilitato ad effettuare l'integrazione al ramo principale.
+- *Convenzione di denominazione*: per le varie operazioni e attività effettuate viene creato un branch dedicato che segue una struttura accordata dal team:
+  - *feature/nome-feature* per lo sviluppo di nuove funzionalità;
+  - *bugfix/nome-bugfix* per la correzione di errori.
+- *Revisione e merge*: l'integrazione del lavoro avviene in due fasi distinte, entrambe gestite tramite _Pull Request_. Nella prima fase il branch di lavoro viene unito a _develop_, previa revisione e approvazione da parte del _Verificatore_. Una volta consolidato il lavoro su _develop_, viene aperta una seconda PR per l'integrazione definitiva su _main_, anch'essa soggetta alla revisione del _Verificatore_ prima del merge.
+- *Pipeline automatizzate*: sono configurate GitHub Actions per automatizzare le operazioni ripetitive, tra cui la compilazione dei documenti Typst in PDF e la loro pubblicazione sul sito del progetto.
+
+=== Infrastruttura di sviluppo
+=== Backup e disponibilità dei dati
+
+#pagebreak()
+
+== Miglioramento del processo
+=== Retrospettive e revisione interna
+=== Gestione delle criticità
+=== Aggiornamento delle procedure
+
+== Formazione
+=== Condivisione delle conoscenze
+=== Studio delle tecnologie
+=== Supporto tra membri del gruppo
 
