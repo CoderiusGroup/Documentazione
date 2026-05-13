@@ -165,6 +165,15 @@ La categoria principale di riferimento è costituita da utenti esperti, quali pr
 
 Il sistema può essere utilizzato anche da utenti con competenze tecniche intermedie, che pur non avendo una conoscenza approfondita della normativa, con l’applicazione viene fornito un supporto guidato attraverso l’utilizzo di _decision tree_, semplificando il processo di verifica.
 
+== Vincoli generali
+#v(1em)
+Lo sviluppo, l'architettura e l'utilizzo del sistema sono soggetti a determinati vincoli tecnici e operativi, in particolare:
+- *Vincoli tecnologici e di piattaforma*: il sistema deve essere sviluppato sotto forma di applicazione web interattiva, accessibile e pienamente funzionante tramite i principali browser moderni (Google Chrome, Mozilla Firefox, Apple Safari, Microsoft Edge). L'architettura del sistema dovrà essere di tipo _data-driven_, in cui la logica decisionale e i flussi di navigazione sono definiti dinamicamente sulla base di dati forniti in input (es. file JSON, CSV, o XML).
+- *Vincoli normativi*: la logica di valutazione, la struttura dei questionari e i criteri di conformità devono aderire in modo rigoroso ai requisiti di sicurezza informatica per i dispositivi radio e IoT stabiliti dallo standard europeo EN 18031 e dalla direttiva RED.
+- *Vincoli operativi e d'uso*: il sistema deve poter operare garantendo un'esperienza utente fluida, intuitiva e guidata. L'interfaccia deve semplificare e mascherare la complessità della normativa, permettendo anche ad utenti con competenze tecniche intermedie o non prettamente esperti della direttiva di portare a termine l'analisi di conformità.
+
+Ulteriori vincoli di dettaglio, incluse le specifiche implementative e prestazionali, saranno definiti in maniera puntuale e tracciati all'interno della sezione dedicata ai Requisiti di vincolo.
+
 = Casi d'Uso
 
 == Introduzione
@@ -177,6 +186,18 @@ capitolo precedente.
 Il sistema ha lo scopo di guidare l'utente nella valutazione di conformità
 di un dispositivo radio ai requisiti della norma EN 18031, con particolare
 riferimento ai meccanismi di controllo accessi (ACM) e autenticazione (AUM).
+
+== Attori
+#v(1em)
+Gli attori di un sistema rappresentano i soggetti esterni (umani o altri sistemi informatici) che interagiscono direttamente con l'applicazione per usufruire delle sue funzionalità.
+
+A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sugli obiettivi principali, si è stabilito che l'attore che interagisce con l'applicazione è uno solo. Non si prevedono, allo stato attuale, interazioni con servizi esterni o attori secondari.
+
+- *Utente*: è l'unico attore primario del sistema. Rappresenta l'utente finale dell'applicazione, ovvero il tecnico, il consulente o il professionista del settore della _cybersecurity_ incaricato di verificare la conformità di un dispositivo radio o IoT. L'Utente interagisce con il sistema per svolgere tutte le operazioni necessarie all'analisi, tra cui:
+  - importare, creare e gestire i dati del dispositivo e i relativi asset;
+  - navigare all'interno dei _decision tree_ fornendo le risposte in modo interattivo;
+  - salvare i progressi per riprendere valutazioni in sospeso;
+  - consultare, generare ed esportare i report contenenti i risultati finali dell'analisi di conformità.
 
 == Elenco dei Casi d'Uso
 #v(1em)
