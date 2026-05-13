@@ -548,7 +548,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema ripristina i dati del dispositivo al loro stato precedente.
 
 *DUBBIO RIGUARDANTE AL SALVATAGGIO DELLE MODIFICHE AD UN DISPOSITIVO - Da definire*
-
+== UC: Esportazione dati del dispositivo
 == UC-10: Eliminazione del dispositivo
 #v(1em)
 #figure(
@@ -858,15 +858,15 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* Il sistema ha aggiornato le informazioni dell'asset secondo le modifiche effettuate. \
 
 - *Scenario principale:*
-+ L'utente seleziona uno degli asset dalla lista.
-+ L'utente seleziona la funzione di modifica dell'asset.
-+ L'utente modifica il nome dell'asset.
-+ L'utente modifica il tipo di asset.
-+ L'utente modifica la descrizione dell'asset.
+  + L'utente seleziona uno degli asset dalla lista.
+  + L'utente seleziona la funzione di modifica dell'asset.
+  + L'utente modifica il nome dell'asset.
+  + L'utente modifica il tipo di asset.
+  + L'utente modifica la descrizione dell'asset.
 
 - *Scenari alternativi:*
-+ L'utente inserisce dati non validi in uno o più campi.
-+ L'utente annulla la modifica dell'asset.
+  - L'utente inserisce dati non validi in uno o più campi.
+  - L'utente annulla la modifica dell'asset.
 
 - *Inclusioni:*
   - UC-15.1: Modifica nome asset
@@ -902,7 +902,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 + L'utente modifica il tipo dell'asset.
 
 - *Scenari alternativi:*
-+ L'utente modifica il tipo di un asset in un tipo non valido.
+- L'utente modifica il tipo di un asset in un tipo non valido.
 
 === UC-15.3: Modifica descrizione asset
 #v(1em)
@@ -954,323 +954,284 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #pagebreak()
 
 
-
-
-
-
-
-
-== UC-7 : Scelta di modalità per selezione requisiti da applicare <uc7>
+== UC-18: Valutazione del dispositivo
 #v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-18 : Valutazione del dispositivo]
+)
+- *Attore primario:* Utente
+
+- *Precondizioni:*
+  - L'utente ha inserito un dispositivo.
+  - Il dispositivo ha almeno un asset.
+
+- *Postcondizioni:* Il test è stato completato e i risultati sono disponibili per ogni coppia asset-requisito.
+
+- *Scenario principale:*
+  + L'utente avvia il test sul dispositivo inserito.
+  + Il sistema mostra la lista degli asset del dispositivo con il loro stato di valutazione.
+  + L'utente seleziona un asset da valutare.
+  + Il passo 3 si ripete fino a quando tutti gli asset sono stati valutati.
+  + Il sistema rende disponibili i risultati complessivi del test.
+
+
+- *Scenari alternativi:*
+  - L'utente interrompe il test.
+
+
+- *Inclusioni:*
+  - UC-18.1: Valutazione di un asset
+
+- *Estensioni:*
+  - UC-21: Uscita anticipata dal test
+
+
+=== UC-18.1: Valutazione di un asset
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-18.1 : Valutazione di un asset]
+)
 - *Attore primario:* Utente \
 
 - *Precondizioni:* 
-+ Il documento di configurazione del dispositivo è stato importato (#text(blue)[#link(<uc1>)[UC-1]]). 
-+ I decision tree sono stati caricati (#text(blue)[#link(<uc2>)[UC-2]]). \
+  - Il test è in corso. \
+  - L'utente ha selezionato un asset da valutare. \
 
-- *Postcondizioni:* L'utente ha selezionato che modalità usare per scegliere l'insieme di requisiti da verificare per il dispositivo in esame. \
-
-- *Scenario principale:*
- + Il sistema presenta una scelta tra selezione dei requisiti, manuale o tramite domande
- + L'utente sceglie una delle due opzioni.
-
-#figure(
-  image("../../../images/diagrammiUML/UC-5.png", width: 70%),
-  caption: [UC-5 : Scelta di modalità per selezione requisiti da applicare]
-)
-
-
-
-=== UC-5.1 : Selezione dei requisiti applicabili manuale
-#v(1em)
-- *Attore primario:* Utente \
-
-- *Precondizioni:* La modalità per la selezione dei requisiti è stata scelta.\
-
-- *Postcondizioni:* L'utente ha selezionato l'insieme di requisiti da verificare per il dispositivo in esame. \
+- *Postcondizioni:* Tutti i requisiti ACM e AUM sono stati valutati per l'asset selezionato e i relativi esiti sono stati registrati. \
 
 - *Scenario principale:*
- + Il sistema presenta l'elenco dei requisiti disponibili, suddivisi per
-  categoria (es. ACM — Access Control Mechanism, AUM — Authentication
-  Mechanism).
- + L'utente visualizza le descrizioni dei requisiti.
- + L'utente seleziona i requisiti da sottoporre a verifica.
- + Il sistema conferma la selezione e prepara il percorso di verifica.
-
-
-#v(2em)
-
-=== UC-5.2 : Selezione dei requisiti applicabili tramite domande
-#v(1em)
-- *Attore primario:* Utente \
-
-- *Precondizioni:* La modalità per la selezione dei requisiti è stata scelta. \
-
-- *Postcondizioni:* Il sistema ha selezionato l'insieme di requisiti da verificare per il dispositivo in esame. \
-
-- *Scenario principale:*
- + Il sistema presenta una serie di domande per l'utente
- + L'utente visualizza e risponde in modo appropriato alle domande.
- + Il sistema seleziona i requisiti da sottoporre a verifica in base alle risposte fornite.
- + Il sistema conferma la selezione e prepara il percorso di verifica.
-#v(2em)
-
-== UC-8 : Visualizzazione dello stato di avanzamento della verifica
-#v(1em)
-- *Attore primario:* Utente \
-
-- *Precondizioni:* È in corso almeno una sessione di verifica. \
-
-- *Postcondizioni:* L'utente ha preso visione dello stato corrente del percorso di verifica. \
-
-- *Scenario principale:*
- + L’utente richiede la visualizzazione dello stato di avanzamento della verifica.
- + Il sistema mostra una rappresentazione visiva del percorso e del nodo corrente.
- + L'utente può visualizzare le domande già risposte e le risposte fornite.
- + Il sistema indica quanti requisiti sono stati completati e quanti sono
-  ancora in attesa.
-
-#figure(
-  image("../../../images/diagrammiUML/UC-8.png", width: 90%),
-  caption: [UC-8 : Visualizzazione dello stato di avanzamento della verifica]
-)
-
-#v(2em)
-#pagebreak()
-
-== UC-9 : Visualizzazione della dashboard dei risultati
-#v(1em)
-- *Attore primario:* Utente \
-
-- *Precondizioni:* Almeno un requisito ha ricevuto un esito (#text(blue)[#link(<uc19>)[UC-19]]). \
-
-- *Postcondizioni:* L'utente ha consultato il riepilogo degli esiti dei requisiti verificati. \
-
-- *Scenario principale:*
- + L'utente accede alla dashboard.
- + Il sistema mostra per ciascun requisito verificato l'esito ottenuto
-  (*PASS*, *FAIL* o *NOT APPLICABLE*).
- + L'utente può selezionare un singolo requisito per visualizzare il
-  dettaglio del percorso seguito nel decision tree e le risposte fornite.
-
-#figure(
-  image("../../../images/diagrammiUML/UC-9.png", width: 65%),
-  caption: [UC-9 : Visualizzazione della dashboard dei risultati]
-)
-
-#v(2em)
-#pagebreak()
-
-== UC-10 : Riesame delle risposte fornite
-#v(1em)
-- *Attore primario:* Utente \
-
-- *Precondizioni:* Un requisito ha già ricevuto un esito. \
-
-- *Postcondizioni:* L'utente ha consultato o modificato le risposte fornite durante la verifica di un requisito. \
-
-- *Scenario principale:*
- + Dalla dashboard o dal dettaglio di un requisito, l'utente richiede il
-  riesame delle risposte.
- + Il sistema mostra la sequenza di domande e risposte registrate per quel
-  requisito.
- + L’utente modifica una risposta precedente.
- + Il sistema ricalcola l'esito del requisito a partire dal nodo modificato.
-
-#figure(
-  image("../../../images/diagrammiUML/UC-10.png", width: 90%),
-  caption: [UC-10 : Riesame delle risposte fornite]
-)
-
-#pagebreak()
-
-== UC-11 : Esportazione dei risultati
-#v(1em)
-- *Attore primario:* Utente \
-
-- *Precondizioni:* Almeno un requisito ha ricevuto un esito. \
-
-- *Postcondizioni:* Il sistema ha prodotto e reso disponibile all'utente un file contenente i risultati della verifica. \
-
-- *Scenario principale:*
- + L'utente richiede l'esportazione dei risultati.
- + L'utente seleziona il formato desiderato (es. PDF, CSV, JSON, XML).
- + Il sistema genera il file con l'elenco dei requisiti, gli esiti e le
-  relative giustificazioni.
- + Il sistema mette a disposizione il file per il download.
-
-#figure(
-  image("../../../images/diagrammiUML/UC-11.png", width: 90%),
-  caption: [UC-11 : Esportazione dei risultati]
-)
-
-
-#pagebreak()
-
-
-
-== UC-18 : Importazione del file di definizione dei decision tree
-#v(1em)
-- *Attore primario:* Utente \
-
-- *Precondizioni:* L'utente dispone di uno o più file che descrivono i decision tree dei requisiti EN 18031 in un formato supportato (es. XML, JSON). \
-
-- *Postcondizioni:* Il sistema ha acquisito la struttura dei decision tree e li rende disponibili per l'esecuzione. \
-
-- *Scenario principale:*
- + L'utente accede alla funzionalità di importazione dei decision tree.
- + L'utente seleziona il file o i file da importare.
- + Il sistema valida la struttura dei decision tree (nodi, rami, esiti).
- + Il sistema carica i decision tree e li associa ai requisiti corrispondenti.
- + Il sistema conferma il caricamento e mostra l'elenco dei requisiti disponibili.
-
-*Scenari alternativi:*
-- *2a.* Il file contiene errori strutturali:
-  + Il sistema segnala le incongruenze.
-  + Il sistema annulla l’operazione di caricamento.
-
-#figure(
-  image("../../../images/diagrammiUML/UC-18.png", width: 65%),
-  caption: [UC-18 : Importazione del file di definizione dei decision tree]
-)
-
-#pagebreak()
-
-== UC-19 : Esecuzione del decision tree per un requisito <uc19>
-#v(1em)
-- *Attore primario:* Utente \
-
-- *Precondizioni:* Almeno un requisito è stato selezionato (#text(blue)[#link(<uc5>)[UC-5]]). \
-
-- *Postcondizioni:* Il sistema ha eseguito l'intero percorso del decision tree per il requisito selezionato e ha determinato un esito. \
-
-- *Scenario principale:*
- + Il sistema mostra all’utente la prima domanda del decision tree associato
-  al requisito.
- + L'utente risponde alla domanda (es. _Yes_ / _No_). (UC-19.1 o UC-19.2)
- + Il sistema avanza al nodo successivo in base alla risposta fornita.
- + I passi 2–3 si ripetono fino al raggiungimento di un nodo foglia.
- + Il sistema registra l'esito del requisito: *PASS*, *FAIL* o
-  *NOT APPLICABLE*.
-
-*Scenari alternativi:*
-- *4a.* L'utente non comprende la domanda: può consultare la descrizione
-  estesa del nodo prima di rispondere.
-- *4b.* L'utente desidera tornare indietro: il sistema consente di
-  annullare l'ultima risposta e riprendere dal nodo precedente. (UC-19.3)
-- *4c.* L'utente desidera avanzare a un nodo già risposto in precedenza. (UC-19.4)
-
-*Estensioni:*
-- In qualsiasi momento l'utente può uscire anticipatamente dall'esecuzione. (UC-21)
-
-#figure(
-  image("../../../images/diagrammiUML/UC-19.png", width: 100%),
-  caption: [UC-19 : Esecuzione del decision tree per un requisito]
-)
-
-=== UC-19.1: Risposta affermativa alla domanda corrente
-#v(1em)
-- *Attore primario:* Utente \
-
-- *Precondizioni:* È in corso l'esecuzione di un decision tree e il sistema ha mostrato all'utente una domanda. \
-
-- *Postcondizioni:* Il sistema ha registrato una risposta affermativa e ha avanzato al nodo successivo corrispondente. \
-
-- *Scenario principale:*
-+ Il sistema mostra il testo della domanda corrente del decision tree.
-+ L'utente seleziona "Sì" come risposta.
-+ Il sistema registra la risposta e avanza al nodo successivo del ramo affermativo.
-
-=== UC-19.2: Risposta negativa alla domanda corrente
-#v(1em)
-- *Attore primario:* Utente \
-
-- *Precondizioni:* È in corso l'esecuzione di un decision tree e il sistema ha mostrato all'utente una domanda. \
-
-- *Postcondizioni:* Il sistema ha registrato una risposta negativa e ha avanzato al nodo successivo corrispondente. \
-
-- *Scenario principale:*
-+ Il sistema mostra il testo della domanda corrente del decision tree.
-+ L'utente seleziona "No" come risposta.
-+ Il sistema registra la risposta e avanza al nodo successivo del ramo negativo.
-
-=== UC-19.3: Navigazione al nodo precedente
-#v(1em)
-- *Attore primario:* Utente \
-
-- *Precondizioni:* È in corso l'esecuzione di un decision tree e il nodo corrente non è root. \
-
-- *Postcondizioni:* Il sistema ha riportato l'utente al nodo precedente, mostrando la domanda corrispondente con la risposta precedentemente fornita. \
-
-- *Scenario principale:*
-+ L'utente seleziona la funzionalità di navigazione al nodo precedente.
-+ Il sistema mostra la domanda precedente con la risposta già fornita.
-+ L'utente può modificare la risposta (UC-19.1 o UC-19.2) oppure avanzare nuovamente. (UC-19.4)
+  + Il sistema mostra le informazioni dell'asset selezionato.
+  + Il sistema mostra la lista dei requisiti da valutare per l'asset con il relativo stato.
+  + Per ogni requisito dell'asset, il sistema esegue il decision tree corrispondente.
+  + I passi precedenti si ripetono fino alla valutazione di tutti i requisiti dell'asset.
 
 - *Scenari alternativi:*
-+ 1a. L'utente si trova al primo nodo: la funzionalità di navigazione al nodo precedente non è disponibile.
+  - L'utente interrompe il test.
 
-=== UC-19.4: Navigazione al nodo successivo già risposto
+- *Inclusioni:*
+  - UC-18.1.1: Esecuzione decision tree per un requisito
+
+- *Estensioni:*
+  - UC-21: Uscita anticipata dal test
+
+
+==== UC-18.1.1: Esecuzione decision tree per un requisito
 #v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-18.1.1 : Esecuzione decision tree per un requisito]
+)
 - *Attore primario:* Utente \
 
-- *Precondizioni:* È in corso l'esecuzione di un decision tree, l'utente si trova su un nodo già risposto e il nodo successivo è presente nella cronologia. \
+- *Precondizioni:* 
+  - Il test è in corso. \
+  - Il sistema ha selezionato il requisito corrente da valutare per l'asset corrente. \
 
-- *Postcondizioni:* Il sistema ha avanzato al nodo successivo mantenendo la risposta originale. \
+- *Postcondizioni:* Il sistema ha registrato l'esito del decision tree per la coppia asset-requisito corrente. \
 
 - *Scenario principale:*
-+ L'utente seleziona la funzionalità di navigazione al nodo successivo.
-+ Il sistema mostra la domanda successiva con la risposta già fornita.
-+ L'utente può modificare la risposta (UC-19.1 o UC-19.2) oppure avanzare nuovamente. (UC-19.4)
+  + Il sistema mostra il codice e il nome del requisito in esame.
+  + Il sistema mostra il primo nodo del decision tree associato al requisito (UC-18.1.1.1).
+  + L'utente risponde alla domanda del nodo corrente (UC-18.1.1.2).
+  + Il sistema avanza al nodo successivo in base alla risposta fornita.
+  + I passi 2-4 si ripetono fino al raggiungimento di un nodo foglia.
+  + Il sistema registra l'esito: PASS, FAIL o NOT APPLICABLE.
 
 - *Scenari alternativi:*
-+ 1a. L'utente si trova all'ultimo nodo: la funzionalità di navigazione al nodo successivo non è disponibile.
+  + L'utente desidera tornare al nodo precedente (UC-18.1.1.3).
+  + L'utente desidera avanzare a un nodo già risposto in precedenza (UC-18.1.1.4).
 
-== UC-21: Uscita anticipata dall'esecuzione del decision tree
+- *Inclusioni:*
+  - UC-18.1.1.1: Visualizzazione nodo corrente del decision tree
+  - UC-18.1.1.2: Risposta alla domanda del nodo corrente
 
-- *Attore primario:* Utente
 
-- *Precondizioni:* È in corso l'esecuzione di un decision tree per un requisito. (UC-19)
-
-- *Postcondizioni:* Il sistema ha salvato i progressi dell'esecuzione in un file esportabile e terminato la sessione corrente senza registrare un esito finale.
-
-- *Scenario principale:*  
-+  L'utente seleziona la funzionalità di uscita anticipata dall'esecuzione.
-+  Il sistema salva automaticamente i progressi raggiunti (nodo corrente e risposte fornite fino a quel momento).
-+  Il sistema propone all'utente di esportare il file della sessione parziale. (UC-41)
-+  Il sistema termina la sessione di esecuzione.
-
-- *Scenari alternativi:*
-+ 3a. L'utente sceglie di non esportare il file: il sistema termina la sessione senza produrre il file.
-
-== UC-22: Caricamento test precedente
+===== UC-18.1.1.1: Visualizzazione nodo corrente del decision tree
 #v(1em)
-- *Attore primario:* Utente
-- *Precondizioni:* Il sistema è attivo. L'utente dispone di un file di sessione precedentemente salvato, completo o parziale, in un formato supportato.
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-18.1.1.1 : Visualizzazione nodo corrente del decision tree]
+)
+- *Attore primario:* Utente \
 
-- *Postcondizioni:* Il sistema ha caricato il test e reso disponibili i dati relativi (dispositivo, asset, risposte, esiti parziali o completi).
+- *Precondizioni:* Il sistema sta eseguendo il decision tree per un requisito. \
+
+- *Postcondizioni:* L'utente ha visualizzato le informazioni del nodo corrente. \
 
 - *Scenario principale:*
-+  L'utente accede alla funzionalità di caricamento di un test precedente.
-+  L'utente seleziona il file della sessione salvata.
-+  Il sistema valida il formato e la struttura del file.
-+  Il sistema carica i dati del test.
-+  Il sistema rileva se il test è completo o parziale:
-  - 5a. Se il test è parziale: il sistema propone di riprendere l'esecuzione dal punto in cui era stata interrotta. (UC-23)
-  - 5b. Se il test è completo: il sistema mostra i risultati. (UC-9)
+  + Il sistema mostra il codice univoco del nodo corrente.
+  + Il sistema mostra il testo della domanda associata al nodo corrente.
+
+
+===== UC-18.1.1.2: Risposta alla domanda del nodo corrente
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-18.1.1.2 : Risposta alla domanda del nodo corrente]
+)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* Il sistema ha mostrato la domanda del nodo corrente del decision tree. \
+
+- *Postcondizioni:* Il sistema ha registrato la risposta e avanzato al nodo successivo. \
+
+- *Scenario principale:*
+  + Il sistema mostra il testo della domanda del nodo corrente.
+  + L'utente seleziona la risposta.
+  + Il sistema registra la risposta e avanza al nodo successivo.
+
+- *Specializzazioni:*
+  - UC-18.1.1.2.1: Risposta affermativa al nodo corrente
+  - UC-18.1.1.2.2: Risposta negativa al nodo corrente
+
+---
+
+====== UC-18.1.1.2.1: Risposta affermativa al nodo corrente
+#v(1em)
+- *Attore primario:* Utente \
+- *Precondizioni:* Il sistema ha mostrato la domanda del nodo corrente. \
+- *Postcondizioni:* Il sistema registra "Sì" e avanza nel ramo affermativo. \
+- *Scenario principale:*
+  + L'utente seleziona "Sì" come risposta.
+  + Il sistema registra la risposta e avanza al nodo successivo del ramo affermativo.
+
+---
+
+====== UC-18.1.1.2.2: Risposta negativa al nodo corrente
+#v(1em)
+- *Attore primario:* Utente \
+- *Precondizioni:* Il sistema ha mostrato la domanda del nodo corrente. \
+- *Postcondizioni:* Il sistema registra "No" e avanza nel ramo negativo. \
+- *Scenario principale:*
+  + L'utente seleziona "No" come risposta.
+  + Il sistema registra la risposta e avanza al nodo successivo del ramo negativo.
+
+---
+
+====== UC-18.1.1.3: Navigazione al nodo precedente
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-18.1.1.3 : Navigazione al nodo precedente]
+)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* - Il test è in corso. \
+  - Il nodo corrente non è il nodo radice del decision tree. \
+
+- *Postcondizioni:* Il sistema riporta l'utente al nodo precedente mostrando la risposta già fornita. \
+
+- *Scenario principale:*
+  + L'utente seleziona la funzionalità di navigazione al nodo precedente.
+  + Il sistema mostra la domanda del nodo precedente con la risposta già fornita.
+  + L'utente può modificare la risposta (UC-18.1.1.2).
+
+
+== UC-19: Visualizzazione stato avanzamento del test
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-19 : Visualizzazione stato avanzamento del test]
+)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* Il test è in corso. \
+
+- *Postcondizioni:* L'utente ha visualizzato lo stato corrente del test. \
+
+- *Scenario principale:*
+  + Il sistema mostra l'asset e il requisito correnti in esame.
+  + Il sistema mostra il numero di asset completati rispetto al totale.
+  + Il sistema mostra il numero di requisiti completati per l'asset corrente.
+  + Il sistema mostra il percorso seguito nel decision tree fino al nodo corrente.
+
+
+== UC-20: Visualizzazione nodo foglia del decision tree
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-20 : Visualizzazione nodo foglia del decision tree]
+)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* Il sistema ha raggiunto un nodo foglia del decision tree. \
+
+- *Postcondizioni:* L'utente ha visualizzato l'esito del requisito per l'asset corrente. \
+
+- *Scenario principale:*
+  + Il sistema mostra l'esito del requisito per l'asset corrente.
+  + Il sistema mostra la giustificazione dell'esito in base al percorso seguito.
+
+- *Specializzazioni:*
+  - UC-20.1: Visualizzazione esito PASS
+  - UC-20.2: Visualizzazione esito FAIL
+  - UC-20.3: Visualizzazione esito NOT APPLICABLE
+
+
+== UC-21: Uscita anticipata dal test
+
+- *Attore primario:* Utente \
+
+- *Precondizioni:* Il test è in corso.
+
+- *Postcondizioni:* Il test è stato interrotto.
+
+- *Scenario principale:*
+  + L'utente seleziona la funzionalità di uscita dal test.
+  + Il sistema chiede all'utente se desidera salvare la sessione corrente.
+  + L'utente sceglie di salvare.
+  + Il sistema termina la sessione.
 
 - *Scenari alternativi:*
-+ 3a. Il file non rispetta il formato atteso: il sistema notifica l'errore e richiede un file valido. (UC-2)
+  - L'utente sceglie di non salvare.
 
-== UC-23: Ripresa esecuzione test non completato
+- *Estensioni:*
+  - UC-22: Salvataggio sessione parziale
+
+== UC-22: Salvataggio sessione parziale
 #v(1em)
-- *Attore primario:* Utente
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-22 : Salvataggio sessione parziale]
+)
+- *Attore primario:* Utente \
 
-- *Precondizioni:* L'utente ha caricato un test in stato non completato. (UC-22)
+- *Precondizioni:* Il test è in corso e l'utente ha risposto ad almeno una domanda. \
 
-- *Postcondizioni:* Il test è stato completato e i suoi dati sono aggiornati con i nuovi esiti.
+- *Postcondizioni:* Il sistema ha prodotto un file JSON contenente lo stato della sessione. \
 
 - *Scenario principale:*
-+  Il sistema rileva che il test caricato non è completo.
-+  Il sistema riprende l'esecuzione dal nodo in cui era stata interrotta.
-+  L'utente prosegue l'esecuzione del decision tree. (UC-19)
+  + L'utente seleziona la funzionalità di salvataggio.
+  + Il sistema raccoglie i dati del dispositivo, gli asset, gli esiti registrati e la posizione corrente nel decision tree.
+  + Il sistema genera il file in formato JSON.
+  + Il sistema mette a disposizione il file per il download.
+
+
+== UC-23: Ripresa sessione parziale
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-23 : Ripresa sessione parziale]
+)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente dispone di un file di sessione parziale precedentemente salvato. \
+
+- *Postcondizioni:* Il sistema carica la sessione e il test riprende dal punto di interruzione. \
+
+- *Scenario principale:*
+  + L'utente seleziona la funzionalità di caricamento sessione.
+  + L'utente seleziona il file JSON.
+  + Il sistema valida il formato e la struttura del file.
+  + Il sistema ripristina i dati e riprende il test (UC-18.1.1).
+
+- *Scenari alternativi:*
+  + Il file non rispetta il formato: il sistema notifica l'errore (UC-3).
+
+
+#pagebreak()
+
+
+sezione riguardante decision tree
