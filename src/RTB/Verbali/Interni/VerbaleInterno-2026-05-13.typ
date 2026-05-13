@@ -73,7 +73,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026-05-13], [Giovanni Bronte], [], [Prima stesura del verbale],
+      [0.1.0], [2026-05-13], [Filippo Zonta Rocha], [], [Correzione refusi, Aggiornamento sezioni],
+      [0.1.0], [2026-05-13], [Giovanni Bronte], [Filippo Zonta Rocha], [Prima stesura del verbale],
       // aggiungi nuova riga quando viene aggiornato
     )
   ]
@@ -113,37 +114,37 @@
 
 
 = Ordine del Giorno
-+ Discussione sui lavori effettuati e da fare per il futuro prossimo.
++ Verifica avanzamento e pianificazione lavori.
 + Discussione e creazione del Diario di Bordo per il 15/05.
-+ Aggiunta di una sezione per il Diario di Bordo nel sito del gruppo.
++ Implementazione di una sezione per il Diario di Bordo nel sito del gruppo.
 + Discussione sul documento: Piano di Qualifica.
 
 
 = Svolgimento della Riunione
 
 == Continuazione del documento Analisi dei Requisiti
-La redazione del documento dell'Analisi dei Requsiti continua in una fase abbastanza avanzata. Durante la riunione esterna tenuta il 2026-05-04 il team ha chiesto che se fosse possibile ispezionare l'AdR nella successiva riunione per avere l'opinione dell'azienda proponente per quanto riguarda l'attuale versione dell'AdR, allo scopo di capire se gli Use Case definiti fino ad ora sono concordi con le richieste di Bluewind. 
+La redazione del documento dell'Analisi dei Requisiti è in una fase avanzata di stesura. Durante la riunione esterna tenuta il 2026-05-04 il team ha richiesto la possibilità di avere feedback sull'AdR da parte dell'azienda proponente. Questo permetterà di verificare se gli Use Case definiti fino ad ora siano corretti, per poter continuare l'approfondimento documentale.
 
 == Continuazione del documento Norme di Progetto 
-La redazione del documento Norme di Progetto continua in una fase abbastanza avanzata. Sono stati discussi e definiti i prossimi passi per proseguire la scrittura di questo documento, il quale è fondamentale per stabilire le regole e linee guida per il lavoro del team 
+La redazione del documento Norme di Progetto è in una fase avanzata di stesura. Sono stati discussi e definiti i prossimi passi per proseguire la scrittura di questo documento, il quale è fondamentale per stabilire le regole e linee guida per il lavoro del team.
 
-== Continuazione del documento Piando di Progetto
-L'aggiornamento del documento Piano di Progetto viene eseguito all'inizio di ogni sprint, in quanto deve includere un resocontro dello sprint passato e un piano per le attività che andrannò svolte nello sprint successivo. In questo caso l'aggiornamenteo del PdP dovrà essere fatto il 2026-05-18.
+== Continuazione del documento Piano di Progetto
+L'aggiornamento del documento Piano di Progetto viene eseguito all'inizio di ogni sprint, in quanto deve includere un resoconto dello sprint precedente e pianificare le attività per lo sprint successivo. In questo caso l'aggiornamento del PdP dovrà essere fatto il 2026-05-18.
 
 == Stesura iniziale del Piano di Qualifica
-È stata scritta una stesura iniziale per il Piano di Qualifica che comprende l'introduzione al documento. In quanto lo scopo del documento è definire le strategie di verifica e validazione adottate dal gruppo Coderius, per il futuro prossimo è stato deciso che il team si concentrerà sulla finalizzazione di altri documenti e non proseguirà la redazione del Piano di Qualifica per questo sprint.
+Stesura iniziale del Piano di Qualifica limitatamente alla sezione introduttiva. Per questo sprint il gruppo ha deciso di concentrarsi sulla stesura degli altri documenti, in quanto il Piano di Qualifica è un documento che richiede una pianificazione dettagliata e una definizione precisa delle strategie di verifica e validazione, che al momento non sono ancora state completamente definite.
 
 == Stesura del Diario di Bordo
-Il team ha discusso e deciso come aggiornare il Diario di Bordo per l'incontro del 2026-05-15 in base a quanto svolto durante la settimana rispetto all'ultimo incontro per il DdB.
+Il team ha discusso e deciso come aggiornare il Diario di Bordo per l'incontro del 2026-05-15 in base a quanto svolto durante la settimana.
 
 == Aggiunta di una sezione per il Diario di Bordo sul sito web del gruppo
-Il team ha deciso che dovrà essere implementata una sezione dedicata a tenere tutti i Diari di Bordo che si svolgeranno durante questo progetto sul sito web del gruppo. 
+Il team ha deciso che implementerà una sezione per pubblicare tutti i Diari di Bordo che si svolgeranno durante questo progetto sul sito web del gruppo, in modo da avere una documentazione accessibile e organizzata di tutte le attività svolte durante il progetto.
 
 == Discussione su alcuni Use Case dell'Analisi dei requisiti
-Gli analisti per questo sprint hanno individuato vari quesiti per quanto riguarda alcuni Use Case scritti in precedenza, è nata una discussione con tutto il team per risolvere i problemi trovati. Uno UC in particolare ha causato vari dubbi al team, così è stato deciso di chiedere all'azienda proponente una delucidazione sull'argomento tramite il gruppo telegram, per evitare di dover attendere fino al prossimo incontro per una risposta, in quanto avrebbe arrestato il progresso dell'AdR. 
+Gli analisti per questo sprint hanno sollevato alcuni dubbi per quanto riguarda alcuni Use Case scritti in precedenza nell'AdR che è stata oggetto di discussione da parte del team per risolvere i problemi trovati. Tra i quali uno Use Case in particolare non era molto chiaro al team, cosi è stato deciso di chiedere chiarimenti all'azienda tramite il canale di comunicazione Telegram, in modo da poter proseguire con la stesura dell'AdR.
 
 == Organizzazione dei quesiti per il proponente 
-Anche se il prossimo incontro con il proponente sarà dedicato alla visualizzazione dell'Analisi dei Requsiti con Bluewind, il gruppo ha individuato e scritto alcuni quesiti sorti durante la continuazione del lavoro.
+Oltre alla richiesta di feedback sull'AdR, il  gruppo ha preparato alcuni quesiti su alcuni dubbi sorti durante la continuazione del lavoro.
 
 
 = Conclusione e Decisioni Prese
@@ -153,20 +154,20 @@ Anche se il prossimo incontro con il proponente sarà dedicato alla visualizzazi
     align: (center, left),
     [*Codice*], [*Descrizione*],
     [VI-3.1], [Continuazione del documento Analisi dei Requisiti],
-    [VI-3.2], [Continauzione del documento Norme di Progetto],
+    [VI-3.2], [Continuazione del documento Norme di Progetto],
     [VI-3.3], [Continuazione del documento Piano di Progetto],
     [VI-3.4], [Finalizzazione dei quesiti per Bluewind],
-    [VI-3.5], [Inviato quesito su AdR tramite gruppo Telegram a Bluewind],
+    [VI-3.5], [Invio quesito su AdR tramite gruppo Telegram a Bluewind],
     [VI-3.6], [Aggiornato Diario di Bordo per incontro 2026-05-15],
-    [VI-3.7], [Aggiungere sezione per DdB sul sito],
+    [VI-3.7], [Implementazione sezione Diari di Bordo sul sito],
     
   )
 ]
 == Ordine del Giorno prossimo incontro
 I seguenti punti saranno affrontati nella prossima riunione interna:
 + Verifica avanzamento lavori.
-+ Ruotazione dei ruoli interni.
-+ Discussione sul documento Analisi dei Requisiti, successivamente all'incontro con Bluewind.
++ Rotazione dei ruoli.
++ Discussione del documento Analisi dei Requisiti, successivamente all'incontro con Bluewind.
 
 = TODO
 Elenco dei compiti assegnati ai membri del team in vista della prossima riunione.
@@ -175,10 +176,10 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-4.1], [Continuazione Analisi dei Requisiti], [Ines Ianadi, Alberto Canavese], [VI-3.1],
-    [TD-4.2], [Continauzione Norme di Progetto], [Hodja Edis],[VI-3.2],
-    [TD-4.3], [Continauzione Piano di Progetto], [Giovanni Bronte],[VI-3.3],
-    [TD-4.4], [Finalizzazione dei quesiti per Bluewind], [Team],[VI-3.5],
-    [TD-4.5], [Aggiungere sezione per DdB sul sito], [Team],[VI-3.7]
+    [TD-4.1], [Continuazione Analisi dei Requisiti], [Ines Iadadi, Alberto Canavese], [VI-3.1],
+    [TD-4.2], [Continuazione Norme di Progetto], [Edis Hodja],[VI-3.2],
+    [TD-4.3], [Continuazione Piano di Progetto], [Giovanni Bronte],[VI-3.3],
+    [TD-4.4], [Inviato quesito per Bluewind], [Team],[VI-3.5],
+    [TD-4.5], [Implementazione sezione Diari di Bordo sul sito], [Team],[VI-3.7]
   )
 ]
