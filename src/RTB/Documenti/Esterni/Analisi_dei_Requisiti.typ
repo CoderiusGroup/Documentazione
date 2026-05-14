@@ -1,21 +1,20 @@
 #set page(
-    paper: "a4",
-    margin: (x: 2.5cm, y: 3cm),
-    header: context {
+  paper: "a4",
+  margin: (x: 2.5cm, y: 3cm),
+  header: context {
     if counter(page).get().first() > 1 [
       #set text(size: 9pt, fill: luma(100))
       #grid(
         columns: (1fr, 1fr),
-        align(left)[Analisi dei Requisiti],
-        align(right)[Coderius Group]
+        align(left)[Analisi dei Requisiti], align(right)[Coderius Group],
       )
       #v(-0.5em)
       #line(length: 100%, stroke: 0.4pt + luma(150))
     ]
-  }
-  )
+  },
+)
 
-#set text(font: "Libertinus Serif",size: 12pt,lang: "it")
+#set text(font: "Libertinus Serif", size: 12pt, lang: "it")
 
 #set heading(numbering: "1.1.")
 #show figure: set figure(supplement: none)
@@ -53,14 +52,19 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.2.0], [2026/05/05], [Ines Iadadi], [],[Aggiornamento struttura del documento fino al UC-17],
-    [0.1.6], [2026/04/30], [Ines Iadadi], [],[Integrazione casi d'uso: da UC-20 a UC-23],
-    [0.1.5], [2026/04/28], [Edis Hodja], [],[Aggiornamento UML e struttura della documentazione.],
-    [0.1.4], [2026/04/24], [Giovanni Bronte], [Filippo Zonta Rocha],[Integrazione casi d'uso: da UC-2 a UC-7 e UC-17 con le appropriate sottosezioni e diagrammi UML. Modificate le numerazioni di vari use case  assieme ai loro diagrammi UML],
-    [0.1.3], [2026/04/21], [Giovanni Bronte], [Filippo Zonta Rocha],[Integrazione casi d'uso: UC9 a UC13],
-    [0.1.2], [2026/04/13], [Edis Hodja], [Filippo Zonta Rocha],[Integrazione casi d'uso: UC1 a UC8],
-    [0.1.1], [2026/04/10], [Edis Hodja], [Filippo Zonta Rocha],[Integrazione descrizione del prodotto],
-    [0.1.0], [2026/04/07], [Edis Hodja], [Filippo Zonta Rocha],[Redazione preliminare del documento]
+    [0.2.0], [2026/05/05], [Ines Iadadi], [], [Aggiornamento struttura del documento fino al UC-18],
+    [0.1.6], [2026/04/30], [Ines Iadadi], [], [Integrazione casi d'uso: da UC-21 a UC-24],
+    [0.1.5], [2026/04/28], [Edis Hodja], [], [Aggiornamento UML e struttura della documentazione.],
+    [0.1.4],
+    [2026/04/24],
+    [Giovanni Bronte],
+    [Filippo Zonta Rocha],
+    [Integrazione casi d'uso: da UC-2 a UC-7 e UC-18 con le appropriate sottosezioni e diagrammi UML. Modificate le numerazioni di vari use case  assieme ai loro diagrammi UML],
+
+    [0.1.3], [2026/04/21], [Giovanni Bronte], [Filippo Zonta Rocha], [Integrazione casi d'uso: UC9 a UC13],
+    [0.1.2], [2026/04/13], [Edis Hodja], [Filippo Zonta Rocha], [Integrazione casi d'uso: UC1 a UC8],
+    [0.1.1], [2026/04/10], [Edis Hodja], [Filippo Zonta Rocha], [Integrazione descrizione del prodotto],
+    [0.1.0], [2026/04/07], [Edis Hodja], [Filippo Zonta Rocha], [Redazione preliminare del documento],
   )
 ]
 #pagebreak()
@@ -106,9 +110,13 @@ Sono state inoltre considerate le indicazioni metodologiche fornite nell’ambit
 
 #heading(level: 3, numbering: none)[Riferimenti Normativi]
 #v(2pt)
-- #text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1p.pdf")[C1: Automated EN18031 Compliance Verification - Bluewind S.r.l.])]
+- #text(blue)[#underline(link(
+    "https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1p.pdf",
+  )[C1: Automated EN18031 Compliance Verification - Bluewind S.r.l.])]
 #v(2pt)
-- #text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf")[Regolamento del Progetto Didattico a.a. 2025-2026])]
+- #text(blue)[#underline(link(
+    "https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf",
+  )[Regolamento del Progetto Didattico a.a. 2025-2026])]
 #v(2pt)
 
 #heading(level: 3, numbering: none)[Riferimenti Informativi]
@@ -116,9 +124,15 @@ Sono state inoltre considerate le indicazioni metodologiche fornite nell’ambit
 - #text(blue)[#underline([Glossario di Progetto])] //da aggiungere quando si inizierà la stesura
 #v(2pt)
 - Dispense del corso di Ingegneria del Software 2025/2026:#v(1pt)
-  - #text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T05.pdf")[Analisi dei Requisiti])] #v(3pt)
-  - #text(blue)[#underline(link("https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf")[Diagrammi degli Use Case (UML)])] #v(3pt)
-  - #text(blue)[#underline(link("https://kurzy.kpi.fei.tuke.sk/zsi/resources/CockburnBookDraft.pdf")[A. Cockburn, Writing Effective Use Cases])] #v(3pt)
+  - #text(blue)[#underline(link(
+      "https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T05.pdf",
+    )[Analisi dei Requisiti])] #v(3pt)
+  - #text(blue)[#underline(link(
+      "https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf",
+    )[Diagrammi degli Use Case (UML)])] #v(3pt)
+  - #text(blue)[#underline(link(
+      "https://kurzy.kpi.fei.tuke.sk/zsi/resources/CockburnBookDraft.pdf",
+    )[A. Cockburn, Writing Effective Use Cases])] #v(3pt)
   - #text(blue)[#underline(link("https://www.omg.org/spec/UML/2.5.1/PDF")[OMG UML 2.5.1 Specification])]
 
 = Descrizione del prodotto
@@ -229,7 +243,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-1 : Inserimento nuovo dispositivo]
+  caption: [UC-1 : Inserimento nuovo dispositivo],
 )
 
 - *Attore primario:* Utente \
@@ -254,7 +268,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC-1.png", width: 80%),
-  caption: [UC-2 : Importazione del documento del dispositivo]
+  caption: [UC-2 : Importazione del documento del dispositivo],
 )
 - *Attore primario:* Utente \
 
@@ -279,15 +293,15 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario*: Utente \
 
-- *Precondizioni*: 
+- *Precondizioni*:
   + Il sistema è attivo
   + L'utente sta inserendo un nuovo dispositivo tramite importazione di un file di configurazione
 
-- *Postcondizioni*: 
+- *Postcondizioni*:
   + L'inserimento del file di configurazione del dispositivo è stato annullato.
   + Il sistema mostra un messaggio di errore.
 
-- *Scenario principale*: 
+- *Scenario principale*:
   + L'utente inserisce un file con un errore strutturale o di contenuto.
   + Il sistema mostra un messaggio di errore.
 
@@ -296,7 +310,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC-4.png", width: 100%),
-  caption: [UC-4 : Creazione del dispositivo]
+  caption: [UC-4 : Creazione del dispositivo],
 )
 - *Attore primario:* Utente \
 
@@ -306,17 +320,17 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + L'utente sceglie l'opzione di creazione di un nuovo dispositivo.
-  + L'utente compila i campi richiesti per l'inserimento del dispositivo.
-  + VIENE ASSOCIATO MODELLO STANDARD O UTENTE DEVE AGGIUNGERE ALMENO UN ASSET????
-  + Il sistema acquisisce le informazioni relative al dispositivo.
+  + L'utente compila i campi richiesti per il dispositivo (UC-4.1).
+  + Il sistema registra il dispositivo. Gli asset del dispositivo potranno essere aggiunti
+    successivamente tramite UC-12.
 
-*Inclusioni:*
+- *Inclusioni:*
   - UC-4.1: Inserimento dati del dispositivo
 
 === UC-4.1: Inserimento dati del dispositivo <uc4.1>
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 30%),
-  caption: [UC-4.1 : Inserimento dati del dispositivo]
+  caption: [UC-4.1 : Inserimento dati del dispositivo],
 )
 - *Attore primario:* Utente \
 
@@ -336,7 +350,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - UC-4.1.3: Inserimento descrizione del dispositivo
 
 - *Estensioni:*
-  - UC-4.2: Inserimento dati non validi
+  - UC-5: Inserimento dati non validi
 
 === UC-4.1.1: Inserimento nome dispositivo
 #v(1em)
@@ -350,7 +364,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente inserisce un nome per il nuovo dispositivo.
 
 *Scenari alternativi:*
-  - L'utente annulla l'aggiunta di un nome per il dispositivo.
+- L'utente annulla l'aggiunta di un nome per il dispositivo.
 
 === UC-4.1.2: Inserimento sistema operativo del dispositivo
 #v(1em)
@@ -364,7 +378,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente inserisce un sistema operativo per il nuovo dispositivo.
 
 *Scenari alternativi:*
-  - L'utente annulla l'aggiunta di un sistema operativo per il dispositivo.
+- L'utente annulla l'aggiunta di un sistema operativo per il dispositivo.
 
 === UC-4.1.3: Inserimento descrizione del dispositivo
 #v(1em)
@@ -378,7 +392,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente inserisce una descrizione per il nuovo dispositivo.
 
 *Scenari alternativi:*
-  - L'utente annulla l'aggiunta di una descrizione per il dispositivo.
+- L'utente annulla l'aggiunta di una descrizione per il dispositivo.
 
 
 == UC-5: Inserimento dati non validi <uc5>
@@ -390,10 +404,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* Il sistema ha segnalato l'errore all'utente e l'operazione non è stata completata.
 
 - *Scenario principale:*
-  +  L'utente tenta di confermare l'inserimento con uno o più campi non validi o vuoti.
-  +  Il sistema rileva i dati non conformi.
-  +  Il sistema mostra un messaggio di errore che indica i campi non validi.
-  +  Il sistema non procede con l'operazione fino alla correzione dei dati.
+  + L'utente tenta di confermare l'inserimento con uno o più campi non validi o vuoti.
+  + Il sistema rileva i dati non conformi.
+  + Il sistema mostra un messaggio di errore che indica i campi non validi.
+  + Il sistema non procede con l'operazione fino alla correzione dei dati.
 
 == UC-6: Annullamento inserimento dispositivo <uc6>
 #v(1em)
@@ -413,7 +427,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC-16.png", width: 80%),
-  caption: [UC-7 : Visualizza dati dispositivo]
+  caption: [UC-7 : Visualizza dati dispositivo],
 )
 - *Attore primario:* Utente \
 
@@ -426,11 +440,20 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente visualizza il nome del dispositivo.
   + L'utente visualizza il sistema operativo del dispositivo.
   + L'utente visualizza la descrizione del dispositivo.
+  + Il sistema mostra lo stato aggregato di valutazione del dispositivo (UC-7.4).
 
 - *Inclusioni:*
   - UC-7.1: Visualizza nome dispositivo
   - UC-7.2: Visualizza sistema operativo dispositivo
   - UC-7.3: Visualizza descrizione dispositivo
+  - UC-7.4: Visualizza stato aggregato dispositivo
+
+- *Estensioni:*
+  - UC-8: Modifica dati del dispositivo
+  - UC-10: Esportazione dati del dispositivo
+  - UC-11: Eliminazione del dispositivo
+  - UC-19: Valutazione del dispositivo
+  - UC-24: Ripresa sessione di valutazione
 
 === UC-7.1: Visualizza nome dispositivo
 #v(1em)
@@ -463,13 +486,27 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* L'utente ha visualizzato la descrizione del dispositivo. \
 
 - *Scenario principale:*
-+ L'utente visualizza la descrizione del dispositivo.
+  + L'utente visualizza la descrizione del dispositivo.
+
+=== UC-7.4: Visualizza stato aggregato dispositivo
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente sta visualizzando i dati del dispositivo. \
+
+- *Postcondizioni:* L'utente ha visualizzato lo stato aggregato di valutazione
+  del dispositivo. \
+
+- *Scenario principale:*
+  + Il sistema mostra lo stato aggregato del dispositivo, che può essere:
+    non valutato (nessun test completato), PASS (tutti gli asset hanno esito PASS),
+    FAIL (almeno un asset ha esito FAIL).
 
 == UC-8: Modifica dati del dispositivo <uc8>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-8 : Modifica dati del dispositivo]
+  caption: [UC-8 : Modifica dati del dispositivo],
 )
 - *Attore primario:* Utente \
 
@@ -481,16 +518,16 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente seleziona il tasto di modifica dei dati del dispositivo.
   + L'utente modifica i dati del dispositivo.
 
-- Scenari alternativi:
+- *Scenari alternativi:*
   - L'utente inserisce dati non validi in uno o più campi.
   - L'utente annulla la modifica dei dati del dispositivo.
 
-- Inclusioni:
+- *Inclusioni:*
   - UC-8.1: Modifica nome del dispositivo
   - UC-8.2: Modifica sistema operativo del dispositivo
   - UC-8.3: Modifica descrizione del dispositivo
 
-- Estensioni:
+- *Estensioni:*
   - UC-5: Inserimento dati non validi
   - UC-9: Annullamento modifica dati del dispositivo
 
@@ -547,32 +584,87 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema scarta le modifiche
   + Il sistema ripristina i dati del dispositivo al loro stato precedente.
 
-*DUBBIO RIGUARDANTE AL SALVATAGGIO DELLE MODIFICHE AD UN DISPOSITIVO - Da definire*
-== UC: Esportazione dati del dispositivo
-== UC-10: Eliminazione del dispositivo
+== UC-10: Esportazione dati del dispositivo <uc10>
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente ha importato oppure inserito un dispositivo. \
+
+- *Postcondizioni:* Il sistema ha generato e reso disponibile per il download un file contenente i dati del dispositivo e degli asset associati. \
+
+- *Scenario principale:*
+  + L'utente seleziona la funzionalità di esportazione dei dati del dispositivo.
+  + Il sistema raccoglie i dati del dispositivo e degli asset associati.
+  + Il sistema genera il file.
+  + Il sistema mette a disposizione il file per il download.
+
+
+== UC-11: Eliminazione del dispositivo <uc11>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC-7.png", width: 50%),
-  caption: [UC-10 : Elimina dispositivo]
+  caption: [UC-11 : Elimina dispositivo],
 )
 - *Attore primario:* Utente \
 
-- *Precondizioni:* L'utente ha inserito un dispositivo.\
+- *Precondizioni:* L'utente ha importato oppure inserito un dispositivo. \
 
-- *Postcondizioni:* Il sistema ha rimosso i dati del dispositivo. \
+- *Postcondizioni:* Il sistema ha rimosso il dispositivo e tutti i dati ad esso associati. \
 
 - *Scenario principale:*
-+ L'utente seleziona quale dispositivo eliminare.
-+ Il sistema rimuove i dati del dispositivo. <uc10>
+  + L'utente seleziona la funzionalità di eliminazione del dispositivo.
+  + Il sistema chiede conferma dell'operazione.
+  + L'utente conferma.
+  + Il sistema rimuove il dispositivo.
+
+- *Scenari alternativi:*
+  - L'utente annulla l'eliminazione: il sistema non apporta modifiche.
+
+- *Specializzazioni:*
+  - UC-11.1: Eliminazione dispositivo senza backup
+  - UC-11.2: Eliminazione dispositivo con backup
+
+=== UC-11.1: Eliminazione dispositivo senza backup <uc11.1>
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente ha selezionato la funzionalità di eliminazione del dispositivo. \
+
+- *Postcondizioni:* Il sistema ha rimosso il dispositivo senza restituire alcun file all'utente. \
+
+- *Scenario principale:*
+  + L'utente seleziona l'opzione di eliminazione diretta senza backup.
+  + Il sistema mostra un avviso che i dati andranno persi definitivamente.
+  + L'utente conferma l'eliminazione.
+  + Il sistema rimuove il dispositivo e tutti i dati ad esso associati.
+
+=== UC-11.2: Eliminazione dispositivo con backup <uc11.2>
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente ha selezionato la funzionalità di eliminazione del dispositivo. \
+
+- *Postcondizioni:* Il sistema ha esportato i dati del dispositivo e successivamente
+  lo ha rimosso. \
+
+- *Scenario principale:*
+  + L'utente seleziona l'opzione di eliminazione con backup.
+  + Il sistema avvia l'esportazione dei dati del dispositivo (UC-10).
+  + Il sistema rimuove il dispositivo e tutti i dati ad esso associati.
+
+- *Inclusioni:*
+  - UC-10: Esportazione dati del dispositivo
+
+
 #pagebreak()
 
 
 
-== UC-11: Inserimento asset
+== UC-12: Inserimento asset
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC-12.png", width: 80%),
-  caption: [UC-11 : Inserisci asset]
+  caption: [UC-12 : Inserisci asset],
 )
 - *Attore primario:* Utente \
 
@@ -584,16 +676,19 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 + L'utente seleziona l'opzione di inserimento asset.
 + L'utente compila i campi obbligatori per l'asset.
 
-- *Scenari alternativi:* 
-+ L'utente annulla l'inserimento dell'asset. (UC-12)
-+ L'utente inserisce un asset con il tipo sbagliato. (UC-20)
+- *Inclusioni:*
+  - UC-12.1: Inserimento dati dell'asset
+
+- *Scenari alternativi:*
+  + L'utente annulla l'inserimento dell'asset. (UC-13)
+  + L'utente inserisce dati non validi in uno o più campi. (UC-5)
 
 
-=== UC-11.1: Inserimento dati dell'asset
+=== UC-12.1: Inserimento dati dell'asset
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-11.1 : Inserimento dati dell'asset]
+  caption: [UC-12.1 : Inserimento dati dell'asset],
 )
 - *Attore primario:* Utente \
 
@@ -606,11 +701,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente inserisce il tipo dell'asset.
   + L'utente inserisce una descrizione per l'asset.
 
-- *Scenari alternativi:* 
+- *Scenari alternativi:*
   + L'utente inserisce dati non validi in uno o più campi. (UC-5)
 
 
-==== UC-11.1.1: Inserimento nome asset
+==== UC-12.1.1: Inserimento nome asset
 #v(1em)
 - *Attore primario:* Utente \
 
@@ -621,11 +716,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente inserisce il nome dell'asset.
 
-==== UC-11.1.2: Inserimento tipo asset
+==== UC-12.1.2: Inserimento tipo asset
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC-12.2.png", width: 70%),
-  caption: [UC-11.1.2 : Inserimento tipo asset]
+  caption: [UC-12.1.2 : Inserimento tipo asset],
 )
 
 - *Attore primario:* Utente \
@@ -638,12 +733,12 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente seleziona il tipo dell'asset tra le opzioni disponibili.
 
 - *Specializzazioni:*
-  - UC-11.1.2.1: Selezione network asset
-  - UC-11.1.2.2: Selezione security asset
-  - UC-11.1.2.3: Selezione privacy asset
-  - UC-11.1.2.4: Selezione financial asset
+  - UC-12.1.2.1: Selezione network asset
+  - UC-12.1.2.2: Selezione security asset
+  - UC-12.1.2.3: Selezione privacy asset
+  - UC-12.1.2.4: Selezione financial asset
 
-===== UC-11.1.2.1: Selezione network asset
+===== UC-12.1.2.1: Selezione network asset
 #v(1em)
 
 - *Attore primario:* Utente \
@@ -655,7 +750,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente seleziona "Network" come tipo di asset.
 
-===== UC-11.1.2.2: Selezione security asset
+===== UC-12.1.2.2: Selezione security asset
 #v(1em)
 
 - *Attore primario:* Utente \
@@ -667,7 +762,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente seleziona "Security" come tipo di asset.
 
-===== UC-11.1.2.3: Selezione privacy asset
+===== UC-12.1.2.3: Selezione privacy asset
 #v(1em)
 
 - *Attore primario:* Utente \
@@ -679,7 +774,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
 + L'utente seleziona "Privacy" come tipo di asset.
 
-===== UC-11.1.2.4: Selezione financial asset
+===== UC-12.1.2.4: Selezione financial asset
 #v(1em)
 
 - *Attore primario:* Utente \
@@ -691,7 +786,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
 + L'utente seleziona "Financial" come tipo di asset.
 
-==== UC-11.1.3: Inserisci descrizione asset
+==== UC-12.1.3: Inserisci descrizione asset
 #v(1em)
 
 - *Attore primario:* Utente \
@@ -705,19 +800,18 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 #figure(
   image("../../../images/diagrammiUML/UC-12.3.png", width: 70%),
-  caption: [UC-11.1.3 : Inserisci descrizione asset]
+  caption: [UC-12.1.3 : Inserisci descrizione asset],
 )
-*SENSIBILITÀ DELL'ASSET - Da definire*
 
-== UC-12: Annullamento inserimento asset
+== UC-13: Annullamento inserimento asset
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC-13.png", width: 65%),
-  caption: [UC-12 : Annulla inserimento asset]
+  caption: [UC-13 : Annulla inserimento asset],
 )
 - *Attore primario:* Utente \
 
-- *Precondizioni:* L'utente ha selezionato l'opzione di inserimento asset. 
+- *Precondizioni:* L'utente ha selezionato l'opzione di inserimento asset.
 
 - *Postcondizioni:* Il sistema ha annullato l'inserimento dell'asset e ha ripristinato lo stato precedente. \
 
@@ -725,16 +819,16 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 + L'utente preme il tasto di annullamento di inserimento dell'asset.
 
 
-== UC-13: Visualizzazione lista asset
+== UC-14: Visualizzazione lista asset
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC-17.png", width: 80%),
-  caption: [UC-13 : Visualizzazione lista asset]
+  caption: [UC-14 : Visualizzazione lista asset],
 )
 
 - *Attore primario:* Utente \
 
-- *Precondizioni:* 
+- *Precondizioni:*
   - L'utente ha inserito un dispositivo.
   - Il dispositivo possiede almeno un asset.\
 
@@ -742,16 +836,16 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + Il sistema mostra la lista degli asset del dispositivo.
-  + Per ogni asset nella lista l'utente visualizza le informazioni del singolo asset (UC-13.1).
+  + Per ogni asset nella lista l'utente visualizza le informazioni del singolo asset (UC-14.1).
 
 - *Inclusioni:*
-  - UC-13.1: Visualizzazione singolo asset nella lista
+  - UC-14.1: Visualizzazione singolo asset nella lista
 
-=== UC-13.1: Visualizzazione singolo asset nella lista
+=== UC-14.1: Visualizzazione singolo asset nella lista
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC-17.1.png", width: 80%),
-  caption: [UC-13.1 : Visualizzazione singolo asset nella lista]
+  caption: [UC-14.1 : Visualizzazione singolo asset nella lista],
 )
 - *Attore primario:* Utente \
 
@@ -760,11 +854,16 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* L'utente ha visualizzato le informazioni essenziali di un singolo asset. \
 
 - *Scenario principale:*
-  + Il sistema mostra il nome dell'asset.
-  + Il sistema mostra il tipo di asset.
+  + Il sistema mostra il nome dell'asset (UC-14.1.1).
+  + Il sistema mostra il tipo di asset (UC-14.1.2).
+  + Il sistema mostra lo stato di valutazione dell'asset (UC-14.1.3).
 
+- *Inclusioni:*
+  - UC-14.1.1: Visualizzazione nome asset nella lista
+  - UC-14.1.2: Visualizzazione tipo asset nella lista
+  - UC-14.1.3: Visualizzazione stato valutazione asset nella lista
 
-==== UC-13.1.1: Visualizzazione nome asset nella lista
+==== UC-14.1.1: Visualizzazione nome asset nella lista
 #v(1em)
 
 - *Attore primario:* Utente \
@@ -776,7 +875,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente visualizza il nome dell'asset.
 
-==== UC-13.1.2: Visualizzazione tipo asset nella lista
+==== UC-14.1.2: Visualizzazione tipo asset nella lista
 #v(1em)
 
 - *Attore primario:* Utente \
@@ -786,28 +885,43 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* L'utente ha visualizzato il tipo dell'asset. \
 
 - *Scenario principale:*
-  + L'utente visualizza il tipo dell' asset.
+  + L'utente visualizza il tipo dell'asset.
 
-== UC-14: Visualizzazione in dettaglio asset
+==== UC-14.1.3: Visualizzazione stato valutazione asset nella lista
 #v(1em)
 
 - *Attore primario:* Utente \
 
-- *Precondizioni:* 
+- *Precondizioni:* L'utente sta visualizzando la lista degli asset.\
+
+- *Postcondizioni:* L'utente ha visualizzato lo stato di valutazione dell'asset. \
+
+- *Scenario principale:*
+  + L'utente visualizza lo stato di valutazione dell'asset, che può essere:
+    non valutato, in corso, completato.
+
+== UC-15: Visualizzazione in dettaglio asset
+#v(1em)
+
+- *Attore primario:* Utente \
+
+- *Precondizioni:*
   - L'utente sta visualizzando la lista degli asset.
 
 - *Postcondizioni:* L'utente ha visualizzato le informazioni in dettaglio di un singolo asset. \
 
 - *Scenario principale:*
-  + L'utente seleziona un asset dalla lista
+  + L'utente seleziona un asset dalla lista.
   + Il sistema mostra tutte le informazioni dell'asset.
 
 - *Inclusioni:*
-  - UC-14.1: Visualizzazione nome asset in dettaglio
-  - UC-14.2: Visualizzazione tipo asset in dettaglio
-  - UC-14.3: Visualizzazione descrizione asset in dettaglio
+  - UC-15.1: Visualizzazione nome asset in dettaglio
+  - UC-15.2: Visualizzazione tipo asset in dettaglio
+  - UC-15.3: Visualizzazione descrizione asset in dettaglio
+  - UC-15.4: Visualizzazione stato valutazione asset
+  - UC-15.5: Visualizzazione lista requisiti asset
 
-=== UC-14.1: Visualizzazione nome asset
+=== UC-15.1: Visualizzazione nome asset
 #v(1em)
 - *Attore primario:* Utente \
 
@@ -818,7 +932,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente visualizza il nome dell'asset.
 
-=== UC-14.2: Visualizzazione tipo asset
+=== UC-15.2: Visualizzazione tipo asset
 #v(1em)
 - *Attore primario:* Utente \
 
@@ -829,7 +943,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente visualizza il tipo dell'asset.
 
-=== UC-14.3: Visualizzazione descrizione asset
+=== UC-15.3: Visualizzazione descrizione asset
 #v(1em)
 - *Attore primario:* Utente \
 
@@ -840,13 +954,53 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente visualizza la descrizione dell'asset.
 
+=== UC-15.4: Visualizzazione stato valutazione asset
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente ha selezionato un asset dalla lista degli asset. \
+
+- *Postcondizioni:* L'utente ha visualizzato lo stato complessivo di valutazione dell'asset. \
+
+- *Scenario principale:*
+  + L'utente visualizza lo stato di valutazione dell'asset, che può essere:
+    non valutato, in corso, completato.
+
+=== UC-15.5: Visualizzazione lista requisiti asset
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente ha selezionato un asset dalla lista degli asset. \
+
+- *Postcondizioni:* L'utente ha visualizzato la lista dei requisiti da valutare per l'asset. \
+
+- *Scenario principale:*
+  + Il sistema mostra la lista dei requisiti (ACM e AUM) associati all'asset.
+  + Per ogni requisito il sistema mostra il codice e lo stato di valutazione (UC-15.5.1).
+
+- *Inclusioni:*
+  - UC-15.5.1: Visualizzazione singolo requisito nella lista
+
+==== UC-15.5.1: Visualizzazione singolo requisito nella lista
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente sta visualizzando la lista dei requisiti dell'asset. \
+
+- *Postcondizioni:* L'utente ha visualizzato il codice e lo stato di valutazione del requisito. \
+
+- *Scenario principale:*
+  + L'utente visualizza il codice del requisito.
+  + L'utente visualizza lo stato di valutazione del requisito (non valutato, in corso,
+    PASS, FAIL, NOT APPLICABLE).
 
 
-== UC-15: Modifica asset
+
+== UC-16: Modifica asset
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC-15.png", width: 80%),
-  caption: [UC-15 : Modifica asset]
+  caption: [UC-16 : Modifica asset],
 )
 
 - *Attore primario:* Utente \
@@ -869,15 +1023,15 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - L'utente annulla la modifica dell'asset.
 
 - *Inclusioni:*
-  - UC-15.1: Modifica nome asset
-  - UC-15.2: Modifica tipo asset
-  - UC-15.3: Modifica descrizione asset
+  - UC-16.1: Modifica nome asset
+  - UC-16.2: Modifica tipo asset
+  - UC-16.3: Modifica descrizione asset
 
 - *Estensioni:*
   - UC-5: Inserimento dati non validi
-  - UC-16: Annullamento modifica asset
+  - UC-17: Annullamento modifica asset
 
-=== UC-15.1: Modifica nome asset
+=== UC-16.1: Modifica nome asset
 #v(1em)
 - *Attore primario:* Utente \
 
@@ -886,10 +1040,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* Il sistema ha aggiornato il nome dell'asset. \
 
 - *Scenario principale:*
-+ L'utente mostra il nome dell'asset in un campo modificabile.
-+ L'utente modifica il nome dell'asset.
+  + Il sistema mostra il nome dell'asset in un campo modificabile.
+  + L'utente modifica il nome dell'asset.
 #v(1em)
-=== UC-15.2: Modifica tipo asset
+=== UC-16.2: Modifica tipo asset
 
 - *Attore primario:* Utente \
 
@@ -898,13 +1052,13 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* Il sistema ha aggiornato il tipo dell'asset. \
 
 - *Scenario principale:*
-+ L'utente mostra il tipo dell'asset in un campo modificabile.
-+ L'utente modifica il tipo dell'asset.
+  + Il sistema mostra il tipo dell'asset in un campo modificabile.
+  + L'utente modifica il tipo dell'asset.
 
 - *Scenari alternativi:*
 - L'utente modifica il tipo di un asset in un tipo non valido.
 
-=== UC-15.3: Modifica descrizione asset
+=== UC-16.3: Modifica descrizione asset
 #v(1em)
 - *Attore primario:* Utente \
 
@@ -913,10 +1067,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* Il sistema ha aggiornato la descrizione dell'asset. \
 
 - *Scenario principale:*
-+ L'utente mostra la descrizione dell'asset in un campo modificabile.
-+ L'utente modifica la descrizione dell'asset.
+  + Il sistema mostra la descrizione dell'asset in un campo modificabile.
+  + L'utente modifica la descrizione dell'asset.
 
-- UC-16: Annullamento modifica asset
+=== UC-17: Annullamento modifica asset
 #v(1em)
 - *Attore primario:* Utente \
 
@@ -930,11 +1084,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema ripristina i dati dell'asset.
 
 
-== UC-17: Eliminazione asset
+== UC-18: Eliminazione asset
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC-14.png", width: 65%),
-  caption: [UC-17 : Elimina asset]
+  caption: [UC-18 : Elimina asset],
 )
 - *Attore primario:* Utente \
 
@@ -954,11 +1108,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #pagebreak()
 
 
-== UC-18: Valutazione del dispositivo
+== UC-19: Valutazione del dispositivo
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-18 : Valutazione del dispositivo]
+  caption: [UC-19 : Valutazione del dispositivo],
 )
 - *Attore primario:* Utente
 
@@ -966,36 +1120,56 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - L'utente ha inserito un dispositivo.
   - Il dispositivo ha almeno un asset.
 
-- *Postcondizioni:* Il test è stato completato e i risultati sono disponibili per ogni coppia asset-requisito.
+- *Postcondizioni:* La sessione di valutazione è stata completata o interrotta.
+  I risultati parziali o completi sono disponibili per ogni coppia asset-requisito.
 
 - *Scenario principale:*
-  + L'utente avvia il test sul dispositivo inserito.
-  + Il sistema mostra la lista degli asset del dispositivo con il loro stato di valutazione.
-  + L'utente seleziona un asset da valutare.
-  + Il passo 3 si ripete fino a quando tutti gli asset sono stati valutati.
-  + Il sistema rende disponibili i risultati complessivi del test.
-
+  + L'utente avvia la sessione di valutazione del dispositivo.
+  + Il sistema mostra la dashboard di valutazione (UC-19.0).
+  + L'utente seleziona un asset da valutare dalla dashboard.
+  + Il sistema esegue la valutazione dell'asset selezionato (UC-19.1).
+  + I passi 3-4 si ripetono finché l'utente non ha valutato tutti gli asset
+    o interrompe la sessione.
+  + Il sistema mostra i risultati complessivi del test (UC-25).
 
 - *Scenari alternativi:*
-  - L'utente interrompe il test.
-
+  - L'utente interrompe la sessione prima del completamento (UC-22).
 
 - *Inclusioni:*
-  - UC-18.1: Valutazione di un asset
+  - UC-19.0: Visualizzazione dashboard di valutazione
+  - UC-19.1: Valutazione di un asset
 
 - *Estensioni:*
-  - UC-21: Uscita anticipata dal test
+  - UC-22: Uscita anticipata dal test
+  - UC-25: Visualizzazione risultati test
 
-
-=== UC-18.1: Valutazione di un asset
+=== UC-19.0: Visualizzazione dashboard di valutazione
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-18.1 : Valutazione di un asset]
+  caption: [UC-19.0 : Visualizzazione dashboard di valutazione],
 )
 - *Attore primario:* Utente \
 
-- *Precondizioni:* 
+- *Precondizioni:* La sessione di valutazione è attiva. \
+
+- *Postcondizioni:* L'utente ha visualizzato lo stato complessivo della valutazione. \
+
+- *Scenario principale:*
+  + Il sistema mostra la lista degli asset del dispositivo.
+  + Per ogni asset il sistema mostra il nome, il tipo e lo stato di valutazione corrente.
+  + Il sistema mostra il numero di asset completati rispetto al totale.
+
+
+=== UC-19.1: Valutazione di un asset
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-19.1 : Valutazione di un asset],
+)
+- *Attore primario:* Utente \
+
+- *Precondizioni:*
   - Il test è in corso. \
   - L'utente ha selezionato un asset da valutare. \
 
@@ -1011,21 +1185,21 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - L'utente interrompe il test.
 
 - *Inclusioni:*
-  - UC-18.1.1: Esecuzione decision tree per un requisito
+  - UC-19.1.1: Esecuzione decision tree per un requisito
 
 - *Estensioni:*
-  - UC-21: Uscita anticipata dal test
+  - UC-22: Uscita anticipata dal test
 
 
-==== UC-18.1.1: Esecuzione decision tree per un requisito
+==== UC-19.1.1: Esecuzione decision tree per un requisito
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-18.1.1 : Esecuzione decision tree per un requisito]
+  caption: [UC-19.1.1 : Esecuzione decision tree per un requisito],
 )
 - *Attore primario:* Utente \
 
-- *Precondizioni:* 
+- *Precondizioni:*
   - Il test è in corso. \
   - Il sistema ha selezionato il requisito corrente da valutare per l'asset corrente. \
 
@@ -1033,26 +1207,26 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + Il sistema mostra il codice e il nome del requisito in esame.
-  + Il sistema mostra il primo nodo del decision tree associato al requisito (UC-18.1.1.1).
-  + L'utente risponde alla domanda del nodo corrente (UC-18.1.1.2).
+  + Il sistema mostra il primo nodo del decision tree associato al requisito (UC-19.1.1.1).
+  + L'utente risponde alla domanda del nodo corrente (UC-19.1.1.2).
   + Il sistema avanza al nodo successivo in base alla risposta fornita.
   + I passi 2-4 si ripetono fino al raggiungimento di un nodo foglia.
   + Il sistema registra l'esito: PASS, FAIL o NOT APPLICABLE.
 
 - *Scenari alternativi:*
-  + L'utente desidera tornare al nodo precedente (UC-18.1.1.3).
-  + L'utente desidera avanzare a un nodo già risposto in precedenza (UC-18.1.1.4).
+  + L'utente desidera tornare al nodo precedente (UC-19.1.1.3).
+  + L'utente desidera avanzare a un nodo già risposto in precedenza (UC-19.1.1.4).
 
 - *Inclusioni:*
-  - UC-18.1.1.1: Visualizzazione nodo corrente del decision tree
-  - UC-18.1.1.2: Risposta alla domanda del nodo corrente
+  - UC-19.1.1.1: Visualizzazione nodo corrente del decision tree
+  - UC-19.1.1.2: Risposta alla domanda del nodo corrente
 
 
-===== UC-18.1.1.1: Visualizzazione nodo corrente del decision tree
+===== UC-19.1.1.1: Visualizzazione nodo corrente del decision tree
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-18.1.1.1 : Visualizzazione nodo corrente del decision tree]
+  caption: [UC-19.1.1.1 : Visualizzazione nodo corrente del decision tree],
 )
 - *Attore primario:* Utente \
 
@@ -1065,11 +1239,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema mostra il testo della domanda associata al nodo corrente.
 
 
-===== UC-18.1.1.2: Risposta alla domanda del nodo corrente
+===== UC-19.1.1.2: Risposta alla domanda del nodo corrente
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-18.1.1.2 : Risposta alla domanda del nodo corrente]
+  caption: [UC-19.1.1.2 : Risposta alla domanda del nodo corrente],
 )
 - *Attore primario:* Utente \
 
@@ -1083,12 +1257,12 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema registra la risposta e avanza al nodo successivo.
 
 - *Specializzazioni:*
-  - UC-18.1.1.2.1: Risposta affermativa al nodo corrente
-  - UC-18.1.1.2.2: Risposta negativa al nodo corrente
+  - UC-19.1.1.2.1: Risposta affermativa al nodo corrente
+  - UC-19.1.1.2.2: Risposta negativa al nodo corrente
 
 ---
 
-====== UC-18.1.1.2.1: Risposta affermativa al nodo corrente
+====== UC-19.1.1.2.1: Risposta affermativa al nodo corrente
 #v(1em)
 - *Attore primario:* Utente \
 - *Precondizioni:* Il sistema ha mostrato la domanda del nodo corrente. \
@@ -1099,7 +1273,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 ---
 
-====== UC-18.1.1.2.2: Risposta negativa al nodo corrente
+====== UC-19.1.1.2.2: Risposta negativa al nodo corrente
 #v(1em)
 - *Attore primario:* Utente \
 - *Precondizioni:* Il sistema ha mostrato la domanda del nodo corrente. \
@@ -1110,11 +1284,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 ---
 
-====== UC-18.1.1.3: Navigazione al nodo precedente
+====== UC-19.1.1.3: Navigazione al nodo precedente
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-18.1.1.3 : Navigazione al nodo precedente]
+  caption: [UC-19.1.1.3 : Navigazione al nodo precedente],
 )
 - *Attore primario:* Utente \
 
@@ -1126,14 +1300,35 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente seleziona la funzionalità di navigazione al nodo precedente.
   + Il sistema mostra la domanda del nodo precedente con la risposta già fornita.
-  + L'utente può modificare la risposta (UC-18.1.1.2).
+  + L'utente può modificare la risposta (UC-19.1.1.2).
 
-
-== UC-19: Visualizzazione stato avanzamento del test
+====== UC-19.1.1.4: Navigazione al nodo successivo
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-19 : Visualizzazione stato avanzamento del test]
+  caption: [UC-19.1.1.4 : Navigazione al nodo successivo],
+)
+- *Attore primario:* Utente \
+
+- *Precondizioni:*
+  - Il test è in corso. \
+  - L'utente ha precedentemente navigato a un nodo precedente e il nodo successivo
+    è già stato risposto. \
+
+- *Postcondizioni:* Il sistema riporta l'utente al nodo successivo mostrando
+  la risposta già fornita. \
+
+- *Scenario principale:*
+  + L'utente seleziona la funzionalità di navigazione al nodo successivo.
+  + Il sistema mostra la domanda del nodo successivo con la risposta già fornita.
+  + L'utente può modificare la risposta (UC-19.1.1.2).
+
+
+== UC-20: Visualizzazione stato avanzamento del test
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-20 : Visualizzazione stato avanzamento del test],
 )
 - *Attore primario:* Utente \
 
@@ -1148,11 +1343,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema mostra il percorso seguito nel decision tree fino al nodo corrente.
 
 
-== UC-20: Visualizzazione nodo foglia del decision tree
+== UC-21: Visualizzazione nodo foglia del decision tree
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-20 : Visualizzazione nodo foglia del decision tree]
+  caption: [UC-21 : Visualizzazione nodo foglia del decision tree],
 )
 - *Attore primario:* Utente \
 
@@ -1165,59 +1360,94 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema mostra la giustificazione dell'esito in base al percorso seguito.
 
 - *Specializzazioni:*
-  - UC-20.1: Visualizzazione esito PASS
-  - UC-20.2: Visualizzazione esito FAIL
-  - UC-20.3: Visualizzazione esito NOT APPLICABLE
+  - UC-21.1: Visualizzazione esito PASS
+  - UC-21.2: Visualizzazione esito FAIL
+  - UC-21.3: Visualizzazione esito NOT APPLICABLE
 
 
-== UC-21: Uscita anticipata dal test
+== UC-22: Uscita anticipata dal test
 
 - *Attore primario:* Utente \
 
 - *Precondizioni:* Il test è in corso.
 
-- *Postcondizioni:* Il test è stato interrotto.
+- *Postcondizioni:* La sessione di valutazione è terminata.
 
 - *Scenario principale:*
   + L'utente seleziona la funzionalità di uscita dal test.
   + Il sistema chiede all'utente se desidera salvare la sessione corrente.
-  + L'utente sceglie di salvare.
+  + L'utente sceglie di salvare (UC-23.1).
   + Il sistema termina la sessione.
 
 - *Scenari alternativi:*
-  - L'utente sceglie di non salvare.
+  - L'utente sceglie di non salvare: il sistema termina la sessione scartando
+    tutti i dati della valutazione in corso. I progressi non vengono conservati.
 
 - *Estensioni:*
-  - UC-22: Salvataggio sessione parziale
+  - UC-23: Salvataggio sessione di valutazione
 
-== UC-22: Salvataggio sessione parziale
+== UC-23: Salvataggio sessione di valutazione
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-22 : Salvataggio sessione parziale]
+  caption: [UC-23 : Salvataggio sessione di valutazione],
 )
 - *Attore primario:* Utente \
 
-- *Precondizioni:* Il test è in corso e l'utente ha risposto ad almeno una domanda. \
+- *Precondizioni:*
+  - Il test è in corso.
+  - L'utente ha risposto ad almeno una domanda. \
 
-- *Postcondizioni:* Il sistema ha prodotto un file JSON contenente lo stato della sessione. \
+- *Postcondizioni:* Il sistema ha prodotto un file JSON contenente lo stato corrente
+  della sessione. \
 
 - *Scenario principale:*
-  + L'utente seleziona la funzionalità di salvataggio.
-  + Il sistema raccoglie i dati del dispositivo, gli asset, gli esiti registrati e la posizione corrente nel decision tree.
+  + Il sistema raccoglie i dati del dispositivo, gli asset, gli esiti registrati
+    e la posizione corrente nel decision tree.
   + Il sistema genera il file in formato JSON.
   + Il sistema mette a disposizione il file per il download.
 
+- *Specializzazioni:*
+  - UC-23.1: Salvataggio e chiusura sessione
+  - UC-23.2: Salvataggio e continuazione sessione
 
-== UC-23: Ripresa sessione parziale
+=== UC-23.1: Salvataggio e chiusura sessione
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* Il test è in corso e l'utente ha scelto di salvare all'uscita (UC-22). \
+
+- *Postcondizioni:* Il file JSON è disponibile per il download e la sessione è terminata. \
+
+- *Scenario principale:*
+  + L'utente conferma il salvataggio.
+  + Il sistema genera e mette a disposizione il file JSON (UC-23).
+  + Il sistema termina la sessione di valutazione.
+
+=== UC-23.2: Salvataggio e continuazione sessione
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* Il test è in corso. \
+
+- *Postcondizioni:* Il file JSON è disponibile per il download.
+  La sessione rimane attiva dal punto in cui si trovava. \
+
+- *Scenario principale:*
+  + L'utente seleziona la funzionalità di salvataggio intermedio.
+  + Il sistema genera e mette a disposizione il file JSON (UC-23).
+  + Il sistema mantiene attiva la sessione senza modificarne lo stato.
+
+
+== UC-24: Ripresa sessione di valutazione
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-23 : Ripresa sessione parziale]
+  caption: [UC-24 : Ripresa sessione di valutazione],
 )
 - *Attore primario:* Utente \
 
-- *Precondizioni:* L'utente dispone di un file di sessione parziale precedentemente salvato. \
+- *Precondizioni:* L'utente dispone di un file di sessione di valutazione precedentemente salvato. \
 
 - *Postcondizioni:* Il sistema carica la sessione e il test riprende dal punto di interruzione. \
 
@@ -1225,10 +1455,148 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente seleziona la funzionalità di caricamento sessione.
   + L'utente seleziona il file JSON.
   + Il sistema valida il formato e la struttura del file.
-  + Il sistema ripristina i dati e riprende il test (UC-18.1.1).
+  + Il sistema ripristina i dati e riprende il test (UC-19.1.1).
 
 - *Scenari alternativi:*
   + Il file non rispetta il formato: il sistema notifica l'errore (UC-3).
+
+
+== UC-25: Visualizzazione risultati test
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-25 : Visualizzazione risultati test],
+)
+- *Attore primario:* Utente \
+
+- *Precondizioni:*
+  - Il test è stato completato oppure l'utente ha caricato una sessione completata. \
+
+- *Postcondizioni:* L'utente ha visualizzato il riepilogo complessivo degli esiti
+  del test per ogni coppia asset-requisito. \
+
+- *Scenario principale:*
+  + Il sistema mostra il riepilogo degli esiti del test organizzato per asset (UC-25.1).
+  + Il sistema mostra il numero di requisiti con esito PASS, FAIL e NOT APPLICABLE
+    per ogni asset.
+
+- *Inclusioni:*
+  - UC-25.1: Visualizzazione riepilogo risultati per asset
+
+- *Estensioni:*
+  - UC-26: Esportazione report di conformità
+
+=== UC-25.1: Visualizzazione riepilogo risultati per asset
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente sta visualizzando i risultati del test. \
+
+- *Postcondizioni:* L'utente ha visualizzato il riepilogo degli esiti per un singolo asset. \
+
+- *Scenario principale:*
+  + Il sistema mostra il nome e il tipo dell'asset.
+  + Il sistema mostra l'esito aggregato dell'asset (PASS se tutti i requisiti
+    sono PASS, FAIL se almeno uno è FAIL).
+  + Il sistema mostra la lista dei requisiti valutati per l'asset (UC-25.1.1).
+
+- *Inclusioni:*
+  - UC-25.1.1: Visualizzazione singolo requisito con esito
+
+==== UC-25.1.1: Visualizzazione singolo requisito con esito
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente sta visualizzando il riepilogo risultati di un asset. \
+
+- *Postcondizioni:* L'utente ha visualizzato il codice del requisito e il suo esito. \
+
+- *Scenario principale:*
+  + L'utente visualizza il codice del requisito.
+  + L'utente visualizza l'esito del requisito per l'asset corrente.
+
+- *Specializzazioni:*
+  - UC-25.1.1.1: Visualizzazione esito PASS
+  - UC-25.1.1.2: Visualizzazione esito FAIL
+  - UC-25.1.1.3: Visualizzazione esito NOT APPLICABLE
+
+===== UC-25.1.1.1: Visualizzazione esito PASS
+#v(1em)
+- *Attore primario:* Utente \
+- *Precondizioni:* L'utente sta visualizzando il singolo requisito con esito. \
+- *Postcondizioni:* L'utente ha visualizzato l'esito PASS del requisito. \
+- *Scenario principale:*
+  + L'utente visualizza l'esito PASS del requisito.
+
+===== UC-25.1.1.2: Visualizzazione esito FAIL
+#v(1em)
+- *Attore primario:* Utente \
+- *Precondizioni:* L'utente sta visualizzando il singolo requisito con esito. \
+- *Postcondizioni:* L'utente ha visualizzato l'esito FAIL del requisito. \
+- *Scenario principale:*
+  + L'utente visualizza l'esito FAIL del requisito.
+
+===== UC-25.1.1.3: Visualizzazione esito NOT APPLICABLE
+#v(1em)
+- *Attore primario:* Utente \
+- *Precondizioni:* L'utente sta visualizzando il singolo requisito con esito. \
+- *Postcondizioni:* L'utente ha visualizzato l'esito NOT APPLICABLE del requisito. \
+- *Scenario principale:*
+  + L'utente visualizza l'esito NOT APPLICABLE del requisito.
+
+
+== UC-26: Esportazione report di conformità
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-26 : Esportazione report di conformità],
+)
+- *Attore primario:* Utente \
+
+- *Precondizioni:*
+  - Il test è stato completato.
+  - L'utente sta visualizzando i risultati del test (UC-25). \
+
+- *Postcondizioni:* Il sistema ha generato e messo a disposizione il report
+  di conformità per il download. \
+
+- *Scenario principale:*
+  + L'utente seleziona la funzionalità di esportazione del report.
+  + Il sistema raccoglie i dati del dispositivo, gli asset, gli esiti per ogni
+    coppia asset-requisito e le giustificazioni associate.
+  + Il sistema genera il report nel formato selezionato.
+  + Il sistema mette a disposizione il file per il download.
+
+- *Specializzazioni:*
+  - UC-26.1: Esportazione in PDF
+  - UC-26.2: Esportazione in JSON
+
+=== UC-26.1: Esportazione in PDF
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente ha selezionato l'esportazione del report. \
+
+- *Postcondizioni:* Il sistema ha generato il report in formato PDF. \
+
+- *Scenario principale:*
+  + L'utente seleziona il formato PDF.
+  + Il sistema genera il file PDF contenente il riepilogo di conformità del
+    dispositivo rispetto allo standard EN 18031.
+  + Il sistema mette a disposizione il file per il download.
+
+=== UC-26.2: Esportazione in JSON
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente ha selezionato l'esportazione del report. \
+
+- *Postcondizioni:* Il sistema ha generato il report in formato JSON. \
+
+- *Scenario principale:*
+  + L'utente seleziona il formato JSON.
+  + Il sistema genera il file JSON contenente tutti i dati della valutazione.
+  + Il sistema mette a disposizione il file per il download.
 
 
 #pagebreak()
