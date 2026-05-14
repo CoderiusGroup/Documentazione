@@ -1,21 +1,20 @@
 #set page(
-    paper: "a4",
-    margin: (x: 2.5cm, y: 3cm),
-    header: context {
+  paper: "a4",
+  margin: (x: 2.5cm, y: 3cm),
+  header: context {
     if counter(page).get().first() > 1 [
       #set text(size: 9pt, fill: luma(100))
       #grid(
         columns: (1fr, 1fr),
-        align(left)[Norme di Progetto],
-        align(right)[Coderius Group]
+        align(left)[Norme di Progetto], align(right)[Coderius Group],
       )
       #v(-0.5em)
       #line(length: 100%, stroke: 0.4pt + luma(150))
     ]
-  }
-  )
+  },
+)
 
-#set text(font: "Libertinus Serif",size: 12pt,lang: "it")
+#set text(font: "Libertinus Serif", size: 12pt, lang: "it")
 
 #set heading(numbering: "1.1.")
 #show figure: set figure(supplement: none)
@@ -23,7 +22,7 @@
 #align(center)[
 
   #v(8em)
-  #image("../images/logoCoderius.jpg", width: 60%)
+  #image("../../../images/logoCoderius.jpg", width: 60%)
   #line(length: 70%, stroke: 1pt)
   #v(1em)
   #text(size: 26pt, weight: "bold")[Norme di Progetto]
@@ -53,13 +52,18 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.7.0], [2026/05/11], [Edis Hodja], [],[Aggiunta delle seguenti sezioni: 4.1, 4.2],
-    [0.6.0], [2026/05/08], [Edis Hodja], [],[Aggiunta della sezione 3.5],
-    [0.5.0], [2026/05/05], [Edis Hodja], [], [Aggiornamento delle seguenti sezioni: 2.2.2, 2.2.3, 2.2.4, 2.3.2, 2.3.5, 3.2.3, 3.3],
-    [0.4.0], [2026/05/04], [Giovanni Bronte], [],[Aggiunta della sezione 3.4],
-    [0.3.0], [2026/04/30], [Giovanni Bronte], [],[Aggiunta della sezione 3.2],
-    [0.2.0], [2026/04/27], [Lorenzin Leonardo], [],[Aggiunta delle sezioni 3.1 e 3.3],
-    [0.1.0], [2026/04/23], [Lorenzin Leonardo], [],[Prima stesura del documento]
+    [0.7.0], [2026/05/11], [Edis Hodja], [], [Aggiunta delle seguenti sezioni: 4.1, 4.2],
+    [0.6.0], [2026/05/08], [Edis Hodja], [], [Aggiunta della sezione 3.5],
+    [0.5.0],
+    [2026/05/05],
+    [Edis Hodja],
+    [],
+    [Aggiornamento delle seguenti sezioni: 2.2.2, 2.2.3, 2.2.4, 2.3.2, 2.3.5, 3.2.3, 3.3],
+
+    [0.4.0], [2026/05/04], [Giovanni Bronte], [Alberto Canavese], [Aggiunta della sezione 3.4],
+    [0.3.0], [2026/04/30], [Giovanni Bronte], [Alberto Canavese], [Aggiunta della sezione 3.2],
+    [0.2.0], [2026/04/27], [Lorenzin Leonardo], [Alberto Canavese], [Aggiunta delle sezioni 3.1 e 3.3],
+    [0.1.0], [2026/04/23], [Lorenzin Leonardo], [Alberto Canavese], [Prima stesura del documento],
   )
 ]
 #pagebreak()
@@ -73,7 +77,7 @@
 #outline(title: none, depth: 5, indent: 1.5em)
 
 #text(size: 18pt, weight: "bold")[Elenco delle Figure]
-#outline( title: none, target: figure.where(kind: image), indent: 1.5em,)
+#outline(title: none, target: figure.where(kind: image), indent: 1.5em)
 
 #pagebreak()
 
@@ -89,7 +93,7 @@
 #v(0.5em)
 Il presente documento ha l'obiettivo di definire il _Way of Working_ , ovvero l'insieme di regole, convenzioni e standard che il gruppo si impegna a rispettare durante l'intero ciclo di vita del progetto. \
 Questo documento verrà redatto contestualmente all'avanzamento delle attività; potrà quindi subire variazioni, integrazioni o rimozioni sulla base delle conoscenze apprese durante il corso del progetto.
-  
+
 == Scopo del prodotto
 #v(0.5em)
 Il prodotto finale è un'applicazione _web-based_ sviluppata per automatizzare la verifica della conformità alla norma *EN 18031*, ossia lo standard tecnico europeo che stabilisce i requisiti di sicurezza dei dispositivi radio wireless.
@@ -97,7 +101,7 @@ Lo scopo dell'applicazione è quello di guidare l'utente attraverso un'analisi s
 
 == Glossario
 #v(0.5em)
-All'interno delle *Norme di Progetto*, così come negli altri documenti formali, i termini che trovano una definizione specifica nel relativo documento _Glossario_ verranno contrassegnati da una lettera "*G*" maiuscola a pedice (es. Termine#sub[G]). 
+All'interno delle *Norme di Progetto*, così come negli altri documenti formali, i termini che trovano una definizione specifica nel relativo documento _Glossario_ verranno contrassegnati da una lettera "*G*" maiuscola a pedice (es. Termine#sub[G]).
 
 Questa convenzione permette al lettore di individuare immediatamente i vocaboli che possiedono un significato particolare nel contesto del progetto, invitandolo a consultarne la definizione per evitare ambiguità riguardo al linguaggio tecnico utilizzato e garantire così una migliore comprensione dei contenuti.
 
@@ -107,14 +111,20 @@ Questa convenzione permette al lettore di individuare immediatamente i vocaboli 
 #v(0.5em)
 I documenti elencati di seguito rappresentano i vincoli diretti e le norme da rispettare per lo sviluppo del progetto:
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C1.pdf")[*Capitolato C1 — Automated EN18031 Compliance Verification*] #nota[(ultimo accesso: 2026-04-24)]
+- #link(
+    "https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C1.pdf",
+  )[*Capitolato C1 — Automated EN18031 Compliance Verification*] #nota[(ultimo accesso: 2026-04-24)]
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf")[*Regolamento del Progetto Didattico*] #nota[(ultimo accesso: 2026-04-24)]
+- #link(
+    "https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf",
+  )[*Regolamento del Progetto Didattico*] #nota[(ultimo accesso: 2026-04-24)]
 
 - #link("https://www.iso.org/standard/63712.html")[*Standard ISO/IEC 12207:2017*] #nota[(ultimo accesso: 2026-04-04)]
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.
-pdf")[*Standard ISO/IEC 12207:1995*] #nota[(ultimo accesso: 2026-04-24)]
+- #link(
+    "https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.
+pdf",
+  )[*Standard ISO/IEC 12207:1995*] #nota[(ultimo accesso: 2026-04-24)]
 
 - *Standard EN 18031* #nota[(Consultato tramite copia fornita dalla proponente)]
 \
@@ -125,7 +135,7 @@ pdf")[*Standard ISO/IEC 12207:1995*] #nota[(ultimo accesso: 2026-04-24)]
   indent: 0.5em,
   [Dispense del corso di Ingegneria del Software 2025/2026:
     #set list(marker: [-], indent: 1em)
-    
+
     - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T01.pdf") #nota[(ultimo accesso: 2026-04-24)]
     - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T02.pdf") #nota[(ultimo accesso: 2026-04-24)]
     - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T03.pdf") #nota[(ultimo accesso: 2026-04-24)]
@@ -137,9 +147,9 @@ pdf")[*Standard ISO/IEC 12207:1995*] #nota[(ultimo accesso: 2026-04-24)]
     - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T09.pdf") #nota[(ultimo accesso: 2026-04-24)]
     - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T10.pdf") #nota[(ultimo accesso: 2026-04-24)]
     - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T11.pdf") #nota[(ultimo accesso: 2026-04-24)]
-  ]
+  ],
 )
-  
+
 
 - #link("https://typst.app/docs/")[*Documentazione ufficiale di Typst*] #nota[(ultimo accesso: 2026-04-24)]
 
@@ -180,12 +190,11 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(
-      table.cell(colspan: 2, fill:rgb("#99d6ff"), align: center)[*Norme di progetto*],
-    ),
+    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Norme di progetto*]),
     [*Redattore*], [Amministratore],
     [*Tipo di documento*], [Interno],
-    [*Scopo*], [
+    [*Scopo*],
+    [
       Definisce le regole operative, le convenzioni e gli standard tecnici che il gruppo deve adottare per garantire l'uniformità dei processi;
     ],
   ),
@@ -199,12 +208,11 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(
-      table.cell(colspan: 2, fill:rgb("#99d6ff"), align: center)[*Piano di progetto*],
-    ),
+    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Piano di progetto*]),
     [*Redattore*], [Responsabile],
     [*Tipo di documento*], [Esterno],
-    [*Scopo*], [
+    [*Scopo*],
+    [
       Stabilisce la pianificazione delle attività, la gestione delle risorse, l'analisi dei rischi e la ripartizione dei costi;
     ],
   ),
@@ -218,12 +226,11 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(
-      table.cell(colspan: 2, fill:rgb("#99d6ff"), align: center)[*Piano di Qualifica*],
-    ),
+    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Piano di Qualifica*]),
     [*Redattore*], [Amministratore],
     [*Tipo di documento*], [Esterno],
-    [*Scopo*], [
+    [*Scopo*],
+    [
       Specifica gli obiettivi di qualità, le metriche di misurazione e i test necessari a validare il software e i documenti prodotti;
     ],
   ),
@@ -237,12 +244,11 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(
-      table.cell(colspan: 2, fill:rgb("#99d6ff"), align: center)[*Analisi dei Requisiti*],
-    ),
+    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Analisi dei Requisiti*]),
     [*Redattore*], [Analista],
     [*Tipo di documento*], [Esterno],
-    [*Scopo*], [
+    [*Scopo*],
+    [
       Formalizza le necessità della proponente in una lista strutturata di requisiti funzionali, qualitativi e di vincolo;
     ],
   ),
@@ -256,12 +262,11 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(
-      table.cell(colspan: 2, fill:rgb("#99d6ff"), align: center)[*Glossario*],
-    ),
+    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Glossario*]),
     [*Redattore*], [Analista],
     [*Tipo di documento*], [Esterno],
-    [*Scopo*], [
+    [*Scopo*],
+    [
       Raccoglie la terminologia tecnica e i termini potenzialmente ambigui per assicurare una comprensione univoca di tutta la documentazione;
     ],
   ),
@@ -275,12 +280,11 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(
-      table.cell(colspan: 2, fill:rgb("#99d6ff"), align: center)[*Verbali*],
-    ),
+    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Verbali*]),
     [*Redattore*], [Team (assegnazione dinamica)],
     [*Tipo di documento*], [Esterno/Interno],
-    [*Scopo*], [
+    [*Scopo*],
+    [
       Documenti di coordinamento che registrano l'esito delle riunioni, l'assegnazione dei compiti interni e dei ruoli assegnati. Possono essere sia interni che esterni, nel caso dei verbali esterni, hanno anche lo scopo di tracciare decisioni, risposte e vincoli concordati.
     ],
   ),
@@ -294,12 +298,11 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(
-      table.cell(colspan: 2, fill:rgb("#99d6ff"), align: center)[*Lettera di candidatura*],
-    ),
+    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Lettera di candidatura*]),
     [*Redattore*], [Responsabile],
     [*Tipo di documento*], [Esterno],
-    [*Scopo*], [
+    [*Scopo*],
+    [
       Documento per la richiesta formale da parte del gruppo di poter partecipare al capitolato scelto tramite la Validazione dei capitolati.
     ],
   ),
@@ -313,12 +316,11 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(
-      table.cell(colspan: 2, fill:rgb("#99d6ff"), align: center)[*Valutazione dei Capitolati*],
-    ),
+    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Valutazione dei Capitolati*]),
     [*Redattore*], [Analisti],
     [*Tipo di documento*], [Esterno],
-    [*Scopo*], [
+    [*Scopo*],
+    [
       Descrive l'analisi comparativa effettuata sulle diverse proposte per giustificare la scelta del capitolato finale;
     ],
   ),
@@ -332,13 +334,12 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(
-      table.cell(colspan: 2, fill:rgb("#99d6ff"), align: center)[*Dichiarazione degli Impegni*],
-    ),
+    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Dichiarazione degli Impegni*]),
     [*Redattore*], [Responsabile],
     [*Tipo di documento*], [Esterno],
-    [*Scopo*], [
-      Documento formale in cui il gruppo presenta una stima dei costi del progetto e delle ore che verranno impiegate per essere completato. Inoltre vengono dichiarate le responsabilità assunte e la data di consegna prevista per il progetto. 
+    [*Scopo*],
+    [
+      Documento formale in cui il gruppo presenta una stima dei costi del progetto e delle ore che verranno impiegate per essere completato. Inoltre vengono dichiarate le responsabilità assunte e la data di consegna prevista per il progetto.
     ],
   ),
   caption: [Descrizione del documento "Dichiarazione degli Impegni"],
@@ -398,7 +399,7 @@ Di seguito le principali attività comprese nel processo di sviluppo:
 
 - *Analisi dei Requisiti*: processo di individuazione, classificazione e formalizzazione delle necessità della proponente e dei vincoli normativi, comprensivo della definizione dei casi d'uso del sistema;
 
-- *Progettazione dell'architettura*: definizione della struttura ad alto livello del sistema, individuando i componenti principali e le loro interazioni;  
+- *Progettazione dell'architettura*: definizione della struttura ad alto livello del sistema, individuando i componenti principali e le loro interazioni;
 
 - *Progettazione di dettaglio*: definizione specifica dei singoli componenti e delle logiche interne, propedeutica alla scrittura del codice;
 
@@ -422,7 +423,7 @@ I casi d'uso sono identificati mediante la seguente convenzione:
   *UC-[IndiceRadice].[IndiceAnnidato]: Titolo*
 ])
 
-Dove:\ 
+Dove:\
 - *UC*: acronimo di *Use Case* (caso d'uso);\
 - *IndiceRadice*: numero progressivo che identifica un caso d'uso principale;\
 - *IndiceAnnidato*: numero crescente che indica la sottosezione di un particolare use case, può essere ulteriormente annidato per rappresentare livelli successivo;\
@@ -442,7 +443,7 @@ Per i requisiti la nomenclatura che viene usata è la seguente:
 === Documentazione coinvolta
 #v(0.5em)
 
-Le attività coinvolte durante la fase del processo di sviluppo sono assistite dalla documentazione definita in precedenza, ovvero *Analisi dei Requisiti, Piano di Progetto, Piano di Qualifica e Norme di Progetto*, integrata con specifiche riguardanti la codifica e le procedure di verifica. 
+Le attività coinvolte durante la fase del processo di sviluppo sono assistite dalla documentazione definita in precedenza, ovvero *Analisi dei Requisiti, Piano di Progetto, Piano di Qualifica e Norme di Progetto*, integrata con specifiche riguardanti la codifica e le procedure di verifica.
 
 === Strumenti a supporto
 #v(0.5em)
@@ -534,7 +535,7 @@ I verbali del gruppo Coderius seguono una struttura fissa per facilitare la repe
 - *Ordine del Giorno*: elenco sintetico dei punti che si intendono affrontare durante la seduta;
 - *Svolgimento della Riunione*: trattazione dettagliata di ogni punto dell'ordine del giorno e discussioni su varie altre decisoni prese per l'avanzamento del progetto;
 - *Conclusioni e Decisioni prese*: riassunto di quanto è stato discusso durante la riunione, tramite una tabella.
-- *Ordine del giorno prossimo incontro*: elenco degli argomenti principali di cui discutere durante il successivo incontro. 
+- *Ordine del giorno prossimo incontro*: elenco degli argomenti principali di cui discutere durante il successivo incontro.
 - *TODO (Attività da svolgere)*: tabella riassuntiva che elenca i compiti assegnati in vista dell'incontro successivo.
 #v(0.5em)
 *Convenzioni di nomenclatura e codifica*
@@ -572,13 +573,13 @@ Per la redazione e la gestione della documentazione, il gruppo ha deciso di util
   - *GitHub Actions*: per automatizzare la generazione dei PDF a partire dai sorgenti Typst, garantendo che l'ultima versione prodotta sia sempre disponibile e correttamente formattata;
   - *Issue e Projects*: per la pianificazione dei task documentali e il monitoraggio delle scadenze.
 
-=== Produzione 
+=== Produzione
 #v(0.5em)
 Per la produzione di un documento il nostro gruppo opera nel seguente modo:
 - *Creazione Issue e Branch dedicato*: Inizialmente viene creata una issue su Github dal responsabile assegnato in quello sprint. Successivamente, se il documento ha una certa importanza, viene creato un branch di feature a parte per poter effetuare modifiche senza modificare il main. Se il documento da creare è invece di minore importanza, come un verbale, questo viene creato nel branch apposito: feature/verbali.
-- *Stesura del documento*: Il documento viene assegnato ad uno dei membri del team che ricopre il ruolo adatto per la stesura del documento per quello sprint e inizia a lavorare sulla stesura del documento. 
+- *Stesura del documento*: Il documento viene assegnato ad uno dei membri del team che ricopre il ruolo adatto per la stesura del documento per quello sprint e inizia a lavorare sulla stesura del documento.
 - *Verifica del documento*: Ogni volta che il documento viene aggiornato, quest'ultimo deve essere verificato dal chi copre il ruolo verificatore e aggiornare la tabella di versionamento di conseguenza con il nome di chi ha effetuato la verifica.
-- *Approvazione e Merge*: Una volta che il documento è concluso viene aperta una pull request su github, la quale viene in seguito approvata dal responsabile che esegue il merge del branch dedicato al main. Una volta che il documento è caricato sul main branch viene considerato concluso e grazie all'automazione di Github, viene generato il pdf in automatico.  
+- *Approvazione e Merge*: Una volta che il documento è concluso viene aperta una pull request su github, la quale viene in seguito approvata dal responsabile che esegue il merge del branch dedicato al main. Una volta che il documento è caricato sul main branch viene considerato concluso e grazie all'automazione di Github, viene generato il pdf in automatico.
 
 === Manutenzione
 #v(0.5em)
@@ -616,7 +617,7 @@ Secondo lo standard ISO/IEC 12207:1995 l'attività di identificazione della conf
 Questa attività sarà effettuata durante la fase di progettazione e schematizza l'architettura del software, la quale verrà in seguito implementata dagli sviluppatori.
 === Controllo della configurazione
 #v(0.5em)
-Per poter svolgere al meglio questa attività, il gruppo Coderius ha deciso di usare i seguenti strumenti: 
+Per poter svolgere al meglio questa attività, il gruppo Coderius ha deciso di usare i seguenti strumenti:
 - *Pull Request*: la pull request permette al nostro team di revisionare il lavoro fatto e approvarlo tramite una merge prima di poterlo integrare nel main branch, questo viene fatto per ridurre al minimo gli errori prima di caricare un documento considerato concluso.
 - *Issue*: le issue permettono di tracciare, gestire e pianificare le attività per un progetto. Nel nostro caso vengono usate prima di creare un nuovo documento e per assegnare il lavoro alla persona con il ruolo più adatto per quello sprint. Ciascuna issue:
   - è identificata all’interno di GitHub tramite la notazione `#NUMERO`, dove `NUMERO` rappresenta un identificativo univoco del repository;
@@ -636,7 +637,7 @@ Per poter svolgere al meglio questa attività, il gruppo Coderius ha deciso di u
 La rendicontazione dello stato della configurazione consiste nel definire come viene versionato un documento, il nostro gruppo ha adottato il seguente metodo: *MAJOR.MINOR.PATCH*.\
 - *MAJOR*: viene incrementata solo in caso di approvazione ufficiale  e indica che il file in questione è concluso.
 - *MINOR*: viene incrememtata in caso di modifiche sostanziali che alterano la struttura complessiva del file.
-- *PATCH*: viene incrementata in caso di modifiche minori, come errori ortografici. 
+- *PATCH*: viene incrementata in caso di modifiche minori, come errori ortografici.
 
 
 === Valutazione della configurazione
@@ -680,25 +681,19 @@ Il processo di garanzia della qualità segue le seguenti linee guida:
 Nella seguente tabella sono riportati i ruoli principali ed essenziali per garantire la qualità del prodotto e della documentazione riguardante:
 #v(0.5em)
 
-#align(center,
-  table(
-    columns: (30%, 70%),
+#align(center, table(
+  columns: (30%, 70%),
 
-    [*Ruolo*], [*Specifica*],
+  [*Ruolo*], [*Specifica*],
 
-    [Responsabile],
-    [Supervisiona le attività di garanzia della qualità e il rispetto degli standard definiti.],
+  [Responsabile], [Supervisiona le attività di garanzia della qualità e il rispetto degli standard definiti.],
 
-    [Verificatori],
-    [Eseguono verifiche su documentazione, codice e artefatti prodotti.],
+  [Verificatori], [Eseguono verifiche su documentazione, codice e artefatti prodotti.],
 
-    [Amministratore],
-    [Gestisce gli strumenti di automazione e supporto alle verifiche.],
+  [Amministratore], [Gestisce gli strumenti di automazione e supporto alle verifiche.],
 
-    [Membri del gruppo],
-    [Contribuiscono al mantenimento della qualità seguendo procedure e convenzioni condivise.]
-  )
-)
+  [Membri del gruppo], [Contribuiscono al mantenimento della qualità seguendo procedure e convenzioni condivise.],
+))
 
 
 == Verifica
@@ -716,8 +711,8 @@ Secondo lo standard ISO/IEC 12207:1995, il processo di verifica prevede le segue
 === Implementazione del processo
 La seguente attività ha come scopo principale l'individuazione delle criticità che possono essere trovate durante la realizzazione del progetto. Per tutte le criticità che possono essere riscontrate è stata condotta un'analisi accurata nella sezione 3 del documento _Piano di Progetto_. Questa analisi include anche: probabilità di occorrenza, gravità della criticità, strategie di mitigazione e di prevenzione.
 === Verifica
-//da discuterne con il team 
-Le attività di verifica vengono svolte tramite il sistema di _Pull Request_ adottato dal gruppo su GitHub.  
+//da discuterne con il team
+Le attività di verifica vengono svolte tramite il sistema di _Pull Request_ adottato dal gruppo su GitHub.
 Ogni modifica viene sottoposta a revisione prima dell’integrazione nel ramo principale del repository.
 
 Per ciascuna Pull Request viene assegnato un _reviewer_, generalmente corrispondente al verificatore dello sprint corrente, incaricato di controllare la conformità dell’artefatto rispetto ai requisiti, alle convenzioni e agli standard definiti dal gruppo.
@@ -730,10 +725,10 @@ Questa analisi può essere effettuata con i seguenti metodi:
 - *Walktrough*: metodo manuale che richiede di effettuare un analisi critica di tutto il file in questione. Viene principalemnte usata solo quando si è a conoscenza della presenza di un errore, ma senza sapere dov'è o cos'è. Questo metodo è molto dispendioso in termini di tempo e di costi, per questo il nostro team punta ad usarla il meno possibile e solo nei casi in cui è strettamente necessaria, in favore di una verifica più automatizzabile come l'inspection.
 - *Inspection*: metodo automatizzabile e guidato da una checklist predefinita. Questa checklist ha lo scopo di controllare tutti gli errori ricorrenti e criteri di qualità specifici. Dato che è un metodo automatizzabile il nostro gruppo predilige l'uso dell'inspection rispetto al walktrough, anche se l'inspection è meno approfondita del walktrough.
 
-=== Analisi dinamica 
+=== Analisi dinamica
 // SEZIONE PIÙ SPECIFICA PER QUANDO INTEGREREMO CODIFICA
-L'analisi dinamica, a differenza di quella statica, richiede l'esecuzione del programma per rilevare errori e anomalie nel comportamento a runtime. 
-Lo strumento principale di questa tecnica è il _TEST_, che per essere efficace deve rispettare due proprietà fondamentali: la ripetibilità, ovvero la capacità di produrre gli stessi risultati a parità di condizioni, e l'automatizzabilità, ovvero la possibilità di essere eseguito senza intervento manuale. 
+L'analisi dinamica, a differenza di quella statica, richiede l'esecuzione del programma per rilevare errori e anomalie nel comportamento a runtime.
+Lo strumento principale di questa tecnica è il _TEST_, che per essere efficace deve rispettare due proprietà fondamentali: la ripetibilità, ovvero la capacità di produrre gli stessi risultati a parità di condizioni, e l'automatizzabilità, ovvero la possibilità di essere eseguito senza intervento manuale.
 
 Queste proprietà sono essenziali per supportare la regressione: se un errore precedentemente risolto dovesse ripresentarsi, i test automatizzati permettono di individuarlo e di determinare quale modifica ha reintrodotto il problema.\
 Ogni test è definito dai seguenti elementi: stato iniziale, serie di input, output attesi.\
@@ -741,7 +736,7 @@ I test sono divisi nelle seguenti 4 categorie:
 - *Test di Unità*
 - *Test di Integrazione*
 - *Test di Sistema*
-- *Test di Regressione* 
+- *Test di Regressione*
 
 == Validazione
 
@@ -834,7 +829,7 @@ Ogni verbale riporta la data, i partecipanti, gli argomenti discussi, le decisio
 Il team adotta un approccio Agile per assicurare massima produttività e organizzazione operativa. Il lavoro viene organizzato in periodi temporali definiti _sprint_, solitamente con una durata di due settimane, che prevedono una schematica coordinazione:
 - *Fase iniziale di pianificazione*: vengono prefissati dal team gli obiettivi che in quella durata bisettimanale dovranno essere raggiunti, suddividendoli in unità specifiche (issue) e categorizzando ciascuna di esse in termini di priorità tramite le label.
 - *Stato intermedio*: il gruppo tramite i canali di comunicazione stabiliti si ritrova a discutere e ad aggiornarsi sullo stato di avanzamento.
-- *Valutazione e consuntivo*: al termine del ciclo lavorativo vengono tratte delle conclusioni circa le procedure adottate e il punto di arrivo di ogni membro, dichiarando le unità definite inizialmente come complete o work in progress. 
+- *Valutazione e consuntivo*: al termine del ciclo lavorativo vengono tratte delle conclusioni circa le procedure adottate e il punto di arrivo di ogni membro, dichiarando le unità definite inizialmente come complete o work in progress.
 
 === Monitoraggio dell’avanzamento
 L'andamento procedurale delle unità di lavoro in cui vengono divisi gli obiettivi è gestito tramite una _Project Board_ (Kanban) organizzata in fasi di avanzamento che rispecchiano il ciclo di vita di ciascuna attività: dalla sua definizione e inserimento nel backlog di progetto (*Backlog*), alla selezione e preparazione per lo sprint corrente (*Ready*), fino alla presa in carico da parte del membro assegnato (*In Progress*), alla fase di revisione da parte del _Verificatore_ (*In Review*) e alla sua chiusura definitiva a seguito dell'approvazione (*Done*) con integrazione al ramo principale da parte del _Responsabile_.
