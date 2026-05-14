@@ -32,7 +32,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(3em)
-  #text(size: 20pt)[*Versione 0.1.5*]
+  #text(size: 20pt)[*Versione 0.2.1*]
 ]
 
 #pagebreak()
@@ -52,6 +52,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.2.1], [2026/05/14], [Alberto Canavese], [], [Aggiornamento struttura del documento fino al UC-26],
     [0.2.0], [2026/05/05], [Ines Iadadi], [], [Aggiornamento struttura del documento fino al UC-18],
     [0.1.6], [2026/04/30], [Ines Iadadi], [], [Integrazione casi d'uso: da UC-21 a UC-24],
     [0.1.5], [2026/04/28], [Edis Hodja], [], [Aggiornamento UML e struttura della documentazione.],
