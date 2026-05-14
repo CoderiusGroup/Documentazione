@@ -52,7 +52,7 @@
         *Luogo:* #luogo ]
     )
     #v(4em)
-    #text(size: 20pt)[*Versione 0.1.0*]
+    #text(size: 20pt)[*Versione 0.3.0*]
   ]
   pagebreak()
 
@@ -73,8 +73,9 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026-05-13], [Filippo Zonta Rocha], [], [Correzione refusi, Aggiornamento sezioni],
-      [0.1.0], [2026-05-13], [Giovanni Bronte], [Filippo Zonta Rocha], [Prima stesura del verbale],
+      [0.3.0], [2026/05/14], [Leonardo Lorenzin], [], [Correzione refusi e aggiornamento sezioni 2.4, 2.6, 2.7],
+      [0.2.0], [2026/05/13], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Correzione refusi, Aggiornamento sezioni],
+      [0.1.0], [2026/05/13], [Giovanni Bronte], [Filippo Zonta Rocha], [Prima stesura del verbale],
       // aggiungi nuova riga quando viene aggiornato
     )
   ]
@@ -123,28 +124,28 @@
 = Svolgimento della Riunione
 
 == Continuazione del documento Analisi dei Requisiti
-La redazione del documento dell'Analisi dei Requisiti è in una fase avanzata di stesura. Durante la riunione esterna tenuta il 2026-05-04 il team ha richiesto la possibilità di avere feedback sull'AdR da parte dell'azienda proponente. Questo permetterà di verificare se gli Use Case definiti fino ad ora siano corretti, per poter continuare l'approfondimento documentale.
+La redazione del documento dell'Analisi dei Requisiti è in una fase avanzata di stesura. Durante la riunione esterna tenuta il 2026/05/04 il team ha richiesto la possibilità di avere feedback sull'AdR da parte dell'azienda proponente. Questo permetterà di verificare se gli Use Case definiti fino ad ora siano corretti, per poter continuare l'approfondimento documentale.
 
 == Continuazione del documento Norme di Progetto 
 La redazione del documento Norme di Progetto è in una fase avanzata di stesura. Sono stati discussi e definiti i prossimi passi per proseguire la scrittura di questo documento, il quale è fondamentale per stabilire le regole e linee guida per il lavoro del team.
 
 == Continuazione del documento Piano di Progetto
-L'aggiornamento del documento Piano di Progetto viene eseguito all'inizio di ogni sprint, in quanto deve includere un resoconto dello sprint precedente e pianificare le attività per lo sprint successivo. In questo caso l'aggiornamento del PdP dovrà essere fatto il 2026-05-18.
+L'aggiornamento del documento Piano di Progetto viene eseguito all'inizio di ogni sprint, in quanto deve includere un resoconto dello sprint precedente e pianificare le attività per lo sprint successivo. In questo caso l'aggiornamento del PdP dovrà essere fatto il 2026/05/18.
 
 == Stesura iniziale del Piano di Qualifica
-Stesura iniziale del Piano di Qualifica limitatamente alla sezione introduttiva. Per questo sprint il gruppo ha deciso di concentrarsi sulla stesura degli altri documenti, in quanto il Piano di Qualifica è un documento che richiede una pianificazione dettagliata e una definizione precisa delle strategie di verifica e validazione, che al momento non sono ancora state completamente definite.
+È stata avviata la stesura dell'introduzione del Piano di Qualifica, integrando i riferimenti normativi e la struttura iniziale del documento. Il team ha concordato di procedere con la redazione degli altri documenti e riprendere quella del Piano di Qualifica nei prossimi sprint.
 
 == Stesura del Diario di Bordo
-Il team ha discusso e deciso come aggiornare il Diario di Bordo per l'incontro del 2026-05-15 in base a quanto svolto durante la settimana.
+Il team ha discusso e deciso come aggiornare il Diario di Bordo per l'incontro del 2026/05/15 in base a quanto svolto durante la settimana.
 
 == Aggiunta di una sezione per il Diario di Bordo sul sito web del gruppo
-Il team ha deciso che implementerà una sezione per pubblicare tutti i Diari di Bordo che si svolgeranno durante questo progetto sul sito web del gruppo, in modo da avere una documentazione accessibile e organizzata di tutte le attività svolte durante il progetto.
+Il team ha deciso di implementare sul sito web del gruppo una sezione per pubblicare tutti i Diari di Bordo redatti, in modo da avere una documentazione accessibile e organizzata di tutte le attività svolte durante il progetto.
 
 == Discussione su alcuni Use Case dell'Analisi dei requisiti
-Gli analisti per questo sprint hanno sollevato alcuni dubbi per quanto riguarda alcuni Use Case scritti in precedenza nell'AdR che è stata oggetto di discussione da parte del team per risolvere i problemi trovati. Tra i quali uno Use Case in particolare non era molto chiaro al team, cosi è stato deciso di chiedere chiarimenti all'azienda tramite il canale di comunicazione Telegram, in modo da poter proseguire con la stesura dell'AdR.
+Durante lo sprint, gli analisti hanno sollevato dubbi su alcuni Use Case precedentemente definiti nell'AdR. Dopo una revisione collettiva, il team ha riscontrato poca chiarezza in uno Use Case specifico; è stato quindi deciso di richiedere chiarimenti formali all'azienda proponente (Bluewind S.r.l.) tramite il canale Telegram dedicato, per consentire la corretta prosecuzione del lavoro.
 
 == Organizzazione dei quesiti per il proponente 
-Oltre alla richiesta di feedback sull'AdR, il  gruppo ha preparato alcuni quesiti su alcuni dubbi sorti durante la continuazione del lavoro.
+Oltre alla richiesta di feedback sull'AdR, il  gruppo ha preparato una serie di quesiti su alcuni dubbi sorti durante la continuazione del lavoro.
 
 
 = Conclusione e Decisioni Prese
