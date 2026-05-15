@@ -119,12 +119,13 @@
 == Scopo del documento
 Il presente Piano di Progetto si configura come lo strumento cardine per la direzione operativa del gruppo Coderius, delineando i criteri fondamentali per garantire l'efficienza dei processi lungo l'intero ciclo di vita del software.
 
-La sua funzione primaria è quella di fornire un quadro d'insieme che permetta al team e agli stakeholder di monitorare l'evoluzione del prodotto, partendo dalla gestione proattiva dei rischi per neutralizzarli prima che possano impattare sui requisiti. A tal fine, il documento stabilisce una schedulazione puntuale dei task e identifica le milestone per il rispetto delle scadenze, integrando queste informazioni con una stima dei costi e una distribuzione equilibrata del lavoro tra i ruoli.
+La sua funzione primaria è quella di fornire un quadro d'insieme che permetta al team e agli stakeholder di monitorare l'evoluzione del prodotto, partendo dalla gestione proattiva dei rischi per neutralizzarli prima che possano impattare sui requisiti. \
+A tal fine, il documento stabilisce una schedulazione puntuale dei task e identifica le milestone per il rispetto delle scadenze, integrando queste informazioni con una stima dei costi e una distribuzione equilibrata del lavoro tra i ruoli.
 
-Il documento viene aggiornato a ogni sprint e rappresenta la memoria storica del progetto.
+Il documento viene aggiornato a ogni sprint bisettimanale e rappresenta la memoria storica del progetto.
 
 == Scopo del progetto
-Il Capitolato *Automated EN18031 Compliance Verification*, proposto da Bluewind S.r.l., consiste nello sviluppo di un'applicazione web che aiuta le
+Il Capitolato *Automated EN18031 Compliance Verification*, proposto da Bluewind S.r.l., consiste nello sviluppo di un'applicazione web-based che aiuta le
 aziende a verificare se un dispositivo radio soddisfa i requisiti di cybersecurity
 imposti dallo standard europeo EN 18031, obbligatorio dall'agosto 2025 per
 ogni dispositivo Wi-Fi, Bluetooth, LTE o IoT immesso nel mercato UE.
@@ -132,7 +133,7 @@ ogni dispositivo Wi-Fi, Bluetooth, LTE o IoT immesso nel mercato UE.
 Il cuore dello standard è una serie di Decision Tree:
 sequenze di domande Sì/No che conducono a un esito finale di _Pass_, _Fail_ o
 _Not Applicable_ per ogni requisito. Il progetto si concentra sui gruppi
-*ACM* (Access Control Mechanism) e *AUM* (Authentication Mechanism) di
+*ACM* (Access Control Mechanism) e *AUM* (Authentication Mechanism) dello standard
 EN 18031.
 
 L'applicazione web permetterà di:
@@ -143,7 +144,7 @@ L'applicazione web permetterà di:
 - mostrare una dashboard con la sintesi dei risultati.
 
 == Glossario
-Per garantire che ogni termine tecnico sia compreso correttamente e per evitare qualsiasi confusione, la documentazione è supportata da un glossario che raccoglie le definizioni dei vocaboli più specifici. Le parole incluse in questo elenco sono segnalate nel testo dalla lettera G posta a pedice (parola#sub[G]). Cliccando su questo simbolo, l'utente viene indirizzato alla sezione della pagina web del glossario dove può consultare la definizione del termine cercato.
+Per garantire che ogni termine tecnico sia compreso correttamente e per evitare qualsiasi confusione, la documentazione è supportata da un glossario che raccoglie le definizioni dei vocaboli più specifici. Le parole incluse in questo elenco sono segnalate nel testo dalla lettera G posta a pedice (parola#sub[G]). Cliccando su questo simbolo, l'utente viene indirizzato alla sezione della pagina web del glossario dove può consultare la definizione approfondita del termine individuato.
 
 == Riferimenti
 
@@ -159,6 +160,14 @@ Per garantire che ogni termine tecnico sia compreso correttamente e per evitare 
     fill: blue,
   )[Slide IS A.A. 2025/2026 - _Regolamento del progetto didattico_ ]]
 
+- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T04.pdf")[#text(
+    fill: blue,
+  )[Slide IS A.A. 2025/2026 - _Gestione di progetto_ ]]
+
+- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T02.pdf")[#text(
+    fill: blue,
+  )[Slide IS A.A. 2025/2026 - _Processi di ciclo di vita del software_ ]]
+
 - #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Glossario.pdf")[#text(
     fill: blue,
   )[Glossario]]
@@ -167,11 +176,11 @@ Per garantire che ogni termine tecnico sia compreso correttamente e per evitare 
 = Informazioni sul progetto
 
 == Modello di sviluppo
-Il team adotta il framework *Scrum*. Il lavoro è suddiviso in sprint bisettimanali e al termine dello sprint viene garantita la rotazione dei ruoli per massimizzare l'apprendimento e la flessibilità del team.
+Il team adotta il framework *Scrum*. Il lavoro è suddiviso in sprint bisettimanali e al termine dello sprint viene garantita la rotazione dei ruoli per massimizzare l'apprendimento e la flessibilità del team, favorendo una conoscenza trasversale del prodotto e riducendo le dipendenze critiche sulle singole persone.
 
 == Metodologia di lavoro
-Ogni sprint si apre con una riunione in cui si fissano obiettivi e compiti e a metà periodo si tiene un breve controllo dell'avanzamento. Alla fine dello sprint si svolge una retrospettiva per capire cosa ha funzionato e cosa migliorare nel ciclo successivo.
-La scelta di sprint da due settimane permette cicli abbastanza brevi da consentire
+Ogni sprint si apre con una riunione in cui si fissano obiettivi e compiti e a metà periodo si tiene un breve controllo dell'avanzamento. Alla fine dello sprint si svolge una retrospettiva per capire cosa ha funzionato e cosa migliorare nel ciclo successivo. \
+La scelta di sprint bisettimanali permette cicli abbastanza brevi da consentire
 correzioni rapide, ma abbastanza lunghi da completare attività significative.
 I referenti di Bluewind vengono coinvolti periodicamente per raccogliere feedback e verificare
 che il lavoro sia allineato con le aspettative.
