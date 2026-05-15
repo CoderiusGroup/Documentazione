@@ -80,6 +80,8 @@
   #text(size: 16pt)[*Gruppo Coderius*] \
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
+  #v(4em)
+  #text(size: 20pt)[*Versione 0.3.1*]
 ]
 #pagebreak()
 
@@ -98,6 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.3.1], [2026/05/14], [Edis Hodja], [], [Revisione lessicale e aggiunta del versionamento nell’impaginazione],
     [0.3.0], [2026/05/04], [Giovanni Bronte], [Filippo Zonta Rocha], [Aggiunta sezione 4.2(sprint 2) e sezioni da 4.3.1 a 4.3.4 (inizio sprint 3). Aggiunti i rischi RO-4 e RI-2.],
     [0.2.0], [2026/04/21], [Alberto Canavese], [Filippo Zonta Rocha], [Correzione refusi],
     [0.1.0], [2026/04/21], [Ines Iadadi], [Alberto Canavese], [Prima stesura del documento e redazione Sprint 1],
@@ -568,14 +571,13 @@ Per questo sprint sono state assegnate due persone al ruolo di amministratore, q
 #v(0.3em)
 
 === Attività pianificate
-Per il terzo sprint il nostro team si concentrerà sulla continuazione della stesura di vari documenti essenziali per 
-per l'RTB, quali: Norme di Progetto, Piano di Progetto, Analisi dei requisiti.
+Per il terzo sprint il nostro team si concentrerà sulla continuazione della stesura di vari documenti essenziali per l'RTB, quali: Norme di Progetto, Piano di Progetto, Analisi dei requisiti.
 Le attività principali saranno:
 - Continua stesura dell'analisi dei requisiti, il team si prefissa di arrivare ad una fase terminale del documento cosi facendo avendo una versione quasi definitiva, inviarlo all'azienda proponente per avere un feedback sullo stato di accuratezza del documento.
 - Aggiornamento con Bluewind: è stato fissato un incontro per il 2026/05/04 per fare varie domande all'azienda in modo da chiarire alcuni dei dubbi sorti durante l'analisi dei requisiti.
 - Stesura del Diario di Bordo, stesura di un altro documento fatta da tutto il team che ha lo scopo di riassumere quanto fatto fino al giorno della redazione del documento per poterlo esporre durante l'attività omonima.
 - Aggiornamento del sito, aggiungendo una sezione per il Diario di Bordo.
-- Stesura dei vari Verbali esterni e interni.
+- Stesura dei vari verbali esterni e interni.
 
 === Rischi attesi
 - *RO-2*: Per questo sprint sono presenti delle attività che il gruppo Coderius si è fissato di completare o di raggiungere un certo livello di completamento per poter procedere con il resto del progetto senza avere problemi di tempo in futuro. Per questo motivo c'è un rischio che possano rimanere incompiute.
