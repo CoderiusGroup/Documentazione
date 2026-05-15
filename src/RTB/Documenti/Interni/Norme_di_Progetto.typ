@@ -32,7 +32,8 @@
   #text(size: 16pt)[*Gruppo Coderius*] \
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
-  #v(3em)
+  #v(4em)
+  #text(size: 20pt)[*Versione 0.7.0*]
 ]
 
 #pagebreak()
@@ -111,20 +112,11 @@ Questa convenzione permette al lettore di individuare immediatamente i vocaboli 
 #v(0.5em)
 I documenti elencati di seguito rappresentano i vincoli diretti e le norme da rispettare per lo sviluppo del progetto:
 
-- #link(
-    "https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C1.pdf",
-  )[*Capitolato C1 — Automated EN18031 Compliance Verification*] #nota[(ultimo accesso: 2026-04-24)]
+- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C1.pdf")[*Capitolato C1 — Automated EN18031 Compliance Verification*] #nota[(ultimo accesso: 2026-04-24)]
 
-- #link(
-    "https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf",
-  )[*Regolamento del Progetto Didattico*] #nota[(ultimo accesso: 2026-04-24)]
+- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf")[*Regolamento del Progetto Didattico*] #nota[(ultimo accesso: 2026-04-24)]
 
 - #link("https://www.iso.org/standard/63712.html")[*Standard ISO/IEC 12207:2017*] #nota[(ultimo accesso: 2026-04-04)]
-
-- #link(
-    "https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.
-pdf",
-  )[*Standard ISO/IEC 12207:1995*] #nota[(ultimo accesso: 2026-04-24)]
 
 - *Standard EN 18031* #nota[(Consultato tramite copia fornita dalla proponente)]
 \
@@ -135,21 +127,20 @@ pdf",
   indent: 0.5em,
   [Dispense del corso di Ingegneria del Software 2025/2026:
     #set list(marker: [-], indent: 1em)
-
-    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T01.pdf") #nota[(ultimo accesso: 2026-04-24)]
-    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T02.pdf") #nota[(ultimo accesso: 2026-04-24)]
-    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T03.pdf") #nota[(ultimo accesso: 2026-04-24)]
-    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T04.pdf") #nota[(ultimo accesso: 2026-04-24)]
-    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T05.pdf") #nota[(ultimo accesso: 2026-04-24)]
-    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T06.pdf") #nota[(ultimo accesso: 2026-04-24)]
-    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T07.pdf") #nota[(ultimo accesso: 2026-04-24)]
-    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T08.pdf") #nota[(ultimo accesso: 2026-04-24)]
-    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T09.pdf") #nota[(ultimo accesso: 2026-04-24)]
-    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T10.pdf") #nota[(ultimo accesso: 2026-04-24)]
-    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T11.pdf") #nota[(ultimo accesso: 2026-04-24)]
-  ],
+    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T01.pdf")[*T01 - Introduzione*] #nota[(ultimo accesso: 2026-04-24)]
+    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T02.pdf")[*T02 - I processi di ciclo di vita del software*] #nota[(ultimo accesso: 2026-04-24)]
+    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T03.pdf")[*T03 - Modelli di sviluppo software*] #nota[(ultimo accesso: 2026-04-24)]
+    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T04.pdf")[*T04 - Gestione di progetto*] #nota[(ultimo accesso: 2026-04-24)]
+    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T05.pdf")[*T05 - Analisi dei requisiti*] #nota[(ultimo accesso: 2026-04-24)]
+    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T06.pdf")[*T06 - Progettazione software*] #nota[(ultimo accesso: 2026-04-24)]
+    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T07.pdf")[*T07 - Qualità di prodotto*] #nota[(ultimo accesso: 2026-04-24)]
+    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T08.pdf")[*T08 - Qualità di processo*] #nota[(ultimo accesso: 2026-04-24)]
+    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T09.pdf")[*T09 - Verifica e validazione: introduzione*] #nota[(ultimo accesso: 2026-04-24)]
+    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T10.pdf")[*T10 - Verifica e validazione: analisi statica*] #nota[(ultimo accesso: 2026-04-24)]
+    - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T11.pdf")[*T11 - Verifica e validazione: analisi dinamica*] #nota[(ultimo accesso: 2026-04-24)]
+  ]
 )
-
+- #link("https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf")[*Standard ISO/IEC 12207:1995*] #nota[(ultimo accesso: 2026-04-24)]
 
 - #link("https://typst.app/docs/")[*Documentazione ufficiale di Typst*] #nota[(ultimo accesso: 2026-04-24)]
 
@@ -467,7 +458,7 @@ Per lo sviluppo, il gruppo utilizza strumenti mirati a garantire qualità, tracc
 
 - *Discord / WhatsApp*: utilizzati per il coordinamento quotidiano e incontri tra i componenti del gruppo;
 
-- *Draw.io*: utilizzato per la realizzazione dei diagrammi UML che sono essenziali per l'analisi dei requisiti, in particolar modo per l'interpretazione dei casi d'uso.
+- *Draw.io/PlantUML*: utilizzato per la realizzazione dei diagrammi UML che sono essenziali per l'analisi dei requisiti, in particolar modo per l'interpretazione dei casi d'uso.
 
 === Rapporti con la proponente
 #v(0.5em)
@@ -844,25 +835,74 @@ La gestione dell'infrastruttura ha lo scopo di definire, realizzare e mantenere 
 - *Configurazione degli ambienti di sviluppo*
 - *Automazione dei processi di integrazione e distribuzione*
 - *Gestione della disponibilità e conservazione dei dati*
+- *Gestione e aggiornamento dell'ambiente di lavoro*
 
 === Repository e hosting
 Per la gestione centralizzata del codice e della documentazione viene utilizzato GitHub, adottando un modello ispirato a GitHub Flow che permette di mantenere un workflow semplice, ordinato e coerente con l'approccio Agile. Il modello è il seguente:
 - *Struttura dei branch*: il ramo principale dell'intera struttura è rappresentata dal _main_ in cui viene pubblicata la documentazione e la codifica verificata e quasi sempre definitiva. Prima di essere approvate, le nuove pubblicazioni vengono validate dal _Verificatore_, che effettua una review approfondita nel branch _develop_. \ Successivamente il _Responsabile_ è abilitato ad effettuare l'integrazione al ramo principale.
 - *Convenzione di denominazione*: per le varie operazioni e attività effettuate viene creato un branch dedicato che segue una struttura accordata dal team:
-  - *feature/nome-feature* per lo sviluppo di nuove funzionalità;
-  - *bugfix/nome-bugfix* per la correzione di errori.
+  - *feature/nome-feature* — per lo sviluppo di nuove funzionalità;
+  - *fix/nome-fix* — correzione di bug o comportamenti anomali;
+  - *docs/nome-documento* — modifiche o aggiunte alla documentazione;
 - *Revisione e merge*: l'integrazione del lavoro avviene in due fasi distinte, entrambe gestite tramite _Pull Request_. Nella prima fase il branch di lavoro viene unito a _develop_, previa revisione e approvazione da parte del _Verificatore_. Una volta consolidato il lavoro su _develop_, viene aperta una seconda PR per l'integrazione definitiva su _main_, anch'essa soggetta alla revisione del _Verificatore_ prima del merge.
 - *Pipeline automatizzate*: sono configurate GitHub Actions per automatizzare le operazioni ripetitive, tra cui la compilazione dei documenti Typst in PDF e la loro pubblicazione sul sito del progetto.
 
 === Infrastruttura di sviluppo
-=== Backup e disponibilità dei dati
+L'infrastruttura di sviluppo comprende l'insieme degli strumenti, degli ambienti e delle configurazioni adottate dal gruppo per garantire un processo di sviluppo standardizzato, ripetibile e facilmente manutenibile nel tempo. In particolare il team utilizza i seguenti strumenti:
+- *Discord*: Canale vocale di comunicazione principale specialmente utilizzato per gli incontri interni e per la discussione in tempo reale di punti cruciali;
+- *WhatsApp*: Canale di comunicazione rapido per messaggistica e brainstorming generale;
+- *Zoom*: Strumento di comunicazione sfruttato per la discussione relativa ai _Diari di Bordo_ assieme al docente;
+- *Google Meet*: Strumento di comunicazione utilizzato per le riunioni esterne assieme all'azienda proponente;
+- *Typst*: Servizio standard per la stesura e compilazione dell'intera documentazione prodotta nell'intero ciclo di vita del progetto;
+- *Git*: Sistema di versionamento distribuito per codice e documentazione;
+- *GitHub*: Piattaforma per la repository di gruppo, issue tracking system e integrazione continua;
+- *Google Docs*: Sistema per la stesura di domande e brainstorming su tematiche affrontate durante gli incontri interni.
+- *Python*: Linguaggio di programmazione utilizzato per alcune automazioni;
+
+=== Gestione dell'ambiente di lavoro
+
+Mantenere l'infrastruttura e gli strumenti del progetto aggiornati e funzionanti è una responsabilità continua che accompagna l'intero ciclo di sviluppo. Lo scopo è preservare la continuità operativa e l'affidabilità dell'ambiente, assicurando che tutto resti coerente con gli standard stabiliti dal gruppo.
+
+Gli interventi si distinguono in base alla loro natura:
+
++ *Interventi ricorrenti*: aggiornamenti e operazioni periodiche legate alla normale evoluzione delle attività;
++ *Interventi straordinari*: modifiche, aggiunte o rimozioni di strumenti, configurazioni o risorse rese necessarie da cambiamenti nei requisiti, criticità impreviste o decisioni organizzative non pianificate.
+
 
 #pagebreak()
 
-== Miglioramento del processo
+== Ottimizzazione del processo
+L'ottimizzazione del processo ha l'obiettivo di garantire che le modalità di lavoro adottate dal gruppo evolvano nel tempo, adattandosi alle esigenze emergenti e agli standard di qualità definiti. Anziché considerare il _Way of Working_ come qualcosa di fisso, il gruppo lo tratta come un elemento vivo: soggetto a osservazione, valutazione e revisione continua lungo l'intero ciclo di vita del progetto.
+
+In questo senso, ogni fase di lavoro rappresenta un'occasione per individuare inefficienze, consolidare le pratiche più efficaci e introdurre correzioni mirate, con l'obiettivo di incrementare progressivamente sia la qualità dei risultati che la sostenibilità del processo stesso.
+
+=== Attività previste
+#v(0.5em)
+
+Il processo si articola in tre attività principali:
+
+- *Definizione delle procedure*: formalizzazione delle modalità operative adottate dal gruppo, con relativa documentazione nelle Norme di Progetto e nel _Way of Working_ stabilito.
+- *Monitoraggio e valutazione*: osservazione continua dell'andamento delle attività attraverso retrospettive periodiche, analisi delle criticità emerse e valutazione delle metriche associate al processo.
+- *Revisione e miglioramento*: identificazione delle aree di inefficienza e introduzione di correzioni mirate, aggiornando la documentazione ufficiale ogni qualvolta le procedure vengano modificate.
+
 === Retrospettive e revisione interna
+Al termine di ogni sprint il gruppo dedica un momento strutturato di riflessione collettiva, finalizzato a valutare l'andamento del periodo appena concluso. 
+In questa sede vengono analizzati gli obiettivi raggiunti, le difficoltà incontrate e le dinamiche di collaborazione emerse, con l'intento di trarre indicazioni concrete per lo sprint successivo.
+
+Le retrospettive non hanno carattere formale, ma seguono una struttura ricorrente che favorisce la partecipazione attiva di tutti i membri. Gli esiti della discussione vengono sintetizzati e riportati nel verbale d'interesse, e se necessario tradotti in azioni da integrare nel _Way of Working_.
+
 === Gestione delle criticità
+Quando si presenta una problematica che rischia di compromettere il regolare svolgimento delle attività, il gruppo segue un iter strutturato articolato nelle seguenti fasi:
+
+#v(0.5em)
++ *Identificazione*: la criticità viene rilevata e descritta in modo chiaro, specificandone il contesto e le attività coinvolte.
++ *Analisi*: si individuano le cause alla base del problema e si valuta l'impatto sulle tempistiche, sulle risorse e sulla qualità del progetto.
++ *Risposta*: in base alla natura e all'urgenza, il gruppo definisce le azioni correttive più appropriate, che possono includere la ridistribuzione dei compiti, la revisione delle stime, l'aggiornamento degli strumenti o la modifica delle procedure coinvolte.
++ *Tracciamento*: ogni criticità rilevante viene registrata e monitorata fino alla sua risoluzione, al fine di prevenire il ripresentarsi di situazioni analoghe.
+
 === Aggiornamento delle procedure
+Le norme e le procedure adottate dal gruppo non sono considerate definitive. Infatti, possono essere riviste e aggiornate in qualsiasi momento del progetto, qualora emerga la necessità di adeguarle a nuove esigenze operative o di correggere aspetti risultati inefficaci nella pratica. \
+In ogni caso, la seguente documentazione risulta sempre la più valida e affidabile in termini di aggiornamento dell'intera procedura seguita dal gruppo.
 
 == Formazione
 === Condivisione delle conoscenze
