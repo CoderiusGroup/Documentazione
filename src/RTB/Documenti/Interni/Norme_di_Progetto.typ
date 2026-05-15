@@ -33,7 +33,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.8.0*]
+  #text(size: 20pt)[*Versione 0.9.0*]
 ]
 
 #pagebreak()
@@ -53,13 +53,14 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.8.0], [2026/05/13], [Edis Hodja], [], [Aggiunta delle seguenti sezioni: 4.3, 4.4, 4.5],
-    [0.7.0], [2026/05/11], [Edis Hodja], [], [Aggiunta delle seguenti sezioni: 4.1, 4.2],
-    [0.6.0], [2026/05/08], [Edis Hodja], [], [Aggiunta della sezione 3.5],
+    [0.9.0], [2026/05/13], [Filippo Zonta Rocha], [], [Aggiornamento contenuti e correzioni refusi],
+    [0.8.0], [2026/05/13], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta delle seguenti sezioni: 4.3, 4.4, 4.5],
+    [0.7.0], [2026/05/11], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta delle seguenti sezioni: 4.1, 4.2],
+    [0.6.0], [2026/05/08], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta della sezione 3.5],
     [0.5.0],
     [2026/05/05],
     [Edis Hodja],
-    [],
+    [Filippo Zonta Rocha],
     [Aggiornamento delle seguenti sezioni: 2.2.2, 2.2.3, 2.2.4, 2.3.2, 2.3.5, 3.2.3, 3.3],
 
     [0.4.0], [2026/05/04], [Giovanni Bronte], [Alberto Canavese], [Aggiunta della sezione 3.4],
@@ -346,7 +347,7 @@ Per mantenere una comunicazione trasparente e tracciabile, a seconda della tipol
 #v(0.5em)
 Riguardano tutti i contatti ufficiali tra il gruppo *Coderius* e *BlueWind S.r.l.* .
 
-- *Incontri (meeting)*: ogni incontro con la proponente deve essere documentato in un *verbale esterno* , denominato secondo il formato _VerbaleEsterno-AAAA-MM-GG_, che riporti decisioni prese e chiarimenti ottenuti;
+- *Incontri (meeting)*: ogni incontro con la proponente deve essere documentato in un *verbale esterno*, denominato secondo il formato _VerbaleEsterno-AAAA-MM-GG_, che riporti decisioni prese e chiarimenti ottenuti;
 - *Comunicazioni formali*: per l'invio di documenti e comunicazioni ufficiali si utilizza esclusivamente la posta elettronica;
 - *Canali rapidi*: per chiarimenti immediati e coordinamento si utilizzano strumenti di messaggistica istantanea (Telegram), attraverso i quali la proponente condivide risorse tecniche di riferimento;
 
@@ -366,7 +367,7 @@ Per il corretto svolgimento delle attività del processo di fornitura, il gruppo
 ==== Strumenti di comunicazione con la proponente
 #v(0.5em)
 
-- *Gmail*: utilizzato per comunicazioni formali, convocazione dei meeting;
+- *Gmail*: utilizzato per comunicazioni formali e la convocazione dei meeting;
 
 - *Telegram*: utilizzato per chiarimenti immediati;
 
@@ -377,21 +378,21 @@ Per il corretto svolgimento delle attività del processo di fornitura, il gruppo
 
 - *GitHub*: utilizzato per il versionamento e la conservazione di tutto il materiale prodotto (codice e documentazione), garantendo la tracciabilità delle versioni e delle modifiche;
 
-- *Discord / WhatsApp*: utilizzati per il coordinamento quotidiano e incontri tra i componenti del gruppo;
+- *Discord / WhatsApp*: utilizzati per il coordinamento quotidiano e gli incontri tra i componenti del gruppo;
 
 - *Google Docs*: utilizzato per la collaborazione in tempo reale, in particolare per attività di brainstorming e redazione condivisa (es. definizione delle domande per gli incontri con la proponente).
 
 == Processo di Sviluppo
 #v(0.5em)
-Il processo di sviluppo comprende l'insieme delle attività tecniche e metodologiche necessarie alla realizzazione del prodotto software, a cominciare dall'analisi dei requisiti fino alla consegna e verifica finale. L'obiettivo principale è garantire un ciclo di vita del software controllato, dove ogni fase contribuisce alla creazione di un sistema *robusto, sicuro, mantenibile nel tempo e conforme* alle specifiche della proponente.
+Il processo di sviluppo comprende l'insieme delle attività tecniche e metodologiche necessarie alla realizzazione del prodotto software, a cominciare dall'analisi dei requisiti fino alla consegna e alla verifica finale. L'obiettivo principale è garantire un ciclo di vita del software controllato, dove ogni fase contribuisce alla creazione di un sistema *robusto, sicuro, mantenibile nel tempo e conforme* alle specifiche della proponente.
 
 === Attività principali
 #v(0.5em)
-Di seguito le principali attività comprese nel processo di sviluppo:
+Di seguito riportate le principali attività comprese nel processo di sviluppo:
 
 - *Analisi dei Requisiti*: processo di individuazione, classificazione e formalizzazione delle necessità della proponente e dei vincoli normativi, comprensivo della definizione dei casi d'uso del sistema;
 
-- *Progettazione dell'architettura*: definizione della struttura ad alto livello del sistema, individuando i componenti principali e le loro interazioni;
+- *Progettazione dell'architettura*: definizione della struttura ad alto livello del sistema, con l'individuazione dei componenti principali e le loro interazioni;
 
 - *Progettazione di dettaglio*: definizione specifica dei singoli componenti e delle logiche interne, propedeutica alla scrittura del codice;
 
@@ -407,7 +408,7 @@ Questa fase mira a definire con precisione cosa il software debba fare. Il grupp
 - *Individuazione dei casi d'uso (UC)*: descrizione delle interazioni tra gli attori e il software tramite diagrammi UML e scenari (principali o alternativi);
 - *Classificazione dei requisiti*: ogni requisito viene catalogato come funzionale, di qualità, di vincolo o prestazionale;
 - *Attribuzione della priorità*: a ogni requisito viene assegnata una priorità (obbligatorio, desiderabile o opzionale) e un identificativo univoco secondo una specifica nomenclatura;
-- *Tracciamento*: associazione costante tra requisiti e casi d'uso per garantire che ogni necessità richiesta dal capitolato sia soddisfatta e che ogni caso d'uso non sia superfluo.
+- *Tracciamento*: associazione costante tra requisiti e casi d'uso per garantire che ogni necessità richiesta dal capitolato sia soddisfatta e che ogni caso d'uso non risulti superfluo.
 
 ==== Nomenclatura Casi D'uso
 I casi d'uso sono identificati mediante la seguente convenzione:
@@ -418,11 +419,11 @@ I casi d'uso sono identificati mediante la seguente convenzione:
 Dove:\
 - *UC*: acronimo di *Use Case* (caso d'uso);\
 - *IndiceRadice*: numero progressivo che identifica un caso d'uso principale;\
-- *IndiceAnnidato*: numero crescente che indica la sottosezione di un particolare use case, può essere ulteriormente annidato per rappresentare livelli successivo;\
-- *Titolo*: nome per ogni use case per differenziarlo e riassumere il suo scopo al fine di essere più leggibile.\
+- *IndiceAnnidato*: numero crescente che indica la sottosezione di un particolare use case, può essere ulteriormente annidato per rappresentare livelli successivi;\
+- *Titolo*: nome assegnato a ogni use case per differenziarlo dagli altri e riassumerne lo scopo, migliorandone la leggibilità.\
 La combinazione tra *IndiceRadice* e *IndiceAnnidato* costituisce un identificativo univoco e non duplicabile.\
 
-*Esempio*: \ UC-4 : Aggiunta nuova dispositivo manuale;\ UC-4.1: Inserimento nome dispositivo;\ UC-4.2: Inserimento sistema operativo del dispositivo.
+*Esempio*: \ UC-4: Aggiunta nuova dispositivo manuale;\ UC-4.1: Inserimento nome dispositivo;\ UC-4.2: Inserimento sistema operativo del dispositivo.
 
 ==== Nomenclatura Requisiti
 Per i requisiti la nomenclatura che viene usata è la seguente:
@@ -435,15 +436,15 @@ Per i requisiti la nomenclatura che viene usata è la seguente:
 === Documentazione coinvolta
 #v(0.5em)
 
-Le attività coinvolte durante la fase del processo di sviluppo sono assistite dalla documentazione definita in precedenza, ovvero *Analisi dei Requisiti, Piano di Progetto, Piano di Qualifica e Norme di Progetto*, integrata con specifiche riguardanti la codifica e le procedure di verifica.
+Le attività del processo di sviluppo sono supportate dalla documentazione definita in precedenza, ovvero *Analisi dei Requisiti, Piano di Progetto, Piano di Qualifica e Norme di Progetto*, integrata con specifiche riguardanti la codifica e le procedure di verifica.
 
 === Strumenti a supporto
 #v(0.5em)
 Per lo sviluppo, il gruppo utilizza strumenti mirati a garantire qualità, tracciabilità e collaborazione:
 
 - *Linguaggio e Ambiente*: come linguaggio principale per lo sviluppo delle componenti software e delle logiche della normativa viene utilizzato Python 3.x;
-- *Versionamento*: Git e GitHub per la gestione della repository, branch, commit, issue e pull request;
-- *Automazione*: utilizzo di pipeline CI (Continuous Integration) tramite GitHub Actions per la generazione automatica e successiva pubblicazione della documentazione di progetto;
+- *Versionamento*: Git e GitHub per la gestione del repository, dei branch, dei commit, delle issue e delle pull request;
+- *Automazione*: utilizzo di pipeline CI (Continuous Integration) tramite GitHub Actions per la generazione automatica e la successiva pubblicazione della documentazione di progetto;
 
 ==== Strumenti per la proponente
 #v(0.5em)
@@ -478,7 +479,7 @@ Il gruppo *Coderius* si impegna a recepire i feedback ricevuti e a presentare un
 #v(0.5em)
 Il committente mette a disposizione strumenti di supporto e momenti di valutazione per monitorare la qualità dei processi e dei prodotti:
 
-- *Ricevimenti e comunicazioni*: possibilità di richiedere incontri o inviare email istituzionali per chiarire dubbi metodologici o riguardanti la gestione del progetto;
+- *Ricevimenti e comunicazioni*: possibilità di richiedere incontri o inviare e-mail istituzionali per chiarire dubbi metodologici o riguardanti la gestione del progetto;
 
 - *Diari di Bordo*: incontri periodici in cui il gruppo espone l'avanzamento dei lavori, le difficoltà riscontrate e le soluzioni adottate.
 
@@ -486,11 +487,11 @@ Il gruppo si impegna a partecipare alle milestone di avanzamento previste:
 
 - *RTB (Requirements and Technology Baseline)*: momento di revisione che prevede la consegna della documentazione (AdR, NdP, PdP, PdQ, Glossario) e la presentazione di un *PoC* (Proof of Concept) per dimostrare la fattibilità tecnica della soluzione scelta;
 
-- *PB (Product Baseline)*: fase finale che prevede la consegna della documentazione tecnica completa e la presentazione dell'applicazione funzionante per la verifica della conformità allo standard* EN 18031*.
+- *PB (Product Baseline)*: fase finale che prevede la consegna della documentazione tecnica completa e la presentazione dell'applicazione funzionante per la verifica della conformità allo standard *EN 18031*.
 = Processi di Supporto
 #v(0.5em)
-La seguente sezione descrive i processi di supporto secondo lo standard ISO/IEC 12207, che hanno lo scopo di garantire l'efficace gestione, controllo e qualità delle attività del ciclo di vita del progetto.\
-I processi di supporto che verranno descritti in questa sezione sono i seguenti:
+La seguente sezione descrive i processi di supporto secondo lo standard ISO/IEC 12207, che hanno lo scopo di garantire una gestione efficace, il controllo e la qualità delle attività del ciclo di vita del progetto.\
+Nello specifico, vengono analizzati i seguenti processi di supporto:
 - *Documentazione*
 - *Gestione delle configurazioni*
 - *Accertamento della qualità*
@@ -506,7 +507,7 @@ Il processo di documentazione ha lo scopo di raccogliere, organizzare e gestire 
 Ogni attività, decisione tecnica o organizzativa deve essere formalizzata per permettere:
 - *Tracciabilità*: ricostruire l'evoluzione del progetto e le motivazioni dietro ogni scelta architetturale o normativa;
 - *Qualità*: assicurare che ogni documento prodotto rispetti gli standard definiti e sia sottoposto a verifica prima del rilascio;
-- *Comunicazione*: facilitare lo scambio di informazioni tra i componenti del team e verso la proponente e i committenti.
+- *Comunicazione*: facilitare lo scambio di informazioni tra i componenti del team e verso la proponente e il committente.
 
 === Tipologie di documenti
 #v(0.5em)
@@ -520,14 +521,15 @@ Il gruppo ha definito dei template specifici per garantire l'uniformità e la pr
 #v(0.5em)
 I verbali del gruppo Coderius seguono una struttura fissa per facilitare la reperibilità delle informazioni:
 
-- *Frontespizio*: include il logo del gruppo, i dati di contatto (#link("mailto:coderius01@gmail.com")), la tipologia di documento e i riferimenti temporali (data, ora di inizio e fine) e logici (luogo o canale di comunicazione) della riunione, la versione più recente reperita dalla tabella di versionamento;
-- *Tabella di versionamento*: riporta lo storico delle modifiche, indicando versione, data, autore, verificatore e descrizione dell'aggiornamento;
+- *Frontespizio*: include il logo del gruppo, i dati di contatto (#link("mailto:coderius01@gmail.com")), la tipologia di documento e i riferimenti temporali (data, ora di inizio e fine) e logistici (luogo o canale di comunicazione) della riunione, la versione più recente reperita dalla tabella di versionamento;
+- *Tabella di versionamento*: riporta lo storico delle modifiche, indicando versione, data, autori, verificatori e descrizione dell'aggiornamento;
 - *Indice*: elenco numerato delle sezioni per una navigazione rapida del documento;
 - *Partecipanti*: lista dei membri del team presenti all'incontro;
 - *Ordine del Giorno*: elenco sintetico dei punti che si intendono affrontare durante la seduta;
-- *Svolgimento della Riunione*: trattazione dettagliata di ogni punto dell'ordine del giorno e discussioni su varie altre decisoni prese per l'avanzamento del progetto;
-- *Conclusioni e Decisioni prese*: riassunto di quanto è stato discusso durante la riunione, tramite una tabella.
-- *Ordine del giorno prossimo incontro*: elenco degli argomenti principali di cui discutere durante il successivo incontro.
+- *Svolgimento della Riunione*: discussione dettagliata di quanto anticipato nella sezione ordine del giorno ed altre decisioni prese per l'avanzamento del progetto;
+
+- *Conclusioni e Decisioni prese*: riassunto di quanto è stato discusso durante la riunione, sintetizzato in una tabella.
+- *Ordine del giorno prossimo incontro*: anticipazione degli argomenti principali di cui discutere durante il successivo incontro.
 - *TODO (Attività da svolgere)*: tabella riassuntiva che elenca i compiti assegnati in vista dell'incontro successivo.
 #v(0.5em)
 *Convenzioni di nomenclatura e codifica*
@@ -540,11 +542,11 @@ Per garantire la tracciabilità tra discussioni e azioni, il gruppo adotta i seg
 
 ==== Diario di bordo
 #v(0.5em)
-Questa tipologia di documento ha la funzione di monitorare periodicamente lo stato di avanzamento del gruppo e possiede una finalità prettamente informativa. La struttura dei Diari di Bordo si articola in tre punti chiave:
+Questa tipologia di documento ha la funzione di monitorare periodicamente lo stato di avanzamento del lavoro da parte del gruppo con finalità prettamente informativa e didattica. La struttura dei Diari di Bordo si articola in tre punti chiave:
 
-- *Risultati raggiunti*: elenco dettagliato delle attività portate a termine nel periodo di riferimento ;
-- *Attività successive*: pianificazione dei task previsti per il periodo successivo;
-- *Difficoltà riscontrate*: analisi di eventuali criticità o ostacoli emersi durante lo svolgimento del lavoro.
+- *Risultati raggiunti*: elenco dettagliato delle attività portate a termine nel periodo di riferimento;
+- *Attività future*: pianificazione dei task previsti per il prossimo sprint;
+- *Difficoltà riscontrate*: esposizione di eventuali criticità o ostacoli emersi durante lo svolgimento del progetto.
 
 ==== Denominazione dei documenti
 #v(0.5em)
@@ -568,10 +570,10 @@ Per la redazione e la gestione della documentazione, il gruppo ha deciso di util
 === Produzione
 #v(0.5em)
 Per la produzione di un documento il nostro gruppo opera nel seguente modo:
-- *Creazione Issue e Branch dedicato*: Inizialmente viene creata una issue su Github dal responsabile assegnato in quello sprint. Successivamente, se il documento ha una certa importanza, viene creato un branch di feature a parte per poter effetuare modifiche senza modificare il main. Se il documento da creare è invece di minore importanza, come un verbale, questo viene creato nel branch apposito: feature/verbali.
-- *Stesura del documento*: Il documento viene assegnato ad uno dei membri del team che ricopre il ruolo adatto per la stesura del documento per quello sprint e inizia a lavorare sulla stesura del documento.
-- *Verifica del documento*: Ogni volta che il documento viene aggiornato, quest'ultimo deve essere verificato dal chi copre il ruolo verificatore e aggiornare la tabella di versionamento di conseguenza con il nome di chi ha effetuato la verifica.
-- *Approvazione e Merge*: Una volta che il documento è concluso viene aperta una pull request su github, la quale viene in seguito approvata dal responsabile che esegue il merge del branch dedicato al main. Una volta che il documento è caricato sul main branch viene considerato concluso e grazie all'automazione di Github, viene generato il pdf in automatico.
+- *Creazione Issue e Branch dedicato*: Inizialmente viene creata una issue su Github dal responsabile assegnato in quello sprint. In base all'importanza del documento, viene creato un relativo  branch di feature per poterci lavorare senza influenzare il main. Se il documento da creare è invece di minore importanza, come un verbale, questo viene creato nel branch apposito: feature/verbali il quale presenta al suo interno indifferenziatamente esterni ed interni.
+- *Stesura del documento*: Il documento viene assegnato ad uno o più membri del team che ricopre il ruolo adatto per la stesura del documento nello sprint.
+- *Verifica del documento*: Ogni volta che il documento viene aggiornato, quest'ultimo deve essere verificato da chi ricopre il ruolo verificatore e aggiornare la tabella di versionamento di conseguenza con il nome e una breve descrizione delle modifiche apportate.
+- *Approvazione e Merge*: Una volta che il documento è concluso viene aperta una pull request su github dal responsabile, inizialmente verso il branch develop e in seguito verso il main. Dal momento in cui il documento è presente nel main branch viene considerato concluso e grazie all'automazione di Github, viene generato e pubblicato il pdf.
 
 === Manutenzione
 #v(0.5em)
@@ -610,12 +612,12 @@ Questa attività sarà effettuata durante la fase di progettazione e schematizza
 === Controllo della configurazione
 #v(0.5em)
 Per poter svolgere al meglio questa attività, il gruppo Coderius ha deciso di usare i seguenti strumenti:
-- *Pull Request*: la pull request permette al nostro team di revisionare il lavoro fatto e approvarlo tramite una merge prima di poterlo integrare nel main branch, questo viene fatto per ridurre al minimo gli errori prima di caricare un documento considerato concluso.
-- *Issue*: le issue permettono di tracciare, gestire e pianificare le attività per un progetto. Nel nostro caso vengono usate prima di creare un nuovo documento e per assegnare il lavoro alla persona con il ruolo più adatto per quello sprint. Ciascuna issue:
+- *Pull Request*: la pull request permette al nostro team di revisionare il lavoro fatto e approvarlo tramite una merge prima di poterlo integrare nel main branch. Viene seguito questo processo per ridurre al minimo il rischio di errori prima di caricare un documento considerato concluso.
+- *Issue*: le issue permettono di tracciare, gestire e pianificare le attività per un progetto. Vengo create alla redazione di un nuovo documento, in modo da poter assegnare l'attività al ruolo ricoperto da uno o più membri preposto per quello sprint.\  Ogni issue presenta le seguenti caratteristiche:
   - è identificata all’interno di GitHub tramite la notazione `#NUMERO`, dove `NUMERO` rappresenta un identificativo univoco del repository;
   - descrive l’attività da svolgere o la modifica richiesta;
   - può essere assegnata a uno o più membri del team;
-  - viene aggiornata durante l’avanzamento dei lavori fino alla sua chiusura.
+  - viene aggiornata durante l’avanzamento delle attività fino alla sua chiusura.
 
 - *Project Board*: è una tavola digitale utilizzata per tracciare il lavoro che sta venendo svolto al momento. Le colonne principali utilizzate sono:
   - *Backlog*: attività da pianificare e non ancora avviata;
@@ -640,7 +642,7 @@ Questa attività serve a controllare che il software prodotto sia funzionale e c
 #v(0.5em)
 Gli strumenti per la gestione della configurazione che il gruppo ha deciso di adottare sono i seguenti:
 - *GitHub*: principale strumento per creare, modificare e gestire tutti i documenti legati al progetto. Permette inoltre di poter creare delle milestone, assegnare ruoli e tracciare il lavoro.
-- *GitHub Pages*: strumento di GitHub utilizzato per la realizzazione del sito web, sempre attivo e direttamente connesso con la nostra repository di GitHub. Il suo scopo principale è quello di consentire la visualizzazione al gruppo, alla proponente e ai committenti di tutta la documentazione prodotta in formato PDF consultabile dal sito.
+- *GitHub Pages*: strumento di GitHub utilizzato per la realizzazione del sito web, sempre attivo e direttamente connesso con la nostra repository di GitHub. Il suo scopo principale è quello di consentire un accesso facile e rapido, alla proponente e ai committenti di tutta la documentazione prodotta in formato PDF consultabile dal sito.
 
 
 
@@ -654,7 +656,7 @@ Il processo di garanzia della qualità prevede le seguenti attività:
 
 - *Implementazione del processo*: definizione e adozione delle metriche e delle procedure di qualità che verranno applicate durante l'intero ciclo di vita del progetto.
 - *Controllo di processo*: verifica periodica che le attività svolte dai membri del gruppo siano aderenti alle procedure e agli standard stabiliti
-- *Accertamento del prodotto*: verifica costante che il prodotto software e la relativa documentazione rispettino i requisiti specificati e le convenzioni stabilite dal gruppo;
+- *Accertamento del prodotto*: verifica costante che il prodotto software e la relativa documentazione rispettino i requisiti specifici e le convenzioni stabilite dal gruppo;
 - *Valutazione oggettiva*: la verifica e garanzia della qualità, quando possibile, viene affidata a membri del team che non hanno partecipato attivamente alla stesura del documento o porzione di codice in questione.
 
 === Linee guida
@@ -663,7 +665,7 @@ Il processo di garanzia della qualità prevede le seguenti attività:
 Il processo di garanzia della qualità segue le seguenti linee guida:
 
 - *Prevenzione prima della correzione*: il gruppo privilegia pratiche preventive, come revisioni e verifiche periodiche, rispetto alla correzione a posteriori delle anomalie;
-- *Tracciabilità*: modifiche, verifiche e anomalie vengono documentate e tracciate tramite gli strumenti adottati dal team;
+- *Tracciabilità*: modifiche, verifiche e anomalie sono documentate e tracciate tramite gli strumenti adottati dal team;
 - *Miglioramento continuo*: procedure e modalità operative vengono periodicamente rivalutate per migliorarne efficacia ed efficienza;
 - *Responsabilità condivisa*: la qualità del prodotto e della documentazione è responsabilità condivisa da tutti i membri del gruppo;
 - *Conformità agli standard*: ogni artefatto prodotto deve rispettare convenzioni, requisiti e standard definiti dal gruppo.
@@ -689,25 +691,25 @@ Nella seguente tabella sono riportati i ruoli principali ed essenziali per garan
 
 
 == Verifica
-Il processo di verifica è tecnico e oggettivo; ha lo scopo di valutare e determinare se il lavoro svolto (codifica e documentazione prodotta) soddisfi i requisiti concordati con la proponente. L'obiettivo di questo processo è di dimostrare in modo oggettivo la correttezza del prodotto per le richieste documentate nel capitolato di progetto e destinate all'utilizzo dell'utenza finale. Questo processo è continuo per la durata del progetto ed è definito nel _Piano di Qualifica_.
+Il processo di verifica è tecnico e oggettivo; ha lo scopo di valutare e determinare se il lavoro svolto (codifica e documentazione prodotta) soddisfi i requisiti necessari e concordati con la proponente. L'obiettivo di questo processo è di dimostrare in modo oggettivo la correttezza del prodotto rispetto ai requisiti documentati nel capitolato di progetto e destinate all'utilizzo dell'utenza finale. Questo processo è continuo per la durata del progetto ed è definito nel _Piano di Qualifica_.
 
 === Attività previste
 #v(0.5em)
 
 Secondo lo standard ISO/IEC 12207:1995, il processo di verifica prevede le seguenti attività:
 
-- *Implementazione del processo*: questa attività consiste unicamente nel predisporre il piano di verifica che effetuerà il controllo del lavoro svolto. Consiste nell' individuare le criticità e i rischi di non conformità del progetto.
+- *Implementazione del processo*: questa attività consiste unicamente nel predisporre il piano di verifica che effettuerà il controllo del lavoro svolto. Consiste nell' individuare le criticità e i rischi di non conformità del progetto.
 
-- *Verifica*: esecuzione di attività di controllo e revisione su documentazione, codice e altri artefatti prodotti dal gruppo, al fine di individuare eventuali non conformità e garantirne la correttezza;
+- *Verifica*: esecuzione di attività di controllo e revisione su documentazione, codice e altri artefatti presenti, al fine di individuare eventuali  inconformità e garantirne la correttezza;
 
 === Implementazione del processo
-La seguente attività ha come scopo principale l'individuazione delle criticità che possono essere trovate durante la realizzazione del progetto. Per tutte le criticità che possono essere riscontrate è stata condotta un'analisi accurata nella sezione 3 del documento _Piano di Progetto_. Questa analisi include anche: probabilità di occorrenza, gravità della criticità, strategie di mitigazione e di prevenzione.
+La seguente attività ha come scopo principale l'individuazione delle criticità che possono sorgere durante la realizzazione del progetto. Per tutte le criticità che possono essere riscontrate è stata condotta un'analisi accurata nella sezione 3 del documento _Piano di Progetto_. Questa analisi include anche: probabilità di occorrenza, gravità della criticità, strategie di mitigazione e di prevenzione.
 === Verifica
 //da discuterne con il team
 Le attività di verifica vengono svolte tramite il sistema di _Pull Request_ adottato dal gruppo su GitHub.
 Ogni modifica viene sottoposta a revisione prima dell’integrazione nel ramo principale del repository.
 
-Per ciascuna Pull Request viene assegnato un _reviewer_, generalmente corrispondente al verificatore dello sprint corrente, incaricato di controllare la conformità dell’artefatto rispetto ai requisiti, alle convenzioni e agli standard definiti dal gruppo.
+Per ciascuna Pull Request viene assegnato uno o più _reviewer_, dipeso da chi è ricoperto il ruolo di verificatore per lo sprint corrente, incaricato/i di controllare la conformità dell’artefatto rispetto ai requisiti, alle convenzioni e agli standard definiti.
 
 Le attività di verifica vengono svolte da membri differenti dagli autori degli artefatti analizzati, così da garantire una valutazione quanto più oggettiva possibile.
 
@@ -738,7 +740,7 @@ Nel contesto del progetto, il soggetto di riferimento per la validazione è l’
 
 === Attività previste
 
-- *Implementazione del processo*: definisce le modalità operative attraverso cui viene accertata la conformità del prodotto rispetto ai requisiti specificati nel capitolato e nella documentazione di progetto.
+- *Implementazione del processo*: definisce le modalità operative attraverso cui viene accertata la conformità del prodotto rispetto ai requisiti specifici del capitolato e nella documentazione di progetto.
 
   La validazione viene inoltre supportata dall’utilizzo del caso studio fornito dal proponente, così da verificare il comportamento del sistema in un contesto applicativo realistico e coerente con gli obiettivi del progetto. Gli esiti dei test svolti vengono tracciati nel _Piano di Qualifica_.
 
@@ -777,7 +779,7 @@ L’obiettivo principale è garantire una distribuzione efficace del lavoro, il 
 - *Gestione delle comunicazioni e della documentazione organizzativa*
 
 === Metodologia di sviluppo
-Il gruppo adotta un approccio di sviluppo Agile, basato su cicli iterativi e incrementali della durata di due settimane ciascuno, denominati sprint. Questa scelta nasce dalla natura del progetto, che richiede un confronto frequente con il proponente e la necessità di affinare progressivamente l’interpretazione dei requisiti e delle soluzioni progettuali. \
+Il gruppo adotta un approccio di sviluppo Agile, basato su cicli iterativi e incrementali della durata di due settimane ciascuno, denominati sprint. Questa scelta nasce dalla natura del progetto, che richiede un confronto frequente con la proponente e la necessità di affinare progressivamente l’interpretazione dei requisiti e delle soluzioni progettuali. \
 In particolare, il modello adottato si caratterizza per i seguenti aspetti:
 
 - _Iterazioni brevi e cadenzate_: ogni sprint ha una durata fissa di due settimane, al termine delle quali il gruppo valuta i risultati ottenuti e pianifica le attività successive.
@@ -788,7 +790,7 @@ In particolare, il modello adottato si caratterizza per i seguenti aspetti:
 Ciascuno dei membri del gruppo ricopre un ruolo che varia ad ogni sprint in base ad un criterio di rotazione equo e distribuito. Questa scelta, oltre a essere un requisito del corso, garantisce che ogni membro acquisisca nel tempo una visione completa del progetto e del processo di sviluppo, riducendo la dipendenza da singole figure e favorendo una collaborazione più consapevole. \
 Di seguito vengono riportati i vari ruoli e vengono descritte le responsabilità associate a ciascuno di essi:
 - *Responsabile*\
-  Si occupa del monitoraggio delle risorse e gestisce le scadenze ed eventuali rischi. È il ruolo cruciale che autorizza il rilascio dei prodotto, che siano parziali o finali. Il suo impegno è richiesto in maniera costante per l'intera fase di sviluppo progettuale.
+  Si occupa del monitoraggio delle risorse e gestisce le scadenze ed eventuali rischi. È il ruolo cruciale che autorizza il rilascio dei risultati prodotti, che siano parziali o finali. Il suo impegno è richiesto in maniera costante per l'intera fase di sviluppo progettuale.
 
 - *Amministratore*\
   Assicura l’efficienza di procedure, strumenti e tecnologie a supporto del Way of Working del team. La sua presenza è costante per l’intero progetto.
@@ -797,7 +799,7 @@ Di seguito vengono riportati i vari ruoli e vengono descritte le responsabilità
   Si occupa dell'intera analisi e stesura della documentazione relativa all'_Analisi dei Requisiti_, impegnandosi a determinare e soddisfare tutti i requisiti richiesti dalla proponente in maniera che l'intero team riesca ad operare in maniera efficace.
 
 - *Progettista*\
-  Stabilisce la struttura del software, rappresentante il prodotto richiesto, definendo l'architettura dell'applicazione e la suddivisione tra i componenti Frontend e Backend.
+  Stabilisce la struttura del software, che costituirà il prodotto richiesto, definendo l'architettura dell'applicazione e la suddivisione tra i componenti Frontend e Backend.
 
 - *Programmatore*\
   Ruolo cruciale nella fase di implementazione e codifica, in quanto si occupa di sviluppare il codice sorgente, collaborando con il _Progettista_ riguardo alle decisioni stabilite.
@@ -806,25 +808,25 @@ Pur essendo assegnati ruoli specifici per ciascuno sprint, le attività vengono 
 
 === Pianificazione delle milestone
 
-Il progetto prevede diverse revisioni di avanzamento e il superamento di ciascuna di esse consente al team di proseguire con l'operato in maniera supervisionata. In particolare sono due le principali pianificazioni riportate per ordine di avanzamento:
+Il progetto prevede diverse revisioni di avanzamento e il superamento di ciascuna di esse consente al team di proseguire con l'operato in maniera supervisionata. In particolare, le due principali milestone, riportate in ordine cronologico, sono:
 - *RTB Requirements and Technology Baseline*: fissa i requisiti da soddisfare in accordo con la proponente, nella documentazione dedicata all'_Analisi dei Requisiti_, vengono motivate le tecnologie adottate e se ne dimostra adeguatezza e interoperabilità tramite il _Proof of Concept_.
 
 - *PB Product Baseline*: vaglia la maturità della baseline architetturale del prodotto software e la sua realizzazione e prevede l'integrazione di:
   - *Specifica Tecnica*: documentazione dedicata all'architettura logica del prodotto, per componenti, ruoli, connessioni e interazioni;
-  - *Minimum Viable Product*: approssima da vicino il prodotto atteso, non ancora definitivo, per una conferma definitiva del completamento del prodotto.
+  - *Minimum Viable Product*: approssima da vicino il prodotto atteso, una versione preliminare ma funzionante, volta a ottenere la conferma finale della conformità del software atteso.
 
 === Verbali
-Ciascuna delle riunioni, interne al gruppo ed esterne con la proponente, vengono verbalizzate e documentate in appositi verbali redatti da un membro del gruppo. \
+Ciascuna delle riunioni, interne al gruppo ed esterne con la proponente, viene verbalizzata e documentata in appositi verbali redatti da un membro del gruppo a prescindere dal ruolo. \
 Ogni verbale riporta la data, i partecipanti, gli argomenti discussi, le decisioni prese e le eventuali azioni da intraprendere, costituendo così una traccia formale e consultabile dell'avanzamento del progetto e delle scelte effettuate nel tempo.
 
 === Gestione degli sprint
-Il team adotta un approccio Agile per assicurare massima produttività e organizzazione operativa. Il lavoro viene organizzato in periodi temporali definiti _sprint_, solitamente con una durata di due settimane, che prevedono una schematica coordinazione:
+Il team adotta un approccio Agile per assicurare massima produttività e organizzazione operativa. Il lavoro viene strutturato in _sprint_, solitamente con una durata di due settimane, che prevedono una schematica coordinazione:
 - *Fase iniziale di pianificazione*: vengono prefissati dal team gli obiettivi che in quella durata bisettimanale dovranno essere raggiunti, suddividendoli in unità specifiche (issue) e categorizzando ciascuna di esse in termini di priorità tramite le label.
 - *Stato intermedio*: il gruppo tramite i canali di comunicazione stabiliti si ritrova a discutere e ad aggiornarsi sullo stato di avanzamento.
-- *Valutazione e consuntivo*: al termine del ciclo lavorativo vengono tratte delle conclusioni circa le procedure adottate e il punto di arrivo di ogni membro, dichiarando le unità definite inizialmente come complete o work in progress.
+- *Valutazione e consuntivo*: al termine del ciclo lavorativo vengono tratte delle conclusioni circa le procedure adottate e i risultati di ogni membro, dichiarando le unità definite inizialmente come complete o work in progress.
 
 === Monitoraggio dell’avanzamento
-L'andamento procedurale delle unità di lavoro in cui vengono divisi gli obiettivi è gestito tramite una _Project Board_ (Kanban) organizzata in fasi di avanzamento che rispecchiano il ciclo di vita di ciascuna attività: dalla sua definizione e inserimento nel backlog di progetto (*Backlog*), alla selezione e preparazione per lo sprint corrente (*Ready*), fino alla presa in carico da parte del membro assegnato (*In Progress*), alla fase di revisione da parte del _Verificatore_ (*In Review*) e alla sua chiusura definitiva a seguito dell'approvazione (*Done*) con integrazione al ramo principale da parte del _Responsabile_.
+L'andamento procedurale delle unità di lavoro in cui vengono divisi gli obiettivi è gestito tramite una _Project Board_ (Kanban) organizzata in fasi di avanzamento che rispecchiano il ciclo di vita di ciascuna attività: dalla sua definizione e inserimento nel backlog di progetto (*Backlog*), alla selezione e preparazione per lo sprint corrente (*Ready*), fino alla presa in carico da parte del membro assegnato (*In Progress*), alla fase di revisione da parte del _Verificatore_ (*In Review*) e alla sua chiusura definitiva a seguito dell'approvazione (*Done*) con integrazione nel ramo principale da parte del _Responsabile_.
 
 == Gestione dell’infrastruttura
 La gestione dell'infrastruttura ha lo scopo di definire, realizzare e mantenere nel tempo l'insieme delle infrastrutture, degli ambienti di lavoro e degli strumenti di supporto adottati dal gruppo durante l'intero ciclo di vita del progetto, garantendo che siano sempre adeguati alle esigenze operative e coerenti con il _Way of Working_ stabilito.
@@ -852,9 +854,8 @@ Per la gestione centralizzata del codice e della documentazione viene utilizzato
 L'infrastruttura di sviluppo comprende l'insieme degli strumenti, degli ambienti e delle configurazioni adottate dal gruppo per garantire un processo di sviluppo standardizzato, ripetibile e facilmente manutenibile nel tempo. In particolare il team utilizza i seguenti strumenti:
 - *Discord*: Canale vocale di comunicazione principale specialmente utilizzato per gli incontri interni e per la discussione in tempo reale di punti cruciali;
 - *WhatsApp*: Canale di comunicazione rapido per messaggistica e brainstorming generale;
-- *Zoom*: Strumento di comunicazione sfruttato per la discussione relativa ai _Diari di Bordo_ assieme al docente;
-- *Google Meet*: Strumento di comunicazione utilizzato per le riunioni esterne assieme all'azienda proponente;
-- *Typst*: Servizio standard per la stesura e compilazione dell'intera documentazione prodotta nell'intero ciclo di vita del progetto;
+- *Zoom*: Strumento di comunicazione sfruttato per la discussione relativa ai _Diari di Bordo_ assieme al committente e le riunioni di allineamento con la proponente;
+- *Typst*: Linguaggio di markup per la stesura e compilazione dell'intera documentazione prodotta nell'intero ciclo di vita del progetto;
 - *Git*: Sistema di versionamento distribuito per codice e documentazione;
 - *GitHub*: Piattaforma per la repository di gruppo, issue tracking system e integrazione continua;
 - *Google Docs*: Sistema per la stesura di domande e brainstorming su tematiche affrontate durante gli incontri interni.
@@ -875,9 +876,9 @@ Gli interventi si distinguono in base alla loro natura:
 == Ottimizzazione del processo
 L'ottimizzazione del processo ha l'obiettivo di garantire che le modalità di lavoro adottate dal gruppo evolvano nel tempo, adattandosi alle esigenze emergenti e agli standard di qualità definiti. Anziché considerare il _Way of Working_ come qualcosa di fisso, il gruppo lo tratta come un elemento vivo: soggetto a osservazione, valutazione e revisione continua lungo l'intero ciclo di vita del progetto.
 
-In questo senso, ogni fase di lavoro rappresenta un'occasione per individuare inefficienze, consolidare le pratiche più efficaci e introdurre correzioni mirate, con l'obiettivo di incrementare progressivamente sia la qualità dei risultati che la sostenibilità del processo stesso.
+In questo senso, ogni fase di lavoro rappresenta un'occasione per individuare inefficienze, consolidare le pratiche più efficaci e introdurre correzioni mirate, con l'obiettivo di incrementare progressivamente sia la qualità dei risultati sia la sostenibilità del processo stesso.
 
-=== Attività previste
+=== Attività previste  
 #v(0.5em)
 
 Il processo si articola in tre attività principali:
@@ -887,10 +888,10 @@ Il processo si articola in tre attività principali:
 - *Revisione e miglioramento*: identificazione delle aree di inefficienza e introduzione di correzioni mirate, aggiornando la documentazione ufficiale ogni qualvolta le procedure vengano modificate.
 
 === Retrospettive e revisione interna
-Al termine di ogni sprint il gruppo dedica un momento strutturato di riflessione collettiva, finalizzato a valutare l'andamento del periodo appena concluso. 
+Al termine di ogni sprint, il gruppo dedica un momento strutturato di riflessione collettiva, finalizzato a valutare l'andamento del periodo appena concluso. 
 In questa sede vengono analizzati gli obiettivi raggiunti, le difficoltà incontrate e le dinamiche di collaborazione emerse, con l'intento di trarre indicazioni concrete per lo sprint successivo.
 
-Le retrospettive non hanno carattere formale, ma seguono una struttura ricorrente che favorisce la partecipazione attiva di tutti i membri. Gli esiti della discussione vengono sintetizzati e riportati nel verbale d'interesse, e se necessario tradotti in azioni da integrare nel _Way of Working_.
+Le retrospettive non hanno carattere formale, ma seguono una struttura ricorrente che favorisce la partecipazione attiva di tutti i membri. Gli esiti della discussione vengono sintetizzati e riportati nel relativo verbale e, se necessario, tradotti in azioni da integrare nel _Way of Working_.
 
 === Gestione delle criticità
 Quando si presenta una problematica che rischia di compromettere il regolare svolgimento delle attività, il gruppo segue un iter strutturato articolato nelle seguenti fasi:
@@ -903,10 +904,10 @@ Quando si presenta una problematica che rischia di compromettere il regolare svo
 
 === Aggiornamento delle procedure
 Le norme e le procedure adottate dal gruppo non sono considerate definitive. Infatti, possono essere riviste e aggiornate in qualsiasi momento del progetto, qualora emerga la necessità di adeguarle a nuove esigenze operative o di correggere aspetti risultati inefficaci nella pratica. \
-In ogni caso, la seguente documentazione risulta sempre la più valida e affidabile in termini di aggiornamento dell'intera procedura seguita dal gruppo.
+In ogni caso, la documentazione ufficiale viene costantemente mantenuta e aggiornata per risultare sempre valida e affidabile in termini di procedure seguite dal gruppo.
 
 == Formazione
-Il gruppo riconosce la formazione come una componente attiva del progetto, non un'attività accessoria. Acquisire padronanza degli strumenti, dei linguaggi e delle pratiche adottate è una condizione necessaria per lavorare in modo autonomo ed efficace, e per questo viene gestita con la stessa attenzione riservata alle altre attività di sviluppo.
+Il gruppo riconosce la formazione come una componente attiva del progetto, non come un'attività accessoria. Acquisire padronanza degli strumenti, dei linguaggi e delle pratiche adottate è una condizione necessaria per lavorare in modo autonomo ed efficace, e per questo motivo, la formazione viene gestita con la stessa attenzione riservata alle altre attività di sviluppo.
 
 === Attività previste
 #v(0.5em)
@@ -918,12 +919,12 @@ Il processo si articola in tre attività principali:
 - *Supporto reciproco*: nei casi in cui un membro incontri difficoltà tecniche o operative, il gruppo interviene attivamente per favorire il superamento del blocco, evitando che le criticità individuali rallentino l'avanzamento collettivo.
 
 === Condivisione delle conoscenze
-La condivisione delle conoscenze avviene in modo informale ma strutturato: quando un membro acquisisce competenze rilevanti per il progetto, è tenuto a renderle accessibili al resto del gruppo. Questo può avvenire attraverso la comunicazione tempestiva sul gruppo WhatsApp e se necessario tramite il canale di comunicazione vocale Discord.
+La condivisione delle conoscenze avviene in modo informale ma strutturato: quando un membro acquisisce competenze rilevanti per il progetto, è tenuto a renderle accessibili al resto del gruppo. Questo può avvenire attraverso la comunicazione tempestiva tramite il gruppo WhatsApp e, se necessario, mediante il canale vocale di Discord.
 
-L'obiettivo non è produrre documentazione formativa esaustiva, ma abbassare la soglia di ingresso per chi si trova ad affrontare per la prima volta uno strumento o una tecnologia già utilizzata da altri.
+L'obiettivo non è produrre documentazione formativa esaustiva, ma abbassare la soglia d'ingresso per chi si trova ad affrontare per la prima volta uno strumento o una tecnologia già utilizzata da altri.
 
 === Studio delle tecnologie
-Ciascun membro è responsabile dello studio autonomo delle tecnologie assegnate al proprio ambito di lavoro. Come riferimento principale vengono utilizzate le documentazioni ufficiali dei singoli strumenti integrate da risorse aggiuntive individuate in autonomia:
+Ciascun membro è responsabile dello studio autonomo delle tecnologie assegnate al proprio ambito di lavoro. Come riferimento principale viene utilizzata la documentazione ufficiale dei singoli strumenti, integrata da risorse aggiuntive individuate in autonomia:
 - #link("https://typst.app/docs/")[*Typst Documentazione Ufficiale*]
 - #link("https://docs.python.org/3/")[*Python Documentazione Ufficiale*] #nota("Riferimento alla versione: 3.14.5")
 - #link("https://flask.palletsprojects.com/en/stable/")[*Flask Framework*]
@@ -931,7 +932,7 @@ Ciascun membro è responsabile dello studio autonomo delle tecnologie assegnate 
 Il percorso di apprendimento non segue una struttura rigida: ogni membro organizza lo studio in base ai propri tempi e alle scadenze del progetto, segnalando eventuali difficoltà al resto del gruppo qualora queste possano impattare sulle attività pianificate.
 
 === Supporto tra membri del gruppo
-Quando un membro del gruppo si trova in difficoltà, sia in fase di apprendimento che durante lo svolgimento delle attività, gli altri intervengono per fornire supporto diretto. Questo avviene principalmente attraverso le riunioni interne, ma in casi di situazioni bloccanti e vincolanti il proseguire delle attività si effettuano delle sessioni di lavoro condivise in cui anche solo uno dei membri rende la propria disponibilità per un incontro straordinario per far fronte alle difficoltà incontrate.
+Quando un membro del gruppo si trova in difficoltà, sia in fase di apprendimento sia durante   lo svolgimento delle attività, gli altri intervengono per fornire supporto diretto. Questo avviene principalmente attraverso le riunioni interne, tuttavia, in caso di blocchi critici che ostacolano il proseguimento delle attività, vengono organizzate sessioni di lavoro condivise in cui uno o più membri si rendono disponibili per un incontro straordinario, così da far fronte insieme alle difficoltà riscontrate.
 
 Il supporto reciproco non è considerato un'eccezione, ma parte integrante del modo di lavorare del gruppo: distribuire le competenze in modo omogeneo riduce le dipendenze individuali e aumenta la resilienza del team nel suo complesso.
 
