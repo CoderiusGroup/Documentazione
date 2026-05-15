@@ -53,6 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.8.0], [2026/05/13], [Edis Hodja], [], [Aggiunta delle seguenti sezioni: 4.3, 4.4, 4.5],
     [0.7.0], [2026/05/11], [Edis Hodja], [], [Aggiunta delle seguenti sezioni: 4.1, 4.2],
     [0.6.0], [2026/05/08], [Edis Hodja], [], [Aggiunta della sezione 3.5],
     [0.5.0],
@@ -905,7 +906,32 @@ Le norme e le procedure adottate dal gruppo non sono considerate definitive. Inf
 In ogni caso, la seguente documentazione risulta sempre la più valida e affidabile in termini di aggiornamento dell'intera procedura seguita dal gruppo.
 
 == Formazione
+Il gruppo riconosce la formazione come una componente attiva del progetto, non un'attività accessoria. Acquisire padronanza degli strumenti, dei linguaggi e delle pratiche adottate è una condizione necessaria per lavorare in modo autonomo ed efficace, e per questo viene gestita con la stessa attenzione riservata alle altre attività di sviluppo.
+
+=== Attività previste
+#v(0.5em)
+
+Il processo si articola in tre attività principali:
+
+- *Studio individuale delle tecnologie*: ogni membro è responsabile dell'acquisizione delle competenze necessarie allo svolgimento dei propri compiti, facendo riferimento alla documentazione ufficiale e alle risorse condivise dal gruppo.
+- *Condivisione delle conoscenze*: le competenze acquisite vengono messe a disposizione del team attraverso momenti di confronto, documentazione interna e supporto diretto tra membri.
+- *Supporto reciproco*: nei casi in cui un membro incontri difficoltà tecniche o operative, il gruppo interviene attivamente per favorire il superamento del blocco, evitando che le criticità individuali rallentino l'avanzamento collettivo.
+
 === Condivisione delle conoscenze
+La condivisione delle conoscenze avviene in modo informale ma strutturato: quando un membro acquisisce competenze rilevanti per il progetto, è tenuto a renderle accessibili al resto del gruppo. Questo può avvenire attraverso la comunicazione tempestiva sul gruppo WhatsApp e se necessario tramite il canale di comunicazione vocale Discord.
+
+L'obiettivo non è produrre documentazione formativa esaustiva, ma abbassare la soglia di ingresso per chi si trova ad affrontare per la prima volta uno strumento o una tecnologia già utilizzata da altri.
+
 === Studio delle tecnologie
+Ciascun membro è responsabile dello studio autonomo delle tecnologie assegnate al proprio ambito di lavoro. Come riferimento principale vengono utilizzate le documentazioni ufficiali dei singoli strumenti integrate da risorse aggiuntive individuate in autonomia:
+- #link("https://typst.app/docs/")[*Typst Documentazione Ufficiale*]
+- #link("https://docs.python.org/3/")[*Python Documentazione Ufficiale*] #nota("Riferimento alla versione: 3.14.5")
+- #link("https://flask.palletsprojects.com/en/stable/")[*Flask Framework*]
+
+Il percorso di apprendimento non segue una struttura rigida: ogni membro organizza lo studio in base ai propri tempi e alle scadenze del progetto, segnalando eventuali difficoltà al resto del gruppo qualora queste possano impattare sulle attività pianificate.
+
 === Supporto tra membri del gruppo
+Quando un membro del gruppo si trova in difficoltà, sia in fase di apprendimento che durante lo svolgimento delle attività, gli altri intervengono per fornire supporto diretto. Questo avviene principalmente attraverso le riunioni interne, ma in casi di situazioni bloccanti e vincolanti il proseguire delle attività si effettuano delle sessioni di lavoro condivise in cui anche solo uno dei membri rende la propria disponibilità per un incontro straordinario per far fronte alle difficoltà incontrate.
+
+Il supporto reciproco non è considerato un'eccezione, ma parte integrante del modo di lavorare del gruppo: distribuire le competenze in modo omogeneo riduce le dipendenze individuali e aumenta la resilienza del team nel suo complesso.
 
