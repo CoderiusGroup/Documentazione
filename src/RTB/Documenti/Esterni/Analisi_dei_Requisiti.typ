@@ -32,7 +32,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(3em)
-  #text(size: 20pt)[*Versione 0.2.1*]
+  #text(size: 20pt)[*Versione 0.2.2*]
 ]
 
 #pagebreak()
@@ -52,6 +52,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.2.2], [2026/05/15], [Ines Iadadi], [], [Integrazione casi d'uso: da UC-27 a UC-34],
     [0.2.1], [2026/05/14], [Alberto Canavese], [], [Aggiornamento struttura del documento fino al UC-26],
     [0.2.0], [2026/05/05], [Ines Iadadi], [], [Aggiornamento struttura del documento fino al UC-18],
     [0.1.6], [2026/04/30], [Ines Iadadi], [], [Integrazione casi d'uso: da UC-21 a UC-24],
@@ -322,11 +323,12 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente sceglie l'opzione di creazione di un nuovo dispositivo.
   + L'utente compila i campi richiesti per il dispositivo (UC-4.1).
-  + Il sistema registra il dispositivo. Gli asset del dispositivo potranno essere aggiunti
-    successivamente tramite UC-12.
+  + L'utente aggiunge almeno un asset al dispositivo (UC-12).
+  + Il sistema registra il dispositivo.
 
 - *Inclusioni:*
   - UC-4.1: Inserimento dati del dispositivo
+  - UC-12: Aggiunta asset al dispositivo
 
 === UC-4.1: Inserimento dati del dispositivo <uc4.1>
 #figure(
@@ -353,7 +355,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Estensioni:*
   - UC-5: Inserimento dati non validi
 
-=== UC-4.1.1: Inserimento nome dispositivo
+=== UC-4.1.1: Inserimento nome dispositivo <uc4.1.1>
 #v(1em)
 - *Attore primario:* Utente \
 
@@ -364,10 +366,8 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente inserisce un nome per il nuovo dispositivo.
 
-*Scenari alternativi:*
-- L'utente annulla l'aggiunta di un nome per il dispositivo.
 
-=== UC-4.1.2: Inserimento sistema operativo del dispositivo
+=== UC-4.1.2: Inserimento sistema operativo del dispositivo <uc4.1.2>
 #v(1em)
 - *Attore primario:* Utente \
 
@@ -378,10 +378,8 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente inserisce un sistema operativo per il nuovo dispositivo.
 
-*Scenari alternativi:*
-- L'utente annulla l'aggiunta di un sistema operativo per il dispositivo.
 
-=== UC-4.1.3: Inserimento descrizione del dispositivo
+=== UC-4.1.3: Inserimento descrizione del dispositivo  <uc4.1.3>
 #v(1em)
 - *Attore primario:* Utente \
 
@@ -391,9 +389,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + L'utente inserisce una descrizione per il nuovo dispositivo.
-
-*Scenari alternativi:*
-- L'utente annulla l'aggiunta di una descrizione per il dispositivo.
 
 
 == UC-5: Inserimento dati non validi <uc5>
@@ -456,7 +451,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - UC-19: Valutazione del dispositivo
   - UC-24: Ripresa sessione di valutazione
 
-=== UC-7.1: Visualizza nome dispositivo
+=== UC-7.1: Visualizza nome dispositivo <uc7.1>
 #v(1em)
 - *Attore primario:* Utente \
 
@@ -467,7 +462,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente visualizza il nome del dispositivo.
 
-=== UC-7.2: Visualizza sistema operativo dispositivo
+=== UC-7.2: Visualizza sistema operativo dispositivo <uc7.2>
 #v(1em)
 - *Attore primario:* Utente \
 
@@ -478,7 +473,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
 + L'utente visualizza il sistema operativo del dispositivo.
 
-=== UC-7.3: Visualizza descrizione dispositivo
+=== UC-7.3: Visualizza descrizione dispositivo <uc7.3>
 #v(1em)
 - *Attore primario:* Utente \
 
@@ -489,7 +484,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente visualizza la descrizione del dispositivo.
 
-=== UC-7.4: Visualizza stato aggregato dispositivo
+=== UC-7.4: Visualizza stato aggregato dispositivo <uc7.4>
 #v(1em)
 - *Attore primario:* Utente \
 
@@ -532,7 +527,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - UC-5: Inserimento dati non validi
   - UC-9: Annullamento modifica dati del dispositivo
 
-=== UC-8.1: Modifica nome del dispositivo
+=== UC-8.1: Modifica nome del dispositivo <uc8.1>
 #v(1em)
 - *Attore primario:* Utente \
 
@@ -545,7 +540,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente modifica il nome del dispositivo.
   + Il sistema registra il nuovo valore.
 
-=== UC-8.2: Modifica sistema operativo del dispositivo
+=== UC-8.2: Modifica sistema operativo del dispositivo <uc8.2>
 #v(1em)
 - *Attore primario:* Utente \
 
@@ -558,7 +553,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente modifica il sistema operativo del dispositivo.
   + Il sistema registra il nuovo valore.
 
-=== UC-8.3: Modifica descrizione del dispositivo
+=== UC-8.3: Modifica descrizione del dispositivo <uc8.3>
 #v(1em)
 - *Attore primario:* Utente \
 
@@ -604,7 +599,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC-7.png", width: 50%),
-  caption: [UC-11 : Elimina dispositivo],
+  caption: [UC-11 : Eliminazione del dispositivo],
 )
 - *Attore primario:* Utente \
 
@@ -669,7 +664,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 )
 - *Attore primario:* Utente \
 
-- *Precondizioni:* L'utente ha inserito un dispositivo. \
+- *Precondizioni:* L'utente si trova nella schermata di gestione del dispositivo. \
 
 - *Postcondizioni:* Il sistema ha aggiunto un nuovo asset alla lista degli assets del dispositivo. \
 
@@ -677,12 +672,13 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 + L'utente seleziona l'opzione di inserimento asset.
 + L'utente compila i campi obbligatori per l'asset.
 
-- *Inclusioni:*
-  - UC-12.1: Inserimento dati dell'asset
-
 - *Scenari alternativi:*
   + L'utente annulla l'inserimento dell'asset. (UC-13)
   + L'utente inserisce dati non validi in uno o più campi. (UC-5)
+
+- *Inclusioni:*
+  - UC-12.1: Inserimento dati dell'asset
+
 
 
 === UC-12.1: Inserimento dati dell'asset
@@ -789,6 +785,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 ==== UC-12.1.3: Inserisci descrizione asset
 #v(1em)
+#figure(
+  image("../../../images/diagrammiUML/UC-12.3.png", width: 70%),
+  caption: [UC-12.1.3 : Inserisci descrizione asset],
+)
 
 - *Attore primario:* Utente \
 
@@ -799,10 +799,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
 + L'utente inserisce una descrizione per l'asset.
 
-#figure(
-  image("../../../images/diagrammiUML/UC-12.3.png", width: 70%),
-  caption: [UC-12.1.3 : Inserisci descrizione asset],
-)
 
 == UC-13: Annullamento inserimento asset
 #v(1em)
@@ -1126,9 +1122,9 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + L'utente avvia la sessione di valutazione del dispositivo.
-  + Il sistema mostra la dashboard di valutazione (UC-19.0).
+  + Il sistema mostra la dashboard di valutazione (UC-19.1).
   + L'utente seleziona un asset da valutare dalla dashboard.
-  + Il sistema esegue la valutazione dell'asset selezionato (UC-19.1).
+  + Il sistema esegue la valutazione dell'asset selezionato (UC-19.2).
   + I passi 3-4 si ripetono finché l'utente non ha valutato tutti gli asset
     o interrompe la sessione.
   + Il sistema mostra i risultati complessivi del test (UC-25).
@@ -1137,18 +1133,18 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - L'utente interrompe la sessione prima del completamento (UC-22).
 
 - *Inclusioni:*
-  - UC-19.0: Visualizzazione dashboard di valutazione
-  - UC-19.1: Valutazione di un asset
+  - UC-19.1: Visualizzazione dashboard di valutazione
+  - UC-19.2: Valutazione di un asset
+  - UC-25: Visualizzazione risultati test
 
 - *Estensioni:*
   - UC-22: Uscita anticipata dal test
-  - UC-25: Visualizzazione risultati test
 
-=== UC-19.0: Visualizzazione dashboard di valutazione
+=== UC-19.1: Visualizzazione dashboard di valutazione
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-19.0 : Visualizzazione dashboard di valutazione],
+  caption: [UC-19.1 : Visualizzazione dashboard di valutazione],
 )
 - *Attore primario:* Utente \
 
@@ -1162,11 +1158,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema mostra il numero di asset completati rispetto al totale.
 
 
-=== UC-19.1: Valutazione di un asset
+=== UC-19.2: Valutazione di un asset
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-19.1 : Valutazione di un asset],
+  caption: [UC-19.2 : Valutazione di un asset],
 )
 - *Attore primario:* Utente \
 
@@ -1186,17 +1182,18 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - L'utente interrompe il test.
 
 - *Inclusioni:*
-  - UC-19.1.1: Esecuzione decision tree per un requisito
+  - UC-19.2.1: Esecuzione decision tree per un requisito
+  - UC-23.2
 
 - *Estensioni:*
   - UC-22: Uscita anticipata dal test
 
 
-==== UC-19.1.1: Esecuzione decision tree per un requisito
+==== UC-19.2.1: Esecuzione decision tree per un requisito
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-19.1.1 : Esecuzione decision tree per un requisito],
+  caption: [UC-19.2.1 : Esecuzione decision tree per un requisito],
 )
 - *Attore primario:* Utente \
 
@@ -1208,26 +1205,27 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + Il sistema mostra il codice e il nome del requisito in esame.
-  + Il sistema mostra il primo nodo del decision tree associato al requisito (UC-19.1.1.1).
-  + L'utente risponde alla domanda del nodo corrente (UC-19.1.1.2).
+  + Il sistema mostra il primo nodo del decision tree associato al requisito (UC-19.2.1.1).
+  + L'utente risponde alla domanda del nodo corrente (UC-19.2.1.2).
   + Il sistema avanza al nodo successivo in base alla risposta fornita.
   + I passi 2-4 si ripetono fino al raggiungimento di un nodo foglia.
   + Il sistema registra l'esito: PASS, FAIL o NOT APPLICABLE.
 
 - *Scenari alternativi:*
-  + L'utente desidera tornare al nodo precedente (UC-19.1.1.3).
-  + L'utente desidera avanzare a un nodo già risposto in precedenza (UC-19.1.1.4).
+  + L'utente desidera tornare al nodo precedente (UC-19.2.1.3).
+  + L'utente desidera avanzare a un nodo già risposto in precedenza (UC-19.2.1.4).
 
 - *Inclusioni:*
-  - UC-19.1.1.1: Visualizzazione nodo corrente del decision tree
-  - UC-19.1.1.2: Risposta alla domanda del nodo corrente
+  - UC-19.2.1.1: Visualizzazione nodo corrente del decision tree
+  - UC-19.2.1.2: Risposta alla domanda del nodo corrente
+  - UC-19.2.1.5: Visualizzazione decision tree durante esecuzione
 
 
-===== UC-19.1.1.1: Visualizzazione nodo corrente del decision tree
+===== UC-19.2.1.1: Visualizzazione nodo corrente del decision tree
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-19.1.1.1 : Visualizzazione nodo corrente del decision tree],
+  caption: [UC-19.2.1.1 : Visualizzazione nodo corrente del decision tree],
 )
 - *Attore primario:* Utente \
 
@@ -1240,11 +1238,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema mostra il testo della domanda associata al nodo corrente.
 
 
-===== UC-19.1.1.2: Risposta alla domanda del nodo corrente
+===== UC-19.2.1.2: Risposta alla domanda del nodo corrente
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-19.1.1.2 : Risposta alla domanda del nodo corrente],
+  caption: [UC-19.2.1.2 : Risposta alla domanda del nodo corrente],
 )
 - *Attore primario:* Utente \
 
@@ -1258,12 +1256,12 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema registra la risposta e avanza al nodo successivo.
 
 - *Specializzazioni:*
-  - UC-19.1.1.2.1: Risposta affermativa al nodo corrente
-  - UC-19.1.1.2.2: Risposta negativa al nodo corrente
+  - UC-19.2.1.2.1: Risposta affermativa al nodo corrente
+  - UC-19.2.1.2.2: Risposta negativa al nodo corrente
 
 ---
 
-====== UC-19.1.1.2.1: Risposta affermativa al nodo corrente
+====== UC-19.2.1.2.1: Risposta affermativa al nodo corrente
 #v(1em)
 - *Attore primario:* Utente \
 - *Precondizioni:* Il sistema ha mostrato la domanda del nodo corrente. \
@@ -1272,9 +1270,8 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente seleziona "Sì" come risposta.
   + Il sistema registra la risposta e avanza al nodo successivo del ramo affermativo.
 
----
 
-====== UC-19.1.1.2.2: Risposta negativa al nodo corrente
+====== UC-19.2.1.2.2: Risposta negativa al nodo corrente
 #v(1em)
 - *Attore primario:* Utente \
 - *Precondizioni:* Il sistema ha mostrato la domanda del nodo corrente. \
@@ -1283,13 +1280,12 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente seleziona "No" come risposta.
   + Il sistema registra la risposta e avanza al nodo successivo del ramo negativo.
 
----
 
-====== UC-19.1.1.3: Navigazione al nodo precedente
+===== UC-19.2.1.3: Navigazione al nodo precedente
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-19.1.1.3 : Navigazione al nodo precedente],
+  caption: [UC-19.2.1.3 : Navigazione al nodo precedente],
 )
 - *Attore primario:* Utente \
 
@@ -1301,13 +1297,13 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente seleziona la funzionalità di navigazione al nodo precedente.
   + Il sistema mostra la domanda del nodo precedente con la risposta già fornita.
-  + L'utente può modificare la risposta (UC-19.1.1.2).
+  + L'utente può modificare la risposta (UC-19.2.1.2).
 
-====== UC-19.1.1.4: Navigazione al nodo successivo
+===== UC-19.2.1.4: Navigazione al nodo successivo
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-19.1.1.4 : Navigazione al nodo successivo],
+  caption: [UC-19.2.1.4 : Navigazione al nodo successivo],
 )
 - *Attore primario:* Utente \
 
@@ -1322,8 +1318,25 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente seleziona la funzionalità di navigazione al nodo successivo.
   + Il sistema mostra la domanda del nodo successivo con la risposta già fornita.
-  + L'utente può modificare la risposta (UC-19.1.1.2).
+  + L'utente può modificare la risposta (UC-19.2.1.2).
 
+==== UC-19.2.1.5: Visualizzazione decision tree durante esecuzione
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* Il sistema sta eseguendo la valutazione di un requisito
+  per un asset. \
+
+- *Postcondizioni:* L'utente ha visualizzato il decision tree associato
+  al requisito in esame con il proprio stato corrente. \
+
+- *Scenario principale:*
+  + Il sistema mostra il grafo del decision tree associato al requisito
+    in esame.
+  + Il sistema evidenzia il nodo corrente nel grafo.
+  + Il sistema evidenzia il percorso già seguito fino al nodo corrente.
+  + Il sistema mostra la domanda del nodo corrente.
+  + Il sistema mostra le opzioni di risposta disponibili (Sì/No).
 
 == UC-20: Visualizzazione stato avanzamento del test
 #v(1em)
@@ -1364,7 +1377,33 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - UC-21.1: Visualizzazione esito PASS
   - UC-21.2: Visualizzazione esito FAIL
   - UC-21.3: Visualizzazione esito NOT APPLICABLE
+  
+=== UC-21.1: Visualizzazione esito PASS
+#v(1em)
+- *Attore primario:* Utente \
+- *Precondizioni:* Il sistema ha raggiunto un nodo foglia del decision tree. \
+- *Postcondizioni:* L'utente ha visualizzato l'esito PASS del requisito. \
+- *Scenario principale:*
+  + Il sistema mostra PASS come esito del requisito per l'asset corrente.
+  + Il sistema mostra la giustificazione dell'esito.
 
+=== UC-21.2: Visualizzazione esito FAIL
+#v(1em)
+- *Attore primario:* Utente \
+- *Precondizioni:* Il sistema ha raggiunto un nodo foglia del decision tree. \
+- *Postcondizioni:* L'utente ha visualizzato l'esito FAIL del requisito. \
+- *Scenario principale:*
+  + Il sistema mostra FAIL come esito del requisito per l'asset corrente.
+  + Il sistema mostra la giustificazione dell'esito.
+
+=== UC-21.3: Visualizzazione esito NOT APPLICABLE
+#v(1em)
+- *Attore primario:* Utente \
+- *Precondizioni:* Il sistema ha raggiunto un nodo foglia del decision tree. \
+- *Postcondizioni:* L'utente ha visualizzato l'esito NOT APPLICABLE del requisito. \
+- *Scenario principale:*
+  + Il sistema mostra NOT APPLICABLE come esito del requisito per l'asset corrente.
+  + Il sistema mostra la giustificazione dell'esito.
 
 == UC-22: Uscita anticipata dal test
 
@@ -1602,5 +1641,225 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 #pagebreak()
 
+  == UC-27: Modifica decision tree
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-27 : Modifica decision tree],
+)
+- *Attore primario:* Utente \
 
-sezione riguardante decision tree
+- *Precondizioni:* Il sistema è attivo e i decision tree sono disponibili. \
+
+- *Postcondizioni:* Il decision tree è aggiornato con le modifiche apportate
+  e salvato nel sistema. \
+
+- *Scenario principale:*
+  + L'utente seleziona la funzionalità di modifica di un decision tree.
+  + Il sistema mostra il grafo del decision tree selezionato.
+  + L'utente seleziona un nodo o un collegamento su cui intervenire.
+  + L'utente effettua la modifica desiderata.
+  + Il sistema valida la struttura risultante.
+  + Il sistema aggiorna il decision tree e salva le modifiche.
+
+- *Scenari alternativi:*
+  - La struttura risultante non supera la validazione: il sistema
+    notifica l'errore e rimane nella schermata di modifica. (UC-31)
+  - L'utente annulla la modifica. (UC-32)
+
+- *Estensioni:*
+  - UC-31: Validazione fallita modifica decision tree
+  - UC-32: Annullamento modifica decision tree
+
+- *Specializzazioni:*
+  - UC-28: Aggiunta nodo al decision tree
+  - UC-29: Eliminazione nodo dal decision tree
+  - UC-30: Modifica destinazione collegamento del decision tree
+
+
+== UC-28: Aggiunta nodo al decision tree
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-28 : Aggiunta nodo al decision tree],
+)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente sta modificando un decision tree (UC-27). \
+
+- *Postcondizioni:* Un nuovo nodo è stato aggiunto al decision tree
+  e le modifiche sono salvate. \
+
+- *Scenario principale:*
+  + L'utente seleziona la funzionalità di aggiunta di un nuovo nodo
+    in una specifica posizione del decision tree.
+  + Il sistema crea un nuovo nodo vuoto.
+  + L'utente inserisce il codice univoco del nodo. (UC-28.1)
+  + L'utente inserisce il testo della domanda del nodo. (UC-28.2)
+  + Il sistema aggiunge il nodo al decision tree e aggiorna la visualizzazione.
+
+- *Scenari alternativi:*
+  - *5a.* La struttura risultante non supera la validazione. (UC-31)
+
+- *Inclusioni:*
+  - UC-28.1: Inserimento codice univoco del nodo
+  - UC-28.2: Inserimento testo domanda del nodo
+
+- *Estensioni:*
+  - UC-31: Validazione fallita modifica decision tree
+
+
+=== UC-28.1: Inserimento codice univoco del nodo
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente sta aggiungendo un nuovo nodo al decision tree. \
+
+- *Postcondizioni:* Il sistema ha registrato il codice univoco del nuovo nodo. \
+
+- *Scenario principale:*
+  + L'utente inserisce il codice univoco del nuovo nodo nel rispettivo campo.
+  + Il sistema memorizza il valore inserito.
+
+- *Scenari alternativi:*
+  - Il codice inserito è già presente nel decision tree: il sistema notifica
+    l'errore e richiede un codice diverso.
+
+
+=== UC-28.2: Inserimento testo domanda del nodo
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente sta aggiungendo un nuovo nodo al decision tree. \
+
+- *Postcondizioni:* Il sistema ha registrato il testo della domanda del nuovo nodo. \
+
+- *Scenario principale:*
+  + L'utente inserisce il testo della domanda del nuovo nodo nel rispettivo campo.
+  + Il sistema memorizza il valore inserito.
+
+
+== UC-29: Eliminazione nodo dal decision tree
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-29 : Eliminazione nodo dal decision tree],
+)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente sta modificando un decision tree (UC-27). \
+
+- *Postcondizioni:* Il nodo selezionato è rimosso dal decision tree
+  e i collegamenti sono aggiornati. \
+
+- *Scenario principale:*
+  + L'utente seleziona la funzionalità di eliminazione di un nodo.
+  + L'utente seleziona il nodo da eliminare.
+  + Il sistema mostra un messaggio di conferma.
+  + L'utente conferma l'eliminazione.
+  + Il sistema rimuove il nodo, aggiorna i collegamenti e salva le modifiche.
+
+- *Scenari alternativi:*
+  - *2a.* L'utente seleziona il nodo radice: il sistema notifica che
+    non è possibile eliminarlo. (UC-33)
+  - *4a.* L'utente annulla l'eliminazione: il sistema non apporta modifiche.
+
+- *Estensioni:*
+  - UC-33: Tentativo eliminazione nodo radice
+
+
+== UC-30: Modifica destinazione collegamento del decision tree
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-30 : Modifica destinazione collegamento del decision tree],
+)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente sta modificando un decision tree (UC-27). \
+
+- *Postcondizioni:* Il collegamento selezionato è stato aggiornato
+  con la nuova destinazione e le modifiche sono salvate. \
+
+- *Scenario principale:*
+  + L'utente seleziona la funzionalità di modifica di un collegamento.
+  + L'utente seleziona il collegamento da modificare.
+  + L'utente seleziona il nuovo nodo di destinazione.
+  + Il sistema aggiorna il grafo e salva le modifiche.
+
+- *Scenari alternativi:*
+  - *4a.* La struttura risultante non supera la validazione. (UC-31)
+
+- *Estensioni:*
+  - UC-31: Validazione fallita modifica decision tree
+
+
+== UC-31: Validazione fallita modifica decision tree
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente ha apportato una modifica che ha generato
+  una struttura non valida nel decision tree (es. nodo irraggiungibile,
+  nodo senza rami, ciclo rilevato). \
+
+- *Postcondizioni:* Il sistema ha notificato l'errore di validazione
+  all'utente. Le modifiche non sono state salvate. \
+
+- *Scenario principale:*
+  + Il sistema rileva che la struttura risultante dalla modifica non è valida.
+  + Il sistema mostra un messaggio di errore che descrive il problema riscontrato.
+  + Il sistema mantiene aperta la schermata di modifica per consentire
+    all'utente di correggere l'errore.
+
+
+== UC-32: Annullamento modifica decision tree
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente sta modificando un decision tree (UC-27). \
+
+- *Postcondizioni:* Il sistema ha annullato la modifica e ripristinato
+  lo stato precedente del decision tree. \
+
+- *Scenario principale:*
+  + L'utente seleziona la funzionalità di annullamento durante il
+    processo di modifica.
+  + Il sistema scarta le modifiche non salvate.
+  + Il sistema ripristina lo stato precedente del decision tree.
+
+
+== UC-33: Tentativo eliminazione nodo radice
+#v(1em)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente ha selezionato la funzionalità di eliminazione
+  di un nodo e ha selezionato il nodo radice del decision tree. \
+
+- *Postcondizioni:* Il sistema ha notificato l'errore e l'eliminazione
+  non è stata eseguita. \
+
+- *Scenario principale:*
+  + Il sistema rileva che il nodo selezionato è il nodo radice del
+    decision tree.
+  + Il sistema mostra un messaggio di errore che comunica all'utente
+    che il nodo radice non può essere eliminato.
+
+
+== UC-34: Esportazione decision tree
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-34 : Esportazione decision tree],
+)
+- *Attore primario:* Utente \
+
+- *Precondizioni:* L'utente sta visualizzando o modificando un
+  decision tree. \
+
+- *Postcondizioni:* Il file del decision tree è stato esportato
+  nel formato previsto e reso disponibile per il download. \
+
+- *Scenario principale:*
+  + L'utente seleziona la funzionalità di esportazione del decision tree.
+  + Il sistema serializza il decision tree nel formato previsto (JSON o XML).
+  + Il sistema mette a disposizione il file per il download.
