@@ -80,6 +80,8 @@
   #text(size: 16pt)[*Gruppo Coderius*] \
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
+  #v(4em)
+  #text(size: 20pt)[*Versione 0.3.1*]
 ]
 #pagebreak()
 
@@ -98,7 +100,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.4.0], [2026/05/18], [Giovanni Bronte], [], [Finita sezione 4.3(conclusione sprint 3). Modificati degli errori minori nei calcoli delle risorse rimaste per lo sprint 2.],
+    [0.4.1], [2026/05/18], [Giovanni Bronte], [], [Finita sezione 4.3(conclusione sprint 3). Modificati degli errori minori nei calcoli delle risorse rimaste per lo sprint 2.],
+    [0.3.1], [2026/05/14], [Edis Hodja], [], [Revisione lessicale e aggiunta del versionamento nell’impaginazione],
     [0.3.0], [2026/05/04], [Giovanni Bronte], [Filippo Zonta Rocha], [Aggiunta sezione 4.2(sprint 2) e sezioni da 4.3.1 a 4.3.4 (inizio sprint 3). Aggiunti i rischi RO-4 e RI-2.],
     [0.2.0], [2026/04/21], [Alberto Canavese], [Filippo Zonta Rocha], [Correzione refusi],
     [0.1.0], [2026/04/21], [Ines Iadadi], [Alberto Canavese], [Prima stesura del documento e redazione Sprint 1],
@@ -120,12 +123,13 @@
 == Scopo del documento
 Il presente Piano di Progetto si configura come lo strumento cardine per la direzione operativa del gruppo Coderius, delineando i criteri fondamentali per garantire l'efficienza dei processi lungo l'intero ciclo di vita del software.
 
-La sua funzione primaria è quella di fornire un quadro d'insieme che permetta al team e agli stakeholder di monitorare l'evoluzione del prodotto, partendo dalla gestione proattiva dei rischi per neutralizzarli prima che possano impattare sui requisiti. A tal fine, il documento stabilisce una schedulazione puntuale dei task e identifica le milestone per il rispetto delle scadenze, integrando queste informazioni con una stima dei costi e una distribuzione equilibrata del lavoro tra i ruoli.
+La sua funzione primaria è quella di fornire un quadro d'insieme che permetta al team e agli stakeholder di monitorare l'evoluzione del prodotto, partendo dalla gestione proattiva dei rischi per neutralizzarli prima che possano impattare sui requisiti. \
+A tal fine, il documento stabilisce una schedulazione puntuale dei task e identifica le milestone per il rispetto delle scadenze, integrando queste informazioni con una stima dei costi e una distribuzione equilibrata del lavoro tra i ruoli.
 
-Il documento viene aggiornato a ogni sprint e rappresenta la memoria storica del progetto.
+Il documento viene aggiornato a ogni sprint bisettimanale e rappresenta la memoria storica del progetto.
 
 == Scopo del progetto
-Il Capitolato *Automated EN18031 Compliance Verification*, proposto da Bluewind S.r.l., consiste nello sviluppo di un'applicazione web che aiuta le
+Il Capitolato *Automated EN18031 Compliance Verification*, proposto da Bluewind S.r.l., consiste nello sviluppo di un'applicazione web-based che aiuta le
 aziende a verificare se un dispositivo radio soddisfa i requisiti di cybersecurity
 imposti dallo standard europeo EN 18031, obbligatorio dall'agosto 2025 per
 ogni dispositivo Wi-Fi, Bluetooth, LTE o IoT immesso nel mercato UE.
@@ -133,7 +137,7 @@ ogni dispositivo Wi-Fi, Bluetooth, LTE o IoT immesso nel mercato UE.
 Il cuore dello standard è una serie di Decision Tree:
 sequenze di domande Sì/No che conducono a un esito finale di _Pass_, _Fail_ o
 _Not Applicable_ per ogni requisito. Il progetto si concentra sui gruppi
-*ACM* (Access Control Mechanism) e *AUM* (Authentication Mechanism) di
+*ACM* (Access Control Mechanism) e *AUM* (Authentication Mechanism) dello standard
 EN 18031.
 
 L'applicazione web permetterà di:
@@ -144,7 +148,7 @@ L'applicazione web permetterà di:
 - mostrare una dashboard con la sintesi dei risultati.
 
 == Glossario
-Per garantire che ogni termine tecnico sia compreso correttamente e per evitare qualsiasi confusione, la documentazione è supportata da un glossario che raccoglie le definizioni dei vocaboli più specifici. Le parole incluse in questo elenco sono segnalate nel testo dalla lettera G posta a pedice (parola#sub[G]). Cliccando su questo simbolo, l'utente viene indirizzato alla sezione della pagina web del glossario dove può consultare la definizione del termine cercato.
+Per garantire che ogni termine tecnico sia compreso correttamente e per evitare qualsiasi confusione, la documentazione è supportata da un glossario che raccoglie le definizioni dei vocaboli più specifici. Le parole incluse in questo elenco sono segnalate nel testo dalla lettera G posta a pedice (parola#sub[G]). Cliccando su questo simbolo, l'utente viene indirizzato alla sezione della pagina web del glossario dove può consultare la definizione approfondita del termine individuato.
 
 == Riferimenti
 
@@ -160,6 +164,14 @@ Per garantire che ogni termine tecnico sia compreso correttamente e per evitare 
     fill: blue,
   )[Slide IS A.A. 2025/2026 - _Regolamento del progetto didattico_ ]]
 
+- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T04.pdf")[#text(
+    fill: blue,
+  )[Slide IS A.A. 2025/2026 - _Gestione di progetto_ ]]
+
+- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T02.pdf")[#text(
+    fill: blue,
+  )[Slide IS A.A. 2025/2026 - _Processi di ciclo di vita del software_ ]]
+
 - #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Glossario.pdf")[#text(
     fill: blue,
   )[Glossario]]
@@ -168,11 +180,11 @@ Per garantire che ogni termine tecnico sia compreso correttamente e per evitare 
 = Informazioni sul progetto
 
 == Modello di sviluppo
-Il team adotta il framework *Scrum*. Il lavoro è suddiviso in sprint bisettimanali e al termine dello sprint viene garantita la rotazione dei ruoli per massimizzare l'apprendimento e la flessibilità del team.
+Il team adotta il framework *Scrum*. Il lavoro è suddiviso in sprint bisettimanali e al termine dello sprint viene garantita la rotazione dei ruoli per massimizzare l'apprendimento e la flessibilità del team, favorendo una conoscenza trasversale del prodotto e riducendo le dipendenze critiche sulle singole persone.
 
 == Metodologia di lavoro
-Ogni sprint si apre con una riunione in cui si fissano obiettivi e compiti e a metà periodo si tiene un breve controllo dell'avanzamento. Alla fine dello sprint si svolge una retrospettiva per capire cosa ha funzionato e cosa migliorare nel ciclo successivo.
-La scelta di sprint da due settimane permette cicli abbastanza brevi da consentire
+Ogni sprint si apre con una riunione in cui si fissano obiettivi e compiti e a metà periodo si tiene un breve controllo dell'avanzamento. Alla fine dello sprint si svolge una retrospettiva per capire cosa ha funzionato e cosa migliorare nel ciclo successivo. \
+La scelta di sprint bisettimanali permette cicli abbastanza brevi da consentire
 correzioni rapide, ma abbastanza lunghi da completare attività significative.
 I referenti di Bluewind vengono coinvolti periodicamente per raccogliere feedback e verificare
 che il lavoro sia allineato con le aspettative.
@@ -560,14 +572,13 @@ Per questo sprint sono state assegnate due persone al ruolo di amministratore, q
 #v(0.3em)
 
 === Attività pianificate
-Per il terzo sprint il nostro team si concentrerà sulla continuazione della stesura di vari documenti essenziali per 
-per l'RTB, quali: Norme di Progetto, Piano di Progetto, Analisi dei requisiti.
+Per il terzo sprint il nostro team si concentrerà sulla continuazione della stesura di vari documenti essenziali per l'RTB, quali: Norme di Progetto, Piano di Progetto, Analisi dei requisiti.
 Le attività principali saranno:
 - Continua stesura dell'analisi dei requisiti, il team si prefissa di arrivare ad una fase terminale del documento cosi facendo avendo una versione quasi definitiva, inviarlo all'azienda proponente per avere un feedback sullo stato di accuratezza del documento.
 - Aggiornamento con Bluewind: è stato fissato un incontro per il 2026/05/04 per fare varie domande all'azienda in modo da chiarire alcuni dei dubbi sorti durante l'analisi dei requisiti.
 - Stesura del Diario di Bordo, stesura di un altro documento fatta da tutto il team che ha lo scopo di riassumere quanto fatto fino al giorno della redazione del documento per poterlo esporre durante l'attività omonima.
 - Aggiornamento del sito, aggiungendo una sezione per il Diario di Bordo.
-- Stesura dei vari Verbali esterni e interni.
+- Stesura dei vari verbali esterni e interni.
 
 === Rischi attesi
 - *RO-2*: Per questo sprint sono presenti delle attività che il gruppo Coderius si è fissato di completare o di raggiungere un certo livello di completamento per poter procedere con il resto del progetto senza avere problemi di tempo in futuro. Per questo motivo c'è un rischio che possano rimanere incompiute.
