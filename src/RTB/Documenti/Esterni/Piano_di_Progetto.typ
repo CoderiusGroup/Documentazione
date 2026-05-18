@@ -98,6 +98,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.4.0], [2026/05/18], [Giovanni Bronte], [], [Finita sezione 4.3(conclusione sprint 3). Modificati degli errori minori nei calcoli delle risorse rimaste per lo sprint 2.],
     [0.3.0], [2026/05/04], [Giovanni Bronte], [Filippo Zonta Rocha], [Aggiunta sezione 4.2(sprint 2) e sezioni da 4.3.1 a 4.3.4 (inizio sprint 3). Aggiunti i rischi RO-4 e RI-2.],
     [0.2.0], [2026/04/21], [Alberto Canavese], [Filippo Zonta Rocha], [Correzione refusi],
     [0.1.0], [2026/04/21], [Ines Iadadi], [Alberto Canavese], [Prima stesura del documento e redazione Sprint 1],
@@ -528,7 +529,7 @@ Nel secondo sprint il team si concentrerà sulla stesura dei vari Use case per l
     [Progettista], [25], [0], [   0€], [96], [2400€],
     [Programmatore], [15], [0], [   0€], [108], [1620€],
     [Verificatore], [15], [7], [ 105€], [112], [1680€],
-    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*43*], [*950€*], [*438*], [*8845€*], 
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*43*], [*950€*], [*447*], [*9025€*], 
   )
 ]
 
@@ -553,8 +554,8 @@ Per questo sprint sono state assegnate due persone al ruolo di amministratore, q
   stroke: none,
   inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
   [*Inizio:*],        [2026/05/01],
-  [*Fine prevista:*], [2026/05/14],
-  [*Fine reale:*],    [2026/05/14],
+  [*Fine prevista:*], [2026/05/15],
+  [*Fine reale:*],    [2026/05/15],
 )
 #v(0.3em)
 
@@ -586,11 +587,50 @@ Le attività principali saranno:
 )
 
 === Consuntivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese], [-], [-], [8], [-], [-], [-], [8]),
+    ([Edis Hodja], [-], [4], [-], [-], [-], [-], [4]),
+    ([Filippo Zonta Rocha], [-], [-], [-], [-], [-], [6#text(fill: green)[(-1)]], [6]),
+    ([Giovanni Angelo Marco Bronte], [5#text(fill: green)[(-1)]], [-], [], [-], [-], [-], [5]),
+    ([Ines Iadadi], [-], [-], [8], [-], [-], [-], [8]),
+    ([Leonardo Lorenzin], [-], [-], [-], [-], [-], [6#text(fill: green)[(-1)]], [6]),
+    (table.cell(align: center, fill: luma(220))[*Totale*], [*5*], [*4*], [*16*], [*0*], [*0*], [*12*], [*37*]),
+  )),
+  caption: [Consuntivo ore per membro - Sprint 3],
+)
 
 === Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [5], [ 150€], [45], [1350€],
+    [Amministratore], [20], [4], [80€], [36], [720€],
+    [Analista], [25], [16 ], [400€], [25], [625€],
+    [Progettista], [25], [0], [   0€], [96], [2400€],
+    [Programmatore], [15], [0], [   0€], [108], [1620€],
+    [Verificatore], [15], [12], [ 180€], [100], [1500€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*37*], [*810€*], [*410*], [*8215€*], 
+  )
+]
 
-=== Rischi incontrati
+=== Rischi incontrati 
+- *RO-4*: A causa di una mancata comunicazione nel team durante la scrittura dell'analsi dei requisiti, sono stati notati degli UC errati. A causa di questo è stato usato del tempo per modificare gli UC errati invece che per proseguire con la redazione dell'AdR. In futuro, il team terrà delle riunioni per discutere degli UC da scrivere e evitare che si ripetà questo problema.
 
 === Retrospettiva
+Il team ha continuato la redazione dei vari documenti richiesti per l'RTB: *Norme di Progetto*, *Analisi dei Requisiti*, *Piano di Progetto*; e ha iniziato la stesura di un altro documento fondamentale per l'RTB: il *Piano di Qualifica*.
+Per questo sprint il team si è particolarmente concentrato sui documenti: *Norme di Progetto* e *Analisi dei Requisiti*, i quali sono adesso ad un punto abbastanza avanzato.\
+Questo sprint sono iniziati i Diari di Bordo, attività dove il team discute con il proponente del lavoro svolto, i piani futuri e i rischi incontrati. Sono stati creati dei documenti appositi per questi incontri che andranno in futuro implementati nel sito web del gruppo.\
+Sono stati implementati dei cambiamenti minori per migliorare l'Issue Tracking System presente nella repository github.
 
 ==== *Criticità emerse*
+Come scritto nei rischi incontrati, la criticità principale riscontrata in questo sprint è stata una mancanza di comunicazione nel team per quanto riguarda la scrittura degli UC. Questo ha causato un significativo ritardo nella scrittura dell'Analisi dei Requisiti perchè gli analisti hanno dovuto riscrivere gli UC errati.
+Per evitare che questo problema accada nuovamente in futuro, gli analisti dovranno discutere assieme al resto del team dei vari UC da scrivere. 
+
+
+#pagebreak()
