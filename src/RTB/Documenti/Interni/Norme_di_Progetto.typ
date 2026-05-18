@@ -33,7 +33,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.8.2*]
+  #text(size: 20pt)[*Versione 0.9.0*]
 ]
 
 #pagebreak()
@@ -53,6 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.9.0], [2026/05/15], [Edis Hodja], [], [Aggiunta delle seguenti sezioni: 5.1, 5.2, 5.3],
     [0.8.2], [2026/05/15], [Leonardo Lorenzin], [], [Aggiornamento contenuti e correzioni refusi],
     [0.8.1], [2026/05/13], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Aggiornamento contenuti e correzioni refusi],
     [0.8.0], [2026/05/13], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta delle seguenti sezioni: 4.3, 4.4, 4.5],
@@ -80,8 +81,14 @@
 #text(size: 18pt, weight: "bold")[Indice]
 #outline(title: none, depth: 5, indent: 1.5em)
 
-#text(size: 18pt, weight: "bold")[Elenco delle Figure]
-#outline(title: none, target: figure.where(kind: image), indent: 1.5em)
+#pagebreak()
+
+#text(size: 18pt, weight: "bold")[Elenco delle Tabelle]
+#outline(
+  title: none,
+  target: figure.where(supplement: [Tabella]),
+  indent: 1.5em,
+)
 
 #pagebreak()
 
@@ -506,7 +513,7 @@ Per la redazione e la gestione della documentazione, il gruppo ha deciso di util
 - *Typst*: è il principale linguaggio di markup utilizzato per l'intera documentazione di progetto. A differenza di sistemi più datati come LaTeX, Typst offre una compilazione istantanea e una sintassi più moderna e leggibile. Questo permette al gruppo di mantenere un alto standard qualitativo dei documenti, garantendo al contempo una maggiore velocità nella revisione dei contenuti e nella gestione dei template personalizzati.
 - *GitHub*: rappresenta il fulcro del sistema di conservazione e controllo dei documenti. L'utilizzo di repository dedicate permette di tracciare ogni singola modifica tramite il versionamento del codice sorgente dei file `.typ`. Il gruppo sfrutta inoltre le seguenti funzionalità:
   - *Pull Request*: per gestire i processi di verifica e approvazione in modo strutturato prima dell'integrazione definitiva.
-  - *GitHub Actions*: per automatizzare la generation dei PDF a partire dai sorgenti Typst, garantendo che l'ultima versione prodotta sia sempre disponibile e correttamente formattata.
+  - *GitHub Actions*: per automatizzare la generazione dei PDF a partire dai sorgenti Typst, garantendo che l'ultima versione prodotta sia sempre disponibile e correttamente formattata.
   - *Issue e Projects*: per la pianificazione dei task documentali e il monitoraggio delle scadenze.
 
 === Produzione
@@ -681,7 +688,7 @@ Nel contesto del progetto, il soggetto di riferimento per l'accettazione e la va
   La validazione viene inoltre supportata dall'utilizzo del caso studio fornito dal proponente, così da verificare il comportamento del sistema in un contesto applicativo realistico e coerente con gli obiettivi del progetto. Gli esiti dei test svolti vengono tracciati nel _Piano di Qualifica_.
 - *Validazione*: ha lo scopo di accertare che il sistema sviluppato soddisfi i requisiti funzionali e gli obiettivi definiti nel capitolato di progetto.
 
-  Le attività di validazione coinvolgono il ruolo di _Verificatore_, che controlla la correttezza funzionale delle componenti realizzate, con particolare attenzione all’esecuzione dei decision tree, alla gestione dei requisiti EN18031 e alla produzione degli esiti previsti (*PASS*, *FAIL*, *NOT APPLICABLE*).
+  Le attività di validazione coinvolgono il ruolo di _Responsabile_, che controlla la correttezza funzionale delle componenti realizzate, con particolare attenzione all’esecuzione dei decision tree, alla gestione dei requisiti EN18031 e alla produzione degli esiti previsti (*PASS*, *FAIL*, *NOT APPLICABLE*).
 
 = Processi Organizzativi
 #v(0.5em)
@@ -896,6 +903,608 @@ Quando un membro del gruppo si trova in difficoltà, sia in fase di apprendiment
 
 Il supporto reciproco non è considerato un'eccezione, bensì parte integrante del _Way of Working_ del gruppo: distribuire le competenze in modo omogeneo riduce le dipendenze dai singoli e aumenta la resilienza del team nel suo complesso.
 
+= Metriche della qualità
+== Introduzione alle metriche della qualità
 
+Al fine di garantire un approccio quantitativo alla qualità, il gruppo adotta un sistema di misurazione basato su metriche. Queste rappresentano i criteri oggettivi attraverso i quali viene valutata l'aderenza dei processi e dei prodotti agli standard prefissati.
 
+Le metriche definite in questo documento trovano applicazione e tracciamento operativo all'interno del  #link("...")[*Piano di Qualifica v0.1.1*].
 
+=== Classificazione
+Le metriche sono suddivise in due categorie principali, ispirate allo standard ISO/IEC 9126:
+
+1. *Metriche di Qualità di Processo (MPC)*: indicatori utilizzati per monitorare l'andamento delle attività di progetto, l'efficienza del team e la gestione delle risorse (es. costi, tempi, stabilità dei requisiti).
+2. *Metriche di Qualità di Prodotto (MPD)  *: indicatori focalizzati sulle caratteristiche degli artefatti prodotti, siano essi documentali o software.
+
+=== Obiettivi per la Qualità di Prodotto
+Il gruppo adotta il modello *ISO/IEC 9126* per definire gli obiettivi di qualità, declinando le sei caratteristiche principali in sotto-attributi misurabili.
+
+#let sotto-attributi(..elementi) = {
+  set list(indent: 1.5em)
+  list(..elementi)
+}
+
+==== Funzionalità
+Valuta la capacità del software di soddisfare le necessità definite dal proponente.
+#sotto-attributi(
+  [*Adeguatezza*: capacità di svolgere compiti specifici in linea con gli scopi del progetto.],
+  [*Accuratezza*: precisione nel fornire risultati conformi ai requisiti definiti.],
+  [*Interoperabilità*: abilità del sistema di scambiare informazioni con componenti esterni.],
+  [*Sicurezza*: grado di protezione dell'integrità dei dati contro accessi non autorizzati.],
+  [*Conformità*: rispetto degli standard di dominio e delle specifiche funzionali.]
+)
+
+==== Affidabilità
+Misura la stabilità operativa del prodotto in condizioni d'uso standard.
+#sotto-attributi(
+  [*Maturità*: capacità di prevenire malfunzionamenti derivanti da errori logici.],
+  [*Tolleranza agli errori*: resilienza del sistema di fronte a input errati o anomalie operative.],
+  [*Recuperabilità*: efficacia delle procedure di ripristino post-guasto.],
+  [*Aderenza*: rispetto di regole di progettazione finalizzate alla continuità del servizio.]
+)
+
+==== Efficienza
+Analizza il rapporto tra le prestazioni del sistema e le risorse computazionali consumate.
+#sotto-attributi(
+  [*Comportamento temporale*: velocità di risposta del sistema alle richieste dell'utente.],
+  [*Utilizzo delle risorse*: gestione ottimizzata di memoria, CPU e banda di rete.],
+  [*Conformità*: rispetto dei vincoli architetturali e di performance.]
+)
+
+==== Usabilità
+Indaga la facilità con cui l'utente finale interagisce con il prodotto.
+#sotto-attributi(
+  [*Comprensibilità*: immediatezza concettuale delle interfacce.],
+  [*Apprendibilità*: curva di apprendimento necessaria per padroneggiare le funzionalità.],
+  [*Operabilità*: controllo fluido e intuitivo dei flussi di lavoro.],
+  [*Attrattività*: qualità estetica e gratificazione dell'esperienza utente.],
+  [*Conformità*: aderenza alle linee guida di usabilità stabilite nelle NdP.]
+)
+
+==== Manutenibilità
+Descrive la facilità di evoluzione del sistema nel tempo.
+#sotto-attributi(
+  [*Analizzabilità*: facilità con cui è possibile diagnosticare la causa di un difetto.],
+  [*Modificabilità*: agilità nell'integrare nuove feature o aggiornare quelle esistenti.],
+  [*Stabilità*: resistenza del software all'introduzione di effetti collaterali a seguito di modifiche.],
+  [*Testabilità*: efficacia delle procedure di verifica nel validare le modifiche apportate.]
+)
+
+==== Portabilità
+Valuta la flessibilità del software in ambienti eterogenei.
+#sotto-attributi(
+  [*Adattabilità*: possibilità di configurazione in contesti operativi differenti.],
+  [*Installabilità*: semplicità della procedura di deploy del software.],
+  [*Conformità*: rispetto di standard di cross-platform.],
+  [*Sostituibilità*: facilità di sostituzione del sistema nel caso di migrazioni tecnologiche.]
+)
+
+=== Nomenclatura e Struttura
+Per garantire l'univocità e la reperibilità, ogni metrica deve essere definita secondo il seguente formato:
+
+#align(center)[
+  *M[TIPO]-[ID]*
+]
+
+- *M*: prefisso costante per "Metrica";
+- *[TIPO]*: identificatore della categoria (*PC* per Processo, *PD* per Prodotto);
+- *[ID]*: numero progressivo a due cifre (es. 01, 02).
+
+Per ogni metrica, il gruppo deve definire:
+- *Nome e Identificativo*;
+- *Descrizione*: scopo della misurazione;
+- *Formula di calcolo*: metodo matematico per ottenere il valore;
+- *Soglia di Accettabilità*: valore minimo per considerare il requisito soddisfatto;
+- *Soglia di Ottimalità*: valore target per un prodotto di eccellenza.
+
+== Metriche di Qualità del Processo
+#let metrica(id, nome, formula, desc, acc, ott) = {
+  block(width: 100%, breakable: false, [
+    #table(
+      columns: (3cm, 1fr),
+      stroke: 0.5pt,
+      fill: (x, y) => if x == 0 { rgb("#99d6ff") } else { none },
+      inset: 8pt,
+      [*Metrica*], [*#id - #nome*],
+      [*Descrizione*], [#desc],
+      [*Formula*], [#align(center)[#formula]],
+      [*Parametri*], [
+        - *Valore Accettabile*: #acc
+        - *Valore Ottimo*: #ott
+      ],
+    )
+    #v(0.5em)
+  ])
+}
+
+=== Processi Primari
+I processi primari comprendono tutte le attività legate direttamente al ciclo di vita del prodotto software. Per valutarne l'andamento, l'efficienza e la conformità agli obiettivi prefissati, vengono utilizzate metriche quantitative in grado di monitorare l'avanzamento dei lavori, l'allocazione delle risorse e la qualità di ciò che viene prodotto.\ L'analisi di questi indicatori consente di individuare eventuali scostamenti e applicare correzioni mirate per garantire il rispetto dei vincoli di progetto.
+
+==== Fornitura
+#figure(
+  table(
+    columns: (4cm, 4cm, 4cm, 4cm), 
+    align: (center, left, center, center),
+    stroke: (x, y) => (
+      bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
+      left: 0.4pt + luma(150),
+      right: if x == 3 { 0.4pt + luma(150) } else { none },
+      top: if y == 0 { 0.4pt + luma(150) } else { none },
+    ),
+    inset: 8pt,
+    fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
+    [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
+    
+    [MPC-01], [Planned Value (PV)], [$ >= 0$], [$ <= "BAC"$],
+    [MPC-02], [Earned Value (EV)], [$ >= "PV" * 0.75$], [$ >= "PV"$],
+    [MPC-03], [Actual Cost (AC)], [$ 0 <= "AC" <= 1.2 * "EV"$], [$ <= "EV"$],
+    [MPC-04], [Schedule Perf. Index (SPI)], [$ >= 0.9$], [$ >= 1.0$],
+    [MPC-05], [Cost Perf. Index (CPI)], [$ >= 0.9$], [$ >= 1.0$],
+    [MPC-06], [Estimate at Completion (EAC)], [$ <= 1.1 * "BAC"$], [$ <= "BAC"$],
+    [MPC-07], [To Complete Perf. Index (TCPI)], [$tilde 1.0$], [$ <= 1.0$],
+    [MPC-08], [Estimate to Complete (ETC)], [$ <= ("BAC" - "AC") * 1.1$], [$ <= "BAC" - "AC"$],
+  ),
+  caption: [Metriche per il processo di Fornitura],
+  supplement: [Tabella],
+  numbering: "1",
+)
+#metrica(
+  "MPC-01", "Planned Value (PV)", 
+  $ "PV" = "BAC" * % "lavoro pianificato" $, 
+  "Valore del lavoro pianificato da completare entro una determinata data.", 
+  $>= 0$, 
+  $<= "BAC"$
+)
+
+#metrica(
+  "MPC-02", "Earned Value (EV)", 
+  $ "EV" = "BAC" * % "lavoro completato" $, 
+  "Valore del lavoro effettivamente completato in  conformità con il budget previsto.", 
+  $>= "PV" * 0.75$, 
+  $>= "PV"$
+)
+
+#metrica(
+  "MPC-03", "Actual Cost (AC)", 
+  $ "AC" = sum "costi sostenuti" $, 
+  "Costo totale effettivamente sostenuto fino alla data corrente.", 
+  $ 0 <= "AC" <= 1.2 * "EV"$, 
+  $<= "EV"$
+)
+
+#metrica(
+  "MPC-04", "Schedule Performance Index (SPI)", 
+  $ "SPI" = "EV" / "PV" $, 
+  "Indica l'efficienza temporale. Se < 1, il progetto è in ritardo.", 
+  $>= 0.9$, 
+  $>= 1.0$
+)
+
+#metrica(
+  "MPC-05", "Cost Performance Index (CPI)", 
+  $ "CPI" = "EV" / "AC" $, 
+  "Indica l'efficienza economica. Se < 1, il progetto è fuori budget.", 
+  $>= 0.9$, 
+  $>= 1.0$
+)
+
+#metrica(
+  "MPC-06", "Estimate at Completion (EAC)", 
+  $ "EAC" = "BAC" / "CPI" $, 
+  "Proiezione del costo totale finale basata sulla performance attuale.", 
+  $<= 1.1 * "BAC"$, 
+  $<= "BAC"$
+)
+
+#metrica(
+  "MPC-07", "To Complete Performance Index (TCPI)", 
+  $ "TCPI" = ("BAC" - "EV") / ("BAC" - "AC") $, 
+  "Efficienza necessaria per completare il progetto nel budget stabilito.", 
+  $tilde 1.0$, 
+  $<= 1.0$
+)
+
+#metrica(
+  "MPC-08", "Estimate to Complete (ETC)", 
+  $ "ETC" = "EAC" - "AC" $, 
+  "Costo stimato necessario per completare il lavoro rimanente.", 
+  $<= ("BAC" - "AC") * 1.1$, 
+  $<= "BAC" - "AC"$
+)
+==== Sviluppo
+#figure(
+  table(
+    columns: (4cm, 4cm, 4cm, 4cm),
+    align: (center, left, center, center),
+    stroke: (x, y) => (
+      bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
+      left: 0.4pt + luma(150),
+      right: if x == 3 { 0.4pt + luma(150) } else { none },
+      top: if y == 0 { 0.4pt + luma(150) } else { none },
+    ),
+    inset: 8pt,
+    fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
+    [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
+    
+    [MPC-09], [Requirements Stability Index (RSI)], [$ >= 0.7$], [1.0],
+  ),
+  caption: [Metriche per il processo di Sviluppo],
+  supplement: [Tabella],
+  numbering: "1",
+)
+
+#metrica(
+  "MPC-09", 
+  "Requirements Stability Index (RSI)", 
+  [
+    #$ "RSI" = ("NRI" - ("NC" + "NRC" + "NRA")) / "NRI" $
+    #v(0.8em)
+    #set text(size: 0.85em)
+    #align(left)[
+      *Legenda dei  parametri:* \
+      - *NRI*: Numero Requisiti Iniziali \
+      - *NC*: Numero di Cambiamenti \
+      - *NRC*: Numero di Requisiti Cancellati \
+      - *NRA*: Numero di Requisiti Aggiunti
+    ]
+  ], 
+  "Misura la stabilità dei requisiti nel tempo, valutando l'impatto di modifiche, cancellazioni o aggiunte rispetto al set iniziale.", 
+  $>= 0.7$, 
+  $1.0$
+)
+
+=== Processi di Supporto
+I processi di supporto raccolgono tutte le attività che servono a tenere sotto controllo il ciclo di sviluppo, garantendone tracciabilità e affidabilità nel tempo.
+Il loro scopo principale è seguire l'andamento dei lavori così da individuare tempestivamente eventuali scostamenti rispetto a quanto pianificato, e poterli correggere prima che diventino critici.
+
+==== Documentazione
+#figure(
+  table(
+    columns: (4cm, 4cm, 4cm, 4cm),
+    align: (center, left, center, center),
+    stroke: (x, y) => (
+      bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
+      left: 0.4pt + luma(150),
+      right: if x == 3 { 0.4pt + luma(150) } else { none },
+      top: if y == 0 { 0.4pt + luma(150) } else { none },
+    ),
+    inset: 8pt,
+    fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
+    [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
+    
+    [MPC-10], [Indice di Gulpease], [$ >= 60 $], [$ >= 70 $],
+    [MPC-11], [Correttezza Ortografica], [$ <= 1 $], [0],
+  ),
+  caption: [Metriche per il processo di Documentazione],
+  supplement: [Tabella],
+  numbering: "1",
+)
+
+#metrica(
+  "MPC-10", "Indice di Gulpease", 
+  [
+    #$ "IG" = 89 + (300 * "NF" - 10 * "NL") / "NP" $
+    #v(0.8em)
+    #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *NF*: Numero di Frasi \
+      - *NL*: Numero di Lettere \
+      - *NP*: Numero di Parole
+    ]
+  ], 
+  "Valuta la leggibilità di un testo in lingua italiana. Un indice basso indica un testo troppo complesso per il target di riferimento.", 
+  $>= 60$, 
+  $>= 70$
+)
+
+#metrica(
+  "MPC-11", "Correttezza Ortografica", 
+  [
+    #$ "CO" = 1000 * ("NE" / "NP") $
+    #v(0.8em)
+    #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *NE*: Numero di Errori ortografici \
+      - *NP*: Numero di Parole
+    ]
+  ], 
+  "Rileva la densità di errori linguistici nei documenti. Il calcolo viene normalizzato su 1000 parole per facilitare il confronto tra documenti di diversa lunghezza.", 
+  $<= 1$, 
+  $0$
+)
+
+==== Verifica
+Le attività di verifica accertano che il software sia costruito correttamente e che soddisfi i requisiti tecnici tramite test automatizzati.
+
+#figure(
+  table(
+    columns: (4cm, 4cm, 4cm, 4cm),
+    align: (center, left, center, center),
+    stroke: (x, y) => (
+      bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
+      left: 0.4pt + luma(150),
+      right: if x == 3 { 0.4pt + luma(150) } else { none },
+      top: if y == 0 { 0.4pt + luma(150) } else { none },
+    ),
+    inset: 8pt,
+    fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
+    [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
+    
+    [MPC-12], [Test Success Rate], [$ >= 90% $], [$ 100% $],
+  ),
+  caption: [Metriche per il processo di Verifica],
+  supplement: [Tabella],
+  numbering: "1",
+)
+
+#metrica(
+  "MPC-12", "Test Success Rate", 
+  [
+    #$ "TSR" = ("NTS" / "NTT") * 100 $
+    #v(0.8em)
+    #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *NTS*: Numero di Test Superati \
+      - *NTT*: Numero Totale dei Test eseguiti
+    ]
+  ], 
+  "Indica la percentuale di test automatizzati che hanno prodotto un esito positivo rispetto al totale dei test previsti.", 
+  $>= 90%$, 
+  $100%$
+)
+
+#metrica(
+  "MPC-13", "Code Coverage", 
+  [
+    #$ "CC" = ("NLT" / "NLTOT") * 100 $
+    #v(0.8em)
+    #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *NLT*: Numero di linee di codice testate \
+      - *NLTOT*: Numero di linee di codice totali
+    ]
+  ], 
+  "Indica la percentuale di linee di codice sorgente effettivamente eseguite durante l'esecuzione della suite di test automatizzati.", 
+  $>= 70%$, 
+  $>= 90%$
+)
+
+==== Qualità
+Monitora l'aderenza complessiva del progetto a tutte le metriche di qualità prefissate.
+
+#figure(
+  table(
+    columns: (4cm, 4cm, 4cm, 4cm),
+    align: (center, left, center, center),
+    stroke: (x, y) => (
+      bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
+      left: 0.4pt + luma(150),
+      right: if x == 3 { 0.4pt + luma(150) } else { none },
+      top: if y == 0 { 0.4pt + luma(150) } else { none },
+    ),
+    inset: 8pt,
+    fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
+    [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
+    
+    [MPC-14], [Quality Metrics Satisfied], [$ 100% $], [$ 100% $],
+  ),
+  caption: [Metriche per il processo di Assicurazione Qualità],
+  supplement: [Tabella],
+  numbering: "1",
+)
+
+#metrica(
+  "MPC-14", "Quality Metrics Satisfied", 
+  [
+    #$ "QMS" = ("NMS" / "NMT") * 100 $
+    #v(0.8em)
+    #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *NMS*: Numero di Metriche Soddisfatte \
+      - *NMT*: Numero di Metriche Totali monitorate
+    ]
+  ], 
+  "Rappresenta la percentuale complessiva delle metriche di qualità che rientrano nei range accettabili definiti nelle presenti Norme.", 
+  $100%$, 
+  $100%$
+)
+=== Processi Organizzativi
+Questi processi riguardano la dimensione organizzativa del gruppo: dalla definizione degli standard interni alla gestione della qualità, dallo sviluppo delle competenze al miglioramento continuo. Le metriche associate misurano conformità ed efficacia dei processi di governance, con l'obiettivo di garantire la sostenibilità e la maturità del modello di sviluppo nel tempo.
+
+==== Gestione dei Processi
+#figure(
+  table(
+    columns: (4cm, 4cm, 4cm, 4cm),
+    align: (center, left, center, center),
+    stroke: (x, y) => (
+      bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
+      left: 0.4pt + luma(150),
+      right: if x == 3 { 0.4pt + luma(150) } else { none },
+      top: if y == 0 { 0.4pt + luma(150) } else { none },
+    ),
+    inset: 8pt,
+    fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
+    [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
+    
+    [MPC-15], [Time Efficiency], [$ >= 80% $], [$  100% $],
+    [MPC-16], [Process Lead Time], [$ >= 90% $], [$ 100% $],
+  ),
+  caption: [Metriche per la Gestione dei Processi],
+  supplement: [Tabella],
+  numbering: "1",
+)
+
+#metrica(
+  "MPC-15", "Time Efficiency", 
+  [
+    #$ "TE" = ("OPC" / "OEC") * 100 $
+    #v(0.8em)
+    #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *OPC*: Ore Previste Cumulative (pianificate) \
+      - *OEC*: Ore Effettive Cumulative (impiegate realmente)
+    ]
+  ], 
+  "Indica il rapporto tra il tempo pianificato e quello effettivamente consumato. Un valore inferiore al 100% segnala che il team sta impiegando più tempo del previsto per le attività.", 
+  $>= 80%$, 
+  $ 100%$
+)
+
+#metrica(
+  "MPC-16", "Process Lead Time", 
+  [
+    #$ "TimeEAC" = "SP" / "SPI" $
+    #v(0.8em)
+    #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *SP*: Settimane Pianificate totali \
+      - *SPI*: Schedule Performance Index (MPC-04)
+    ]
+  ], 
+  "Stima la durata finale del progetto in settimane. Valuta la puntualità prevista alla fine dei lavori basandosi sulla velocità attuale del team.", 
+  $>= 90%$, 
+  $100%$
+)
+== Metriche di qualità del prodotto
+=== Funzionalità
+#figure(
+  table(
+    columns: (4cm, 4cm, 4cm, 4cm),
+    align: (center, left, center, center),
+    stroke: (x, y) => (
+      bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
+      left: 0.4pt + luma(150),
+      right: if x == 3 { 0.4pt + luma(150) } else { none },
+      top: if y == 0 { 0.4pt + luma(150) } else { none },
+    ),
+    inset: 8pt,
+    fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
+    [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
+    [MPD-01], [Requisiti Obbligatori Soddisfatti], [100%], [100%],
+    [MPD-02], [Requisiti Desiderabili Soddisfatti], [$>= 50%$], [$>= 75%$],
+    [MPD-03], [Requisiti Opzionali Soddisfatti], [$>= 0%$], [$>= 50%$],
+  ),
+  caption: [Metriche di Funzionalità],
+)
+
+#metrica(
+  "MPD-01", "Requisiti Obbligatori Soddisfatti", 
+  [#$ "RObbS" = ("NROS" / "NRO") * 100 $
+    #v(0.8em) #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *NROS*: Numero Requisiti Obbligatori Soddisfatti \
+      - *NRO*: Numero Totale Requisiti Obbligatori
+    ]
+  ], 
+  "Indica la percentuale di requisiti essenziali implementati correttamente. È un indicatore critico per il rilascio del prodotto.", 
+  [100%], [100%]
+)
+
+=== Affidabilità
+
+#metrica(
+  "MPD-04", "Failure Density", 
+  [#$ "FD" = "NF" / "KLOC" $
+    #v(0.8em) #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *NF*: Numero di Failure rilevate \
+      - *KLOC*: Migliaia di Linee di Codice
+    ]
+  ], 
+  "Misura la densità di guasti del sistema rispetto alla dimensione del codice sorgente.", 
+  [$<= 0.5$], [$<= 0.2$]
+)
+
+#metrica(
+  "MPD-05", "Statement Coverage", 
+  [#$ "SC" = ("IT" / "ITOT") * 100 $
+    #v(0.8em) #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *IT*: Istruzioni Testate dai test automatizzati \
+      - *ITOT*: Istruzioni Totali nel codice
+    ]
+  ], 
+  "Percentuale di istruzioni del codice sorgente coperte dall'esecuzione dei test.", 
+  [$>= 80%$], [$>= 95%$]
+)
+
+=== Usabilità
+
+#metrica(
+  "MPD-08", "Time To Complete Task", 
+  [#$ "TCT" = ("TO" + 4 * "TP" + "TPes") / 6 $
+    #v(0.8em) #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *TO*: Tempo Ottimista \
+      - *TP*: Tempo Probabile \
+      - *TPes*: Tempo Pessimista
+    ]
+  ], 
+  "Stima il tempo medio necessario a un utente per completare correttamente un'operazione specifica.", 
+  [10 minuti], [5 minuti]
+)
+
+=== Efficienza
+
+#metrica(
+  "MPD-09", "Response Time", 
+  [$ "RT" <= t $], 
+  "Tempo impiegato dal sistema per fornire una risposta a seguito di un input dell'utente.", 
+  [$<= 3 " sec"$], [$<= 1 " sec"$]
+)
+
+=== Manutenibilità
+
+#metrica(
+  "MPD-12", "Cyclomatic Complexity", 
+  [#$ v(G) = E - N + 2P $
+    #v(0.8em) #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *E*: Numero di archi del grafo di controllo \
+      - *N*: Numero di nodi del grafo \
+      - *P*: Numero di componenti connesse
+    ]
+  ], 
+  "Quantifica la complessità logica del codice contando il numero di percorsi indipendenti.", 
+  [$<= 10$], [$<= 8$]
+)
+
+#metrica(
+  "MPD-13", "Instability Index", 
+  [#$ I = "Ce" / ("Ce" + "Ca") $
+    #v(0.8em) #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *Ce*: Classi esterne da cui il modulo dipende (Efferent) \
+      - *Ca*: Classi esterne che dipendono dal modulo (Afferent)
+    ]
+  ], 
+  "Misura la resilienza di un modulo al cambiamento. Un valore vicino a 0 indica massima stabilità.", 
+  [$I >= 0.7 or I <= 0.30$], [$I >= 0.85 or I <= 0.15$]
+)
+
+#metrica(
+  "MPD-15", "Code Smell", 
+  [#$ "CS" = "NCS" / "KLOC" $
+    #v(0.8em) #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *NCS*: Numero di Code Smell rilevati \
+      - *KLOC*: Migliaia di Linee di Codice
+    ]
+  ], 
+  "Indica la densità di potenziali problemi di design o violazioni delle best practice di codifica.", 
+  [$<= 10$], [$<= 5$]
+)
