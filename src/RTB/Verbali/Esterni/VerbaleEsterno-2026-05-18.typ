@@ -65,7 +65,7 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*], 
-      [0.1.0], [2026/05/18], [Filippo Zonta Rocha], [], [Prima stesura del verbale]
+      [0.1.0], [2026/05/18], [Filippo Zonta Rocha], [Giovanni Bronte], [Prima stesura del verbale]
     )
   ]
 
@@ -128,7 +128,7 @@
 + Domande e chiarimenti riguardo l'Analisi dei requisiti.
 
 = Svolgimento della Riunione
-Durante la riunione, il team ha posto una serie di domande al referente aziendale per chiarire alcuni aspetti specifici dell'Analisi dei Requisiti. Di seguito viene riportato un resoconto dettagliato delle domande poste e delle risposte ricevute.
+Durante la riunione, il team ha posto una serie di domande al referente aziendale per chiarire alcuni aspetti specifici dell'Analisi dei Requisiti. Di seguito viene riportato un resoconto dettagliato dello svolgimento della riunione.
 == Domande e Risposte
 Di seguito vengono riportate le domande poste dal team e le risposte fornite dal referente aziendale.
 
@@ -166,10 +166,7 @@ Di seguito vengono riportate le domande poste dal team e le risposte fornite dal
 
 *Domanda:* Stiamo per realizzare un mockup della UI, ve lo condivideremo prossimamente in modo da avere un feedback va bene?\
 *Risposta:* Sì, la proposta è approvata. Siete invitati a condividere i mockup per permetterci di fornire un feedback in merito all'interfaccia utente.
-#heading(level: 3, numbering: none, outlined: false)[8. Programmazione prossimi step]
 
- *Domanda:* Prossima riunione quando? Tra due settimane?\
-*Risposta:*  Il prossimo incontro di allineamento è confermato per mercoledì 3 giugno alle ore 15:00. 
 #pagebreak()
 
 
@@ -198,7 +195,7 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
     [TD-5.1], [Conclusione del documento Analisi dei requisiti], [Filippo Zonta Rocha, \ Leonardo Lorenzin], [VE-4.1],
-    [TD-5.2], [Continuazione del documento Piano di qualifica], [Giovanni Angelo Marco Bronte], [VE-4.2],
+    [TD-5.2], [Continuazione del documento Piano di qualifica], [Alberto Canavese], [VE-4.2],
     [TD-5.3], [Realizzazione Mock-up dell'applicazione], [IInes Iadadi], [VE-4.3],
   )
 ]

@@ -73,7 +73,7 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026/05/18], [Filippo Zonta Rocha], [], [Prima stesura del verbale],
+      [0.1.0], [2026/05/18], [Filippo Zonta Rocha], [Giovanni Bronte], [Prima stesura del verbale],
       // aggiungi nuova riga quando viene aggiornato
     )
   ]
@@ -120,7 +120,7 @@
 = Svolgimento della Riunione
 
 == Conclusione del documento Analisi dei Requisiti
-Durante la riunione, si è discusso dell'importanza di portare a termine l'Analisi dei Requisiti, in quanto rappresenta una base fondamentale per la pianificazione e l'esecuzione delle attività successive.
+Durante la riunione, è stata discussa l'importanza di portare a termine l'Analisi dei Requisiti, in quanto rappresenta una base fondamentale per la pianificazione e l'esecuzione delle attività successive.
 
 == Proseguire con la stesura del Piano di qualifica
 Si è concordato di proseguire con la stesura del Piano di qualifica, al fine di definire in modo dettagliato le strategie e le metodologie che saranno adottate per garantire la qualità del progetto.
@@ -132,10 +132,10 @@ Si è deciso di avviare la realizzazione del Mock-up dell'applicazione, al fine 
 Si è discusso della necessità di pianificare una possibile data per la candidatura del progetto alla proponente per la RTB.
 
 == Rotazione dei ruoli
-Si è deciso di effettuare una rotazione dei ruoli all'interno del team per permettere a tutti i membri di acquisire esperienza in diverse aree e responsabilità.
+Seguendo quanto scritto nella Dichiarazione di Impegni, il team ha effettuato una rotazione dei ruoli all'interni per permettere a tutti i membri di acquisire esperienza in diverse aree e responsabilità.
 
 == Discussione delle ore lavorate
-Si è affrontato il tema delle ore lavorate, sopprattutto al ruolo dell'analista. 
+Il team si è confrontato sulle ore usate nello sprint 3 per il progetto e la quantità di tempo rimasta per completare il lavoro entro la quantità prefissata dal team nella Dichiarazione di Impegni, in particolar modo è stato discusso il ruolo dell'analista. 
 
 #pagebreak() 
 
@@ -151,7 +151,7 @@ Si è affrontato il tema delle ore lavorate, sopprattutto al ruolo dell'analista
     [VE-4.3], [Realizzazione Mock-up dell'applicazione],
     [VE-4.4], [Pianificare presentazione RTB],
     [VE-4.5], [Rotazione dei ruoli],
-    [VE-4.6], [Discutere delle ore lavorate]
+    [VE-4.6], [Discussione delle ore lavorate]
   )
 ]
 == Ordine del Giorno prossimo incontro
@@ -167,10 +167,9 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
     [TD-5.1], [Conclusione del documento Analisi dei requisiti], [Filippo Zonta Rocha, \ Leonardo Lorenzin], [VE-4.1],
-    [TD-5.2], [Continuazione del documento Piano di qualifica], [Giovanni Angelo Marco Bronte], [VE-4.2],
+    [TD-5.2], [Continuazione del documento Piano di qualifica], [Alberto Canavese], [VE-4.2],
     [TD-5.3], [Realizzazione Mock-up dell'applicazione], [Ines Iadadi], [VE-4.3],
-    [TD-5.4], [Pianificazione presentazione RTB], [Team], [VE-4.4],
-    [TD-5.5], [Rotazione dei ruoli], [Team], [VE-4.5],
+    [TD-5.4], [Pianificazione presentazione RTB], [Team], [VE-4.4]
   )
 ]
 
