@@ -645,3 +645,81 @@ Per evitare che questo problema accada nuovamente in futuro, gli analisti dovran
 
 
 #pagebreak()
+
+== Sprint 4
+
+=== Periodo 
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/05/16],
+  [*Fine prevista:*], [2026/05/29],
+  [*Fine reale:*],    [2026/05/29],
+)
+#v(0.3em)
+
+=== Attività pianificate
+Nel quarto sprint il gruppo presterà ancora attenzione sulla documentazione richiesta per l'RTB, focalizzandosi specialmente sulla stesura definitiva dell'Analisi dei Requisiti, documento essenziale per una maggiore comprensione strutturale dell'operato desiderabile. Oltre a ciò, compito dell'Amministratore, sarà quello di iniziare a strutturare al meglio il Piano di Qualifica.
+Naturalmente i restanti documenti saranno ancora in via di sviluppo, prossimi a una conclusione. Le attività principali saranno:
+
+- Aggiunta e ristrutturazione dell'ordine degli UC presenti nell'Analisi dei Requisiti.
+- 
+- Stesura dei vari verbali esterni e interni.
+
+=== Rischi attesi
+ 
+=== Preventivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[8],[-],[-],[],[8]),
+    ([Edis Hodja],         [-],[4],[-],[-],[-],[-],[4]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[-],[7],[7]),
+    ([Giovanni Angelo Marco Bronte],    [6],[-],[-],[-],[-],[-],[6]),
+    ([Ines Iadadi],        [-],[-],[8],[-],[-],[-],[8]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[-],[-],[7],[7]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*6*],[*4*],[*16*],[*0*],[*0*],[*14*],[*40*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 3]
+)
+
+=== Consuntivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese], [-], [-], [8], [-], [-], [-], [8]),
+    ([Edis Hodja], [-], [4], [-], [-], [-], [-], [4]),
+    ([Filippo Zonta Rocha], [-], [-], [-], [-], [-], [6#text(fill: green)[(-1)]], [6]),
+    ([Giovanni Angelo Marco Bronte], [5#text(fill: green)[(-1)]], [-], [], [-], [-], [-], [5]),
+    ([Ines Iadadi], [-], [-], [8], [-], [-], [-], [8]),
+    ([Leonardo Lorenzin], [-], [-], [-], [-], [-], [6#text(fill: green)[(-1)]], [6]),
+    (table.cell(align: center, fill: luma(220))[*Totale*], [*5*], [*4*], [*16*], [*0*], [*0*], [*12*], [*37*]),
+  )),
+  caption: [Consuntivo ore per membro - Sprint 3],
+)
+
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [5], [ 150€], [45], [1350€],
+    [Amministratore], [20], [4], [80€], [36], [720€],
+    [Analista], [25], [16 ], [400€], [25], [625€],
+    [Progettista], [25], [0], [   0€], [96], [2400€],
+    [Programmatore], [15], [0], [   0€], [108], [1620€],
+    [Verificatore], [15], [12], [ 180€], [100], [1500€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*37*], [*810€*], [*410*], [*8215€*], 
+  )
+]
+
+=== Rischi incontrati 
+
+
+=== Retrospettiva
+
+
+==== *Criticità emerse*
