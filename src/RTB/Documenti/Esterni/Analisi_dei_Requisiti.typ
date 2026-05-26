@@ -32,7 +32,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(3em)
-  #text(size: 20pt)[*Versione 0.4.0*]
+  #text(size: 20pt)[*Versione 0.5.0*]
 ]
 
 #pagebreak()
@@ -53,6 +53,7 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
 
+    [0.5.0], [2026/05/26], [Leonardo Lorenzin], [], [Aggiunta sezione 4 Requisiti],
     [0.4.0], [2026/05/22], [Leonardo Lorenzin], [], [Integrazione casi d'uso: da UC-36 a UC-43 ],
     [0.3.0], [2026/05/20], [Leonardo Lorenzin], [], [Aggiornamento sezioni e correzione refusi],
     [0.2.2], [2026/05/15], [Ines Iadadi], [Leonardo Lorenzin], [Integrazione casi d'uso: da UC-28 a UC-35],
@@ -2145,4 +2146,363 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenari alternativi:*
   - *4a.* L'utente annulla l'eliminazione.
 
+#pagebreak()
+#set heading(numbering: "1.1.")
+= Requisiti
 
+In questa sezione vengono presentati e catalogati i requisiti emersi dall'analisi dei casi d'uso, dallo studio approfondito del capitolato d'appalto e del dominio tecnologico di riferimento, nonché dalle indicazioni e dai vincoli concordati durante i frequenti incontri di confronto con l'azienda proponente.
+
+== Requisiti Funzionali
+
+I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti e le specifiche azioni che il sistema software deve essere in grado di eseguire in risposta a determinati input, eventi o stati della sessione utente. Al fine di garantire una corretta pianificazione delle attività di sviluppo, essi sono stati classificati in base alla loro priorità:
+
+- *Obbligatori (RF-Ob):* requisiti fondamentali e imprescindibili, la cui implementazione è strettamente necessaria per soddisfare i bisogni primari del core business aziendale espressi dalla proponente;
+- *Desiderabili (RF-D):* requisiti che arricchiscono il sistema introducendo funzionalità a valore aggiunto per l'utente, non strettamente bloccanti ma importanti per la fluidità del flusso operativo;
+- *Opzionali (RF-Op):* requisiti che estendono la piattaforma con funzionalità ausiliarie e di raffinamento, gradite ma non essenziali ai fini della validazione dell'applicazione.
+
+=== Requisiti Funzionali Obbligatori
+
+#table(
+  columns: (1.2fr, 3fr, 1fr),
+  align: (center, left, center),
+  stroke: 0.5pt + luma(150),
+  fill: (x, y) => if y == 0 { luma(230) } else { none },
+  [*Codice*], [*Descrizione*], [*Fonti*],
+
+  // --- AREA GESTIONE DISPOSITIVI (UC-1 a UC-11) ---
+  [RF-Ob01], [Il sistema deve permettere l'inserimento di un nuovo dispositivo all'interno della piattaforma.], [UC-1],
+  [RF-Ob02], [Il sistema deve permettere l'importazione di un dispositivo tramite un file di configurazione in formato JSON o CSV.], [UC-2],
+  [RF-Ob03], [Il sistema deve verificare la validità strutturale e la conformità del file di configurazione caricato.], [UC-2],
+  [RF-Ob04], [Il sistema deve bloccare l'importazione e mostrare un messaggio di errore se il file ha un formato non valido.], [UC-3],
+  [RF-Ob05], [Il sistema deve permettere la creazione manuale di un nuovo dispositivo.], [UC-4],
+  [RF-Ob06], [Il sistema deve richiedere l'inserimento dei dati identificativi del dispositivo durante la creazione manuale.], [UC-4.1],
+  [RF-Ob07], [Il sistema deve permettere l'inserimento del nome identificativo del dispositivo.], [UC-4.1.1],
+  [RF-Ob08], [Il sistema deve permettere l'inserimento del sistema operativo del dispositivo.], [UC-4.1.2],
+  [RF-Ob09], [Il sistema deve permettere l'inserimento di una descrizione testuale del dispositivo.], [UC-4.1.3],
+  [RF-Ob10], [Il sistema deve validare i dati inseriti nei form e mostrare un errore in caso di campi vuoti o non conformi.], [UC-5],
+  [RF-Ob11], [Il sistema deve permettere la visualizzazione delle informazioni e dei dati relativi al dispositivo.], [UC-7],
+  [RF-Ob12], [Il sistema deve mostrare in dettaglio il nome del dispositivo registrato.], [UC-7.1],
+  [RF-Ob13], [Il sistema deve mostrare in dettaglio il sistema operativo del dispositivo registrato.], [UC-7.2],
+  [RF-Ob14], [Il sistema deve mostrare in dettaglio la descrizione del dispositivo registrato.], [UC-7.3],
+  [RF-Ob15], [Il sistema deve calcolare e mostrare lo stato aggregato di valutazione del dispositivo (non valutato, PASS, FAIL).], [UC-7.4],
+  [RF-Ob16], [Il sistema deve permettere la modifica delle informazioni anagrafiche di un dispositivo esistente.], [UC-8],
+  [RF-Ob17], [Il sistema deve consentire la modifica del nome del dispositivo.], [UC-8.1],
+  [RF-Ob18], [Il sistema deve consentire la modifica del sistema operativo del dispositivo.], [UC-8.2],
+  [RF-Ob19], [Il sistema deve consentire la modifica della descrizione del dispositivo.], [UC-8.3],
+  [RF-Ob20], [Il sistema deve permettere l'esportazione di tutti i dati di un dispositivo in formato JSON o CSV.], [UC-10],
+  [RF-Ob21], [Il sistema deve permettere l'eliminazione definitiva di un dispositivo dal sistema.], [UC-11],
+  [RF-Ob22], [Il sistema deve consentire l'eliminazione diretta di un dispositivo senza effettuare il backup dei dati.], [UC-11.1],
+  [RF-Ob23], [Il sistema deve consentire l'eliminazione del dispositivo previa esportazione automatica di backup dei dati.], [UC-11.2],
+
+  // --- AREA GESTIONE ASSET (UC-12 a UC-18) ---
+  [RF-Ob24], [Il sistema deve permettere l'inserimento di un nuovo asset all'interno di un dispositivo.], [UC-12],
+  [RF-Ob25], [Il sistema deve richiedere la compilazione dei dati dell'asset nel form di creazione.], [UC-12.1],
+  [RF-Ob26], [Il sistema deve permettere l'inserimento del nome dell'asset nel form di creazione.], [UC-12.1.1],
+  [RF-Ob27], [Il sistema deve permettere la selezione del tipo di asset tra Network, Security, Privacy e Financial.], [UC-12.1.2],
+  [RF-Ob28], [Il sistema deve permettere l'inserimento della descrizione dell'asset nel form di creazione.], [UC-12.1.3],
+  [RF-Ob29], [Il sistema deve permettere di impostare il livello di sensibilità dell'asset (SI o NO).], [UC-12.1.4],
+  [RF-Ob30], [Il sistema deve permettere la visualizzazione della lista degli asset associati ad un determinato dispositivo.], [UC-14],
+  [RF-Ob31], [Il sistema deve mostrare le informazioni essenziali del singolo asset all'interno della lista.], [UC-14.1],
+  [RF-Ob32], [Il sistema deve mostrare il nome del singolo asset all'interno della lista.], [UC-14.1.1],
+  [RF-Ob33], [Il sistema deve mostrare il tipo del singolo asset all'interno della lista.], [UC-14.1.2],
+  [RF-Ob34], [Il sistema deve mostrare lo stato di valutazione del singolo asset all'interno della lista.], [UC-14.1.3],
+  [RF-Ob35], [Il sistema deve permettere la visualizzazione in dettaglio di tutte le informazioni di un singolo asset selezionato.], [UC-15],
+  [RF-Ob36], [Il sistema deve mostrare nel dettaglio il nome dell'asset selezionato.], [UC-15.1],
+  [RF-Ob37], [Il sistema deve mostrare nel dettaglio il tipo dell'asset selezionato.], [UC-15.2],
+  [RF-Ob38], [Il sistema deve mostrare nel dettaglio la descrizione dell'asset selezionato.], [UC-15.3],
+  [RF-Ob39], [Il sistema deve mostrare nel dettaglio il livello di sensibilità dell'asset selezionato.], [UC-15.4],
+  [RF-Ob40], [Il sistema deve mostrare lo stato complessivo di valutazione dell'asset selezionato.], [UC-15.5],
+  [RF-Ob41], [Il sistema deve mostrare la lista dei requisiti (ACM e AUM) da valutare associati all'asset.], [UC-15.6],
+  [RF-Ob42], [Il sistema deve mostrare il codice identificativo e lo stato di valutazione di ogni requisito nella lista.], [UC-15.6.1],
+  [RF-Ob43], [Il sistema deve permettere la modifica delle informazioni di un asset esistente.], [UC-16],
+  [RF-Ob44], [Il sistema deve consentire la modifica del nome dell'asset.], [UC-16.1],
+  [RF-Ob45], [Il sistema deve consentire la modifica del tipo dell'asset tramite opzioni predefinite.], [UC-16.2],
+  [RF-Ob46], [Il sistema deve consentire la modifica della descrizione dell'asset.], [UC-16.3],
+  [RF-Ob47], [Il sistema deve consentire la modifica della sensibilità dell'asset.], [UC-16.4],
+  [RF-Ob48], [Il sistema deve permettere l'eliminazione definitiva di un asset da un dispositivo.], [UC-18],
+
+  // --- AREA ESECUZIONE VALUTAZIONE (UC-19 a UC-29) ---
+  [RF-Ob49], [Il sistema deve permettere l'avvio di una sessione di valutazione di conformità per un dispositivo.], [UC-19],
+  [RF-Ob50], [Il sistema deve mostrare una dashboard di valutazione con il progresso degli asset completati.], [UC-19.1],
+  [RF-Ob51], [Il sistema deve consentire la selezione e l'avvio della valutazione dei requisiti di un singolo asset.], [UC-20],
+  [RF-Ob52], [Il sistema deve mostrare il codice e il nome del requisito selezionato prima dell'avvio dell'esecuzione del decision tree.], [UC-21],
+  [RF-Ob53], [Il sistema deve mostrare le dipendenze del requisito selezionato e il loro stato di valutazione prima dell'esecuzione.], [UC-21.1],
+  [RF-Ob54], [Il sistema deve guidare l'utente eseguendo il decision tree associato al requisito selezionato.], [UC-22],
+  [RF-Ob55], [Il sistema deve mostrare il codice univoco e il testo della domanda del nodo corrente dell'albero.], [UC-22.1],
+  [RF-Ob56], [Il sistema deve registrare la risposta dell'utente avanzandone il percorso sul grafo.], [UC-22.2],
+  [RF-Ob57], [Il sistema deve gestire la risposta affermativa ("Sì") spostando il flusso sul relativo ramo.], [UC-22.2.1],
+  [RF-Ob58], [Il sistema deve gestire la risposta negativa ("No") spostando il flusso sul relativo ramo.], [UC-22.2.2],
+  [RF-Ob59], [Il sistema deve visualizzare a schermo il grafo completo del decision tree durante l'esecuzione.], [UC-22.4],
+  [RF-Ob60], [Il sistema deve evidenziare graficamente nel grafo il nodo corrente e il percorso già intrapreso.], [UC-22.4],
+  [RF-Ob61], [Il sistema deve mostrare un nodo foglia al termine del percorso con l'esito (PASS, FAIL, NOT APPLICABLE).], [UC-23],
+  [RF-Ob62], [Il sistema deve mostrare la giustificazione testuale del risultato in base alle risposte date.], [UC-23],
+  [RF-Ob63], [Il sistema deve generare un file JSON contenente lo stato della sessione di valutazione per il download.], [UC-25],
+  [RF-Ob64], [Il sistema deve permettere il caricamento di un file di sessione per riprendere un test interrotto.], [UC-26],
+  [RF-Ob65], [Il sistema deve mostrare lo stato di avanzamento in tempo reale (numero asset e requisiti completati).], [UC-27],
+  [RF-Ob66], [Il sistema deve mostrare una schermata finale con il riepilogo complessivo di tutti gli esiti del test.], [UC-28],
+  [RF-Ob67], [Il sistema deve mostrare per ogni asset la lista dei requisiti completati e il percorso logico seguito.], [UC-28.1.1],
+  [RF-Ob68], [Il sistema deve mostrare la sequenza ordinata di domande e risposte fornite per un requisito completato.], [UC-28.1.1.1],
+  [RF-Ob69], [Il sistema deve esportare il report di conformità finale raccogliendo esiti e percorsi logici.], [UC-29],
+  [RF-Ob70], [Il sistema deve consentire il download del report di conformità finale in formato PDF.], [UC-29.1],
+  [RF-Ob71], [Il sistema deve consentire il download del report di conformità finale in formato JSON.], [UC-29.2],
+  [RF-Ob72], [Il sistema deve consentire il download del report di conformità finale in formato CSV.], [UC-29.3],
+
+  // --- AREA GESTIONE DECISION TREE (UC-30 a UC-43) ---
+  [RF-Ob73], [Il sistema deve mostrare l'elenco dei decision tree disponibili memorizzati nel backend.], [UC-30],
+  [RF-Ob74], [Il sistema deve mostrare l'ID e il nome del requisito per ogni decision tree in elenco.], [UC-30.1],
+  [RF-Ob75], [Il sistema deve mostrare le dipendenze di ogni decision tree nell'elenco.], [UC-30.1.1],
+  [RF-Ob76], [Il sistema deve permettere la modifica strutturale di un grafo decision tree esistente.], [UC-31],
+  [RF-Ob77], [Il sistema deve permettere l'aggiunta di un nuovo nodo all'interno di un decision tree.], [UC-32],
+  [RF-Ob78], [Il sistema deve permettere l'inserimento di un codice univoco per il nuovo nodo.], [UC-32.1],
+  [RF-Ob79], [Il sistema deve permettere l'inserimento del testo della domanda del nuovo nodo.], [UC-32.2],
+  [RF-Ob80], [Il sistema deve permettere l'eliminazione di un nodo esistente da un decision tree.], [UC-33],
+  [RF-Ob81], [Il sistema deve permettere la modifica della destinazione di un collegamento tra nodi (Sì/No).], [UC-34],
+  [RF-Ob82], [Il sistema deve impedire la creazione di collegamenti duplicati mostrando una notifica di errore.], [UC-35],
+  [RF-Ob83], [Il sistema deve validare la struttura dell'albero modificato secondo i vincoli di consistenza predefiniti.], [UC-36],
+  [RF-Ob84], [Il sistema deve impedire il salvataggio e mostrare un errore se l'albero non è binario o mancano foglie PASS/FAIL.], [UC-36],
+  [RF-Ob85], [Il sistema deve esportare localmente un file di un decision tree in formato JSON o CSV.], [UC-38],
+  [RF-Ob86], [Il sistema deve impedire l'eliminazione del nodo radice di un decision tree mostrando un errore.], [UC-39],
+  [RF-Ob87], [Il sistema deve permettere l'importazione e la validazione strutturale di un nuovo decision tree da file.], [UC-42],
+  [RF-Ob88], [Il sistema deve consentire l'eliminazione definitiva di un decision tree dal backend.], [UC-43],
+)
+
+#pagebreak()
+
+=== Requisiti Funzionali Desiderabili
+
+#table(
+  columns: (1.2fr, 3fr, 1fr),
+  align: (center, left, center),
+  stroke: 0.5pt + luma(150),
+  fill: (x, y) => if y == 0 { luma(230) } else { none },
+  [*Codice*], [*Descrizione*], [*Fonti*],
+
+  [RF-D01], [Il sistema deve permettere l'annullamento della procedura di inserimento di un dispositivo, ripristinando lo stato precedente.], [UC-6],
+  [RF-D02], [Il sistema deve permettere l'annullamento della procedura di modifica di un dispositivo, scartando i dati inseriti e mantenendo invariati quelli preesistenti.], [UC-9],
+  [RF-D03], [Il sistema deve permettere l'annullamento della procedura di eliminazione di un dispositivo durante la fase di richiesta di conferma.], [UC-11],
+  [RF-D04], [Il sistema deve permettere l'annullamento della procedura di inserimento di un asset, ripristinando lo stato precedente.], [UC-13],
+  [RF-D05], [Il sistema deve consentire il filtraggio dinamico e l'ordinamento della lista degli asset associati ad un dispositivo.], [UC-14],
+  [RF-D06], [Il sistema deve permettere l'annullamento della procedura di modifica di un asset, scartando le modifiche non salvate.], [UC-17],
+  [RF-D07], [Il sistema deve permettere l'annullamento della procedura di eliminazione di un asset durante la fase di richiesta di conferma.], [UC-18],
+  [RF-D08], [Il sistema deve permettere l'annullamento dell'ultima risposta fornita nel decision tree, consentendo il ritorno al nodo precedente.], [UC-22.3],
+  [RF-D09], [Il sistema deve permettere il salvataggio intermedio dello stato del test continuando la valutazione senza forzare la chiusura della sessione.], [UC-25.2],
+  [RF-D10], [Il sistema deve permettere la riesecuzione dall'inizio di un decision tree per un requisito che ha già ricevuto un esito di conformità.], [UC-28.1.1.2],
+  [RF-D11], [Il sistema deve ripristinare il vecchio esito di conformità di un requisito se l'utente esce anticipatamente dalla sua riesecuzione.], [UC-28.1.1.2],
+  [RF-D12], [Il sistema deve permettere l'annullamento delle modifiche effettuate su un decision tree, ripristinando lo stato iniziale del grafo.], [UC-37],
+)
+
+#pagebreak()
+
+=== Requisiti Funzionali Opzionali
+
+#table(
+  columns: (1.2fr, 3fr, 1fr),
+  align: (center, left, center),
+  stroke: 0.5pt + luma(150),
+  fill: (x, y) => if y == 0 { luma(230) } else { none },
+  [*Codice*], [*Descrizione*], [*Fonti*],
+
+  [RF-Op01], [Il sistema deve mostrare la notifica dell'avvenuto salvataggio intermedio della sessione di valutazione.], [UC-25.2],
+  [RF-Op02], [Il sistema deve permettere l'aggiunta manuale di una dipendenza tra requisiti all'interno di un decision tree.], [UC-40],
+  [RF-Op03], [Il sistema deve permettere la rimozione di una dipendenza tra requisiti da un decision tree.], [UC-41],
+)
+
+== Requisiti di Qualità
+
+I requisiti di qualità definiscono i criteri di validazione, gli standard metrici e gli obblighi di verifica che il team e il prodotto software devono soddisfare in conformità con i criteri di completamento e consegna stabiliti nel capitolato d'appalto e nei documenti di qualifica interni. In linea con l'approccio dei documenti di riferimento, tutti i requisiti di qualità individuati sono da considerarsi strettamente obbligatori.
+
+#table(
+  columns: (1.2fr, 3fr, 1.2fr),
+  align: (center, left, center),
+  stroke: 0.5pt + luma(150),
+  fill: (x, y) => if y == 0 { luma(230) } else { none },
+  [*Codice*], [*Descrizione*], [*Fonti*],
+
+  [RQ-Ob01], [Il codice sorgente e la gestione dei processi di sviluppo devono rispettare tassativamente le convenzioni e gli standard definiti nelle Norme di Progetto.], [Norme di Progetto],
+  [RQ-Ob02], [Il sistema e i deliverable di progetto devono essere conformi alle metriche, agli indici e agli obiettivi di verifica stabiliti all'interno del Piano di Qualifica.], [Piano di Qualifica],
+  [RQ-Ob03], [Il prodotto software deve essere corredato da una suite di test automatizzati (di Unità, Integrazione, Sistema e Regressione) per verificarne il corretto funzionamento complessivo.], [Capitolato C1, Piano di Qualifica],
+  [RQ-Ob04], [Il prodotto software deve superare i Test di Accettazione finali in sede di revisione per dimostrare la piena conformità alle richieste della proponente.], [Capitolato C1],
+  [RQ-Ob05], [Al sistema software deve essere allegato un Manuale Utente esaustivo che descriva in modo chiaro tutte le funzionalità dell'applicazione per un utente non tecnico.], [Capitolato C1],
+  [RQ-Ob06], [Tutta la documentazione di progetto e il codice sorgente del prodotto applicativo devono essere interamente documentati, versionati e ospitati sulla repository ufficiale GitHub del gruppo.], [Capitolato C1],
+  [RQ-Ob07], [La gestione del ciclo di vita del progetto e l'organizzazione delle attività del team devono adottare un approccio Agile, garantendo iterazioni regolari e flessibilità.], [Norme di Progetto],
+)
+
+== Requisiti di Vincolo
+
+I requisiti di vincolo definiscono le restrizioni tecniche, le piattaforme e gli standard implementativi che circoscrivono le scelte progettuali del sistema. Essi si suddividono in obbligatori, se imposti espressamente dal capitolato d'appalto, e opzionali, se derivanti da accordi successivi o preferenze tecnologiche del team.
+
+=== Requisiti di Vincolo Obbligatori
+
+#table(
+  columns: (1.2fr, 3fr, 1.2fr),
+  align: (center, left, center),
+  stroke: 0.5pt + luma(150),
+  fill: (x, y) => if y == 0 { luma(230) } else { none },
+  [*Codice*], [*Descrizione*], [*Fonti*],
+
+  [RV-Ob01], [La logica di backend deve essere sviluppata in linguaggio Python 3.x e la gestione dei relativi pacchetti software deve essere strutturata tramite Python Packaging utilizzando il file pyproject.toml.], [Capitolato C1],
+  [RV-Ob02], [L'applicazione deve essere distribuita e fruibile sotto forma di applicazione web locale accessibile all'indirizzo localhost, garantendo la piena compatibilità operativa sui principali browser moderni (Google Chrome, Mozilla Firefox, Apple Safari, Microsoft Edge).], [Capitolato C1],
+)
+
+=== Requisiti di Vincolo Opzionali
+
+#table(
+  columns: (1.2fr, 3fr, 1.2fr),
+  align: (center, left, center),
+  stroke: 0.5pt + luma(150),
+  fill: (x, y) => if y == 0 { luma(230) } else { none },
+  [*Codice*], [*Descrizione*], [*Fonti*],
+
+  [RV-Op01], [L'interfaccia utente (frontend) dell'applicazione web dovrebbe essere realizzata utilizzando la libreria React.], [Verbale Esterno],
+  [RV-Op02], [Il sistema dovrebbe utilizzare Git come software di controllo di versione distribuito per la gestione del codice sorgente.], [Verbale Esterno],
+)
+
+#pagebreak()
+
+== Tracciamento dei Requisiti e Riepilogo
+
+In questa sezione viene fornito un quadro di tracciamento bidirezionale per associare in modo univoco ciascun requisito funzionale ai casi d'uso che lo hanno generato, seguito da un riepilogo statistico complessivo delle componenti individuate nell'analisi.
+
+=== Tabella di Tracciamento Requisiti - Casi d'Uso
+
+#table(
+  columns: (1.5fr, 2fr),
+  align: (center, center),
+  stroke: 0.5pt + luma(150),
+  fill: (x, y) => if y == 0 { luma(230) } else { none },
+  [*Codice Requisito*], [*Casi d'Uso Associati*],
+
+  [RF-Ob01], [UC-1],
+  [RF-Ob02], [UC-2],
+  [RF-Ob03], [UC-2],
+  [RF-Ob04], [UC-3],
+  [RF-Ob05], [UC-4],
+  [RF-Ob06], [UC-4.1],
+  [RF-Ob07], [UC-4.1.1],
+  [RF-Ob08], [UC-4.1.2],
+  [RF-Ob09], [UC-4.1.3],
+  [RF-Ob10], [UC-5],
+  [RF-Ob11], [UC-7],
+  [RF-Ob12], [UC-7.1],
+  [RF-Ob13], [UC-7.2],
+  [RF-Ob14], [UC-7.3],
+  [RF-Ob15], [UC-7.4],
+  [RF-Ob16], [UC-8],
+  [RF-Ob17], [UC-8.1],
+  [RF-Ob18], [UC-8.2],
+  [RF-Ob19], [UC-8.3],
+  [RF-Ob20], [UC-10],
+  [RF-Ob21], [UC-11],
+  [RF-Ob22], [UC-11.1],
+  [RF-Ob23], [UC-11.2],
+  [RF-Ob24], [UC-12],
+  [RF-Ob25], [UC-12.1],
+  [RF-Ob26], [UC-12.1.1],
+  [RF-Ob27], [UC-12.1.2],
+  [RF-Ob28], [UC-12.1.3],
+  [RF-Ob29], [UC-12.1.4],
+  [RF-Ob30], [UC-14],
+  [RF-Ob31], [UC-14.1],
+  [RF-Ob32], [UC-14.1.1],
+  [RF-Ob33], [UC-14.1.2],
+  [RF-Ob34], [UC-14.1.3],
+  [RF-Ob35], [UC-15],
+  [RF-Ob36], [UC-15.1],
+  [RF-Ob37], [UC-15.2],
+  [RF-Ob38], [UC-15.3],
+  [RF-Ob39], [UC-15.4],
+  [RF-Ob40], [UC-15.5],
+  [RF-Ob41], [UC-15.6],
+  [RF-Ob42], [UC-15.6.1],
+  [RF-Ob43], [UC-16],
+  [RF-Ob44], [UC-16.1],
+  [RF-Ob45], [UC-16.2],
+  [RF-Ob46], [UC-16.3],
+  [RF-Ob47], [UC-16.4],
+  [RF-Ob48], [UC-18],
+  [RF-Ob49], [UC-19],
+  [RF-Ob50], [UC-19.1],
+  [RF-Ob51], [UC-20],
+  [RF-Ob52], [UC-21],
+  [RF-Ob53], [UC-21.1],
+  [RF-Ob54], [UC-22],
+  [RF-Ob55], [UC-22.1],
+  [RF-Ob56], [UC-22.2],
+  [RF-Ob57], [UC-22.2.1],
+  [RF-Ob58], [UC-22.2.2],
+  [RF-Ob59], [UC-22.4],
+  [RF-Ob60], [UC-22.4],
+  [RF-Ob61], [UC-23],
+  [RF-Ob62], [UC-23],
+  [RF-Ob63], [UC-25],
+  [RF-Ob64], [UC-26],
+  [RF-Ob65], [UC-27],
+  [RF-Ob66], [UC-28],
+  [RF-Ob67], [UC-28.1.1],
+  [RF-Ob68], [UC-28.1.1.1],
+  [RF-Ob69], [UC-29],
+  [RF-Ob70], [UC-29.1],
+  [RF-Ob71], [UC-29.2],
+  [RF-Ob72], [UC-29.3],
+  [RF-Ob73], [UC-30],
+  [RF-Ob74], [UC-30.1],
+  [RF-Ob75], [UC-30.1.1],
+  [RF-Ob76], [UC-31],
+  [RF-Ob77], [UC-32],
+  [RF-Ob78], [UC-32.1],
+  [RF-Ob79], [UC-32.2],
+  [RF-Ob80], [UC-33],
+  [RF-Ob81], [UC-34],
+  [RF-Ob82], [UC-35],
+  [RF-Ob83], [UC-36],
+  [RF-Ob84], [UC-36],
+  [RF-Ob85], [UC-38],
+  [RF-Ob86], [UC-39],
+  [RF-Ob87], [UC-42],
+  [RF-Ob88], [UC-43],
+
+  [RF-D01], [UC-6],
+  [RF-D02], [UC-9],
+  [RF-D03], [UC-11],
+  [RF-D04], [UC-13],
+  [RF-D05], [UC-14],
+  [RF-D06], [UC-17],
+  [RF-D07], [UC-18],
+  [RF-D08], [UC-22.3],
+  [RF-D09], [UC-25.2],
+  [RF-D10], [UC-28.1.1.2],
+  [RF-D11], [UC-28.1.1.2],
+  [RF-D12], [UC-37],
+
+  [RF-Op01], [UC-25.2],
+  [RF-Op02], [UC-40],
+  [RF-Op03], [UC-41],
+)
+
+#pagebreak()
+
+=== Riepilogo Statistico dei Requisiti
+
+La seguente tabella riassume quantitativamente i requisiti individuati all'interno del presente documento, suddividendoli per tipologia e grado di priorità assegnato.
+
+#align(center)[
+  #table(
+    columns: (2fr, 1.5fr, 1.5fr, 1.5fr, 1.5fr),
+    align: (left, center, center, center, center),
+    stroke: 0.5pt + luma(150),
+    fill: (x, y) => if y == 0 { luma(230) } else if y == 4 { luma(245) } else { none },
+    [*Tipologia*], [*Obbligatori*], [*Desiderabili*], [*Opzionali*], [*Totali*],
+
+    [Funzionali (RF)], [88], [12], [3], [103],
+    [Qualità (RQ)], [7], [0], [0], [7],
+    [Vincolo (RV)], [2], [0], [2], [4],
+
+    [*Totali*], [*97*], [*12*], [*5*], [*114*],
+  )
+]
+
+=== Conclusioni
+
+Il quadro dei requisiti delineato nel presente documento costituisce la sintesi formale e analitica delle necessità operative espresse nel capitolato d'appalto, progressivamente maturate e convalidate attraverso le sessioni di confronto bilaterale condotte con i rappresentanti dell'azienda proponente.
+
+In piena coerenza con l'approccio incrementale e iterativo adottato dal gruppo *Coderius*, questa specifica non deve essere intesa come un vincolo statico e definitivo, bensì come una linea guida dinamica e in continua evoluzione. Durante le successive fasi del ciclo di vita del software, l'elenco e la granularità dei requisiti saranno soggetti a costanti attività di raffinamento, tracciamento e potenziale espansione. Tale processo di revisione continua consentirà di recepire tempestivamente i feedback della proponente, garantendo la massima aderenza alle aspettative e innalzando gli standard di stabilità e qualità ingegneristica dell'applicazione finale.
