@@ -52,7 +52,7 @@
         *Luogo:* #luogo ]
     )
     #v(4em)
-    #text(size: 20pt)[*Versione 0.1.0*]
+    #text(size: 20pt)[*Versione 0.1.1*]
   ]
   pagebreak()
 
@@ -73,6 +73,7 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+      [0.1.1], [2026/05/26], [Edis Hodja], [], [Correzione codici e decisione di riferimento],
       [0.1.0], [2026/05/18], [Filippo Zonta Rocha], [Giovanni Bronte], [Prima stesura del verbale],
       // aggiungi nuova riga quando viene aggiornato
     )
@@ -146,12 +147,12 @@ Il team si è confrontato sulle ore usate nello sprint 3 per il progetto e la qu
     columns: (auto, 1fr),
     align: (center, left),
     [*Codice*], [*Descrizione*],
-    [VE-4.1], [Portare a termini l'Analisi dei Requisiti],
-    [VE-4.2], [Proseguire con la stesura del Piano di qualifica],
-    [VE-4.3], [Realizzazione Mock-up dell'applicazione],
-    [VE-4.4], [Pianificare presentazione RTB],
-    [VE-4.5], [Rotazione dei ruoli],
-    [VE-4.6], [Discussione delle ore lavorate]
+    [VI-6.1], [Portare a termini l'Analisi dei Requisiti],
+    [VI-6.2], [Proseguire con la stesura del Piano di qualifica],
+    [VI-6.3], [Realizzazione Mock-up dell'applicazione],
+    [VI-6.4], [Pianificare presentazione RTB],
+    [VI-6.5], [Rotazione dei ruoli],
+    [VI-6.6], [Discussione delle ore lavorate]
   )
 ]
 == Ordine del Giorno prossimo incontro
@@ -166,10 +167,10 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-5.1], [Conclusione del documento Analisi dei requisiti], [Filippo Zonta Rocha, \ Leonardo Lorenzin], [VE-4.1],
-    [TD-5.2], [Continuazione del documento Piano di qualifica], [Alberto Canavese], [VE-4.2],
-    [TD-5.3], [Realizzazione Mock-up dell'applicazione], [Ines Iadadi], [VE-4.3],
-    [TD-5.4], [Pianificazione presentazione RTB], [Team], [VE-4.4]
+    [TD-6.1], [Conclusione del documento Analisi dei requisiti], [Filippo Zonta Rocha, \ Leonardo Lorenzin], [VI-6.1],
+    [TD-6.2], [Continuazione del documento Piano di qualifica], [Alberto Canavese], [VI-6.2],
+    [TD-6.3], [Realizzazione Mock-up dell'applicazione], [Ines Iadadi], [VI-6.3],
+    [TD-6.4], [Pianificazione presentazione RTB], [Team], [VI-6.4]
   )
 ]
 
