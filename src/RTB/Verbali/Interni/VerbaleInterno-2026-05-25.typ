@@ -115,34 +115,29 @@
 + Discussione documentazione e organizzazione interna.
 + Pianificazione attività successive.
 
-
 #v(0.5cm)
-
 
 = Svolgimento della Riunione
 
-== Discussione sull'Analisi dei requisiti 
-Sono stati analizzati i requisiti verificandone lo stato attuale, le dipendenze con le altre attività e i relativi grafi di tracciabilità. Il documento di trova ai dettagli terminali di redazione.
+== Discussione sull'Analisi dei Requisiti 
+Il team ha discusso alcuni punti dell’Analisi dei Requisiti per chiarire i dubbi emersi durante la stesura del documento. Il documento si trova attualmente nelle fasi finali di redazione, anche se permane ancora un confronto interno riguardo alla rappresentazione e all’organizzazione dei diagrammi UML.
 
-== Discussione sulle stime e l'automazione per il Piano di qualifica
-Sono state discusse le stime per le attività del piano di qualifica, con particolare attenzione all'automazione dei processi di testing e verifica. Si è deciso di testare strumenti di automazione per migliorare l'efficienza e la qualità delle attività di qualifica. Ne prosegue la redazione del documento.
+== Discussione sulle stime e l'automazione per il Piano di Qualifica
+Sono stati discussi diversi aspetti relativi al Piano di Qualifica, con particolare attenzione all’automazione dei processi di testing e di verifica della documentazione. Il team ha discusso sull’adozione di strumenti di automazione finalizzati non solo al supporto delle attività di verifica, ma anche alla raccolta di metriche e valori teorici utili per stimare l’efficienza dei processi di sviluppo, qualità e validazione dei documenti. Prosegue nel frattempo la redazione del documento.
 
-== Aggiornare le Norme di progetto
-Sono state discusse le modifiche da apportare alle Norme di Progetto, nello specifico dato l'avanzamento del documento del piano di qualifica, si è reso opportuno nello speicifico aggiornare la sezione della nomenclatura di progetto, in modo da allinearla con le nuove attività e processi introdotti.
+== Aggiornamento delle Norme di Progetto
+Il team ha discusso e revisionato diverse sezioni delle Norme di Progetto al fine di mantenerle coerenti con l’evoluzione dell’organizzazione interna e della documentazione prodotta. In particolare, in seguito all’avanzamento dell’Analisi dei Requisiti, è stato accordato l'aggiornamento della sezione relativa alla nomenclatura e alla classificazione dei requisiti, definendo in modo più chiaro la distinzione tra requisiti funzionali obbligatori (RF-Ob), desiderabili (RF-D) e opzionali (RF-Op).
 
-== Aggiornarmento Sprint nel Piano di progetto
-Vista che si sta avvicinando la fine del 4 Sprint, è stato deciso di aggiornare il piano di progetto con le attività previste per il 5° Sprint, in modo da avere una visione chiara delle prossime fasi di lavoro e garantire una pianificazione efficace.
-
-== Approvazione mail di contatto con il professore Cardin
-È stata approvata la bozza di email di contatto con il professore Cardin per avere feedback diretto riguardo la qualità dell' Analisi dei Requisiti in modo da avere il documento pronto per la presentazione del RTB.
+== Approvazione mail per contattare il professor Cardin
+Il team ha approvato la bozza dell’email da inviare al professor Cardin al fine di richiedere un riscontro riguardo alla correttezza e alla rappresentazione dei diagrammi UML presenti nell’Analisi dei Requisiti. L’obiettivo è ottenere un feedback diretto prima della RTB, così da poter individuare ed eventualmente correggere tempestivamente possibili errori o incongruenze nel documento.
 
 == Diario di Bordo per 2026-05-29
-È stato discusso e scritto il contenuto per il diario di bordo da presentare nella prossima riunione del 2026-05-29.
+Il team ha discusso e definito gli aggiornamenti da apportare al Diario di Bordo relativo all’incontro del 2026-05-29, sulla base delle attività svolte nelle due settimane. Durante la discussione sono stati analizzati gli obiettivi raggiunti, le principali problematiche riscontrate nel corso della redazione della documentazione e dell’organizzazione interna del lavoro, nonché i possibili approcci per affrontarle.
 
+È stato inoltre svolto un confronto sui prossimi passi operativi del progetto, con particolare attenzione al completamento dei documenti in vista della RTB e al consolidamento dei diagrammi UML.
 
 #v(0.3cm)
 
-#pagebreak()
 
 = Conclusione e Decisioni Prese
 
@@ -151,18 +146,20 @@ Vista che si sta avvicinando la fine del 4 Sprint, è stato deciso di aggiornare
     columns: (auto, 1fr),
     align: (center, left),
     [*Codice*], [*Descrizione*],
-    [VE-7.1], [Portare a termine l'Analisi dei Requisiti],
-    [VE-7.2], [Proseguire con la stesura del Piano di qualifica],
-    [VE-7.3], [Aggiornare Norme di Progetto],
-    [VE-7.4], [Aggiornamento Piano di Progetto],
-    [VE-7.5], [Invio comunicazione via mail al Proff.  Cardin],
-    [VE-7.6], [Stesura Diario di Bordo]
+    [VI-7.1], [Completare il documeto relativo all'Analisi dei Requisiti],
+    [VI-7.2], [Proseguire con la stesura del Piano di Qualifica],
+    [VI-7.3], [Aggiornare alcune sezioni delle Norme di Progetto],
+    [VI-7.4], [Fissare un colloquio di confronto con il professor Cardin],
+    [VI-7.5], [Stesura del Diario di Bordo in data 2026-05-29]
   )
 ]
+
 == Ordine del Giorno prossimo incontro
-I seguenti punti saranno affrontati nella prossima riunione:
-+ Verifica dello stato dei task assegnati.
-+ Pianificazione delle attività successive.
+
+Nel prossimo incontro saranno affrontati i seguenti punti:
++ Verifica dello stato di avanzamento dei task assegnati e aggiornamento generale sullo stato individuale.
++ Pianificazione di una possibile data per la presentazione della RTB.
++ Discussione e brainstorming riguardo ai mock-up e al materiale dimostrativo da realizzare in vista della RTB.
 
 = TODO
 Elenco dei compiti assegnati ai membri del team in vista della prossima riunione.
@@ -171,12 +168,11 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-7.1], [Conclusione Analisi dei requisiti], [Leonardo Lorenzin], [VI-7.1],
-    [TD-7.2], [Continuazione Piano di Qualifica], [Alberto Canavese], [VI-7.2],
-    [TD-7.3], [Aggiornare Nomenclatura], [Giovanni Angelo Marco Bronte], [VI-7.3],
-    [TD-7.4], [Aggiornamento Piano di Progetto], [Edis Hodja], [VI-7.4],
-    [TD-7.5], [Invio comunicazione via mail al Proff. Cardin], [Team], [VI-7.5],
-    [TD-7.6], [Stesura Diario di Bordo], [Team], [VI-7.6],
+    [TD-7.1], [Conclusione degli ultimi UC e diagrammi UML dell'Analisi dei Requisiti], [Leonardo Lorenzin, \ Filippo Zonta Rocha], [VI-7.1],
+    [TD-7.2], [Continuazione del Piano di Qualifica], [Alberto Canavese], [VI-7.2],
+    [TD-7.3], [Aggiornarmento delle sezioni descrittive la nomenclatura presente nelle Norme di Progetto], [Alberto Canavese], [VI-7.3],
+    [TD-7.4], [Invio comunicazione via mail al professor Cardin per fissare un colloquio di confronto], [Edis Hodja], [VI-7.4],
+    [TD-7.5], [Stesura del Diario di Bordo per l'incontro in data 2026-05-29 ], [Team], [VI-7.5],
 
   )
 ]
