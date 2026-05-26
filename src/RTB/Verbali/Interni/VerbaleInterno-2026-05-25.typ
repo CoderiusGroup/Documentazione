@@ -49,7 +49,7 @@
         *Luogo:* #luogo ],
     )
     #v(4em)
-    #text(size: 20pt)[*Versione 0.0.2*]
+    #text(size: 20pt)[*Versione 1.0.0*]
   ]
   pagebreak()
 
@@ -70,8 +70,9 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.2.0], [2026/05/25], [Filippo Zonta Rocha], [], [Aggiornamento contenuto],
-      [0.1.0], [2026/05/25], [Filippo Zonta Rocha], [], [Prima stesura del verbale],
+      [1.0.0], [2026/05/26], [Giovanni Bronte], [], [Approvazione del verbale],
+      [0.2.0], [2026/05/25], [Filippo Zonta Rocha], [Giovanni Bronte], [Aggiornamento contenuto],
+      [0.1.0], [2026/05/25], [Filippo Zonta Rocha], [Giovanni Bronte], [Prima stesura del verbale],
     )
   ]
 
@@ -136,7 +137,7 @@ Vista che si sta avvicinando la fine del 4 Sprint, è stato deciso di aggiornare
 È stata approvata la bozza di email di contatto con il professore Cardin per avere feedback diretto riguardo la qualità dell' Analisi dei Requisiti in modo da avere il documento pronto per la presentazione del RTB.
 
 == Diario di Bordo per 2026-05-29
-Si è discusso il contenuto per il diario di bordo da presentare nella prossima call.
+È stato discusso e scritto il contenuto per il diario di bordo da presentare nella prossima riunione del 2026-05-29.
 
 
 #v(0.3cm)
@@ -150,12 +151,12 @@ Si è discusso il contenuto per il diario di bordo da presentare nella prossima 
     columns: (auto, 1fr),
     align: (center, left),
     [*Codice*], [*Descrizione*],
-    [VE-4.1], [Portare a termine l'Analisi dei Requisiti],
-    [VE-4.2], [Proseguire con la stesura del Piano di qualifica],
-    [VE-4.3], [Aggiornare Norme di Progetto],
-    [VE-4.4], [Aggiornamento Piano di Progetto],
-    [VE-4.5], [Invio comunicazione via mail al Proff.  Cardin],
-    [VE-4.6], [Stesura Diario di Bordo]
+    [VE-7.1], [Portare a termine l'Analisi dei Requisiti],
+    [VE-7.2], [Proseguire con la stesura del Piano di qualifica],
+    [VE-7.3], [Aggiornare Norme di Progetto],
+    [VE-7.4], [Aggiornamento Piano di Progetto],
+    [VE-7.5], [Invio comunicazione via mail al Proff.  Cardin],
+    [VE-7.6], [Stesura Diario di Bordo]
   )
 ]
 == Ordine del Giorno prossimo incontro
@@ -170,12 +171,12 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-1.1], [Conclusione Analisi dei requisiti], [Leonardo Lorenzin], [VI-1.1],
-    [TD-1.2], [Continuazione Piano di Qualifica], [Alberto Canavese], [VI-1.2],
-    [TD-1.3], [Aggiornare Nomenclatura], [Giovanni Angelo Marco Bronte], [VI-1.3],
-    [TD-1.4], [Aggiornamento Piano di Progetto], [Edis Hodja], [VI-1.4],
-    [TD-1.5], [Invio comunicazione via mail al Proff. Cardin], [Team], [VI-1.5],
-    [TD-1.6], [Stesura Diario di Bordo], [Team], [VI-1.6],
+    [TD-7.1], [Conclusione Analisi dei requisiti], [Leonardo Lorenzin], [VI-7.1],
+    [TD-7.2], [Continuazione Piano di Qualifica], [Alberto Canavese], [VI-7.2],
+    [TD-7.3], [Aggiornare Nomenclatura], [Giovanni Angelo Marco Bronte], [VI-7.3],
+    [TD-7.4], [Aggiornamento Piano di Progetto], [Edis Hodja], [VI-7.4],
+    [TD-7.5], [Invio comunicazione via mail al Proff. Cardin], [Team], [VI-7.5],
+    [TD-7.6], [Stesura Diario di Bordo], [Team], [VI-7.6],
 
   )
 ]
