@@ -49,7 +49,7 @@
         *Luogo:* #luogo ],
     )
     #v(4em)
-    #text(size: 20pt)[*Versione 0.0.1*]
+    #text(size: 20pt)[*Versione 0.0.2*]
   ]
   pagebreak()
 
@@ -70,6 +70,7 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+      [0.2.0], [2026/05/25], [Filippo Zonta Rocha], [], [Aggiornamento contenuto],
       [0.1.0], [2026/05/25], [Filippo Zonta Rocha], [], [Prima stesura del verbale],
     )
   ]
@@ -142,6 +143,21 @@ Si è discusso il contenuto per il diario di bordo da presentare nella prossima 
 
 #pagebreak()
 
+= Conclusione e Decisioni Prese
+
+#align(center)[
+  #table(
+    columns: (auto, 1fr),
+    align: (center, left),
+    [*Codice*], [*Descrizione*],
+    [VE-4.1], [Portare a termine l'Analisi dei Requisiti],
+    [VE-4.2], [Proseguire con la stesura del Piano di qualifica],
+    [VE-4.3], [Aggiornare Norme di Progetto],
+    [VE-4.4], [Aggiornamento Piano di Progetto],
+    [VE-4.5], [Invio comunicazione via mail al Proff.  Cardin],
+    [VE-4.6], [Stesura Diario di Bordo]
+  )
+]
 == Ordine del Giorno prossimo incontro
 I seguenti punti saranno affrontati nella prossima riunione:
 + Verifica dello stato dei task assegnati.
@@ -156,9 +172,9 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
     [TD-1.1], [Conclusione Analisi dei requisiti], [Leonardo Lorenzin], [VI-1.1],
     [TD-1.2], [Continuazione Piano di Qualifica], [Alberto Canavese], [VI-1.2],
-    [TD-1.3], [Aggiornare Nomenclatura di Progetto], [Giovanni Angelo Marco Bronte], [VI-1.3],
+    [TD-1.3], [Aggiornare Nomenclatura], [Giovanni Angelo Marco Bronte], [VI-1.3],
     [TD-1.4], [Aggiornamento Piano di Progetto], [Edis Hodja], [VI-1.4],
-    [TD-1.5], [Invio comunicazione via mail al Proff.  Cardin], [Team], [VI-1.5],
+    [TD-1.5], [Invio comunicazione via mail al Proff. Cardin], [Team], [VI-1.5],
     [TD-1.6], [Stesura Diario di Bordo], [Team], [VI-1.6],
 
   )
