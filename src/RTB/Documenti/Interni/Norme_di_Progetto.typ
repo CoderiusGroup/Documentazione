@@ -53,6 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.10.0], [2026/05/28], [Alberto Canavese], [], [Aggiunta della seguente sezione: 5.3.2.2],
     [0.9.0], [2026/05/15], [Edis Hodja], [], [Aggiunta delle seguenti sezioni: 5.1, 5.2, 5.3],
     [0.8.2], [2026/05/15], [Leonardo Lorenzin], [], [Aggiornamento contenuti e correzioni refusi],
     [0.8.1], [2026/05/13], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Aggiornamento contenuti e correzioni refusi],
@@ -390,7 +391,28 @@ UC-4.1: Inserimento nome dispositivo;\
 UC-4.2: Inserimento sistema operativo del dispositivo.
 
 ==== Nomenclatura Requisiti
-Per i requisiti la nomenclatura che viene usata è la seguente:
+Per i requisiti si utilizza la seguente nomenclatura:
+
+#align(center, text(1.2em)[
+  *R[Tipologia]-[Priorità][Codice]*
+])
+
+La dicitura ha questi significati:
+
+- *[Tipologia]*: indica il tipo di requisito:
+ - *F (Funzionale)*: descrive una funzionalità del sistema.
+ - *Q (Qualitativo)*: descrive una caratteristica qualitativa del sistema.
+ - *V (Vincolo)*: descrive un vincolo logico o normativo.
+- *[Priorità]*: indica l’ordine di importanza dell’implementazione:
+ - *Ob (Obbligatorio)*: requisito richiesto esplicitamente dalla proponente o necessario al funzionamento del sistema.
+ - *D (Desiderabile)*: requisito che aumenta il valore del prodotto, ma non è indispensabile.
+ - *Op (Opzionale)*: requisito da realizzare solo se il resto del lavoro è stato completato.
+- *[Codice]*: numero progressivo intero che, insieme alla tipologia, costituisce un identificativo univoco dei requisiti.
+
+*Esempio*:\
+*RF-Ob01*: Il sistema deve permettere l'inserimento di un nuovo dispositivo all'interno della piattaforma.\
+*RF-D03*: Il sistema deve permettere l'annullamento della procedura di eliminazione di un dispositivo durante la fase di richiesta di conferma.\
+*RQ-Ob07*: La gestione del ciclo di vita del progetto e l'organizzazione delle attività del team devono adottare un approccio Agile, garantendo iterazioni regolari e flessibilità.
 
 
 
@@ -528,7 +550,7 @@ Per la produzione di un documento il nostro gruppo opera nel seguente modo:
 #v(0.5em)
 Nel caso in cui i documenti necessitino di modifiche a causa di eventuali errori presenti all'interno del loro contenuto, il gruppo segue i seguenti passaggi:
 
-1. Creare un nuovo branch di lavoro dedicato per la correzione degli errori (es. `feature/norme-progetto-fix`).
+1. Creare un nuovo branch di lavoro dedicato per la correzione degli errori (es. `fix/norme-progetto`).
 2. Apportare le modifiche necessarie in locale.
 3. Integrare la tabella di versionamento dello specifico documento inserendo una nuova riga che spieghi l'intervento effettuato.
 4. Effettuare il push sul branch di lavoro.
