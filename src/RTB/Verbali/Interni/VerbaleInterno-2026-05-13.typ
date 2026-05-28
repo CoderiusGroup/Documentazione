@@ -52,7 +52,7 @@
         *Luogo:* #luogo ]
     )
     #v(4em)
-    #text(size: 20pt)[*Versione 1.0.0*]
+    #text(size: 20pt)[*Versione 1.0.1*]
   ]
   pagebreak()
 
@@ -73,6 +73,7 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+      [1.0.1], [2026/05/26], [Edis Hodja], [], [Correzione codici e decisione di riferimento],
       [1.0.0], [2026/05/14], [Filippo Zonta Rocha], [], [Approvazione del verbale],
       [0.3.0], [2026/05/14], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Correzione refusi e aggiornamento sezioni 2.4, 2.6, 2.7],
       [0.2.0], [2026/05/13], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Correzione refusi, Aggiornamento sezioni],
@@ -155,13 +156,13 @@ Oltre alla richiesta di feedback sull'AdR, il  gruppo ha preparato una serie di 
     columns: (auto, 1fr),
     align: (center, left),
     [*Codice*], [*Descrizione*],
-    [VI-3.1], [Continuazione del documento Analisi dei Requisiti],
-    [VI-3.2], [Continuazione del documento Norme di Progetto],
-    [VI-3.3], [Continuazione del documento Piano di Progetto],
-    [VI-3.4], [Finalizzazione dei quesiti per Bluewind],
-    [VI-3.5], [Invio quesito su AdR tramite gruppo Telegram a Bluewind],
-    [VI-3.6], [Aggiornato Diario di Bordo per incontro 2026-05-15],
-    [VI-3.7], [Implementazione sezione Diari di Bordo sul sito],
+    [VI-5.1], [Continuazione del documento Analisi dei Requisiti],
+    [VI-5.2], [Continuazione del documento Norme di Progetto],
+    [VI-5.3], [Continuazione del documento Piano di Progetto],
+    [VI-5.4], [Finalizzazione dei quesiti per Bluewind],
+    [VI-5.5], [Invio quesito su AdR tramite gruppo Telegram a Bluewind],
+    [VI-5.6], [Aggiornato Diario di Bordo per incontro 2026-05-15],
+    [VI-5.7], [Implementazione sezione Diari di Bordo sul sito],
     
   )
 ]
@@ -178,10 +179,10 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-4.1], [Continuazione Analisi dei Requisiti], [Ines Iadadi, Alberto Canavese], [VI-3.1],
-    [TD-4.2], [Continuazione Norme di Progetto], [Edis Hodja],[VI-3.2],
-    [TD-4.3], [Continuazione Piano di Progetto], [Giovanni Bronte],[VI-3.3],
-    [TD-4.4], [Inviato quesito per Bluewind], [Team],[VI-3.5],
-    [TD-4.5], [Implementazione sezione Diari di Bordo sul sito], [Team],[VI-3.7]
+    [TD-5.1], [Continuazione Analisi dei Requisiti], [Ines Iadadi, Alberto Canavese], [VI-5.1],
+    [TD-5.2], [Continuazione Norme di Progetto], [Edis Hodja],[VI-5.2],
+    [TD-5.3], [Continuazione Piano di Progetto], [Giovanni Bronte],[VI-5.3],
+    [TD-5.4], [Inviato quesito per Bluewind], [Team],[VI-5.5],
+    [TD-5.5], [Implementazione sezione Diari di Bordo sul sito], [Team],[VI-5.7]
   )
 ]
