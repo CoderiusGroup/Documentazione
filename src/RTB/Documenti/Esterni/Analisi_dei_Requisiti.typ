@@ -32,7 +32,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(3em)
-  #text(size: 20pt)[*Versione 0.5.0*]
+  #text(size: 20pt)[*Versione 0.6.0*]
 ]
 
 #pagebreak()
@@ -53,10 +53,11 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
 
+    [0.6.0], [2026/05/28], [Leonardo Lorenzin], [], [Aggiornamento sezioni e correzione refusi],
     [0.5.0], [2026/05/26], [Leonardo Lorenzin], [], [Aggiunta sezione 4 Requisiti],
-    [0.4.0], [2026/05/22], [Leonardo Lorenzin], [], [Integrazione casi d'uso: da UC-36 a UC-43 ],
+    [0.4.0], [2026/05/22], [Leonardo Lorenzin], [], [Integrazione casi d'uso: da UC-35 a UC-42 ],
     [0.3.0], [2026/05/20], [Leonardo Lorenzin], [], [Aggiornamento sezioni e correzione refusi],
-    [0.2.2], [2026/05/15], [Ines Iadadi], [Leonardo Lorenzin], [Integrazione casi d'uso: da UC-28 a UC-35],
+    [0.2.2], [2026/05/15], [Ines Iadadi], [Leonardo Lorenzin], [Integrazione casi d'uso: da UC-27 a UC-34],
     [0.2.1], [2026/05/14], [Alberto Canavese], [Leonardo Lorenzin], [Aggiornamento struttura del documento fino al UC-27],
     [0.2.0], [2026/05/05], [Ines Iadadi], [Leonardo Lorenzin], [Aggiornamento struttura del documento fino al UC-18],
     [0.1.6], [2026/04/30], [Ines Iadadi], [Alberto Canavese], [Integrazione casi d'uso: da UC-22 a UC-25],
@@ -299,12 +300,12 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Attore primario*: Utente
 
 - *Precondizioni*:
-  + Il sistema è attivo
-  + L'utente ha tentato di importare un file nel sistema.
+  - Il sistema è attivo
+  - L'utente ha tentato di importare un file nel sistema.
 
 - *Postcondizioni*:
-  + L'operazione di caricamento del file è stata annullata.
-  + Il sistema ha mostrato un messaggio di errore.
+  - L'operazione di caricamento del file è stata annullata.
+  - Il sistema ha mostrato un messaggio di errore.
 
 - *Scenario principale*:
   + Il sistema rileva un file con un errore strutturale o di contenuto.
@@ -351,7 +352,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente inserisce la descrizione del dispositivo. (UC-4.1.3)
 
 - *Scenari alternativi:*
-  - *1a.* L'utente inserisce dati non validi in uno o più campi. (UC-5)
+  - L'utente inserisce dati non validi in uno o più campi. (UC-5)
 
 - *Inclusioni:*
   - UC-4.1.1: Inserimento nome dispositivo
@@ -425,11 +426,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 
 
-== UC-7: Visualizza dati dispositivo <uc7>
+== UC-7: Visualizzazione dati dispositivo <uc7>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC-16.png", width: 80%),
-  caption: [UC-7 : Visualizza dati dispositivo],
+  caption: [UC-7 : Visualizzazione dati dispositivo],
 )
 - *Attore primario:* Utente
 
@@ -438,7 +439,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* L'utente ha visualizzato i dati del dispositivo.
 
 - *Scenario principale:*
-  + Il sistema ha registrato i dati del dispositivo inserito.
   + L'utente visualizza il nome del dispositivo. (UC-7.1)
   + L'utente visualizza il sistema operativo del dispositivo. (UC-7.2)
   + L'utente visualizza la descrizione del dispositivo. (UC-7.3)
@@ -450,7 +450,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - UC-7.3: Visualizza descrizione dispositivo
   - UC-7.4: Visualizza stato aggregato dispositivo
 
-=== UC-7.1: Visualizza nome dispositivo <uc7.1>
+=== UC-7.1: Visualizzazione nome dispositivo <uc7.1>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -461,7 +461,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente visualizza il nome del dispositivo.
 
-=== UC-7.2: Visualizza sistema operativo dispositivo <uc7.2>
+=== UC-7.2: Visualizzazione sistema operativo dispositivo <uc7.2>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -472,7 +472,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente visualizza il sistema operativo del dispositivo.
 
-=== UC-7.3: Visualizza descrizione dispositivo <uc7.3>
+=== UC-7.3: Visualizzazione descrizione dispositivo <uc7.3>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -483,7 +483,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente visualizza la descrizione del dispositivo.
 
-=== UC-7.4: Visualizza stato aggregato dispositivo <uc7.4>
+=== UC-7.4: Visualizzazione stato aggregato dispositivo <uc7.4>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -494,8 +494,9 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + Il sistema mostra lo stato aggregato del dispositivo, che può essere:
-    non valutato (nessun test completato), PASS (tutti gli asset hanno esito PASS),
-    FAIL (almeno un asset ha esito FAIL).
+    - Not Evaluated (nessun test completato);
+    - PASS (tutti gli asset hanno esito PASS);
+    - FAIL (almeno un asset ha esito FAIL);
 
 == UC-8: Modifica dati del dispositivo <uc8>
 #v(1em)
@@ -517,8 +518,8 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema registra le modifiche.
 
 - *Scenari alternativi:*
-  - *1a.* L'utente annulla la modifica. (UC-9)
-  - *2a.* L'utente inserisce dati non validi in uno o più campi. (UC-5)
+  - L'utente annulla la modifica. (UC-9)
+  - L'utente inserisce dati non validi in uno o più campi. (UC-5)
 
 - *Inclusioni:*
   - UC-8.1: Modifica nome del dispositivo
@@ -579,8 +580,8 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + L'utente seleziona la funzione di annullamento della modifica dei dati del dispositivo.
-  + Il sistema scarta le modifiche
-  + Il sistema ripristina i dati del dispositivo al loro stato precedente.
+  + Il sistema scarta le modifiche.
+  + Il sistema torna alla visualizzazione del dispositivo.
 
 == UC-10: Esportazione dati del dispositivo <uc10>
 #v(1em)
@@ -613,11 +614,8 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente seleziona la funzionalità di eliminazione del dispositivo.
   + Il sistema chiede conferma dell'operazione.
-  + L'utente conferma.
+  + L'utente conferma l'operazione.
   + Il sistema rimuove il dispositivo.
-
-- *Scenari alternativi:*
-  - *3a.* L'utente annulla l'eliminazione: il sistema non apporta modifiche.
 
 - *Specializzazioni:*
   - UC-11.1: Eliminazione dispositivo senza backup
@@ -647,7 +645,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Precondizioni:* L'utente ha selezionato la funzionalità di eliminazione del dispositivo.
 
 - *Postcondizioni:* Il sistema ha esportato i dati del dispositivo e degli
-  asset associati tramite UC-10, e successivamente ha rimosso il dispositivo,
+  asset associati, e successivamente ha rimosso il dispositivo,
   gli asset e i relativi risultati di valutazione.
 
 - *Scenario principale:*
@@ -662,13 +660,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 #pagebreak()
 
-
-
 == UC-12: Inserimento asset <uc12>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC-12.png", width: 80%),
-  caption: [UC-12 : Inserisci asset],
+  caption: [UC-12 : Inserimento asset],
 )
 - *Attore primario:* Utente
 
@@ -710,7 +706,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente seleziona la sensibilità dell'asset. (UC-12.1.4)
 
 - *Scenari alternativi:*
-  - *1a.* L'utente inserisce dati non validi in uno o più campi. (UC-5)
+  - L'utente inserisce dati non validi in uno o più campi. (UC-5)
 
 - *Inclusioni:*
   - UC-12.1.1: Inserimento nome asset
@@ -746,8 +742,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* Il sistema ha registrato il tipo dell'asset.
 
 - *Scenario principale:*
-  + L'utente seleziona il tipo dell'asset tra le opzioni disponibili
-    (Network, Security, Privacy, Financial).
+  + L'utente seleziona il tipo dell'asset tra le opzioni disponibili:
+    - Network;
+    - Security;
+    - Privacy;
+    - Financial.
 
 ==== UC-12.1.3: Inserimento descrizione asset <uc12.1.3>
 #v(1em)
@@ -774,8 +773,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* Il sistema ha registrato la sensibilità dell'asset.
 
 - *Scenario principale:*
-  + L'utente seleziona se l'asset è sensibile tra le opzioni
-    disponibili (SI o NO).
+  + L’utente specifica se l’asset è sensibile mediante selezione affermativa o negativa.
 
 == UC-13: Annullamento inserimento asset <uc13>
 #v(1em)
@@ -823,7 +821,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato di visualizzare la lista degli asset.
+- *Precondizioni:* L'utente ha scelto di visualizzare la lista degli asset.
 
 - *Postcondizioni:* L'utente ha visualizzato le informazioni essenziali di un singolo asset.
 
@@ -872,7 +870,9 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + L'utente visualizza lo stato di valutazione dell'asset, che può essere:
-    non valutato, in corso, completato.
+    - Non valutato;
+    - In corso;
+    - Completato.
 
 == UC-15: Visualizzazione in dettaglio asset <uc15>
 #v(1em)
@@ -932,21 +932,27 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 === UC-15.4: Visualizzazione sensibilità asset <uc15.4>
 #v(1em)
 - *Attore primario:* Utente
-- *Precondizioni:* L'utente ha selezionato un asset dalla lista.
-- *Postcondizioni:* L'utente ha visualizzato la sensibilità dell'asset.
-- *Scenario principale:*
-  + L'utente visualizza il livello di sensibilità dell'asset.
 
+- *Precondizioni:* L'utente ha selezionato un asset dalla lista.
+
+- *Postcondizioni:* L'utente ha visualizzato la sensibilità dell'asset.
+
+- *Scenario principale:*
+  + L’utente visualizza l’indicazione relativa alla sensibilità dell’asset.
 
 === UC-15.5: Visualizzazione stato valutazione asset <uc15.5>
 #v(1em)
 - *Attore primario:* Utente
+
 - *Precondizioni:* L'utente ha selezionato un asset dalla lista.
-- *Postcondizioni:* L'utente ha visualizzato lo stato complessivo di valutazione
-  dell'asset.
+
+- *Postcondizioni:* L'utente ha visualizzato lo stato complessivo di valutazione dell'asset.
+
 - *Scenario principale:*
-  + L'utente visualizza lo stato di valutazione dell'asset (non valutato,
-    in corso, completato).
+  + L'utente visualizza lo stato di valutazione dell'asset:
+    - Non valutato;
+    - In corso;
+    - Completato.
 
 
 === UC-15.6: Visualizzazione lista requisiti asset <uc15.6>
@@ -973,8 +979,12 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + L'utente visualizza il codice del requisito.
-  + L'utente visualizza lo stato di valutazione del requisito (non valutato, in corso,
-    PASS, FAIL, NOT APPLICABLE).
+  + L'utente visualizza lo stato di valutazione del requisito:
+    - Not Evaluated;
+    - In corso;
+    - PASS;
+    - FAIL; 
+    - NOT APPLICABLE.
 
 
 
@@ -1002,8 +1012,8 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente modifica la sensibilità dell'asset. (UC-16.4)
 
 - *Scenari alternativi:*
-  - *3a.* L'utente inserisce dati non validi in uno o più campi. (UC-5)
-  - *2a.* L'utente annulla la modifica dell'asset. (UC-17)
+  - L'utente annulla la modifica dell'asset. (UC-17)
+  - L'utente inserisce dati non validi in uno o più campi. (UC-5)
 
 - *Inclusioni:*
   - UC-16.1: Modifica nome asset
@@ -1026,7 +1036,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + Il sistema mostra il nome dell'asset in un campo modificabile.
   + L'utente modifica il nome dell'asset.
-  + Il sistema registra il nuovo valore
+  + Il sistema registra il nuovo valore.
 
 === UC-16.2: Modifica tipo asset <uc16.2>
 #v(1em)
@@ -1039,7 +1049,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + Il sistema mostra il tipo corrente dell'asset in un campo modificabile.
   + L'utente seleziona il tipo dell'asset tra le opzioni disponibili.
-  + Il sistema registra il nuovo valore
+  + Il sistema registra la nuova selezione.
 
 === UC-16.3: Modifica descrizione asset  <uc16.3>
 #v(1em)
@@ -1052,7 +1062,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + Il sistema mostra la descrizione dell'asset in un campo modificabile.
   + L'utente modifica la descrizione dell'asset.
-  + Il sistema registra il nuovo valore
+  + Il sistema registra il nuovo valore.
 
 === UC-16.4: Modifica sensibilità asset <uc16.4>
 #v(1em)
@@ -1065,7 +1075,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + Il sistema mostra la sensibilità corrente dell'asset.
   + L'utente seleziona una delle opzioni disponibili per la sensibilità dell'asset.
-  + Il sistema registra il nuovo valore.
+  + Il sistema registra la nuova selezione.
 
 
 == UC-17: Annullamento modifica asset <uc17>
@@ -1079,14 +1089,14 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente seleziona la funzione di annullamento della modifica dell'asset.
   + Il sistema scarta le modifiche
-  + Il sistema ripristina i dati dell'asset.
+  + Il sistema ritorna alla visualizzazione in dettaglio dell'asset.
 
 
 == UC-18: Eliminazione asset <uc18>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC-14.png", width: 65%),
-  caption: [UC-18 : Elimina asset],
+  caption: [UC-18 : Eliminazione asset],
 )
 - *Attore primario:* Utente
 
@@ -1100,21 +1110,17 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente seleziona un asset dalla lista.
   + L'utente seleziona la funzione di eliminazione dell'asset.
   + Il sistema mostra un messaggio di conferma.
-  + L'utente conferma l'eliminazione dell'asset.
-  + Il sistema elimina l'asset selezionato e aggiorna la lista degli asset.
-
-- *Scenari alternativi:*
-  - *4a.* L'utente annulla l'eliminazione
+  + Il sistema elimina l'asset selezionato e aggiorna la lista degli assets.
 
 
 #pagebreak()
 
 
-== UC-19: Avvio sessione di valutazione <uc19>
+== UC-19: Esecuzione valutazione dispositivo <uc19>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-19 : Avvio sessione di valutazione],
+  caption: [UC-19 : Esecuzione valutazione dispositivo],
 )
 - *Attore primario:* Utente
 
@@ -1122,19 +1128,27 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - L'utente ha inserito un dispositivo.
   - Il dispositivo ha almeno un asset.
 
-- *Postcondizioni:* La sessione di valutazione è attiva e la dashboard è
-  visualizzata.
+- *Postcondizioni:* La sessione di valutazione è completata e i risultati
+  sono disponibili.
 
 - *Scenario principale:*
   + L'utente seleziona la funzionalità di avvio della valutazione del dispositivo.
   + Il sistema inizializza la sessione di valutazione.
-  + Il sistema mostra la dashboard con la lista degli asset e il loro stato
-    di valutazione corrente. (UC-19.1)
-  + L'utente valuta gli asset del dispositivo. (UC-20)
-  + Quando tutti gli asset sono stati valutati, il sistema rende disponibili i risultati complessivi del test. (UC-28)
+  + Il sistema mostra la dashboard. (UC-19.1)
+  + L'utente seleziona un asset dalla dashboard.
+  + Il sistema avvia la valutazione dell'asset selezionato. (UC-20)
+  + I passi 3-5 si ripetono fino alla valutazione di tutti gli asset.
+  + Il sistema rende disponibili i risultati complessivi del test. (UC-27)
+
+- *Scenari alternativi:*
+  - *4a.* L'utente interrompe la sessione prima di selezionare un asset. (UC-24)
 
 - *Inclusioni:*
   - UC-19.1: Visualizzazione dashboard di valutazione
+  - UC-20: Valutazione di un asset
+
+- *Estensioni:*
+  - UC-24: Uscita anticipata dal test
 
 
 === UC-19.1: Visualizzazione dashboard di valutazione <uc19.1>
@@ -1145,16 +1159,18 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* Il sistema ha inizializzato la sessione di valutazione.
+- *Precondizioni:* La sessione di valutazione è attiva.
 
 - *Postcondizioni:* L'utente ha visualizzato lo stato complessivo della
   valutazione.
 
 - *Scenario principale:*
-  + Il sistema mostra la lista degli asset del dispositivo.
+  + Il sistema mostra la lista degli assets del dispositivo.
   + Per ogni asset il sistema mostra il nome, il tipo e lo stato di valutazione
     corrente (non valutato, in corso, completato).
+  + Il sistema mostra l'asset e il requisito correnti in esame.
   + Il sistema mostra il numero di asset completati rispetto al totale.
+  + Il sistema mostra il numero di requisiti completati per l'asset corrente.
 
 
 == UC-20: Valutazione di un asset <uc20>
@@ -1174,19 +1190,17 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + Il sistema mostra le informazioni dell'asset selezionato.
-  + Il sistema mostra lo stato di avanzamento del test. (UC-27)
   + Il sistema mostra la lista dei requisiti da valutare con il relativo stato.
   + L'utente seleziona un requisito da valutare.
   + Il sistema mostra il dettaglio del requisito selezionato. (UC-21)
-  + I passi 4-5 si ripetono fino alla valutazione di tutti i requisiti
+  + I passi 2-4 si ripetono fino alla valutazione di tutti i requisiti
     dell'asset.
 
 - *Scenari alternativi:*
-  - *4a.* L'utente interrompe la sessione. (UC-24)
+  - *3a.* L'utente interrompe la sessione. (UC-24)
 
 - *Inclusioni:*
   - UC-21: Visualizzazione dettaglio requisito
-  - UC-27: Visualizzazione stato avanzamento
 
 - *Estensioni:*
   - UC-24: Uscita anticipata dal test
@@ -1208,8 +1222,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + Il sistema mostra il codice e il nome del requisito.
-  + Il sistema mostra le dipendenze del requisito e il loro stato
-    di valutazione. (UC-21.1)
+  + Il sistema mostra le dipendenze del requisito. (UC-21.1)
   + L'utente avvia l'esecuzione del decision tree. (UC-22)
 
 - *Inclusioni:*
@@ -1227,13 +1240,13 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   requisito. (UC-21)
 
 - *Postcondizioni:* L'utente ha visualizzato la lista delle dipendenze
-  del requisito corrente e il relativo stato di valutazione.
+  del requisito corrente.
 
 - *Scenario principale:*
   + Il sistema mostra la lista dei requisiti da cui dipende il
     requisito corrente.
   + Per ogni dipendenza il sistema mostra il codice del requisito
-    e il suo stato di valutazione (non valutato, PASS, FAIL,
+    e il suo stato di valutazione (Not Evaluated, PASS, FAIL,
     NOT APPLICABLE).
 
 
@@ -1248,24 +1261,22 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Precondizioni:*
   - La sessione di valutazione è attiva.
   - L'utente ha avviato l'esecuzione del decision tree per il requisito
-    selezionato. (UC-21)
+    selezionato.
 
 - *Postcondizioni:* Il sistema ha registrato l'esito del decision tree per la
   coppia asset-requisito corrente (PASS, FAIL o NOT APPLICABLE).
 
 - *Scenario principale:*
   + Il sistema mostra la domanda del nodo corrente. (UC-22.1)
-  + Il sistema mostra il grafo del decision tree con il nodo corrente
-    evidenziato. (UC-22.4)
+  + Il sistema mostra il grafo con il nodo corrente evidenziato. (UC-22.4)
   + L'utente risponde alla domanda del nodo corrente. (UC-22.2)
   + Il sistema avanza al nodo successivo in base alla risposta fornita.
   + I passi 1-4 si ripetono fino al raggiungimento di un nodo foglia.
+  + Il sistema mostra l'esito raggiunto. (UC-23)
   + Il sistema registra l'esito: PASS, FAIL o NOT APPLICABLE.
 
 - *Scenari alternativi:*
   - *3a.* L'utente desidera annullare l'ultima risposta e tornare al nodo precedente. (UC-22.3)
-  - *3b.* L'utente desidera salvare la sessione e continuare. (UC-25.2)
-  - *5a.* Il sistema raggiunge un nodo foglia: mostra l'esito. (UC-23)
 
 - *Inclusioni:*
   - UC-22.1: Visualizzazione nodo corrente del decision tree
@@ -1369,7 +1380,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema mostra il grafo completo del decision tree associato al
     requisito in esame.
   + Il sistema evidenzia il nodo corrente nel grafo.
-  + Il sistema evidenzia il percorso già seguito dall'utente fino al nodo
+  + Il sistema evidenzia il percorso già visitato dall'utente fino al nodo
     corrente.
 
 == UC-23: Visualizzazione nodo foglia del decision tree <uc23>
@@ -1385,8 +1396,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* L'utente ha visualizzato l'esito del requisito per l'asset corrente.
 
 - *Scenario principale:*
-  + Il sistema mostra l'esito del requisito per l'asset corrente
-    (PASS, FAIL o NOT APPLICABLE).
+  + Il sistema mostra l'esito del requisito per l'asset corrente:
+    - PASS;
+    - FAIL;
+    - NOT APPLICABLE.
   + Il sistema mostra la giustificazione dell'esito in base al percorso seguito.
 
 == UC-24: Uscita anticipata dal test <uc24>
@@ -1495,7 +1508,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
     - asset corrente, requisito corrente e nodo corrente;
     - risposte già fornite nel decision tree corrente.
   + Il sistema riprende l'esecuzione dal punto in cui era stata interrotta.
-    (UC-22)
 
 - *Scenari alternativi:*
   - *3a.* Il file non rispetta il formato atteso. (UC-3)
@@ -1503,30 +1515,12 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Estensioni:*
   - UC-3: Formato file non valido
 
-== UC-27: Visualizzazione stato avanzamento del test <uc27>
+
+== UC-27: Visualizzazione risultati test <uc27>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-27 : Visualizzazione stato avanzamento del test],
-)
-- *Attore primario:* Utente
-
-- *Precondizioni:* La sessione di valutazione è attiva e l'utente sta valutando un asset. (UC-20)
-
-- *Postcondizioni:* L'utente ha visualizzato lo stato corrente del test.
-
-- *Scenario principale:*
-  + Il sistema mostra l'asset e il requisito correnti in esame.
-  + Il sistema mostra il numero di asset completati rispetto al totale.
-  + Il sistema mostra il numero di requisiti completati per l'asset corrente.
-
-#pagebreak()
-
-== UC-28: Visualizzazione risultati test <uc28>
-#v(1em)
-#figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-28 : Visualizzazione risultati test],
+  caption: [UC-27 : Visualizzazione risultati test],
 )
 - *Attore primario:* Utente
 
@@ -1538,18 +1532,20 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + Il sistema mostra il riepilogo degli esiti del test organizzato per asset.
-    (UC-28.1)
-  + Il sistema mostra il numero di requisiti con esito PASS, FAIL e
-    NOT APPLICABLE per ogni asset.
+    (UC-27.1)
+  + Il sistema mostra per ogni asset il numero di requisiti con esito: 
+    - PASS;
+    - FAIL;
+    - NOT APPLICABLE.
 
 - *Inclusioni:*
-  - UC-28.1: Visualizzazione riepilogo risultati per asset
+  - UC-27.1: Visualizzazione riepilogo risultati per asset
 
 - *Estensioni:*
-  - UC-29: Esportazione report di conformità
+  - UC-28: Esportazione report di conformità
 
 
-=== UC-28.1: Visualizzazione riepilogo risultati per asset <uc28.1>
+=== UC-27.1: Visualizzazione riepilogo risultati per asset <uc27.1>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -1560,41 +1556,45 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + Il sistema mostra il nome e il tipo dell'asset.
-  + Il sistema mostra l'esito aggregato dell'asset (PASS se tutti i requisiti
-    sono PASS o NOT APPLICABLE, FAIL se almeno uno è FAIL).
-  + Il sistema mostra la lista dei requisiti valutati per l'asset. (UC-28.1.1)
+  + Il sistema mostra l'esito aggregato dell'asset:
+    - PASS;
+    - FAIL;
+    - NOT APPLICABLE.
+  + Il sistema mostra la lista dei requisiti valutati per l'asset. (UC-27.1.1)
 
-- *Inclusioni:*
-  - UC-28.1.1: Visualizzazione singolo requisito con esito
+- *Estensioni:*
+  - UC-27.1.1: Visualizzazione singolo requisito con esito
 
 
-==== UC-28.1.1: Visualizzazione singolo requisito con esito <uc28.1.1>
+==== UC-27.1.1: Visualizzazione singolo requisito con esito <uc27.1.1>
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando il riepilogo risultati di un asset.
+- *Precondizioni:* L'utente ha selezionato un requisito dalla lista. (UC-27.1)
 
 - *Postcondizioni:* L'utente ha visualizzato il codice del requisito, il suo
   esito e il percorso logico seguito.
 
 - *Scenario principale:*
   + L'utente visualizza il codice del requisito.
-  + L'utente visualizza l'esito del requisito per l'asset corrente
-    (PASS, FAIL o NOT APPLICABLE).
-  + L'utente visualizza il percorso logico seguito nel decision tree. (UC-28.1.1.1)
+  + L'utente visualizza l'esito del requisito per l'asset corrente:
+    - PASS;
+    - FAIL;
+    - NOT APPLICABLE.
+  + L'utente visualizza il percorso logico seguito nel decision tree. (UC-27.1.1.1)
 
 - *Inclusioni:*
-  - UC-28.1.1.1: Visualizzazione percorso logico del requisito
+  - UC-27.1.1.1: Visualizzazione percorso logico del requisito
 
 - *Estensioni:*
-  - UC-28.1.1.2: Riesecuzione di un requisito già completato
+  - UC-27.1.1.2: Riesecuzione di un requisito già completato
 
-===== UC-28.1.1.1: Visualizzazione percorso logico del requisito <uc28.1.1.1>
+===== UC-27.1.1.1: Visualizzazione percorso logico del requisito <uc27.1.1.1>
 #v(1em)
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente sta visualizzando il dettaglio di un singolo
-  requisito con esito.
+  requisito con il relativo esito.
 
 - *Postcondizioni:* L'utente ha visualizzato la sequenza ordinata delle risposte
   fornite durante la valutazione del requisito.
@@ -1602,18 +1602,16 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + Il sistema mostra la sequenza delle domande affrontate durante l'esecuzione
     del decision tree per il requisito selezionato.
-  + Per ogni domanda il sistema mostra il testo del nodo e la risposta fornita
-    (Sì o No).
+  + Per ogni domanda il sistema mostra il testo del nodo e la risposta fornita.
   + Il sistema evidenzia il nodo foglia raggiunto e l'esito corrispondente.
 
 
-===== UC-28.1.1.2: Riesecuzione di un requisito già completato <uc28.1.1.2>
+===== UC-27.1.1.2: Riesecuzione di un requisito già completato <uc27.1.1.2>
 #v(1em)
 - *Attore primario:* Utente
 
 - *Precondizioni:*
-  - L'utente sta visualizzando il dettaglio di un singolo requisito con esito.
-  - Il requisito ha già ricevuto un esito (PASS, FAIL o NOT APPLICABLE).
+  - L'utente sta visualizzando il dettaglio di un singolo requisito con relativo esito.
 
 - *Postcondizioni:* Il sistema ha rieseguito il decision tree per la coppia
   asset-requisito selezionata e ha aggiornato l'esito.
@@ -1621,26 +1619,28 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente seleziona la funzionalità di riesecuzione del requisito.
   + Il sistema azzera l'esito precedente per la coppia asset-requisito.
-  + Il sistema avvia l'esecuzione del decision tree per il requisito
-    selezionato dall'inizio. (UC-22)
+  + Il sistema avvia l'esecuzione dall'inizio del decision tree per il requisito
+    selezionato. (UC-22)
   + Il sistema aggiorna l'esito nella dashboard dei risultati.
 
 - *Scenari alternativi:*
-  - *3a.* L'utente esce anticipatamente dalla riesecuzione: il sistema
-    ripristina l'esito precedente. (UC-24)
+  - *3a.* L'utente esce anticipatamente dalla riesecuzione. 
+
+- *Estensioni:*
+  - UC-22: Esecuzione decision tree per un requisito
 
 
-== UC-29: Esportazione report di conformità <uc29>
+== UC-28: Esportazione report di conformità <uc28>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-29 : Esportazione report di conformità],
+  caption: [UC-28 : Esportazione report di conformità],
 )
 - *Attore primario:* Utente
 
 - *Precondizioni:*
   - Il test è stato completato.
-  - L'utente sta visualizzando i risultati del test (UC-28).
+  - L'utente sta visualizzando i risultati del test (UC-27).
 
 - *Postcondizioni:* Il sistema ha generato e messo a disposizione il report
   di conformità per il download.
@@ -1656,11 +1656,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema mette a disposizione il file per il download.
 
 - *Specializzazioni:*
-  - UC-29.1: Esportazione in PDF
-  - UC-29.2: Esportazione in JSON
-  - UC-29.3: Esportazione in CSV
+  - UC-28.1: Esportazione in PDF
+  - UC-28.2: Esportazione in JSON
+  - UC-28.3: Esportazione in CSV
 
-=== UC-29.1: Esportazione in PDF <uc29.1>
+=== UC-28.1: Esportazione in PDF <uc28.1>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -1674,7 +1674,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
     dispositivo rispetto allo standard EN 18031.
   + Il sistema mette a disposizione il file per il download.
 
-=== UC-29.2: Esportazione in JSON <uc29.2>
+=== UC-28.2: Esportazione in JSON <uc28.2>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -1687,7 +1687,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema genera il file JSON contenente tutti i dati della valutazione.
   + Il sistema mette a disposizione il file per il download.
 
-=== UC-29.3: Esportazione in CSV <uc29.3>
+=== UC-28.3: Esportazione in CSV <uc28.3>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -1703,33 +1703,32 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 #pagebreak()
 
-== UC-30: Visualizzazione elenco decision tree <uc30>
+== UC-29: Visualizzazione elenco decision tree <uc29>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-30 : Visualizzazione elenco decision tree],
+  caption: [UC-29 : Visualizzazione elenco decision tree],
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* Il sistema è attivo e i decision tree sono disponibili
-  sul backend.
+- *Precondizioni:* Il sistema è attivo e nessuna valutazione è in corso.
 
 - *Postcondizioni:* L'utente ha visualizzato l'elenco dei decision tree
   disponibili.
 
 - *Scenario principale:*
   + L'utente seleziona la funzionalità di visualizzazione dei decision tree.
-  + Il sistema recupera i decision tree dal backend.
-  + Il sistema mostra l'elenco ordinato dei decision tree disponibili. (UC-30.1)
+  + Il sistema recupera i decision tree.
+  + Il sistema mostra l'elenco ordinato dei decision tree disponibili. (UC-29.1)
 
 - *Inclusioni:*
-  - UC-30.1: Visualizzazione singolo decision tree nell'elenco
+  - UC-29.1: Visualizzazione singolo decision tree nell'elenco
 
 - *Estensioni:*
-  - UC-42: Importazione decision tree
+  - UC-41: Importazione decision tree
 
 
-=== UC-30.1: Visualizzazione singolo decision tree nell'elenco <uc30.1>
+=== UC-29.1: Visualizzazione singolo decision tree nell'elenco <uc29.1>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -1741,104 +1740,101 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + Il sistema mostra l'id del requisito associato al decision tree.
   + Il sistema mostra il nome del requisito associato al decision tree.
-  + Il sistema mostra le dipendenze del decision tree. (UC-30.1.1)
+  + Il sistema mostra le dipendenze del decision tree. (UC-29.1.1)
 
 - *Inclusioni:*
-  - UC-30.1.1: Visualizzazione dipendenze del decision tree
+  - UC-29.1.1: Visualizzazione dipendenze del decision tree
 
 - *Estensioni:*
-  - UC-31: Modifica decision tree
-  - UC-38: Esportazione decision tree
-  - UC-43: Eliminazione decision tree
+  - UC-30: Modifica decision tree
+  - UC-37: Esportazione decision tree
+  - UC-42: Eliminazione decision tree
 
-=== UC-30.1.1: Visualizzazione dipendenze del decision tree <uc30.1.1>
+=== UC-29.1.1: Visualizzazione dipendenze del decision tree <uc29.1.1>
 #v(1em)
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente sta visualizzando il dettaglio di un
-  decision tree. (UC-30.1)
+  decision tree. (UC-29.1)
 
 - *Postcondizioni:* L'utente ha visualizzato le dipendenze del
   decision tree corrente.
 
 - *Scenario principale:*
   + Il sistema mostra la lista dei requisiti da cui dipende il
-    decision tree corrente (anche nulla).
+    decision tree corrente.
   + Per ogni dipendenza il sistema mostra il codice del requisito.
 
 
-== UC-31: Modifica decision tree <uc31>
+== UC-30: Modifica decision tree <uc30>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-31 : Modifica decision tree],
+  caption: [UC-30 : Modifica decision tree],
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando l'elenco dei decision tree.
-  (UC-30)
+- *Precondizioni:* L'utente sta visualizzando il dettaglio di un
+  decision tree. (UC-29.1)
 
-- *Postcondizioni:* Il decision tree è aggiornato con le modifiche apportate
-  e salvato sul backend.
+- *Postcondizioni:* Il sistema ha aggiornato e salvato il decision tree con le modifiche apportate dall'utente.
 
 - *Scenario principale:*
-  + L'utente seleziona un decision tree dall'elenco.
   + Il sistema mostra il grafo del decision tree selezionato.
   + L'utente seleziona un nodo o un collegamento su cui intervenire.
   + L'utente effettua la modifica desiderata.
-  + Il sistema valida la struttura risultante e salva le modifiche sul backend.
+  + Il sistema valida la struttura risultante.
 
 - *Scenari alternativi:*
-  - *5a.* La struttura risultante non supera la validazione: il sistema
-    notifica l'errore e rimane nella schermata di modifica. (UC-36)
-  - *4a.* L'utente annulla la modifica. (UC-37)
+  - *3a.* L'utente annulla la modifica. (UC-36)
+  - *4a.* La struttura risultante non supera la validazione. (UC-35)
 
 - *Estensioni:*
-  - UC-36: Validazione fallita modifica decision tree
-  - UC-37: Annullamento modifica decision tree
-  - UC-38: Esportazione decision tree
+  - UC-35: Validazione fallita modifica decision tree
+  - UC-36: Annullamento modifica decision tree
+  - UC-37: Esportazione decision tree
 
 - *Specializzazioni:*
-  - UC-32: Aggiunta nodo al decision tree
-  - UC-33: Eliminazione nodo dal decision tree
-  - UC-34: Modifica destinazione collegamento del decision tree
-  - UC-40: Aggiunta dipendenza
-  - UC-41: Rimozione dipendenza
+  - UC-31: Aggiunta nodo al decision tree
+  - UC-32: Eliminazione nodo dal decision tree
+  - UC-33: Modifica destinazione collegamento del decision tree
+  - UC-39: Aggiunta dipendenza
+  - UC-40: Rimozione dipendenza
 
 
-== UC-32: Aggiunta nodo al decision tree <uc32>
+== UC-31: Aggiunta nodo al decision tree <uc31>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-32 : Aggiunta nodo al decision tree],
+  caption: [UC-31 : Aggiunta nodo al decision tree],
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta modificando un decision tree. (UC-31)
+- *Precondizioni:* L'utente sta modificando un decision tree. (UC-30)
 
 - *Postcondizioni:* Un nuovo nodo è stato aggiunto al decision tree
-  e le modifiche sono salvate sul backend.
+  e le modifiche sono state salvate.
 
 - *Scenario principale:*
   + L'utente seleziona la funzionalità di aggiunta di un nuovo nodo
     in una specifica posizione del decision tree.
   + Il sistema crea un nuovo nodo vuoto.
-  + L'utente inserisce il codice univoco del nodo. (UC-32.1)
-  + L'utente inserisce il testo della domanda del nodo. (UC-32.2)
+  + L'utente inserisce il codice univoco del nodo. (UC-31.1)
+  + L'utente inserisce il testo della domanda del nodo. (UC-31.2)
   + Il sistema aggiunge il nodo al decision tree e aggiorna la visualizzazione.
 
 - *Scenari alternativi:*
-  - *5a.* La struttura risultante non supera la validazione. (UC-36)
+  - *5a.* La struttura risultante non supera la validazione. (UC-35)
 
 - *Inclusioni:*
-  - UC-32.1: Inserimento codice univoco del nodo
-  - UC-32.2: Inserimento testo domanda del nodo
+  - UC-31.1: Inserimento codice univoco del nodo
+  - UC-31.2: Inserimento testo domanda del nodo
 
 - *Estensioni:*
-  - UC-36: Validazione fallita modifica decision tree
+  - UC-35: Validazione fallita modifica decision tree
 
 
-=== UC-32.1: Inserimento codice univoco del nodo <uc32.1>
+=== UC-31.1: Inserimento codice univoco del nodo <uc31.1>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -1851,10 +1847,24 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema memorizza il valore inserito.
 
 - *Scenari alternativi:*
-  - *2a.* Il codice inserito è già presente nel decision tree: il sistema
-    notifica l'errore e richiede un codice diverso.
+  - *2a.* Il codice inserito è già presente nel decision tree.
 
-=== UC-32.2: Inserimento testo domanda del nodo <uc32.2>
+- *Estensioni:*
+  - UC-31.1.1: Inserimento codice univoco non valido
+
+==== UC-31.1.1: Inserimento codice univoco non valido
+#v(1em)
+- *Attore primario:* Utente
+
+- *Precondizioni:* L'utente sta inserendo un codice univoco per un nuovo nodo.
+
+- *Postcondizioni:* Il sistema mostra un messaggio di errore e consente all'utente di inserire un nuovo codice.
+
+- *Scenario principale:*
+  + Il sistema controlla l'univocità del codice inserito.
+  + Il sistema notifica l'utente dell'errore.
+
+=== UC-31.2: Inserimento testo domanda del nodo <uc31.2>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -1866,18 +1876,17 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente inserisce il testo della domanda del nuovo nodo nel rispettivo
     campo.
-  + Il sistema memorizza il valore inserito.
+  + Il sistema memorizza il testo della domanda inserita dall'utente.
 
-
-== UC-33: Eliminazione nodo dal decision tree <uc33>
+== UC-32: Eliminazione nodo dal decision tree <uc32>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-33 : Eliminazione nodo dal decision tree],
+  caption: [UC-32 : Eliminazione nodo dal decision tree],
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta modificando un decision tree. (UC-31)
+- *Precondizioni:* L'utente sta modificando un decision tree. (UC-30)
 
 - *Postcondizioni:* Il nodo selezionato è rimosso dal decision tree
   e i collegamenti sono aggiornati.
@@ -1890,25 +1899,25 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema rimuove il nodo e aggiorna i collegamenti.
 
 - *Scenari alternativi:*
-  - *2a.* L'utente seleziona il nodo radice. (UC-39)
-  - *4a.* L'utente annulla l'eliminazione: il sistema non apporta modifiche.
+  - *2a.* L'utente seleziona il nodo radice. (UC-38)
+  - *4a.* L'utente annulla l'eliminazione.
 
 - *Estensioni:*
-  - UC-39: Tentativo eliminazione nodo radice
+  - UC-38: Tentativo eliminazione nodo radice
 
 
-== UC-34: Modifica destinazione collegamento del decision tree <uc34>
+== UC-33: Modifica destinazione collegamento del decision tree <uc33>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-34 : Modifica destinazione collegamento del decision tree],
+  caption: [UC-33 : Modifica destinazione collegamento del decision tree],
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta modificando un decision tree. (UC-31)
+- *Precondizioni:* L'utente sta modificando un decision tree. (UC-30)
 
 - *Postcondizioni:* Il collegamento selezionato è stato aggiornato
-  con la nuova destinazione e le modifiche sono salvate sul backend.
+  con la nuova destinazione e le modifiche apportate sono state salvate.
 
 - *Scenario principale:*
   + L'utente seleziona la funzionalità di modifica di un collegamento.
@@ -1917,60 +1926,56 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema aggiorna il grafo.
 
 - *Scenari alternativi:*
-  - *3a.* Il collegamento che l'utente sta tentando di creare è già presente:
-    il sistema notifica l'errore. (UC-35)
-  - *4a.* La struttura risultante non supera la validazione. (UC-36)
+  - *3a.* Il collegamento che l'utente sta tentando di creare è già presente. (UC-34)
+  - *4a.* La struttura risultante non supera la validazione. (UC-35)
 
 - *Estensioni:*
-  - UC-35: Tentativo di creazione collegamento duplicato
-  - UC-36: Validazione fallita modifica decision tree
+  - UC-34: Tentativo di creazione collegamento duplicato
+  - UC-35: Validazione fallita modifica decision tree
 
 
-== UC-35: Tentativo di creazione collegamento duplicato <uc35>
+== UC-34: Tentativo di creazione collegamento duplicato <uc34>
 #v(1em)
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente sta modificando la destinazione di un collegamento
-  del decision tree. (UC-34)
+  del decision tree. (UC-33)
 
 - *Postcondizioni:* Il sistema ha notificato l'errore all'utente e il
   collegamento duplicato non è stato creato.
 
 - *Scenario principale:*
   + Il sistema rileva che il collegamento che l'utente sta tentando di creare
-    è già presente nel decision tree (stessa sorgente, stessa etichetta
-    Sì/No e stessa destinazione).
+    è già presente nel decision tree (stessa sorgente, etichetta e destinazione).
   + Il sistema mostra un messaggio di errore.
   + Il sistema mantiene aperta la schermata di modifica per consentire
     all'utente di selezionare una destinazione diversa.
 
 
-== UC-36: Validazione fallita modifica decision tree <uc36>
+== UC-35: Validazione fallita modifica decision tree <uc35>
 #v(1em)
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente ha apportato una modifica che ha generato una
   struttura non valida nel decision tree.
 
-- *Postcondizioni:* Il sistema ha notificato l'errore di validazione all'utente.
-  Le modifiche non sono state salvate sul backend.
+- *Postcondizioni:* Il sistema ha notificato l'errore di validazione all'utente e le modifiche non sono state salvate.
 
 - *Scenario principale:*
   + Il sistema verifica che la struttura rispetti i seguenti vincoli:
-    - l'albero è binario (ogni nodo interno ha esattamente due rami: Sì e No);
+    - l'albero è binario (ogni nodo interno ha esattamente due rami);
     - è presente almeno un nodo foglia con esito PASS;
     - è presente almeno un nodo foglia con esito FAIL.
-  + Il sistema rileva una violazione di uno o più vincoli.
-  + Il sistema mostra un messaggio di errore che descrive il vincolo violato.
+  + Il sistema rileva una violazione di uno o più vincoli e mostra un messaggio di errore descrittivo.
   + Il sistema mantiene aperta la schermata di modifica per consentire
     all'utente di correggere l'errore.
 
 
-== UC-37: Annullamento modifica decision tree <uc37>
+== UC-36: Annullamento modifica decision tree <uc36>
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta modificando un decision tree. (UC-31)
+- *Precondizioni:* L'utente sta modificando un decision tree. (UC-30)
 
 - *Postcondizioni:* Il sistema ha annullato la modifica e ripristinato lo
   stato precedente del decision tree.
@@ -1982,18 +1987,18 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema ripristina lo stato precedente del decision tree.
 
 
-== UC-38: Esportazione decision tree <uc38>
+== UC-37: Esportazione decision tree <uc37>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-38 : Esportazione decision tree],
+  caption: [UC-37 : Esportazione decision tree],
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando il dettaglio di un decision tree. (UC-30.1)
+- *Precondizioni:* L'utente sta visualizzando il dettaglio di un decision tree. (UC-29.1)
 
 - *Postcondizioni:* Il file del decision tree è stato esportato nel formato
-  previsto e reso disponibile per il download come copia locale opzionale.
+  previsto e reso disponibile per il download.
 
 - *Scenario principale:*
   + L'utente seleziona la funzionalità di esportazione del decision tree.
@@ -2001,7 +2006,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema mette a disposizione il file per il download.
 
 
-== UC-39: Tentativo eliminazione nodo radice <uc39>
+== UC-38: Tentativo eliminazione nodo radice <uc38>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -2018,20 +2023,19 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
     nodo radice non può essere eliminato.
 
 
-== UC-40: Aggiunta dipendenza <uc40>
+== UC-39: Aggiunta dipendenza <uc39>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-40 : Aggiunta dipendenza],
+  caption: [UC-39 : Aggiunta dipendenza],
 )
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente sta visualizzando il dettaglio di un
-  decision tree. (UC-30.1)
+  decision tree. (UC-29.1)
 
 - *Postcondizioni:* Il requisito selezionato è stato aggiunto alle
-  dipendenze del decision tree corrente e la modifica è salvata
-  sul backend.
+  dipendenze del decision tree corrente e la modifica apportata è stata salvata.
 
 - *Scenario principale:*
   + L'utente seleziona la funzionalità di aggiunta di una dipendenza.
@@ -2039,24 +2043,24 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
     essere aggiunti come dipendenza.
   + L'utente seleziona il requisito da aggiungere come dipendenza.
   + Il sistema aggiunge il requisito alle dipendenze del decision tree
-    e salva la modifica sul backend.
+    e salva la modifica apportata.
 
 - *Scenari alternativi:*
-  - *3a.* L'aggiunta crea una dipendenza circolare. (UC-40.1)
+  - *3a.* L'aggiunta crea una dipendenza circolare. (UC-39.1)
 
 - *Estensioni:*
-  - UC-40.1: Errore dipendenza circolare
+  - UC-39.1: Errore dipendenza circolare
 
 
-=== UC-40.1: Errore dipendenza circolare <uc40.1>
+=== UC-39.1: Errore dipendenza circolare <uc39.1>
 #v(1em)
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente ha selezionato un requisito da aggiungere
   come dipendenza che crea una dipendenza circolare.
 
-- *Postcondizioni:* Il sistema ha bloccato l'aggiunta e notificato
-  l'errore all'utente. La lista delle dipendenze rimane invariata.
+- *Postcondizioni:* Il sistema ha bloccato l'aggiunta, notificato
+  l'errore all'utente e la lista delle dipendenze rimane invariata.
 
 - *Scenario principale:*
   + Il sistema rileva che il requisito selezionato crea una dipendenza
@@ -2065,86 +2069,73 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema mostra un messaggio di errore.
 
 
-== UC-41: Rimozione dipendenza <uc41>
+== UC-40: Eliminazione dipendenza <uc40>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-41 : Rimozione dipendenza],
+  caption: [UC-40 : Eliminazione dipendenza],
 )
-#text(style: "italic")[Requisito opzionale]
-#v(0.5em)
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente sta visualizzando la lista delle dipendenze
-  del decision tree. (UC-30.1.1)
+  del decision tree. (UC-29.1.1)
 
 - *Postcondizioni:* Il requisito selezionato è stato rimosso dalle
-  dipendenze del decision tree corrente e la modifica è salvata
-  sul backend.
+  dipendenze del decision tree corrente e la modifica apportata è stata salvata.
 
 - *Scenario principale:*
   + L'utente seleziona il requisito da rimuovere dalle dipendenze.
   + Il sistema rimuove il requisito dalla lista delle dipendenze.
-  + Il sistema salva la modifica sul backend.
+  + Il sistema salva la modifica apportata.
 
-- *Scenari alternativi:*
-  - *1a.* L'utente annulla l'operazione: il sistema non apporta modifiche.
-
-== UC-42: Importazione decision tree <uc42>
+== UC-41: Importazione decision tree <uc41>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-42 : Importazione decision tree],
+  caption: [UC-41 : Importazione decision tree],
 )
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente sta visualizzando l'elenco dei decision tree.
-  (UC-30)
+  (UC-29)
 
 - *Postcondizioni:* Il sistema ha caricato il decision tree contenuto nel
-  file importato e lo ha reso disponibile sul backend per le sessioni di
+  file importato e lo ha reso disponibile per le sessioni di
   valutazione successive.
 
 - *Scenario principale:*
   + L'utente seleziona la funzionalità di importazione di un nuovo
     decision tree.
   + L'utente seleziona il file da importare (JSON o CSV).
-  + Il sistema valida il formato e la struttura del file, verificando che
-    rispetti i vincoli dell'albero binario e la presenza di almeno un nodo
-    PASS e un nodo FAIL.
-  + Il sistema carica il decision tree e lo salva sul backend.
+  + Il sistema valida il formato e la struttura del file.
+  + Il sistema carica il decision tree e lo salva.
   + Il sistema aggiorna l'elenco dei decision tree disponibili.
 
 - *Scenari alternativi:*
   - *3a.* Il file non rispetta il formato atteso o i vincoli strutturali. (UC-3)
-  - *1a.* L'utente annulla l'importazione.
 
 - *Estensioni:*
   - UC-3: Formato file non valido
 
 
-== UC-43: Eliminazione decision tree <uc43>
+== UC-42: Eliminazione decision tree <uc42>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-43 : Eliminazione decision tree],
+  caption: [UC-42 : Eliminazione decision tree],
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando l'elenco dei decision tree. (UC-30)
+- *Precondizioni:* L'utente sta visualizzando il dettaglio di un
+  decision tree. (UC-29.1)
 
-- *Postcondizioni:* Il decision tree selezionato è stato rimosso dal sistema
-  e la modifica è salvata sul backend.
+- *Postcondizioni:* Il decision tree selezionato è stato rimosso dal sistema.
 
 - *Scenario principale:*
   + L'utente seleziona un decision tree dall'elenco.
   + L'utente seleziona la funzionalità di eliminazione del decision tree.
   + Il sistema mostra un messaggio di conferma.
-  + L'utente conferma l'eliminazione.
-  + Il sistema rimuove il decision tree dal backend e aggiorna l'elenco.
-
-- *Scenari alternativi:*
-  - *4a.* L'utente annulla l'eliminazione.
+  + Il sistema rimuove il decision tree e aggiorna l'elenco.
 
 #pagebreak()
 #set heading(numbering: "1.1.")
@@ -2184,7 +2175,7 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-Ob12], [Il sistema deve mostrare in dettaglio il nome del dispositivo registrato.], [UC-7.1],
   [RF-Ob13], [Il sistema deve mostrare in dettaglio il sistema operativo del dispositivo registrato.], [UC-7.2],
   [RF-Ob14], [Il sistema deve mostrare in dettaglio la descrizione del dispositivo registrato.], [UC-7.3],
-  [RF-Ob15], [Il sistema deve calcolare e mostrare lo stato aggregato di valutazione del dispositivo (non valutato, PASS, FAIL).], [UC-7.4],
+  [RF-Ob15], [Il sistema deve calcolare e mostrare lo stato aggregato di valutazione del dispositivo (Not Evaluated, PASS, FAIL).], [UC-7.4],
   [RF-Ob16], [Il sistema deve permettere la modifica delle informazioni anagrafiche di un dispositivo esistente.], [UC-8],
   [RF-Ob17], [Il sistema deve consentire la modifica del nome del dispositivo.], [UC-8.1],
   [RF-Ob18], [Il sistema deve consentire la modifica del sistema operativo del dispositivo.], [UC-8.2],
@@ -2200,7 +2191,7 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-Ob26], [Il sistema deve permettere l'inserimento del nome dell'asset nel form di creazione.], [UC-12.1.1],
   [RF-Ob27], [Il sistema deve permettere la selezione del tipo di asset tra Network, Security, Privacy e Financial.], [UC-12.1.2],
   [RF-Ob28], [Il sistema deve permettere l'inserimento della descrizione dell'asset nel form di creazione.], [UC-12.1.3],
-  [RF-Ob29], [Il sistema deve permettere di impostare il livello di sensibilità dell'asset (SI o NO).], [UC-12.1.4],
+  [RF-Ob29], [Il sistema deve permettere di registrare la sensibilità dell'asset.], [UC-12.1.4],
   [RF-Ob30], [Il sistema deve permettere la visualizzazione della lista degli asset associati ad un determinato dispositivo.], [UC-14],
   [RF-Ob31], [Il sistema deve mostrare le informazioni essenziali del singolo asset all'interno della lista.], [UC-14.1],
   [RF-Ob32], [Il sistema deve mostrare il nome del singolo asset all'interno della lista.], [UC-14.1.1],
@@ -2210,7 +2201,7 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-Ob36], [Il sistema deve mostrare nel dettaglio il nome dell'asset selezionato.], [UC-15.1],
   [RF-Ob37], [Il sistema deve mostrare nel dettaglio il tipo dell'asset selezionato.], [UC-15.2],
   [RF-Ob38], [Il sistema deve mostrare nel dettaglio la descrizione dell'asset selezionato.], [UC-15.3],
-  [RF-Ob39], [Il sistema deve mostrare nel dettaglio il livello di sensibilità dell'asset selezionato.], [UC-15.4],
+  [RF-Ob39], [Il sistema deve mostrare nel dettaglio la sensibilità dell'asset selezionato.], [UC-15.4],
   [RF-Ob40], [Il sistema deve mostrare lo stato complessivo di valutazione dell'asset selezionato.], [UC-15.5],
   [RF-Ob41], [Il sistema deve mostrare la lista dei requisiti (ACM e AUM) da valutare associati all'asset.], [UC-15.6],
   [RF-Ob42], [Il sistema deve mostrare il codice identificativo e lo stato di valutazione di ogni requisito nella lista.], [UC-15.6.1],
@@ -2221,49 +2212,50 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-Ob47], [Il sistema deve consentire la modifica della sensibilità dell'asset.], [UC-16.4],
   [RF-Ob48], [Il sistema deve permettere l'eliminazione definitiva di un asset da un dispositivo.], [UC-18],
 
-  // --- AREA ESECUZIONE VALUTAZIONE (UC-19 a UC-29) ---
-  [RF-Ob49], [Il sistema deve permettere l'avvio di una sessione di valutazione di conformità per un dispositivo.], [UC-19],
-  [RF-Ob50], [Il sistema deve mostrare una dashboard di valutazione con il progresso degli asset completati.], [UC-19.1],
+  // --- AREA ESECUZIONE VALUTAZIONE (UC-19 a UC-28) ---
+  [RF-Ob49], [Il sistema deve permettere l'esecuzione di una sessione di
+  valutazione di conformità per un dispositivo.], [UC-19],
+  [RF-Ob50], [Il sistema deve mostrare una dashboard di valutazione con la lista degli asset, il loro stato, e il progresso della sessione in tempo reale.], [UC-19.1],
   [RF-Ob51], [Il sistema deve consentire la selezione e l'avvio della valutazione dei requisiti di un singolo asset.], [UC-20],
   [RF-Ob52], [Il sistema deve mostrare il codice e il nome del requisito selezionato prima dell'avvio dell'esecuzione del decision tree.], [UC-21],
   [RF-Ob53], [Il sistema deve mostrare le dipendenze del requisito selezionato e il loro stato di valutazione prima dell'esecuzione.], [UC-21.1],
   [RF-Ob54], [Il sistema deve guidare l'utente eseguendo il decision tree associato al requisito selezionato.], [UC-22],
   [RF-Ob55], [Il sistema deve mostrare il codice univoco e il testo della domanda del nodo corrente dell'albero.], [UC-22.1],
   [RF-Ob56], [Il sistema deve registrare la risposta dell'utente avanzandone il percorso sul grafo.], [UC-22.2],
-  [RF-Ob57], [Il sistema deve gestire la risposta affermativa ("Sì") spostando il flusso sul relativo ramo.], [UC-22.2.1],
-  [RF-Ob58], [Il sistema deve gestire la risposta negativa ("No") spostando il flusso sul relativo ramo.], [UC-22.2.2],
+  [RF-Ob57], [Il sistema deve gestire la risposta affermativa spostando il flusso sul relativo ramo.], [UC-22.2.1],
+  [RF-Ob58], [Il sistema deve gestire la risposta negativa spostando il flusso sul relativo ramo.], [UC-22.2.2],
   [RF-Ob59], [Il sistema deve visualizzare a schermo il grafo completo del decision tree durante l'esecuzione.], [UC-22.4],
   [RF-Ob60], [Il sistema deve evidenziare graficamente nel grafo il nodo corrente e il percorso già intrapreso.], [UC-22.4],
   [RF-Ob61], [Il sistema deve mostrare un nodo foglia al termine del percorso con l'esito (PASS, FAIL, NOT APPLICABLE).], [UC-23],
   [RF-Ob62], [Il sistema deve mostrare la giustificazione testuale del risultato in base alle risposte date.], [UC-23],
   [RF-Ob63], [Il sistema deve generare un file JSON contenente lo stato della sessione di valutazione per il download.], [UC-25],
-  [RF-Ob64], [Il sistema deve permettere il caricamento di un file di sessione per riprendere un test interrotto.], [UC-26],
-  [RF-Ob65], [Il sistema deve mostrare lo stato di avanzamento in tempo reale (numero asset e requisiti completati).], [UC-27],
-  [RF-Ob66], [Il sistema deve mostrare una schermata finale con il riepilogo complessivo di tutti gli esiti del test.], [UC-28],
-  [RF-Ob67], [Il sistema deve mostrare per ogni asset la lista dei requisiti completati e il percorso logico seguito.], [UC-28.1.1],
-  [RF-Ob68], [Il sistema deve mostrare la sequenza ordinata di domande e risposte fornite per un requisito completato.], [UC-28.1.1.1],
-  [RF-Ob69], [Il sistema deve esportare il report di conformità finale raccogliendo esiti e percorsi logici.], [UC-29],
-  [RF-Ob70], [Il sistema deve consentire il download del report di conformità finale in formato PDF.], [UC-29.1],
-  [RF-Ob71], [Il sistema deve consentire il download del report di conformità finale in formato JSON.], [UC-29.2],
-  [RF-Ob72], [Il sistema deve consentire il download del report di conformità finale in formato CSV.], [UC-29.3],
+  [RF-Ob64], [Il sistema deve permettere il salvataggio della sessione corrente e la successiva chiusura della sessione di valutazione.], [UC-25.1],
+  [RF-Ob65], [Il sistema deve permettere il caricamento di un file di sessione per riprendere un test interrotto.], [UC-26],
+  [RF-Ob66], [Il sistema deve mostrare una schermata finale con il riepilogo complessivo di tutti gli esiti del test.], [UC-27],
+  [RF-Ob67], [Il sistema deve mostrare per ogni asset la lista dei requisiti completati e il percorso logico seguito.], [UC-27.1.1],
+  [RF-Ob68], [Il sistema deve mostrare la sequenza ordinata di domande e risposte fornite per un requisito completato.], [UC-27.1.1.1],
+  [RF-Ob69], [Il sistema deve esportare il report di conformità finale raccogliendo esiti e percorsi logici.], [UC-28],
+  [RF-Ob70], [Il sistema deve consentire il download del report di conformità finale in formato PDF.], [UC-28.1],
+  [RF-Ob71], [Il sistema deve consentire il download del report di conformità finale in formato JSON.], [UC-28.2],
+  [RF-Ob72], [Il sistema deve consentire il download del report di conformità finale in formato CSV.], [UC-28.3],
 
-  // --- AREA GESTIONE DECISION TREE (UC-30 a UC-43) ---
-  [RF-Ob73], [Il sistema deve mostrare l'elenco dei decision tree disponibili memorizzati nel backend.], [UC-30],
-  [RF-Ob74], [Il sistema deve mostrare l'ID e il nome del requisito per ogni decision tree in elenco.], [UC-30.1],
-  [RF-Ob75], [Il sistema deve mostrare le dipendenze di ogni decision tree nell'elenco.], [UC-30.1.1],
-  [RF-Ob76], [Il sistema deve permettere la modifica strutturale di un grafo decision tree esistente.], [UC-31],
-  [RF-Ob77], [Il sistema deve permettere l'aggiunta di un nuovo nodo all'interno di un decision tree.], [UC-32],
-  [RF-Ob78], [Il sistema deve permettere l'inserimento di un codice univoco per il nuovo nodo.], [UC-32.1],
-  [RF-Ob79], [Il sistema deve permettere l'inserimento del testo della domanda del nuovo nodo.], [UC-32.2],
-  [RF-Ob80], [Il sistema deve permettere l'eliminazione di un nodo esistente da un decision tree.], [UC-33],
-  [RF-Ob81], [Il sistema deve permettere la modifica della destinazione di un collegamento tra nodi (Sì/No).], [UC-34],
-  [RF-Ob82], [Il sistema deve impedire la creazione di collegamenti duplicati mostrando una notifica di errore.], [UC-35],
-  [RF-Ob83], [Il sistema deve validare la struttura dell'albero modificato secondo i vincoli di consistenza predefiniti.], [UC-36],
-  [RF-Ob84], [Il sistema deve impedire il salvataggio e mostrare un errore se l'albero non è binario o mancano foglie PASS/FAIL.], [UC-36],
-  [RF-Ob85], [Il sistema deve esportare localmente un file di un decision tree in formato JSON o CSV.], [UC-38],
-  [RF-Ob86], [Il sistema deve impedire l'eliminazione del nodo radice di un decision tree mostrando un errore.], [UC-39],
-  [RF-Ob87], [Il sistema deve permettere l'importazione e la validazione strutturale di un nuovo decision tree da file.], [UC-42],
-  [RF-Ob88], [Il sistema deve consentire l'eliminazione definitiva di un decision tree dal backend.], [UC-43],
+  // --- AREA GESTIONE DECISION TREE (UC-29 a UC-42) ---
+  [RF-Ob73], [Il sistema deve mostrare l'elenco dei decision tree disponibili memorizzati.], [UC-29],
+  [RF-Ob74], [Il sistema deve mostrare l'ID e il nome del requisito per ogni decision tree in elenco.], [UC-29.1],
+  [RF-Ob75], [Il sistema deve mostrare le dipendenze di ogni decision tree nell'elenco.], [UC-29.1.1],
+  [RF-Ob76], [Il sistema deve permettere la modifica strutturale di un grafo decision tree esistente.], [UC-30],
+  [RF-Ob77], [Il sistema deve permettere l'aggiunta di un nuovo nodo all'interno di un decision tree.], [UC-31],
+  [RF-Ob78], [Il sistema deve permettere l'inserimento di un codice univoco per il nuovo nodo.], [UC-31.1],
+  [RF-Ob79], [Il sistema deve permettere l'inserimento del testo della domanda del nuovo nodo.], [UC-31.2],
+  [RF-Ob80], [Il sistema deve permettere l'eliminazione di un nodo esistente da un decision tree.], [UC-32],
+  [RF-Ob81], [Il sistema deve permettere la modifica della destinazione di un collegamento tra nodi.], [UC-33],
+  [RF-Ob82], [Il sistema deve impedire la creazione di collegamenti duplicati mostrando una notifica di errore.], [UC-34],
+  [RF-Ob83], [Il sistema deve validare la struttura dell'albero modificato secondo i vincoli di consistenza predefiniti.], [UC-35],
+  [RF-Ob84], [Il sistema deve impedire il salvataggio e mostrare un errore se l'albero non è binario o mancano foglie PASS/FAIL.], [UC-35],
+  [RF-Ob85], [Il sistema deve permettere l'esportazione di un file di un decision tree in formato JSON o CSV.], [UC-37],
+  [RF-Ob86], [Il sistema deve impedire l'eliminazione del nodo radice di un decision tree mostrando un errore.], [UC-38],
+  [RF-Ob87], [Il sistema deve permettere l'importazione e la validazione strutturale di un nuovo decision tree da file.], [UC-41],
+  [RF-Ob88], [Il sistema deve consentire l'eliminazione definitiva di un decision tree.], [UC-42],
 )
 
 #pagebreak()
@@ -2281,14 +2273,14 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-D02], [Il sistema deve permettere l'annullamento della procedura di modifica di un dispositivo, scartando i dati inseriti e mantenendo invariati quelli preesistenti.], [UC-9],
   [RF-D03], [Il sistema deve permettere l'annullamento della procedura di eliminazione di un dispositivo durante la fase di richiesta di conferma.], [UC-11],
   [RF-D04], [Il sistema deve permettere l'annullamento della procedura di inserimento di un asset, ripristinando lo stato precedente.], [UC-13],
-  [RF-D05], [Il sistema deve consentire il filtraggio dinamico e l'ordinamento della lista degli asset associati ad un dispositivo.], [UC-14],
-  [RF-D06], [Il sistema deve permettere l'annullamento della procedura di modifica di un asset, scartando le modifiche non salvate.], [UC-17],
-  [RF-D07], [Il sistema deve permettere l'annullamento della procedura di eliminazione di un asset durante la fase di richiesta di conferma.], [UC-18],
-  [RF-D08], [Il sistema deve permettere l'annullamento dell'ultima risposta fornita nel decision tree, consentendo il ritorno al nodo precedente.], [UC-22.3],
+  [RF-D05], [Il sistema deve permettere l'annullamento della procedura di modifica di un asset, scartando le modifiche non salvate.], [UC-17],
+  [RF-D06], [Il sistema deve permettere l'annullamento della procedura di eliminazione di un asset durante la fase di richiesta di conferma.], [UC-18],
+  [RF-D07], [Il sistema deve permettere l'annullamento dell'ultima risposta fornita nel decision tree, consentendo il ritorno al nodo precedente.], [UC-22.3],
+  [RF-D08], [Il sistema deve permettere l'uscita anticipata da una sessione di valutazione in corso, consentendo all'utente di scegliere se salvare o scartare i progressi effettuati.], [UC-24],
   [RF-D09], [Il sistema deve permettere il salvataggio intermedio dello stato del test continuando la valutazione senza forzare la chiusura della sessione.], [UC-25.2],
-  [RF-D10], [Il sistema deve permettere la riesecuzione dall'inizio di un decision tree per un requisito che ha già ricevuto un esito di conformità.], [UC-28.1.1.2],
-  [RF-D11], [Il sistema deve ripristinare il vecchio esito di conformità di un requisito se l'utente esce anticipatamente dalla sua riesecuzione.], [UC-28.1.1.2],
-  [RF-D12], [Il sistema deve permettere l'annullamento delle modifiche effettuate su un decision tree, ripristinando lo stato iniziale del grafo.], [UC-37],
+  [RF-D10], [Il sistema deve permettere la riesecuzione dall'inizio di un decision tree per un requisito che ha già ricevuto un esito di conformità.], [UC-27.1.1.2],
+  [RF-D11], [Il sistema deve ripristinare il vecchio esito di conformità di un requisito se l'utente esce anticipatamente dalla sua riesecuzione.], [UC-27.1.1.2],
+  [RF-D12], [Il sistema deve permettere l'annullamento delle modifiche effettuate su un decision tree, ripristinando lo stato iniziale del grafo.], [UC-36],
 )
 
 #pagebreak()
@@ -2303,13 +2295,14 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [*Codice*], [*Descrizione*], [*Fonti*],
 
   [RF-Op01], [Il sistema deve mostrare la notifica dell'avvenuto salvataggio intermedio della sessione di valutazione.], [UC-25.2],
-  [RF-Op02], [Il sistema deve permettere l'aggiunta manuale di una dipendenza tra requisiti all'interno di un decision tree.], [UC-40],
-  [RF-Op03], [Il sistema deve permettere la rimozione di una dipendenza tra requisiti da un decision tree.], [UC-41],
+  [RF-Op02], [Il sistema deve permettere l'aggiunta manuale di una dipendenza tra requisiti all'interno di un decision tree.], [UC-39],
+  [RF-Op03], [Il sistema deve impedire l'aggiunta di dipendenze circolari tra decision tree mostrando un messaggio di errore.], [UC-39.1],
+  [RF-Op04], [Il sistema deve permettere la rimozione di una dipendenza tra requisiti da un decision tree.], [UC-40],
 )
 
 == Requisiti di Qualità
 
-I requisiti di qualità definiscono i criteri di validazione, gli standard metrici e gli obblighi di verifica che il team e il prodotto software devono soddisfare in conformità con i criteri di completamento e consegna stabiliti nel capitolato d'appalto e nei documenti di qualifica interni. In linea con l'approccio dei documenti di riferimento, tutti i requisiti di qualità individuati sono da considerarsi strettamente obbligatori.
+I requisiti di qualità definiscono i criteri di validazione, gli standard metrici e gli obblighi di verifica che il team e il prodotto software devono soddisfare in conformità con i criteri di completamento e consegna stabiliti nel capitolato d'appalto e nel documento Piano di Qualifica. In linea con l'approccio dei documenti di riferimento, tutti i requisiti di qualità individuati sono da considerarsi strettamente obbligatori.
 
 #table(
   columns: (1.2fr, 3fr, 1.2fr),
@@ -2320,7 +2313,7 @@ I requisiti di qualità definiscono i criteri di validazione, gli standard metri
 
   [RQ-Ob01], [Il codice sorgente e la gestione dei processi di sviluppo devono rispettare tassativamente le convenzioni e gli standard definiti nelle Norme di Progetto.], [Norme di Progetto],
   [RQ-Ob02], [Il sistema e i deliverable di progetto devono essere conformi alle metriche, agli indici e agli obiettivi di verifica stabiliti all'interno del Piano di Qualifica.], [Piano di Qualifica],
-  [RQ-Ob03], [Il prodotto software deve essere corredato da una suite di test automatizzati (di Unità, Integrazione, Sistema e Regressione) per verificarne il corretto funzionamento complessivo.], [Capitolato C1, Piano di Qualifica],
+  [RQ-Ob03], [Il prodotto software deve essere corredato da un insieme di test (Unità, Integrazione, Sistema e Regressione) per verificarne il corretto funzionamento complessivo.], [Capitolato C1, Piano di Qualifica],
   [RQ-Ob04], [Il prodotto software deve superare i Test di Accettazione finali in sede di revisione per dimostrare la piena conformità alle richieste della proponente.], [Capitolato C1],
   [RQ-Ob05], [Al sistema software deve essere allegato un Manuale Utente esaustivo che descriva in modo chiaro tutte le funzionalità dell'applicazione per un utente non tecnico.], [Capitolato C1],
   [RQ-Ob06], [Tutta la documentazione di progetto e il codice sorgente del prodotto applicativo devono essere interamente documentati, versionati e ospitati sulla repository ufficiale GitHub del gruppo.], [Capitolato C1],
@@ -2355,6 +2348,8 @@ I requisiti di vincolo definiscono le restrizioni tecniche, le piattaforme e gli
 
   [RV-Op01], [L'interfaccia utente (frontend) dell'applicazione web dovrebbe essere realizzata utilizzando la libreria React.], [Verbale Esterno],
   [RV-Op02], [Il sistema dovrebbe utilizzare Git come software di controllo di versione distribuito per la gestione del codice sorgente.], [Verbale Esterno],
+  [RV-Op03], [Il sistema dovrebbe utilizzare il framework Flask per lo sviluppo del backend], [Verbale Esterno],
+  [RV-Op04], [Il sistema dovrebbe utilizzare Docker come piattaforma software che consente di distribuire ed eseguire applicazioni all’interno di container isolati e portabili.], [Verbale Esterno],
 )
 
 #pagebreak()
@@ -2435,48 +2430,49 @@ In questa sezione viene fornito un quadro di tracciamento bidirezionale per asso
   [RF-Ob61], [UC-23],
   [RF-Ob62], [UC-23],
   [RF-Ob63], [UC-25],
-  [RF-Ob64], [UC-26],
-  [RF-Ob65], [UC-27],
-  [RF-Ob66], [UC-28],
-  [RF-Ob67], [UC-28.1.1],
-  [RF-Ob68], [UC-28.1.1.1],
-  [RF-Ob69], [UC-29],
-  [RF-Ob70], [UC-29.1],
-  [RF-Ob71], [UC-29.2],
-  [RF-Ob72], [UC-29.3],
-  [RF-Ob73], [UC-30],
-  [RF-Ob74], [UC-30.1],
-  [RF-Ob75], [UC-30.1.1],
-  [RF-Ob76], [UC-31],
-  [RF-Ob77], [UC-32],
-  [RF-Ob78], [UC-32.1],
-  [RF-Ob79], [UC-32.2],
-  [RF-Ob80], [UC-33],
-  [RF-Ob81], [UC-34],
-  [RF-Ob82], [UC-35],
-  [RF-Ob83], [UC-36],
-  [RF-Ob84], [UC-36],
-  [RF-Ob85], [UC-38],
-  [RF-Ob86], [UC-39],
-  [RF-Ob87], [UC-42],
-  [RF-Ob88], [UC-43],
+  [RF-Ob64], [UC-25.1],
+  [RF-Ob65], [UC-26],
+  [RF-Ob66], [UC-27],
+  [RF-Ob67], [UC-27.1.1],
+  [RF-Ob68], [UC-27.1.1.1],
+  [RF-Ob69], [UC-28],
+  [RF-Ob70], [UC-28.1],
+  [RF-Ob71], [UC-28.2],
+  [RF-Ob72], [UC-28.3],
+  [RF-Ob73], [UC-29],
+  [RF-Ob74], [UC-29.1],
+  [RF-Ob75], [UC-29.1.1],
+  [RF-Ob76], [UC-30],
+  [RF-Ob77], [UC-31],
+  [RF-Ob78], [UC-31.1],
+  [RF-Ob79], [UC-31.2],
+  [RF-Ob80], [UC-32],
+  [RF-Ob81], [UC-33],
+  [RF-Ob82], [UC-34],
+  [RF-Ob83], [UC-35],
+  [RF-Ob84], [UC-35],
+  [RF-Ob85], [UC-37],
+  [RF-Ob86], [UC-38],
+  [RF-Ob87], [UC-41],
+  [RF-Ob88], [UC-42],
 
   [RF-D01], [UC-6],
   [RF-D02], [UC-9],
   [RF-D03], [UC-11],
   [RF-D04], [UC-13],
-  [RF-D05], [UC-14],
-  [RF-D06], [UC-17],
-  [RF-D07], [UC-18],
-  [RF-D08], [UC-22.3],
+  [RF-D05], [UC-17],
+  [RF-D06], [UC-18],
+  [RF-D07], [UC-22.3],
+  [RF-D08], [UC-24],
   [RF-D09], [UC-25.2],
-  [RF-D10], [UC-28.1.1.2],
-  [RF-D11], [UC-28.1.1.2],
-  [RF-D12], [UC-37],
+  [RF-D10], [UC-27.1.1.2],
+  [RF-D11], [UC-27.1.1.2],
+  [RF-D12], [UC-36],
 
   [RF-Op01], [UC-25.2],
-  [RF-Op02], [UC-40],
-  [RF-Op03], [UC-41],
+  [RF-Op02], [UC-39],
+  [RF-Op03], [UC-39.1],
+  [RF-Op04], [UC-40],
 )
 
 #pagebreak()
@@ -2493,11 +2489,11 @@ La seguente tabella riassume quantitativamente i requisiti individuati all'inter
     fill: (x, y) => if y == 0 { luma(230) } else if y == 4 { luma(245) } else { none },
     [*Tipologia*], [*Obbligatori*], [*Desiderabili*], [*Opzionali*], [*Totali*],
 
-    [Funzionali (RF)], [88], [12], [3], [103],
+    [Funzionali (RF)], [88], [12], [4], [104],
     [Qualità (RQ)], [7], [0], [0], [7],
     [Vincolo (RV)], [2], [0], [2], [4],
 
-    [*Totali*], [*97*], [*12*], [*5*], [*114*],
+    [*Totali*], [*97*], [*12*], [*6*], [*115*],
   )
 ]
 
