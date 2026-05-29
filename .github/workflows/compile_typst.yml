@@ -37,8 +37,11 @@ jobs:
 
           done
 
-      - name: Commit e Push dei PDF
+      - name: Calcola Indice di Gulpease
+        run: python3 .github/scripts/gulpease.py
+
+      - name: Commit e Push dei PDF e metriche
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "docs: generazione automatica PDF da src/ [skip ci]"
-          file_pattern: '**/*.pdf'
+          commit_message: "docs: aggiornamento automatico PDF e metriche Gulpease [skip ci]"
+          file_pattern: '**/*.pdf src/metrics/gulpease.json'
