@@ -73,7 +73,7 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [1.0.1], [2026/05/26], [Edis Hodja], [], [Correzione codici e decisione di riferimento],
+      [1.0.1], [2026/05/26], [Edis Hodja], [Giovanni Bronte], [Correzione codici e decisione di riferimento],
       [1.0.0], [2026/05/14], [Filippo Zonta Rocha], [], [Approvazione del verbale],
       [0.3.0], [2026/05/14], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Correzione refusi e aggiornamento sezioni 2.4, 2.6, 2.7],
       [0.2.0], [2026/05/13], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Correzione refusi, Aggiornamento sezioni],
