@@ -668,38 +668,7 @@ Nello Sprint 1 tutti gli otto requisiti iniziali sono risultati stabili (RSI = 1
 
 == MPC-10, MPC-11 — Indice di Gulpease, Correttezza Ortografica
 
-L'Indice di Gulpease è stato calcolato tramite script Python applicato ai file sorgente `.typ` di ciascun documento al termine di ogni sprint, previa rimozione del markup. I documenti considerati sono quelli con struttura narrativa estesa: Analisi dei Requisiti (AdR), Norme di Progetto (NdP), Piano di Progetto (PdP) e Piano di Qualifica (PdQ). La soglia di accettazione è ≥ 60; valori inferiori sono attesi per documentazione tecnica ricca di terminologia specialistica, acronimi EN 18031 e locuzioni in lingua straniera.
-
-#figure(
-  table(
-    columns: (1fr, 2cm, 2cm, 2cm),
-    align: (left, center, center, center),
-    stroke: (x, y) => (
-      bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
-      left: 0.4pt + luma(150),
-      right: if x == 3 { 0.4pt + luma(150) } else { none },
-      top: if y == 0 { 0.4pt + luma(150) } else { none },
-    ),
-    inset: 8pt,
-    fill: (x, y) => if y == 0 { luma(230) } else if calc.rem(y, 2) == 0 { luma(248) } else { none },
-    [*Documento*], [*Sprint 1*], [*Sprint 2*], [*Sprint 3*],
-    [Analisi dei Requisiti], [51,6], [53,1], [55,0],
-    [Norme di Progetto],     [N/D],  [N/D],  [35,9],
-    [Piano di Progetto],     [N/D],  [42,8], [43,4],
-    [Piano di Qualifica],    [N/D],  [N/D],  [48,8],
-    [*Media documenti*],     [*51,6*],[*48,0*],[*45,8*],
-  ),
-  caption: [Indice di Gulpease per documento e per sprint],
-  supplement: [Tabella],
-)
-
-#figure(
-  image("../../../images/cruscotto/gulpease.png", width: 95%),
-  caption: [Indice di Gulpease per documento e per sprint (barre tratteggiate = documento non ancora prodotto)],
-  supplement: [Figura],
-)
-
-I valori si attestano tra 35,9 e 55,0, al di sotto della soglia di accettazione di 60. Questo risultato è coerente con la natura tecnica dei documenti prodotti: la presenza di terminologia specialistica (EN 18031, acronimi di processo, espressioni in lingua straniera), frasi brevi nelle tabelle e nelle liste riduce strutturalmente l'indice rispetto a testi divulgativi. Il trend dell'AdR è positivo (51,6 → 55,0), a indicare una progressiva maturazione dello stile narrativo nel corso degli sprint. La Correttezza Ortografica non è ancora monitorata tramite strumento automatico: sarà attivata a partire dalla Product Baseline.
+Misurazione non disponibile in questa fase: i documenti RTB sono ancora su branch di sviluppo e non sono stati ancora mergiati nel branch main. Il calcolo dell'Indice di Gulpease verrà eseguito automaticamente ad ogni merge tramite la GitHub Action configurata nel repository, a partire dalla prima integrazione in main. La Correttezza Ortografica non è ancora monitorata tramite strumento automatico: sarà attivata a partire dalla Product Baseline.
 
 == MPC-12, MPC-13 — Test Success Rate, Code Coverage
 
@@ -707,7 +676,7 @@ Misurazione non disponibile in questa fase: sarà rilevata a partire dalla Produ
 
 == MPC-14 — Quality Metrics Satisfied
 
-Percentuale di metriche misurabili che rientrano nel range accettabile. Sono escluse dal calcolo: TSR e Code Coverage (MPC-12, MPC-13), non applicabili in assenza di codice prodotto; Correttezza Ortografica (MPC-11), non ancora monitorata con strumento automatico; Indice di Gulpease (MPC-10), misurato ma escluso dal computo QMS perché i valori inferiori alla soglia di 60 sono strutturalmente attesi per documentazione tecnica specialistica (terminologia EN 18031, acronimi, locuzioni in lingua straniera) e non costituiscono una reale criticità di processo.
+Percentuale di metriche misurabili che rientrano nel range accettabile. Sono escluse dal calcolo: TSR e Code Coverage (MPC-12, MPC-13), non applicabili in assenza di codice prodotto; Correttezza Ortografica (MPC-11), non ancora monitorata con strumento automatico; Indice di Gulpease (MPC-10), non ancora misurabile in questa fase perché i documenti RTB non sono stati ancora mergiati nel branch main.
 
 #cruscotto-table(
   [Andamento di Quality Metrics Satisfied per sprint],
