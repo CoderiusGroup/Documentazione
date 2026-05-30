@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.3.1*]
+  #text(size: 20pt)[*Versione 0.5.1*]
 ]
 #pagebreak()
 
@@ -100,9 +100,11 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.4.1], [2026/05/18], [Giovanni Bronte], [], [Finita sezione 4.3(conclusione sprint 3). Modificati degli errori minori nei calcoli delle risorse rimaste per lo sprint 2.],
+    [0.5.1], [2026/05/29], [Edis Hodja], [], [Aggiunta delle sezioni: 4.4.5, 4.4.6, 4.4.7, 4.4.8],
+    [0.5.0], [2026/05/20], [Edis Hodja], [], [Aggiunta delle sezioni Sprint 4: 4.4.1, 4.4.2, 4.4.3, 4.4.4],
+    [0.4.0], [2026/05/18], [Giovanni Bronte], [], [Conclusa sezione 4.3. Modificati degli errori minori nei calcoli delle risorse rimaste per lo Sprint 2.],
     [0.3.1], [2026/05/14], [Edis Hodja], [], [Revisione lessicale e aggiunta del versionamento nell’impaginazione],
-    [0.3.0], [2026/05/04], [Giovanni Bronte], [Filippo Zonta Rocha], [Aggiunta sezione 4.2(sprint 2) e sezioni da 4.3.1 a 4.3.4 (inizio sprint 3). Aggiunti i rischi RO-4 e RI-2.],
+    [0.3.0], [2026/05/04], [Giovanni Bronte], [Filippo Zonta Rocha], [Aggiunta sezione 4.2 e sezioni da 4.3.1 a 4.3.4. Aggiunti i rischi RO-4 e RI-2.],
     [0.2.0], [2026/04/21], [Alberto Canavese], [Filippo Zonta Rocha], [Correzione refusi],
     [0.1.0], [2026/04/21], [Ines Iadadi], [Alberto Canavese], [Prima stesura del documento e redazione Sprint 1],
   )
@@ -505,10 +507,10 @@ Nel secondo sprint il team si concentrerà sulla stesura dei vari Use case per l
     ([Alberto Canavese],   [-],[-],[-],[-],[-],[8],[8]),
     ([Edis Hodja],         [-],[-],[8],[-],[-],[-],[8]),
     ([Filippo Zonta Rocha],[6],[-],[-],[-],[-],[-],[6]),
-    ([Giovanni Angelo Marco Bronte],    [-],[2],[-],[-],[-],[-],[6]),
+    ([Giovanni Angelo Marco Bronte],    [-],[2],[-],[-],[-],[-],[2]),
     ([Ines Iadadi],        [-],[-],[8],[-],[-],[-],[8]),
-    ([Leonardo Lorenzin],  [-],[2],[-],[-],[-],[-],[6]),
-    (table.cell(align: center, fill: luma(220))[*Totale*],[*6*],[*4*],[*16*],[*0*],[*0*],[*8*],[*42*]),
+    ([Leonardo Lorenzin],  [-],[2],[-],[-],[-],[-],[2]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*6*],[*4*],[*16*],[*0*],[*0*],[*8*],[*34*]),
   )),
     caption: [Preventivo ore per membro - Sprint 2]
 )
@@ -519,10 +521,10 @@ Nel secondo sprint il team si concentrerà sulla stesura dei vari Use case per l
     ([Alberto Canavese], [-], [-], [-], [-], [-], [7#text(fill: green)[(-1)]], [7]),
     ([Edis Hodja], [-], [-], [7#text(fill: green)[(-1)]], [-], [-], [-], [7]),
     ([Filippo Zonta Rocha], [5#text(fill: green)[(-1)]], [-], [-], [-], [-], [-], [5]),
-    ([Giovanni Angelo Marco Bronte], [-], [3#text(fill: red)[(+1)]], [], [-], [-], [-], [8]),
+    ([Giovanni Angelo Marco Bronte], [-], [3#text(fill: red)[(+1)]], [], [-], [-], [-], [3]),
     ([Ines Iadadi], [-], [-], [8#text(fill: red)[(+1)]], [-], [-], [-], [8]),
-    ([Leonardo Lorenzin], [-], [4#text(fill: red)[(+2)]], [-], [-], [-], [-], [8]),
-    (table.cell(align: center, fill: luma(220))[*Totale*], [*5*], [*7*], [*15*], [*0*], [*0*], [*7*], [*43*]),
+    ([Leonardo Lorenzin], [-], [4#text(fill: red)[(+2)]], [-], [-], [-], [-], [4]),
+    (table.cell(align: center, fill: luma(220))[*Totale*], [*5*], [*7*], [*15*], [*0*], [*0*], [*7*], [*34*]),
   )),
   caption: [Consuntivo ore per membro - Sprint 2],
 )
@@ -541,7 +543,7 @@ Nel secondo sprint il team si concentrerà sulla stesura dei vari Use case per l
     [Progettista], [25], [0], [   0€], [96], [2400€],
     [Programmatore], [15], [0], [   0€], [108], [1620€],
     [Verificatore], [15], [7], [ 105€], [112], [1680€],
-    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*43*], [*950€*], [*447*], [*9025€*], 
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*43*], [*770€*], [*447*], [*9025€*], 
   )
 ]
 
@@ -554,7 +556,7 @@ Il team ha continuato la stesura di vari documenti essenziali per il Requirement
 L'incontro con Bluewind è stato inoltre fondamentale per l'Analisi dei requisiti, in quanto ha chiarito molte delle domande poste dagli analisti, questo ha evitato il rischio *RT-2* che avrebbe potuto causare un rallentamento nel progetto. 
 
 ==== *Criticità emerse*
-Per questo sprint sono state assegnate due persone al ruolo di amministratore, questo ha causato una riduzione delle ore disponibili per il ruolo di amministratore superiore a quanto previsto. D'ora in avanti il team assegnerà una sola persona al ruolo di amministratore per sprint, in modo da evitare di andare oltre il numero di ore e budget stimato previsto dal documento: *DichiarazioneImpegni-2026-03-20*.
+Per questo sprint sono state assegnate due persone al ruolo di amministratore, questo ha causato una riduzione delle ore disponibili per il ruolo di amministratore superiore a quanto previsto. D'ora in avanti il team assegnerà una sola persona al ruolo di amministratore per sprint, in modo da evitare di andare oltre il numero di ore e budget stimato previsto dal documento: *DichiarazioneImpegni-2026-03-20.typ*.
 
 #pagebreak()
 
@@ -576,7 +578,7 @@ Per il terzo sprint il nostro team si concentrerà sulla continuazione della ste
 Le attività principali saranno:
 - Continua stesura dell'analisi dei requisiti, il team si prefissa di arrivare ad una fase terminale del documento cosi facendo avendo una versione quasi definitiva, inviarlo all'azienda proponente per avere un feedback sullo stato di accuratezza del documento.
 - Aggiornamento con Bluewind: è stato fissato un incontro per il 2026/05/04 per fare varie domande all'azienda in modo da chiarire alcuni dei dubbi sorti durante l'analisi dei requisiti.
-- Stesura del Diario di Bordo, stesura di un altro documento fatta da tutto il team che ha lo scopo di riassumere quanto fatto fino al giorno della redazione del documento per poterlo esporre durante l'attività omonima.
+- Stesura del secondo Diario di Bordo, stesura di un altro documento fatta da tutto il team che ha lo scopo di riassumere quanto fatto fino al giorno della redazione del documento per poterlo esporre durante l'attività omonima.
 - Aggiornamento del sito, aggiungendo una sezione per il Diario di Bordo.
 - Stesura dei vari verbali esterni e interni.
 
@@ -660,41 +662,48 @@ Per evitare che questo problema accada nuovamente in futuro, gli analisti dovran
 #v(0.3em)
 
 === Attività pianificate
-Nel quarto sprint il gruppo presterà ancora attenzione sulla documentazione richiesta per l'RTB, focalizzandosi specialmente sulla stesura definitiva dell'Analisi dei Requisiti, documento essenziale per una maggiore comprensione strutturale dell'operato desiderabile. Oltre a ciò, compito dell'Amministratore, sarà quello di iniziare a strutturare al meglio il Piano di Qualifica.
+Nel quarto sprint il gruppo presterà ancora attenzione sulla documentazione richiesta per l'RTB, focalizzandosi specialmente sulla stesura definitiva dell'Analisi dei Requisiti, documento essenziale per una maggiore comprensione strutturale dell'operato desiderabile. Oltre a ciò, compito dell'Amministratore, sarà quello di iniziare a strutturare al meglio il Piano di Qualifica integrando metriche di qualità, criteri di verifica e procedure di validazione necessarie a garantire la conformità del prodotto agli obiettivi progettuali e agli standard definiti dal capitolato.
 Naturalmente i restanti documenti saranno ancora in via di sviluppo, prossimi a una conclusione. Le attività principali saranno:
 
-- Aggiunta e ristrutturazione dell'ordine degli UC presenti nell'Analisi dei Requisiti.
-- 
+- Aggiunta e ristrutturazione dell'ordine degli UC presenti nell'Analisi dei Requisiti con integrazione dei diagrammi UML finali.
+- Aggiornamento del glossario: aggiunta di vari termini usati nei vari documenti stesi in questo sprint.
+- Incontro con la proponente: domande relative ai casi d'uso e criticità riscontrate nell'evoluzione dell'operato.
+- Stesura del terzo Diario di Bordo: obiettivi raggiunti, criticità riscontrate, passi operativi futuri.
+- Realizzazione del mock-up, versione abbozzata dell'interfaccia grafica, in vista di una revisione da parte della proponente.
 - Stesura dei vari verbali esterni e interni.
 
 === Rischi attesi
+- *RO-1*: Il team potrebbe anche per questo sprint incorrere in errori di stime relativi alle ore non accurate. Si tratta comunque di un rischio sempre con una probabilità inferiore rispetto agli scorsi sprint, ma pur sempre altamente concreto.
+- *RO-2*: Per questo sprint è altamente probabile incorrere in difficoltà nel coordinamento con tutto il team, specialmente a causa dell’elevato carico di lavoro richiesto dalla finalizzazione della documentazione e della necessità di mantenere allineate le attività tra i diversi ruoli operativi del gruppo.
+- *RI-1*: Considerato l’avvicinarsi di un periodo accademico particolarmente intenso, è probabile riscontrare difficoltà nella disponibilità organizzativa dei membri del gruppo, con conseguenti rallentamenti temporanei nello svolgimento di alcune attività operative.
+
  
 === Preventivo
 #figure(
   tabella-ore((
-    ([Alberto Canavese],   [-],[-],[8],[-],[-],[],[8]),
-    ([Edis Hodja],         [-],[4],[-],[-],[-],[-],[4]),
-    ([Filippo Zonta Rocha],[-],[-],[-],[-],[-],[7],[7]),
-    ([Giovanni Angelo Marco Bronte],    [6],[-],[-],[-],[-],[-],[6]),
-    ([Ines Iadadi],        [-],[-],[8],[-],[-],[-],[8]),
-    ([Leonardo Lorenzin],  [-],[-],[-],[-],[-],[7],[7]),
-    (table.cell(align: center, fill: luma(220))[*Totale*],[*6*],[*4*],[*16*],[*0*],[*0*],[*14*],[*40*]),
+    ([Alberto Canavese],   [-],[4],[-],[-],[-],[],[4]),
+    ([Edis Hodja],         [6],[-],[-],[-],[-],[-],[6]),
+    ([Filippo Zonta Rocha],[-],[-],[7],[-],[-],[-],[7]),
+    ([Giovanni Angelo Marco Bronte],    [-],[-],[-],[-],[-],[7],[7]),
+    ([Ines Iadadi],        [-],[-],[-],[4],[-],[-],[4]),
+    ([Leonardo Lorenzin],  [-],[-],[7],[-],[-],[-],[7]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*6*],[*4*],[*14*],[*4*],[*0*],[*7*],[*35*]),
   )),
-    caption: [Preventivo ore per membro - Sprint 3]
+    caption: [Preventivo ore per membro - Sprint 4]
 )
 
 === Consuntivo
 #figure(
   tabella-ore((
-    ([Alberto Canavese], [-], [-], [8], [-], [-], [-], [8]),
-    ([Edis Hodja], [-], [4], [-], [-], [-], [-], [4]),
-    ([Filippo Zonta Rocha], [-], [-], [-], [-], [-], [6#text(fill: green)[(-1)]], [6]),
-    ([Giovanni Angelo Marco Bronte], [5#text(fill: green)[(-1)]], [-], [], [-], [-], [-], [5]),
-    ([Ines Iadadi], [-], [-], [8], [-], [-], [-], [8]),
-    ([Leonardo Lorenzin], [-], [-], [-], [-], [-], [6#text(fill: green)[(-1)]], [6]),
-    (table.cell(align: center, fill: luma(220))[*Totale*], [*5*], [*4*], [*16*], [*0*], [*0*], [*12*], [*37*]),
+    ([Alberto Canavese],   [-],[4],[-],[-],[-],[],[4]),
+    ([Edis Hodja],         [5 #text(fill: green)[(-1)]],[-],[-],[-],[-],[-],[5]),
+    ([Filippo Zonta Rocha],[-],[-],[5 #text(fill: green)[(-2)]],[-],[-],[-],[5]),
+    ([Giovanni Angelo Marco Bronte],    [-],[-],[-],[-],[-],[7],[7]),
+    ([Ines Iadadi],        [-],[-],[-],[5 #text(fill: red)[(+1)]],[-],[-],[5]),
+    ([Leonardo Lorenzin],  [-],[-],[7],[-],[-],[-],[7]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*5*],[*4*],[*12*],[*5*],[*0*],[*7*],[*33*]),
   )),
-  caption: [Consuntivo ore per membro - Sprint 3],
+    caption: [Consuntivo ore per membro - Sprint 4]
 )
 
 === Risorse rimanenti
@@ -706,20 +715,27 @@ Naturalmente i restanti documenti saranno ancora in via di sviluppo, prossimi a 
     inset: (x: 8pt, y: 6pt),
     [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
     [*Ore residue*], [*Budget residuo*],
-    [Responsabile], [30], [5], [ 150€], [45], [1350€],
-    [Amministratore], [20], [4], [80€], [36], [720€],
-    [Analista], [25], [16 ], [400€], [25], [625€],
-    [Progettista], [25], [0], [   0€], [96], [2400€],
+    [Responsabile], [30], [5], [ 150€], [40], [1200€],
+    [Amministratore], [20], [4], [80€], [32], [640€],
+    [Analista], [25], [12], [300€], [13], [325€],
+    [Progettista], [25], [5], [   125€], [91], [2275€],
     [Programmatore], [15], [0], [   0€], [108], [1620€],
-    [Verificatore], [15], [12], [ 180€], [100], [1500€],
-    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*37*], [*810€*], [*410*], [*8215€*], 
+    [Verificatore], [15], [7], [ 105€], [93], [1395€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*33*], [*760€*], [*377*], [*7455€*], 
   )
 ]
 
 === Rischi incontrati 
-
+- *RO-2*: Il rischio di attività rimaste incompiute si è manifestato durante il periodo bisettimanale a causa della necessità di effettuare verifiche approfondite su alcuni verbali. Tale circostanza ha richiesto l’intervento tempestivo di parte del team, con il conseguente impiego di risorse aggiuntive e il potenziale rallentamento delle attività pianificate. Per mitigare il rischio, sono state corrette alcune imprecisioni e riviste le procedure descrittive attraverso momenti di confronto e collaborazione tra i membri del gruppo, al fine di ridurre la probabilità che situazioni analoghe si ripresentino in futuro.
+- *RI-1*: Nel corso di questo periodo bisettimanale, la concomitanza di impegni accademici e personali ha comportato una riduzione della disponibilità di alcuni membri del team. In particolare, l’avvicinarsi della sessione estiva degli esami ha richiesto una maggiore attenzione nella gestione del tempo, con possibili ripercussioni sulla partecipazione alle attività progettuali. Per garantire il rispetto delle scadenze e la continuità del lavoro, il gruppo ha fatto ricorso a un’organizzazione più flessibile delle attività e a un costante coordinamento tra i componenti del team.
 
 === Retrospettiva
+A seguito dei progressi ottenuti nello sprint precedente, il team ha proseguito il lavoro sulla documentazione richiesta per l’RTB, portando avanti in particolare il completamento dell’*Analisi dei Requisiti* e l’evoluzione del *Piano di Qualifica*. L’attenzione si è concentrata sulla riorganizzazione e sul perfezionamento dei casi d’uso, con l’integrazione dei diagrammi UML definitivi al fine di rendere più chiara e completa la descrizione delle funzionalità del sistema.
+
+In parallelo, è continuata l’attività di aggiornamento del glossario, arricchito con nuovi termini emersi durante la stesura e la revisione dei documenti.
+Durante questo sprint è stata avviata anche la progettazione preliminare dell’interfaccia grafica attraverso la realizzazione di un primo mock-up, utile a visualizzare l’organizzazione delle principali funzionalità e a raccogliere eventuali osservazioni in vista delle fasi successive. Parallelamente, sono proseguite le attività di documentazione ordinaria con la redazione del terzo Diario di Bordo e dei verbali.
 
 
 ==== *Criticità emerse*
+La principale criticità riscontrata durante questo sprint ha riguardato il completamento degli ultimi casi d’uso dell’*Analisi dei Requisiti*. In particolare, il team ha incontrato alcune difficoltà nel definire con precisione determinati scenari e nel rappresentarli correttamente attraverso i diagrammi UML, rendendo necessarie ulteriori attività di revisione e confronto.
+Per affrontare tali problematiche, il gruppo ha svolto un colloquio di confronto con il professor Cardin, ottenendo chiarimenti utili sulla modellazione dei casi d’uso e dei relativi diagrammi. 
