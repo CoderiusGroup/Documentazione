@@ -80,7 +80,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-    #text(size: 20pt)[*Versione 0.2.0*]
+    #text(size: 20pt)[*Versione 0.2.1*]
 ]
 #pagebreak()
 
@@ -99,6 +99,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.2.1], [2026/05/29], [Alberto Canavese], [], [Espansione dei Test di Sistema con tracciamento ai requisiti, aggiunta di nuove metriche di prodotto e correzione refusi],
     [0.2.0], [2026/05/28], [Alberto Canavese], [], [Stesura sezioni 2–5: metriche di qualità (MPC/MPD), strategie di testing (TS-01..47, TA-01..10), cruscotto di valutazione con dati EVM e grafici, automiglioramento],
     [0.1.1], [2026/05/11], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Correzione refusi e aggiornamento sezioni 1.1, 1.2, 1.3],
     [0.1.0], [2026/05/07], [Giovanni Bronte], [Leonardo Lorenzin], [Prima stesura del documento con sezione 1],
@@ -110,7 +111,6 @@
 #text(size: 18pt, weight: "bold")[Indice]
 #outline(title: none, depth: 3)
 
-#let nota(corpo) = text(size: 8pt, [#corpo])
 #pagebreak()
 
 #outline(
@@ -296,6 +296,7 @@ Misura la capacità del software di operare senza guasti in condizioni previste,
   [Metriche di Affidabilità del prodotto],
   [MPD-04], [Failure Density],    [$<= 0.5$],  [$<= 0.2$],
   [MPD-05], [Statement Coverage], [$>= 80%$],  [$>= 95%$],
+  [MPD-06], [Branch Coverage],    [$>= 60%$],  [$>= 80%$],
 )
 
 === Usabilità
@@ -315,6 +316,7 @@ Indica l'ottimizzazione delle risorse e la rapidità di risposta del software al
   [Metriche di Efficienza del prodotto],
   [MPD-09], [Response Time], [$<= 3 " sec"$], [$<= 1 " sec"$],
 )
+#pagebreak()
 
 === Manutenibilità
 
@@ -324,6 +326,7 @@ Misura quanto facilmente il software può essere modificato o esteso senza intro
   [Metriche di Manutenibilità del prodotto],
   [MPD-12], [Cyclomatic Complexity], [$<= 10$],                 [$<= 8$],
   [MPD-13], [Instability Index],     [$I >= 0.7 or I <= 0.30$], [$I >= 0.85 or I <= 0.15$],
+  [MPD-14], [Coefficient of Coupling], [$<= 0.4$],              [$<= 0.2$],
   [MPD-15], [Code Smell],            [$<= 10$],                 [$<= 5$],
 )
 #pagebreak()
@@ -332,7 +335,7 @@ Misura quanto facilmente il software può essere modificato o esteso senza intro
 
 Il processo di verifica e validazione del software prevede l'utilizzo di diverse tipologie di test, ciascuna con uno scopo specifico all'interno del ciclo di sviluppo. Le tipologie previste sono:
 
-- *Test di Sistema* (TS): verificano il comportamento del sistema nella sua interezza rispetto ai casi d'uso definiti nell'Analisi dei Requisiti;
+- *Test di Sistema* (TS): verificano il comportamento del sistema nella sua interezza rispetto ai requisiti funzionali definiti nell'Analisi dei Requisiti;
 - *Test di Accettazione* (TA): validano il prodotto finale con il proponente, accertando la conformità ai requisiti concordati;
 - *Test di Unità* (TU): verificano le singole unità di codice in isolamento;
 - *Test di Integrazione* (TI): verificano la corretta interazione tra i componenti del sistema;
@@ -340,14 +343,14 @@ Il processo di verifica e validazione del software prevede l'utilizzo di diverse
 
 In questa fase (RTB) vengono documentati i Test di Sistema e i Test di Accettazione. I Test di Unità, di Integrazione e di Regressione saranno definiti e condotti nell'ambito delle attività previste per la Product Baseline (PB).
 
-Per ciascun test viene riportato un codice identificativo, una descrizione e il caso d'uso di riferimento. Lo stato dei test viene indicato con le seguenti abbreviazioni:
+Per ciascun test viene riportato un codice identificativo, una descrizione e il requisito funzionale di riferimento definito nell'Analisi dei Requisiti. Lo stato dei test viene indicato con le seguenti abbreviazioni:
 - *NI*: Non Implementato
 - *S*: Superato
 - *NS*: Non Superato
 
 #let test-table(caption-text, ..rows) = figure(
   table(
-    columns: (2cm, 1fr, 3.5cm, 2cm),
+    columns: (1.8cm, 1fr, 2.6cm, 1.4cm),
     align: (center, left, center, center),
     stroke: (x, y) => (
       bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
@@ -355,9 +358,9 @@ Per ciascun test viene riportato un codice identificativo, una descrizione e il 
       right: if x == 3 { 0.4pt + luma(150) } else { none },
       top: if y == 0 { 0.4pt + luma(150) } else { none },
     ),
-    inset: 8pt,
+    inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
-    [*Codice*], [*Descrizione*], [*UC di riferimento*], [*Stato*],
+    [*Codice*], [*Descrizione*], [*Requisito*], [*Stato*],
     ..rows.pos(),
   ),
   caption: caption-text,
@@ -366,62 +369,100 @@ Per ciascun test viene riportato un codice identificativo, una descrizione e il 
 
 == Test di Sistema
 
-I test di sistema verificano il comportamento complessivo del sistema rispetto ai casi d'uso definiti nell'Analisi dei Requisiti. Ogni test è associato a uno o più casi d'uso e ha stato NI (Non Implementato) in questa fase, in attesa dello sviluppo del PoC.
+I test di sistema verificano il comportamento complessivo del sistema rispetto ai requisiti funzionali definiti nell'Analisi dei Requisiti. È previsto un test per ciascun requisito funzionale (obbligatorio, desiderabile e opzionale), in modo da garantire la copertura completa e la tracciabilità bidirezionale tra requisiti e test. Tutti i test hanno stato NI (Non Implementato) in questa fase, in attesa dello sviluppo del Proof of Concept.
 
-=== Gestione del dispositivo
+=== Gestione dei dispositivi
 
 #test-table(
-  [Test di Sistema — Gestione del dispositivo],
-  [TS-01], [Verificare che l'utente possa avviare il processo di inserimento di un nuovo dispositivo.],                               [UC-1],         [NI],
-  [TS-02], [Verificare che l'utente possa importare un dispositivo tramite file.],                                                    [UC-2],         [NI],
-  [TS-03], [Verificare che il sistema notifichi un errore quando il file importato ha formato non valido.],                           [UC-3],         [NI],
-  [TS-04], [Verificare che il sistema richieda nome, sistema operativo e descrizione durante la creazione manuale del dispositivo.],   [UC-4, UC-4.1], [NI],
-  [TS-05], [Verificare che il sistema notifichi l'errore quando l'utente inserisce dati non validi in uno o più campi.],              [UC-5],         [NI],
-  [TS-06], [Verificare che l'utente possa annullare l'inserimento del dispositivo prima del salvataggio.],                            [UC-6],         [NI],
-  [TS-07], [Verificare che l'utente possa visualizzare nome, sistema operativo, descrizione e stato aggregato del dispositivo.],      [UC-7],         [NI],
-  [TS-08], [Verificare che l'utente possa modificare i dati del dispositivo (nome, sistema operativo, descrizione).],                 [UC-8],         [NI],
-  [TS-09], [Verificare che l'utente possa annullare la modifica dei dati del dispositivo ripristinando i valori precedenti.],         [UC-9],         [NI],
-  [TS-10], [Verificare che l'utente possa esportare i dati del dispositivo e degli asset associati.],                                 [UC-10],        [NI],
-  [TS-11], [Verificare che l'utente possa eliminare un dispositivo senza salvare un backup dei dati.],                                [UC-11.1],      [NI],
-  [TS-12], [Verificare che l'utente possa eliminare un dispositivo ottenendo in precedenza un file di backup dei dati.],              [UC-11.2],      [NI],
+  [Test di Sistema — Gestione dei dispositivi],
+  [TS-01], [Verificare che l'utente possa inserire un nuovo dispositivo all'interno della piattaforma.],                                          [RF-Ob01], [NI],
+  [TS-02], [Verificare che l'utente possa importare un dispositivo tramite file di configurazione in formato JSON o CSV.],                        [RF-Ob02], [NI],
+  [TS-03], [Verificare che il sistema verifichi la validità strutturale e la conformità del file di configurazione caricato.],                   [RF-Ob03], [NI],
+  [TS-04], [Verificare che il sistema blocchi l'importazione e mostri un messaggio di errore quando il file ha formato non valido.],             [RF-Ob04], [NI],
+  [TS-05], [Verificare che l'utente possa creare manualmente un nuovo dispositivo.],                                                             [RF-Ob05], [NI],
+  [TS-06], [Verificare che il sistema richieda l'inserimento dei dati identificativi del dispositivo durante la creazione manuale.],             [RF-Ob06], [NI],
+  [TS-07], [Verificare che l'utente possa inserire il nome identificativo del dispositivo.],                                                     [RF-Ob07], [NI],
+  [TS-08], [Verificare che l'utente possa inserire il sistema operativo del dispositivo.],                                                       [RF-Ob08], [NI],
+  [TS-09], [Verificare che l'utente possa inserire una descrizione testuale del dispositivo.],                                                   [RF-Ob09], [NI],
+  [TS-10], [Verificare che il sistema validi i dati inseriti nei form e mostri un errore in caso di campi vuoti o non conformi.],                [RF-Ob10], [NI],
+  [TS-11], [Verificare che l'utente possa visualizzare le informazioni e i dati relativi al dispositivo.],                                        [RF-Ob11], [NI],
+  [TS-12], [Verificare che il sistema mostri in dettaglio il nome del dispositivo registrato.],                                                  [RF-Ob12], [NI],
+  [TS-13], [Verificare che il sistema mostri in dettaglio il sistema operativo del dispositivo registrato.],                                     [RF-Ob13], [NI],
+  [TS-14], [Verificare che il sistema mostri in dettaglio la descrizione del dispositivo registrato.],                                           [RF-Ob14], [NI],
+  [TS-15], [Verificare che il sistema calcoli e mostri lo stato aggregato di valutazione del dispositivo (Not Evaluated, PASS, FAIL).],          [RF-Ob15], [NI],
+  [TS-16], [Verificare che l'utente possa modificare le informazioni anagrafiche di un dispositivo esistente.],                                  [RF-Ob16], [NI],
+  [TS-17], [Verificare che l'utente possa modificare il nome del dispositivo.],                                                                  [RF-Ob17], [NI],
+  [TS-18], [Verificare che l'utente possa modificare il sistema operativo del dispositivo.],                                                     [RF-Ob18], [NI],
+  [TS-19], [Verificare che l'utente possa modificare la descrizione del dispositivo.],                                                           [RF-Ob19], [NI],
+  [TS-20], [Verificare che l'utente possa esportare tutti i dati di un dispositivo in formato JSON o CSV.],                                       [RF-Ob20], [NI],
+  [TS-21], [Verificare che l'utente possa eliminare definitivamente un dispositivo dal sistema.],                                                [RF-Ob21], [NI],
+  [TS-22], [Verificare che l'utente possa eliminare un dispositivo senza effettuare il backup dei dati.],                                        [RF-Ob22], [NI],
+  [TS-23], [Verificare che l'utente possa eliminare un dispositivo previa esportazione automatica di backup dei dati.],                          [RF-Ob23], [NI],
 )
+
+#pagebreak()
 
 === Gestione degli asset
 
 #test-table(
   [Test di Sistema — Gestione degli asset],
-  [TS-13], [Verificare che l'utente possa inserire un nuovo asset compilando nome, tipo e descrizione.],                                        [UC-12, UC-12.1],        [NI],
-  [TS-14], [Verificare che il sistema proponga la selezione tra le tipologie di asset: Network, Security, Privacy, Financial.],                  [UC-12.1.2],             [NI],
-  [TS-15], [Verificare che l'utente possa annullare l'inserimento di un asset prima del salvataggio.],                                          [UC-13],                 [NI],
-  [TS-16], [Verificare che il sistema mostri la lista degli asset del dispositivo con nome, tipo e stato di valutazione per ognuno.],            [UC-14, UC-14.1],        [NI],
-  [TS-17], [Verificare che l'utente possa visualizzare in dettaglio tutte le informazioni di un asset selezionato dalla lista.],                 [UC-15],                 [NI],
-  [TS-18], [Verificare che il sistema mostri la lista dei requisiti (ACM e AUM) associati all'asset con il relativo stato di valutazione.],      [UC-15.6, UC-15.6.1],    [NI],
-  [TS-19], [Verificare che l'utente possa modificare nome, tipo e descrizione di un asset esistente.],                                          [UC-16],                 [NI],
-  [TS-20], [Verificare che l'utente possa annullare la modifica di un asset ripristinando i dati precedenti.],                                  [UC-17],                 [NI],
-  [TS-21], [Verificare che l'utente possa eliminare un asset con richiesta di conferma prima della rimozione definitiva.],                       [UC-18],                 [NI],
+  [TS-24], [Verificare che l'utente possa inserire un nuovo asset all'interno di un dispositivo.],                                               [RF-Ob24], [NI],
+  [TS-25], [Verificare che il sistema richieda la compilazione dei dati dell'asset nel form di creazione.],                                      [RF-Ob25], [NI],
+  [TS-26], [Verificare che l'utente possa inserire il nome dell'asset nel form di creazione.],                                                   [RF-Ob26], [NI],
+  [TS-27], [Verificare che l'utente possa selezionare il tipo di asset tra Network, Security, Privacy e Financial.],                             [RF-Ob27], [NI],
+  [TS-28], [Verificare che l'utente possa inserire la descrizione dell'asset nel form di creazione.],                                            [RF-Ob28], [NI],
+  [TS-29], [Verificare che l'utente possa registrare la sensibilità dell'asset.],                                                                [RF-Ob29], [NI],
+  [TS-30], [Verificare che l'utente possa visualizzare la lista degli asset associati a un dispositivo.],                                        [RF-Ob30], [NI],
+  [TS-31], [Verificare che il sistema mostri le informazioni essenziali del singolo asset all'interno della lista.],                             [RF-Ob31], [NI],
+  [TS-32], [Verificare che il sistema mostri il nome del singolo asset all'interno della lista.],                                                [RF-Ob32], [NI],
+  [TS-33], [Verificare che il sistema mostri il tipo del singolo asset all'interno della lista.],                                                [RF-Ob33], [NI],
+  [TS-34], [Verificare che il sistema mostri lo stato di valutazione del singolo asset all'interno della lista.],                                [RF-Ob34], [NI],
+  [TS-35], [Verificare che l'utente possa visualizzare in dettaglio tutte le informazioni di un singolo asset selezionato.],                     [RF-Ob35], [NI],
+  [TS-36], [Verificare che il sistema mostri nel dettaglio il nome dell'asset selezionato.],                                                     [RF-Ob36], [NI],
+  [TS-37], [Verificare che il sistema mostri nel dettaglio il tipo dell'asset selezionato.],                                                     [RF-Ob37], [NI],
+  [TS-38], [Verificare che il sistema mostri nel dettaglio la descrizione dell'asset selezionato.],                                              [RF-Ob38], [NI],
+  [TS-39], [Verificare che il sistema mostri nel dettaglio la sensibilità dell'asset selezionato.],                                              [RF-Ob39], [NI],
+  [TS-40], [Verificare che il sistema mostri lo stato complessivo di valutazione dell'asset selezionato.],                                       [RF-Ob40], [NI],
+  [TS-41], [Verificare che il sistema mostri la lista dei requisiti (ACM e AUM) da valutare associati all'asset.],                               [RF-Ob41], [NI],
+  [TS-42], [Verificare che il sistema mostri il codice identificativo e lo stato di valutazione di ogni requisito nella lista.],                 [RF-Ob42], [NI],
+  [TS-43], [Verificare che l'utente possa modificare le informazioni di un asset esistente.],                                                    [RF-Ob43], [NI],
+  [TS-44], [Verificare che l'utente possa modificare il nome dell'asset.],                                                                       [RF-Ob44], [NI],
+  [TS-45], [Verificare che l'utente possa modificare il tipo dell'asset tramite opzioni predefinite.],                                           [RF-Ob45], [NI],
+  [TS-46], [Verificare che l'utente possa modificare la descrizione dell'asset.],                                                                [RF-Ob46], [NI],
+  [TS-47], [Verificare che l'utente possa modificare la sensibilità dell'asset.],                                                                [RF-Ob47], [NI],
+  [TS-48], [Verificare che l'utente possa eliminare definitivamente un asset da un dispositivo.],                                                [RF-Ob48], [NI],
 )
 
-=== Valutazione del dispositivo
+#pagebreak()
+
+=== Esecuzione della valutazione
 
 #test-table(
-  [Test di Sistema — Valutazione del dispositivo],
-  [TS-22], [Verificare che l'utente possa avviare una sessione di valutazione del dispositivo.],                                                             [UC-19],          [NI],
-  [TS-23], [Verificare che il sistema mostri la dashboard di valutazione con la lista degli asset e il relativo stato.],                                     [UC-19.1],        [NI],
-  [TS-24], [Verificare che il sistema esegua il decision tree per ogni requisito dell'asset selezionato.],                                                   [UC-20, UC-22],   [NI],
-  [TS-25], [Verificare che il sistema mostri codice univoco e testo della domanda del nodo corrente del decision tree.],                                     [UC-22.1],        [NI],
-  [TS-26], [Verificare che l'utente possa rispondere alla domanda del nodo corrente (Sì/No) e che il sistema avanzi al nodo successivo.],                   [UC-22.2],        [NI],
-  [TS-27], [Verificare che l'utente possa navigare al nodo precedente del decision tree e modificare la risposta fornita.],                                  [UC-22.3],        [NI],
-  [TS-28], [Verificare che l'utente possa avanzare a un nodo successivo già risposto in precedenza.],                                                        [UC-22.3],        [NI],
-  [TS-29], [Verificare che il sistema mostri il grafo del decision tree evidenziando il nodo corrente e il percorso già seguito.],                           [UC-22.4],        [NI],
-  [TS-30], [Verificare che il sistema mostri lo stato di avanzamento del test: asset e requisito correnti, numero di asset e requisiti completati.],         [UC-27],          [NI],
-  [TS-31], [Verificare che il sistema mostri l'esito del requisito (PASS, FAIL o NOT APPLICABLE) al raggiungimento di un nodo foglia.],                     [UC-23],          [NI],
-  [TS-32], [Verificare che l'utente possa uscire anticipatamente dalla sessione con possibilità di scegliere se salvare o scartare i dati.],                [UC-24],          [NI],
-  [TS-33], [Verificare che l'utente possa salvare la sessione corrente e chiuderla, ottenendo un file JSON scaricabile.],                                    [UC-25.1],        [NI],
-  [TS-34], [Verificare che l'utente possa salvare la sessione corrente e continuare la valutazione senza interruzioni.],                                     [UC-25.2],        [NI],
-  [TS-35], [Verificare che l'utente possa riprendere una sessione di valutazione caricando il file JSON salvato in precedenza.],                             [UC-26],          [NI],
-  [TS-36], [Verificare che il sistema mostri il riepilogo dei risultati con gli esiti per ogni coppia asset-requisito al termine della valutazione.],        [UC-28, UC-28.1], [NI],
-  [TS-37], [Verificare che l'utente possa esportare il report di conformità in formato PDF.],                                                                [UC-29.1],        [NI],
-  [TS-38], [Verificare che l'utente possa esportare il report di conformità in formato JSON.],                                                               [UC-29.2],        [NI],
+  [Test di Sistema — Esecuzione della valutazione],
+  [TS-49], [Verificare che l'utente possa eseguire una sessione di valutazione di conformità per un dispositivo.],                               [RF-Ob49], [NI],
+  [TS-50], [Verificare che il sistema mostri una dashboard di valutazione con la lista degli asset, il loro stato e il progresso in tempo reale.], [RF-Ob50], [NI],
+  [TS-51], [Verificare che l'utente possa selezionare e avviare la valutazione dei requisiti di un singolo asset.],                              [RF-Ob51], [NI],
+  [TS-52], [Verificare che il sistema mostri il codice e il nome del requisito selezionato prima dell'avvio del decision tree.],                 [RF-Ob52], [NI],
+  [TS-53], [Verificare che il sistema mostri le dipendenze del requisito selezionato e il loro stato prima dell'esecuzione.],                    [RF-Ob53], [NI],
+  [TS-54], [Verificare che il sistema guidi l'utente eseguendo il decision tree associato al requisito selezionato.],                            [RF-Ob54], [NI],
+  [TS-55], [Verificare che il sistema mostri il codice univoco e il testo della domanda del nodo corrente dell'albero.],                         [RF-Ob55], [NI],
+  [TS-56], [Verificare che il sistema registri la risposta dell'utente avanzando il percorso sul grafo.],                                        [RF-Ob56], [NI],
+  [TS-57], [Verificare che il sistema gestisca la risposta affermativa spostando il flusso sul relativo ramo.],                                  [RF-Ob57], [NI],
+  [TS-58], [Verificare che il sistema gestisca la risposta negativa spostando il flusso sul relativo ramo.],                                     [RF-Ob58], [NI],
+  [TS-59], [Verificare che il sistema visualizzi a schermo il grafo completo del decision tree durante l'esecuzione.],                           [RF-Ob59], [NI],
+  [TS-60], [Verificare che il sistema evidenzi graficamente nel grafo il nodo corrente e il percorso già intrapreso.],                           [RF-Ob60], [NI],
+  [TS-61], [Verificare che il sistema mostri un nodo foglia con l'esito (PASS, FAIL, NOT APPLICABLE) al termine del percorso.],                  [RF-Ob61], [NI],
+  [TS-62], [Verificare che il sistema mostri la giustificazione testuale del risultato in base alle risposte date.],                             [RF-Ob62], [NI],
+  [TS-63], [Verificare che il sistema generi un file JSON contenente lo stato della sessione di valutazione per il download.],                   [RF-Ob63], [NI],
+  [TS-64], [Verificare che l'utente possa salvare la sessione corrente e chiudere la sessione di valutazione.],                                  [RF-Ob64], [NI],
+  [TS-65], [Verificare che l'utente possa caricare un file di sessione per riprendere un test interrotto.],                                       [RF-Ob65], [NI],
+  [TS-66], [Verificare che il sistema mostri una schermata finale con il riepilogo complessivo di tutti gli esiti del test.],                    [RF-Ob66], [NI],
+  [TS-67], [Verificare che il sistema mostri per ogni asset la lista dei requisiti completati e il percorso logico seguito.],                    [RF-Ob67], [NI],
+  [TS-68], [Verificare che il sistema mostri la sequenza ordinata di domande e risposte fornite per un requisito completato.],                   [RF-Ob68], [NI],
+  [TS-69], [Verificare che il sistema esporti il report di conformità finale raccogliendo esiti e percorsi logici.],                             [RF-Ob69], [NI],
+  [TS-70], [Verificare che l'utente possa scaricare il report di conformità finale in formato PDF.],                                             [RF-Ob70], [NI],
+  [TS-71], [Verificare che l'utente possa scaricare il report di conformità finale in formato JSON.],                                            [RF-Ob71], [NI],
+  [TS-72], [Verificare che l'utente possa scaricare il report di conformità finale in formato CSV.],                                             [RF-Ob72], [NI],
 )
 
 #pagebreak()
@@ -430,103 +471,201 @@ I test di sistema verificano il comportamento complessivo del sistema rispetto a
 
 #test-table(
   [Test di Sistema — Gestione dei decision tree],
-  [TS-39], [Verificare che l'utente possa accedere alla modalità di modifica di un decision tree e visualizzarne il grafo.],                                  [UC-31],  [NI],
-  [TS-40], [Verificare che l'utente possa aggiungere un nuovo nodo al decision tree inserendo codice univoco e testo della domanda.],                         [UC-32],  [NI],
-  [TS-41], [Verificare che il sistema notifichi un errore se il codice del nodo inserito è già presente nel decision tree.],                                  [UC-32.1],[NI],
-  [TS-42], [Verificare che l'utente possa eliminare un nodo dal decision tree previa conferma dell'operazione.],                                              [UC-33],  [NI],
-  [TS-43], [Verificare che il sistema impedisca l'eliminazione del nodo radice del decision tree notificando l'errore.],                                      [UC-39],  [NI],
-  [TS-44], [Verificare che l'utente possa modificare la destinazione di un collegamento tra nodi del decision tree.],                                         [UC-34],  [NI],
-  [TS-45], [Verificare che il sistema notifichi la validazione fallita e non salvi le modifiche in caso di struttura non valida del decision tree.],          [UC-36],  [NI],
-  [TS-46], [Verificare che l'utente possa annullare le modifiche al decision tree ripristinando lo stato precedente.],                                        [UC-37],  [NI],
-  [TS-47], [Verificare che l'utente possa esportare il decision tree nel formato previsto (JSON o XML).],                                                     [UC-38],  [NI],
+  [TS-73], [Verificare che il sistema mostri l'elenco dei decision tree disponibili memorizzati.],                                              [RF-Ob73], [NI],
+  [TS-74], [Verificare che il sistema mostri l'ID e il nome del requisito per ogni decision tree in elenco.],                                    [RF-Ob74], [NI],
+  [TS-75], [Verificare che il sistema mostri le dipendenze di ogni decision tree nell'elenco.],                                                  [RF-Ob75], [NI],
+  [TS-76], [Verificare che l'utente possa modificare strutturalmente un grafo decision tree esistente.],                                         [RF-Ob76], [NI],
+  [TS-77], [Verificare che l'utente possa aggiungere un nuovo nodo all'interno di un decision tree.],                                            [RF-Ob77], [NI],
+  [TS-78], [Verificare che l'utente possa inserire un codice univoco per il nuovo nodo.],                                                        [RF-Ob78], [NI],
+  [TS-79], [Verificare che l'utente possa inserire il testo della domanda del nuovo nodo.],                                                      [RF-Ob79], [NI],
+  [TS-80], [Verificare che l'utente possa eliminare un nodo esistente da un decision tree.],                                                     [RF-Ob80], [NI],
+  [TS-81], [Verificare che l'utente possa modificare la destinazione di un collegamento tra nodi.],                                              [RF-Ob81], [NI],
+  [TS-82], [Verificare che il sistema impedisca la creazione di collegamenti duplicati mostrando una notifica di errore.],                       [RF-Ob82], [NI],
+  [TS-83], [Verificare che il sistema validi la struttura dell'albero modificato secondo i vincoli di consistenza predefiniti.],                 [RF-Ob83], [NI],
+  [TS-84], [Verificare che il sistema impedisca il salvataggio e mostri un errore se l'albero non è binario o mancano foglie PASS/FAIL.],        [RF-Ob84], [NI],
+  [TS-85], [Verificare che l'utente possa esportare un decision tree in formato JSON o CSV.],                                                    [RF-Ob85], [NI],
+  [TS-86], [Verificare che il sistema impedisca l'eliminazione del nodo radice di un decision tree mostrando un errore.],                        [RF-Ob86], [NI],
+  [TS-87], [Verificare che l'utente possa importare e validare strutturalmente un nuovo decision tree da file.],                                 [RF-Ob87], [NI],
+  [TS-88], [Verificare che l'utente possa eliminare definitivamente un decision tree.],                                                          [RF-Ob88], [NI],
+)
+
+#pagebreak()
+
+=== Funzionalità desiderabili
+
+#test-table(
+  [Test di Sistema — Funzionalità desiderabili],
+  [TS-89],  [Verificare che l'utente possa annullare la procedura di inserimento di un dispositivo, ripristinando lo stato precedente.],                        [RF-D01], [NI],
+  [TS-90],  [Verificare che l'utente possa annullare la procedura di modifica di un dispositivo, scartando i dati inseriti e mantenendo quelli preesistenti.],   [RF-D02], [NI],
+  [TS-91],  [Verificare che l'utente possa annullare la procedura di eliminazione di un dispositivo durante la richiesta di conferma.],                          [RF-D03], [NI],
+  [TS-92],  [Verificare che l'utente possa annullare la procedura di inserimento di un asset, ripristinando lo stato precedente.],                               [RF-D04], [NI],
+  [TS-93],  [Verificare che l'utente possa annullare la procedura di modifica di un asset, scartando le modifiche non salvate.],                                 [RF-D05], [NI],
+  [TS-94],  [Verificare che l'utente possa annullare la procedura di eliminazione di un asset durante la richiesta di conferma.],                                [RF-D06], [NI],
+  [TS-95],  [Verificare che l'utente possa annullare l'ultima risposta fornita nel decision tree tornando al nodo precedente.],                                  [RF-D07], [NI],
+  [TS-96],  [Verificare che l'utente possa uscire anticipatamente da una sessione di valutazione scegliendo se salvare o scartare i progressi.],                 [RF-D08], [NI],
+  [TS-97],  [Verificare che l'utente possa salvare lo stato del test continuando la valutazione senza chiudere la sessione.],                                    [RF-D09], [NI],
+  [TS-98],  [Verificare che l'utente possa rieseguire dall'inizio il decision tree di un requisito che ha già ricevuto un esito.],                               [RF-D10], [NI],
+  [TS-99],  [Verificare che il sistema ripristini il vecchio esito di un requisito se l'utente esce anticipatamente dalla sua riesecuzione.],                     [RF-D11], [NI],
+  [TS-100], [Verificare che l'utente possa annullare le modifiche effettuate su un decision tree, ripristinando lo stato iniziale del grafo.],                  [RF-D12], [NI],
+)
+
+=== Funzionalità opzionali
+
+#test-table(
+  [Test di Sistema — Funzionalità opzionali],
+  [TS-101], [Verificare che il sistema mostri la notifica dell'avvenuto salvataggio intermedio della sessione di valutazione.],                                 [RF-Op01], [NI],
+  [TS-102], [Verificare che l'utente possa aggiungere manualmente una dipendenza tra requisiti all'interno di un decision tree.],                               [RF-Op02], [NI],
+  [TS-103], [Verificare che il sistema impedisca l'aggiunta di dipendenze circolari tra decision tree mostrando un messaggio di errore.],                       [RF-Op03], [NI],
+  [TS-104], [Verificare che l'utente possa rimuovere una dipendenza tra requisiti da un decision tree.],                                                        [RF-Op04], [NI],
 )
 #pagebreak()
 
 == Tracciamento test di sistema
 
-La seguente tabella riporta la corrispondenza tra i test di sistema e i casi d'uso dell'Analisi dei Requisiti.
+La seguente tabella riporta il tracciamento bidirezionale completo: ogni test di sistema è associato al requisito funzionale che verifica e, attraverso di esso, al caso d'uso dell'Analisi dei Requisiti da cui il requisito deriva. La corrispondenza uno-a-uno tra test e requisiti garantisce la copertura totale dei requisiti funzionali (88 obbligatori, 12 desiderabili, 4 opzionali).
+
+#let tracc-table(..rows) = table(
+  columns: (1.6cm, 1.8cm, 1fr),
+  align: (center, center, left),
+  stroke: (x, y) => (
+    bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
+    left: 0.4pt + luma(150),
+    right: if x == 2 { 0.4pt + luma(150) } else { none },
+    top: if y == 0 { 0.4pt + luma(150) } else { none },
+  ),
+  inset: 6pt,
+  fill: (x, y) => if y == 0 { luma(230) } else { none },
+  [*Test*], [*Requisito*], [*Caso d'uso*],
+  ..rows.pos(),
+)
 
 #figure(
-  table(
-    columns: (2cm, 1fr),
-    align: (center, left),
-    stroke: (x, y) => (
-      bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
-      left: 0.4pt + luma(150),
-      right: if x == 1 { 0.4pt + luma(150) } else { none },
-      top: if y == 0 { 0.4pt + luma(150) } else { none },
-    ),
-    inset: 8pt,
-    fill: (x, y) => if y == 0 { luma(230) } else { none },
-    [*Codice TS*], [*Casi d'uso coperti*],
-    [TS-01],  [UC-1],
-    [TS-02],  [UC-2],
-    [TS-03],  [UC-3],
-    [TS-04],  [UC-4, UC-4.1, UC-4.1.1, UC-4.1.2, UC-4.1.3],
-    [TS-05],  [UC-5],
-    [TS-06],  [UC-6],
-    [TS-07],  [UC-7, UC-7.1, UC-7.2, UC-7.3, UC-7.4],
-    [TS-08],  [UC-8, UC-8.1, UC-8.2, UC-8.3],
-    [TS-09],  [UC-9],
-    [TS-10],  [UC-10],
-    [TS-11],  [UC-11, UC-11.1],
-    [TS-12],  [UC-11, UC-11.2],
-    [TS-13],  [UC-12, UC-12.1, UC-12.1.1, UC-12.1.3],
-    [TS-14],  [UC-12.1.2],
-    [TS-15],  [UC-13],
-    [TS-16],  [UC-14, UC-14.1, UC-14.1.1, UC-14.1.2, UC-14.1.3],
-    [TS-17],  [UC-15, UC-15.1, UC-15.2, UC-15.3, UC-15.4],
-    [TS-18],  [UC-15.6, UC-15.6.1],
-    [TS-19],  [UC-16, UC-16.1, UC-16.2, UC-16.3],
-    [TS-20],  [UC-17],
-    [TS-21],  [UC-18],
-    [TS-22],  [UC-19],
-    [TS-23],  [UC-19.1],
-    [TS-24],  [UC-20, UC-22],
-    [TS-25],  [UC-22.1],
-    [TS-26],  [UC-22.2, UC-22.2.1, UC-22.2.2],
-    [TS-27],  [UC-22.3],
-    [TS-28],  [UC-22.3],
-    [TS-29],  [UC-22.4],
-    [TS-30],  [UC-27],
-    [TS-31],  [UC-23],
-    [TS-32],  [UC-24],
-    [TS-33],  [UC-25, UC-25.1],
-    [TS-34],  [UC-25, UC-25.2],
-    [TS-35],  [UC-26],
-    [TS-36],  [UC-28, UC-28.1, UC-28.1.1],
-    [TS-37],  [UC-29, UC-29.1],
-    [TS-38],  [UC-29, UC-29.2],
-    [TS-39],  [UC-31],
-    [TS-40],  [UC-32, UC-32.1, UC-32.2],
-    [TS-41],  [UC-32.1],
-    [TS-42],  [UC-33],
-    [TS-43],  [UC-39],
-    [TS-44],  [UC-34],
-    [TS-45],  [UC-36],
-    [TS-46],  [UC-37],
-    [TS-47],  [UC-38],
+  tracc-table(
+    [TS-01], [RF-Ob01], [UC-1],
+    [TS-02], [RF-Ob02], [UC-2],
+    [TS-03], [RF-Ob03], [UC-2],
+    [TS-04], [RF-Ob04], [UC-3],
+    [TS-05], [RF-Ob05], [UC-4],
+    [TS-06], [RF-Ob06], [UC-4.1],
+    [TS-07], [RF-Ob07], [UC-4.1.1],
+    [TS-08], [RF-Ob08], [UC-4.1.2],
+    [TS-09], [RF-Ob09], [UC-4.1.3],
+    [TS-10], [RF-Ob10], [UC-5],
+    [TS-11], [RF-Ob11], [UC-7],
+    [TS-12], [RF-Ob12], [UC-7.1],
+    [TS-13], [RF-Ob13], [UC-7.2],
+    [TS-14], [RF-Ob14], [UC-7.3],
+    [TS-15], [RF-Ob15], [UC-7.4],
+    [TS-16], [RF-Ob16], [UC-8],
+    [TS-17], [RF-Ob17], [UC-8.1],
+    [TS-18], [RF-Ob18], [UC-8.2],
+    [TS-19], [RF-Ob19], [UC-8.3],
+    [TS-20], [RF-Ob20], [UC-10],
+    [TS-21], [RF-Ob21], [UC-11],
+    [TS-22], [RF-Ob22], [UC-11.1],
+    [TS-23], [RF-Ob23], [UC-11.2],
+    [TS-24], [RF-Ob24], [UC-12],
+    [TS-25], [RF-Ob25], [UC-12.1],
+    [TS-26], [RF-Ob26], [UC-12.1.1],
+    [TS-27], [RF-Ob27], [UC-12.1.2],
+    [TS-28], [RF-Ob28], [UC-12.1.3],
+    [TS-29], [RF-Ob29], [UC-12.1.4],
+    [TS-30], [RF-Ob30], [UC-14],
+    [TS-31], [RF-Ob31], [UC-14.1],
+    [TS-32], [RF-Ob32], [UC-14.1.1],
+    [TS-33], [RF-Ob33], [UC-14.1.2],
+    [TS-34], [RF-Ob34], [UC-14.1.3],
+    [TS-35], [RF-Ob35], [UC-15],
+    [TS-36], [RF-Ob36], [UC-15.1],
+    [TS-37], [RF-Ob37], [UC-15.2],
+    [TS-38], [RF-Ob38], [UC-15.3],
+    [TS-39], [RF-Ob39], [UC-15.4],
+    [TS-40], [RF-Ob40], [UC-15.5],
+    [TS-41], [RF-Ob41], [UC-15.6],
+    [TS-42], [RF-Ob42], [UC-15.6.1],
+    [TS-43], [RF-Ob43], [UC-16],
+    [TS-44], [RF-Ob44], [UC-16.1],
+    [TS-45], [RF-Ob45], [UC-16.2],
+    [TS-46], [RF-Ob46], [UC-16.3],
+    [TS-47], [RF-Ob47], [UC-16.4],
+    [TS-48], [RF-Ob48], [UC-18],
+    [TS-49], [RF-Ob49], [UC-19],
+    [TS-50], [RF-Ob50], [UC-19.1],
+    [TS-51], [RF-Ob51], [UC-20],
+    [TS-52], [RF-Ob52], [UC-21],
+    [TS-53], [RF-Ob53], [UC-21.1],
+    [TS-54], [RF-Ob54], [UC-22],
+    [TS-55], [RF-Ob55], [UC-22.1],
+    [TS-56], [RF-Ob56], [UC-22.2],
+    [TS-57], [RF-Ob57], [UC-22.2.1],
+    [TS-58], [RF-Ob58], [UC-22.2.2],
+    [TS-59], [RF-Ob59], [UC-22.4],
+    [TS-60], [RF-Ob60], [UC-22.4],
+    [TS-61], [RF-Ob61], [UC-23],
+    [TS-62], [RF-Ob62], [UC-23],
+    [TS-63], [RF-Ob63], [UC-25],
+    [TS-64], [RF-Ob64], [UC-25.1],
+    [TS-65], [RF-Ob65], [UC-26],
+    [TS-66], [RF-Ob66], [UC-27],
+    [TS-67], [RF-Ob67], [UC-27.1.1],
+    [TS-68], [RF-Ob68], [UC-27.1.1.1],
+    [TS-69], [RF-Ob69], [UC-28],
+    [TS-70], [RF-Ob70], [UC-28.1],
+    [TS-71], [RF-Ob71], [UC-28.2],
+    [TS-72], [RF-Ob72], [UC-28.3],
+    [TS-73], [RF-Ob73], [UC-29],
+    [TS-74], [RF-Ob74], [UC-29.1],
+    [TS-75], [RF-Ob75], [UC-29.1.1],
+    [TS-76], [RF-Ob76], [UC-30],
+    [TS-77], [RF-Ob77], [UC-31],
+    [TS-78], [RF-Ob78], [UC-31.1],
+    [TS-79], [RF-Ob79], [UC-31.2],
+    [TS-80], [RF-Ob80], [UC-32],
+    [TS-81], [RF-Ob81], [UC-33],
+    [TS-82], [RF-Ob82], [UC-34],
+    [TS-83], [RF-Ob83], [UC-35],
+    [TS-84], [RF-Ob84], [UC-35],
+    [TS-85], [RF-Ob85], [UC-37],
+    [TS-86], [RF-Ob86], [UC-38],
+    [TS-87], [RF-Ob87], [UC-41],
+    [TS-88], [RF-Ob88], [UC-42],
+    [TS-89],  [RF-D01], [UC-6],
+    [TS-90],  [RF-D02], [UC-9],
+    [TS-91],  [RF-D03], [UC-11],
+    [TS-92],  [RF-D04], [UC-13],
+    [TS-93],  [RF-D05], [UC-17],
+    [TS-94],  [RF-D06], [UC-18],
+    [TS-95],  [RF-D07], [UC-22.3],
+    [TS-96],  [RF-D08], [UC-24],
+    [TS-97],  [RF-D09], [UC-25.2],
+    [TS-98],  [RF-D10], [UC-27.1.1.2],
+    [TS-99],  [RF-D11], [UC-27.1.1.2],
+    [TS-100], [RF-D12], [UC-36],
+    [TS-101], [RF-Op01], [UC-25.2],
+    [TS-102], [RF-Op02], [UC-39],
+    [TS-103], [RF-Op03], [UC-39.1],
+    [TS-104], [RF-Op04], [UC-40],
   ),
-  caption: [Tracciamento Test di Sistema ↔ Casi d'uso],
+  caption: [Tracciamento Test di Sistema → Requisito → Caso d'uso],
   supplement: [Tabella],
 )
 
 == Test di Accettazione
 
-I test di accettazione validano il prodotto finale rispetto ai requisiti concordati con il proponente BlueWind S.r.l. Sono condotti in collaborazione con il proponente al termine dello sviluppo.
+I test di accettazione validano il prodotto finale rispetto ai requisiti concordati con il proponente Bluewind S.r.l. A differenza dei test di sistema, che verificano i singoli requisiti in modo atomico, i test di accettazione raggruppano flussi operativi completi e sono condotti in collaborazione con il proponente al termine dello sviluppo. La colonna "Requisito" riporta i principali requisiti funzionali coperti da ciascuno scenario.
 
 #test-table(
   [Test di Accettazione],
-  [TA-01], [Verificare che l'utente possa inserire manualmente un nuovo dispositivo fornendo tutti i dati richiesti e che il sistema lo registri correttamente.],                                             [UC-1, UC-4],         [NI],
-  [TA-02], [Verificare che l'utente possa importare un dispositivo da file e che il sistema gestisca correttamente i file con formato non valido.],                                                         [UC-2, UC-3],         [NI],
-  [TA-03], [Verificare che l'utente possa visualizzare, modificare ed eliminare i dati di un dispositivo.],                                                                                                [UC-7, UC-8, UC-11],  [NI],
-  [TA-04], [Verificare che l'utente possa gestire completamente gli asset di un dispositivo (inserimento, visualizzazione, modifica, eliminazione).],                                                       [UC-12, UC-14, UC-16, UC-18], [NI],
-  [TA-05], [Verificare che l'utente possa completare una sessione di valutazione di conformità EN 18031 navigando i decision tree per tutti gli asset.],                                                    [UC-19],              [NI],
-  [TA-06], [Verificare che il sistema fornisca esiti corretti (PASS, FAIL, NOT APPLICABLE) per ogni coppia asset-requisito al termine della valutazione.],                                                  [UC-23, UC-28],       [NI],
-  [TA-07], [Verificare che l'utente possa salvare una sessione di valutazione in corso e riprenderla in un momento successivo dal punto di interruzione.],                                                  [UC-25, UC-26],       [NI],
-  [TA-08], [Verificare che l'utente possa esportare il report di conformità completo in formato PDF e in formato JSON.],                                                                                    [UC-29],              [NI],
-  [TA-09], [Verificare che l'utente possa modificare la struttura di un decision tree (aggiunta, eliminazione, modifica di nodi e collegamenti) e che il sistema validi la struttura risultante.],         [UC-31, UC-32, UC-33, UC-34], [NI],
-  [TA-10], [Verificare che l'utente possa esportare un decision tree nel formato previsto.],                                                                                                                [UC-38],              [NI],
+  [TA-01], [Verificare che l'utente possa inserire manualmente un nuovo dispositivo fornendo tutti i dati richiesti e che il sistema lo registri correttamente.],                                             [RF-Ob01, RF-Ob05, RF-Ob06], [NI],
+  [TA-02], [Verificare che l'utente possa importare un dispositivo da file e che il sistema gestisca correttamente i file con formato non valido.],                                                         [RF-Ob02, RF-Ob03, RF-Ob04], [NI],
+  [TA-03], [Verificare che l'utente possa visualizzare, modificare ed eliminare i dati di un dispositivo.],                                                                                                [RF-Ob11, RF-Ob16, RF-Ob21], [NI],
+  [TA-04], [Verificare che l'utente possa gestire completamente gli asset di un dispositivo (inserimento, visualizzazione, modifica, eliminazione).],                                                       [RF-Ob24, RF-Ob30, RF-Ob43, RF-Ob48], [NI],
+  [TA-05], [Verificare che l'utente possa completare una sessione di valutazione di conformità EN 18031 navigando i decision tree per tutti gli asset.],                                                    [RF-Ob49, RF-Ob54], [NI],
+  [TA-06], [Verificare che il sistema fornisca esiti corretti (PASS, FAIL, NOT APPLICABLE) per ogni coppia asset-requisito al termine della valutazione.],                                                  [RF-Ob61, RF-Ob66], [NI],
+  [TA-07], [Verificare che l'utente possa salvare una sessione di valutazione in corso e riprenderla in un momento successivo dal punto di interruzione.],                                                  [RF-Ob64, RF-Ob65], [NI],
+  [TA-08], [Verificare che l'utente possa esportare il report di conformità completo in formato PDF e in formato JSON.],                                                                                    [RF-Ob70, RF-Ob71], [NI],
+  [TA-09], [Verificare che l'utente possa modificare la struttura di un decision tree (aggiunta, eliminazione, modifica di nodi e collegamenti) e che il sistema validi la struttura risultante.],         [RF-Ob77, RF-Ob80, RF-Ob81, RF-Ob83], [NI],
+  [TA-10], [Verificare che l'utente possa esportare un decision tree nel formato previsto.],                                                                                                                [RF-Ob85], [NI],
 )
 
 == Test di Unità
@@ -613,9 +752,9 @@ EAC = BAC / CPI. Rappresenta la stima del costo finale del progetto sulla base d
 #cruscotto-table(
   [Andamento di EAC per sprint],
   ("Sprint", "CPI", "EAC (€)", "BAC (€)", "Scostamento", "Accettabile"),
-  [1], [1,017], [10.502], [10.680], [-178 (-1,7%)], [$<= +7%$ ✓],
-  [2], [1,015], [10.522], [10.680], [-158 (-1,5%)], [$<= +7%$ ✓],
-  [3], [1,034], [10.329], [10.680], [-351 (-3,3%)], [$<= +7%$ ✓],
+  [1], [1,017], [10.502], [10.680], [-178 (-1,7%)], [$<= 1.1 times "BAC"$ (110%) ✓],
+  [2], [1,015], [10.522], [10.680], [-158 (-1,5%)], [$<= 1.1 times "BAC"$ (110%) ✓],
+  [3], [1,034], [10.329], [10.680], [-351 (-3,3%)], [$<= 1.1 times "BAC"$ (110%) ✓],
 )
 
 #figure(
@@ -644,11 +783,11 @@ TCPI = (BAC − EV) / (BAC − AC). ETC = EAC − AC. Indicano rispettivamente l
   supplement: [Figura],
 )
 
-Il TCPI, leggermente inferiore a 1,0 in tutti gli sprint, segnala che il team può permettersi un'efficienza marginalmente inferiore a quella attuale per concludere il progetto entro il budget stanziato: è un segnale positivo di ammortizzatore. L'ETC decresce regolarmente sprint dopo sprint (da €9.617 a €7.864), confermando la progressione costante delle attività e la corretta imputazione dei costi.
+Il TCPI, leggermente inferiore a 1,0 in tutti gli sprint, segnala che il team può permettersi un'efficienza marginalmente inferiore a quella attuale per concludere il progetto entro il budget stanziato: costituisce un margine di sicurezza. L'ETC decresce regolarmente sprint dopo sprint (da €9.617 a €7.864), confermando la progressione costante delle attività e la corretta imputazione dei costi.
 
 == MPC-09 — Requirements Stability Index
 
-RSI = (NR − NRC) / NR, dove NR è il numero di requisiti definiti e NRC il numero di requisiti modificati dopo la loro introduzione. I requisiti sono stati estesi progressivamente (da UC-8 a UC-34) senza modifiche retroattive significative documentate.
+RSI = (NR − NRC) / NR, dove NR è il numero di requisiti definiti e NRC il numero di requisiti modificati dopo la loro introduzione. In questa fase i requisiti sono tracciati attraverso i casi d'uso dell'Analisi dei Requisiti, il cui numero è cresciuto progressivamente nei tre sprint (da 8 a 34), senza modifiche retroattive significative documentate.
 
 #cruscotto-table(
   [Andamento di RSI per sprint],
@@ -674,6 +813,8 @@ Misurazione non disponibile in questa fase: i documenti RTB sono ancora su branc
 
 Misurazione non disponibile in questa fase: sarà rilevata a partire dalla Product Baseline.
 
+#pagebreak()
+
 == MPC-14 — Quality Metrics Satisfied
 
 Percentuale di metriche misurabili che rientrano nel range accettabile. Sono escluse dal calcolo: TSR e Code Coverage (MPC-12, MPC-13), non applicabili in assenza di codice prodotto; Correttezza Ortografica (MPC-11), non ancora monitorata con strumento automatico; Indice di Gulpease (MPC-10), non ancora misurabile in questa fase perché i documenti RTB non sono stati ancora mergiati nel branch main.
@@ -692,7 +833,9 @@ Percentuale di metriche misurabili che rientrano nel range accettabile. Sono esc
   supplement: [Figura],
 )
 
-Il Quality Metrics Satisfied è rimasto al 100% in tutti e tre gli sprint: ogni metrica inclusa nel computo ha rispettato il proprio threshold di accettazione. Le undici metriche considerate sono MPC-01..09 e MPC-15,16 (metriche EVM, RSI, Time Efficiency e PLT). Nella Product Baseline la base di calcolo si amplierà includendo TSR, Code Coverage, Gulpease e le metriche di prodotto: il QMS andrà monitorato con maggiore attenzione in quella fase.
+Il Quality Metrics Satisfied è rimasto al 100% in tutti e tre gli sprint: ogni metrica inclusa nel computo ha rispettato la propria soglia di accettazione. Le undici metriche considerate sono MPC-01..09 e MPC-15,16 (metriche EVM, RSI, Time Efficiency e PLT). Nella Product Baseline la base di calcolo si amplierà includendo TSR, Code Coverage, Gulpease e le metriche di prodotto: il QMS andrà monitorato con maggiore attenzione in quella fase.
+
+#pagebreak()
 
 == MPC-15, MPC-16 — Time Efficiency, Process Lead Time
 
@@ -701,9 +844,9 @@ Time Efficiency (TE) = (Ore Previste Cumulative / Ore Effettive Cumulative) × 1
 #cruscotto-table(
   [Andamento di Time Efficiency e Process Lead Time per sprint],
   ("Sprint", "Ore prev. cum.", "Ore eff. cum.", "TE", "Accettabile", "SPI", "PLT (settimane)", "Accettabile"),
-  [1], [41],  [41],  [100,0%], [$>= 80%$ ✓], [1,000], [6,0], [$>= 90%$ ✓],
-  [2], [83],  [84],  [98,8%],  [$>= 80%$ ✓], [1,000], [6,0], [$>= 90%$ ✓],
-  [3], [123], [121], [101,7%], [$>= 80%$ ✓], [1,000], [6,0], [$>= 90%$ ✓],
+  [1], [41],  [41],  [100,0%], [$>= 80%$ ✓], [1,000], [6,0], [$<= 8$ settimane ✓],
+  [2], [83],  [84],  [98,8%],  [$>= 80%$ ✓], [1,000], [6,0], [$<= 8$ settimane ✓],
+  [3], [123], [121], [101,7%], [$>= 80%$ ✓], [1,000], [6,0], [$<= 8$ settimane ✓],
 )
 
 #figure(
@@ -716,7 +859,7 @@ La Time Efficiency oscilla tra il 98,8% (Sprint 2, +1 ora rispetto alle stime) e
 
 == Metriche di qualità di prodotto (MPD)
 
-Le metriche di prodotto definite nella sezione 2 (MPD-01..15) non sono misurabili in questa fase: nessuna linea di codice è stata ancora prodotta e il prodotto software non esiste ancora in forma eseguibile. La tabella seguente riporta lo stato attuale di ciascuna metrica.
+Le metriche di prodotto definite nella sezione 2 non sono misurabili in questa fase: nessuna linea di codice è stata ancora prodotta e il prodotto software non esiste ancora in forma eseguibile. La tabella seguente riporta lo stato attuale di ciascuna metrica.
 
 #figure(
   table(
@@ -736,10 +879,12 @@ Le metriche di prodotto definite nella sezione 2 (MPD-01..15) non sono misurabil
     [MPD-03], [Requisiti opzionali soddisfatti],     [Non disponibile],
     [MPD-04], [Failure Density],                     [Non disponibile],
     [MPD-05], [Statement Coverage],                  [Non disponibile],
+    [MPD-06], [Branch Coverage],                     [Non disponibile],
     [MPD-08], [Time to Complete Task],               [Non disponibile],
     [MPD-09], [Response Time],                       [Non disponibile],
     [MPD-12], [Cyclomatic Complexity],               [Non disponibile],
     [MPD-13], [Instability Index],                   [Non disponibile],
+    [MPD-14], [Coefficient of Coupling],             [Non disponibile],
     [MPD-15], [Code Smell],                          [Non disponibile],
   ),
   caption: [Stato delle metriche di prodotto in fase RTB],
@@ -766,7 +911,7 @@ Durante il primo sprint (03/04–21/04/2026) il team ha identificato tre critici
 
 Il team ha discusso questi problemi nella riunione di retrospettiva e ha concordato le seguenti misure:
 
-- Adottare un approccio iterativo alle stime, rivedendo le previsioni orarie a inizio di ogni sprint sulla base dei dati storici disponibili.
+- Adottare un approccio iterativo alle stime, rivedendo le previsioni orarie all'inizio di ogni sprint sulla base dei dati storici disponibili.
 - Dedicare nella prima settimana di ogni sprint un momento collettivo di studio del dominio EN 18031, distribuendo i capitoli dello standard tra i componenti e condividendo i risultati in una riunione sincrona.
 - Raccogliere le disponibilità effettive di ciascun componente prima di assegnare i task, anziché basarsi su disponibilità dichiarate a inizio progetto.
 
@@ -778,11 +923,15 @@ Nel secondo sprint (21/04–30/04/2026) è emersa una criticità organizzativa:
 
 - *RO-1 — Stime non accurate (duplicazione del ruolo di Amministratore)*: due componenti del team hanno ricoperto simultaneamente il ruolo di Amministratore, generando sovrapposizioni nelle responsabilità e un'allocazione delle ore superiore al previsto per quel ruolo.
 
+Si tratta di una ricorrenza del rischio RO-1 già emerso nello Sprint 1: le azioni di mitigazione sulle stime introdotte nel primo sprint hanno richiesto questo ulteriore raffinamento per risultare pienamente efficaci.
+
 === Azioni intraprese
 
 Il team ha stabilito la regola che ciascun ruolo, in particolare quello di Amministratore, deve essere assegnato a un unico membro per sprint. In caso di necessità di supporto, un secondo componente può affiancare il titolare senza duplicarne formalmente il ruolo. Questa modifica è stata recepita nel Piano di Progetto e applicata già a partire dallo Sprint 3.
 
 == Sprint 3 — Retrospettiva e azioni correttive
+
+A conferma dell'efficacia delle azioni dello sprint precedente, la regola di assegnazione del ruolo di Amministratore a un unico membro — introdotta nello Sprint 2 — è stata applicata con successo a partire da questo sprint, risolvendo l'anomalia di sovrallocazione (RO-1), che non si è più ripresentata.
 
 === Problemi rilevati
 
@@ -793,6 +942,34 @@ Nel terzo sprint (01/05–15/05/2026) il team ha riscontrato una criticità lega
 === Azioni intraprese
 
 Il team ha concordato di introdurre riunioni di allineamento preventive all'inizio di ogni ciclo di analisi, in cui gli Analisti definiscono collettivamente la granularità e il formato dei casi d'uso prima di procedere con la redazione individuale. Inoltre è stato formalizzato un template di UC condiviso nelle Norme di Progetto, in modo da ridurre la variabilità stilistica tra i contributi dei diversi autori.
+
+
+
+== Valutazione sugli strumenti di lavoro
+
+Oltre alle criticità organizzative analizzate sprint per sprint, il team ha valutato periodicamente l'efficacia degli strumenti di lavoro adottati durante la fase RTB, introducendo miglioramenti dove necessario.
+
+#figure(
+  table(
+    columns: (3.5cm, 1fr, 1fr),
+    align: (left, left, left),
+    stroke: (x, y) => (
+      bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
+      left: 0.4pt + luma(150),
+      right: if x == 2 { 0.4pt + luma(150) } else { none },
+      top: if y == 0 { 0.4pt + luma(150) } else { none },
+    ),
+    inset: 8pt,
+    fill: (x, y) => if y == 0 { luma(230) } else { none },
+    [*Strumento*], [*Valutazione*], [*Azione di miglioramento*],
+    [GitHub e Issue Tracking System], [Il tracciamento delle attività tramite GitHub Projects ha garantito una buona visibilità sull'avanzamento dei task.], [Affinamento dell'Issue Tracking System nello Sprint 3 per una migliore categorizzazione e organizzazione delle attività.],
+    [GitHub Actions (CI)], [La pipeline compila automaticamente i documenti Typst in PDF e applica i pedici del Glossario.], [Estensione dell'automazione al calcolo dell'Indice di Gulpease ad ogni integrazione nel branch main, riducendo l'errore manuale.],
+    [Typst], [Sistema di composizione adottato per tutta la documentazione, con una curva di apprendimento iniziale non trascurabile.], [Condivisione di template e convenzioni comuni per uniformare la produzione dei documenti.],
+    [Canali di comunicazione], [Riunioni settimanali integrate da canali rapidi (Discord, WhatsApp) per il coordinamento tra i membri.], [Formalizzazione dell'uso dei canali rapidi come misura di risposta al rischio RO-4 (coordinamento del team).],
+  ),
+  caption: [Valutazione degli strumenti di lavoro adottati],
+  supplement: [Tabella],
+)
 
 #pagebreak()
 
