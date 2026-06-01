@@ -55,7 +55,7 @@
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
     [0.10.0], [2026/05/28], [Alberto Canavese], [], [Aggiunta della seguente sezione: 5.3.2.2],
     [0.9.0], [2026/05/15], [Edis Hodja], [], [Aggiunta delle seguenti sezioni: 5.1, 5.2, 5.3],
-    [0.8.2], [2026/05/15], [Leonardo Lorenzin], [], [Aggiornamento contenuti e correzioni refusi],
+    [0.8.2], [2026/05/15], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiornamento contenuti e correzioni refusi],
     [0.8.1], [2026/05/13], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Aggiornamento contenuti e correzioni refusi],
     [0.8.0], [2026/05/13], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta delle seguenti sezioni: 4.3, 4.4, 4.5],
     [0.7.0], [2026/05/11], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta delle seguenti sezioni: 4.1, 4.2],
