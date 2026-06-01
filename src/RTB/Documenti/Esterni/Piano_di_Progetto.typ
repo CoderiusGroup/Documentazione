@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.5.1*]
+  #text(size: 20pt)[*Versione 0.6.0*]
 ]
 #pagebreak()
 
@@ -100,10 +100,11 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.6.0], [2026/06/01], [Filippo Zonta Rocha], [], [Aggiunta delle sezioni: 4.4.5, 4.4.6, 4.4.7, 4.4.8],
     [0.5.1], [2026/05/29], [Edis Hodja], [], [Aggiunta delle sezioni: 4.4.5, 4.4.6, 4.4.7, 4.4.8],
     [0.5.0], [2026/05/20], [Edis Hodja], [], [Aggiunta delle sezioni Sprint 4: 4.4.1, 4.4.2, 4.4.3, 4.4.4],
-    [0.4.0], [2026/05/18], [Giovanni Bronte], [], [Conclusa sezione 4.3. Modificati degli errori minori nei calcoli delle risorse rimaste per lo Sprint 2.],
-    [0.3.1], [2026/05/14], [Edis Hodja], [], [Revisione lessicale e aggiunta del versionamento nell’impaginazione],
+    [0.4.0], [2026/05/18], [Giovanni Bronte], [Filippo Zonta Rocha], [Conclusa sezione 4.3. Modificati degli errori minori nei calcoli delle risorse rimaste per lo Sprint 2.],
+    [0.3.1], [2026/05/14], [Edis Hodja], [Filippo Zonta Rocha], [Revisione lessicale e aggiunta del versionamento nell’impaginazione],
     [0.3.0], [2026/05/04], [Giovanni Bronte], [Filippo Zonta Rocha], [Aggiunta sezione 4.2 e sezioni da 4.3.1 a 4.3.4. Aggiunti i rischi RO-4 e RI-2.],
     [0.2.0], [2026/04/21], [Alberto Canavese], [Filippo Zonta Rocha], [Correzione refusi],
     [0.1.0], [2026/04/21], [Ines Iadadi], [Alberto Canavese], [Prima stesura del documento e redazione Sprint 1],
@@ -567,7 +568,7 @@ Per questo sprint sono state assegnate due persone al ruolo di amministratore, q
   columns: (0.3fr, 1fr),
   stroke: none,
   inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
-  [*Inizio:*],        [2026/05/01],
+  [*Inizio:*],        [2026/05/02],
   [*Fine prevista:*], [2026/05/15],
   [*Fine reale:*],    [2026/05/15],
 )
@@ -739,3 +740,86 @@ Durante questo sprint è stata avviata anche la progettazione preliminare dell�
 ==== *Criticità emerse*
 La principale criticità riscontrata durante questo sprint ha riguardato il completamento degli ultimi casi d’uso dell’*Analisi dei Requisiti*. In particolare, il team ha incontrato alcune difficoltà nel definire con precisione determinati scenari e nel rappresentarli correttamente attraverso i diagrammi UML, rendendo necessarie ulteriori attività di revisione e confronto.
 Per affrontare tali problematiche, il gruppo ha svolto un colloquio di confronto con il professor Cardin, ottenendo chiarimenti utili sulla modellazione dei casi d’uso e dei relativi diagrammi. 
+
+#pagebreak()
+
+== Sprint 5
+
+=== Periodo 
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/05/30],
+  [*Fine prevista:*], [2026/06/12],
+  [*Fine reale:*],    [2026/06/12],
+)
+#v(0.3em)
+
+=== Attività pianificate
+Nel quinto sprint il gruppo continuerà a lavorare sulla documentazione richiesta per l'RTB, focalizzandosi sulla finalizzazione dell'Analisi dei Requisiti con gli ultimi controlli sulla qualità del documento, la preparazione del mockup da presentare a Bluewind e ne deriva anche la preparazione del Poc in vista della presentazione finale.
+
+ Le attività principali saranno:
+
+- Strutturare mockup da presentare a Bluewind per avere un feedback preliminare.
+- Preparare Poc per la presentazione finale, con particolare attenzione alla stesura del documento di presentazione.
+- Stesura dei vari verbali esterni e interni.
+
+=== Rischi attesi
+- *RO-2*: Come per il precedente  sprint è  probabile incorrere in difficoltà nel coordinamento con tutto il team, specialmente a causa dell’elevato carico di lavoro richiesto in vista dell'avvicinarsi della presentazione RTB.
+- *RI-1*: Considerato l’avvicinarsi di un periodo accademico particolarmente intenso e di giornate festive, è probabile riscontrare difficoltà nella disponibilità organizzativa dei membri del gruppo, con conseguenti rallentamenti temporanei nello svolgimento di alcune attività operative.
+ 
+=== Preventivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[5],[-],[-],[8]),
+    ([Edis Hodja],         [-],[-],[-],[-],[8],[-],[8]),
+    ([Filippo Zonta Rocha],[6],[-],[-],[-],[-],[-],[5]),
+    ([Giovanni Angelo Marco Bronte],    [-],[-],[5],[-],[-],[-],[6]),
+    ([Ines Iadadi],        [-],[-],[-],[-],[-],[7],[7]),
+    ([Leonardo Lorenzin],  [-],[4],[-],[-],[-],[-],[7]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*6*],[*4*],[*5*],[*5*],[*12*],[*7*],[*39*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 5]
+)
+
+=== Consuntivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese], [-], [-], [-], [-], [-], [-], [-]),
+    ([Edis Hodja], [-], [-], [-], [-], [-], [-], [-]),
+    ([Filippo Zonta Rocha], [5#text(fill: green)[(-1)]], [-], [-], [-], [-], [-], [5]),
+    ([Giovanni Angelo Marco Bronte], [-], [-], [-], [-], [-], [-], [-]),
+    ([Ines Iadadi], [-], [-], [], [-], [-], [-], [-]),
+    ([Leonardo Lorenzin], [-], [-], [-], [-], [-], [-], [-]),
+    (table.cell(align: center, fill: luma(220))[*Totale*], [*5*], [*4*], [*16*], [*0*], [*0*], [*12*], [**]),
+  )),
+  caption: [Consuntivo ore per membro - Sprint 5],
+)
+
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [5], [ 150€], [35], [1350€],
+    [Amministratore], [20], [4], [80€], [36], [720€],
+    [Analista], [25], [16 ], [400€], [25], [625€],
+    [Progettista], [25], [0], [   0€], [96], [2400€],
+    [Programmatore], [15], [0], [   0€], [108], [1620€],
+    [Verificatore], [15], [12], [ 180€], [100], [1500€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*37*], [*810€*], [*410*], [*8215€*], 
+  )
+]
+
+=== Rischi incontrati 
+
+
+=== Retrospettiva
+
+
+==== *Criticità emerse*
