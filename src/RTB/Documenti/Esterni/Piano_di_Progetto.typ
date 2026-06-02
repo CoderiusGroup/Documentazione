@@ -100,9 +100,9 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.6.0], [2026/06/01], [Filippo Zonta Rocha], [], [Aggiunta delle sezioni: 4.4.5, 4.4.6, 4.4.7, 4.4.8],
-    [0.5.1], [2026/05/29], [Edis Hodja], [], [Aggiunta delle sezioni: 4.4.5, 4.4.6, 4.4.7, 4.4.8],
-    [0.5.0], [2026/05/20], [Edis Hodja], [], [Aggiunta delle sezioni Sprint 4: 4.4.1, 4.4.2, 4.4.3, 4.4.4],
+    [0.6.0], [2026/06/01], [Filippo Zonta Rocha], [Giovanni Bronte], [Aggiunta delle sezioni Sprint 5: 4.5.1, 4.5.2, 4.5.3],
+    [0.5.1], [2026/05/29], [Edis Hodja], [Giovanni Bronte], [Aggiunta delle sezioni: 4.4.5, 4.4.6, 4.4.7, 4.4.8],
+    [0.5.0], [2026/05/20], [Edis Hodja], [Giovanni Bronte], [Aggiunta delle sezioni Sprint 4: 4.4.1, 4.4.2, 4.4.3, 4.4.4],
     [0.4.0], [2026/05/18], [Giovanni Bronte], [Filippo Zonta Rocha], [Conclusa sezione 4.3. Modificati degli errori minori nei calcoli delle risorse rimaste per lo Sprint 2.],
     [0.3.1], [2026/05/14], [Edis Hodja], [Filippo Zonta Rocha], [Revisione lessicale e aggiunta del versionamento nell’impaginazione],
     [0.3.0], [2026/05/04], [Giovanni Bronte], [Filippo Zonta Rocha], [Aggiunta sezione 4.2 e sezioni da 4.3.1 a 4.3.4. Aggiunti i rischi RO-4 e RI-2.],
@@ -327,7 +327,7 @@ I rischi sono classificati in tre categorie, identificate dal prefisso del codic
   [Bassa],
   [Alto],
   [Il team si incontra almeno una volta a settimana per discutere su come spartirsi il lavoro al meglio. Inoltre abbiamo canali di comunicazione molto rapidi per poter coordinarci anche fuori dai meeting prefissati.],
-  [Viene fissato un incontro di emergenza il più velocemente possibile in caso di grave scordinamento del team, nel quale si discute del problema e si riallineano i compiti in modo che non si sovrappongano e svolgano il lavoro nel modo più efficiente possibile. In caso di problema minore si usano i canali di comunicazione rapidi (whatsapp e discord) per avvisare il team e gestire il lavoro.],
+  [Viene fissato un incontro di emergenza il più velocemente possibile in caso di grave scoordinamento del team, nel quale si discute del problema e si riallineano i compiti in modo che non si sovrappongano e svolgano il lavoro nel modo più efficiente possibile. In caso di problema minore si usano i canali di comunicazione rapidi (Whatsapp e Discord) per avvisare il team e gestire il lavoro.],
 )
 
 == Rischi individuali
@@ -354,6 +354,16 @@ I rischi sono classificati in tre categorie, identificate dal prefisso del codic
   [Alto],
   [È impossibile prevedere se o quanti imprevisti o impegni improvvisi ci saranno, l'unica cosa che si può fare è avere un piano di risposta solido, repentino ed efficace per ridurre il rallentamento del lavoro al minimo.],
   [La persona coinvolta avvisa il resto del gruppo il più tempestivamente possibile, in modo che gli altri membri possano dividersi il lavoro rimasto o alternativamente rimandarlo se non è urgente che venga completato.],
+)
+
+#scheda-rischio(
+  [RI-3],
+  [Errore nella scrittura di un documento],
+  [Di progetto],
+  [Media],
+  [Alto],
+  [Il team si incontra per discutere sulla qualità dei documenti e sulle normative scritte, le quali dettano le regole da seguire per la redazione di tutti i documenti scritti durante il progetto.],
+  [Una volta trovato l'errore si crea un branch apposito di fix, copiando il branch contenendo il documento errato. Il verificatore effettua le opportune correzioni e si apre una PR per fare la merge con il branch originale.],
 )
 
 #pagebreak()
@@ -495,7 +505,7 @@ Nel secondo sprint il team si concentrerà sulla stesura dei vari Use case per l
 - Continuo della stesura dell'analisi dei requisiti: in particolar modo sono stati definiti gli use case da UC-1 a UC-19 e modificati alcuni scritti precedentemente.
 - Prima stesura delle Norme di Progetto: redazione dell'introduzione, dei processi primari e dei processi di supporto.
 - Aggiornamento del glossario: aggiunta di vari termini usati nei vari documenti stesi in questo sprint.
-- Incontro Bluewind: riunione con l'azienda con un particolare focus sulle domande proposte dagli analisti per comprendere i maniera ottimale i requisiti richiesti dall'azienda, dopo che la normativa EN18031 è stata approfondita.
+- Incontro Bluewind: riunione con l'azienda con un particolare focus sulle domande proposte dagli analisti per comprendere in maniera ottimale i requisiti richiesti dall'azienda, dopo che la normativa EN18031 è stata approfondita.
 - Aggiunta ricerca automatica glossario: è stata implementata una funzione nella repository  github per ricercare i termini presenti nel glossario nei vari documenti caricati e aggiungere un appendice G per poterli identificare.
 
 === Rischi attesi
@@ -634,7 +644,7 @@ Le attività principali saranno:
 ]
 
 === Rischi incontrati 
-- *RO-4*: A causa di una mancata comunicazione nel team durante la scrittura dell'analsi dei requisiti, sono stati notati degli UC errati. A causa di questo è stato usato del tempo per modificare gli UC errati invece che per proseguire con la redazione dell'AdR. In futuro, il team terrà delle riunioni per discutere degli UC da scrivere e evitare che si ripetà questo problema.
+- *RO-4*: A causa di una mancata comunicazione nel team durante la scrittura dell'Analisi dei Requisiti, sono stati notati degli UC errati. A causa di questo è stato usato del tempo per modificare gli UC errati invece che per proseguire con la redazione dell'AdR. In futuro, il team terrà delle riunioni per discutere degli UC da scrivere e evitare che si ripeta questo problema.
 
 === Retrospettiva
 Il team ha continuato la redazione dei vari documenti richiesti per l'RTB: *Norme di Progetto*, *Analisi dei Requisiti*, *Piano di Progetto*; e ha iniziato la stesura di un altro documento fondamentale per l'RTB: il *Piano di Qualifica*.
@@ -727,7 +737,7 @@ Naturalmente i restanti documenti saranno ancora in via di sviluppo, prossimi a 
 ]
 
 === Rischi incontrati 
-- *RO-2*: Il rischio di attività rimaste incompiute si è manifestato durante il periodo bisettimanale a causa della necessità di effettuare verifiche approfondite su alcuni verbali. Tale circostanza ha richiesto l’intervento tempestivo di parte del team, con il conseguente impiego di risorse aggiuntive e il potenziale rallentamento delle attività pianificate. Per mitigare il rischio, sono state corrette alcune imprecisioni e riviste le procedure descrittive attraverso momenti di confronto e collaborazione tra i membri del gruppo, al fine di ridurre la probabilità che situazioni analoghe si ripresentino in futuro.
+- *RI-3*: Sono stati trovati degli errori in alcuni verbali del team. Tale circostanza ha richiesto l’intervento tempestivo di parte del team, con il conseguente impiego di risorse aggiuntive e il potenziale rallentamento delle attività pianificate. Per mitigare il rischio, sono state corrette alcune imprecisioni e riviste le procedure descrittive attraverso momenti di confronto e collaborazione tra i membri del gruppo, al fine di ridurre la probabilità che situazioni analoghe si ripresentino in futuro.
 - *RI-1*: Nel corso di questo periodo bisettimanale, la concomitanza di impegni accademici e personali ha comportato una riduzione della disponibilità di alcuni membri del team. In particolare, l’avvicinarsi della sessione estiva degli esami ha richiesto una maggiore attenzione nella gestione del tempo, con possibili ripercussioni sulla partecipazione alle attività progettuali. Per garantire il rispetto delle scadenze e la continuità del lavoro, il gruppo ha fatto ricorso a un’organizzazione più flessibile delle attività e a un costante coordinamento tra i componenti del team.
 
 === Retrospettiva
@@ -757,13 +767,16 @@ Per affrontare tali problematiche, il gruppo ha svolto un colloquio di confronto
 #v(0.3em)
 
 === Attività pianificate
-Nel quinto sprint il gruppo continuerà a lavorare sulla documentazione richiesta per l'RTB, focalizzandosi sulla finalizzazione dell'Analisi dei Requisiti con gli ultimi controlli sulla qualità del documento, la preparazione del mockup da presentare a Bluewind e ne deriva anche la preparazione del Poc in vista della presentazione finale.
+Nel quinto sprint il gruppo continuerà a lavorare sulla documentazione richiesta per l'RTB, focalizzandosi sulla finalizzazione dell'Analisi dei Requisiti con gli ultimi controlli sulla qualità del documento e la presentazione del mockup all'azienda Bluewind. 
+In questo sprint il gruppo ha anche introdotto nella ruotazione dei ruoli il programmatore, data la necessità di creare un PoC richiesto dall' RTB.
 
  Le attività principali saranno:
 
-- Strutturare mockup da presentare a Bluewind per avere un feedback preliminare.
-- Preparare Poc per la presentazione finale, con particolare attenzione alla stesura del documento di presentazione.
+- Presentazione del mockup a Bluewind per avere un feedback preliminare.
+- Preparare PoC per la presentazione finale, con particolare attenzione alla stesura del documento di presentazione.
 - Stesura dei vari verbali esterni e interni.
+- Stesura del quarto e quinto Diario di Bordo: obbiettivi raggiunti, criticità riscontrare, passi operativi futuri.
+- Aggiornamento del glossario: aggiunta di vari termini usati nei vari documenti stesi in questo sprint.
 
 === Rischi attesi
 - *RO-2*: Come per il precedente  sprint è  probabile incorrere in difficoltà nel coordinamento con tutto il team, specialmente a causa dell’elevato carico di lavoro richiesto in vista dell'avvicinarsi della presentazione RTB.
@@ -772,54 +785,13 @@ Nel quinto sprint il gruppo continuerà a lavorare sulla documentazione richiest
 === Preventivo
 #figure(
   tabella-ore((
-    ([Alberto Canavese],   [-],[-],[-],[5],[-],[-],[8]),
+    ([Alberto Canavese],   [-],[-],[-],[5],[-],[-],[5]),
     ([Edis Hodja],         [-],[-],[-],[-],[8],[-],[8]),
-    ([Filippo Zonta Rocha],[6],[-],[-],[-],[-],[-],[5]),
-    ([Giovanni Angelo Marco Bronte],    [-],[-],[5],[-],[-],[-],[6]),
+    ([Filippo Zonta Rocha],[6],[-],[-],[-],[-],[-],[6]),
+    ([Giovanni Angelo Marco Bronte],    [-],[-],[5],[-],[-],[-],[5]),
     ([Ines Iadadi],        [-],[-],[-],[-],[-],[7],[7]),
-    ([Leonardo Lorenzin],  [-],[4],[-],[-],[-],[-],[7]),
-    (table.cell(align: center, fill: luma(220))[*Totale*],[*6*],[*4*],[*5*],[*5*],[*12*],[*7*],[*39*]),
+    ([Leonardo Lorenzin],  [-],[4],[-],[-],[-],[-],[4]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*6*],[*4*],[*5*],[*5*],[*8*],[*7*],[*35*]),
   )),
     caption: [Preventivo ore per membro - Sprint 5]
 )
-
-=== Consuntivo
-#figure(
-  tabella-ore((
-    ([Alberto Canavese], [-], [-], [-], [-], [-], [-], [-]),
-    ([Edis Hodja], [-], [-], [-], [-], [-], [-], [-]),
-    ([Filippo Zonta Rocha], [5#text(fill: green)[(-1)]], [-], [-], [-], [-], [-], [5]),
-    ([Giovanni Angelo Marco Bronte], [-], [-], [-], [-], [-], [-], [-]),
-    ([Ines Iadadi], [-], [-], [], [-], [-], [-], [-]),
-    ([Leonardo Lorenzin], [-], [-], [-], [-], [-], [-], [-]),
-    (table.cell(align: center, fill: luma(220))[*Totale*], [*5*], [*4*], [*16*], [*0*], [*0*], [*12*], [**]),
-  )),
-  caption: [Consuntivo ore per membro - Sprint 5],
-)
-
-=== Risorse rimanenti
-#align(center)[
-  #table(
-    columns: (1.5fr, auto, auto, auto, auto, auto),
-    align: (left, center, center, right, center, right),
-    stroke: 0.5pt + luma(100),
-    inset: (x: 8pt, y: 6pt),
-    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
-    [*Ore residue*], [*Budget residuo*],
-    [Responsabile], [30], [5], [ 150€], [35], [1350€],
-    [Amministratore], [20], [4], [80€], [36], [720€],
-    [Analista], [25], [16 ], [400€], [25], [625€],
-    [Progettista], [25], [0], [   0€], [96], [2400€],
-    [Programmatore], [15], [0], [   0€], [108], [1620€],
-    [Verificatore], [15], [12], [ 180€], [100], [1500€],
-    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*37*], [*810€*], [*410*], [*8215€*], 
-  )
-]
-
-=== Rischi incontrati 
-
-
-=== Retrospettiva
-
-
-==== *Criticità emerse*
