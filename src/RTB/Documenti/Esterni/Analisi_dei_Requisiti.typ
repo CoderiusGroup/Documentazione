@@ -245,7 +245,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-1 : Inserimento nuovo dispositivo <uc1>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  image("../../../images/diagrammiUML/UC-1.png", width: 100%),
   caption: [UC-1 : Inserimento nuovo dispositivo],
 )
 
@@ -273,7 +273,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-2: Importazione del dispositivo <uc2>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/UC-1.png", width: 80%),
+  image("../../../images/diagrammiUML/UC-2.png", width: 80%),
   caption: [UC-2 : Importazione del documento del dispositivo],
 )
 - *Attore primario:* Utente
@@ -1209,7 +1209,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-21: Visualizzazione dettaglio requisito <uc21>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  image("../../../images/diagrammiUML/UC-21.png", width: 100%),
   caption: [UC-21 : Visualizzazione dettaglio requisito],
 )
 - *Attore primario:* Utente
@@ -1254,7 +1254,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-22: Esecuzione decision tree per un requisito <uc22>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  image("../../../images/diagrammiUML/UC-22.png", width: 115%),
   caption: [UC-22 : Esecuzione decision tree per un requisito],
 )
 - *Attore primario:* Utente
@@ -1305,6 +1305,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 === UC-22.2: Risposta alla domanda del nodo corrente <uc22.2>
 #v(1em)
+#figure(
+  image("../../../images/diagrammiUML/UC-22.2.png", width: 100%),
+  caption: [UC-22.2 : Risposta alla domanda del nodo corrente],
+)
+
 - *Attore primario:* Utente
 
 - *Precondizioni:* Il sistema ha mostrato la domanda del nodo corrente del
@@ -1386,10 +1391,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 == UC-23: Visualizzazione nodo foglia del decision tree <uc23>
 #v(1em)
-#figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-23 : Visualizzazione nodo foglia del decision tree],
-)
 - *Attore primario:* Utente
 
 - *Precondizioni:* Il sistema ha raggiunto un nodo foglia del decision tree.
@@ -1406,8 +1407,8 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-24: Uscita anticipata dal test <uc24>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-24 : Uscita anticipata dal test],
+  image("../../../images/diagrammiUML/UC-24.png", width: 100%),
+  caption: [UC-24: Uscita anticipata dal test],
 )
 
 - *Attore primario:* Utente
@@ -1432,7 +1433,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-25: Salvataggio sessione di valutazione <uc25>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  image("../../../images/diagrammiUML/UC-25.png", width: 100%),
   caption: [UC-25 : Salvataggio sessione di valutazione],
 )
 - *Attore primario:* Utente
@@ -1490,8 +1491,8 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-26: Ripresa sessione di valutazione <uc26>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-26 : Ripresa sessione di valutazione],
+  image("../../../images/diagrammiUML/UC-26.png", width: 100%),
+  caption: [UC-26: Ripresa sessione di valutazione],
 )
 - *Attore primario:* Utente
 
@@ -1520,7 +1521,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-27: Visualizzazione risultati test <uc27>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  image("../../../images/diagrammiUML/UC-27.png", width: 110%),
   caption: [UC-27 : Visualizzazione risultati test],
 )
 - *Attore primario:* Utente
@@ -1548,6 +1549,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 === UC-27.1: Visualizzazione riepilogo risultati per asset <uc27.1>
 #v(1em)
+#figure(
+  image("../../../images/diagrammiUML/UC-27.1.png", width: 100%),
+  caption: [UC-27.1: Visualizzazione riepilogo risultati per asset],
+)
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente sta visualizzando i risultati del test.
@@ -1569,6 +1574,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 ==== UC-27.1.1: Visualizzazione singolo requisito con esito <uc27.1.1>
 #v(1em)
+#figure(
+  image("../../../images/diagrammiUML/UC-27.1.1.png", width: 100%),
+  caption: [UC-27.1.1: Visualizzazione singolo requisito con esito],
+)
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente ha selezionato un requisito dalla lista. (UC-27.1)
@@ -1609,6 +1618,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 ===== UC-27.1.1.2: Riesecuzione di un requisito già completato <uc27.1.1.2>
 #v(1em)
+#figure(
+  image("../../../images/diagrammiUML/UC-27.1.1.2.png", width: 100%),
+  caption: [UC-27.1.1.2: Riesecuzione di un requisito già completato],
+)
 - *Attore primario:* Utente
 
 - *Precondizioni:*
@@ -1634,7 +1647,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-28: Esportazione report di conformità <uc28>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  image("../../../images/diagrammiUML/UC-28.png", width: 100%),
   caption: [UC-28 : Esportazione report di conformità],
 )
 - *Attore primario:* Utente
@@ -1707,7 +1720,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-29: Visualizzazione elenco decision tree <uc29>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  image("../../../images/diagrammiUML/UC-29.png", width: 100%),
   caption: [UC-29 : Visualizzazione elenco decision tree],
 )
 - *Attore primario:* Utente
@@ -1731,6 +1744,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 === UC-29.1: Visualizzazione singolo decision tree nell'elenco <uc29.1>
 #v(1em)
+#figure(
+  image("../../../images/diagrammiUML/UC-29.1.png", width: 115%),
+  caption: [UC-29 : Visualizzazione singolo decision tree nell'elenco],
+)
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente sta visualizzando l'elenco dei decision tree.
@@ -1770,7 +1787,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-30: Modifica decision tree <uc30>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  image("../../../images/diagrammiUML/UC-30.png", width: 120%),
   caption: [UC-30 : Modifica decision tree],
 )
 - *Attore primario:* Utente
@@ -1806,7 +1823,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-31: Aggiunta nodo al decision tree <uc31>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  image("../../../images/diagrammiUML/UC-31.png", width: 100%),
   caption: [UC-31 : Aggiunta nodo al decision tree],
 )
 - *Attore primario:* Utente
@@ -1842,6 +1859,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 === UC-31.1: Inserimento codice univoco del nodo <uc31.1>
 #v(1em)
+#figure(
+  image("../../../images/diagrammiUML/UC-31.1.png", width: 100%),
+  caption: [UC-31 : Aggiunta nodo al decision tree],
+)
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente sta aggiungendo un nuovo nodo al decision tree.
@@ -1887,7 +1908,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-32: Eliminazione nodo dal decision tree <uc32>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  image("../../../images/diagrammiUML/UC-32.png", width: 110%),
   caption: [UC-32 : Eliminazione nodo dal decision tree],
 )
 - *Attore primario:* Utente
@@ -1915,7 +1936,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-33: Modifica destinazione collegamento del decision tree <uc33>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  image("../../../images/diagrammiUML/UC-33.png", width: 110%),
   caption: [UC-33 : Modifica destinazione collegamento del decision tree],
 )
 - *Attore primario:* Utente
@@ -1995,10 +2016,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 == UC-37: Esportazione decision tree <uc37>
 #v(1em)
-#figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-37 : Esportazione decision tree],
-)
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente sta visualizzando il dettaglio di un decision tree. (UC-29.1)
@@ -2032,7 +2049,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-39: Aggiunta dipendenza <uc39>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  image("../../../images/diagrammiUML/UC-39.png", width: 100%),
   caption: [UC-39 : Aggiunta dipendenza],
 )
 - *Attore primario:* Utente
@@ -2077,10 +2094,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 == UC-40: Eliminazione dipendenza <uc40>
 #v(1em)
-#figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-40 : Eliminazione dipendenza],
-)
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente sta visualizzando la lista delle dipendenze
@@ -2097,7 +2110,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-41: Importazione decision tree <uc41>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  image("../../../images/diagrammiUML/UC-41.png", width: 100%),
   caption: [UC-41 : Importazione decision tree],
 )
 - *Attore primario:* Utente
@@ -2126,10 +2139,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 == UC-42: Eliminazione decision tree <uc42>
 #v(1em)
-#figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-42 : Eliminazione decision tree],
-)
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente sta visualizzando il dettaglio di un
@@ -2146,10 +2155,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 == UC-43: Inserimento nuovo requisito <uc43>
 #v(1em)
-#figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-42 : Eliminazione decision tree],
-)
 - *Attore primario:* Utente
 
 - *Precondizioni:* Il sistema è attivo e nessuna valutazione è in corso 
@@ -2166,10 +2171,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 == UC-44: Eliminazione requisito <uc44>
 #v(1em)
-#figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-42 : Eliminazione decision tree],
-)
 - *Attore primario:* Utente
 
 - *Precondizioni:* Il sistema è attivo e nessuna valutazione è in corso 
