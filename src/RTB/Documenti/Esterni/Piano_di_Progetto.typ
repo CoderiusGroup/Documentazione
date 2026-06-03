@@ -100,7 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.6.0], [2026/06/01], [Filippo Zonta Rocha], [Giovanni Bronte], [Aggiunta delle sezioni Sprint 5: 4.5.1, 4.5.2, 4.5.3],
+    [0.6.0], [2026/06/01], [Filippo Zonta Rocha], [Giovanni Bronte], [Aggiunta delle sezioni Sprint 5: 5.5.1, 5.5.2, 5.5.3],
     [0.5.1], [2026/05/29], [Edis Hodja], [Giovanni Bronte], [Aggiunta delle sezioni: 4.4.5, 4.4.6, 4.4.7, 4.4.8],
     [0.5.0], [2026/05/20], [Edis Hodja], [Giovanni Bronte], [Aggiunta delle sezioni Sprint 4: 4.4.1, 4.4.2, 4.4.3, 4.4.4],
     [0.4.0], [2026/05/18], [Giovanni Bronte], [Filippo Zonta Rocha], [Conclusa sezione 4.3. Modificati degli errori minori nei calcoli delle risorse rimaste per lo Sprint 2.],
