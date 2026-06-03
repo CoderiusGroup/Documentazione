@@ -53,10 +53,11 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
 
-    [0.6.0], [2026/05/28], [Leonardo Lorenzin], [], [Aggiornamento sezioni e correzione refusi],
-    [0.5.0], [2026/05/26], [Leonardo Lorenzin], [], [Aggiunta sezione 4 Requisiti],
-    [0.4.0], [2026/05/22], [Leonardo Lorenzin], [], [Integrazione casi d'uso: da UC-35 a UC-42 ],
-    [0.3.0], [2026/05/20], [Leonardo Lorenzin], [], [Aggiornamento sezioni e correzione refusi],
+    [0.7.0], [2026/05/28], [Giovanni Bronte], [], [Aggiunti UC-43 e UC-44, modificato UC-31],
+    [0.6.0], [2026/05/28], [Leonardo Lorenzin], [Giovanni Bronte], [Aggiornamento sezioni e correzione refusi],
+    [0.5.0], [2026/05/26], [Leonardo Lorenzin], [Giovanni Bronte], [Aggiunta sezione 4 Requisiti],
+    [0.4.0], [2026/05/22], [Leonardo Lorenzin], [Giovanni Bronte], [Integrazione casi d'uso: da UC-35 a UC-42 ],
+    [0.3.0], [2026/05/20], [Leonardo Lorenzin], [Giovanni Bronte], [Aggiornamento sezioni e correzione refusi],
     [0.2.2], [2026/05/15], [Ines Iadadi], [Leonardo Lorenzin], [Integrazione casi d'uso: da UC-27 a UC-34],
     [0.2.1], [2026/05/14], [Alberto Canavese], [Leonardo Lorenzin], [Aggiornamento struttura del documento fino al UC-27],
     [0.2.0], [2026/05/05], [Ines Iadadi], [Leonardo Lorenzin], [Aggiornamento struttura del documento fino al UC-18],
@@ -1821,6 +1822,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema crea un nuovo nodo vuoto.
   + L'utente inserisce il codice univoco del nodo. (UC-31.1)
   + L'utente inserisce il testo della domanda del nodo. (UC-31.2)
+  + L'utente sceglie come collegare il nodo creato al decision tree. (UC-33)
+  + Se il nuovo nodo ha al massimo un ramo collegato (cioè zero o uno), l'utente deve specificare l'esito dei nodi non collegati scegliendo una delle seguenti opzioni: 
+    - PASS 
+    - FAIL 
+    - NOT APPLICABLE
   + Il sistema aggiunge il nodo al decision tree e aggiorna la visualizzazione.
 
 - *Scenari alternativi:*
@@ -2136,6 +2142,49 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente seleziona la funzionalità di eliminazione del decision tree.
   + Il sistema mostra un messaggio di conferma.
   + Il sistema rimuove il decision tree e aggiorna l'elenco.
+
+
+== UC-43: Inserimento nuovo requisito <uc43>
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-42 : Eliminazione decision tree],
+)
+- *Attore primario:* Utente
+
+- *Precondizioni:* Il sistema è attivo e nessuna valutazione è in corso 
+
+- *Postcondizioni:* L'utente ha inserito un nuovo requisito.
+
+- *Scenario principale:*
+  + L'utente seleziona l'opzione di aggiunta di un requisito.
+  + L'utente aggiunge un codice univoco al requisito (UC-31.1).
+  + L'utente aggiunge una o più dipendenze per il requisito (UC-39).
+  + L'utente crea un nodo del decisione tree (UC-31).
+  + L'utente modifica i collegamenti del decision tree (UC-33).
+  + L'utente ripete i passi 4 e 5 fino a quando il decision tree è completo.
+
+== UC-44: Eliminazione requisito <uc44>
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  caption: [UC-42 : Eliminazione decision tree],
+)
+- *Attore primario:* Utente
+
+- *Precondizioni:* Il sistema è attivo e nessuna valutazione è in corso 
+
+- *Postcondizioni:* L'utente ha eliminato un requisito.
+
+- *Scenario principale:*
+  + L'utente seleziona il requisito da eliminare.
+  + Il sistema chiede conferma dell'operazione.
+  + L'utente conferma l'operazione.
+  + Il sistema elimina le dipendenze associate al requisito (UC-40). 
+  + Il sistema rimuove il requisito.
+
+
+
 
 #pagebreak()
 #set heading(numbering: "1.1.")
