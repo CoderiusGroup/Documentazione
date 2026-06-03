@@ -32,7 +32,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(3em)
-  #text(size: 20pt)[*Versione 0.6.0*]
+  #text(size: 20pt)[*Versione 0.7.0*]
 ]
 
 #pagebreak()
@@ -53,7 +53,8 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
 
-    [0.7.0], [2026/05/28], [Giovanni Bronte], [], [Aggiunti UC-43 e UC-44, modificato UC-31],
+    [0.8.0], [2026/06/03], [Giovanni Bronte], [], [Impostati i png di tutti gli UML, associati agli UC corretti.],
+    [0.7.0], [2026/06/03], [Giovanni Bronte], [], [Aggiunti UC-43 e UC-44, modificato UC-31],
     [0.6.0], [2026/05/28], [Leonardo Lorenzin], [Giovanni Bronte], [Aggiornamento sezioni e correzione refusi],
     [0.5.0], [2026/05/26], [Leonardo Lorenzin], [Giovanni Bronte], [Aggiunta sezione 4 Requisiti],
     [0.4.0], [2026/05/22], [Leonardo Lorenzin], [Giovanni Bronte], [Integrazione casi d'uso: da UC-35 a UC-42 ],
@@ -273,7 +274,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-2: Importazione del dispositivo <uc2>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/UC-2.png", width: 80%),
+  image("../../../images/diagrammiUML/UC-2.png", width: 90%),
   caption: [UC-2 : Importazione del documento del dispositivo],
 )
 - *Attore primario:* Utente
@@ -337,10 +338,12 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - UC-12: Inserimento asset
 
 === UC-4.1: Inserimento dati del dispositivo <uc4.1>
+#v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 30%),
+  image("../../../images/diagrammiUML/UC-4.1.png", width: 90%),
   caption: [UC-4.1 : Inserimento dati del dispositivo],
 )
+
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente ha scelto l'opzione di creazione di un nuovo dispositivo.
@@ -354,6 +357,12 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenari alternativi:*
   - L'utente inserisce dati non validi in uno o più campi. (UC-5)
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/UC-4.1b.png", width: 90%),
+  caption: [UC-4.1b : Inserimento dati del dispositivo],
+)
+#pagebreak()
 
 - *Inclusioni:*
   - UC-4.1.1: Inserimento nome dispositivo
@@ -430,7 +439,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-7: Visualizzazione dati dispositivo <uc7>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/UC-16.png", width: 80%),
+  image("../../../images/diagrammiUML/UC-7.png", width: 90%),
   caption: [UC-7 : Visualizzazione dati dispositivo],
 )
 - *Attore primario:* Utente
@@ -502,7 +511,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-8: Modifica dati del dispositivo <uc8>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  image("../../../images/diagrammiUML/UC-8.png", width: 100%),
   caption: [UC-8 : Modifica dati del dispositivo],
 )
 - *Attore primario:* Utente
@@ -521,7 +530,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenari alternativi:*
   - L'utente annulla la modifica. (UC-9)
   - L'utente inserisce dati non validi in uno o più campi. (UC-5)
-
+#v(1em)
+#figure(
+  image("../../../images/diagrammiUML/UC-8b.png", width: 80%),
+  caption: [UC-8b : Modifica dati del dispositivo],
+)
 - *Inclusioni:*
   - UC-8.1: Modifica nome del dispositivo
   - UC-8.2: Modifica sistema operativo del dispositivo
@@ -602,7 +615,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-11: Eliminazione del dispositivo <uc11>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/UC-7.png", width: 50%),
+  image("../../../images/diagrammiUML/UC-11.png", width: 90%),
   caption: [UC-11 : Eliminazione del dispositivo],
 )
 - *Attore primario:* Utente
@@ -641,6 +654,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 === UC-11.2: Eliminazione dispositivo con backup <uc11.2>
 #v(1em)
+#figure(
+  image("../../../images/diagrammiUML/UC-11.2.png", width: 90%),
+  caption: [UC-11.2 : Eliminazione dispositivo con backup],
+)
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente ha selezionato la funzionalità di eliminazione del dispositivo.
@@ -691,7 +708,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 === UC-12.1: Inserimento dati dell'asset <uc12.1>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  image("../../../images/diagrammiUML/UC-12.1.png", width: 100%),
   caption: [UC-12.1 : Inserimento dati dell'asset],
 )
 - *Attore primario:* Utente
@@ -731,10 +748,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 ==== UC-12.1.2: Selezione tipo asset <uc12.1.2>
 #v(1em)
-#figure(
-  image("../../../images/diagrammiUML/UC-12.2.png", width: 70%),
-  caption: [UC-12.1.2 : Selezione tipo asset],
-)
 
 - *Attore primario:* Utente
 
@@ -751,10 +764,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 ==== UC-12.1.3: Inserimento descrizione asset <uc12.1.3>
 #v(1em)
-#figure(
-  image("../../../images/diagrammiUML/UC-12.3.png", width: 70%),
-  caption: [UC-12.1.3 : Inserisci descrizione asset],
-)
 
 - *Attore primario:* Utente
 
@@ -778,10 +787,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 == UC-13: Annullamento inserimento asset <uc13>
 #v(1em)
-#figure(
-  image("../../../images/diagrammiUML/UC-13.png", width: 65%),
-  caption: [UC-13 : Annullamento inserimento asset],
-)
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente ha selezionato l'opzione di inserimento asset.
@@ -795,7 +800,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-14: Visualizzazione lista asset <uc14>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/UC-17.png", width: 80%),
+  image("../../../images/diagrammiUML/UC-14.png", width: 80%),
   caption: [UC-14 : Visualizzazione lista asset],
 )
 
@@ -817,7 +822,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 === UC-14.1: Visualizzazione singolo asset nella lista <uc14.1>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/UC-17.1.png", width: 80%),
+  image("../../../images/diagrammiUML/UC-14.1.png", width: 80%),
   caption: [UC-14.1 : Visualizzazione singolo asset nella lista],
 )
 - *Attore primario:* Utente
@@ -877,7 +882,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 == UC-15: Visualizzazione in dettaglio asset <uc15>
 #v(1em)
-
+#figure(
+  image("../../../images/diagrammiUML/UC-15.png", width: 100%),
+  caption: [UC-15 : Visualizzazione in dettaglio asset],
+)
 - *Attore primario:* Utente
 
 - *Precondizioni:*
@@ -958,6 +966,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 === UC-15.6: Visualizzazione lista requisiti asset <uc15.6>
 #v(1em)
+#figure(
+  image("../../../images/diagrammiUML/UC-15.6.png", width: 80%),
+  caption: [UC-15.6 : Visualizzazione lista requisiti asset],
+)
 - *Attore primario:* Utente
 - *Precondizioni:* L'utente ha selezionato un asset dalla lista.
 - *Postcondizioni:* L'utente ha visualizzato la lista dei requisiti da valutare
@@ -992,7 +1004,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-16: Modifica asset <uc16>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/UC-15.png", width: 80%),
+  image("../../../images/diagrammiUML/UC-16.png", width: 100%),
   caption: [UC-16 : Modifica asset],
 )
 
@@ -1095,10 +1107,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 == UC-18: Eliminazione asset <uc18>
 #v(1em)
-#figure(
-  image("../../../images/diagrammiUML/UC-14.png", width: 65%),
-  caption: [UC-18 : Eliminazione asset],
-)
 - *Attore primario:* Utente
 
 - *Precondizioni:*
@@ -1120,7 +1128,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-19: Esecuzione valutazione dispositivo <uc19>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  image("../../../images/diagrammiUML/UC-19.png", width: 100%),
   caption: [UC-19 : Esecuzione valutazione dispositivo],
 )
 - *Attore primario:* Utente
@@ -1154,10 +1162,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 === UC-19.1: Visualizzazione dashboard di valutazione <uc19.1>
 #v(1em)
-#figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
-  caption: [UC-19.1 : Visualizzazione dashboard di valutazione],
-)
 - *Attore primario:* Utente
 
 - *Precondizioni:* La sessione di valutazione è attiva.
@@ -1177,7 +1181,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-20: Valutazione di un asset <uc20>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/placeholder.png", width: 20%),
+  image("../../../images/diagrammiUML/UC-20.png", width: 100%),
   caption: [UC-20 : Valutazione di un asset],
 )
 - *Attore primario:* Utente
