@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.6.0*]
+  #text(size: 20pt)[*Versione 0.6.1*]
 ]
 #pagebreak()
 
@@ -100,7 +100,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.6.0], [2026/06/01], [Filippo Zonta Rocha], [Giovanni Bronte], [Aggiunta delle sezioni Sprint 5: 5.5.1, 5.5.2, 5.5.3],
+    [0.6.1], [2026/06/05], [Ines Iadadi], [], [Revisione lessicale delle sezioni Sprint 2 e Sprint 3],
+    [0.6.0], [2026/06/01], [Filippo Zonta Rocha], [], [Aggiunta delle sezioni Sprint 5: 5.5.1, 5.5.2, 5.5.3],
     [0.5.1], [2026/05/29], [Edis Hodja], [Giovanni Bronte], [Aggiunta delle sezioni: 4.4.5, 4.4.6, 4.4.7, 4.4.8],
     [0.5.0], [2026/05/20], [Edis Hodja], [Giovanni Bronte], [Aggiunta delle sezioni Sprint 4: 4.4.1, 4.4.2, 4.4.3, 4.4.4],
     [0.4.0], [2026/05/18], [Giovanni Bronte], [Filippo Zonta Rocha], [Conclusa sezione 4.3. Modificati degli errori minori nei calcoli delle risorse rimaste per lo Sprint 2.],
@@ -501,16 +502,17 @@ Negli sprint successivi sarà inoltre importante migliorare la comunicazione int
 
 === Attività pianificate
 
-Nel secondo sprint il team si concentrerà sulla stesura dei vari Use case per l'analisi dei requisiti e il continuo della stesura dei seguenti documenti: Norme di Progetto, Piano di progetto. Le attività principali saranno:\
-- Continuo della stesura dell'analisi dei requisiti: in particolar modo sono stati definiti gli use case da UC-1 a UC-19 e modificati alcuni scritti precedentemente.
+Nel secondo sprint il team si concentrerà sulla continuazione della stesura dell'Analisi dei Requisiti e sul proseguimento dei seguenti documenti: Norme di Progetto, Piano di Progetto. Le attività principali saranno:\
+- Continuazione della stesura dell'Analisi dei Requisiti: definizione e consolidamento dei casi d'uso principali.
 - Prima stesura delle Norme di Progetto: redazione dell'introduzione, dei processi primari e dei processi di supporto.
-- Aggiornamento del glossario: aggiunta di vari termini usati nei vari documenti stesi in questo sprint.
-- Incontro Bluewind: riunione con l'azienda con un particolare focus sulle domande proposte dagli analisti per comprendere in maniera ottimale i requisiti richiesti dall'azienda, dopo che la normativa EN18031 è stata approfondita.
-- Aggiunta ricerca automatica glossario: è stata implementata una funzione nella repository  github per ricercare i termini presenti nel glossario nei vari documenti caricati e aggiungere un appendice G per poterli identificare.
+- Aggiornamento del Glossario: aggiunta dei termini introdotti nei documenti redatti durante lo sprint.
+- Incontro con Bluewind: riunione con l'azienda per chiarire i dubbi emersi durante l'analisi dei requisiti e allineare le interpretazioni dello standard EN 18031.
+- Automazione della ricerca dei termini del Glossario: implementazione di uno script nella repository GitHub per rilevare automaticamente i termini presenti nel Glossario all'interno dei documenti e aggiungere la G a pedice identificativa.
 
 === Rischi attesi
-- *RO-1*: La difficoltà di stimare le ore in modo non accurato potrebbe essere un problema per questo sprint e per i successivi, fino a quando il team non prende più confidenza su come lavorare al meglio per la riuscita del progetto.
-- *RT-2*: La normativa EN18031 è molto complessa e richiede normalmente svariati mesi per essere studiata completamente, per questo motivo potrebbe causare fraintendimenti ed errori nell'analisi dei requisiti.
+- *RO-1*: La stima delle ore rimane incerta in questo sprint, in quanto il team affronta per la prima volta attività quali la stesura delle Norme di Progetto e la gestione parallela di più documenti, e non dispone ancora di dati storici sufficienti per calibrare le stime in modo affidabile.
+- *RT-2*: La complessità dello standard EN18031 potrebbe causare
+  interpretazioni errate durante la stesura dell'Analisi dei Requisiti.
 
 === Preventivo
 #figure(
@@ -532,8 +534,8 @@ Nel secondo sprint il team si concentrerà sulla stesura dei vari Use case per l
     ([Alberto Canavese], [-], [-], [-], [-], [-], [7#text(fill: green)[(-1)]], [7]),
     ([Edis Hodja], [-], [-], [7#text(fill: green)[(-1)]], [-], [-], [-], [7]),
     ([Filippo Zonta Rocha], [5#text(fill: green)[(-1)]], [-], [-], [-], [-], [-], [5]),
-    ([Giovanni Angelo Marco Bronte], [-], [3#text(fill: red)[(+1)]], [], [-], [-], [-], [3]),
-    ([Ines Iadadi], [-], [-], [8#text(fill: red)[(+1)]], [-], [-], [-], [8]),
+    ([Giovanni Angelo Marco Bronte], [-], [3#text(fill: red)[(+1)]], [-], [-], [-], [-], [3]),
+    ([Ines Iadadi], [-], [-], [8], [-], [-], [-], [8]),
     ([Leonardo Lorenzin], [-], [4#text(fill: red)[(+2)]], [-], [-], [-], [-], [4]),
     (table.cell(align: center, fill: luma(220))[*Totale*], [*5*], [*7*], [*15*], [*0*], [*0*], [*7*], [*34*]),
   )),
@@ -554,20 +556,23 @@ Nel secondo sprint il team si concentrerà sulla stesura dei vari Use case per l
     [Progettista], [25], [0], [   0€], [96], [2400€],
     [Programmatore], [15], [0], [   0€], [108], [1620€],
     [Verificatore], [15], [7], [ 105€], [112], [1680€],
-    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*43*], [*770€*], [*447*], [*9025€*], 
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*34*], [*770€*], [*447*], [*9025€*], 
   )
 ]
 
 
 === Rischi incontrati
-*RO-1*: Per questo sprint abbiamo assegnato a due persone il ruolo di amministratore, a causa di questo le ore rimaste a budget per il ruolo di amministratore sono risultate minori del previsto. Per il futuro il ruolo di amministratore sarà assegnato ad una sola persona per sprint e le ore preventivate saranno aggiustate di conseguenza.
+*RO-1*: Le ore utilizzate per il ruolo di Amministratore hanno superato il preventivo a causa dell'assegnazione del ruolo a due membri contemporaneamente. Negli sprint successivi il ruolo di Amministratore sarà assegnato a un solo membro per volta, con il preventivo aggiornato di conseguenza.
 
 === Retrospettiva
-Il team ha continuato la stesura di vari documenti essenziali per il Requirement and Product Baseline (RTB) quali: *Piano di Progetto*, *Analisi dei requisiti*, *Glossario*. Inoltre ha iniziato la stesura di un altro documento fondamentale per il progetto: le *Norme di Progetto*.\
-L'incontro con Bluewind è stato inoltre fondamentale per l'Analisi dei requisiti, in quanto ha chiarito molte delle domande poste dagli analisti, questo ha evitato il rischio *RT-2* che avrebbe potuto causare un rallentamento nel progetto. 
+Il team ha proseguito la redazione dei documenti essenziali per il Requirements and Technology Baseline (RTB): Piano di Progetto, Analisi dei Requisiti e Glossario. In questo sprint è stata avviata anche la prima stesura delle Norme di Progetto, con la redazione delle sezioni introduttive, dei processi primari e dei processi di supporto.
+
+Sul fronte tecnico, è stata implementata un'automazione nella repository GitHub per il rilevamento dei termini del Glossario all'interno dei documenti, con aggiunta automatica della G a pedice identificativa. Questa funzionalità riduce il rischio di omissioni nelle future revisioni documentali.
+
+L'incontro con Bluewind ha contribuito a chiarire i dubbi interpretativi emersi durante l'analisi dei requisiti, riducendo il rischio *RT-2* e consentendo agli analisti di proseguire la stesura degli use case con maggiore sicurezza.
 
 ==== *Criticità emerse*
-Per questo sprint sono state assegnate due persone al ruolo di amministratore, questo ha causato una riduzione delle ore disponibili per il ruolo di amministratore superiore a quanto previsto. D'ora in avanti il team assegnerà una sola persona al ruolo di amministratore per sprint, in modo da evitare di andare oltre il numero di ore e budget stimato previsto dal documento: *DichiarazioneImpegni-2026-03-20.typ*.
+La principale criticità di questo sprint è stata l'assegnazione del ruolo di Amministratore a due membri in contemporanea, che ha comportato un consumo di ore per quel ruolo significativamente superiore al preventivo. L'errore è attribuibile a una pianificazione iniziale non sufficientemente strutturata nella distribuzione dei ruoli.
 
 #pagebreak()
 
@@ -578,28 +583,28 @@ Per questo sprint sono state assegnate due persone al ruolo di amministratore, q
   columns: (0.3fr, 1fr),
   stroke: none,
   inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
-  [*Inizio:*],        [2026/05/02],
+  [*Inizio:*],        [2026/05/01],
   [*Fine prevista:*], [2026/05/15],
   [*Fine reale:*],    [2026/05/15],
 )
 #v(0.3em)
 
 === Attività pianificate
-Per il terzo sprint il nostro team si concentrerà sulla continuazione della stesura di vari documenti essenziali per l'RTB, quali: Norme di Progetto, Piano di Progetto, Analisi dei requisiti.
+Nel terzo sprint il team si concentrerà sulla continuazione della stesura dei documenti essenziali per l'RTB: Norme di Progetto, Piano di Progetto, Analisi dei Requisiti.
 Le attività principali saranno:
-- Continua stesura dell'analisi dei requisiti, il team si prefissa di arrivare ad una fase terminale del documento cosi facendo avendo una versione quasi definitiva, inviarlo all'azienda proponente per avere un feedback sullo stato di accuratezza del documento.
-- Aggiornamento con Bluewind: è stato fissato un incontro per il 2026/05/04 per fare varie domande all'azienda in modo da chiarire alcuni dei dubbi sorti durante l'analisi dei requisiti.
-- Stesura del secondo Diario di Bordo, stesura di un altro documento fatta da tutto il team che ha lo scopo di riassumere quanto fatto fino al giorno della redazione del documento per poterlo esporre durante l'attività omonima.
-- Aggiornamento del sito, aggiungendo una sezione per il Diario di Bordo.
-- Stesura dei vari verbali esterni e interni.
+- Continuazione della stesura dell'Analisi dei Requisiti: l'obiettivo è portare il documento a una versione avanzata da sottoporre all'azienda proponente per raccogliere un feedback sulla correttezza e completezza dei contenuti.
+- Incontro con Bluewind: riunione pianificata per il 2026/05/04 per sottoporre i dubbi emersi durante l'analisi dei requisiti.
+- Stesura del secondo Diario di Bordo: redazione del documento di rendicontazione delle attività svolte, da presentare durante l'omonimo incontro di allineamento.
+- Aggiornamento del sito web: aggiunta della sezione dedicata al Diario di Bordo.
+- Stesura dei verbali interni ed esterni relativi alle riunioni del periodo.
 
 === Rischi attesi
-- *RO-2*: Per questo sprint sono presenti delle attività che il gruppo Coderius si è fissato di completare o di raggiungere un certo livello di completamento per poter procedere con il resto del progetto senza avere problemi di tempo in futuro. Per questo motivo c'è un rischio che possano rimanere incompiute.
-- *RO-1*: Dopo il problema riscontrato nello scorso sprint il team starà molto più attento al quantitativo di ore rimaste per completare il progetto entro il quantitativo di ore prefissato, tuttavia potrebbe questo rischio potrebbe essere nuovamente presente in questo sprint data la poca esperienza del gruppo in questo ambito. 
+- *RO-2*: Alcune attività pianificate per questo sprint sono propedeutiche alla prosecuzione del progetto e devono raggiungere un livello di completamento sufficiente entro la fine del periodo. Il rischio che rimangano incompiute è concreto, data la densità del carico di lavoro distribuito tra più documenti in parallelo.
+- *RO-1*: Nonostante le correzioni apportate nello sprint precedente, il rischio di stime imprecise rimane presente. Il team dispone ancora di dati storici limitati su cui basare le previsioni, il che rende incerta la calibrazione delle ore per alcune attività.
 === Preventivo
 #figure(
   tabella-ore((
-    ([Alberto Canavese],   [-],[-],[8],[-],[-],[],[8]),
+    ([Alberto Canavese],   [-],[-],[8],[-],[-],[-],[8]),
     ([Edis Hodja],         [-],[4],[-],[-],[-],[-],[4]),
     ([Filippo Zonta Rocha],[-],[-],[-],[-],[-],[7],[7]),
     ([Giovanni Angelo Marco Bronte],    [6],[-],[-],[-],[-],[-],[6]),
@@ -616,7 +621,7 @@ Le attività principali saranno:
     ([Alberto Canavese], [-], [-], [8], [-], [-], [-], [8]),
     ([Edis Hodja], [-], [4], [-], [-], [-], [-], [4]),
     ([Filippo Zonta Rocha], [-], [-], [-], [-], [-], [6#text(fill: green)[(-1)]], [6]),
-    ([Giovanni Angelo Marco Bronte], [5#text(fill: green)[(-1)]], [-], [], [-], [-], [-], [5]),
+    ([Giovanni Angelo Marco Bronte], [5#text(fill: green)[(-1)]], [-], [-], [-], [-], [-], [5]),
     ([Ines Iadadi], [-], [-], [8], [-], [-], [-], [8]),
     ([Leonardo Lorenzin], [-], [-], [-], [-], [-], [6#text(fill: green)[(-1)]], [6]),
     (table.cell(align: center, fill: luma(220))[*Totale*], [*5*], [*4*], [*16*], [*0*], [*0*], [*12*], [*37*]),
@@ -643,18 +648,19 @@ Le attività principali saranno:
   )
 ]
 
-=== Rischi incontrati 
-- *RO-4*: A causa di una mancata comunicazione nel team durante la scrittura dell'Analisi dei Requisiti, sono stati notati degli UC errati. A causa di questo è stato usato del tempo per modificare gli UC errati invece che per proseguire con la redazione dell'AdR. In futuro, il team terrà delle riunioni per discutere degli UC da scrivere e evitare che si ripeta questo problema.
+=== Rischi incontrati
+- *RO-4*: Una mancata comunicazione tra i membri del team durante la scrittura dell'Analisi dei Requisiti ha portato alla redazione di alcuni casi d'uso non conformi alle convenzioni stabilite. Il team ha dovuto impiegare il proprio tempo nella correzione degli UC errati, sottraendo tempo al proseguimento della redazione del documento. Per prevenire il ripetersi del problema, il team pianificherà riunioni di allineamento sugli UC prima di procedere alla loro stesura.
 
 === Retrospettiva
-Il team ha continuato la redazione dei vari documenti richiesti per l'RTB: *Norme di Progetto*, *Analisi dei Requisiti*, *Piano di Progetto*; e ha iniziato la stesura di un altro documento fondamentale per l'RTB: il *Piano di Qualifica*.
-Per questo sprint il team si è particolarmente concentrato sui documenti: *Norme di Progetto* e *Analisi dei Requisiti*, i quali sono adesso ad un punto abbastanza avanzato.\
-Questo sprint sono iniziati i Diari di Bordo, attività dove il team discute con il proponente del lavoro svolto, i piani futuri e i rischi incontrati. Sono stati creati dei documenti appositi per questi incontri che andranno in futuro implementati nel sito web del gruppo.\
-Sono stati implementati dei cambiamenti minori per migliorare l'Issue Tracking System presente nella repository github.
+Il team ha continuato la redazione dei vari documenti richiesti per l'RTB: Norme di Progetto, Analisi dei Requisiti, Piano di Progetto. È stata iniziata inoltre la stesura del Piano di Qualifica.
+Per questo sprint il team si è particolarmente concentrato sui documenti: Norme di Progetto e Analisi dei Requisiti, i quali hanno raggiunto un livello di avanzamento significativo.\
+Questo sprint sono iniziati i Diari di Bordo. Sono state create le relative
+presentazioni, che saranno pubblicate sul sito web del gruppo.
+Sono stati implementati dei cambiamenti minori per migliorare l'Issue Tracking System presente nella repository GitHub.
 
 ==== *Criticità emerse*
-Come scritto nei rischi incontrati, la criticità principale riscontrata in questo sprint è stata una mancanza di comunicazione nel team per quanto riguarda la scrittura degli UC. Questo ha causato un significativo ritardo nella scrittura dell'Analisi dei Requisiti perchè gli analisti hanno dovuto riscrivere gli UC errati.
-Per evitare che questo problema accada nuovamente in futuro, gli analisti dovranno discutere assieme al resto del team dei vari UC da scrivere. 
+Come scritto nei rischi incontrati, la criticità principale riscontrata in questo sprint è stata una mancanza di comunicazione nel team per quanto riguarda la scrittura degli UC. Questo ha causato un significativo ritardo nella scrittura dell'Analisi dei Requisiti perché gli analisti hanno dovuto riscrivere i casi d'uso errati.
+Per evitare che questo problema accada nuovamente in futuro, gli analisti dovranno discutere assieme al resto del team dei vari UC da definire. 
 
 
 #pagebreak()
@@ -666,7 +672,7 @@ Per evitare che questo problema accada nuovamente in futuro, gli analisti dovran
   columns: (0.3fr, 1fr),
   stroke: none,
   inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
-  [*Inizio:*],        [2026/05/16],
+  [*Inizio:*],        [2026/05/15],
   [*Fine prevista:*], [2026/05/29],
   [*Fine reale:*],    [2026/05/29],
 )
@@ -741,14 +747,14 @@ Naturalmente i restanti documenti saranno ancora in via di sviluppo, prossimi a 
 - *RI-1*: Nel corso di questo periodo bisettimanale, la concomitanza di impegni accademici e personali ha comportato una riduzione della disponibilità di alcuni membri del team. In particolare, l’avvicinarsi della sessione estiva degli esami ha richiesto una maggiore attenzione nella gestione del tempo, con possibili ripercussioni sulla partecipazione alle attività progettuali. Per garantire il rispetto delle scadenze e la continuità del lavoro, il gruppo ha fatto ricorso a un’organizzazione più flessibile delle attività e a un costante coordinamento tra i componenti del team.
 
 === Retrospettiva
-A seguito dei progressi ottenuti nello sprint precedente, il team ha proseguito il lavoro sulla documentazione richiesta per l’RTB, portando avanti in particolare il completamento dell’*Analisi dei Requisiti* e l’evoluzione del *Piano di Qualifica*. L’attenzione si è concentrata sulla riorganizzazione e sul perfezionamento dei casi d’uso, con l’integrazione dei diagrammi UML definitivi al fine di rendere più chiara e completa la descrizione delle funzionalità del sistema.
+A seguito dei progressi ottenuti nello sprint precedente, il team ha proseguito il lavoro sulla documentazione richiesta per l’RTB, portando avanti in particolare il completamento dell’Analisi dei Requisiti e l’evoluzione del Piano di Qualifica. L’attenzione si è concentrata sulla riorganizzazione e sul perfezionamento dei casi d’uso, con l’integrazione dei diagrammi UML definitivi al fine di rendere più chiara e completa la descrizione delle funzionalità del sistema.
 
 In parallelo, è continuata l’attività di aggiornamento del glossario, arricchito con nuovi termini emersi durante la stesura e la revisione dei documenti.
 Durante questo sprint è stata avviata anche la progettazione preliminare dell’interfaccia grafica attraverso la realizzazione di un primo mock-up, utile a visualizzare l’organizzazione delle principali funzionalità e a raccogliere eventuali osservazioni in vista delle fasi successive. Parallelamente, sono proseguite le attività di documentazione ordinaria con la redazione del terzo Diario di Bordo e dei verbali.
 
 
 ==== *Criticità emerse*
-La principale criticità riscontrata durante questo sprint ha riguardato il completamento degli ultimi casi d’uso dell’*Analisi dei Requisiti*. In particolare, il team ha incontrato alcune difficoltà nel definire con precisione determinati scenari e nel rappresentarli correttamente attraverso i diagrammi UML, rendendo necessarie ulteriori attività di revisione e confronto.
+La principale criticità riscontrata durante questo sprint ha riguardato il completamento degli ultimi casi d’uso dell’Analisi dei Requisiti. In particolare, il team ha incontrato alcune difficoltà nel definire con precisione determinati scenari e nel rappresentarli correttamente attraverso i diagrammi UML, rendendo necessarie ulteriori attività di revisione e confronto.
 Per affrontare tali problematiche, il gruppo ha svolto un colloquio di confronto con il professor Cardin, ottenendo chiarimenti utili sulla modellazione dei casi d’uso e dei relativi diagrammi. 
 
 #pagebreak()
