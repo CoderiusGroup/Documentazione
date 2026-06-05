@@ -49,7 +49,7 @@
         *Luogo:* #luogo ],
     )
     #v(4em)
-    #text(size: 20pt)[*Versione 1.0.0*]
+    #text(size: 20pt)[*Versione 1.0.1*]
   ]
   pagebreak()
 
@@ -70,6 +70,7 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+      [1.0.1], [2026/05/26], [Edis Hodja], [Giovanni Bronte], [Correzione codici e decisione di riferimento],
       [1.0.0], [2026/05/04], [Leonardo Lorenzin], [], [Approvazione del verbale],
       [0.2.0], [2026/05/04], [Edis Hodja], [Leonardo Lorenzin], [Aggiornamento delle sezioni e aggiunta: 2.8, 2.9],
       [0.1.0], [2026/05/04], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Prima stesura del verbale],
@@ -160,15 +161,15 @@ In vista del prossimo incontro organizzato con il proponente Bluewind S.r.l., il
     columns: (auto, 1fr),
     align: (center, left),
     [*Codice*], [*Descrizione*],
-    [VI-3.1], [Definizione per lo standard tecnologico relativo alla creazione dei diagrammi UML],
-    [VI-3.2], [Continuazione del documento Analisi dei requisiti],
-    [VI-3.3], [Continuazione del documento Piano di progetto],
-    [VI-3.4], [Continuazione del documento Norme di progetto],
-    [VI-3.5], [Continuazione del documento Glossario],
-    [VI-3.6], [Organizzazione per  Diario di bordo],
-    [VI-3.7], [Aggiornamento del documento Way of Working],
-    [VI-3.8], [Rotazione dei ruoli interni],
-    [VI-3.9], [Finalizzazione delle domande per Bluewind],
+    [VI-4.1], [Definizione per lo standard tecnologico relativo alla creazione dei diagrammi UML],
+    [VI-4.2], [Continuazione del documento Analisi dei requisiti],
+    [VI-4.3], [Continuazione del documento Piano di progetto],
+    [VI-4.4], [Continuazione del documento Norme di progetto],
+    [VI-4.5], [Continuazione del documento Glossario],
+    [VI-4.6], [Organizzazione per  Diario di bordo],
+    [VI-4.7], [Aggiornamento del documento Way of Working],
+    [VI-4.8], [Rotazione dei ruoli interni],
+    [VI-4.9], [Finalizzazione delle domande per Bluewind],
   )
 ]
 
@@ -190,15 +191,15 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
     [TD-4.1], [Continuazione del documento 
-    \ Analisi dei requisiti], [Ines Iadadi,\ Alberto Canavese], [VI-3.2],
+    \ Analisi dei requisiti], [Ines Iadadi,\ Alberto Canavese], [VI-4.2],
     [TD-4.2],
     [Continuazione del documento \ Piano di progetto],
     [Giovanni Angelo \ Marco Bronte],
-    [VI-3.3],
+    [VI-4.3],
 
-    [TD-4.3], [Continuazione del documento \ Norme di progetto], [Edis Hodja], [VI-3.4],
-    [TD-4.4], [Continuazione del documento Glossario], [Ines Iadadi,\ Alberto Canavese], [VI-3.5],
-    [TD-4.5], [Stesura Diario di bordo], [Team], [VI-3.6],
-    [TD-4.6], [Aggiornamento del  Way of Working], [Team], [VI-3.7],
+    [TD-4.3], [Continuazione del documento \ Norme di progetto], [Edis Hodja], [VI-4.4],
+    [TD-4.4], [Continuazione del documento Glossario], [Ines Iadadi,\ Alberto Canavese], [VI-4.5],
+    [TD-4.5], [Stesura Diario di bordo], [Team], [VI-4.6],
+    [TD-4.6], [Aggiornamento del  Way of Working], [Team], [VI-4.7],
   )
 ]

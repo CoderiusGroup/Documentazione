@@ -49,7 +49,7 @@
         *Luogo:* #luogo ],
     )
     #v(4em)
-    #text(size: 20pt)[*Versione 0.3.0*]
+    #text(size: 20pt)[*Versione 1.0.0*]
   ]
   pagebreak()
 
@@ -70,7 +70,7 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.3.0], [2026/04/21], [Alberto Canavese], [Alberto Canavese], [Validazione finale],
+      [1.0.0], [2026/04/21], [Alberto Canavese], [], [Validazione finale],
       [0.2.0], [2026/04/21], [Alberto Canavese], [Leonardo Lorenzin], [Aggiornamento contenuti e correzione refusi],
       [0.1.0], [2026/04/21], [Filippo Zonta Rocha], [Alberto Canavese], [Prima stesura del verbale],
     )
