@@ -44,7 +44,7 @@
     #v(2em)
     #text(size: 1.6em, weight: "bold")[Incontro con #azienda]
     #v(4em)
-    #text(size: 20pt)[*Versione 0.1.0*]
+    #text(size: 20pt)[*Versione 1.0.0*]
   ]
   pagebreak()
 
@@ -65,7 +65,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026/06/03], [Alberto Canavese], [], [Prima stesura del verbale]
+      [1.0.0], [2026/06/05], [Ines Iadadi], [], [Approvazione verbale],
+      [0.1.0], [2026/06/03], [Alberto Canavese], [Ines Iadadi], [Prima stesura del verbale]
     )
   ]
 
@@ -125,14 +126,14 @@
 
 = Ordine del Giorno
 + Presentazione del mockup interattivo dell'applicazione.
-+ Raccolta del feedback del proponente sull'interfaccia utente (UI/UX).
++ Raccolta del feedback del proponente sull'interfaccia utente.
 + Pianificazione della condivisione del documento di Analisi dei Requisiti.
 
 = Svolgimento della Riunione
-La riunione è stata dedicata alla presentazione dei primi avanzamenti relativi all'interfaccia dell'applicazione e alla pianificazione della condivisione della documentazione con il proponente. Di seguito viene riportato un resoconto dello svolgimento dell'incontro.
+La riunione è stata dedicata alla presentazione della bozza dell'interfaccia utente dell'applicazione e alla pianificazione della condivisione della documentazione con il proponente.
 
 == Presentazione del Mockup
-Il team ha presentato al proponente un mockup interattivo dell'applicazione, realizzato utilizzando Vite. La dimostrazione ha permesso di illustrare concretamente le scelte di navigazione e di interazione previste per il prodotto.
+Il team ha presentato al proponente un mockup interattivo dell'applicazione, realizzato utilizzando React. La dimostrazione ha permesso di illustrare concretamente le scelte di navigazione e di interazione delineate nell'Analisi dei Requisiti.
 
 == Feedback sull'Interfaccia Utente
 Il referente aziendale, Tobia Fiorese, ha espresso apprezzamento per la semplicità della soluzione proposta, confermando che la direzione intrapresa per la UI/UX è corretta e suggerendo di proseguire lungo questa linea di sviluppo.
@@ -150,7 +151,6 @@ L'incontro si è concluso con esito positivo: il proponente ha confermato la bon
     [*Codice*], [*Descrizione*],
     [VE-5.1], [Conferma della direzione adottata per la UI/UX, da proseguire nello sviluppo],
     [VE-5.2], [Invio al proponente della prima versione dell'Analisi dei Requisiti nei prossimi giorni],
-    [VE-5.3], [Avvio della realizzazione del Proof of Concept],
   )
 ]
 
@@ -161,8 +161,7 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-5.1], [Invio del documento "Analisi dei Requisiti" a Bluewind S.r.l.], [Giovanni Angelo Marco Bronte], [VE-5.2],
-    [TD-5.2], [Realizzazione del documento "Proof of Concept"], [Edis Hodja], [VE-5.3],
+    [TD-5.1], [Invio del documento di Analisi dei Requisiti a Bluewind S.r.l.], [Giovanni Angelo Marco Bronte], [VE-5.2],
   )
 ]
 
