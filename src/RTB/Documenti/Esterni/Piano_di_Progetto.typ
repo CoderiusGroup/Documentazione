@@ -101,7 +101,7 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
     [0.6.1], [2026/06/05], [Ines Iadadi], [], [Revisione lessicale delle sezioni Sprint 2 e Sprint 3],
-    [0.6.0], [2026/06/01], [Filippo Zonta Rocha], [], [Aggiunta delle sezioni Sprint 5: 5.5.1, 5.5.2, 5.5.3],
+    [0.6.0], [2026/06/01], [Filippo Zonta Rocha], [Ines Iadadi], [Aggiunta delle sezioni Sprint 5: 5.5.1, 5.5.2, 5.5.3],
     [0.5.1], [2026/05/29], [Edis Hodja], [Giovanni Bronte], [Aggiunta delle sezioni: 4.4.5, 4.4.6, 4.4.7, 4.4.8],
     [0.5.0], [2026/05/20], [Edis Hodja], [Giovanni Bronte], [Aggiunta delle sezioni Sprint 4: 4.4.1, 4.4.2, 4.4.3, 4.4.4],
     [0.4.0], [2026/05/18], [Giovanni Bronte], [Filippo Zonta Rocha], [Conclusa sezione 4.3. Modificati degli errori minori nei calcoli delle risorse rimaste per lo Sprint 2.],
@@ -495,8 +495,8 @@ Negli sprint successivi sarà inoltre importante migliorare la comunicazione int
   stroke: none,
   inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
   [*Inizio:*],        [2026/04/21],
-  [*Fine prevista:*], [2026/04/30],
-  [*Fine reale:*],    [2026/04/30],
+  [*Fine prevista:*], [2026/05/01],
+  [*Fine reale:*],    [2026/05/01],
 )
 #v(0.3em)
 
@@ -766,27 +766,31 @@ Per affrontare tali problematiche, il gruppo ha svolto un colloquio di confronto
   columns: (0.3fr, 1fr),
   stroke: none,
   inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
-  [*Inizio:*],        [2026/05/30],
+  [*Inizio:*],        [2026/05/29],
   [*Fine prevista:*], [2026/06/12],
-  [*Fine reale:*],    [2026/06/12],
+  [*Fine reale:*],    [-],
 )
 #v(0.3em)
 
 === Attività pianificate
-Nel quinto sprint il gruppo continuerà a lavorare sulla documentazione richiesta per l'RTB, focalizzandosi sulla finalizzazione dell'Analisi dei Requisiti con gli ultimi controlli sulla qualità del documento e la presentazione del mockup all'azienda Bluewind. 
-In questo sprint il gruppo ha anche introdotto nella ruotazione dei ruoli il programmatore, data la necessità di creare un PoC richiesto dall' RTB.
 
- Le attività principali saranno:
+Nel quinto sprint il gruppo continuerà a lavorare sulla documentazione
+richiesta per l'RTB, focalizzandosi sulla finalizzazione dell'Analisi dei
+Requisiti e sulla preparazione del PoC richiesto per la presentazione.
+È stata inoltre introdotta nella rotazione dei ruoli la figura del Programmatore, necessaria per lo sviluppo del PoC. Le attività principali saranno:
 
-- Presentazione del mockup a Bluewind per avere un feedback preliminare.
-- Preparare PoC per la presentazione finale, con particolare attenzione alla stesura del documento di presentazione.
-- Stesura dei vari verbali esterni e interni.
-- Stesura del quarto e quinto Diario di Bordo: obbiettivi raggiunti, criticità riscontrare, passi operativi futuri.
-- Aggiornamento del glossario: aggiunta di vari termini usati nei vari documenti stesi in questo sprint.
+- Finalizzazione dell'Analisi dei Requisiti: ultimi controlli sulla qualità
+  e completezza del documento.
+- Presentazione del mockup a Bluewind per raccogliere un feedback sull'interfaccia proposta.
+- Sviluppo del PoC da presentare in sede di RTB.
+- Stesura delle presentazioni per il quarto e quinto Diario di Bordo.
+- Stesura dei verbali interni ed esterni relativi alle riunioni del periodo.
+- Aggiornamento del Glossario: aggiunta dei termini introdotti nei documenti redatti durante lo sprint.
 
 === Rischi attesi
-- *RO-2*: Come per il precedente  sprint è  probabile incorrere in difficoltà nel coordinamento con tutto il team, specialmente a causa dell’elevato carico di lavoro richiesto in vista dell'avvicinarsi della presentazione RTB.
-- *RI-1*: Considerato l’avvicinarsi di un periodo accademico particolarmente intenso e di giornate festive, è probabile riscontrare difficoltà nella disponibilità organizzativa dei membri del gruppo, con conseguenti rallentamenti temporanei nello svolgimento di alcune attività operative.
+
+- *RI-1*: L'avvicinarsi di un periodo accademico intenso potrebbe ridurre la disponibilità di alcuni membri del gruppo, con conseguenti rallentamenti nello svolgimento delle attività operative.
+- *RO-2*: L'elevato carico di lavoro distribuito su più attività in parallelo, in vista della presentazione RTB, aumenta il rischio che alcune attività rimangano incompiute entro la fine dello sprint.
  
 === Preventivo
 #figure(
