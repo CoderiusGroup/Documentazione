@@ -412,5 +412,437 @@
       "if",
       "counter"
     ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "AnalisiCapitolati 2026 03 13",
+    "errors": 142,
+    "sample": [
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter",
+      "page",
+      "get",
+      "first",
+      "columns"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "DichiarazioneImpegni 2026 03 20",
+    "errors": 103,
+    "sample": [
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter",
+      "page",
+      "get",
+      "first",
+      "columns"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "LetteraPresentazione 2026 03 20",
+    "errors": 80,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleEsterno 2026 03 16",
+    "errors": 119,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleEsterno 2026 03 17",
+    "errors": 119,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleInterno 2026 03 09",
+    "errors": 107,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleInterno 2026 03 18",
+    "errors": 114,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleInterno 2026 03 25",
+    "errors": 119,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "AnalisiRequisiti 2026 04 07",
+    "errors": 50,
+    "sample": [
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter",
+      "page",
+      "get",
+      "first",
+      "columns"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "Glossario",
+    "errors": 55,
+    "sample": [
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter",
+      "page",
+      "get",
+      "first",
+      "columns"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleEsterno 2026 04 03",
+    "errors": 140,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleEsterno 2026 04 17",
+    "errors": 152,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleEsterno 2026 05 04",
+    "errors": 135,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleEsterno 2026 05 18",
+    "errors": 129,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleEsterno 2026 06 03",
+    "errors": 121,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleInterno 2026 03 31",
+    "errors": 108,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleInterno 2026 04 14",
+    "errors": 123,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleInterno 2026 04 21",
+    "errors": 114,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleInterno 2026 05 04",
+    "errors": 115,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleInterno 2026 05 13",
+    "errors": 133,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleInterno 2026 05 18",
+    "errors": 118,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleInterno 2026 05 25",
+    "errors": 132,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleInterno 2026 05 29",
+    "errors": 130,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "commit": "8ad1022",
+    "document": "VerbaleInterno 2026 06 08",
+    "errors": 143,
+    "sample": [
+      "document",
+      "title",
+      "author",
+      "page",
+      "paper",
+      "margin",
+      "header",
+      "context",
+      "if",
+      "counter"
+    ]
   }
 ]
