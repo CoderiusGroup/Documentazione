@@ -53,10 +53,10 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
 
-    [0.9.0], [2026/06/04], [Giovanni Bronte], [], [Modificati vari UC da obbligatori a desiderabili],
-    [0.8.0], [2026/06/03], [Giovanni Bronte], [], [Impostati i png di tutti gli UML, associati agli UC corretti.],
-    [0.7.0], [2026/06/03], [Giovanni Bronte], [], [Aggiunti UC-43 e UC-44, modificato UC-31],
-    [0.6.0], [2026/05/28], [Leonardo Lorenzin], [Giovanni Bronte], [Aggiornamento sezioni e correzione refusi],
+    [0.5.4], [2026/06/04], [Giovanni Bronte], [Ines Iadadi], [Modificati vari UC da obbligatori a desiderabili],
+    [0.5.3], [2026/06/03], [Giovanni Bronte], [Ines Iadadi], [Caricamento dei diagrammi UML],
+    [0.5.2], [2026/06/03], [Giovanni Bronte], [Ines Iadadi], [Aggiunti UC-43 e UC-44, modificato UC-31],
+    [0.5.1], [2026/05/28], [Leonardo Lorenzin], [Giovanni Bronte], [Aggiornamento sezioni e correzione refusi],
     [0.5.0], [2026/05/26], [Leonardo Lorenzin], [Giovanni Bronte], [Aggiunta sezione 4 Requisiti],
     [0.4.0], [2026/05/22], [Leonardo Lorenzin], [Giovanni Bronte], [Integrazione casi d'uso: da UC-35 a UC-42 ],
     [0.3.0], [2026/05/20], [Leonardo Lorenzin], [Giovanni Bronte], [Aggiornamento sezioni e correzione refusi],
@@ -1845,18 +1845,17 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente inserisce il codice univoco del nodo. (UC-31.1)
   + L'utente inserisce il testo della domanda del nodo. (UC-31.2)
   + L'utente sceglie come collegare il nodo creato al decision tree. (UC-33)
-  + Se il nuovo nodo ha al massimo un ramo collegato (cioè zero o uno), l'utente deve specificare l'esito dei nodi non collegati scegliendo una delle seguenti opzioni: 
-    - PASS 
-    - FAIL 
-    - NOT APPLICABLE
   + Il sistema aggiunge il nodo al decision tree e aggiorna la visualizzazione.
 
 - *Scenari alternativi:*
   - *5a.* La struttura risultante non supera la validazione. (UC-35)
+  - *6a.* Il nodo ha meno di due rami collegati: l'utente assegna un esito
+    ai rami non collegati scegliendo tra PASS, FAIL, NOT APPLICABLE.
 
 - *Inclusioni:*
   - UC-31.1: Inserimento codice univoco del nodo
   - UC-31.2: Inserimento testo domanda del nodo
+  - UC-33: Modifica destinazione collegamento del decision tree
 
 - *Estensioni:*
   - UC-35: Validazione fallita modifica decision tree
@@ -2387,6 +2386,9 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   fill: (x, y) => if y == 0 { luma(230) } else { none },
   [*Codice*], [*Descrizione*], [*Fonti*],
 
+
+  [RF-D40], [Il sistema deve permettere l'inserimento di un nuovo requisito con il relativo decision tree associato.], [UC-43],
+  [RF-D41], [Il sistema deve permettere l'eliminazione di un requisito esistente con il relativo decision tree associato.], [UC-44],
   [RF-Op01], [Il sistema deve mostrare la notifica dell'avvenuto salvataggio intermedio della sessione di valutazione.], [UC-25.2],
   [RF-Op02], [Il sistema deve permettere l'aggiunta manuale di una dipendenza tra requisiti all'interno di un decision tree.], [UC-39],
   [RF-Op03], [Il sistema deve impedire l'aggiunta di dipendenze circolari tra decision tree mostrando un messaggio di errore.], [UC-39.1],
@@ -2520,18 +2522,6 @@ In questa sezione viene fornito un quadro di tracciamento bidirezionale per asso
   [RF-Ob59], [UC-29.1],
   [RF-Ob60], [UC-29.1.1],
   [RF-Ob61], [UC-30],
-  [RF-Ob62], [UC-31],
-  [RF-Ob63], [UC-31.1],
-  [RF-Ob64], [UC-31.2],
-  [RF-Ob65], [UC-32],
-  [RF-Ob66], [UC-33],
-  [RF-Ob67], [UC-34],
-  [RF-Ob68], [UC-35],
-  [RF-Ob69], [UC-35],
-  [RF-Ob70], [UC-37],
-  [RF-Ob71], [UC-38],
-  [RF-Ob72], [UC-41],
-  [RF-Ob73], [UC-42],
 
   [RF-D01], [UC-4],
   [RF-D02], [UC-4.1],
@@ -2569,6 +2559,8 @@ In questa sezione viene fornito un quadro di tracciamento bidirezionale per asso
   [RF-D34], [UC-35],
   [RF-D35], [UC-37],
   [RF-D36], [UC-36],
+  [RF-D40], [UC-43],
+  [RF-D41], [UC-44],
 
   [RF-Op01], [UC-25.2],
   [RF-Op02], [UC-39],
@@ -2590,7 +2582,7 @@ La seguente tabella riassume quantitativamente i requisiti individuati all'inter
     fill: (x, y) => if y == 0 { luma(230) } else if y == 4 { luma(245) } else { none },
     [*Tipologia*], [*Obbligatori*], [*Desiderabili*], [*Opzionali*], [*Totali*],
 
-    [Funzionali (RF)], [61], [39], [4], [104],
+    [Funzionali (RF)], [61], [41], [4], [106],
     [Qualità (RQ)], [7], [0], [0], [7],
     [Vincolo (RV)], [2], [0], [2], [4],
 
