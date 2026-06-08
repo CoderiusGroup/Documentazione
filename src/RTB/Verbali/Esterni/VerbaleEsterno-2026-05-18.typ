@@ -44,7 +44,7 @@
     #v(2em)
     #text(size: 1.6em, weight: "bold")[Incontro con #azienda]
     #v(4em)
-    #text(size: 20pt)[*Versione 0.1.0*]
+    #text(size: 20pt)[*Versione 1.0.1*]
   ]
   pagebreak()
 
@@ -64,7 +64,9 @@
       ),
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
-      [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*], 
+      [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+      [1.0.1], [2026/06/08], [Filippo Zonta Rocha], [], [Correzione numerazione codici decisioni],
+      [1.0.0], [2026/05/18], [Giovanni Bronte], [], [Approvazione del verbale],
       [0.1.0], [2026/05/18], [Filippo Zonta Rocha], [Giovanni Bronte], [Prima stesura del verbale]
     )
   ]
@@ -194,9 +196,9 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-5.1], [Conclusione del documento Analisi dei requisiti], [Filippo Zonta Rocha, \ Leonardo Lorenzin], [VE-4.1],
-    [TD-5.2], [Continuazione del documento Piano di qualifica], [Alberto Canavese], [VE-4.2],
-    [TD-5.3], [Realizzazione Mock-up dell'applicazione], [IInes Iadadi], [VE-4.3],
+    [TD-4.1], [Conclusione del documento Analisi dei requisiti], [Filippo Zonta Rocha, \ Leonardo Lorenzin], [VE-4.1],
+    [TD-4.2], [Continuazione del documento Piano di qualifica], [Alberto Canavese], [VE-4.2],
+    [TD-4.3], [Realizzazione Mock-up dell'applicazione], [IInes Iadadi], [VE-4.3],
   )
 ]
 #v(6em)

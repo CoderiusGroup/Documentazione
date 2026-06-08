@@ -44,7 +44,7 @@
     #v(2em)
     #text(size: 1.6em, weight: "bold")[Incontro con #azienda]
     #v(4em)
-    #text(size: 20pt)[*Versione 0.3.0*]
+    #text(size: 20pt)[*Versione 1.0.1*]
   ]
   pagebreak()
 
@@ -65,7 +65,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.3.0], [2026/04/08], [], [Filippo Zonta Rocha], [Validazione],
+      [1.0.1], [2026/06/08], [Filippo Zonta Rocha], [], [Correzione numerazione codici decisioni],
+      [1.0.0], [2026/04/08], [Filippo Zonta Rocha], [], [Approvazione del verbale],
       [0.2.0], [2026/04/08], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Correzione refusi],
       [0.1.0], [2026/04/03], [Ines Iadadi], [Leonardo Lorenzin], [Prima stesura del verbale]
     )
@@ -172,9 +173,9 @@ Al termine della riunione il team si è trovato internamente su Discord per asse
     columns: (auto, 1fr),
     align: (center, left),
     [*Codice*], [*Descrizione*],
-    [VE-3.1], [Apprendimento della norma EN 18031],
-    [VE-3.2], [Assegnazione dei ruoli per il primo sprint],
-    [VE-3.3], [Creazione del canale Telegram per comunicazioni asincrone],
+    [VE-1.1], [Apprendimento della norma EN 18031],
+    [VE-1.2], [Assegnazione dei ruoli per il primo sprint],
+    [VE-1.3], [Creazione del canale Telegram per comunicazioni asincrone],
   )
 
 
@@ -185,9 +186,9 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-3.1], [Studio e analisi della documentazione fornita riguardo alla norma EN 18031], [Team], [VE-3.1],
-    [TD-3.2], [Iniziare la valutazione delle possibili tecnologie per lo sviluppo (web-based)], [Team], [VE-3.2],
-    [TD-3.3], [Creazione del canale Telegram e aggiunta dei referenti aziendali], [Edis Hodja], [VE-3.3],
+    [TD-1.1], [Studio e analisi della documentazione fornita riguardo alla norma EN 18031], [Team], [VE-1.1],
+    [TD-1.2], [Iniziare la valutazione delle possibili tecnologie per lo sviluppo (web-based)], [Team], [VE-1.2],
+    [TD-1.3], [Creazione del canale Telegram e aggiunta dei referenti aziendali], [Edis Hodja], [VE-1.3],
   )
 ]
 #v(6em)
