@@ -49,7 +49,7 @@
         *Luogo:* #luogo ],
     )
     #v(4em)
-    #text(size: 20pt)[*Versione 0.1.0*]
+    #text(size: 20pt)[*Versione 1.0.0*]
   ]
   pagebreak()
 
@@ -70,7 +70,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026/06/08], [Edis Hodja], [], [Prima stesura del verbale],
+      [1.0.0], [2026/06/08], [Ines Iadadi], [], [Approvazione del verbale],
+      [0.1.0], [2026/06/08], [Edis Hodja], [Ines Iadadi], [Prima stesura del verbale],
     )
   ]
 
@@ -111,7 +112,7 @@
 
 = Ordine del Giorno
 + Confronto sullo stato della documentazione e sull'organizzazione del lavoro.
-+ Pianificazione attività successive.
++ Pianificazione delle attività successive.
 
 #v(0.5cm)
 
@@ -139,12 +140,15 @@ A seguito di questa analisi, il team ha provveduto a correggere gli elementi cri
 
 
 == Inoltro dell'email alla proponente
-Il team ha esaminato congiuntamente la bozza dell'email redatta dal Responsabile e destinata alla proponente BlueWind. La comunicazione contiene la versione definitiva del documento di Analisi dei Requisiti e formalizza la richiesta di firma e validazione del verbale relativo all'ultimo incontro svolto in data 2026-06-03.
+Il team ha esaminato congiuntamente la bozza dell'email redatta dal Responsabile e destinata alla proponente Bluewind. La comunicazione contiene la versione definitiva del documento di Analisi dei Requisiti e formalizza la richiesta di firma e validazione del verbale relativo all'ultimo incontro svolto in data 2026-06-03.
 
 Contestualmente, è stata inviata una seconda email volta a correggere alcune imprecisioni riscontrate in precedenti verbali esterni. Tali criticità sono riconducibili alla definizione del Way of Working, tuttora in fase di consolidamento, e la comunicazione ha l'obiettivo di allinearne i contenuti agli standard adottati dal gruppo.
 
 == Avanzamento del Proof of Concept
 Durante l'incontro, il Programmatore ha aggiornato il team riguardo ai progressi compiuti sul Proof of Concept. È emerso che l'integrazione tra le diverse componenti dell'applicazione è stata portata a termine con successo: il frontend, realizzato con React e generato tramite Vite a partire dal mock-up presentato alla proponente in un incontro esterno, comunica correttamente con il backend, sviluppato in Python mediante Flask.
+
+== Aggiornamento della struttura della repository
+Il gruppo ha deciso di caricare le presentazioni dei Diari di Bordo in una nuova cartella dedicata all'interno della repository di documentazione, al fine di garantirne la tracciabilità e la consultazione da parte di tutti i membri del team.
 
 #pagebreak()
 
@@ -156,11 +160,11 @@ Durante l'incontro, il Programmatore ha aggiornato il team riguardo ai progressi
     align: (center, left),
     [*Codice*], [*Descrizione*],
     [VI-9.1], [Aggiornamento dei dati presenti nel Piano di Qualifica],
-    [VI-9.2], [Correzione terminale dell'Analisi dei Requisiti],
+    [VI-9.2], [Correzione e validazione dell'Analisi dei Requisiti],
     [VI-9.3], [Validazione finale delle Norme di Progetto],
-    [VI-9.4], [Inoltro dell'email alla proponente BlueWind],
+    [VI-9.4], [Inoltro dell'email alla proponente Bluewind],
     [VI-9.5], [Continuazione dello sviluppo del Proof of Concept],
-    [VI-9.6], [Aggiornamento sezioni del sito],
+    [VI-9.6], [Aggiornamento sezioni della repository],
   )
 ]
 
@@ -178,11 +182,11 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
     [TD-9.1], [Aggiornamento del Piano di Qualifica in seguito all'aggiunta degli strumenti di tracking su GitHub], [Filippo Zonta Rocha], [VI-9.1],
-    [TD-9.2], [Conclusione definitiva dell'Analisi dei Requisiti con alcune imprecisioni da sistemare], [Giovanni Angelo Marco Bronte], [VI-9.2],
+    [TD-9.2], [Conclusione definitiva dell'Analisi dei Requisiti], [Giovanni Angelo Marco Bronte], [VI-9.2],
     [TD-9.3], [Verifica sintattica e ortografica delle Norme di Progetto], [Leonardo Lorenzin, \ Ines Iadadi], [VI-9.3],
-    [TD-9.4], [Invio della mail a BlueWind con relativa Analisi dei Requisiti e verbali esterni da verificare], [Filippo Zonta Rocha], [VI-9.4],
+    [TD-9.4], [Invio della mail a Bluewind con relativa Analisi dei Requisiti e verbali esterni da verificare], [Filippo Zonta Rocha], [VI-9.4],
     [TD-9.5], [Sviluppare le parti principali del Proof of Concept], [Edis Hodja], [VI-9.5],
-    [TD-9.6], [Aggiornamento della struttura del sito], [Alberto Canavese], [VI-9.6],
+    [TD-9.6], [Aggiornamento della struttura della repository], [Alberto Canavese], [VI-9.6],
   )
 ]
 

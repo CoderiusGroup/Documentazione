@@ -49,7 +49,7 @@
         *Luogo:* #luogo ],
     )
     #v(4em)
-    #text(size: 20pt)[*Versione 0.1.0*]
+    #text(size: 20pt)[*Versione 1.0.0*]
   ]
   pagebreak()
 
@@ -70,7 +70,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026/05/29], [Edis Hodja], [], [Prima stesura del verbale],
+      [1.0.0], [2026/06/08], [Ines Iadadi], [], [Approvazione del verbale],
+      [0.1.0], [2026/05/29], [Edis Hodja], [Ines Iadadi], [Prima stesura del verbale],
     )
   ]
 
@@ -127,10 +128,10 @@ Sono stati inoltre chiariti alcuni aspetti relativi alla modellazione di funzion
 
 == Completamento dell'Analisi dei Requisiti
 A seguito del confronto con il professor Cardin, il gruppo ha rivisto alcune sezioni della documentazione relativa all'Analisi dei Requisiti, individuando le principali criticità su cui sarà necessario intervenire per giungere, entro la conclusione del prossimo sprint, a una definizione completa.
-Nello specifico, le aree di intervento riguardano il completamento di alcuni Use Case, la gestione della loro decomposizione e l'elaborazione dei diagrammi delle attività.
+Nello specifico, le aree di intervento riguardano il completamento di alcuni Use Case, la gestione della loro decomposizione e l'elaborazione di eventuali diagrammi delle attività.
 
 == Continuazione dello sviluppo del Mock-up
-Il gruppo ha definito in modo più preciso le attività da svolgere sul prototipo realizzato con Vite, un tool di sviluppo per applicazioni frontend.
+Il gruppo ha definito in modo più preciso le attività da svolgere sul prototipo realizzato con React.
 
 Le scelte progettuali sono state guidate dalle indicazioni emerse nelle fasi precedenti e dai requisiti individuati durante l’Analisi dei Requisiti, con l’obiettivo di realizzare una rappresentazione coerente e il più possibile fedele del prodotto finale atteso.
 
@@ -138,9 +139,9 @@ Le scelte progettuali sono state guidate dalle indicazioni emerse nelle fasi pre
 Il team ha discusso l’opportunità di procedere a una revisione complessiva del Piano di Qualifica considerando che il documento si trova ormai in fase di completamento. In particolare, è stato ritenuto fondamentale il coinvolgimento di tutti i membri del gruppo per la revisione, con un’attenzione maggiore da parte del Verificatore.
 
 == Rotazione dei ruoli
-Seguendo quanto indicato nella Dichiarazione degli Impegni, il team ha riorganizzato i ruoli interni prevedendo una rotazione tra i membri, in modo da consentire a tutti di lavorare sulle attività da completare. È stato inoltre introdotto il ruolo di Programmatore, con il compito di supportare le attività di sviluppo e la realizzazione del codice.
+Seguendo quanto indicato nella Dichiarazione degli Impegni, il team ha riorganizzato i ruoli interni prevedendo una rotazione tra i membri, in modo da consentire a tutti di lavorare sulle attività da completare. È stato inoltre introdotto il ruolo di Programmatore, con il compito di supportare le attività di sviluppo e la realizzazione del Proof of Concept.
 
-== Pianificazione della candidatura per la RTB
+== Pianificazione della data di candidatura per la RTB
 Il team ha discusso e individuato le principali azioni da completare e definito i passaggi organizzativi necessari per assicurare la preparazione della documentazione richiesta, stabilendo una possibile data di consegna della RTB indicativamente nella settimana del 2026-06-08.
 
 #pagebreak()
@@ -152,12 +153,12 @@ Il team ha discusso e individuato le principali azioni da completare e definito 
     columns: (auto, 1fr),
     align: (center, left),
     [*Codice*], [*Descrizione*],
-    [VI-8.1], [Versione definitiva del documeto relativo all'Analisi dei Requisiti],
-    [VI-8.2], [Revisione del Piano di Qualifica e validazione],
-    [VI-8.3], [Aggiornare alcune sezioni delle Norme di Progetto],
-    [VI-8.4], [Strutturare dei quesiti per l'incontro con BlueWind in data 2026-06-03],
-    [VI-8.5], [Redazione della parte iniziale relativa allo Sprint 5],
-    [VI-8.6], [Finalizzare il Mock-up da presentare alla proponente],
+    [VI-8.1], [Versione definitiva del documento Analisi dei Requisiti],
+    [VI-8.2], [Revisione e validazione del Piano di Qualifica],
+    [VI-8.3], [Aggiornamento di alcune sezioni delle Norme di Progetto],
+    [VI-8.4], [Stesura dei quesiti per l'incontro con Bluewind in data 2026-06-03],
+    [VI-8.5], [Redazione della pianificazione dello Sprint 5 nel Piano di Progetto],
+    [VI-8.6], [Finalizzazione del Mock-up da presentare alla proponente],
     [VI-8.7], [Sviluppo del Proof of Concept],
   )
 ]
@@ -165,7 +166,7 @@ Il team ha discusso e individuato le principali azioni da completare e definito 
 == Ordine del Giorno prossimo incontro
 
 Nel prossimo incontro saranno affrontati i seguenti punti:
-+ Verifica dello stato di avanzamento dei task assegnati e aggiornamento generale sullo stato individuale.
++ Verifica dello stato di avanzamento dei task assegnati.
 + Scelta definitiva riguardo la data di consegna della RTB.
 
 = TODO
@@ -178,9 +179,9 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     [TD-8.1], [Conclusione degli ultimi UC e diagrammi UML dell'Analisi dei Requisiti], [Giovanni Angelo Marco Bronte], [VI-8.1],
     [TD-8.2], [Conclusione, revisione e validazione del Piano di Qualifica], [Leonardo Lorenzin], [VI-8.2],
     [TD-8.3], [Conclusione e aggiornamento delle ultime sezioni delle Norme di Progetto], [Leonardo Lorenzin], [VI-8.3],
-    [TD-8.4], [Domande per l'incontro esterno del 2026-06-03 con la proponente BlueWind], [Team], [VI-8.4],
+    [TD-8.4], [Domande per l'incontro esterno del 2026-06-03 con la proponente Bluewind], [Team], [VI-8.4],
     [TD-8.5], [Redazione del preventivo dello Sprint 5], [Filippo Zonta Rocha], [VI-8.5],
-    [TD-8.6], [Finalizzare il Mock-up da presentare alla proponente], [Alberto Canavese], [VI-8.6],
+    [TD-8.6], [Finalizzazione del Mock-up da presentare alla proponente], [Alberto Canavese], [VI-8.6],
     [TD-8.7], [Definizione e realizzazione del Proof of Concept], [Edis Hodja], [VI-8.7],
   )
 ]
