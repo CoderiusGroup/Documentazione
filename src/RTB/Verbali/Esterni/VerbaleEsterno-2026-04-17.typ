@@ -65,7 +65,7 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [1.0.1], [2026/06/08], [Filippo Zonta Rocha], [], [Correzione numerazione codici decisioni],  
+      [1.0.1], [2026/06/08], [Filippo Zonta Rocha], [Ines Iadadi], [Correzione numerazione codici decisioni],  
       [1.0.0], [2026/04/21], [Leonardo Lorenzin], [], [Approvazione del  verbale],
       [0.2.0], [2026/04/17], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Correzione di errori e refusi presenti nella prima stesura del verbale],
       [0.1.0], [2026/04/17], [Edis Hodja], [Filippo Zonta Rocha], [Prima stesura del verbale]
