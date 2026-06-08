@@ -100,7 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.6.1], [2026/06/05], [Ines Iadadi], [], [Revisione lessicale delle sezioni Sprint 2 e Sprint 3],
+    [0.6.1], [2026/06/05], [Ines Iadadi], [Alberto Canavese], [Revisione lessicale delle sezioni Sprint 2 e Sprint 3],
     [0.6.0], [2026/06/01], [Filippo Zonta Rocha], [Ines Iadadi], [Aggiunta delle sezioni Sprint 5: 5.5.1, 5.5.2, 5.5.3],
     [0.5.1], [2026/05/29], [Edis Hodja], [Giovanni Bronte], [Aggiunta delle sezioni: 4.4.5, 4.4.6, 4.4.7, 4.4.8],
     [0.5.0], [2026/05/20], [Edis Hodja], [Giovanni Bronte], [Aggiunta delle sezioni Sprint 4: 4.4.1, 4.4.2, 4.4.3, 4.4.4],
