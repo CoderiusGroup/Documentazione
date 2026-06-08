@@ -44,7 +44,7 @@
     #v(2em)
     #text(size: 1.6em, weight: "bold")[Incontro con #azienda]
     #v(4em)
-    #text(size: 20pt)[*Versione 1.0.0*]
+    #text(size: 20pt)[*Versione 1.0.1*]
   ]
   pagebreak()
 
@@ -65,6 +65,7 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*], 
+      [1.0.1], [2026/06/08], [Filippo Zonta Rocha], [Ines Iadadi], [Correzione numerazione codici decisioni],
       [1.0.0], [2026/05/05], [Leonardo Lorenzin], [], [Approvazione del verbale], 
       [0.2.0], [2026/05/04], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Aggiornamento contenuti e correzione refusi],
       [0.1.0], [2026/05/04], [Edis Hodja], [Filippo Zonta Rocha], [Prima stesura del verbale]
@@ -232,12 +233,12 @@ Al termine della riunione, il team si è riunito internamente tramite il canale 
     columns: (auto, 1fr),
     align: (center, left),
     [*Codice*], [*Descrizione*],
-    [VE-4.1], [Proseguire con la stesura del documento Analisi dei requisiti],
-    [VE-4.2], [Proseguire con la stesura del Piano di progetto],
-    [VE-4.3], [Proseguire con la stesura delle Norme di progetto],
-    [VE-4.4], [Proseguire con l’aggiornamento del Glossario],
-    [VE-4.5], [Avviare la stesura del Diario di bordo per la data 2026-05-08],
-    [VE-4.6], [Aggiornare il documento Way of Working]
+    [VE-3.1], [Proseguire con la stesura del documento Analisi dei requisiti],
+    [VE-3.2], [Proseguire con la stesura del Piano di progetto],
+    [VE-3.3], [Proseguire con la stesura delle Norme di progetto],
+    [VE-3.4], [Proseguire con l’aggiornamento del Glossario],
+    [VE-3.5], [Avviare la stesura del Diario di bordo per la data 2026-05-08],
+    [VE-3.6], [Aggiornare il documento Way of Working]
   )
 
 #pagebreak()
@@ -249,12 +250,12 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-5.1], [Continuazione del documento Analisi dei requisiti], [Ines Iadadi, Alberto Canavese], [VE-4.1],
-    [TD-5.2], [Continuazione del documento Piano di progetto], [Giovanni Angelo Marco Bronte], [VE-4.2],
-    [TD-5.3], [Continuazione del documento Norme di progetto], [Edis Hodja], [VE-4.3],
-    [TD-5.4], [Continuazione del documento Glossario], [Ines Iadadi, Alberto Canavese], [VE-4.4],
-    [TD-5.5], [Stesura Diario di bordo], [Team], [VE-4.5],
-    [TD-5.6], [Aggiornamento del Way of Working], [Team], [VE-4.6],
+    [TD-3.1], [Continuazione del documento Analisi dei requisiti], [Ines Iadadi, Alberto Canavese], [VE-3.1],
+    [TD-3.2], [Continuazione del documento Piano di progetto], [Giovanni Angelo Marco Bronte], [VE-3.2],
+    [TD-3.3], [Continuazione del documento Norme di progetto], [Edis Hodja], [VE-3.3],
+    [TD-3.4], [Continuazione del documento Glossario], [Ines Iadadi, Alberto Canavese], [VE-3.4],
+    [TD-3.5], [Stesura Diario di bordo], [Team], [VE-3.5],
+    [TD-3.6], [Aggiornamento del Way of Working], [Team], [VE-3.6],
   )
 ]
 #v(6em)
