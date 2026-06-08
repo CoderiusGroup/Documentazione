@@ -44,7 +44,7 @@
     #v(2em)
     #text(size: 1.6em, weight: "bold")[Incontro con #azienda]
     #v(4em)
-    #text(size: 20pt)[*Versione 0.1.0*]
+    #text(size: 20pt)[*Versione 1.0.1*]
   ]
   pagebreak()
 
@@ -64,7 +64,9 @@
       ),
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
-      [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*], 
+      [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+      [1.0.1], [2026/06/08], [Filippo Zonta Rocha], [Ines Iadadi], [Correzione numerazione codici decisioni],
+      [1.0.0], [2026/05/18], [Giovanni Bronte], [], [Approvazione del verbale],
       [0.1.0], [2026/05/18], [Filippo Zonta Rocha], [Giovanni Bronte], [Prima stesura del verbale]
     )
   ]
@@ -132,46 +134,39 @@ Durante la riunione, il team ha posto una serie di domande al referente aziendal
 == Domande e Risposte
 Di seguito vengono riportate le domande poste dal team e le risposte fornite dal referente aziendale.
 
-#heading(level: 3, numbering: none, outlined: false)[1.  Dettagli tecnici per Dispositivi e Asset]
+#heading(level: 3, numbering: none, outlined: false)[1. Dettagli tecnici per dispositivi e asset]
+*Domanda:* Quali informazioni tecniche sono previste sia per un dispositivo che per un asset? \
+*Risposta:* Per quanto riguarda il dispositivo, non sono necessarie informazioni tecniche aggiuntive, a condizione che il sistema ne garantisca un'identificazione univoca; ogni ulteriore dettaglio è considerato superfluo. Per l'asset, invece, i dati fondamentali richiesti sono: la tipologia, una descrizione e la classificazione esplicita che indichi se l'asset in questione è considerato sensibile o meno.
 
-*Domanda:*Quali informazioni tecniche sono previste sia per un dispositivo che per un asset? \
-*Risposta:* Per quanto riguarda il dispositivo, non sono necessarie informazioni tecniche aggiuntive, a condizione che il sistema ne garantisca un'identificazione univoca; ogni ulteriore dettaglio è considerato superfluo. Per l'asset, invece, i dati fondamentali richiesti sono: la tipologia, una descrizione e la classificazione esplicita che indichi se l'asset in questione è considerato "sensibile" (sensitive) o meno.
+#heading(level: 3, numbering: none, outlined: false)[2. Gestione e modifica degli asset]
+*Domanda:* Il gruppo ha ipotizzato che l'aggiunta o la modifica degli asset avvenga esclusivamente prima dell'avvio del test. Ritenete questa scelta adeguata, oppure preferite che tali operazioni siano consentite anche successivamente? \
+*Risposta:* Permettere la modifica degli asset anche in fasi successive è una funzionalità ragionevole, ma richiede un'attenta gestione per lo scenario in cui la modifica avvenga dopo l'esecuzione del test. In linea di principio, una modifica post-esecuzione invalida il test. Si potrebbe tuttavia prevedere un'eccezione, non invalidando i risultati nel caso in cui la correzione riguardi errori minori, come refusi o piccoli aggiustamenti testuali, lasciando in tal caso la responsabilità della scelta all'utente.
 
-#pagebreak()
-
-#heading(level: 3, numbering: none, outlined: false)[2. Gestione e modifica degli Asset]
-
-*Domanda:*  Noi abbiamo pensato che l’aggiunta o modifica degli asset avvenga prima dell’esecuzione del test, ritenete che vada bene come scelta oppure ritenete preferibile la possibilità di inserire/modificare asset in seguito all’avvio del test \
-*Risposta:* Permettere la modifica degli asset anche in fasi successive è una funzionalità ragionevole, ma richiede un'attenta gestione per lo scenario in cui la modifica avvenga dopo l'esecuzione del test. In linea di principio, una modifica post-esecuzione invalida il test. Si potrebbe tuttavia prevedere un'eccezione, non invalidando i risultati nel caso in cui la correzione riguardi errori minori (come refusi o piccoli aggiustamenti testuali), lasciando in tal caso la responsabilità della scelta all'utente.
-
-#heading(level: 3, numbering: none, outlined: false)[3.  Flusso di validazione degli Asset]
-
-*Domanda:* Durante l’esecuzione della validazione del dispositivo preferite che sia l’utente a selezionare quale asset validare in quel momento oppure automaticamente viene validato un asset dopo l’altro? \
+#heading(level: 3, numbering: none, outlined: false)[3. Flusso di validazione degli asset]
+*Domanda:* Durante l'esecuzione della validazione, preferite che l'utente selezioni manualmente quale asset valutare, oppure che il sistema proceda automaticamente in sequenza? \
 *Risposta:* Poiché ogni asset è indipendente dagli altri, l'ordine di esecuzione della valutazione non genera conflitti o dipendenze logiche. Di conseguenza, lasciare all'utente la libertà di selezionare manualmente quale asset validare in un determinato momento è un approccio assolutamente valido.
 
 #heading(level: 3, numbering: none, outlined: false)[4. Esportazione e salvataggio]
-
-*Domanda:*  Pensavamo di fornire l’opzione di salvataggio del dispositivo in caso di eliminazione, quali formati dovrebbero essere supportati?\
+*Domanda:* Il gruppo ha valutato di offrire la possibilità di esportare i dati del dispositivo prima della sua eliminazione. Quali formati di file ritenete opportuno supportare? \
 *Risposta:* Per il salvataggio o l'esportazione in fase di eliminazione, è sufficiente supportare gli stessi formati già previsti e utilizzati per la fase di importazione.
 
 #heading(level: 3, numbering: none, outlined: false)[5. Scope delle modifiche ai Decision Tree]
-
-*Domanda:* Riguardo alla modifica dei decision tree, essa influenza la parte in locale o l’intero sistema? \
+*Domanda:* Riguardo alla modifica dei decision tree, essa influenza esclusivamente l'ambiente locale oppure l'intero sistema? \
 *Risposta:* Le modifiche apportate ai decision tree possono avere un impatto limitato all'ambiente locale. Vi è accordo tra i referenti tecnici su questa impostazione.
+
 #heading(level: 3, numbering: none, outlined: false)[6. Tempistiche di modifica dei Decision Tree]
-*Domanda:*  La modifica ai DT è preferibile che sia post-verifica o anche durante tale? Avevamo pensato visualizzazione e modifica disponibili della dashboard finale post valutazione, o devono essere modificabili anche durante l’esecuzione del test\
-*Risposta:* La gestione dei decision tree deve essere intesa come indipendente dalla fase di test. Dato che gli standard normativi o i requisiti possono subire variazioni nel tempo, è fondamentale che i decision tree possano essere salvati, aggiornati e modificati. Tale funzionalità (che rimane un requisito opzionale) è utile a prescindere dal momento specifico del flusso di verifica in cui viene richiamata.
+*Domanda:* È preferibile che la modifica ai decision tree sia disponibile esclusivamente al termine della valutazione, oppure deve essere accessibile anche durante l'esecuzione del test? \
+*Risposta:* La gestione dei decision tree deve essere intesa come indipendente dalla fase di test. Dato che gli standard normativi o i requisiti possono subire variazioni nel tempo, è fondamentale che i decision tree possano essere salvati, aggiornati e modificati. Tale funzionalità, che rimane un requisito opzionale, è utile a prescindere dal momento specifico del flusso di verifica in cui viene richiamata.
 
-#heading(level: 3, numbering: none, outlined: false)[7. Condivisione UI Mockup]
-
-*Domanda:* Stiamo per realizzare un mockup della UI, ve lo condivideremo prossimamente in modo da avere un feedback va bene?\
-*Risposta:* Sì, la proposta è approvata. Siete invitati a condividere i mockup per permetterci di fornire un feedback in merito all'interfaccia utente.
+#heading(level: 3, numbering: none, outlined: false)[7. Condivisione UI mockup]
+*Domanda:* Il gruppo intende realizzare un mockup dell'interfaccia utente e sottoporlo alla vostra valutazione per raccogliere un feedback preliminare. È possibile organizzare una riunione per tale revisione? \
+*Risposta:* Sì, la proposta è approvata. Siete invitati a condividere il mockup per permetterci di fornire un feedback in merito all'interfaccia utente.
 
 #pagebreak()
 
 
 = Conclusione e Decisioni Prese
-In conclusione, il proponente si è reso disponibile a fornire feedback sull'Analisi dei requisiti, pianificando la prossima riunione  per il giorno 2026-05-18 alle ore 15:00.
+In conclusione, il proponente si è reso disponibile a fornire feedback sul mockup e sull'Analisi dei Requisiti, pianificando la prossima riunione per il giorno 2026-06-03 alle ore 15:00.
 
 
 Al termine della riunione, il team si è riunito internamente tramite il canale di comunicazione Discord per discutere le risposte ricevute e consolidarne i contenuti in modo strutturato.
@@ -181,8 +176,8 @@ Al termine della riunione, il team si è riunito internamente tramite il canale 
     align: (center, left),
     [*Codice*], [*Descrizione*],
     [VE-4.1], [Portare a termini l'Analisi dei Requisiti],
-    [VE-4.2], [Proseguire con la stesura del Piano di qualifica],
-    [VE-4.3], [Realizzazione Mock-up dell'applicazione],
+    [VE-4.2], [Proseguire con la stesura del Piano di Qualifica],
+    [VE-4.3], [Realizzazione mockup dell'applicazione],
   )
 
 
@@ -194,9 +189,9 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-5.1], [Conclusione del documento Analisi dei requisiti], [Filippo Zonta Rocha, \ Leonardo Lorenzin], [VE-4.1],
-    [TD-5.2], [Continuazione del documento Piano di qualifica], [Alberto Canavese], [VE-4.2],
-    [TD-5.3], [Realizzazione Mock-up dell'applicazione], [IInes Iadadi], [VE-4.3],
+  [TD-4.1], [Conclusione del documento Analisi dei Requisiti], [Filippo Zonta Rocha, \ Leonardo Lorenzin], [VE-4.1],
+    [TD-4.2], [Continuazione del documento Piano di Qualifica], [Alberto Canavese], [VE-4.2],
+    [TD-4.3], [Realizzazione mockup dell'applicazione], [Ines Iadadi], [VE-4.3],
   )
 ]
 #v(6em)
