@@ -89,7 +89,8 @@ def aggiorna_html():
         "RTB_VERBALI_ESTERNI": [],
         "RTB_INTERNI": [],
         "RTB_VERBALI_INTERNI": [],
-        "PB_PRINCIPALI": []
+        "PB_PRINCIPALI": [],
+        "DIARIO_BORDO": []
     }
 
     for file_path in BASE_DIR.rglob("*.pdf"):
@@ -120,6 +121,9 @@ def aggiorna_html():
                 
         elif "PB" in percorso_str:
             categorie["PB_PRINCIPALI"].append(card_html)
+
+        elif "DiariDiBordo" in percorso_str:
+            categorie["DIARIO_BORDO"].append(card_html)
 
     # ordina in modo decrescente
     for cat in categorie:
