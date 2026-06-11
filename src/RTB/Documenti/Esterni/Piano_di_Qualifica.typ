@@ -80,7 +80,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-    #text(size: 20pt)[*Versione 0.2.1*]
+    #text(size: 20pt)[*Versione 0.2.2 *]
 ]
 #pagebreak()
 
@@ -99,6 +99,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.2.2], [2026/06/08], [Leonardo Lorenzin], [], [Aggiornamento sezioni e correzione refusi],
     [0.2.1], [2026/05/29], [Alberto Canavese], [], [Espansione dei Test di Sistema con tracciamento ai requisiti, aggiunta di nuove metriche di prodotto e correzione refusi],
     [0.2.0], [2026/05/28], [Alberto Canavese], [], [Stesura sezioni 2–5: metriche di qualità (MPC/MPD), strategie di testing (TS-01..47, TA-01..10), cruscotto di valutazione con dati EVM e grafici, automiglioramento],
     [0.1.1], [2026/05/11], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Correzione refusi e aggiornamento sezioni 1.1, 1.2, 1.3],
@@ -205,92 +206,90 @@ In questa sezione vengono definite le soglie quantitative — composte da *valor
 
 == Qualità di processo
 
-La qualità di processo rappresenta un'esigenza primaria nello sviluppo software: la corretta applicazione di pratiche ben definite permette di sviluppare un prodotto finale di alta qualità. Queste devono guidare tutte le attività, le pratiche e le metodologie adottate lungo l'intero ciclo di vita del software. Il raggiungimento di standard elevati nel prodotto dipende da controlli regolari e dall'ottimizzazione continua dei processi che lo supportano, garantendo risultati che rispondano pienamente alle aspettative.
+Garantire la qualità dei processi è il presupposto per ottenere un prodotto finale valido: soltanto seguendo metodologie e pratiche consolidate è possibile costruire un software di livello elevato. Tali pratiche devono orientare ogni attività lungo l'intero ciclo di vita del prodotto. Il mantenimento di standard elevati passa quindi attraverso verifiche periodiche e un costante perfezionamento dei processi che lo sostengono, così da conseguire risultati pienamente in linea con le attese.
 
 === Processi primari
 
-I processi primari comprendono tutte le attività legate direttamente al ciclo di vita del prodotto software. Per valutarne l'andamento, l'efficienza e la conformità agli obiettivi prefissati, vengono utilizzate metriche quantitative in grado di monitorare l'avanzamento dei lavori, l'allocazione delle risorse e la qualità di ciò che viene prodotto.
+Rientrano tra i processi primari tutte le attività direttamente connesse al ciclo di vita del software. Per tenerne sotto controllo l'andamento, l'efficienza e l'aderenza agli obiettivi stabiliti, si ricorre a indicatori quantitativi capaci di seguire lo stato di avanzamento, l'impiego delle risorse e il livello qualitativo di quanto realizzato.
 
 ==== Fornitura
 
 #metriche-table(
   [Metriche per il processo di Fornitura],
-  [MPC-01], [Planned Value (PV)],               [$>= 0$],                        [$<= "BAC"$],
-  [MPC-02], [Earned Value (EV)],                [$>= "PV" times 0.75$],          [$>= "PV"$],
-  [MPC-03], [Actual Cost (AC)],                 [$0 <= "AC" <= 1.2 times "EV"$], [$<= "EV"$],
-  [MPC-04], [Schedule Performance Index (SPI)], [$>= 0.9$],                      [$>= 1.0$],
-  [MPC-05], [Cost Performance Index (CPI)],     [$>= 0.9$],                      [$>= 1.0$],
-  [MPC-06], [Estimate at Completion (EAC)],     [$<= 1.1 times "BAC"$],          [$<= "BAC"$],
-  [MPC-07], [To Complete Perf. Index (TCPI)],   [$tilde 1.0$],                   [$<= 1.0$],
-  [MPC-08], [Estimate to Complete (ETC)],       [$<= ("BAC" - "AC") times 1.1$], [$<= "BAC" - "AC"$],
+  [MPC-01], [Valore Pianificato (PV)],              [Almeno $0$],                   [Fino a $"BAC"$],
+  [MPC-02], [Valore Maturato (EV)],                 [Maggiore di $"PV" * 0.75$],    [Almeno $"PV"$],
+  [MPC-03], [Costo Effettivo (AC)],                 [Tra $0$ e $1.2 * "EV"$],       [Non oltre $"EV"$],
+  [MPC-04], [Indice di Efficienza Tempi (SPI)],     [Da $0.9$ in su],               [Pari o oltre $1.0$],
+  [MPC-05], [Indice di Efficienza Costi (CPI)],     [Da $0.9$ in su],               [Pari o oltre $1.0$],
+  [MPC-06], [Stima al Completamento (EAC)],         [Entro $1.1 * "BAC"$],          [Non oltre $"BAC"$],
+  [MPC-07], [Stima a Finire (ETC)],                 [Entro $("BAC" - "AC") * 1.1$], [Non oltre $"BAC" - "AC"$],
 )
 
 ==== Sviluppo
 
 #metriche-table(
   [Metriche per il processo di Sviluppo],
-  [MPC-09], [Requirements Stability Index (RSI)], [$>= 0.7$], [$1.0$],
+  [MPC-08], [Indice di Stabilità dei Requisiti (RSI)], [Da $0.7$ in su], [Pari a $1.0$],
 )
 
 === Processi di supporto
 
-I processi di supporto includono le attività che garantiscono controllo, tracciabilità e affidabilità del processo stesso, come la verifica, la documentazione tecnica e l'assicurazione della qualità.
+I processi di supporto raccolgono le attività che assicurano controllo, tracciabilità e affidabilità all'intero processo di sviluppo, quali la documentazione tecnica, le attività di verifica e l'assicurazione della qualità.
 
 ==== Documentazione
 
 #metriche-table(
   [Metriche per il processo di Documentazione],
-  [MPC-10], [Indice di Gulpease],      [$>= 60$], [$>= 70$],
-  [MPC-11], [Correttezza Ortografica], [$<= 1$],  [$0$],
+  [MPC-09], [Leggibilità secondo Gulpease], [Almeno $60$],   [Almeno $75$],
+  [MPC-10], [Accuratezza Ortografica],      [Al massimo $1$], [Pari a $0$],
 )
 
 ==== Verifica
 
 #metriche-table(
   [Metriche per il processo di Verifica],
-  [MPC-12], [Test Success Rate], [$>= 90%$], [$100%$],
-  [MPC-13], [Code Coverage],     [$>= 70%$], [$>= 90%$],
+  [MPC-11], [Tasso di Successo dei Test (TSR)], [Almeno $90%$], [Pari al $100%$],
+  [MPC-12], [Copertura del Codice],            [Almeno $70%$], [Almeno $90%$],
 )
 
 ==== Assicurazione della qualità
 
 #metriche-table(
   [Metriche per il processo di Assicurazione della Qualità],
-  [MPC-14], [Quality Metrics Satisfied], [$100%$], [$100%$],
+  [MPC-13], [Quality Metrics Satisfied], [$>= 80%$], [$100%$],
 )
 
 === Processi organizzativi
 
-I processi organizzativi riguardano la dimensione organizzativa del gruppo: dalla definizione degli standard interni alla gestione della qualità, dallo sviluppo delle competenze al miglioramento continuo. Le metriche associate misurano la conformità e l'efficacia dei processi di governance.
+I processi organizzativi attengono alla sfera gestionale del gruppo: spaziano dalla definizione delle convenzioni interne al governo della qualità, fino alla crescita delle competenze e al miglioramento continuo. Gli indicatori a essi collegati ne misurano l'aderenza e l'efficacia sul piano della governance.
 
 ==== Gestione dei processi
 
 #metriche-table(
   [Metriche per la Gestione dei Processi],
-  [MPC-15], [Time Efficiency],   [$>= 80%$], [$100%$],
-  [MPC-16], [Process Lead Time], [$>= 90%$], [$100%$],
+  [MPC-14], [Efficienza dei Tempi (TE)],      [Almeno $80%$], [Pari al $100%$],
 )
 
 == Qualità di prodotto
 
-La qualità del prodotto rappresenta l'obiettivo centrale di un progetto software e consiste nella capacità del prodotto finale di soddisfare pienamente i requisiti, le aspettative e le esigenze degli utenti e dei committenti. Essa è il risultato diretto della qualità dei processi adottati durante l'intero ciclo di vita del progetto. Un prodotto software è considerato di alta qualità quando è funzionale, affidabile, usabile, efficiente e manutenibile.
+La qualità del prodotto è il fine ultimo di qualunque progetto software e si traduce nella capacità dell'applicazione finale di rispondere appieno a requisiti, aspettative ed esigenze di utenti e committenti. Essa discende direttamente dalla bontà dei processi seguiti lungo tutto il ciclo di vita. Un software di qualità elevata si riconosce perché funzionale, affidabile, usabile, efficiente e manutenibile.
 
 === Funzionalità
 
-Valuta la capacità del software di fornire correttamente le funzionalità richieste dai requisiti, assicurando completezza e coerenza rispetto alle specifiche definite nell'Analisi dei Requisiti.
+Misura quanto il software realizzi in modo corretto le funzioni previste dai requisiti, verificandone la completezza e l'aderenza rispetto a quanto specificato nell'Analisi dei Requisiti.
 
 #metriche-table(
   [Metriche di Funzionalità del prodotto],
-  [MPD-01], [Requisiti Obbligatori Soddisfatti],  [$100%$],   [$100%$],
-  [MPD-02], [Requisiti Desiderabili Soddisfatti], [$>= 50%$], [$>= 75%$],
-  [MPD-03], [Requisiti Opzionali Soddisfatti],    [$>= 0%$],  [$>= 50%$],
+  [MPD-01], [Soddisfacimento dei Requisiti Obbligatori],  [Pari al $100%$],    [Pari al $100%$],
+  [MPD-02], [Soddisfacimento dei Requisiti Desiderabili], [Almeno $50%$],      [Almeno $75%$],
+  [MPD-03], [Soddisfacimento dei Requisiti Opzionali],    [A partire da $0%$], [Almeno $50%$],
 )
 
 #pagebreak()
 
 === Affidabilità
 
-Misura la capacità del software di operare senza guasti in condizioni previste, garantendo comportamenti consistenti e riducendo al minimo i malfunzionamenti.
+Esprime la continuità di servizio del prodotto: la capacità di mantenere un funzionamento corretto e prevedibile nel tempo, contenendo il numero di anomalie e preservando un comportamento stabile anche nelle condizioni operative attese.
 
 #metriche-table(
   [Metriche di Affidabilità del prodotto],
@@ -301,33 +300,33 @@ Misura la capacità del software di operare senza guasti in condizioni previste,
 
 === Usabilità
 
-Rileva quanto il software sia intuitivo e facile da utilizzare, considerando la semplicità delle interazioni, la facilità di apprendimento e la correttezza delle operazioni da parte degli utenti.
+Valuta il grado di accessibilità del prodotto dal punto di vista dell'utente finale: quanto risulta immediato apprenderne l'utilizzo, quanto sono lineari le interazioni offerte e con quale efficacia le persone riescono a completare le operazioni senza incorrere in errori.
 
 #metriche-table(
   [Metriche di Usabilità del prodotto],
-  [MPD-08], [Time To Complete Task], [$<= 10 " min"$], [$<= 5 " min"$],
+  [MPD-07], [Time To Complete Task], [$<= 60 " sec"$], [$<= 30 " sec"$],
 )
 
 === Efficienza
 
-Indica l'ottimizzazione delle risorse e la rapidità di risposta del software alle richieste degli utenti, valutando i tempi di esecuzione e l'utilizzo delle risorse disponibili.
+Riguarda il rapporto tra i risultati prodotti e le risorse impiegate: tempi di risposta contenuti, un buon sfruttamento di processore e memoria e la capacità di reagire prontamente alle richieste, anche al crescere del carico di lavoro.
 
 #metriche-table(
   [Metriche di Efficienza del prodotto],
-  [MPD-09], [Response Time], [$<= 3 " sec"$], [$<= 1 " sec"$],
+  [MPD-08], [Response Time], [$<= 3 " sec"$], [$<= 1 " sec"$],
 )
 #pagebreak()
 
 === Manutenibilità
 
-Misura quanto facilmente il software può essere modificato o esteso senza introdurre errori, tenendo conto della complessità del codice, della modularità e della facilità di intervento sugli artefatti.
+Indica con quanta facilità il codice può essere compreso, corretto ed esteso nel tempo senza introdurre regressioni. Dipende da fattori quali la modularità delle componenti, il grado di accoppiamento reciproco e la complessità interna delle singole unità di codice.
 
 #metriche-table(
   [Metriche di Manutenibilità del prodotto],
-  [MPD-12], [Cyclomatic Complexity], [$<= 10$],                 [$<= 8$],
-  [MPD-13], [Instability Index],     [$I >= 0.7 or I <= 0.30$], [$I >= 0.85 or I <= 0.15$],
-  [MPD-14], [Coefficient of Coupling], [$<= 0.4$],              [$<= 0.2$],
-  [MPD-15], [Code Smell],            [$<= 10$],                 [$<= 5$],
+  [MPD-09], [Cyclomatic Complexity], [$<= 10$],                 [$<= 8$],
+  [MPD-10], [Instability Index],     [$I >= 0.7 or I <= 0.30$], [$I >= 0.85 or I <= 0.15$],
+  [MPD-11], [Coefficient of Coupling], [$<= 0.4$],              [$<= 0.2$],
+  [MPD-12], [Code Smell],            [$<= 10$],                 [$<= 5$],
 )
 #pagebreak()
 
@@ -525,7 +524,7 @@ I test di sistema verificano il comportamento complessivo del sistema rispetto a
 La seguente tabella riporta il tracciamento bidirezionale completo: ogni test di sistema è associato al requisito funzionale che verifica e, attraverso di esso, al caso d'uso dell'Analisi dei Requisiti da cui il requisito deriva. La corrispondenza uno-a-uno tra test e requisiti garantisce la copertura totale dei requisiti funzionali (88 obbligatori, 12 desiderabili, 4 opzionali).
 
 #let tracc-table(..rows) = table(
-  columns: (1.6cm, 1.8cm, 1fr),
+  columns: (1.6cm, 2.6cm, 1fr),
   align: (center, center, left),
   stroke: (x, y) => (
     bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
@@ -682,9 +681,9 @@ I test di regressione accertano che le modifiche apportate al codice durante lo 
 
 = Cruscotto di valutazione
 
-In questa sezione vengono riportati i valori misurati delle metriche di qualità definite nella sezione 2, aggiornati al termine di ciascuno sprint. I dati economici e orari sono ricavati dal documento #link("https://github.com/CoderiusGroup/Documentazione/blob/feature/piano-progetto/src/RTB/Documenti/Esterni/Piano_di_Progetto.typ")[*Piano di Progetto*] #nota[(documento su branch feature, non ancora unito al main — non consultabile dal sito; il link verrà aggiornato al momento del merge)]. Il Budget at Completion (BAC) del progetto è pari a *€ 10.680* per *522 ore* totali.
+La presente sezione costituisce il quadro di monitoraggio quantitativo del progetto e viene aggiornata iterativamente al termine di ogni sprint, registrando l'evoluzione delle metriche di qualità definite nella sezione 2 con il progredire delle attività. I dati economici e orari sono ricavati dal documento #link("https://github.com/CoderiusGroup/Documentazione/blob/feature/piano-progetto/src/RTB/Documenti/Esterni/Piano_di_Progetto.typ")[*Piano di Progetto*] #nota[(documento su branch feature, non ancora unito al main — non consultabile dal sito; il link verrà aggiornato al momento del merge)]; il Budget at Completion (BAC) del progetto è pari a *€ 10.680* per *522 ore* totali.
 
-Le metriche relative al codice (Code Coverage, Test Success Rate, metriche di prodotto) non sono ancora misurabili in questa fase e saranno popolate a partire dalla Product Baseline.
+Le metriche che richiedono la disponibilità di codice sorgente — tra cui Code Coverage, Test Success Rate e le metriche di prodotto — vengono attivate non appena prendono avvio le corrispondenti attività di sviluppo, e saranno pertanto popolate progressivamente a partire dalla Product Baseline.
 
 #let cruscotto-table(caption-text, headers, ..rows) = figure(
   table(
@@ -765,27 +764,21 @@ EAC = BAC / CPI. Rappresenta la stima del costo finale del progetto sulla base d
 
 L'EAC si mantiene costantemente al di sotto del BAC (€10.680), con uno scostamento che cresce da −€178 (Sprint 1) a −€351 (Sprint 3) man mano che l'efficienza di costo si consolida. La tendenza decrescente dell'EAC indica che il progetto sta progressivamente migliorando la propria stima di costo finale: se il CPI rimarrà stabile nei prossimi sprint, il risparmio complessivo si attesterà attorno al 3–4% del budget totale.
 
-== MPC-07, MPC-08 — To Complete Performance Index, Estimate to Complete
+== MPC-07 — Estimate to Complete
 
-TCPI = (BAC − EV) / (BAC − AC). ETC = EAC − AC. Indicano rispettivamente l'efficienza necessaria per completare il progetto nel budget e il costo residuo stimato.
+ETC = EAC − AC. Rappresenta la stima del costo ancora necessario per portare a termine il progetto.
 
 #cruscotto-table(
-  [Andamento di TCPI e ETC per sprint],
-  ("Sprint", "TCPI", "Accettabile", "ETC (€)", "Accettabile"),
-  [1], [0,998], [$tilde 1.0$ ✓], [9.617], [$<= 10.775$ ✓],
-  [2], [0,997], [$tilde 1.0$ ✓], [8.867], [$<= 9.928$ ✓],
-  [3], [0,990], [$tilde 1.0$ ✓], [7.864], [$<= 9.037$ ✓],
+  [Andamento di ETC per sprint],
+  ("Sprint", "ETC (€)", "Accettabile"),
+  [1], [9.617], [$<= 10.775$ ✓],
+  [2], [8.867], [$<= 9.928$ ✓],
+  [3], [7.864], [$<= 9.037$ ✓],
 )
 
-#figure(
-  image("../../../images/cruscotto/tcpi_etc.png", width: 100%),
-  caption: [Andamento di TCPI e ETC per sprint],
-  supplement: [Figura],
-)
+L'ETC decresce regolarmente sprint dopo sprint (da €9.617 a €7.864), confermando la progressione costante delle attività e la corretta imputazione dei costi.
 
-Il TCPI, leggermente inferiore a 1,0 in tutti gli sprint, segnala che il team può permettersi un'efficienza marginalmente inferiore a quella attuale per concludere il progetto entro il budget stanziato: costituisce un margine di sicurezza. L'ETC decresce regolarmente sprint dopo sprint (da €9.617 a €7.864), confermando la progressione costante delle attività e la corretta imputazione dei costi.
-
-== MPC-09 — Requirements Stability Index
+== MPC-08 — Requirements Stability Index
 
 RSI = (NR − NRC) / NR, dove NR è il numero di requisiti definiti e NRC il numero di requisiti modificati dopo la loro introduzione. In questa fase i requisiti sono tracciati attraverso i casi d'uso dell'Analisi dei Requisiti, il cui numero è cresciuto progressivamente nei tre sprint (da 8 a 34), senza modifiche retroattive significative documentate.
 
@@ -805,26 +798,26 @@ RSI = (NR − NRC) / NR, dove NR è il numero di requisiti definiti e NRC il num
 
 Nello Sprint 1 tutti gli otto requisiti iniziali sono risultati stabili (RSI = 1,000). Nello Sprint 2 due requisiti sui 26 definiti sono stati revisionati a seguito di un approfondimento delle specifiche EN 18031 durante la stesura dell'Analisi dei Requisiti (RSI = 0,923). Nello Sprint 3, con 34 requisiti totali e le stesse due modifiche pregresse non ripetute, l'indice è risalito a 0,941: la crescita del documento di analisi non ha comportato ulteriori instabilità retroattive.
 
-== MPC-10, MPC-11 — Indice di Gulpease, Correttezza Ortografica
+== MPC-09, MPC-10 — Indice di Gulpease, Correttezza Ortografica
 
 Misurazione non disponibile in questa fase: i documenti RTB sono ancora su branch di sviluppo e non sono stati ancora mergiati nel branch main. Il calcolo dell'Indice di Gulpease verrà eseguito automaticamente ad ogni merge tramite la GitHub Action configurata nel repository, a partire dalla prima integrazione in main. La Correttezza Ortografica non è ancora monitorata tramite strumento automatico: sarà attivata a partire dalla Product Baseline.
 
-== MPC-12, MPC-13 — Test Success Rate, Code Coverage
+== MPC-11, MPC-12 — Test Success Rate, Code Coverage
 
 Misurazione non disponibile in questa fase: sarà rilevata a partire dalla Product Baseline.
 
 #pagebreak()
 
-== MPC-14 — Quality Metrics Satisfied
+== MPC-13 — Quality Metrics Satisfied
 
-Percentuale di metriche misurabili che rientrano nel range accettabile. Sono escluse dal calcolo: TSR e Code Coverage (MPC-12, MPC-13), non applicabili in assenza di codice prodotto; Correttezza Ortografica (MPC-11), non ancora monitorata con strumento automatico; Indice di Gulpease (MPC-10), non ancora misurabile in questa fase perché i documenti RTB non sono stati ancora mergiati nel branch main.
+Percentuale di metriche misurabili che rientrano nel range accettabile. Sono escluse dal calcolo: TSR e Code Coverage (MPC-11, MPC-12), non applicabili in assenza di codice prodotto; Correttezza Ortografica (MPC-10), non ancora monitorata con strumento automatico; Indice di Gulpease (MPC-09), non ancora misurabile in questa fase perché i documenti RTB non sono stati ancora mergiati nel branch main.
 
 #cruscotto-table(
   [Andamento di Quality Metrics Satisfied per sprint],
   ("Sprint", "Metriche misurabili", "Metriche soddisfatte", "QMS", "Accettabile"),
-  [1], [11], [11], [100%], [$= 100%$ ✓],
-  [2], [11], [11], [100%], [$= 100%$ ✓],
-  [3], [11], [11], [100%], [$= 100%$ ✓],
+  [1], [9], [9], [100%], [$>= 80%$ ✓],
+  [2], [9], [9], [100%], [$>= 80%$ ✓],
+  [3], [9], [9], [100%], [$>= 80%$ ✓],
 )
 
 #figure(
@@ -833,20 +826,20 @@ Percentuale di metriche misurabili che rientrano nel range accettabile. Sono esc
   supplement: [Figura],
 )
 
-Il Quality Metrics Satisfied è rimasto al 100% in tutti e tre gli sprint: ogni metrica inclusa nel computo ha rispettato la propria soglia di accettazione. Le undici metriche considerate sono MPC-01..09 e MPC-15,16 (metriche EVM, RSI, Time Efficiency e PLT). Nella Product Baseline la base di calcolo si amplierà includendo TSR, Code Coverage, Gulpease e le metriche di prodotto: il QMS andrà monitorato con maggiore attenzione in quella fase.
+Il Quality Metrics Satisfied è rimasto al 100% in tutti e tre gli sprint: ogni metrica inclusa nel computo ha rispettato la propria soglia di accettazione. Le nove metriche considerate sono MPC-01..08 e MPC-14 (metriche EVM, RSI e Time Efficiency). Nella Product Baseline la base di calcolo si amplierà includendo TSR, Code Coverage, Gulpease e le metriche di prodotto: il QMS andrà monitorato con maggiore attenzione in quella fase.
 
 #pagebreak()
 
-== MPC-15, MPC-16 — Time Efficiency, Process Lead Time
+== MPC-14 — Time Efficiency
 
-Time Efficiency (TE) = (Ore Previste Cumulative / Ore Effettive Cumulative) × 100. Misura se il team sta rispettando le stime orarie. Process Lead Time (PLT) = SP / SPI, stima la durata finale del progetto in settimane.
+Time Efficiency (TE) = (Ore Previste Cumulative / Ore Effettive Cumulative) × 100. Misura se il team sta rispettando le stime orarie pianificate.
 
 #cruscotto-table(
-  [Andamento di Time Efficiency e Process Lead Time per sprint],
-  ("Sprint", "Ore prev. cum.", "Ore eff. cum.", "TE", "Accettabile", "SPI", "PLT (settimane)", "Accettabile"),
-  [1], [41],  [41],  [100,0%], [$>= 80%$ ✓], [1,000], [6,0], [$<= 8$ settimane ✓],
-  [2], [83],  [84],  [98,8%],  [$>= 80%$ ✓], [1,000], [6,0], [$<= 8$ settimane ✓],
-  [3], [123], [121], [101,7%], [$>= 80%$ ✓], [1,000], [6,0], [$<= 8$ settimane ✓],
+  [Andamento di Time Efficiency per sprint],
+  ("Sprint", "Ore prev. cum.", "Ore eff. cum.", "TE", "Accettabile"),
+  [1], [41],  [41],  [100,0%], [$>= 80%$ ✓],
+  [2], [83],  [84],  [98,8%],  [$>= 80%$ ✓],
+  [3], [123], [121], [101,7%], [$>= 80%$ ✓],
 )
 
 #figure(
@@ -855,7 +848,7 @@ Time Efficiency (TE) = (Ore Previste Cumulative / Ore Effettive Cumulative) × 1
   supplement: [Figura],
 )
 
-La Time Efficiency oscilla tra il 98,8% (Sprint 2, +1 ora rispetto alle stime) e il 101,7% (Sprint 3, −2 ore), rimanendo sempre ampiamente al di sopra della soglia dell'80%. Lo scostamento orario assoluto è contenuto in ±2 ore su base cumulativa di 123 ore previste: un margine di errore inferiore al 2%, indicativo di una buona affidabilità delle stime. Il Process Lead Time si è stabilizzato a 6,0 settimane in tutti gli sprint, riflettendo la piena aderenza allo schedule; il valore coincide con la durata pianificata dei tre sprint e non evidenzia alcun rischio di slittamento del calendario.
+La Time Efficiency oscilla tra il 98,8% (Sprint 2, +1 ora rispetto alle stime) e il 101,7% (Sprint 3, −2 ore), rimanendo sempre ampiamente al di sopra della soglia dell'80%. Lo scostamento orario assoluto è contenuto in ±2 ore su base cumulativa di 123 ore previste: un margine di errore inferiore al 2%, indicativo di una buona affidabilità delle stime.
 
 == Metriche di qualità di prodotto (MPD)
 
@@ -880,12 +873,12 @@ Le metriche di prodotto definite nella sezione 2 non sono misurabili in questa f
     [MPD-04], [Failure Density],                     [Non disponibile],
     [MPD-05], [Statement Coverage],                  [Non disponibile],
     [MPD-06], [Branch Coverage],                     [Non disponibile],
-    [MPD-08], [Time to Complete Task],               [Non disponibile],
-    [MPD-09], [Response Time],                       [Non disponibile],
-    [MPD-12], [Cyclomatic Complexity],               [Non disponibile],
-    [MPD-13], [Instability Index],                   [Non disponibile],
-    [MPD-14], [Coefficient of Coupling],             [Non disponibile],
-    [MPD-15], [Code Smell],                          [Non disponibile],
+    [MPD-07], [Time to Complete Task],               [Non disponibile],
+    [MPD-08], [Response Time],                       [Non disponibile],
+    [MPD-09], [Cyclomatic Complexity],               [Non disponibile],
+    [MPD-10], [Instability Index],                   [Non disponibile],
+    [MPD-11], [Coefficient of Coupling],             [Non disponibile],
+    [MPD-12], [Code Smell],                          [Non disponibile],
   ),
   caption: [Stato delle metriche di prodotto in fase RTB],
   supplement: [Tabella],
@@ -927,7 +920,7 @@ Si tratta di una ricorrenza del rischio RO-1 già emerso nello Sprint 1: le azio
 
 === Azioni intraprese
 
-Il team ha stabilito la regola che ciascun ruolo, in particolare quello di Amministratore, deve essere assegnato a un unico membro per sprint. In caso di necessità di supporto, un secondo componente può affiancare il titolare senza duplicarne formalmente il ruolo. Questa modifica è stata recepita nel Piano di Progetto e applicata già a partire dallo Sprint 3.
+Il team ha stabilito che solo determinati ruoli chiave, come quello di Amministratore, vengano limitati a un singolo componente per sprint, in modo da evitare sovrapposizioni di responsabilità e conflitti. I ruoli operativi e di revisione, come Verificatore e Programmatore, possono invece essere assegnati contemporaneamente a più membri, così da parallelizzare il lavoro e aumentarne la produttività. Questa regola è stata recepita nel Piano di Progetto e applicata già a partire dallo Sprint 3.
 
 == Sprint 3 — Retrospettiva e azioni correttive
 
@@ -943,7 +936,25 @@ Nel terzo sprint (01/05–15/05/2026) il team ha riscontrato una criticità lega
 
 Il team ha concordato di introdurre riunioni di allineamento preventive all'inizio di ogni ciclo di analisi, in cui gli Analisti definiscono collettivamente la granularità e il formato dei casi d'uso prima di procedere con la redazione individuale. Inoltre è stato formalizzato un template di UC condiviso nelle Norme di Progetto, in modo da ridurre la variabilità stilistica tra i contributi dei diversi autori.
 
+== Sprint 4 — Retrospettiva e azioni correttive
 
+=== Problemi rilevati
+
+- RI-3 (Errori nei verbali): Rilevate imprecisioni formali in alcuni verbali, che hanno richiesto ore extra non pianificate per la correzione.
+- RI-1 (Ridotta disponibilità): Calo del tempo utile di alcuni membri a causa del carico accademico e dell'avvicinarsi della sessione estiva.
+- Complessità casi d'uso: Difficoltà nella definizione degli ultimi scenari dell'Analisi dei Requisiti e nella loro corretta modellazione nei diagrammi UML.
+
+=== Azioni intraprese
+
+- Correzione e allineamento : Corretti i verbali errati e ottimizzate le procedure di stesura tramite confronti di gruppo per prevenire future imprecisioni.
+- Coordinamento flessibile: Riorganizzati i task in modo più elastico per garantire la continuità del lavoro ordinario (Glossario, verbali e terzo Diario di Bordo).
+- Supporto esterno per l'AdR: Effettuato un colloquio con il professore Cardin per risolvere i dubbi su UC e UML, completando così la ristrutturazione dell'Analisi dei Requisiti.
+- Qualità e prototipazione: Strutturata la base del Piano di Qualifica (metriche e criteri) da parte dell'Amministratore e realizzato il mock-up grafico preliminare per la proponente.
+== Sprint 5 — Retrospettiva e azioni correttive
+
+=== Problemi rilevati
+
+=== Azioni intraprese
 
 == Valutazione sugli strumenti di lavoro
 
@@ -991,7 +1002,7 @@ Oltre alle criticità organizzative analizzate sprint per sprint, il team ha val
     [1], [RO-1], [Stime orarie non accurate], [Revisione iterativa delle stime a inizio sprint sulla base dei dati storici],
     [1], [RT-2], [Difficoltà di comprensione dello standard EN 18031], [Studio collettivo del dominio con distribuzione dei capitoli e condivisione in riunione],
     [1], [RI-1], [Disponibilità personale variabile e non aggiornata], [Raccolta delle disponibilità effettive prima dell'assegnazione dei task],
-    [2], [RO-1], [Duplicazione del ruolo di Amministratore (stime ore non accurate)], [Regola: un solo membro per ruolo per sprint; affiancamento senza duplicazione formale],
+    [2], [RO-1], [Duplicazione del ruolo di Amministratore (stime ore non accurate)], [Regola: ruoli chiave (es. Amministratore) limitati a un componente per sprint; ruoli operativi assegnabili a più membri],
     [3], [RO-4], [Disallineamento nella scrittura dei casi d'uso tra Analisti], [Riunioni di allineamento preventive e template UC formalizzato nelle Norme di Progetto],
   ),
   caption: [Sintesi dei problemi rilevati e delle azioni correttive per sprint],
