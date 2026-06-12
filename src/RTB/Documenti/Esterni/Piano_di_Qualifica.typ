@@ -100,8 +100,8 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
     [0.2.2], [2026/06/08], [Leonardo Lorenzin], [], [Aggiornamento sezioni e correzione refusi],
-    [0.2.1], [2026/05/29], [Alberto Canavese], [], [Espansione dei Test di Sistema con tracciamento ai requisiti, aggiunta di nuove metriche di prodotto e correzione refusi],
-    [0.2.0], [2026/05/28], [Alberto Canavese], [], [Stesura sezioni 2–5: metriche di qualità (MPC/MPD), strategie di testing (TS-01..47, TA-01..10), cruscotto di valutazione con dati EVM e grafici, automiglioramento],
+    [0.2.1], [2026/05/29], [Alberto Canavese], [Giovanni Bronte], [Espansione dei Test di Sistema con tracciamento ai requisiti, aggiunta di nuove metriche di prodotto e correzione refusi],
+    [0.2.0], [2026/05/28], [Alberto Canavese], [Giovanni Bronte], [Stesura sezioni 2–5: metriche di qualità (MPC/MPD), strategie di testing (TS-01..47, TA-01..10), cruscotto di valutazione con dati EVM e grafici, automiglioramento],
     [0.1.1], [2026/05/11], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Correzione refusi e aggiornamento sezioni 1.1, 1.2, 1.3],
     [0.1.0], [2026/05/07], [Giovanni Bronte], [Leonardo Lorenzin], [Prima stesura del documento con sezione 1],
   )
