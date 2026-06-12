@@ -99,7 +99,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.2.2], [2026/06/08], [Leonardo Lorenzin], [], [Aggiornamento sezioni e correzione refusi],
+    [0.2.2], [2026/06/08], [Leonardo Lorenzin], [Ines Iadadi], [Aggiornamento sezioni e correzione refusi],
     [0.2.1], [2026/05/29], [Alberto Canavese], [Giovanni Bronte], [Espansione dei Test di Sistema con tracciamento ai requisiti, aggiunta di nuove metriche di prodotto e correzione refusi],
     [0.2.0], [2026/05/28], [Alberto Canavese], [Giovanni Bronte], [Stesura sezioni 2–5: metriche di qualità (MPC/MPD), strategie di testing (TS-01..47, TA-01..10), cruscotto di valutazione con dati EVM e grafici, automiglioramento],
     [0.1.1], [2026/05/11], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Correzione refusi e aggiornamento sezioni 1.1, 1.2, 1.3],
@@ -142,11 +142,11 @@ Il documento si divide in tre componenti essenziali:
 - *Piano della Qualità*: attività del sistema qualità mirate a fissare gli obiettivi di qualità, insieme ai processi e alle risorse necessarie per conseguirli.
 - *Controllo della Qualità*: attività pianificate e attuate per assicurare che il prodotto soddisfi le attese e i requisiti concordati.
 - *Miglioramento continuo*: attività periodiche che analizzano i risultati, identificano criticità e ottimizzano i processi per accrescere l'efficienza del team.
-Il Piano di Qualifica verrà revisionato periodicamente durante il progetto per fare fronte alle esigenze del committente e del team stesso, garantendo un elevata qualità e monitoraggio costante dello sviluppo del software.
+Il Piano di Qualifica verrà revisionato periodicamente durante il progetto per fare fronte alle esigenze del committente e del team stesso, garantendo un'elevata qualità e monitoraggio costante dello sviluppo del software.
 
 == Glossario
 #v(0.5em)
-All'interno del *Piano di Qualifica*, così come negli altri documenti formali, i termini che trovano una definizione specifica nel relativo documento _Glossario_ verranno contrassegnati da una lettera "*G*" maiuscola a pedice (es. Termine#sub[G]).Tale lettera funge anche da collegamento ipertestuale alla relativa voce nel documento citato.
+All'interno del *Piano di Qualifica*, così come negli altri documenti formali, i termini che trovano una definizione specifica nel relativo documento _Glossario_ verranno contrassegnati da una lettera "G" maiuscola a pedice (es. Termine#sub[G]). Tale lettera funge anche da collegamento ipertestuale alla relativa voce nel documento citato.
 
 Questa convenzione permette al lettore di individuare immediatamente i vocaboli che possiedono un significato particolare nel contesto del progetto, invitandolo a consultarne la definizione per evitare ambiguità riguardo al linguaggio tecnico utilizzato e garantire così una migliore comprensione dei contenuti.
 
@@ -183,7 +183,7 @@ Questa convenzione permette al lettore di individuare immediatamente i vocaboli 
 
 = Metriche di qualità
 
-In questa sezione vengono definite le soglie quantitative — composte da *valore accettabile* e *valore ottimo* — per valutare l'efficacia e l'efficienza dei processi e del prodotto. Le metriche applicate, con le relative formule di calcolo, sono descritte in dettaglio nel documento #link("https://github.com/CoderiusGroup/Documentazione/blob/feature/norme-progetto/src/RTB/Documenti/Interni/Norme_di_Progetto.typ")[*Norme di Progetto v0.9.0*] #nota[(documento su branch feature, non ancora unito al main — non consultabile dal sito; il link verrà aggiornato al momento del merge)].
+In questa sezione vengono definite le soglie quantitative — composte da *valore accettabile* e *valore ottimo* — per valutare l'efficacia e l'efficienza dei processi e del prodotto. Le metriche applicate, con le relative formule di calcolo, sono descritte in dettaglio nel documento #link("https://github.com/CoderiusGroup/Documentazione/blob/feature/norme-progetto/src/RTB/Documenti/Interni/Norme_di_Progetto.typ")[*Norme di Progetto*].
 
 #let metriche-table(caption-text, ..rows) = figure(
   table(
@@ -920,13 +920,9 @@ Si tratta di una ricorrenza del rischio RO-1 già emerso nello Sprint 1: le azio
 
 === Azioni intraprese
 
-Il team ha stabilito che solo determinati ruoli chiave, come quello di Amministratore, vengano limitati a un singolo componente per sprint, in modo da evitare sovrapposizioni di responsabilità e conflitti. I ruoli operativi e di revisione, come Verificatore e Programmatore, possono invece essere assegnati contemporaneamente a più membri, così da parallelizzare il lavoro e aumentarne la produttività. Questa regola è stata recepita nel Piano di Progetto e applicata già a partire dallo Sprint 3.
+Il team ha stabilito che solo determinati ruoli chiave, come quello di Amministratore, vengano limitati a un singolo componente per sprint, in modo da evitare sovrapposizioni di responsabilità e conflitti. I ruoli operativi e di revisione, come Verificatore e Programmatore, possono invece essere assegnati contemporaneamente a più membri, così da parallelizzare il lavoro e aumentarne la produttività.
 
 == Sprint 3 — Retrospettiva e azioni correttive
-
-A conferma dell'efficacia delle azioni dello sprint precedente, la regola di assegnazione del ruolo di Amministratore a un unico membro — introdotta nello Sprint 2 — è stata applicata con successo a partire da questo sprint, risolvendo l'anomalia di sovrallocazione (RO-1), che non si è più ripresentata.
-
-=== Problemi rilevati
 
 Nel terzo sprint (01/05–15/05/2026) il team ha riscontrato una criticità legata al coordinamento tra gli Analisti:
 
@@ -940,16 +936,18 @@ Il team ha concordato di introdurre riunioni di allineamento preventive all'iniz
 
 === Problemi rilevati
 
-- RI-3 (Errori nei verbali): Rilevate imprecisioni formali in alcuni verbali, che hanno richiesto ore extra non pianificate per la correzione.
+- RI-3 (Errori nei verbali): Sono state rilevate imprecisioni formali in alcuni verbali, che hanno richiesto tempo aggiuntivo non pianificato per la correzione.
 - RI-1 (Ridotta disponibilità): Calo del tempo utile di alcuni membri a causa del carico accademico e dell'avvicinarsi della sessione estiva.
 - Complessità casi d'uso: Difficoltà nella definizione degli ultimi scenari dell'Analisi dei Requisiti e nella loro corretta modellazione nei diagrammi UML.
 
 === Azioni intraprese
 
-- Correzione e allineamento : Corretti i verbali errati e ottimizzate le procedure di stesura tramite confronti di gruppo per prevenire future imprecisioni.
+- Correzione e allineamento: Corretti i verbali errati e ottimizzate le procedure di stesura tramite confronti di gruppo per prevenire future imprecisioni.
 - Coordinamento flessibile: Riorganizzati i task in modo più elastico per garantire la continuità del lavoro ordinario (Glossario, verbali e terzo Diario di Bordo).
 - Supporto esterno per l'AdR: Effettuato un colloquio con il professore Cardin per risolvere i dubbi su UC e UML, completando così la ristrutturazione dell'Analisi dei Requisiti.
 - Qualità e prototipazione: Strutturata la base del Piano di Qualifica (metriche e criteri) da parte dell'Amministratore e realizzato il mock-up grafico preliminare per la proponente.
+
+
 == Sprint 5 — Retrospettiva e azioni correttive
 
 === Problemi rilevati
