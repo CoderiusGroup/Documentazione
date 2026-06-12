@@ -99,7 +99,9 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.2.2], [2026/06/08], [Leonardo Lorenzin], [Ines Iadadi], [Aggiornamento sezioni e correzione refusi],
+
+    [0.2.3], [2026/06/12], [Leonardo Lorenzin], [Ines Ines Iadadi], [Aggiornamento tabelle delle metriche e correzione refusi],
+    [0.2.2], [2026/06/08], [Leonardo Lorenzin], [Ines Ines Iadadi], [Aggiornamento sezioni e correzione refusi],
     [0.2.1], [2026/05/29], [Alberto Canavese], [Giovanni Bronte], [Espansione dei Test di Sistema con tracciamento ai requisiti, aggiunta di nuove metriche di prodotto e correzione refusi],
     [0.2.0], [2026/05/28], [Alberto Canavese], [Giovanni Bronte], [Stesura sezioni 2–5: metriche di qualità (MPC/MPD), strategie di testing (TS-01..47, TA-01..10), cruscotto di valutazione con dati EVM e grafici, automiglioramento],
     [0.1.1], [2026/05/11], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Correzione refusi e aggiornamento sezioni 1.1, 1.2, 1.3],
@@ -304,7 +306,8 @@ Valuta il grado di accessibilità del prodotto dal punto di vista dell'utente fi
 
 #metriche-table(
   [Metriche di Usabilità del prodotto],
-  [MPD-07], [Time To Complete Task], [$<= 60 " sec"$], [$<= 30 " sec"$],
+  [MPD-07], [Error Rate], [$<= 5% $], [$<= 2% $],
+  [MPD-08], [Time To Complete Task], [$<= 60 " sec"$], [$<= 30 " sec"$],
 )
 
 === Efficienza
@@ -313,7 +316,7 @@ Riguarda il rapporto tra i risultati prodotti e le risorse impiegate: tempi di r
 
 #metriche-table(
   [Metriche di Efficienza del prodotto],
-  [MPD-08], [Response Time], [$<= 3 " sec"$], [$<= 1 " sec"$],
+  [MPD-09], [Response Time], [$<= 3 " sec"$], [$<= 1 " sec"$],
 )
 #pagebreak()
 
@@ -323,10 +326,10 @@ Indica con quanta facilità il codice può essere compreso, corretto ed esteso n
 
 #metriche-table(
   [Metriche di Manutenibilità del prodotto],
-  [MPD-09], [Cyclomatic Complexity], [$<= 10$],                 [$<= 8$],
-  [MPD-10], [Instability Index],     [$I >= 0.7 or I <= 0.30$], [$I >= 0.85 or I <= 0.15$],
-  [MPD-11], [Coefficient of Coupling], [$<= 0.4$],              [$<= 0.2$],
-  [MPD-12], [Code Smell],            [$<= 10$],                 [$<= 5$],
+  [MPD-10], [Coefficient of Coupling], [$<= 0.4$],                 [$<= 0.2$],
+  [MPD-11], [Cyclomatic Complexity], [$<= 10$],                 [$<= 8$],
+  [MPD-12], [Instability Index],     [$I >= 0.7 or I <= 0.30$], [$I >= 0.85 or I <= 0.15$],
+  [MPD-13], [Code Smell],            [$<= 10$],                 [$<= 5$],
 )
 #pagebreak()
 
@@ -873,12 +876,13 @@ Le metriche di prodotto definite nella sezione 2 non sono misurabili in questa f
     [MPD-04], [Failure Density],                     [Non disponibile],
     [MPD-05], [Statement Coverage],                  [Non disponibile],
     [MPD-06], [Branch Coverage],                     [Non disponibile],
-    [MPD-07], [Time to Complete Task],               [Non disponibile],
-    [MPD-08], [Response Time],                       [Non disponibile],
-    [MPD-09], [Cyclomatic Complexity],               [Non disponibile],
-    [MPD-10], [Instability Index],                   [Non disponibile],
-    [MPD-11], [Coefficient of Coupling],             [Non disponibile],
-    [MPD-12], [Code Smell],                          [Non disponibile],
+    [MPD-07], [Error Rate],                          [Non disponibile],
+    [MPD-08], [Time to Complete Task],               [Non disponibile],
+    [MPD-09], [Response Time],                       [Non disponibile],
+    [MPD-10], [Coefficient of Coupling],             [Non disponibile],
+    [MPD-11], [Cyclomatic Complexity],               [Non disponibile],
+    [MPD-12], [Instability Index],                   [Non disponibile],
+    [MPD-13], [Code Smell],                          [Non disponibile],
   ),
   caption: [Stato delle metriche di prodotto in fase RTB],
   supplement: [Tabella],
@@ -946,8 +950,6 @@ Il team ha concordato di introdurre riunioni di allineamento preventive all'iniz
 - Coordinamento flessibile: Riorganizzati i task in modo più elastico per garantire la continuità del lavoro ordinario (Glossario, verbali e terzo Diario di Bordo).
 - Supporto esterno per l'AdR: Effettuato un colloquio con il professore Cardin per risolvere i dubbi su UC e UML, completando così la ristrutturazione dell'Analisi dei Requisiti.
 - Qualità e prototipazione: Strutturata la base del Piano di Qualifica (metriche e criteri) da parte dell'Amministratore e realizzato il mock-up grafico preliminare per la proponente.
-
-
 == Sprint 5 — Retrospettiva e azioni correttive
 
 === Problemi rilevati
