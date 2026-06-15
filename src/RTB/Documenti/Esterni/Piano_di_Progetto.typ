@@ -100,7 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.6.2], [2026/06/12], [Filippo Zonta Rocha], [], [Aggiunta delle sezioni:4.5.5, 4.5.6,4.5.7, 4.5.8],
+    [0.6.2], [2026/06/12], [Filippo Zonta Rocha], [Ines Iadadi], [Aggiunta delle sezioni:4.5.5, 4.5.6,4.5.7, 4.5.8],
     [0.6.1], [2026/06/05], [Ines Iadadi], [Alberto Canavese], [Revisione lessicale delle sezioni Sprint 2 e Sprint 3],
     [0.6.0], [2026/06/01], [Filippo Zonta Rocha], [Ines Iadadi], [Aggiunta delle sezioni Sprint 5: 4.5.1, 4.5.2, 4.5.3,4.5.4],
     [0.5.1], [2026/05/29], [Edis Hodja], [Giovanni Bronte], [Aggiunta delle sezioni: 4.4.5, 4.4.6, 4.4.7, 4.4.8],
@@ -782,7 +782,7 @@ Requisiti e sulla preparazione del PoC richiesto per la presentazione.
 
 - Finalizzazione dell'Analisi dei Requisiti: ultimi controlli sulla qualità e completezza del documento.
 - Presentazione del mockup a Bluewind per raccogliere un feedback sull'interfaccia proposta.
-- Sviluppo del PoC da presentare in sede di RTB.
+- Sviluppo del PoC da presentare in sede di revisione RTB.
 - Stesura delle presentazioni per il quarto e quinto Diario di Bordo.
 - Stesura dei verbali interni ed esterni relativi alle riunioni del periodo.
 - Aggiornamento del Glossario: aggiunta dei termini introdotti nei documenti redatti durante lo sprint.
@@ -796,12 +796,12 @@ Requisiti e sulla preparazione del PoC richiesto per la presentazione.
 #figure(
   tabella-ore((
     ([Alberto Canavese],   [-],[-],[-],[5],[-],[-],[5]),
-    ([Edis Hodja],         [-],[-],[-],[-],[12],[-],[12]),
+    ([Edis Hodja],         [-],[-],[-],[-],[10],[-],[10]),
     ([Filippo Zonta Rocha],[6],[-],[-],[-],[-],[-],[6]),
     ([Giovanni Angelo Marco Bronte],    [-],[-],[5],[-],[-],[-],[5]),
     ([Ines Iadadi],        [-],[-],[-],[-],[-],[7],[7]),
     ([Leonardo Lorenzin],  [-],[4],[-],[-],[-],[-],[4]),
-    (table.cell(align: center, fill: luma(220))[*Totale*],[*6*],[*4*],[*5*],[*5*],[*12*],[*7*],[*39*]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*6*],[*4*],[*5*],[*5*],[*10*],[*7*],[*37*]),
   )),
     caption: [Preventivo ore per membro - Sprint 5]
 )
@@ -810,12 +810,12 @@ Requisiti e sulla preparazione del PoC richiesto per la presentazione.
 #figure(
   tabella-ore((
     ([Alberto Canavese], [-], [-], [-], [6#text(fill: red)[(+1)]], [-], [-], [6]),
-    ([Edis Hodja], [-], [-], [-], [-], [12], [-], [12]),
+    ([Edis Hodja], [-], [-], [-], [-], [10], [-], [10]),
     ([Filippo Zonta Rocha], [5#text(fill: green)[(-1)]], [-], [-], [-], [-], [-], [5]),
     ([Giovanni Angelo Marco Bronte], [-], [-],  [4#text(fill: green)[(-1)]], [-], [-], [-], [4]),
     ([Ines Iadadi], [-], [-], [-], [-], [-], [7], [7]),
     ([Leonardo Lorenzin], [-], [4], [-], [-], [-], [-], [4]),
-    (table.cell(align: center, fill: luma(220))[*Totale*], [*5*], [*4*], [*4*], [*6*], [*12*], [*7*], [*38*]),
+    (table.cell(align: center, fill: luma(220))[*Totale*], [*5*], [*4*], [*4*], [*6*], [*10*], [*7*], [*36*]),
   )),
   caption: [Consuntivo ore per membro - Sprint 5],
 )
@@ -833,19 +833,21 @@ Requisiti e sulla preparazione del PoC richiesto per la presentazione.
     [Amministratore], [20], [4], [80€], [28], [560€],
     [Analista], [25], [4 ], [100€], [9], [225€],
     [Progettista], [25], [6], [150€], [85], [2125€],
-    [Programmatore], [15], [12], [180€], [96], [1440€],
+    [Programmatore], [15], [10], [150€], [98], [1470€],
     [Verificatore], [15], [7], [ 105€], [86], [1290€],
-    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*38*], [*765€*], [*339*], [*6690€*], 
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*36*], [*735€*], [*341*], [*6720€*], 
   )
 ]
 
 === Rischi incontrati 
-- *RI-3*: A seguito di un’ulteriore verifica, sono stati riscontrati errori in alcuni verbali esterni del team. Si è deciso di intervenire tempestivamente per allineare la coerenza redazionale, adottando le analoghe procedure di revisione utilizzate per i verbali interni nel precedente sprint. 
+- *RI-3*: A seguito di un’ulteriore verifica, sono stati riscontrati errori che hanno compromesso la tracciabilità di alcuni verbali esterni. Si è deciso di intervenire tempestivamente per allineare la coerenza redazionale, adottando le analoghe procedure di revisione utilizzate per i verbali interni nel precedente sprint. 
 
 
 === Retrospettiva
-Il team ha proseguito il lavoro sulla documentazione, finalizzando l’Analisi dei Requisiti, la quale necessita ora degli ultimi controlli per garantirne la totale qualità e completezza. Parallelamente, è stato sviluppato il PoC da presentare in sede di RTB, con un focus particolare sulla realizzazione di un mock-up dell’interfaccia grafica, che ha ottenuto un riscontro positivo da parte della proponente.
+Il team ha proseguito il lavoro sulla documentazione, finalizzando l’Analisi dei Requisiti, la quale necessita ora degli ultimi controlli per garantirne la totale qualità e completezza. Parallelamente, è stato sviluppato il PoC da presentare in sede di revisione RTB, in seguito alla realizzazione e presentazione di un mock-up dell’interfaccia grafica che ha ottenuto un riscontro positivo da parte della proponente.
 Sono stati inoltre aggiornati il Piano di Progetto e il Piano di Qualifica, rispettando le tempistiche previste. È proseguita infine la stesura della documentazione ordinaria, inclusi i verbali e i Diari di Bordo.
 
-==== *Criticità emerse* 
+Si segnala inoltre che i rischi attesi *RI-1* e *RO-2*, individuati in fase di pianificazione, non si sono concretizzati: il team ha mantenuto una disponibilità adeguata e l'intero carico di lavoro pianificato è stato completato nei tempi previsti.
+
+==== Criticità emerse
 Come anticipato nella sezione dei rischi incontrati, sono stati riscontrati errori in alcuni verbali esterni ma sono stati risolti prontamente durante lo sprint dal team durante una riunione di allineamento. 
