@@ -44,7 +44,7 @@
     #v(2em)
     #text(size: 1.6em, weight: "bold")[Incontro con #azienda]
     #v(4em)
-    #text(size: 20pt)[*Versione 0.1.0*]
+    #text(size: 20pt)[*Versione 1.0.0*]
   ]
   pagebreak()
 
@@ -65,7 +65,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026/06/16], [Ines Iadadi], [], [Prima stesura del verbale]
+      [1.0.0], [2026/06/16], [Edis Hodja], [], [Approvazione del verbale],
+      [0.1.0], [2026/06/16], [Ines Iadadi], [Edis Hodja], [Prima stesura del verbale]
     )
   ]
 
@@ -117,8 +118,12 @@
 )
 
 #heading(outlined: false, numbering: none)[Partecipanti Interni]
+- Alberto Canavese
+- Edis Hodja
+- Filippo Zonta Rocha
 - Giovanni Angelo Marco Bronte
 - Ines Iadadi
+- Leonardo Lorenzin
 
 = Ordine del Giorno
 + Raccolta del feedback di Bluewind S.r.l. sull'Analisi dei Requisiti condivisa.
@@ -126,40 +131,42 @@
 + Conferma della classificazione dei requisiti e dello stack tecnologico.
 
 = Svolgimento della Riunione
-La riunione ha avuto come obiettivo principale la raccolta del feedback del proponente sull'ultima versione del documento di Analisi dei Requisiti, con particolare attenzione ai casi d'uso relativi all'esecuzione del decision tree e alla gestione delle modifiche strutturali.
+La riunione ha avuto come obiettivo principale la raccolta del feedback della proponente sull'ultima versione del documento di Analisi dei Requisiti, con particolare attenzione ai casi d'uso relativi all'esecuzione del decision tree e alla gestione delle modifiche strutturali.
 
 == Feedback sull'Analisi dei Requisiti
 Il referente aziendale ha espresso una valutazione positiva sulla struttura generale del documento e sulla chiarezza dei requisiti. È stato sollevato un unico dubbio riguardante UC-22.6 (Modifica delle risposte durante l'esecuzione del decision tree): nella formulazione attuale, la modifica di una risposta comporta l'invalidazione di tutte le risposte successive, che risultava ambiguo in caso l'utente volesse rivalutare un requisito padre di altri. Il team ha chiarito che l'architettura corrente non prevede la rivalutazione dinamica per rami indipendenti, in quanto il sistema è progettato per una valutazione completa a partire dalla radice e renderà più chiaro il testo del caso d'uso.
 
 == Gestione dei Nodi nel Decision Tree
-Il proponente ha richiesto chiarimenti sulla gestione dei collegamenti quando un nodo viene inserito o eliminato. Il team ha illustrato che in fase di inserimento le connessioni sono gestite manualmente dall'utente, mentre per l'eliminazione era stata ipotizzata una riorganizzazione automatica da parte del sistema. Il proponente ha preferito che anche l'eliminazione lasci all'utente la gestione manuale dei collegamenti, al fine di evitare inconsistenze strutturali.
+La proponente ha richiesto chiarimenti sulla gestione dei collegamenti quando un nodo viene inserito o eliminato. Il team ha illustrato che in fase di inserimento le connessioni sono gestite manualmente dall'utente, mentre per l'eliminazione era stata ipotizzata una riorganizzazione automatica da parte del sistema. La proponente ha preferito che anche l'eliminazione lasci all'utente la gestione manuale dei collegamenti, al fine di evitare inconsistenze strutturali.
 
-Riguardo al nodo radice, il proponente ha confermato che l'impostazione attuale è corretta: deve essere possibile inserire un nodo radice, ma non eliminarlo.
+Riguardo al nodo radice, la proponente ha confermato che l'impostazione attuale è corretta: deve essere possibile inserire un nodo radice, ma non eliminarlo.
 
 == UC-32.3: Nodo Scollegato
-Il team ha illustrato il comportamento previsto dall'UC-32.3: se durante una modifica un nodo rimane privo di rami in uscita, il sistema costringe l'utente ad assegnargli un esito finale, trasformandolo in un nodo foglia. Il proponente ha confermato che tale comportamento è in linea con le aspettative.
+Il team ha illustrato il comportamento previsto dall'UC-32.3: se durante una modifica un nodo rimane privo di rami in uscita, il sistema costringe l'utente ad assegnargli un esito finale, trasformandolo in un nodo foglia. la proponente ha confermato che tale comportamento è in linea con le aspettative.
 
 == Esportazione del Report
-Il team ha richiesto feedback riguardo alla classificazione dei requisiti relativi all'esportazione del report di conformità, classificati come obbligatori. Il proponente ha confermato che è necessario classificare come obbligatorio almeno un formato di esportazione, mentre i formati aggiuntivi possono essere classificati come opzionali o desiderabili.
+Il team ha richiesto feedback riguardo alla classificazione dei requisiti relativi all'esportazione del report di conformità, classificati come obbligatori. La proponente ha confermato che è necessario classificare come obbligatorio almeno un formato di esportazione, mentre i formati aggiuntivi possono essere classificati come opzionali o desiderabili.
 
 == Creazione Manuale di Dispositivi e Asset
-Il proponente ha confermato che, ai fini del corretto funzionamento della web app, è sufficiente la possibilità di importare i dati tramite file. L'inserimento manuale da interfaccia di dispositivi e asset è da considerarsi una comodità aggiuntiva e deve pertanto essere classificato come desiderabile.
+La proponente ha confermato che, ai fini del corretto funzionamento della web app, è sufficiente la possibilità di importare i dati tramite file. L'inserimento manuale da interfaccia di dispositivi e asset è da considerarsi una comodità aggiuntiva e deve pertanto essere classificato come desiderabile.
 
 == Conferma dello Stack Tecnologico e della Classificazione dei Requisiti
-Il proponente ha confermato e approvato la suddivisione dei requisiti in obbligatori, desiderabili e opzionali adottata nel documento.
-Il proponente ha inoltre confermato e approvato lo stack tecnologico proposto dal team: 
+La proponente ha confermato e approvato la suddivisione dei requisiti in obbligatori, desiderabili e opzionali adottata nel documento.
+La proponente ha inoltre confermato e approvato lo stack tecnologico proposto dal team: 
 - React per il frontend;
 - Flask (framework Python) per il backend;
 - Docker per il containerization;
 - GitHub per il versionamento.  
-Il proponente non ha espresso vincoli aggiuntivi sulle tecnologie adottate, confermando che le scelte effettuate dal team sono coerenti con le aspettative e con i requisiti del capitolato.
+La proponente non ha espresso vincoli aggiuntivi sulle tecnologie adottate, come era già stato ribadito in un incontro esterno iniziale, confermando che le scelte effettuate dal team sono coerenti con le aspettative e con i requisiti del capitolato.
 
 
 == Use Case di Modifica del Decision Tree
-Il team ha richiesto conferma sugli scenari operativi attesi per i casi d'uso di modifica del decision tree. Il proponente ha indicato di aspettarsi la copertura di: modifica dei testi delle domande, aggiunta o rimozione strutturale dei nodi e ridirezione dei collegamenti per i nodi disconnessi. Il proponente ha confermato che i casi d'uso già redatti coprono pienamente tali necessità.
+Il team ha richiesto conferma sugli scenari operativi attesi per i casi d'uso di modifica del decision tree. La proponente ha indicato di aspettarsi la copertura di: modifica dei testi delle domande, aggiunta o rimozione strutturale dei nodi e ridirezione dei collegamenti per i nodi disconnessi. La proponente ha confermato che i casi d'uso già redatti coprono pienamente tali necessità.
+
+#pagebreak()
 
 = Conclusione e Decisioni Prese
-L'incontro si è concluso positivamente. Il proponente ha confermato la validità dell'impostazione generale dell'Analisi dei Requisiti e il team ha comunicato l'intenzione di candidarsi per la revisione RTB entro la fine della settimana successiva.
+L'incontro si è concluso positivamente. La proponente ha confermato la validità dell'impostazione generale dell'Analisi dei Requisiti e il team ha comunicato l'intenzione di candidarsi per la revisione RTB entro la fine della settimana successiva. Ci si è inoltre accordati di risentirsi non appena il team avesse ricevuto un riscontro nella revisione RTB da parte dei docenti.
 
 #align(center)[
   #table(
@@ -181,7 +188,7 @@ Elenco dei compiti assegnati ai membri del team a seguito della riunione.
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-6.1], [Aggiornare l'AdR in conformità alle decisioni prese], [Edis Hodja], [VE-6.1, VE-6.2, VE-6.3],
+    [TD-6.1], [Aggiornare l'Analisi dei Requisiti in conformità alle decisioni prese], [Edis Hodja], [VE-6.1, VE-6.2, VE-6.3],
   )
 ]
 

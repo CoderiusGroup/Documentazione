@@ -52,7 +52,7 @@
         *Luogo:* #luogo ]
     )
     #v(4em)
-    #text(size: 20pt)[*Versione 0.1.0*]
+    #text(size: 20pt)[*Versione 1.0.0*]
   ]
   pagebreak()
 
@@ -73,7 +73,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026/06/12], [Giovanni Bronte], [], [Prima stesura del verbale],
+      [1.0.0], [2026/06/16], [Edis Hodja], [], [Approvazione del verbale],
+      [0.1.0], [2026/06/12], [Giovanni Bronte], [Edis Hodja], [Prima stesura del verbale],
       // aggiungi nuova riga quando viene aggiornato
     )
   ]
@@ -171,7 +172,7 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     [TD-10.1], [Aggiornamento del Glossario con gli svariati termini usati nei vari documenti], [Edis Hodja], [VI-10.1],
     [TD-10.2], [Redazione della Lettera di Presentazione per l'RTB], [Alberto Canavese],[VI-10.2],
     [TD-10.3], [Continuazione sviluppo del Proof of Concept ], [Ines Ianadi,\ Filippo Zonta Rocha],[VI-10.3],
-    [TD-10.4], [Aggiornamento del Piano di Progetto per le sezioni legate al resoconto dello sprint cinque e alla pianificazione dello sprint 6], [Giovanni Bronte],[VI-10.4]
+    [TD-10.4], [Aggiornamento del Piano di Progetto per le sezioni legate al resoconto dello Sprint 5 e alla pianificazione dello Sprint 6], [Giovanni Bronte],[VI-10.4]
     
   )
 ]
