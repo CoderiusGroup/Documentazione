@@ -33,7 +33,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(3em)
-  #text(size: 20pt)[*Versione 0.6.0*]
+  #text(size: 20pt)[*Versione 0.7.0*]
 ]
 
 #pagebreak()
@@ -53,6 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.7.0], [2026/06/12], [Giovanni Bronte], [], [Modifiche a sintassi di alcuni UC, aggiunta di link mancanti e modificati alcuni UC nei requisiti],
     [0.6.0], [2026/06/05], [Ines Iadadi], [], [Eliminato UC-44, revisione generale del documento e applicate correzioni ai diagrammi UML],
     [0.5.4], [2026/06/04], [Giovanni Bronte], [Ines Iadadi], [Modificati vari UC da obbligatori a desiderabili],
     [0.5.3], [2026/06/03], [Giovanni Bronte], [Ines Iadadi], [Caricamento dei diagrammi UML],
@@ -393,7 +394,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha scelto l'opzione di creazione di un nuovo dispositivo.
+- *Precondizioni:* L'utente ha scelto l'opzione di creazione di un nuovo dispositivo #link(<uc4>)[(UC-4)]. 
 
 - *Postcondizioni:* Il sistema ha registrato i dati relativi al dispositivo.
 
@@ -421,7 +422,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha scelto l'opzione di creazione di un nuovo dispositivo.
+- *Precondizioni:* L'utente ha scelto l'opzione di creazione di un nuovo dispositivo #link(<uc4>)[(UC-4)].
 
 - *Postcondizioni:* Il sistema ha registrato il nome del dispositivo.
 
@@ -433,7 +434,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha scelto l'opzione di creazione di un nuovo dispositivo.
+- *Precondizioni:* L'utente ha scelto l'opzione di creazione di un nuovo dispositivo #link(<uc4>)[(UC-4)].
 
 - *Postcondizioni:* Il sistema ha registrato il sistema operativo del dispositivo.
 
@@ -445,7 +446,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha scelto l'opzione di creazione di un nuovo dispositivo.
+- *Precondizioni:* L'utente ha scelto l'opzione di creazione di un nuovo dispositivo #link(<uc4>)[(UC-4)].
 
 - *Postcondizioni:* Il sistema ha registrato la descrizione del dispositivo.
 
@@ -508,7 +509,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando i dati del dispositivo.
+- *Precondizioni:* L'utente sta visualizzando i dati del dispositivo #link(<uc7>)[(UC-7)].
 
 - *Postcondizioni:* L'utente ha visualizzato il nome del dispositivo.
 
@@ -519,7 +520,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando i dati del dispositivo.
+- *Precondizioni:* L'utente sta visualizzando i dati del dispositivo #link(<uc7>)[(UC-7)].
 
 - *Postcondizioni:* L'utente ha visualizzato il sistema operativo del dispositivo.
 
@@ -530,7 +531,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando i dati del dispositivo.
+- *Precondizioni:* L'utente sta visualizzando i dati del dispositivo #link(<uc7>)[(UC-7)].
 
 - *Postcondizioni:* L'utente ha visualizzato la descrizione del dispositivo.
 
@@ -541,7 +542,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando i dati del dispositivo.
+- *Precondizioni:* L'utente sta visualizzando i dati del dispositivo #link(<uc7>)[(UC-7)].
 
 - *Postcondizioni:* L'utente ha visualizzato lo stato aggregato di valutazione del dispositivo.
 
@@ -597,7 +598,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta modificando i dati del dispositivo.
+- *Precondizioni:* L'utente sta modificando i dati del dispositivo #link(<uc8>)[(UC-8)].
 
 - *Postcondizioni:* Il sistema ha aggiornato il nome del dispositivo.
 
@@ -610,7 +611,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta modificando i dati del dispositivo.
+- *Precondizioni:* L'utente sta modificando i dati del dispositivo #link(<uc8>)[(UC-8)].
 
 - *Postcondizioni:* Il sistema ha aggiornato il sistema operativo del dispositivo.
 
@@ -623,7 +624,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta modificando i dati del dispositivo.
+- *Precondizioni:* L'utente sta modificando i dati del dispositivo #link(<uc8>)[(UC-8)].
 
 - *Postcondizioni:* Il sistema ha aggiornato la descrizione del dispositivo.
 
@@ -720,7 +721,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato la funzionalità di eliminazione del dispositivo.
+- *Precondizioni:* L'utente ha selezionato la funzionalità di eliminazione del dispositivo #link(<uc11>)[(UC-11)].
 
 - *Postcondizioni:* Il sistema ha rimosso il dispositivo, tutti gli asset
   associati e gli eventuali risultati di valutazione, senza produrre alcun
@@ -740,7 +741,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato la funzionalità di eliminazione del dispositivo.
+- *Precondizioni:* L'utente ha selezionato la funzionalità di eliminazione del dispositivo #link(<uc11>)[(UC-11)].
 
 - *Postcondizioni:* Il sistema ha esportato i dati del dispositivo e degli
   asset associati, e successivamente ha rimosso il dispositivo,
@@ -794,7 +795,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato l'opzione di inserimento asset.
+- *Precondizioni:* L'utente ha selezionato l'opzione di inserimento asset #link(<uc12>)[(UC-12)].
 
 - *Postcondizioni:* Il sistema ha registrato i dati del nuovo asset.
 
@@ -824,7 +825,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato l'opzione di inserimento asset.
+- *Precondizioni:* L'utente ha selezionato l'opzione di inserimento asset #link(<uc12.1>)[(UC-12.1)].
 
 - *Postcondizioni:* Il sistema ha registrato il nome dell'asset.
 
@@ -836,7 +837,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato l'opzione di inserimento asset.
+- *Precondizioni:* L'utente ha selezionato l'opzione di inserimento asset #link(<uc12.1>)[(UC-12.1)].
 
 - *Postcondizioni:* Il sistema ha registrato il tipo dell'asset.
 
@@ -852,7 +853,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha scelto l'opzione di inserimento asset.
+- *Precondizioni:* L'utente ha scelto l'opzione di inserimento asset #link(<uc12.1>)[(UC-12.1)].
 
 - *Postcondizioni:* Il sistema ha registrato la descrizione dell'asset.
 
@@ -863,7 +864,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato l'opzione di inserimento asset.
+- *Precondizioni:* L'utente ha selezionato l'opzione di inserimento asset #link(<uc12.1>)[(UC-12.1)].
 
 - *Postcondizioni:* Il sistema ha registrato la sensibilità dell'asset.
 
@@ -880,6 +881,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + L'utente ha selezionato l'opzione di annullamento di inserimento dell'asset.
+  + Il sistema scarta i dati inseriti.
 
 
 == UC-14: Visualizzazione lista assets <uc14>
@@ -912,7 +914,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha scelto di visualizzare la lista degli assets.
+- *Precondizioni:* L'utente ha scelto di visualizzare la lista degli assets #link(<uc14>)[(UC-14)].
 
 - *Postcondizioni:* L'utente ha visualizzato le informazioni essenziali di un singolo asset.
 
@@ -931,7 +933,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando la lista degli assets.
+- *Precondizioni:* L'utente sta visualizzando la lista degli assets #link(<uc14.1>)[(UC-14.1)].
 
 - *Postcondizioni:* L'utente ha visualizzato il nome dell'asset.
 
@@ -943,7 +945,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando la lista degli assets.
+- *Precondizioni:* L'utente sta visualizzando la lista degli assets #link(<uc14.1>)[(UC-14.1)].
 
 - *Postcondizioni:* L'utente ha visualizzato il tipo dell'asset.
 
@@ -955,7 +957,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando la lista degli assets.
+- *Precondizioni:* L'utente sta visualizzando la lista degli assets #link(<uc14.1>)[(UC-14.1)].
 
 - *Postcondizioni:* L'utente ha visualizzato lo stato di valutazione dell'asset.
 
@@ -979,12 +981,12 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + L'utente seleziona un asset dalla lista.
-  + Viene visualizzato il nome dell'asset. #link(<uc15.1>)[(UC-15.1)]
-  + Viene visualizzato il tipo dell'asset. #link(<uc15.2>)[(UC-15.2)]
-  + Viene visualizzata la descrizione dell'asset. #link(<uc15.3>)[(UC-15.3)]
-  + Viene visualizzata la sensibilità dell'asset. #link(<uc15.4>)[(UC-15.4)]
-  + Viene visualizzato lo stato di valutazione dell'asset. #link(<uc15.5>)[(UC-15.5)]
-  + Viene visualizzata la lista dei requisiti dell'asset. #link(<uc15.6>)[(UC-15.6)]
+  + Il sistema mostra il nome dell'asset. #link(<uc15.1>)[(UC-15.1)]
+  + Il sistema mostra il tipo dell'asset. #link(<uc15.2>)[(UC-15.2)]
+  + Il sistema mostra la descrizione dell'asset. #link(<uc15.3>)[(UC-15.3)]
+  + Il sistema mostra la sensibilità dell'asset. #link(<uc15.4>)[(UC-15.4)]
+  + Il sistema mostra lo stato di valutazione dell'asset. #link(<uc15.5>)[(UC-15.5)]
+  + Il sistema mostra la lista dei requisiti dell'asset. #link(<uc15.6>)[(UC-15.6)]
 
 - *Inclusioni:*
   - #link(<uc15.1>)[UC-15.1: Visualizzazione nome asset in dettaglio]
@@ -998,7 +1000,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato un asset dalla lista degli asset.
+- *Precondizioni:* L'utente ha selezionato un asset dalla lista degli asset #link(<uc15>)[(UC-15)].
 
 - *Postcondizioni:* L'utente ha visualizzato il nome dell'asset.
 
@@ -1009,7 +1011,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato un asset dalla lista degli asset.
+- *Precondizioni:* L'utente ha selezionato un asset dalla lista degli asset #link(<uc15>)[(UC-15)].
 
 - *Postcondizioni:* L'utente ha visualizzato il tipo dell'asset.
 
@@ -1020,7 +1022,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato un asset dalla lista degli asset.
+- *Precondizioni:* L'utente ha selezionato un asset dalla lista degli asset #link(<uc15>)[(UC-15)].
 
 - *Postcondizioni:* L'utente ha visualizzato la descrizione dell'asset.
 
@@ -1031,7 +1033,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato un asset dalla lista.
+- *Precondizioni:* L'utente ha selezionato un asset dalla lista degli asset #link(<uc15>)[(UC-15)].
 
 - *Postcondizioni:* L'utente ha visualizzato la sensibilità dell'asset.
 
@@ -1042,7 +1044,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato un asset dalla lista.
+- *Precondizioni:* L'utente ha selezionato un asset dalla lista degli asset #link(<uc15>)[(UC-15)].
 
 - *Postcondizioni:* L'utente ha visualizzato lo stato complessivo di valutazione dell'asset.
 
@@ -1060,7 +1062,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   caption: [UC-15.6 : Visualizzazione lista requisiti asset],
 )
 - *Attore primario:* Utente
-- *Precondizioni:* L'utente ha selezionato un asset dalla lista.
+- *Precondizioni:* L'utente ha selezionato un asset dalla lista degli asset #link(<uc15>)[(UC-15)].
 - *Postcondizioni:* L'utente ha visualizzato la lista dei requisiti da valutare
   per l'asset.
 - *Scenario principale:*
@@ -1075,7 +1077,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando la lista dei requisiti dell'asset.
+- *Precondizioni:* L'utente sta visualizzando la lista dei requisiti dell'asset #link(<uc15.6>)[(UC-15.6)].
 
 - *Postcondizioni:* L'utente ha visualizzato il codice e lo stato di valutazione del requisito.
 
@@ -1135,7 +1137,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato la funzione di modifica di un asset.
+- *Precondizioni:* L'utente ha selezionato la funzione di modifica di un asset #link(<uc16>)[(UC-16)].
 
 - *Postcondizioni:* Il sistema ha aggiornato il nome dell'asset.
 
@@ -1148,7 +1150,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato la funzione di modifica di un asset.
+- *Precondizioni:* L'utente ha selezionato la funzione di modifica di un asset #link(<uc16>)[(UC-16)].
 
 - *Postcondizioni:* Il sistema ha aggiornato il tipo dell'asset.
 
@@ -1161,7 +1163,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato la funzione di modifica di un asset.
+- *Precondizioni:* L'utente ha selezionato la funzione di modifica di un asset #link(<uc16>)[(UC-16)].
 
 - *Postcondizioni:* Il sistema ha aggiornato la descrizione dell'asset.
 
@@ -1174,13 +1176,13 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato la funzione di modifica di un asset.
+- *Precondizioni:* L'utente ha selezionato la funzione di modifica di un asset #link(<uc16>)[(UC-16)].
 
 - *Postcondizioni:* Il sistema ha aggiornato la sensibilità dell'asset.
 
 - *Scenario principale:*
   + Il sistema carica la selezione della sensibilità dell'asset precedentemente effettuata.
-  + L'utente seleziona il nuovo livello di sensibilità dell'asset tra le opzioni disponibili.
+ + L'utente seleziona se l'asset è sensibile o no.
   + Il sistema registra la nuova selezione.
 
 
@@ -1188,7 +1190,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato la funzione di modifica di un asset.
+- *Precondizioni:* L'utente ha selezionato la funzione di modifica di un asset #link(<uc16>)[(UC-16)].
 
 - *Postcondizioni:* Il sistema ha annullato le modifiche all'asset e i dati sono tornati al loro stato precedente.
 
@@ -1228,7 +1230,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Attore primario:* Utente
 
 - *Precondizioni:*
-  - L'utente ha inserito un dispositivo.
+  - L'utente ha inserito il dispositivo.
   - Il dispositivo ha almeno un asset.
 
 - *Postcondizioni:* La sessione di valutazione è stata completata.
@@ -1263,18 +1265,18 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* La sessione di valutazione è attiva.
+- *Precondizioni:* La sessione di valutazione è attiva #link(<uc19>)[(UC-19)].
 
 - *Postcondizioni:* L'utente ha visualizzato lo stato complessivo della
   valutazione.
 
 - *Scenario principale:*
   + L'utente visualizza la lista degli assets del dispositivo.
-  + Per ogni asset vengono visualizzati il nome, il tipo e lo stato di valutazione
+  + Per ogni asset il sistema mostra il nome, il tipo e lo stato di valutazione
     corrente.
-  + Vengono visualizzati l'asset e il requisito correnti in esame.
-  + Viene visualizzato il numero di asset completati rispetto al totale.
-  + Viene visualizzato il numero di requisiti completati per l'asset corrente.
+  + Il sistema mostra l'asset e il requisito correnti in esame.
+  + Il sistema mostra il numero di asset completati rispetto al totale.
+  + Il sistema mostra il numero di requisiti completati per l'asset corrente.
 
 
 == UC-20: Valutazione di un asset <uc20>
@@ -1292,10 +1294,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* I requisiti dell'asset sono stati valutati e i relativi esiti registrati.
 
 - *Scenario principale:*
-  + Vengono visualizzate le informazioni dell'asset. #link(<uc20.1>)[(UC-20.1)]
-  + Viene visualizzata la lista dei requisiti da valutare. #link(<uc20.2>)[(UC-20.2)]
+  + Il sistema mostra le informazioni dell'asset. #link(<uc20.1>)[(UC-20.1)]
+  + Il sistema mostra la lista dei requisiti da valutare. #link(<uc20.2>)[(UC-20.2)]
   + L'utente seleziona un requisito da valutare.
-  + Viene visualizzato il dettaglio del requisito selezionato. #link(<uc21>)[(UC-21)]
+  + Il sistema mostra il dettaglio del requisito selezionato. #link(<uc21>)[(UC-21)]
   + I passi 2-4 si ripetono fino alla valutazione di tutti i requisiti.
 
 - *Inclusioni:*
@@ -1315,7 +1317,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   dell'asset selezionato.
 
 - *Scenario principale:*
-  + Vengono visualizzate le informazioni dell'asset:
+  + Il sistema mostra le informazioni dell'asset:
     - il nome;
     - il tipo;
     - la descrizione;
@@ -1334,9 +1336,9 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   da valutare per l'asset corrente.
 
 - *Scenario principale:*
-  + Viene visualizzata la lista dei requisiti associati
+  + Il sistema mostra la lista dei requisiti associati
     all'asset.
-  + Per ogni requisito viene visualizzato il codice e lo stato
+  + Per ogni requisito il sistema mostra il codice e lo stato
     di valutazione. #link(<uc20.2.1>)[(UC-20.2.1)]
 
 - *Inclusioni:*
@@ -1352,8 +1354,8 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* L'utente ha visualizzato il codice e lo stato di valutazione del requisito.
 
 - *Scenario principale:*
-  + Viene visualizzato il codice del requisito.
-  + Viene visualizzato lo stato di valutazione del requisito:
+  + Il sistema mostra il codice del requisito.
+  + Il sistema mostra lo stato di valutazione del requisito:
     - Non valutato;
     - In corso;
     - PASS;
@@ -1370,10 +1372,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Precondizioni:*
   - La sessione di valutazione è attiva.
-  - L'utente ha selezionato un requisito dalla lista dei requisiti in valutazione. #link(<uc20.2>)[(UC-20.2.1)]
+  - L'utente sta visualizzando la lista dei requisiti in valutazione #link(<uc20>)[(UC-20)].
 
 - *Postcondizioni:* L'utente ha visualizzato le informazioni del
-  requisito e può avviare l'esecuzione del decision tree.
+  requisito.
 
 - *Scenario principale:*
   + Il sistema mostra il codice e il nome del requisito.
@@ -1400,7 +1402,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   del requisito corrente.
 
 - *Scenario principale:*
-  + Viene visualizzata la lista dei requisiti da cui dipende il
+  + Il sistema mostra la lista dei requisiti da cui dipende il
     requisito corrente.
   + Per ogni dipendenza il sistema mostra il codice del requisito
     e il suo stato di valutazione.
@@ -1458,12 +1460,12 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* Il sistema sta eseguendo il decision tree per un requisito.
+- *Precondizioni:* Il sistema sta eseguendo il decision tree per un requisito #link(<uc22>)[(UC-22)].
 
 - *Postcondizioni:* L'utente ha visualizzato le informazioni del nodo corrente.
 
 - *Scenario principale:*
-  + Viene visualizzato il codice univoco del nodo corrente.
+  + Il sistema mostra il codice univoco del nodo corrente.
   + Il sistema mostra il testo della domanda associata al nodo corrente.
 
 
@@ -1471,14 +1473,14 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* Il sistema sta eseguendo il decision tree per un requisito.
+- *Precondizioni:* Il sistema sta eseguendo il decision tree per un requisito #link(<uc22>)[(UC-22)].
 
 - *Postcondizioni:* L'utente ha visualizzato il grafo del decision tree con lo stato corrente dell'esecuzione evidenziato.
 
 - *Scenario principale:*
-  + Viene visualizzato il grafo completo del decision tree associato al requisito in esame.
-  + Viene evidenziato il nodo corrente nel grafo.
-  + Viene evidenziato il percorso già visitato dall'utente fino al nodo corrente.
+  + Il sistema mostra il grafo completo del decision tree associato al requisito in esame.
+  + Il sistema evidenzia il nodo corrente nel grafo.
+  + Il sistema evidenzia il percorso già visitato dall'utente fino al nodo corrente.
 
 === UC-22.3: Risposta alla domanda del nodo corrente <uc22.3>
 #v(1em)
@@ -1505,10 +1507,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 - *Precondizioni:* Il sistema ha mostrato la domanda del nodo corrente.
-- *Postcondizioni:* Il sistema ha registrato "Sì" e avanzato nel ramo
+- *Postcondizioni:* Il sistema ha registrato "Yes" e avanzato nel ramo
   affermativo.
 - *Scenario principale:*
-  + L'utente seleziona "Sì" come risposta.
+  + L'utente seleziona "Yes" come risposta.
   + Il sistema registra la risposta e avanza al nodo successivo del ramo
     affermativo.
 
@@ -1534,7 +1536,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Attore primario:* Utente
 
 - *Precondizioni:*
-  - La sessione di valutazione è attiva.
+  - Il sistema sta eseguendo il decision tree per un requisito.
   - Il nodo corrente non è il nodo radice del decision tree.
 
 - *Postcondizioni:* Il sistema ha riportato l'utente al nodo precedente mostrando la risposta già fornita.
@@ -1556,7 +1558,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Attore primario:* Utente
 
 - *Precondizioni:*
-  - La sessione di valutazione è attiva.
+  - Il sistema sta eseguendo il decision tree per un requisito.
   - L'utente si trova su un nodo già risposto in precedenza. #link(<uc22.4>)[(UC-22.4)]
   - Esiste un nodo successivo nella cronologia delle risposte.
 
@@ -1572,7 +1574,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Attore primario:* Utente
 
 - *Precondizioni:*
-  - La sessione di valutazione è attiva.
+  - Il sistema sta eseguendo il decision tree per un requisito.
   - L'utente si trova su un nodo già risposto in precedenza. #link(<uc22.4>)[(UC-22.4)]
 
 - *Postcondizioni:* Il sistema ha registrato la nuova risposta e invalidato tutte le risposte successive al nodo corrente.
@@ -1597,7 +1599,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* L'utente ha visualizzato l'esito del requisito per l'asset corrente.
 
 - *Scenario principale:*
-  + Viene visualizzato l'esito del requisito per l'asset corrente:
+  + Il sistema mostra l'esito del requisito per l'asset corrente:
     - PASS;
     - FAIL;
     - NOT APPLICABLE.
@@ -1633,7 +1635,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Attore primario:* Utente
 
-- *Precondizioni:* Il test è in corso.
+- *Precondizioni:* La sessione di valutazione è attiva. #link(<uc19>)[(UC-19)]
 
 - *Postcondizioni:* La sessione di valutazione è terminata.
 
@@ -1654,15 +1656,12 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:*
-  - Il test è in corso.
+- *Precondizioni:* La sessione di valutazione è attiva. #link(<uc19>)[(UC-19)]
 
 - *Postcondizioni:* Il sistema ha prodotto il file di salvataggio contenente lo stato corrente della sessione.
 
 - *Scenario principale:*
   + L'utente seleziona la funzionalità di salvataggio della sessione.
-  + L'utente seleziona il formato del file di salvataggio tra
-    JSON e CSV.
   + Il sistema raccoglie i dati della sessione corrente:
     - dati del dispositivo e degli asset;
     - esiti già registrati per le coppie asset-requisito completate;
@@ -1739,12 +1738,12 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + L'utente seleziona un asset dalla lista dei risultati.
-  + Vengono visualizzati il nome e il tipo dell'asset.
-  + Viene visualizzato l'esito aggregato dell'asset:
+  + Il sistema mostra il nome e il tipo dell'asset.
+  + Il sistema mostra l'esito aggregato dell'asset:
     - PASS;
     - FAIL;
     - NOT APPLICABLE.
-  + Viene visualizzata la lista dei requisiti valutati per l'asset con il relativo codice e l'esito di ciascuno
+  + Il sistema mostra la lista dei requisiti valutati per l'asset con il relativo codice e l'esito di ciascuno
 
 - *Scenari alternativi:*
   - L'utente seleziona un requisito per visualizzarne il dettaglio. #link(<uc27.1.1>)[(UC-27.1.1)]
@@ -1781,16 +1780,16 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente sta visualizzando il dettaglio di un singolo
-  requisito con il relativo esito.
+  requisito con il relativo esito. #link(<uc27.1.1>)[(UC-27.1.1)]
 
 - *Postcondizioni:* L'utente ha visualizzato la sequenza ordinata delle risposte
   fornite durante la valutazione del requisito.
 
 - *Scenario principale:*
-  + Viene visualizzata la sequenza delle domande affrontate durante l'esecuzione
+  + Il sistema mostra la sequenza delle domande affrontate durante l'esecuzione
     del decision tree per il requisito selezionato.
-  + Per ogni domanda vengono visualizzati il testo del nodo e la risposta fornita.
-  + Viene evidenziato il nodo foglia raggiunto e l'esito corrispondente.
+  + Per ogni domanda il sistema mostra il testo del nodo e la risposta fornita.
+  + Il sistema evidenzia il nodo foglia raggiunto e l'esito corrispondente.
 
 
 == UC-28: Esportazione report di conformità <uc28>
@@ -1803,7 +1802,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Precondizioni:*
   - La sessione di valutazione è stata completata.
-  - L'utente sta visualizzando i risultati del test #link(<uc27>)[(UC-27)].
+  - L'utente sta visualizzando i risultati del test.
 
 - *Postcondizioni:* Il sistema ha generato e messo a disposizione il report
   di conformità per il download.
@@ -1834,8 +1833,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + L'utente seleziona il formato PDF.
-  + Il sistema genera il file PDF contenente il riepilogo di conformità del
-    dispositivo rispetto allo standard EN 18031.
+  + Il sistema genera il file PDF contenente, per ogni coppia asset-requisito,
+    l'esito del requisito, l'esito aggregato del decision tree e il percorso
+    logico seguito, organizzati come riepilogo di conformità del dispositivo
+    rispetto allo standard EN 18031.
   + Il sistema mette a disposizione il file per il download.
 
 === UC-28.2: Esportazione report di conformità in JSON <uc28.2>
@@ -1848,7 +1849,8 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + L'utente seleziona il formato JSON.
-  + Il sistema genera il file JSON contenente tutti i dati della valutazione.
+   + Il sistema genera il file JSON contenente, per ogni coppia asset-requisito, l'esito del requisito, l'esito aggregato del decision tree e il percorso
+    logico seguito.
   + Il sistema mette a disposizione il file per il download.
 
 === UC-28.3: Esportazione report di conformità in CSV <uc28.3>
@@ -1861,8 +1863,9 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + L'utente seleziona il formato CSV.
-  + Il sistema genera il file CSV contenente gli esiti per ogni coppia
-    asset-requisito in formato tabellare.
+  + Il sistema genera il file CSV contenente, per ogni coppia asset-requisito,
+    l'esito del requisito, l'esito aggregato del decision tree e il percorso
+    logico seguito, in formato tabellare.
   + Il sistema mette a disposizione il file per il download.
 
 #pagebreak()
@@ -1899,13 +1902,13 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando l'elenco dei decision tree.
+- *Precondizioni:* L'utente sta visualizzando l'elenco dei decision tree. #link(<uc29>)[(UC-29)] 
 
 - *Postcondizioni:* L'utente ha visualizzato le informazioni essenziali del singolo decision tree.
 
 - *Scenario principale:*
-  + Viene visualizzato l'id del requisito associato al decision tree.
-  + Viene visualizzato il nome del requisito associato al decision tree.
+  + Il sistema mostra l'id del requisito associato al decision tree.
+  + Il sistema mostra il nome del requisito associato al decision tree.
 
 
 == UC-30: Visualizzazione dettaglio decision tree <uc30>
@@ -1916,16 +1919,16 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando l'elenco dei decision tree. #link(<uc29>)[(UC-29)]
+- *Precondizioni:* L'utente sta visualizzando l'elenco dei decision tree. 
 
 - *Postcondizioni:* L'utente ha visualizzato il dettaglio del decision tree selezionato.
 
 - *Scenario principale:*
   + L'utente seleziona un decision tree dall'elenco.
-  + Viene visualizzato l'id del requisito associato al decision tree.
-  + Viene visualizzato il nome del requisito associato al decision tree.
-  + Viene visualizzato il grafo del decision tree. #link(<uc30.1>)[(UC-30.1)]
-  + Vengono visualizzate le dipendenze del decision tree. #link(<uc30.2>)[(UC-30.2)]
+  + Il sistema mostra il codice del requisito associato al decision tree.
+  + Il sistema mostra il nome del requisito associato al decision tree.
+  + Il sistema mostra il grafo del decision tree. #link(<uc30.1>)[(UC-30.1)]
+  + Il sistema mostra le dipendenze del decision tree. #link(<uc30.2>)[(UC-30.2)]
 
 - *Scenari alternativi:*
   - L'utente seleziona la funzionalità di modifica del decision tree. #link(<uc31>)[(UC-31)]
@@ -1959,9 +1962,9 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* L'utente ha visualizzato il grafo del decision tree.
 
 - *Scenario principale:*
-  + Vengono visualizzati i nodi interni del decision tree. #link(<uc30.1.1>)[(UC-30.1.1)]
-  + Vengono visualizzati i nodi foglia del decision tree. #link(<uc30.1.2>)[(UC-30.1.2)]
-  + Vengono visualizzati i collegamenti fra nodi. #link(<uc30.1.3>)[(UC-30.1.3)]
+  + Il sistema mostra i nodi interni del decision tree. #link(<uc30.1.1>)[(UC-30.1.1)]
+  + Il sistema mostra i nodi foglia del decision tree. #link(<uc30.1.2>)[(UC-30.1.2)]
+  + Il sistema mostra i collegamenti fra nodi. #link(<uc30.1.3>)[(UC-30.1.3)]
 
 - *Inclusioni:*
   - #link(<uc30.1.1>)[UC-30.1.1: Visualizzazione nodi interni del decision tree]
@@ -1978,8 +1981,8 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   decision tree.
 
 - *Scenario principale:*
-  + Per ogni nodo interno viene visualizzato il codice univoco.
-  + Per ogni nodo interno viene visualizzato il testo della domanda.
+  + Per ogni nodo interno il sistema mostra il codice univoco.
+  + Per ogni nodo interno il sistema mostra il testo della domanda.
 
 ==== UC-30.1.2: Visualizzazione nodi foglia del decision tree <uc30.1.2>
 #v(1em)
@@ -1991,7 +1994,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   decision tree.
 
 - *Scenario principale:*
-  + Per ogni nodo foglia viene visualizzato l'esito assegnato:
+  + Per ogni nodo foglia il sistema mostra l'esito assegnato:
     - PASS;
     - FAIL;
     - NOT APPLICABLE.
@@ -2005,7 +2008,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* L'utente ha visualizzato i collegamenti fra i nodi del decision tree.
 
 - *Scenario principale:*
-  + Per ogni collegamento viene visualizzata l'etichetta true/false che indica la risposta associata al ramo.
+  + Per ogni collegamento il sistema mostra l'etichetta Yes/No che indica la risposta associata al ramo.
 
 === UC-30.2: Visualizzazione dipendenze del decision tree <uc30.2>
 #v(1em)
@@ -2021,9 +2024,9 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   decision tree corrente.
 
 - *Scenario principale:*
-  + Viene visualizzata la lista dei requisiti da cui dipende il
+  + Il sistema mostra la lista dei requisiti da cui dipende il
     decision tree corrente.
-  + Per ogni dipendenza viene visualizzato il codice del requisito.
+  + Per ogni dipendenza il sistema mostra il codice del requisito.
 
 - *Scenari alternativi:*
   - L'utente seleziona la funzionalità di aggiunta di una nuova dipendenza. #link(<uc40>)[(UC-40)]
@@ -2111,7 +2114,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta aggiungendo un nuovo nodo al decision tree.
+- *Precondizioni:* L'utente sta aggiungendo un nuovo nodo al decision tree. #link(<uc32>)[(UC-32)]
 
 - *Postcondizioni:* Il sistema ha registrato il codice univoco del nuovo nodo.
 
@@ -2129,7 +2132,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta inserendo un codice univoco per un nuovo nodo.
+- *Precondizioni:* L'utente sta inserendo un codice univoco per un nuovo nodo. #link(<uc32.1>)[(UC-32.1)]
 
 - *Postcondizioni:* Il sistema mostra un messaggio di errore e consente all'utente di inserire un nuovo codice.
 
@@ -2141,7 +2144,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta aggiungendo un nuovo nodo al decision tree.
+- *Precondizioni:* L'utente sta aggiungendo un nuovo nodo al decision tree. #link(<uc32>)[(UC-32)]
 
 - *Postcondizioni:* Il sistema ha registrato il testo della domanda del
   nuovo nodo.
@@ -2159,7 +2162,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha modificato un collegamento o aggiunto un nodo al decision tree causando un ramo privo di collegamento.
+- *Precondizioni:* L'utente ha modificato un collegamento o aggiunto un nodo al decision tree causando un ramo privo di collegamento. #link(<uc32>)[(UC-32)]
 
 - *Postcondizioni:* Il sistema ha registrato l'esito assegnato ai rami non collegati del nodo.
 
@@ -2178,7 +2181,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta assegnando un esito a un ramo non collegato.
+- *Precondizioni:* L'utente sta assegnando un esito a un ramo non collegato. #link(<uc32.3>)[(UC-32.3)]
 
 - *Postcondizioni:* Il ramo non collegato diventa un nodo foglia con esito PASS.
 
@@ -2190,7 +2193,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta assegnando un esito a un ramo non collegato.
+- *Precondizioni:* L'utente sta assegnando un esito a un ramo non collegato. #link(<uc32.3>)[(UC-32.3)]
 
 - *Postcondizioni:* Il ramo non collegato diventa un nodo foglia con esito FAIL.
 
@@ -2202,7 +2205,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta assegnando un esito a un ramo non collegato.
+- *Precondizioni:* L'utente sta assegnando un esito a un ramo non collegato. #link(<uc32.3>)[(UC-32.3)]
 
 - *Postcondizioni:* Il ramo non collegato diventa un nodo foglia con esito
   NOT APPLICABLE.
@@ -2288,11 +2291,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha apportato una modifica al decision tree.
+- *Precondizioni:* L'utente ha apportato una modifica al decision tree. #link(<uc31>)[(UC-31)]
 
 - *Postcondizioni:* 
-  - Il sistema ha notificato l'errore di validazione
-  all'utente. 
+  - Il sistema ha notificato l'errore di validazione all'utente. 
   - La sessione di modifica rimane attiva.
 
 - *Scenario principale:*
@@ -2415,7 +2417,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha selezionato un requisito da aggiungere come dipendenza.
+- *Precondizioni:* L'utente ha selezionato un requisito da aggiungere come dipendenza. #link(<uc40>)[(UC-40)]
 
 - *Postcondizioni:* L'utente viene notificato dell'errore e la lista delle dipendenze rimane invariata.
 
@@ -2562,79 +2564,88 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   // --- AREA GESTIONE DISPOSITIVI (UC-1 a UC-11) ---
   [RF-Ob01], [Il sistema deve permettere l'inserimento di un nuovo dispositivo all'interno della piattaforma.], [#link(<uc1>)[UC-1]],
   [RF-Ob02], [Il sistema deve permettere l'importazione di un dispositivo tramite un file di configurazione in formato JSON o CSV.], [#link(<uc2>)[UC-2]],
-  [RF-Ob03], [Il sistema deve verificare la validità strutturale e la conformità del file di configurazione caricato.], [#link(<uc2>)[UC-2]],
-  [RF-Ob04], [Il sistema deve bloccare l'importazione e mostrare un messaggio di errore se il file ha un formato non valido.], [#link(<uc3>)[UC-3]],
-  [RF-Ob05], [Il sistema deve permettere la creazione manuale di un nuovo dispositivo.], [#link(<uc4>)[UC-4]],
-  [RF-Ob06], [Il sistema deve richiedere l'inserimento dei dati identificativi del dispositivo durante la creazione manuale.], [#link(<uc4.1>)[UC-4.1]],
-  [RF-Ob07], [Il sistema deve permettere l'inserimento del nome identificativo del dispositivo.], [#link(<uc4.1.1>)[UC-4.1.1]],
-  [RF-Ob08], [Il sistema deve permettere l'inserimento del sistema operativo del dispositivo.], [#link(<uc4.1.2>)[UC-4.1.2]],
-  [RF-Ob09], [Il sistema deve permettere l'inserimento di una descrizione testuale del dispositivo.], [#link(<uc4.1.3>)[UC-4.1.3]],
-  [RF-Ob10], [Il sistema deve validare i dati inseriti nei form e mostrare un errore in caso di campi vuoti o non conformi.], [#link(<uc5>)[UC-5]],
-  [RF-Ob11], [Il sistema deve permettere la visualizzazione delle informazioni e dei dati relativi al dispositivo.], [#link(<uc7>)[UC-7]],
-  [RF-Ob12], [Il sistema deve mostrare in dettaglio il nome del dispositivo registrato.], [#link(<uc7.1>)[UC-7.1]],
-  [RF-Ob13], [Il sistema deve mostrare in dettaglio il sistema operativo del dispositivo registrato.], [#link(<uc7.2>)[UC-7.2]],
-  [RF-Ob14], [Il sistema deve mostrare in dettaglio la descrizione del dispositivo registrato.], [#link(<uc7.3>)[UC-7.3]],
-  [RF-Ob15], [Il sistema deve calcolare e mostrare lo stato aggregato di valutazione del dispositivo (non valutato, PASS, FAIL).], [#link(<uc7.4>)[UC-7.4]],
-  [RF-Ob16], [Il sistema deve permettere l'esportazione di tutti i dati di un dispositivo in formato JSON o CSV.], [#link(<uc10>)[UC-10]],
-  [RF-Ob17], [Il sistema deve permettere l'eliminazione definitiva di un dispositivo dal sistema.], [#link(<uc11>)[UC-11]],
-  [RF-Ob18], [Il sistema deve consentire l'eliminazione diretta di un dispositivo senza effettuare il backup dei dati.], [#link(<uc11.1>)[UC-11.1]],
-  [RF-Ob19], [Il sistema deve consentire l'eliminazione del dispositivo previa esportazione automatica di backup dei dati.], [#link(<uc11.2>)[UC-11.2]],
+  [RF-Ob03], [Il sistema deve permettere la selezione del file sorgente per l'importazione del dispositivo.], [#link(<uc2.1>)[UC-2.1]],
+  [RF-Ob04], [Il sistema deve supportare la selezione di un file in formato JSON come sorgente per l'importazione del dispositivo.], [#link(<uc2.1.1>)[UC-2.1.1]],
+  [RF-Ob05], [Il sistema deve supportare la selezione di un file in formato CSV come sorgente per l'importazione del dispositivo.], [#link(<uc2.1.2>)[UC-2.1.2]],
+  [RF-Ob06], [Il sistema deve verificare la validità strutturale e la conformità del file di configurazione caricato.], [#link(<uc2>)[UC-2]],
+  [RF-Ob07], [Il sistema deve bloccare l'importazione e mostrare un messaggio di errore se il file ha un formato non valido.], [#link(<uc3>)[UC-3]],
+  [RF-Ob08], [Il sistema deve permettere la creazione manuale di un nuovo dispositivo.], [#link(<uc4>)[UC-4]],
+  [RF-Ob09], [Il sistema deve richiedere l'inserimento dei dati identificativi del dispositivo durante la creazione manuale.], [#link(<uc4.1>)[UC-4.1]],
+  [RF-Ob10], [Il sistema deve permettere l'inserimento del nome identificativo del dispositivo.], [#link(<uc4.1.1>)[UC-4.1.1]],
+  [RF-Ob11], [Il sistema deve permettere l'inserimento del sistema operativo del dispositivo.], [#link(<uc4.1.2>)[UC-4.1.2]],
+  [RF-Ob12], [Il sistema deve permettere l'inserimento di una descrizione testuale del dispositivo.], [#link(<uc4.1.3>)[UC-4.1.3]],
+  [RF-Ob13], [Il sistema deve validare i dati inseriti nei form e mostrare un errore in caso di campi vuoti o non conformi.], [#link(<uc5>)[UC-5]],
+  [RF-Ob14], [Il sistema deve permettere la visualizzazione delle informazioni e dei dati relativi al dispositivo.], [#link(<uc7>)[UC-7]],
+  [RF-Ob15], [Il sistema deve mostrare in dettaglio il nome del dispositivo registrato.], [#link(<uc7.1>)[UC-7.1]],
+  [RF-Ob16], [Il sistema deve mostrare in dettaglio il sistema operativo del dispositivo registrato.], [#link(<uc7.2>)[UC-7.2]],
+  [RF-Ob17], [Il sistema deve mostrare in dettaglio la descrizione del dispositivo registrato.], [#link(<uc7.3>)[UC-7.3]],
+  [RF-Ob18], [Il sistema deve calcolare e mostrare lo stato aggregato di valutazione del dispositivo (non valutato, PASS, FAIL).], [#link(<uc7.4>)[UC-7.4]],
+  [RF-Ob19], [Il sistema deve permettere l'esportazione di tutti i dati di un dispositivo in formato JSON o CSV.], [#link(<uc10>)[UC-10]],
+  [RF-Ob20], [Il sistema deve consentire l'esportazione dei dati del dispositivo e degli asset associati in formato JSON.], [#link(<uc10.1>)[UC-10.1]],
+  [RF-Ob21], [Il sistema deve consentire l'esportazione dei dati del dispositivo e degli asset associati in formato CSV.], [#link(<uc10.2>)[UC-10.2]],
+  [RF-Ob22], [Il sistema deve permettere l'eliminazione definitiva di un dispositivo dal sistema.], [#link(<uc11>)[UC-11]],
+  [RF-Ob23], [Il sistema deve consentire l'eliminazione diretta di un dispositivo senza effettuare il backup dei dati.], [#link(<uc11.1>)[UC-11.1]],
+  [RF-Ob24], [Il sistema deve consentire l'eliminazione del dispositivo previa esportazione automatica di backup dei dati.], [#link(<uc11.2>)[UC-11.2]],
 
   // --- AREA GESTIONE ASSET (UC-12 a UC-18) ---
-  [RF-Ob20], [Il sistema deve permettere l'inserimento di un nuovo asset all'interno di un dispositivo.], [#link(<uc12>)[UC-12]],
-  [RF-Ob21], [Il sistema deve richiedere la compilazione dei dati dell'asset nel form di creazione.], [#link(<uc12.1>)[UC-12.1]],
-  [RF-Ob22], [Il sistema deve permettere l'inserimento del nome dell'asset nel form di creazione.], [#link(<uc12.1.1>)[UC-12.1.1]],
-  [RF-Ob23], [Il sistema deve permettere la selezione del tipo di asset tra Network, Security, Privacy e Financial.], [#link(<uc12.1.2>)[UC-12.1.2]],
-  [RF-Ob24], [Il sistema deve permettere l'inserimento della descrizione dell'asset nel form di creazione.], [#link(<uc12.1.3>)[UC-12.1.3]],
-  [RF-Ob25], [Il sistema deve permettere di impostare la sensibilità dell'asset (SI o NO).], [#link(<uc12.1.4>)[UC-12.1.4]],
-  [RF-Ob26], [Il sistema deve permettere la visualizzazione della lista degli asset associati ad un determinato dispositivo.], [#link(<uc14>)[UC-14]],
-  [RF-Ob27], [Il sistema deve mostrare le informazioni essenziali del singolo asset all'interno della lista.], [#link(<uc14.1>)[UC-14.1]],
-  [RF-Ob28], [Il sistema deve mostrare il nome del singolo asset all'interno della lista.], [#link(<uc14.1.1>)[UC-14.1.1]],
-  [RF-Ob29], [Il sistema deve mostrare il tipo del singolo asset all'interno della lista.], [#link(<uc14.1.2>)[UC-14.1.2]],
-  [RF-Ob30], [Il sistema deve mostrare lo stato di valutazione del singolo asset all'interno della lista.], [#link(<uc14.1.3>)[UC-14.1.3]],
-  [RF-Ob31], [Il sistema deve permettere la visualizzazione in dettaglio di tutte le informazioni di un singolo asset selezionato.], [#link(<uc15>)[UC-15]],
-  [RF-Ob32], [Il sistema deve mostrare nel dettaglio il nome dell'asset selezionato.], [#link(<uc15.1>)[UC-15.1]],
-  [RF-Ob33], [Il sistema deve mostrare nel dettaglio il tipo dell'asset selezionato.], [#link(<uc15.2>)[UC-15.2]],
-  [RF-Ob34], [Il sistema deve mostrare nel dettaglio la descrizione dell'asset selezionato.], [#link(<uc15.3>)[UC-15.3]],
-  [RF-Ob35], [Il sistema deve mostrare nel dettaglio il livello di sensibilità dell'asset selezionato.], [#link(<uc15.4>)[UC-15.4]],
-  [RF-Ob36], [Il sistema deve mostrare lo stato complessivo di valutazione dell'asset selezionato.], [#link(<uc15.5>)[UC-15.5]],
-  [RF-Ob37], [Il sistema deve mostrare la lista dei requisiti da valutare associati all'asset.], [#link(<uc15.6>)[UC-15.6]],
-  [RF-Ob38], [Il sistema deve mostrare il codice identificativo e lo stato di valutazione di ogni requisito nella lista.], [#link(<uc15.6.1>)[UC-15.6.1]],
-  [RF-Ob39], [Il sistema deve permettere l'eliminazione definitiva di un asset da un dispositivo.], [#link(<uc18>)[UC-18]],
+  [RF-Ob25], [Il sistema deve permettere l'inserimento di un nuovo asset all'interno di un dispositivo.], [#link(<uc12>)[UC-12]],
+  [RF-Ob26], [Il sistema deve richiedere la compilazione dei dati dell'asset nel form di creazione.], [#link(<uc12.1>)[UC-12.1]],
+  [RF-Ob27], [Il sistema deve permettere l'inserimento del nome dell'asset nel form di creazione.], [#link(<uc12.1.1>)[UC-12.1.1]],
+  [RF-Ob28], [Il sistema deve permettere la selezione del tipo di asset tra Network, Security, Privacy e Financial.], [#link(<uc12.1.2>)[UC-12.1.2]],
+  [RF-Ob29], [Il sistema deve permettere l'inserimento della descrizione dell'asset nel form di creazione.], [#link(<uc12.1.3>)[UC-12.1.3]],
+  [RF-Ob30], [Il sistema deve permettere di impostare la sensibilità dell'asset (SI o NO).], [#link(<uc12.1.4>)[UC-12.1.4]],
+  [RF-Ob31], [Il sistema deve permettere la visualizzazione della lista degli asset associati ad un determinato dispositivo.], [#link(<uc14>)[UC-14]],
+  [RF-Ob32], [Il sistema deve mostrare le informazioni essenziali del singolo asset all'interno della lista.], [#link(<uc14.1>)[UC-14.1]],
+  [RF-Ob33], [Il sistema deve mostrare il nome del singolo asset all'interno della lista.], [#link(<uc14.1.1>)[UC-14.1.1]],
+  [RF-Ob34], [Il sistema deve mostrare il tipo del singolo asset all'interno della lista.], [#link(<uc14.1.2>)[UC-14.1.2]],
+  [RF-Ob35], [Il sistema deve mostrare lo stato di valutazione del singolo asset all'interno della lista.], [#link(<uc14.1.3>)[UC-14.1.3]],
+  [RF-Ob36], [Il sistema deve permettere la visualizzazione in dettaglio di tutte le informazioni di un singolo asset selezionato.], [#link(<uc15>)[UC-15]],
+  [RF-Ob37], [Il sistema deve mostrare nel dettaglio il nome dell'asset selezionato.], [#link(<uc15.1>)[UC-15.1], #link(<uc20.1>)[UC-20.1]],
+  [RF-Ob38], [Il sistema deve mostrare nel dettaglio il tipo dell'asset selezionato.], [#link(<uc15.2>)[UC-15.2], #link(<uc20.1>)[UC-20.1]],
+  [RF-Ob39], [Il sistema deve mostrare nel dettaglio la descrizione dell'asset selezionato.], [#link(<uc15.3>)[UC-15.3], #link(<uc20.1>)[UC-20.1]],
+  [RF-Ob40], [Il sistema deve mostrare nel dettaglio il livello di sensibilità dell'asset selezionato.], [#link(<uc15.4>)[UC-15.4], #link(<uc20.1>)[UC-20.1]],
+  [RF-Ob41], [Il sistema deve mostrare lo stato complessivo di valutazione dell'asset selezionato.], [#link(<uc15.5>)[UC-15.5], #link(<uc20.1>)[UC-20.1]],
+  [RF-Ob42], [Il sistema deve mostrare la lista dei requisiti da valutare associati all'asset.], [#link(<uc15.6>)[UC-15.6], #link(<uc20.2>)[UC-20.2]],
+  [RF-Ob43], [Il sistema deve mostrare il codice identificativo e lo stato di valutazione di ogni requisito nella lista.], [#link(<uc15.6.1>)[UC-15.6.1], #link(<uc20.2.1>)[UC-20.2.1]],
+  [RF-Ob44], [Il sistema deve permettere l'eliminazione definitiva di un asset da un dispositivo.], [#link(<uc18>)[UC-18]],
 
   // --- AREA ESECUZIONE VALUTAZIONE (UC-19 a UC-28) ---
-  [RF-Ob40], [Il sistema deve permettere l'esecuzione di una sessione di
+  [RF-Ob45], [Il sistema deve permettere l'esecuzione di una sessione di
   valutazione di conformità per un dispositivo.], [#link(<uc19>)[UC-19]],
-  [RF-Ob41], [Il sistema deve mostrare una dashboard di valutazione con la lista degli asset, il loro stato, e il progresso della sessione in tempo reale.], [#link(<uc19.1>)[UC-19.1]],
-  [RF-Ob42], [Il sistema deve consentire la selezione e l'avvio della valutazione dei requisiti di un singolo asset.], [#link(<uc20>)[UC-20]],
-  [RF-Ob43], [Il sistema deve mostrare il codice e il nome del requisito selezionato prima dell'avvio dell'esecuzione del decision tree.], [#link(<uc21>)[UC-21]],
-  [RF-Ob44], [Il sistema deve mostrare le dipendenze del requisito selezionato e il loro stato di valutazione prima dell'esecuzione.], [#link(<uc21.1>)[UC-21.1]],
-  [RF-Ob45], [Il sistema deve guidare l'utente eseguendo il decision tree associato al requisito selezionato.], [#link(<uc22>)[UC-22]],
-  [RF-Ob46], [Il sistema deve mostrare il codice univoco e il testo della domanda del nodo corrente dell'albero.], [#link(<uc22.1>)[UC-22.1]],
-  [RF-Ob47], [Il sistema deve registrare la risposta dell'utente avanzandone il percorso sul grafo.], [#link(<uc22.3>)[UC-22.3]],
-  [RF-Ob48], [Il sistema deve gestire la risposta affermativa ("Sì") spostando il flusso sul relativo ramo.], [#link(<uc22.3.1>)[UC-22.3.1]],
-  [RF-Ob49], [Il sistema deve gestire la risposta negativa ("No") spostando il flusso sul relativo ramo.], [#link(<uc22.3.2>)[UC-22.3.2]],
-  [RF-Ob50], [Il sistema deve visualizzare a schermo il grafo completo del decision tree durante l'esecuzione.], [#link(<uc22.2>)[UC-22.2]],
-  [RF-Ob51], [Il sistema deve evidenziare graficamente nel grafo il nodo corrente e il percorso già intrapreso.], [#link(<uc22.2>)[UC-22.2]],
-  [RF-Ob52], [Il sistema deve mostrare un nodo foglia al termine del percorso con l'esito (PASS, FAIL, NOT APPLICABLE).], [#link(<uc23>)[UC-23]],
-  [RF-Ob53], [Il sistema deve generare un file JSON contenente lo stato della sessione di valutazione per il download.], [#link(<uc25>)[UC-25]],
-  [RF-Ob54], [Il sistema deve permettere il caricamento di un file di sessione per riprendere un test interrotto.], [#link(<uc26>)[UC-26]],
-  [RF-Ob55], [Il sistema deve mostrare una schermata finale con il riepilogo complessivo di tutti gli esiti del test.], [#link(<uc27>)[UC-27]],
-  [RF-Ob56], [Il sistema deve mostrare per ogni asset la lista dei requisiti completati e il percorso logico seguito.], [#link(<uc27.1.1>)[UC-27.1.1]],
-  [RF-Ob57], [Il sistema deve mostrare la sequenza ordinata di domande e risposte fornite per un requisito completato.], [#link(<uc27.1.1.1>)[UC-27.1.1.1]],
-  [RF-Ob58], [Il sistema deve esportare il report di conformità finale raccogliendo esiti e percorsi logici.], [#link(<uc28>)[UC-28]],
-  [RF-Ob59], [Il sistema deve consentire il download del report di conformità in formato PDF.], [#link(<uc28.1>)[UC-28.1]],
-  [RF-Ob60], [Il sistema deve consentire il download del report di conformità in formato JSON.], [#link(<uc28.2>)[UC-28.2]],
-  [RF-Ob61], [Il sistema deve consentire il download del report di conformità in formato CSV.], [#link(<uc28.3>)[UC-28.3]],
+  [RF-Ob46], [Il sistema deve mostrare una dashboard di valutazione con la lista degli asset, il loro stato, e il progresso della sessione in tempo reale.], [#link(<uc19.1>)[UC-19.1]],
+  [RF-Ob47], [Il sistema deve consentire la selezione e l'avvio della valutazione dei requisiti di un singolo asset.], [#link(<uc20>)[UC-20]],
+  [RF-Ob48], [Il sistema deve mostrare il codice e il nome del requisito selezionato prima dell'avvio dell'esecuzione del decision tree.], [#link(<uc21>)[UC-21]],
+  [RF-Ob49], [Il sistema deve mostrare le dipendenze del requisito selezionato e il loro stato di valutazione prima dell'esecuzione.], [#link(<uc21.1>)[UC-21.1]],
+  [RF-Ob50], [Il sistema deve guidare l'utente eseguendo il decision tree associato al requisito selezionato.], [#link(<uc22>)[UC-22]],
+  [RF-Ob51], [Il sistema deve mostrare il codice univoco e il testo della domanda del nodo corrente dell'albero.], [#link(<uc22.1>)[UC-22.1]],
+  [RF-Ob52], [Il sistema deve registrare la risposta dell'utente avanzandone il percorso sul grafo.], [#link(<uc22.3>)[UC-22.3]],
+  [RF-Ob53], [Il sistema deve gestire la risposta affermativa ("Yes") spostando il flusso sul relativo ramo.], [#link(<uc22.3.1>)[UC-22.3.1]],
+  [RF-Ob54], [Il sistema deve gestire la risposta negativa ("No") spostando il flusso sul relativo ramo.], [#link(<uc22.3.2>)[UC-22.3.2]],
+  [RF-Ob55], [Il sistema deve visualizzare a schermo il grafo completo del decision tree durante l'esecuzione.], [#link(<uc22.2>)[UC-22.2]],
+  [RF-Ob56], [Il sistema deve evidenziare graficamente nel grafo il nodo corrente e il percorso già intrapreso.], [#link(<uc22.2>)[UC-22.2]],
+  [RF-Ob57], [Il sistema deve mostrare un nodo foglia al termine del percorso con l'esito (PASS, FAIL, NOT APPLICABLE).], [#link(<uc23>)[UC-23]],
+  [RF-Ob58], [Il sistema deve generare un file JSON contenente lo stato della sessione di valutazione per il download.], [#link(<uc25>)[UC-25]],
+  [RF-Ob59], [Il sistema deve permettere il caricamento di un file di sessione per riprendere un test interrotto.], [#link(<uc26>)[UC-26]],
+  [RF-Ob60], [Il sistema deve mostrare una schermata finale con il riepilogo complessivo di tutti gli esiti del test.], [#link(<uc27>)[UC-27]],
+  [RF-Ob61], [Il sistema deve mostrare per ogni asset la lista dei requisiti completati e il percorso logico seguito.], [#link(<uc27.1.1>)[UC-27.1.1]],
+  [RF-Ob62], [Il sistema deve mostrare la sequenza ordinata di domande e risposte fornite per un requisito completato.], [#link(<uc27.1.1.1>)[UC-27.1.1.1]],
 
   // --- AREA GESTIONE DECISION TREE (UC-29 a UC-43) ---
-  [RF-Ob62], [Il sistema deve mostrare l'elenco dei decision tree disponibili memorizzati nel backend.], [#link(<uc29>)[UC-29]],
-  [RF-Ob63], [Il sistema deve mostrare l'ID e il nome del requisito per ogni decision tree in elenco.], [#link(<uc29.1>)[UC-29.1]],
-  [RF-Ob64], [Il sistema deve permettere la modifica strutturale di un grafo decision tree esistente.], [#link(<uc30>)[UC-30]],
-  [RF-Ob65], [Il sistema deve permettere all'utente di uscire anticipatamente da una sessione di valutazione in corso.], [#link(<uc24>)[UC-24]],
-  [RF-Ob66], [Il sistema deve mostrare il riepilogo degli esiti per ogni singolo asset al termine del test.], [#link(<uc27.1>)[UC-27.1]],
-  [RF-Ob67], [Il sistema deve permettere il salvataggio della sessione di valutazione in corso, generando un file con lo stato della sessione.], [#link(<uc25>)[UC-25]],
-  [RF-Ob68], [Il sistema deve visualizzare il grafo del decision tree nel dettaglio, mostrando nodi interni, nodi foglia con esito e collegamenti fra nodi.], [#link(<uc30.1>)[UC-30.1]],
+  [RF-Ob63], [Il sistema deve mostrare l'elenco dei decision tree disponibili memorizzati nel backend.], [#link(<uc29>)[UC-29]],
+  [RF-Ob64], [Il sistema deve mostrare l'ID e il nome del requisito per ogni decision tree in elenco.], [#link(<uc29.1>)[UC-29.1]],
+  [RF-Ob65], [Il sistema deve permettere la visualizzazione in dettaglio di un decision tree esistente, mostrandone l'identificativo e il nome del requisito associato.], [#link(<uc30>)[UC-30]],
+  [RF-Ob66], [Il sistema deve permettere all'utente di uscire anticipatamente da una sessione di valutazione in corso.], [#link(<uc24>)[UC-24]],
+  [RF-Ob67], [Il sistema deve mostrare il riepilogo degli esiti per ogni singolo asset al termine del test.], [#link(<uc27.1>)[UC-27.1]],
+  [RF-Ob68], [Il sistema deve permettere il salvataggio della sessione di valutazione in corso, generando un file con lo stato della sessione.], [#link(<uc25>)[UC-25]],
+  [RF-Ob69], [Il sistema deve visualizzare il grafo del decision tree nel dettaglio, mostrando nodi interni, nodi foglia con esito e collegamenti fra nodi.], [#link(<uc30.1>)[UC-30.1]],
+  [RF-Ob70], [Il sistema deve mostrare i nodi interni del grafo del decision tree, con il relativo codice univoco e il testo della domanda.], [#link(<uc30.1.1>)[UC-30.1.1]],
+  [RF-Ob71], [Il sistema deve mostrare i nodi foglia del grafo del decision tree, con l'esito associato (PASS, FAIL, NOT APPLICABLE).], [#link(<uc30.1.2>)[UC-30.1.2]],
+  [RF-Ob72], [Il sistema deve mostrare i collegamenti fra i nodi del grafo del decision tree, con l'etichetta Yes/No associata a ciascun ramo.], [#link(<uc30.1.3>)[UC-30.1.3]],
+  [RF-Ob73], [Il sistema deve mostrare le dipendenze del decision tree, elencando i requisiti da cui esso dipende con il relativo codice.], [#link(<uc30.2>)[UC-30.2]],
+  [RF-Ob74], [Il sistema deve permettere l'esportazione di un file di un decision tree in formato JSON o CSV.], [#link(<uc38>)[UC-38]],
+  [RF-Ob75], [Il sistema deve consentire l'esportazione di un decision tree in formato JSON.], [#link(<uc38.1>)[UC-38.1]],
+  [RF-Ob76], [Il sistema deve consentire l'esportazione di un decision tree in formato CSV.], [#link(<uc38.2>)[UC-38.2]],
+  [RF-Ob77], [Il sistema deve generare un report di conformità finale contenente, per ogni coppia asset-requisito, l'esito del requisito, l'esito aggregato del decision tree e il percorso logico seguito.], [#link(<uc28>)[UC-28], Verbale esterno],
 )
 
 #pagebreak()
@@ -2654,14 +2665,15 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-D02], [Il sistema deve permettere l'annullamento della procedura di modifica di un dispositivo, scartando i dati inseriti e mantenendo invariati quelli preesistenti.], [#link(<uc9>)[UC-9]],
   [RF-D03], [Il sistema deve permettere l'annullamento della procedura di eliminazione di un dispositivo durante la fase di richiesta di conferma.], [#link(<uc11>)[UC-11]],
   [RF-D04], [Il sistema deve permettere l'annullamento della procedura di inserimento di un asset, ripristinando lo stato precedente.], [#link(<uc13>)[UC-13]],
-  [RF-D06], [Il sistema deve permettere l'annullamento della procedura di modifica di un asset, scartando le modifiche non salvate.], [#link(<uc17>)[UC-17]],
-  [RF-D07], [Il sistema deve permettere l'annullamento della procedura di eliminazione di un asset durante la fase di richiesta di conferma.], [#link(<uc18>)[UC-18]],
-  [RF-D08], [Il sistema deve permettere la navigazione al nodo precedente del decision tree, mostrando la risposta già fornita senza invalidare le risposte successive.], [#link(<uc22.4>)[UC-22.4]],
-  [RF-D09], [Il sistema deve permettere il salvataggio intermedio dello stato della sessione di valutazione.], [#link(<uc25>)[UC-25]],
-  [RF-D10], [Il sistema deve permettere all'utente di navigare verso il nodo successivo precedentemente già risposto durante l'esecuzione del decision tree.], [#link(<uc22.5>)[UC-22.5]],
-  [RF-D11], [Il sistema deve permettere la modifica della risposta a un nodo già risposto, invalidando le risposte successive al nodo corrente.], [#link(<uc22.6>)[UC-22.6]],
-  [RF-D12], [Il sistema deve mostrare la giustificazione testuale del risultato raggiunto al termine dell'esecuzione del decision tree.], [#link(<uc23>)[UC-23]],
-  
+  [RF-D05], [Il sistema deve permettere l'annullamento della procedura di modifica di un asset, scartando le modifiche non salvate.], [#link(<uc17>)[UC-17]],
+  [RF-D06], [Il sistema deve permettere l'annullamento della procedura di eliminazione di un asset durante la fase di richiesta di conferma.], [#link(<uc18>)[UC-18]],
+  [RF-D07], [Il sistema deve permettere la navigazione al nodo precedente del decision tree, mostrando la risposta già fornita senza invalidare le risposte successive.], [#link(<uc22.4>)[UC-22.4]],
+  [RF-D08], [Il sistema deve permettere il salvataggio intermedio dello stato della sessione di valutazione.], [#link(<uc25>)[UC-25]],
+  [RF-D09], [Il sistema deve permettere all'utente di navigare verso il nodo successivo precedentemente già risposto durante l'esecuzione del decision tree.], [#link(<uc22.5>)[UC-22.5]],
+  [RF-D10], [Il sistema deve permettere la modifica della risposta a un nodo già risposto, invalidando le risposte successive al nodo corrente.], [#link(<uc22.6>)[UC-22.6]],
+  [RF-D11], [Il sistema deve mostrare la giustificazione testuale del risultato raggiunto al termine dell'esecuzione del decision tree.], [#link(<uc23>)[UC-23]],
+  [RF-D12], [Il sistema deve permettere l'inserimento di una giustificazione testuale per l'esito della coppia asset-requisito al termine dell'esecuzione del decision tree.], [#link(<uc23.1>)[UC-23.1]],
+
   [RF-D13], [Il sistema deve permettere la modifica delle informazioni anagrafiche di un dispositivo esistente.], [#link(<uc8>)[UC-8]],
   [RF-D14], [Il sistema deve consentire la modifica del nome del dispositivo.], [#link(<uc8.1>)[UC-8.1]],
   [RF-D15], [Il sistema deve consentire la modifica del sistema operativo del dispositivo.], [#link(<uc8.2>)[UC-8.2]],
@@ -2671,6 +2683,11 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-D19], [Il sistema deve consentire la modifica del tipo dell'asset tramite opzioni predefinite.], [#link(<uc16.2>)[UC-16.2]],
   [RF-D20], [Il sistema deve consentire la modifica della descrizione dell'asset.], [#link(<uc16.3>)[UC-16.3]],
   [RF-D21], [Il sistema deve consentire la modifica della sensibilità dell'asset.], [#link(<uc16.4>)[UC-16.4]],
+  [RF-D22], [Il sistema deve permettere l'importazione e la validazione strutturale di un nuovo decision tree da file.], [#link(<uc42>)[UC-42]],
+  [RF-D23], [Il sistema deve permettere la selezione del file sorgente per l'importazione di un decision tree.], [#link(<uc42.1>)[UC-42.1]],
+  [RF-D24], [Il sistema deve supportare l'importazione di un decision tree da file in formato JSON.], [#link(<uc42.1.1>)[UC-42.1.1]],
+  [RF-D25], [Il sistema deve supportare l'importazione di un decision tree da file in formato CSV.], [#link(<uc42.1.2>)[UC-42.1.2]],
+)
 )
 
 #pagebreak()
@@ -2697,20 +2714,16 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-Op09], [Il sistema deve impedire la creazione di collegamenti duplicati mostrando una notifica di errore.], [#link(<uc35>)[UC-35]],
   [RF-Op10], [Il sistema deve validare la struttura dell'albero modificato secondo i vincoli di consistenza predefiniti.], [#link(<uc36>)[UC-36]],
   [RF-Op11], [Il sistema deve impedire il salvataggio e mostrare un errore se l'albero non è binario o mancano foglie PASS/FAIL.], [#link(<uc36>)[UC-36]],
-  [RF-Op12], [Il sistema deve permettere l'esportazione di un file di un decision tree in formato JSON o CSV.], [#link(<uc38>)[UC-38]],
-  [RF-Op13], [Il sistema deve impedire l'eliminazione del nodo radice di un decision tree mostrando un errore.], [#link(<uc39>)[UC-39]],
-  [RF-Op14], [Il sistema deve permettere l'importazione e la validazione strutturale di un nuovo decision tree da file.], [#link(<uc42>)[UC-42]],
-  [RF-Op15], [Il sistema deve consentire l'eliminazione definitiva di un decision tree dal backend.], [#link(<uc43>)[UC-43]],
-  [RF-Op16], [Il sistema deve bloccare l'inserimento e mostrare un messaggio di errore se il codice del nodo è già presente nel decision tree.], [#link(<uc32.1.1>)[UC-32.1.1]],
-  [RF-Op17], [Il sistema deve consentire l'esportazione di un decision tree in formato JSON.], [#link(<uc38.1>)[UC-38.1]],
-  [RF-Op18], [Il sistema deve consentire l'esportazione di un decision tree in formato CSV.], [#link(<uc38.2>)[UC-38.2]],
-  [RF-Op19], [Il sistema deve permettere la selezione del file sorgente per l'importazione di un decision tree.], [#link(<uc42.1>)[UC-42.1]],
-  [RF-Op20], [Il sistema deve supportare l'importazione di un decision tree da file in formato JSON.], [#link(<uc42.1.1>)[UC-42.1.1]],
-  [RF-Op21], [Il sistema deve supportare l'importazione di un decision tree da file in formato CSV.], [#link(<uc42.1.2>)[UC-42.1.2]],
-  [RF-Op22], [Il sistema deve permettere all'utente di assegnare un esito (PASS, FAIL o NOT APPLICABLE) ai rami non collegati di un nodo appena aggiunto o modificato nel decision tree, trasformandoli in nodi foglia.], [#link(<uc32.3>)[UC-32.3]],
-  [RF-Op23], [Il sistema deve permettere l'annullamento delle modifiche effettuate su un decision tree, ripristinando lo stato iniziale del grafo.], [#link(<uc37>)[UC-37]],
-  [RF-Op24], [Il sistema deve permettere la modifica della destinazione di un collegamento tra nodi (Sì/No).], [#link(<uc34>)[UC-34]],
-  [RF-Op25], [Il sistema deve permettere la modifica strutturale di un decision tree esistente.], [#link(<uc31>)[UC-31]],
+  [RF-Op12], [Il sistema deve impedire l'eliminazione del nodo radice di un decision tree mostrando un errore.], [#link(<uc39>)[UC-39]],
+  [RF-Op13], [Il sistema deve consentire l'eliminazione definitiva di un decision tree dal backend.], [#link(<uc43>)[UC-43]],
+  [RF-Op14], [Il sistema deve bloccare l'inserimento e mostrare un messaggio di errore se il codice del nodo è già presente nel decision tree.], [#link(<uc32.1.1>)[UC-32.1.1]],
+  [RF-Op15], [Il sistema deve permettere all'utente di assegnare un esito (PASS, FAIL o NOT APPLICABLE) ai rami non collegati di un nodo appena aggiunto o modificato nel decision tree, trasformandoli in nodi foglia.], [#link(<uc32.3>)[UC-32.3]],
+  [RF-Op16], [Il sistema deve permettere l'annullamento delle modifiche effettuate su un decision tree, ripristinando lo stato iniziale del grafo.], [#link(<uc37>)[UC-37]],
+  [RF-Op17], [Il sistema deve permettere la modifica della destinazione di un collegamento tra nodi (Yes/No).], [#link(<uc34>)[UC-34]],
+  [RF-Op18], [Il sistema deve permettere la modifica strutturale di un decision tree esistente.], [#link(<uc31>)[UC-31]],
+  [RF-Op19], [Il sistema deve consentire il download del report di conformità in formato PDF.], [#link(<uc28.1>)[UC-28.1]],
+  [RF-Op20], [Il sistema deve consentire il download del report di conformità in formato JSON.], [#link(<uc28.2>)[UC-28.2]],
+  [RF-Op21], [Il sistema deve consentire il download del report di conformità in formato CSV.], [#link(<uc28.3>)[UC-28.3]],
 )
 
 == Requisiti di Qualità
@@ -2730,8 +2743,8 @@ I requisiti di qualità definiscono i criteri di validazione, gli standard metri
   [RQ-Ob02], [Il sistema e i deliverable di progetto devono essere conformi alle metriche, agli indici e agli obiettivi di verifica stabiliti all'interno del Piano di Qualifica.], [Piano di Qualifica],
   [RQ-Ob03], [Il prodotto software deve essere corredato da una suite di test automatizzati (di Unità, Integrazione, Sistema e Regressione) per verificarne il corretto funzionamento complessivo.], [Capitolato C1, Piano di Qualifica],
   [RQ-Ob04], [Il prodotto software deve superare i Test di Accettazione finali in sede di revisione per dimostrare la piena conformità alle richieste della proponente.], [Capitolato C1],
-  [RQ-Ob05], [Al sistema software deve essere allegato un Manuale Utente esaustivo che descriva in modo chiaro tutte le funzionalità dell'applicazione per un utente non tecnico.], [Capitolato C1],
-  [RQ-Ob06], [Tutta la documentazione di progetto e il codice sorgente del prodotto applicativo devono essere interamente documentati, versionati e ospitati sulla repository ufficiale GitHub del gruppo.], [Capitolato C1],
+  [RQ-Ob05], [Il sistema software deve essere accompagnato da un Manuale Utente che descriva in modo chiaro le funzionalità dell'applicazione.], [Capitolato C1],
+  [RQ-Ob06], [Il codice sorgente del prodotto deve essere documentato tramite un Manuale Tecnico, e deve essere prodotta una documentazione di progetto comprendente requisiti, architettura, scelte tecnologiche e metodologia di sviluppo.], [Capitolato C1],
   [RQ-Ob07], [La gestione del ciclo di vita del progetto e l'organizzazione delle attività del team devono adottare un approccio Agile, garantendo iterazioni regolari e flessibilità.], [Norme di Progetto],
 )
 
@@ -2777,101 +2790,94 @@ In questa sezione viene fornito un quadro di tracciamento bidirezionale per asso
 
   [RF-Ob01], [#link(<uc1>)[UC-1]],
   [RF-Ob02], [#link(<uc2>)[UC-2]],
-  [RF-Ob03], [#link(<uc2>)[UC-2]],
-  [RF-Ob04], [#link(<uc3>)[UC-3]],
-  [RF-Ob05], [#link(<uc4>)[UC-4]],
-  [RF-Ob06], [#link(<uc4.1>)[UC-4.1]],
-  [RF-Ob07], [#link(<uc4.1.1>)[UC-4.1.1]],
-  [RF-Ob08], [#link(<uc4.1.2>)[UC-4.1.2]],
-  [RF-Ob09], [#link(<uc4.1.3>)[UC-4.1.3]],
-  [RF-Ob10], [#link(<uc5>)[UC-5]],
-  [RF-Ob11], [#link(<uc7>)[UC-7]],
-  [RF-Ob12], [#link(<uc7.1>)[UC-7.1]],
-  [RF-Ob13], [#link(<uc7.2>)[UC-7.2]],
-  [RF-Ob14], [#link(<uc7.3>)[UC-7.3]],
-  [RF-Ob15], [#link(<uc7.4>)[UC-7.4]],
-  [RF-Ob16], [#link(<uc10>)[UC-10]],
-  [RF-Ob17], [#link(<uc11>)[UC-11]],
-  [RF-Ob18], [#link(<uc11.1>)[UC-11.1]],
-  [RF-Ob19], [#link(<uc11.2>)[UC-11.2]],
-  [RF-Ob20], [#link(<uc12>)[UC-12]],
-  [RF-Ob21], [#link(<uc12.1>)[UC-12.1]],
-  [RF-Ob22], [#link(<uc12.1.1>)[UC-12.1.1]],
-  [RF-Ob23], [#link(<uc12.1.2>)[UC-12.1.2]],
-  [RF-Ob24], [#link(<uc12.1.3>)[UC-12.1.3]],
-  [RF-Ob25], [#link(<uc12.1.4>)[UC-12.1.4]],
-  [RF-Ob26], [#link(<uc14>)[UC-14]],
-  [RF-Ob27], [#link(<uc14.1>)[UC-14.1]],
-  [RF-Ob28], [#link(<uc14.1.1>)[UC-14.1.1]],
-  [RF-Ob29], [#link(<uc14.1.2>)[UC-14.1.2]],
-  [RF-Ob30], [#link(<uc14.1.3>)[UC-14.1.3]],
-  [RF-Ob31], [#link(<uc15>)[UC-15]],
-  [RF-Ob32], [#link(<uc15.1>)[UC-15.1]],
-  [RF-Ob33], [#link(<uc15.2>)[UC-15.2]],
-  [RF-Ob34], [#link(<uc15.3>)[UC-15.3]],
-  [RF-Ob35], [#link(<uc15.4>)[UC-15.4]],
-  [RF-Ob36], [#link(<uc15.5>)[UC-15.5]],
-  [RF-Ob37], [#link(<uc15.6>)[UC-15.6]],
-  [RF-Ob38], [#link(<uc15.6.1>)[UC-15.6.1]],
-  [RF-Ob39], [#link(<uc18>)[UC-18]],
-  [RF-Ob40], [#link(<uc19>)[UC-19]],
-  [RF-Ob41], [#link(<uc19.1>)[UC-19.1]],
-  [RF-Ob42], [#link(<uc20>)[UC-20]],
-  [RF-Ob43], [#link(<uc21>)[UC-21]],
-  [RF-Ob44], [#link(<uc21.1>)[UC-21.1]],
-  [RF-Ob45], [#link(<uc22>)[UC-22]],
-  [RF-Ob46], [#link(<uc22.1>)[UC-22.1]],
-  [RF-Ob47], [#link(<uc22.3>)[UC-22.3]],
-  [RF-Ob48], [#link(<uc22.3.1>)[UC-22.3.1]],
-  [RF-Ob49], [#link(<uc22.3.2>)[UC-22.3.2]],
-  [RF-Ob50], [#link(<uc22.2>)[UC-22.2]],
-  [RF-Ob51], [#link(<uc22.2>)[UC-22.2]],
-  [RF-Ob52], [#link(<uc23>)[UC-23]],
-  [RF-D12], [#link(<uc23>)[UC-23]],
-  [RF-Ob53], [#link(<uc25>)[UC-25]],
-  [RF-Ob54], [#link(<uc26>)[UC-26]],
-  [RF-Ob55], [#link(<uc27>)[UC-27]],
-  [RF-Ob56], [#link(<uc27.1.1>)[UC-27.1.1]],
-  [RF-Ob57], [#link(<uc27.1.1.1>)[UC-27.1.1.1]],
-  [RF-Ob58], [#link(<uc28>)[UC-28]],
-  [RF-Ob59], [#link(<uc28.1>)[UC-28.1]],
-  [RF-Ob60], [#link(<uc28.2>)[UC-28.2]],
-  [RF-Ob61], [#link(<uc28.3>)[UC-28.3]],
-  [RF-Ob62], [#link(<uc29>)[UC-29]],
-  [RF-Ob63], [#link(<uc29.1>)[UC-29.1]],
-  [RF-Ob64], [#link(<uc30>)[UC-30]],
-  [RF-Op05], [#link(<uc32>)[UC-32]],
-  [RF-Op06], [#link(<uc32.1>)[UC-32.1]],
-  [RF-Op07], [#link(<uc32.2>)[UC-32.2]],
-  [RF-Op08], [#link(<uc33>)[UC-33]],
-  [RF-Op09], [#link(<uc35>)[UC-35]],
-  [RF-Op10], [#link(<uc36>)[UC-36]],
-  [RF-Op11], [#link(<uc36>)[UC-36]],
-  [RF-Op12], [#link(<uc38>)[UC-38]],
-  [RF-Op13], [#link(<uc39>)[UC-39]],
-  [RF-Op14], [#link(<uc42>)[UC-42]],
-  [RF-Op15], [#link(<uc43>)[UC-43]],
-  [RF-Ob65], [#link(<uc24>)[UC-24]],
-  [RF-Ob66], [#link(<uc27.1>)[UC-27.1]],
-  [RF-Op16], [#link(<uc32.1.1>)[UC-32.1.1]],
-  [RF-Op17], [#link(<uc38.1>)[UC-38.1]],
-  [RF-Op18], [#link(<uc38.2>)[UC-38.2]],
-  [RF-Op19], [#link(<uc42.1>)[UC-42.1]],
-  [RF-Op20], [#link(<uc42.1.1>)[UC-42.1.1]],
-  [RF-Op21], [#link(<uc42.1.2>)[UC-42.1.2]],
+  [RF-Ob03], [#link(<uc2.1>)[UC-2.1]],
+  [RF-Ob04], [#link(<uc2.1.1>)[UC-2.1.1]],
+  [RF-Ob05], [#link(<uc2.1.2>)[UC-2.1.2]],
+  [RF-Ob06], [#link(<uc2>)[UC-2]],
+  [RF-Ob07], [#link(<uc3>)[UC-3]],
+  [RF-Ob08], [#link(<uc4>)[UC-4]],
+  [RF-Ob09], [#link(<uc4.1>)[UC-4.1]],
+  [RF-Ob10], [#link(<uc4.1.1>)[UC-4.1.1]],
+  [RF-Ob11], [#link(<uc4.1.2>)[UC-4.1.2]],
+  [RF-Ob12], [#link(<uc4.1.3>)[UC-4.1.3]],
+  [RF-Ob13], [#link(<uc5>)[UC-5]],
+  [RF-Ob14], [#link(<uc7>)[UC-7]],
+  [RF-Ob15], [#link(<uc7.1>)[UC-7.1]],
+  [RF-Ob16], [#link(<uc7.2>)[UC-7.2]],
+  [RF-Ob17], [#link(<uc7.3>)[UC-7.3]],
+  [RF-Ob18], [#link(<uc7.4>)[UC-7.4]],
+  [RF-Ob19], [#link(<uc10>)[UC-10]],
+  [RF-Ob20], [#link(<uc10.1>)[UC-10.1]],
+  [RF-Ob21], [#link(<uc10.2>)[UC-10.2]],
+  [RF-Ob22], [#link(<uc11>)[UC-11]],
+  [RF-Ob23], [#link(<uc11.1>)[UC-11.1]],
+  [RF-Ob24], [#link(<uc11.2>)[UC-11.2]],
+  [RF-Ob25], [#link(<uc12>)[UC-12]],
+  [RF-Ob26], [#link(<uc12.1>)[UC-12.1]],
+  [RF-Ob27], [#link(<uc12.1.1>)[UC-12.1.1]],
+  [RF-Ob28], [#link(<uc12.1.2>)[UC-12.1.2]],
+  [RF-Ob29], [#link(<uc12.1.3>)[UC-12.1.3]],
+  [RF-Ob30], [#link(<uc12.1.4>)[UC-12.1.4]],
+  [RF-Ob31], [#link(<uc14>)[UC-14]],
+  [RF-Ob32], [#link(<uc14.1>)[UC-14.1]],
+  [RF-Ob33], [#link(<uc14.1.1>)[UC-14.1.1]],
+  [RF-Ob34], [#link(<uc14.1.2>)[UC-14.1.2]],
+  [RF-Ob35], [#link(<uc14.1.3>)[UC-14.1.3]],
+  [RF-Ob36], [#link(<uc15>)[UC-15]],
+  [RF-Ob37], [#link(<uc15.1>)[UC-15.1], #link(<uc20.1>)[UC-20.1]],
+  [RF-Ob38], [#link(<uc15.2>)[UC-15.2], #link(<uc20.1>)[UC-20.1]],
+  [RF-Ob39], [#link(<uc15.3>)[UC-15.3], #link(<uc20.1>)[UC-20.1]],
+  [RF-Ob40], [#link(<uc15.4>)[UC-15.4], #link(<uc20.1>)[UC-20.1]],
+  [RF-Ob41], [#link(<uc15.5>)[UC-15.5], #link(<uc20.1>)[UC-20.1]],
+  [RF-Ob42], [#link(<uc15.6>)[UC-15.6], #link(<uc20.2>)[UC-20.2]],
+  [RF-Ob43], [#link(<uc15.6.1>)[UC-15.6.1], #link(<uc20.2.1>)[UC-20.2.1]],
+  [RF-Ob44], [#link(<uc18>)[UC-18]],
+  [RF-Ob45], [#link(<uc19>)[UC-19]],
+  [RF-Ob46], [#link(<uc19.1>)[UC-19.1]],
+  [RF-Ob47], [#link(<uc20>)[UC-20]],
+  [RF-Ob48], [#link(<uc21>)[UC-21]],
+  [RF-Ob49], [#link(<uc21.1>)[UC-21.1]],
+  [RF-Ob50], [#link(<uc22>)[UC-22]],
+  [RF-Ob51], [#link(<uc22.1>)[UC-22.1]],
+  [RF-Ob52], [#link(<uc22.3>)[UC-22.3]],
+  [RF-Ob53], [#link(<uc22.3.1>)[UC-22.3.1]],
+  [RF-Ob54], [#link(<uc22.3.2>)[UC-22.3.2]],
+  [RF-Ob55], [#link(<uc22.2>)[UC-22.2]],
+  [RF-Ob56], [#link(<uc22.2>)[UC-22.2]],
+  [RF-Ob57], [#link(<uc23>)[UC-23]],
+  [RF-Ob58], [#link(<uc25>)[UC-25]],
+  [RF-Ob59], [#link(<uc26>)[UC-26]],
+  [RF-Ob60], [#link(<uc27>)[UC-27]],
+  [RF-Ob61], [#link(<uc27.1.1>)[UC-27.1.1]],
+  [RF-Ob62], [#link(<uc27.1.1.1>)[UC-27.1.1.1]],
+  [RF-Ob63], [#link(<uc29>)[UC-29]],
+  [RF-Ob64], [#link(<uc29.1>)[UC-29.1]],
+  [RF-Ob65], [#link(<uc30>)[UC-30]],
+  [RF-Ob66], [#link(<uc24>)[UC-24]],
+  [RF-Ob67], [#link(<uc27.1>)[UC-27.1]],
+  [RF-Ob68], [#link(<uc25>)[UC-25]],
+  [RF-Ob69], [#link(<uc30.1>)[UC-30.1]],
+  [RF-Ob70], [#link(<uc30.1.1>)[UC-30.1.1]],
+  [RF-Ob71], [#link(<uc30.1.2>)[UC-30.1.2]],
+  [RF-Ob72], [#link(<uc30.1.3>)[UC-30.1.3]],
+  [RF-Ob73], [#link(<uc30.2>)[UC-30.2]],
+  [RF-Ob74], [#link(<uc38>)[UC-38]],
+  [RF-Ob75], [#link(<uc38.1>)[UC-38.1]],
+  [RF-Ob76], [#link(<uc38.2>)[UC-38.2]],
+  [RF-Ob77], [#link(<uc28>)[UC-28]],
 
   [RF-D01], [#link(<uc6>)[UC-6]],
   [RF-D02], [#link(<uc9>)[UC-9]],
   [RF-D03], [#link(<uc11>)[UC-11]],
   [RF-D04], [#link(<uc13>)[UC-13]],
-  [RF-D05], [#link(<uc14>)[UC-14]],
-  [RF-D06], [#link(<uc17>)[UC-17]],
-  [RF-D07], [#link(<uc18>)[UC-18]],
-  [RF-D08], [#link(<uc22.4>)[UC-22.4]],
-  [RF-D09], [#link(<uc25>)[UC-25]],
-  [RF-D10], [#link(<uc22.5>)[UC-22.5]],
-  [RF-D11], [#link(<uc22.6>)[UC-22.6]],
-  [RF-Op23], [#link(<uc37>)[UC-37]],
+  [RF-D05], [#link(<uc17>)[UC-17]],
+  [RF-D06], [#link(<uc18>)[UC-18]],
+  [RF-D07], [#link(<uc22.4>)[UC-22.4]],
+  [RF-D08], [#link(<uc25>)[UC-25]],
+  [RF-D09], [#link(<uc22.5>)[UC-22.5]],
+  [RF-D10], [#link(<uc22.6>)[UC-22.6]],
+  [RF-D11], [#link(<uc23>)[UC-23]],
+  [RF-D12], [#link(<uc23.1>)[UC-23.1]],
   [RF-D13], [#link(<uc8>)[UC-8]],
   [RF-D14], [#link(<uc8.1>)[UC-8.1]],
   [RF-D15], [#link(<uc8.2>)[UC-8.2]],
@@ -2881,16 +2887,32 @@ In questa sezione viene fornito un quadro di tracciamento bidirezionale per asso
   [RF-D19], [#link(<uc16.2>)[UC-16.2]],
   [RF-D20], [#link(<uc16.3>)[UC-16.3]],
   [RF-D21], [#link(<uc16.4>)[UC-16.4]],
-  [RF-Op24], [#link(<uc34>)[UC-34]],
-  [RF-Ob67], [#link(<uc25>)[UC-25]],
-  [RF-Op22], [#link(<uc32.3>)[UC-32.3]],
-  [RF-Ob68], [#link(<uc30.1>)[UC-30.1]],
+  [RF-D22], [#link(<uc42>)[UC-42]],
+  [RF-D23], [#link(<uc42.1>)[UC-42.1]],
+  [RF-D24], [#link(<uc42.1.1>)[UC-42.1.1]],
+  [RF-D25], [#link(<uc42.1.2>)[UC-42.1.2]],
 
   [RF-Op01], [#link(<uc25>)[UC-25]],
   [RF-Op02], [#link(<uc40>)[UC-40]],
   [RF-Op03], [#link(<uc41>)[UC-41]],
   [RF-Op04], [#link(<uc40.1>)[UC-40.1]],
-  [RF-Op25], [#link(<uc31>)[UC-31]],
+  [RF-Op05], [#link(<uc32>)[UC-32]],
+  [RF-Op06], [#link(<uc32.1>)[UC-32.1]],
+  [RF-Op07], [#link(<uc32.2>)[UC-32.2]],
+  [RF-Op08], [#link(<uc33>)[UC-33]],
+  [RF-Op09], [#link(<uc35>)[UC-35]],
+  [RF-Op10], [#link(<uc36>)[UC-36]],
+  [RF-Op11], [#link(<uc36>)[UC-36]],
+  [RF-Op12], [#link(<uc39>)[UC-39]],
+  [RF-Op13], [#link(<uc43>)[UC-43]],
+  [RF-Op14], [#link(<uc32.1.1>)[UC-32.1.1]],
+  [RF-Op15], [#link(<uc32.3>)[UC-32.3]],
+  [RF-Op16], [#link(<uc37>)[UC-37]],
+  [RF-Op17], [#link(<uc34>)[UC-34]],
+  [RF-Op18], [#link(<uc31>)[UC-31]],
+  [RF-Op19], [#link(<uc28.1>)[UC-28.1]],
+  [RF-Op20], [#link(<uc28.2>)[UC-28.2]],
+  [RF-Op21], [#link(<uc28.3>)[UC-28.3]],
 )
 
 #pagebreak()
@@ -2909,11 +2931,11 @@ La seguente tabella riassume quantitativamente i requisiti individuati all'inter
       [*Tipologia*], [*Obbligatori*], [*Desiderabili*], [*Opzionali*], [*Totali*],
     ),
 
-    [Funzionali (RF)], [68], [20], [25], [114],
+    [Funzionali (RF)], [77], [25], [21], [123],
     [Qualità (RQ)], [7], [0], [0], [7],
     [Vincolo (RV)], [6], [0], [0], [6],
 
-    [*Totali*], [*81*], [*20*], [*25*], [*127*],
+    [*Totali*], [*90*], [*25*], [*21*], [*136*],
   )
 ]
 
