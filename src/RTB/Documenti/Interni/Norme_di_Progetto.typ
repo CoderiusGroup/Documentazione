@@ -53,19 +53,15 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.10.0], [2026/05/28], [Alberto Canavese], [], [Aggiunta della seguente sezione: 5.3.2.2],
-    [0.9.0], [2026/05/15], [Edis Hodja], [], [Aggiunta delle seguenti sezioni: 5.1, 5.2, 5.3],
+    [0.10.1], [2026/06/13], [Giovanni Bronte], [], [Modifiche alle tabelle delle metriche],
+    [0.10.0], [2026/05/28], [Alberto Canavese], [Giovanni Bronte], [Aggiunta della seguente sezione: 5.3.2.2],
+    [0.9.0], [2026/05/15], [Edis Hodja], [Giovanni Bronte], [Aggiunta delle seguenti sezioni: 5.1, 5.2, 5.3],
     [0.8.2], [2026/05/15], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiornamento contenuti e correzioni refusi],
     [0.8.1], [2026/05/13], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Aggiornamento contenuti e correzioni refusi],
     [0.8.0], [2026/05/13], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta delle seguenti sezioni: 4.3, 4.4, 4.5],
     [0.7.0], [2026/05/11], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta delle seguenti sezioni: 4.1, 4.2],
     [0.6.0], [2026/05/08], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta della sezione 3.5],
-    [0.5.0],
-    [2026/05/05],
-    [Edis Hodja],
-    [Filippo Zonta Rocha],
-    [Aggiornamento delle seguenti sezioni: 2.2.2, 2.2.3, 2.2.4, 2.3.2, 2.3.5, 3.2.3, 3.3],
-
+    [0.5.0], [2026/05/05], [Edis Hodja], [Filippo Zonta Rocha], [Aggiornamento delle seguenti sezioni: 2.2.2, 2.2.3, 2.2.4, 2.3.2, 2.3.5, 3.2.3, 3.3],
     [0.4.0], [2026/05/04], [Giovanni Bronte], [Alberto Canavese], [Aggiunta della sezione 3.4],
     [0.3.0], [2026/04/30], [Giovanni Bronte], [Alberto Canavese], [Aggiunta della sezione 3.2],
     [0.2.0], [2026/04/27], [Lorenzin Leonardo], [Alberto Canavese], [Aggiunta delle sezioni 3.1 e 3.3],
@@ -691,11 +687,11 @@ Lo strumento principale di questa tecnica è il _test_, che per essere efficace 
 
 Queste proprietà sono essenziali per supportare i test di regressione: se un errore precedentemente risolto dovesse ripresentarsi, l'automazione permette di individuarlo tempestivamente e determinare quale modifica lo abbia reintrodotto.
 
-Ogni test viene definito dai seguenti elementi: stato iniziale, serie di input e output attesi. I test previsti dal gruppo sono suddivisi nelle seguenti quattro categorie:
+/*Ogni test viene definito dai seguenti elementi: stato iniziale, serie di input e output attesi. I test previsti dal gruppo sono suddivisi nelle seguenti quattro categorie:
 - *Test di Unità*
 - *Test di Integrazione*
 - *Test di Sistema*
-- *Test di Regressione*
+- *Test di Regressione**/
 
 == Validazione
 #v(0.5em)
@@ -1030,10 +1026,10 @@ Per ogni metrica, il gruppo deve definire:
       [*Metrica*], [*#id - #nome*],
       [*Descrizione*], [#desc],
       [*Formula*], [#align(center)[#formula]],
-      [*Parametri*], [
+      /*[*Parametri*], [
         - *Valore Accettabile*: #acc
         - *Valore Ottimo*: #ott
-      ],
+      ],*/
     )
     #v(0.5em)
   ])
@@ -1041,7 +1037,7 @@ Per ogni metrica, il gruppo deve definire:
 
 === Processi Primari
 I processi primari comprendono tutte le attività legate direttamente al ciclo di vita del prodotto software. Per valutarne l'andamento, l'efficienza e la conformità agli obiettivi prefissati, vengono utilizzate metriche quantitative in grado di monitorare l'avanzamento dei lavori, l'allocazione delle risorse e la qualità di ciò che viene prodotto.\ L'analisi di questi indicatori consente di individuare eventuali scostamenti e applicare correzioni mirate per garantire il rispetto dei vincoli di progetto.
-
+/*
 ==== Fornitura
 #figure(
   table(
@@ -1063,13 +1059,12 @@ I processi primari comprendono tutte le attività legate direttamente al ciclo d
     [MPC-04], [Schedule Perf. Index (SPI)], [$ >= 0.9$], [$ >= 1.0$],
     [MPC-05], [Cost Perf. Index (CPI)], [$ >= 0.9$], [$ >= 1.0$],
     [MPC-06], [Estimate at Completion (EAC)], [$ <= 1.1 * "BAC"$], [$ <= "BAC"$],
-    [MPC-07], [To Complete Perf. Index (TCPI)], [$tilde 1.0$], [$ <= 1.0$],
-    [MPC-08], [Estimate to Complete (ETC)], [$ <= ("BAC" - "AC") * 1.1$], [$ <= "BAC" - "AC"$],
+    [MPC-07], [Estimate to Complete (ETC)], [$ <= ("BAC" - "AC") * 1.1$], [$ <= "BAC" - "AC"$],
   ),
   caption: [Metriche per il processo di Fornitura],
   supplement: [Tabella],
   numbering: "1",
-)
+)*/
 #metrica(
   "MPC-01", "Planned Value (PV)", 
   $ "PV" = "BAC" * % "lavoro pianificato" $, 
@@ -1119,20 +1114,13 @@ I processi primari comprendono tutte le attività legate direttamente al ciclo d
 )
 
 #metrica(
-  "MPC-07", "To Complete Performance Index (TCPI)", 
-  $ "TCPI" = ("BAC" - "EV") / ("BAC" - "AC") $, 
-  "Efficienza necessaria per completare il progetto nel budget stabilito.", 
-  $tilde 1.0$, 
-  $<= 1.0$
-)
-
-#metrica(
-  "MPC-08", "Estimate to Complete (ETC)", 
+  "MPC-07", "Estimate to Complete (ETC)", 
   $ "ETC" = "EAC" - "AC" $, 
   "Costo stimato necessario per completare il lavoro rimanente.", 
   $<= ("BAC" - "AC") * 1.1$, 
   $<= "BAC" - "AC"$
 )
+/*
 ==== Sviluppo
 #figure(
   table(
@@ -1148,15 +1136,15 @@ I processi primari comprendono tutte le attività legate direttamente al ciclo d
     fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
     [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
     
-    [MPC-09], [Requirements Stability Index (RSI)], [$ >= 0.7$], [1.0],
+    [MPC-08], [Requirements Stability Index (RSI)], [$ >= 0.7$], [1.0],
   ),
   caption: [Metriche per il processo di Sviluppo],
   supplement: [Tabella],
   numbering: "1",
-)
+)*/
 
 #metrica(
-  "MPC-09", 
+  "MPC-08", 
   "Requirements Stability Index (RSI)", 
   [
     #$ "RSI" = ("NRI" - ("NC" + "NRC" + "NRA")) / "NRI" $
@@ -1178,7 +1166,7 @@ I processi primari comprendono tutte le attività legate direttamente al ciclo d
 === Processi di Supporto
 I processi di supporto raccolgono tutte le attività che servono a tenere sotto controllo il ciclo di sviluppo, garantendone tracciabilità e affidabilità nel tempo.
 Il loro scopo principale è seguire l'andamento dei lavori così da individuare tempestivamente eventuali scostamenti rispetto a quanto pianificato, e poterli correggere prima che diventino critici.
-
+/*
 ==== Documentazione
 #figure(
   table(
@@ -1194,16 +1182,16 @@ Il loro scopo principale è seguire l'andamento dei lavori così da individuare 
     fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
     [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
     
-    [MPC-10], [Indice di Gulpease], [$ >= 60 $], [$ >= 70 $],
-    [MPC-11], [Correttezza Ortografica], [$ <= 1 $], [0],
+    [MPC-09], [Indice di Gulpease], [$ >= 60 $], [$ >= 75 $],
+    [MPC-10], [Correttezza Ortografica], [$ <= 1 $], [0],
   ),
   caption: [Metriche per il processo di Documentazione],
   supplement: [Tabella],
   numbering: "1",
-)
+)*/
 
 #metrica(
-  "MPC-10", "Indice di Gulpease", 
+  "MPC-09", "Indice di Gulpease", 
   [
     #$ "IG" = 89 + (300 * "NF" - 10 * "NL") / "NP" $
     #v(0.8em)
@@ -1217,11 +1205,11 @@ Il loro scopo principale è seguire l'andamento dei lavori così da individuare 
   ], 
   "Valuta la leggibilità di un testo in lingua italiana. Un indice basso indica un testo troppo complesso per il target di riferimento.", 
   $>= 60$, 
-  $>= 70$
+  $>= 75$
 )
 
 #metrica(
-  "MPC-11", "Correttezza Ortografica", 
+  "MPC-10", "Correttezza Ortografica", 
   [
     #$ "CO" = 1000 * ("NE" / "NP") $
     #v(0.8em)
@@ -1236,7 +1224,7 @@ Il loro scopo principale è seguire l'andamento dei lavori così da individuare 
   $<= 1$, 
   $0$
 )
-
+/*
 ==== Verifica
 Le attività di verifica accertano che il software sia costruito correttamente e che soddisfi i requisiti tecnici tramite test automatizzati.
 
@@ -1254,15 +1242,17 @@ Le attività di verifica accertano che il software sia costruito correttamente e
     fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
     [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
     
-    [MPC-12], [Test Success Rate], [$ >= 90% $], [$ 100% $],
+    [MPC-11], [Test Success Rate], [$ >= 95% $], [$ 100% $],
+    [MPC-12], [Code Coverage], [$ >= 70% $], [$ >=90% $],
+    
   ),
   caption: [Metriche per il processo di Verifica],
   supplement: [Tabella],
   numbering: "1",
-)
+)*/
 
 #metrica(
-  "MPC-12", "Test Success Rate", 
+  "MPC-11", "Test Success Rate", 
   [
     #$ "TSR" = ("NTS" / "NTT") * 100 $
     #v(0.8em)
@@ -1274,12 +1264,12 @@ Le attività di verifica accertano che il software sia costruito correttamente e
     ]
   ], 
   "Indica la percentuale di test automatizzati che hanno prodotto un esito positivo rispetto al totale dei test previsti.", 
-  $>= 90%$, 
+  $>= 95%$, 
   $100%$
 )
 
 #metrica(
-  "MPC-13", "Code Coverage", 
+  "MPC-12", "Code Coverage", 
   [
     #$ "CC" = ("NLT" / "NLTOT") * 100 $
     #v(0.8em)
@@ -1294,7 +1284,7 @@ Le attività di verifica accertano che il software sia costruito correttamente e
   $>= 70%$, 
   $>= 90%$
 )
-
+/*
 ==== Qualità
 Monitora l'aderenza complessiva del progetto a tutte le metriche di qualità prefissate.
 
@@ -1312,15 +1302,15 @@ Monitora l'aderenza complessiva del progetto a tutte le metriche di qualità pre
     fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
     [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
     
-    [MPC-14], [Quality Metrics Satisfied], [$ 100% $], [$ 100% $],
+    [MPC-13], [Quality Metrics Satisfied], [$ >=80% $], [$ 100% $],
   ),
   caption: [Metriche per il processo di Assicurazione Qualità],
   supplement: [Tabella],
   numbering: "1",
-)
+)*/
 
 #metrica(
-  "MPC-14", "Quality Metrics Satisfied", 
+  "MPC-13", "Quality Metrics Satisfied", 
   [
     #$ "QMS" = ("NMS" / "NMT") * 100 $
     #v(0.8em)
@@ -1332,12 +1322,12 @@ Monitora l'aderenza complessiva del progetto a tutte le metriche di qualità pre
     ]
   ], 
   "Rappresenta la percentuale complessiva delle metriche di qualità che rientrano nei range accettabili definiti nelle presenti Norme.", 
-  $100%$, 
+  $>=80%$, 
   $100%$
 )
 === Processi Organizzativi
 Questi processi riguardano la dimensione organizzativa del gruppo: dalla definizione degli standard interni alla gestione della qualità, dallo sviluppo delle competenze al miglioramento continuo. Le metriche associate misurano conformità ed efficacia dei processi di governance, con l'obiettivo di garantire la sostenibilità e la maturità del modello di sviluppo nel tempo.
-
+/*
 ==== Gestione dei Processi
 #figure(
   table(
@@ -1353,16 +1343,15 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
     fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
     [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
     
-    [MPC-15], [Time Efficiency], [$ >= 80% $], [$  100% $],
-    [MPC-16], [Process Lead Time], [$ >= 90% $], [$ 100% $],
+    [MPC-14], [Time Efficiency], [$ >= 80% $], [$  100% $],
   ),
   caption: [Metriche per la Gestione dei Processi],
   supplement: [Tabella],
   numbering: "1",
-)
+)*/
 
 #metrica(
-  "MPC-15", "Time Efficiency", 
+  "MPC-14", "Time Efficiency", 
   [
     #$ "TE" = ("OPC" / "OEC") * 100 $
     #v(0.8em)
@@ -1377,23 +1366,7 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
   $>= 80%$, 
   $ 100%$
 )
-
-#metrica(
-  "MPC-16", "Process Lead Time", 
-  [
-    #$ "TimeEAC" = "SP" / "SPI" $
-    #v(0.8em)
-    #set text(size: 0.85em)
-    #align(left)[
-      *Legenda:* \
-      - *SP*: Settimane Pianificate totali \
-      - *SPI*: Schedule Performance Index (MPC-04)
-    ]
-  ], 
-  "Stima la durata finale del progetto in settimane. Valuta la puntualità prevista alla fine dei lavori basandosi sulla velocità attuale del team.", 
-  $>= 90%$, 
-  $100%$
-)
+/*
 == Metriche di qualità del prodotto
 === Funzionalità
 #figure(
@@ -1414,16 +1387,44 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
     [MPD-03], [Requisiti Opzionali Soddisfatti], [$>= 0%$], [$>= 50%$],
   ),
   caption: [Metriche di Funzionalità],
-)
+)*/
 
 #metrica(
   "MPD-01", "Requisiti Obbligatori Soddisfatti", 
-  [#$ "RObbS" = ("NROS" / "NRO") * 100 $
+  [#$ "RObbS" = ("NRObS" / "NROb") * 100 $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
       *Legenda:* \
       - *NROS*: Numero Requisiti Obbligatori Soddisfatti \
       - *NRO*: Numero Totale Requisiti Obbligatori
+    ]
+  ], 
+  "Indica la percentuale di requisiti essenziali implementati correttamente. È un indicatore critico per il rilascio del prodotto.", 
+  [100%], [100%]
+)
+
+#metrica(
+  "MPD-02", "Requisiti Desiderabili Soddisfatti", 
+  [#$ "RObbS" = ("NRDS" / "NRD") * 100 $
+    #v(0.8em) #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *NROS*: Numero Requisiti Desiderabili Soddisfatti \
+      - *NRO*: Numero Totale Requisiti Desiderabili
+    ]
+  ], 
+  "Indica la percentuale di requisiti essenziali implementati correttamente. È un indicatore critico per il rilascio del prodotto.", 
+  [100%], [100%]
+)
+
+#metrica(
+  "MPD-03", "Requisiti Opzionali Soddisfatti", 
+  [#$ "RObbS" = ("NROpS" / "NROp") * 100 $
+    #v(0.8em) #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *NROS*: Numero Requisiti Opzionali Soddisfatti \
+      - *NRO*: Numero Totale Requisiti Opzionali
     ]
   ], 
   "Indica la percentuale di requisiti essenziali implementati correttamente. È un indicatore critico per il rilascio del prodotto.", 
@@ -1460,7 +1461,35 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
   [$>= 80%$], [$>= 95%$]
 )
 
+#metrica(
+  "MPD-06", "Branch Coverage", 
+  [#$ "SC" = ("IT" / "ITOT") * 100 $
+    #v(0.8em) #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *IT*: Istruzioni Testate dai test automatizzati \
+      - *ITOT*: Istruzioni Totali nel codice
+    ]
+  ], 
+  "Percentuale di rami del codice che sono coperti da Test automatizzati", 
+  [$>= 60%$], [$>= 80%$]
+)
+
 === Usabilità
+
+#metrica(
+  "MPD-07", "Error Rate", 
+  [#$ "ER" = ("NET" / "NAT") *100 $
+    #v(0.8em) #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *NET*: Numero di Errori Totali
+      - *NAT*: Numero di Azioni Totali
+    ]
+  ], 
+  "Percentuale di errori rispetto al numero di azioni", 
+  [$<=5%$], [$<=2%$]
+)
 
 #metrica(
   "MPD-08", "Time To Complete Task", 
@@ -1489,7 +1518,22 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
 === Manutenibilità
 
 #metrica(
-  "MPD-12", "Cyclomatic Complexity", 
+  "MPD-10", "Coefficient of Coupling", 
+  [#$ "COC" = "ND"/"NC" $
+    #v(0.8em) #set text(size: 0.85em)
+    #align(left)[
+      *Legenda:* \
+      - *COC*: Coefficient of Coupling
+      - *ND*: Numero di Dipendenze
+      - *NC*: Numero di Componenti
+    ]
+  ], 
+  "Numero di dipendenza tra i componenti del sistema", 
+  [$<= 10$], [$<= 8$]
+)
+
+#metrica(
+  "MPD-11", "Cyclomatic Complexity", 
   [#$ v(G) = E - N + 2P $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
@@ -1504,7 +1548,7 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
 )
 
 #metrica(
-  "MPD-13", "Instability Index", 
+  "MPD-12", "Instability Index", 
   [#$ I = "Ce" / ("Ce" + "Ca") $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
@@ -1518,7 +1562,7 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
 )
 
 #metrica(
-  "MPD-15", "Code Smell", 
+  "MPD-13", "Code Smell", 
   [#$ "CS" = "NCS" / "KLOC" $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
