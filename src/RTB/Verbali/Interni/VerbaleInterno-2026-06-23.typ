@@ -52,7 +52,7 @@
         *Luogo:* #luogo ]
     )
     #v(4em)
-    #text(size: 20pt)[*Versione 0.1.0*]
+    #text(size: 20pt)[*Versione 1.0.0*]
   ]
   pagebreak()
 
@@ -73,7 +73,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026-06-23], [Giovanni Bronte], [], [Prima stesura del verbale],
+      [1.0.0], [2026-06-24], [Edis Hodja], [], [Approvazione del verbale],
+      [0.1.0], [2026-06-23], [Giovanni Bronte], [Edis Hodja], [Prima stesura del verbale],
       // aggiungi nuova riga quando viene aggiornato
     )
   ]
@@ -119,22 +120,26 @@
 
 = Ordine del Giorno
 + Confronto sullo stato della documentazione e sull'organizzazione del lavoro 
-+ Discussione sui documenti da completare per RTB
++ Discussione dei documenti da completare per RTB
 
 
 = Svolgimento della Riunione
 
 == Discussione sullo stato della documentazione
-Il team ha discusso sullo stato dei documenti necessari per la candidatura a RTB, i documenti in questione sono: Analisi dei Requisiti, Piano di Qualifica, Piano di Progetto e Norme di Progetto. Tutti i documenti elencati sono molto vicini ad essere pronti per l'approvazione finale. Il team ha deciso che mancano solo le ultime modifiche riguardanti AdR, segnalate dall'azienda proponente durante il verbale esterno del 2026-06-16. Queste modifiche apporteranno dei cambiamenti ai requisiti dell'AdR, i quali dovranno essere modificati anche nei documenti PdP e PdQ, nelle sezioni apposite.
+Il team ha discusso sullo stato dei documenti necessari per la candidatura a RTB, i documenti in questione sono: Analisi dei Requisiti, Piano di Qualifica, Piano di Progetto e Norme di Progetto. 
+
+Tutti i documenti elencati sono molto vicini ad essere pronti per l'approvazione finale. Il team ha deciso che mancano solo le ultime modifiche riguardanti l'_Analisi dei Requisiti_, segnalate dall'azienda proponente durante il #underline(text(fill: blue)[#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-06-16_firmato.pdf")[verbale esterno del 2026-06-16]]). Queste modifiche apporteranno dei cambiamenti ai requisiti dell'_Analisi dei Requisiti_, i quali dovranno essere modificati anche nei documenti _Piano di Progetto_ e _Piano di Qualifica_, nelle sezioni apposite.
 
 == Aggiornamento del Glossario
-Prosegue l'aggiornamento del Glossario in quanto è un altro documento fondamentale per il progetto dato che raccoglie tutti i termini tecnici, abbreviazioni e concetti al fine di garantire la massima chiarezza. In questo sprint il team si concentra sul controllo delle definizioni inserite e sull'aggiunta di eventuali termini che potrebbero causare confusione senza una definizione precisa.
+Prosegue l'aggiornamento continuo del Glossario in quanto risulta un altro documento fondamentale per il progetto dato che raccoglie tutti i termini tecnici, abbreviazioni e concetti al fine di garantire la massima chiarezza. In questo sprint il team si concentra sul controllo delle definizioni inserite e sull'aggiunta di eventuali termini che potrebbero causare confusione senza una definizione precisa.
 
 == Stesura presentazione per le tecnologie scelte 
-Per l'RTB è prevista la presentazione delle varie tecnologie scelte dal team per sviluppare il Proof of Concept e il software finale del progetto, da presentare durante il PB. Il team ha quindi assegnato all'amministratore di questo sprint il compito di stendere questa presentazione data la vicinanza alla candidatura dell'RTB.
+Per l'RTB è prevista la presentazione delle varie tecnologie scelte dal team per sviluppare il _Proof of Concept_, che rappresentano ipotesi preliminari potenzialmente in grado di costituire una base solida per il software finale del progetto. Il team ha quindi assegnato all'amministratore di questo sprint il compito di stendere questa presentazione data la vicinanza alla candidatura dell'RTB.
 
 == Conclusione Proof of Concept
-Il Proof of Concept è molto vicino all'approvazione finale, per questo il team ha discusso sulle ultime modifiche da fare riguardanti l'eseguibile in modo che sia pronto per la sua presentazione durante l'RTB.
+Il _Proof of Concept_ è molto vicino all'approvazione finale e per tale motivo il team ha discusso assieme ai programmatori sulle ultime modifiche da apportare riguardanti l'eseguibile in modo che rispecchi e dimostri l'applicazione di alcuni casi d'uso principali studiati nell'_Analisi dei Requisiti_.
+
+#pagebreak()
 
 = Conclusione e Decisioni Prese
 #align(center)[
