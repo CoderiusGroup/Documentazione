@@ -33,7 +33,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.9.0*]
+  #text(size: 20pt)[*Versione 1.0.0*]
 ]
 
 #pagebreak()
@@ -53,7 +53,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.10.1], [2026/06/13], [Giovanni Bronte], [], [Modifiche alle tabelle delle metriche],
+    [1.0.0], [2026/06/23], [Edis Hodja], [], [Approvazione del documento],
+    [0.10.1], [2026/06/13], [Giovanni Bronte], [Edis Hodja], [Modifiche alle tabelle delle metriche],
     [0.10.0], [2026/05/28], [Alberto Canavese], [Giovanni Bronte], [Aggiunta della seguente sezione: 5.3.2.2],
     [0.9.0], [2026/05/15], [Edis Hodja], [Giovanni Bronte], [Aggiunta delle seguenti sezioni: 5.1, 5.2, 5.3],
     [0.8.2], [2026/05/15], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiornamento contenuti e correzioni refusi],
@@ -109,7 +110,7 @@ Lo scopo dell'applicazione è quello di guidare l'utente attraverso un'analisi s
 
 == Glossario
 #v(0.5em)
-All'interno delle *Norme di Progetto*, così come negli altri documenti formali, i termini che trovano una definizione specifica nel relativo documento _Glossario_ verranno contrassegnati da una lettera "*G*" maiuscola a pedice (es. Termine#sub[G]).
+All'interno delle *#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Norme_di_Progetto.pdf")[#underline(text(fill: blue)[Norme di Progetto])]*, così come negli altri documenti formali, i termini che trovano una definizione specifica nel relativo documento *#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Glossario.pdf")[#underline(text(fill: blue)[Glossario])]* verranno contrassegnati da una lettera "*G*" maiuscola a pedice (es. Termine#sub[G]).
 
 Questa convenzione permette al lettore di individuare immediatamente i vocaboli che possiedono un significato particolare nel contesto del progetto, invitandolo a consultarne la definizione per evitare ambiguità riguardo al linguaggio tecnico utilizzato e garantire così una migliore comprensione dei contenuti.
 
@@ -119,28 +120,28 @@ Questa convenzione permette al lettore di individuare immediatamente i vocaboli 
 #v(0.5em)
 I documenti elencati di seguito rappresentano i vincoli diretti e le norme da rispettare per lo sviluppo del progetto:
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[*Capitolato C1 — Automated EN18031 Compliance Verification*] #nota[(ultimo accesso: 2026-04-24)]
-- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf")[*Regolamento del Progetto Didattico*] #nota[(ultimo accesso: 2026-04-24)]
-- #link("https://www.iso.org/standard/63712.html")[*Standard ISO/IEC 12207:2017*] #nota[(ultimo accesso: 2026-04-04)]
+- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[*Capitolato C1 — Automated EN18031 Compliance Verification*] #nota[(ultimo accesso: 2026-05-22)]
+- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf")[*Regolamento del Progetto Didattico*] #nota[(ultimo accesso: 2026-04-30)]
+- #link("https://www.iso.org/standard/63712.html")[*Standard ISO/IEC 12207:2017*] #nota[(ultimo accesso: 2026-04-27)]
 - *Standard EN 18031* #nota[(Consultato tramite copia fornita dalla proponente)]
 
 === Riferimenti Informativi
 #v(0.5em)
 - Dispense del corso di Ingegneria del Software 2025/2026:
-  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T01.pdf")[*T01 - Introduzione*] #nota[(ultimo accesso: 2026-04-24)]
-  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T02.pdf")[*T02 - I processi di ciclo di vita del software*] #nota[(ultimo accesso: 2026-04-24)]
-  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T03.pdf")[*T03 - Modelli di sviluppo software*] #nota[(ultimo accesso: 2026-04-24)]
-  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T04.pdf")[*T04 - Gestione di progetto*] #nota[(ultimo accesso: 2026-04-24)]
-  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T05.pdf")[*T05 - Analisi dei requisiti*] #nota[(ultimo accesso: 2026-04-24)]
-  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T06.pdf")[*T06 - Progettazione software*] #nota[(ultimo accesso: 2026-04-24)]
-  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T07.pdf")[*T07 - Qualità di prodotto*] #nota[(ultimo accesso: 2026-04-24)]
-  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T08.pdf")[*T08 - Qualità di processo*] #nota[(ultimo accesso: 2026-04-24)]
-  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T09.pdf")[*T09 - Verifica e validazione: introduzione*] #nota[(ultimo accesso: 2026-04-24)]
-  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T10.pdf")[*T10 - Verifica e validazione: analisi statica*] #nota[(ultimo accesso: 2026-04-24)]
-  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T11.pdf")[*T11 - Verifica e validazione: analisi dinamica*] #nota[(ultimo accesso: 2026-04-24)]
-- #link("https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf")[*Standard ISO/IEC 12207:1995*] #nota[(ultimo accesso: 2026-04-24)]
-- #link("https://typst.app/docs/")[*Documentazione ufficiale di Typst*] #nota[(ultimo accesso: 2026-04-24)]
-- #link("https://docs.github.com/en")[*Guida a Git e GitHub*] #nota[(ultimo accesso: 2026-04-24)]
+  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T01.pdf")[*T01 - Introduzione*] #nota[(ultimo accesso: 2026-04-23)]
+  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T02.pdf")[*T02 - I processi di ciclo di vita del software*] #nota[(ultimo accesso: 2026-04-27)]
+  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T03.pdf")[*T03 - Modelli di sviluppo software*] #nota[(ultimo accesso: 2026-04-27)]
+  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T04.pdf")[*T04 - Gestione di progetto*] #nota[(ultimo accesso: 2026-04-30)]
+  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T05.pdf")[*T05 - Analisi dei requisiti*] #nota[(ultimo accesso: 2026-05-11)]
+  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T06.pdf")[*T06 - Progettazione software*] #nota[(ultimo accesso: 2026-05-13)]
+  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T07.pdf")[*T07 - Qualità di prodotto*] #nota[(ultimo accesso: 2026-06-13)]
+  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T08.pdf")[*T08 - Qualità di processo*] #nota[(ultimo accesso: 2026-06-13)]
+  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T09.pdf")[*T09 - Verifica e validazione: introduzione*] #nota[(ultimo accesso: 2026-05-15)]
+  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T10.pdf")[*T10 - Verifica e validazione: analisi statica*] #nota[(ultimo accesso: 2026-05-15)]
+  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T11.pdf")[*T11 - Verifica e validazione: analisi dinamica*] #nota[(ultimo accesso: 2026-05-15)]
+- #link("https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf")[*Standard ISO/IEC 12207:1995*] #nota[(ultimo accesso: 2026-04-30)]
+- #link("https://typst.app/docs/")[*Documentazione ufficiale di Typst*] #nota[(ultimo accesso: 2026-04-23)]
+- #link("https://docs.github.com/en")[*Guida a Git e GitHub*] #nota[(ultimo accesso: 2026-04-23)]
 
 = Processi Primari
 == Introduzione ai processi primari
@@ -177,7 +178,7 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Norme di progetto*]),
+    table.header(table.cell(colspan: 2, fill:luma(230), align: center)[*Norme di progetto*]),
     [*Redattore*], [Amministratore],
     [*Tipo di documento*], [Interno],
     [*Scopo*], [Definisce le regole operative, le convenzioni e gli standard tecnici che il gruppo deve adottare per garantire l'uniformità dei processi.],
@@ -192,7 +193,7 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Piano di progetto*]),
+    table.header(table.cell(colspan: 2, fill:luma(230), align: center)[*Piano di progetto*]),
     [*Redattore*], [Responsabile],
     [*Tipo di documento*], [Esterno],
     [*Scopo*], [Stabilisce la pianificazione delle attività, la gestione delle risorse, l'analisi dei rischi e la ripartizione dei costi.],
@@ -207,7 +208,7 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Piano di Qualifica*]),
+    table.header(table.cell(colspan: 2, fill:luma(230), align: center)[*Piano di Qualifica*]),
     [*Redattore*], [Amministratore],
     [*Tipo di documento*], [Esterno],
     [*Scopo*], [Specifica gli obiettivi di qualità, le metriche di misurazione e i test necessari a validare il software e i documenti prodotti.],
@@ -222,7 +223,7 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Analisi dei Requisiti*]),
+    table.header(table.cell(colspan: 2, fill:luma(230), align: center)[*Analisi dei Requisiti*]),
     [*Redattore*], [Analista],
     [*Tipo di documento*], [Esterno],
     [*Scopo*], [Formalizza le necessità della proponente in una lista strutturata di requisiti funzionali, qualitativi e di vincolo.],
@@ -237,8 +238,8 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Glossario*]),
-    [*Redattore*], [Analista],
+    table.header(table.cell(colspan: 2, fill:luma(230), align: center)[*Glossario*]),
+    [*Redattore*], [Team (assegnazione dinamica)],
     [*Tipo di documento*], [Esterno],
     [*Scopo*], [Raccoglie la terminologia tecnica e i termini potenzialmente ambigui per assicurare una comprensione univoca di tutta la documentazione.],
   ),
@@ -252,7 +253,7 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Verbali*]),
+    table.header(table.cell(colspan: 2, fill:luma(230), align: center)[*Verbali*]),
     [*Redattore*], [Team (assegnazione dinamica)],
     [*Tipo di documento*], [Esterno/Interno],
     [*Scopo*], [Documenti di coordinamento che registrano l'esito delle riunioni, l'assegnazione dei compiti interni e dei ruoli assegnati. Nel caso dei verbali esterni, hanno anche lo scopo di tracciare decisioni, risposte e vincoli concordati.],
@@ -267,7 +268,7 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Lettera di candidatura*]),
+    table.header(table.cell(colspan: 2, fill:luma(230), align: center)[*Lettera di candidatura*]),
     [*Redattore*], [Responsabile],
     [*Tipo di documento*], [Esterno],
     [*Scopo*], [Documento per la richiesta formale da parte del gruppo di poter partecipare al capitolato scelto tramite la validazione dei capitolati.],
@@ -282,7 +283,7 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Valutazione dei Capitolati*]),
+    table.header(table.cell(colspan: 2, fill:luma(230), align: center)[*Valutazione dei Capitolati*]),
     [*Redattore*], [Analista],
     [*Tipo di documento*], [Esterno],
     [*Scopo*], [Descrive l'analisi comparativa effettuata sulle diverse proposte per giustificare la scelta del capitolato finale.],
@@ -297,7 +298,7 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
-    table.header(table.cell(colspan: 2, fill: rgb("#99d6ff"), align: center)[*Dichiarazione degli Impegni*]),
+    table.header(table.cell(colspan: 2, fill:luma(230), align: center)[*Dichiarazione degli Impegni*]),
     [*Redattore*], [Responsabile],
     [*Tipo di documento*], [Esterno],
     [*Scopo*], [Documento formale in cui il gruppo presenta una stima dei costi del progetto e delle ore che verranno impiegate per il suo completamento. Vengono inoltre dichiarate le responsabilità assunte e la data di consegna prevista.],
@@ -344,7 +345,7 @@ Per il corretto svolgimento delle attività del processo di fornitura, il gruppo
 
 == Processo di Sviluppo
 #v(0.5em)
-Il processo di sviluppo comprende l'insieme delle attività tecniche e metodologiche necessarie alla realizzazione del prodotto software, a cominciare dall'analisi dei requisiti fino alla consegna e alla verifica finale. L'obiettivo principale è garantire un ciclo di vita del software controllato, dove ogni fase contribuisce alla creazione di un sistema *robusto, sicuro, mantenibile nel tempo e conforme* alle specifiche della proponente.
+Il processo di sviluppo comprende l'insieme delle attività tecniche e metodologiche necessarie alla realizzazione del prodotto software, a cominciare dall'#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Analisi_dei_Requisiti.pdf")[#underline(text(fill: blue)[Analisi dei Requisiti])] fino alla consegna e alla verifica finale. L'obiettivo principale è garantire un ciclo di vita del software controllato, dove ogni fase contribuisce alla creazione di un sistema *robusto, sicuro, mantenibile nel tempo e conforme* alle specifiche della proponente.
 
 === Attività previste
 #v(0.5em)
@@ -410,15 +411,11 @@ La dicitura ha questi significati:
 *RF-D03*: Il sistema deve permettere l'annullamento della procedura di eliminazione di un dispositivo durante la fase di richiesta di conferma.\
 *RQ-Ob07*: La gestione del ciclo di vita del progetto e l'organizzazione delle attività del team devono adottare un approccio Agile, garantendo iterazioni regolari e flessibilità.
 
-
-
-=== Codifica del codice sorgente
-#v(0.5em)
-
 === Documentazione coinvolta
+All'inizio del nostro progetto didattico ci siamo resi conto che il lavoro non poteva procedere per tentativi o per una spartizione approssimativa dei compiti, soprattutto considerando il tempo più ridotto a disposizione per la suddivisione dei gruppi del II lotto.
 #v(0.5em)
 
-Le attività del processo di sviluppo sono supportate dalla documentazione definita in precedenza, ovvero *Analisi dei Requisiti, Piano di Progetto, Piano di Qualifica e Norme di Progetto*, integrata con specifiche riguardanti la codifica e le procedure di verifica.
+Le attività del processo di sviluppo sono supportate dalla documentazione definita in precedenza, ovvero *#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Analisi_dei_Requisiti.pdf")[#underline(text(fill: blue)[Analisi dei Requisiti])], #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Piano_di_Progetto.pdf")[#underline(text(fill: blue)[Piano di Progetto])], #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Piano_di_Qualifica.pdf")[#underline(text(fill: blue)[Piano di Qualifica])] e #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Norme_di_Progetto.pdf")[#underline(text(fill: blue)[Norme di Progetto])]*, integrata con specifiche riguardanti la codifica e le procedure di verifica.
 
 === Strumenti a supporto
 #v(0.5em)
@@ -439,7 +436,7 @@ Per lo sviluppo, il gruppo utilizza strumenti mirati a garantire qualità, tracc
 #v(0.5em)
 
 - *Discord / WhatsApp*: utilizzati per il coordinamento quotidiano e incontri tra i componenti del gruppo;
-- *Draw.io/PlantUML*: utilizzato per la realizzazione dei diagrammi UML che sono essenziali per l'analisi dei requisiti, in particolar modo per l'interpretazione dei casi d'uso.
+- *Draw.io/PlantUML*: utilizzati per la realizzazione dei diagrammi UML che sono essenziali per l'analisi dei requisiti, in particolar modo per l'interpretazione dei casi d'uso.
 
 === Rapporti con la proponente
 #v(0.5em)
@@ -448,7 +445,7 @@ La proponente *BlueWind S.r.l.* mette a disposizione del gruppo strumenti e mome
 
 - *Canali di comunicazione*: un canale Telegram per comunicazioni rapide e informali, e l'invio di email tramite l'indirizzo del gruppo per chiarimenti tecnici e condivisione di documentazione ufficiale;
 - *Incontri remoti*: la possibilità di organizzare meeting sulla piattaforma Zoom, a seguito dei quali il gruppo redigerà un *Verbale Esterno* per tracciare le decisioni prese;
-- *Materiale di supporto*: la fornitura della documentazione tecnica relativa alla norma *EN 18031* e indicazioni sulle logiche dei *Decision Tree* da implementare.
+- *Materiale di supporto*: la fornitura della documentazione tecnica relativa alla norma *EN 18031* e indicazioni sulle logiche dei *decision tree* da implementare.
 
 Il gruppo *Coderius* si impegna a recepire i feedback ricevuti e a presentare un prodotto conforme ai requisiti concordati entro le scadenze prefissate.
 
@@ -461,11 +458,11 @@ Il committente mette a disposizione strumenti di supporto e momenti di valutazio
 
 Il gruppo si impegna a partecipare alle milestone di avanzamento previste:
 
-- *RTB (Requirements and Technology Baseline)*: momento di revisione che prevede la consegna della documentazione (AdR, NdP, PdP, PdQ, Glossario) e la presentazione di un *PoC* (Proof of Concept) per dimostrare la fattibilità tecnica della soluzione scelta;
+- *RTB (Requirements and Technology Baseline)*: momento di revisione che prevede la consegna della documentazione e la presentazione di un *Proof of Concept* (PoC) per dimostrare la fattibilità tecnica della soluzione scelta;
 - *PB (Product Baseline)*: fase finale che prevede la consegna della documentazione tecnica completa e la presentazione dell'applicazione funzionante per la verifica della conformità allo standard *EN 18031*.
 = Processi di Supporto
 #v(0.5em)
-La seguente sezione descrive i processi di supporto secondo lo standard ISO/IEC 12207, che hanno lo scopo di garantire una gestione efficace, il controllo e la qualità delle attività del ciclo di vita del progetto.
+La seguente sezione descrive i processi di supporto secondo lo standard *ISO/IEC 12207*, che hanno lo scopo di garantire una gestione efficace, il controllo e la qualità delle attività del ciclo di vita del progetto.
 
 Nello specifico, vengono analizzati i seguenti processi di supporto:
 - *Documentazione*;
@@ -487,7 +484,7 @@ Ogni attività, decisione tecnica o organizzativa deve essere formalizzata per p
 #v(0.5em)
 Il gruppo ha definito dei template specifici per garantire l'uniformità e la professionalità della documentazione. I documenti che dispongono di una struttura predefinita sono:
 - *Verbale interno*: resoconto delle riunioni di coordinamento del team.
-- *Verbale esterno*: documentazione degli incontri con la proponente (BlueWind S.r.l.) o il committente.
+- *Verbale esterno*: documentazione degli incontri con la proponente o il committente.
 - *Diario di bordo*: documento informativo periodico sullo stato di avanzamento del progetto.
 
 ==== Verbali
@@ -568,7 +565,7 @@ La gestione delle attività previste avviene nel seguente ordine:
 
 === Identificazione della configurazione
 #v(0.5em)
-Secondo lo standard ISO/IEC 12207:1995, l'attività di identificazione della configurazione consiste nell'individuazione di tutti gli elementi del progetto, includendo sia le componenti software composte da codice sia l'intera parte documentale.
+Secondo lo standard *ISO/IEC 12207:1995*, l'attività di identificazione della configurazione consiste nell'individuazione di tutti gli elementi del progetto, includendo sia le componenti software composte da codice sia l'intera parte documentale.
 
 Questa attività viene effettuata durante la fase di progettazione per schematizzare l'architettura del software, la quale verrà in seguito implementata dagli sviluppatori.
 
@@ -598,7 +595,7 @@ La rendicontazione dello stato della configurazione definisce le regole di versi
 
 === Valutazione della configurazione
 #v(0.5em)
-Questa attività serve a controllare che il software prodotto sia pienamente funzionale e completo rispetto ai requisiti individuati. Tale controllo viene garantito grazie a un tracciamento costante dei requisiti, formalizzato e aggiornato all'interno del documento _Analisi dei Requisiti_.
+Questa attività serve a controllare che il software prodotto sia pienamente funzionale e completo rispetto ai requisiti individuati. Tale controllo viene garantito grazie a un tracciamento costante dei requisiti, formalizzato e aggiornato all'interno del documento #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Analisi_dei_Requisiti.pdf")[#underline(text(fill: blue)[Analisi dei Requisiti])].
 
 === Strumenti utilizzati
 #v(0.5em)
@@ -647,12 +644,12 @@ Nella seguente tabella sono riportati i ruoli principali ed essenziali per garan
 ))
 
 == Verifica
-Il processo di verifica è tecnico e oggettivo; ha lo scopo di valutare e determinare se il lavoro svolto (codifica e documentazione prodotta) soddisfi i requisiti necessari e concordati con la proponente. L'obiettivo di questo processo è di dimostrare in modo oggettivo la correttezza del prodotto rispetto ai requisiti documentati nel capitolato di progetto e destinati all'utilizzo dell'utenza finale. Questo processo è continuo per la durata del progetto ed è definito nel _Piano di Qualifica_.
+Il processo di verifica è tecnico e oggettivo; ha lo scopo di valutare e determinare se il lavoro svolto (codifica e documentazione prodotta) soddisfi i requisiti necessari e concordati con la proponente. L'obiettivo di questo processo è di dimostrare in modo oggettivo la correttezza del prodotto rispetto ai requisiti documentati nel capitolato di progetto e destinati all'utilizzo dell'utenza finale. Questo processo è continuo per la durata del progetto ed è definito nel #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Piano_di_Qualifica.pdf")[#underline(text(fill: blue)[Piano di Qualifica])].
 
 === Attività previste
 #v(0.5em)
 
-Secondo lo standard ISO/IEC 12207:1995, il processo di verifica prevede le seguenti attività:
+Secondo lo standard *ISO/IEC 12207:1995*, il processo di verifica prevede le seguenti attività:
 
 - *Implementazione del processo*: questa attività consiste unicamente nel predisporre il piano di verifica che effettuerà il controllo del lavoro svolto. Consiste nell' individuare le criticità e i rischi di non conformità del progetto.
 
@@ -660,10 +657,9 @@ Secondo lo standard ISO/IEC 12207:1995, il processo di verifica prevede le segue
 
 === Implementazione del processo
 #v(0.5em)
-La seguente attività ha come scopo principale l'individuazione delle criticità che possono sorgere durante la realizzazione del progetto. Per tutte le criticità che possono essere riscontrate è stata condotta un'analisi accurata nella sezione 3 del documento _Piano di Progetto_. Questa analisi include anche: probabilità di occorrenza, gravità della criticità, strategie di mitigazione e di prevenzione.
+La seguente attività ha come scopo principale l'individuazione delle criticità che possono sorgere durante la realizzazione del progetto. Per tutte le criticità che possono essere riscontrate è stata condotta un'analisi accurata nella sezione 3 del documento #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Piano_di_Progetto.pdf")[#underline(text(fill: blue)[Piano di Progetto])]. Questa analisi include anche: probabilità di occorrenza, gravità della criticità, strategie di mitigazione e di prevenzione.
 === Verifica
 #v(0.5em)
-//da discuterne con il team
 Le attività di verifica vengono svolte tramite il sistema di _Pull Request_ adottato dal gruppo su GitHub.
 Ogni modifica viene sottoposta a revisione prima dell'integrazione nel ramo principale del repository.
 
@@ -687,12 +683,6 @@ Lo strumento principale di questa tecnica è il _test_, che per essere efficace 
 
 Queste proprietà sono essenziali per supportare i test di regressione: se un errore precedentemente risolto dovesse ripresentarsi, l'automazione permette di individuarlo tempestivamente e determinare quale modifica lo abbia reintrodotto.
 
-/*Ogni test viene definito dai seguenti elementi: stato iniziale, serie di input e output attesi. I test previsti dal gruppo sono suddivisi nelle seguenti quattro categorie:
-- *Test di Unità*
-- *Test di Integrazione*
-- *Test di Sistema*
-- *Test di Regressione**/
-
 == Validazione
 #v(0.5em)
 Il processo di validazione rappresenta la fase conclusiva attraverso cui si accerta che il prodotto sviluppato soddisfi i requisiti definiti dalla proponente e risponda correttamente agli obiettivi del progetto. La validazione ha lo scopo di verificare che il sistema realizzato sia conforme alle esigenze espresse nel capitolato e che le funzionalità implementate risultino adeguate al contesto applicativo finale.
@@ -703,7 +693,7 @@ Nel contesto del progetto, il soggetto di riferimento per l'accettazione e la va
 #v(0.5em)
 - *Implementazione del processo*: definisce le modalità operative attraverso cui viene accertata la conformità del prodotto rispetto ai requisiti specifici del capitolato e della documentazione di progetto.
   
-  La validazione viene inoltre supportata dall'utilizzo del caso studio fornito dal proponente, così da verificare il comportamento del sistema in un contesto applicativo realistico e coerente con gli obiettivi del progetto. Gli esiti dei test svolti vengono tracciati nel _Piano di Qualifica_.
+  La validazione viene inoltre supportata dall'utilizzo del caso studio fornito dal proponente, così da verificare il comportamento del sistema in un contesto applicativo realistico e coerente con gli obiettivi del progetto. Gli esiti dei test svolti vengono tracciati nel #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Piano_di_Qualifica.pdf")[#underline(text(fill: blue)[Piano di Qualifica])].
 - *Validazione*: ha lo scopo di accertare che il sistema sviluppato soddisfi i requisiti funzionali e gli obiettivi definiti nel capitolato di progetto.
 
   Le attività di validazione coinvolgono il ruolo di _Responsabile_, che controlla la correttezza funzionale delle componenti realizzate, con particolare attenzione all’esecuzione dei decision tree, alla gestione dei requisiti EN18031 e alla produzione degli esiti previsti (*PASS*, *FAIL*, *NOT APPLICABLE*).
@@ -758,7 +748,7 @@ Di seguito vengono riportati i vari ruoli e vengono descritte le responsabilità
 - *Amministratore*\
   Assicura l'efficienza di procedure, strumenti e tecnologie a supporto del _Way of Working_ del team. La sua presenza è costante per l'intero progetto.
 - *Analista*\
-  Si occupa dell'intera analisi e stesura della documentazione relativa all'_Analisi dei Requisiti_, impegnandosi a determinare e soddisfare tutti i requisiti richiesti dalla proponente, affinché l'intero team riesca a operare in modo efficace.
+  Si occupa dell'intera analisi e stesura della documentazione relativa all'#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Analisi_dei_Requisiti.pdf")[#underline(text(fill: blue)[Analisi dei Requisiti])], impegnandosi a determinare e soddisfare tutti i requisiti richiesti dalla proponente, affinché l'intero team riesca a operare in modo efficace.
 - *Progettista*\
   Stabilisce la struttura del software, che costituirà il prodotto richiesto, definendo l'architettura dell'applicazione e la suddivisione tra i componenti Frontend e Backend.
 - *Programmatore*\
@@ -770,7 +760,7 @@ Pur essendo assegnati ruoli specifici per ciascuno sprint, le attività vengono 
 #v(0.5em)
 Il progetto prevede diverse revisioni di avanzamento, il cui superamento consente al team di proseguire con le attività in modo supervisionato. In particolare, le due principali milestone, riportate in ordine cronologico, sono:
 
-- *RTB (Requirements and Technology Baseline)*: fissa i requisiti da soddisfare in accordo con la proponente nella documentazione dedicata all'_Analisi dei Requisiti_, motiva le tecnologie adottate e ne dimostra l'adeguatezza e l'interoperabilità tramite il _Proof of Concept_.
+- *RTB (Requirements and Technology Baseline)*: fissa i requisiti da soddisfare in accordo con la proponente nella documentazione dedicata all'#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Analisi_dei_Requisiti.pdf")[#underline(text(fill: blue)[Analisi dei Requisiti])], motiva le tecnologie adottate e ne dimostra l'adeguatezza e l'interoperabilità tramite il _Proof of Concept_.
 - *PB (Product Baseline)*: vaglia la maturità della baseline architetturale del software e la sua effettiva realizzazione. Essa prevede l'integrazione dei seguenti elementi:
   - *Specifica Tecnica*: documentazione dedicata all'architettura logica del prodotto, strutturata per componenti, ruoli, connessioni e interazioni.
   - *Minimum Viable Product (MVP)*: approssima da vicino la soluzione finale tramite una versione preliminare ma funzionante, volta a ottenere la conferma ufficiale della conformità del sistema atteso.
@@ -818,7 +808,6 @@ Per la gestione centralizzata del codice e della documentazione viene utilizzato
 - *Convenzione di denominazione*: per le varie operazioni e attività effettuate viene creato un branch dedicato che segue una struttura concordata dal team:
   - *feature/nome-feature* --- per lo sviluppo di nuove funzionalità;
   - *fix/nome-fix* --- per la correzione di bug o comportamenti anomali;
-  - *docs/nome-documento* --- per modifiche o aggiunte alla documentazione.
 - *Revisione e merge*: l'integrazione del lavoro avviene in due fasi distinte, entrambe gestite tramite _Pull Request_. Nella prima fase, il branch di lavoro viene unito a _develop_, previa revisione e approvazione da parte del _Verificatore_. Una volta consolidato il lavoro su _develop_, viene aperta una seconda PR per l'integrazione definitiva su _main_, anch'essa soggetta alla supervisione del _Verificatore_ e approvata dal _Responsabile_ prima del merge.
 - *Pipeline automatizzate*: sono configurate le _GitHub Actions_ per automatizzare le operazioni ripetitive, tra cui la compilazione dei documenti Typst in PDF e la loro pubblicazione sul sito web del progetto.
 
@@ -864,7 +853,7 @@ In questo senso, ogni fase di lavoro rappresenta un'occasione per individuare in
 #v(0.5em)
 
 L'ottimizzazione del processo si articola in tre attività principali:
-- *Definizione delle procedure*: formalizzazione delle modalità operative adottate dal gruppo, con relativa documentazione nelle Norme di Progetto e nel _Way of Working_ stabilito.
+- *Definizione delle procedure*: formalizzazione delle modalità operative adottate dal gruppo, con relativa documentazione nelle #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Norme_di_Progetto.pdf")[#underline(text(fill: blue)[Norme di Progetto])] e nel _Way of Working_ stabilito.
 - *Monitoraggio e valutazione*: osservazione continua dell'andamento delle attività attraverso retrospettive periodiche, analisi delle criticità emerse e valutazione delle metriche associate al processo.
 - *Revisione e miglioramento*: identificazione delle aree di inefficienza e introduzione di correzioni mirate, aggiornando la documentazione ufficiale ogni qualvolta le procedure vengano modificate.
 
@@ -872,7 +861,7 @@ L'ottimizzazione del processo si articola in tre attività principali:
 #v(0.5em)
 Al termine di ogni sprint il gruppo dedica un momento strutturato alla riflessione collettiva, finalizzato a valutare l'andamento del periodo appena concluso. In questa sede vengono analizzati gli obiettivi raggiunti, le difficoltà incontrate e le dinamiche di collaborazione emerse, con l'intento di trarre indicazioni concrete per lo sprint successivo.
 
-Sebbene la conduzione di questi incontri mantenga un carattere flessibile per favorire il confronto aperto, la struttura segue una cadenza ricorrente che garantisce la partecipazione attiva di tutti i membri. Gli esiti della discussione vengono sintetizzati all'interno del relativo verbale e, qualora necessario, tradotti in modifiche correttive da integrare direttamente nel _Way of Working_.
+Sebbene la conduzione di questi incontri mantenga un carattere flessibile per favorire il confronto aperto, la struttura segue una cadenza ricorrente che garantisce la partecipazione attiva di tutti i membri. Gli esiti della discussione vengono sintetizzati all'interno del relativo verbale.
 
 === Gestione delle criticità
 #v(0.5em)
@@ -926,7 +915,7 @@ Il supporto reciproco non è considerato un'eccezione, bensì parte integrante d
 
 Al fine di garantire un approccio quantitativo alla qualità, il gruppo adotta un sistema di misurazione basato su metriche. Queste rappresentano i criteri oggettivi attraverso i quali viene valutata l'aderenza dei processi e dei prodotti agli standard prefissati.
 
-Le metriche definite in questo documento trovano applicazione e tracciamento operativo all'interno del  #link("...")[*Piano di Qualifica v0.1.1*].
+Le metriche definite in questo documento trovano applicazione e tracciamento operativo all'interno del  *#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Piano_di_Qualifica.pdf")[#underline(text(fill: blue)[Piano di Qualifica])]*.
 
 === Classificazione
 Le metriche sono suddivise in due categorie principali, ispirate allo standard ISO/IEC 9126:
@@ -1016,20 +1005,16 @@ Per ogni metrica, il gruppo deve definire:
 - *Soglia di Ottimalità*: valore target per un prodotto di eccellenza.
 
 == Metriche di Qualità del Processo
-#let metrica(id, nome, formula, desc, acc, ott) = {
+#let metrica(id, nome, formula, desc) = {
   block(width: 100%, breakable: false, [
     #table(
       columns: (3cm, 1fr),
       stroke: 0.5pt,
-      fill: (x, y) => if x == 0 { rgb("#99d6ff") } else { none },
+      fill: (x, y) => if x == 0 {luma(230) } else { none },
       inset: 8pt,
       [*Metrica*], [*#id - #nome*],
       [*Descrizione*], [#desc],
       [*Formula*], [#align(center)[#formula]],
-      /*[*Parametri*], [
-        - *Valore Accettabile*: #acc
-        - *Valore Ottimo*: #ott
-      ],*/
     )
     #v(0.5em)
   ])
@@ -1037,111 +1022,48 @@ Per ogni metrica, il gruppo deve definire:
 
 === Processi Primari
 I processi primari comprendono tutte le attività legate direttamente al ciclo di vita del prodotto software. Per valutarne l'andamento, l'efficienza e la conformità agli obiettivi prefissati, vengono utilizzate metriche quantitative in grado di monitorare l'avanzamento dei lavori, l'allocazione delle risorse e la qualità di ciò che viene prodotto.\ L'analisi di questi indicatori consente di individuare eventuali scostamenti e applicare correzioni mirate per garantire il rispetto dei vincoli di progetto.
-/*
-==== Fornitura
-#figure(
-  table(
-    columns: (4cm, 4cm, 4cm, 4cm), 
-    align: (center, left, center, center),
-    stroke: (x, y) => (
-      bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
-      left: 0.4pt + luma(150),
-      right: if x == 3 { 0.4pt + luma(150) } else { none },
-      top: if y == 0 { 0.4pt + luma(150) } else { none },
-    ),
-    inset: 8pt,
-    fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
-    [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
-    
-    [MPC-01], [Planned Value (PV)], [$ >= 0$], [$ <= "BAC"$],
-    [MPC-02], [Earned Value (EV)], [$ >= "PV" * 0.75$], [$ >= "PV"$],
-    [MPC-03], [Actual Cost (AC)], [$ 0 <= "AC" <= 1.2 * "EV"$], [$ <= "EV"$],
-    [MPC-04], [Schedule Perf. Index (SPI)], [$ >= 0.9$], [$ >= 1.0$],
-    [MPC-05], [Cost Perf. Index (CPI)], [$ >= 0.9$], [$ >= 1.0$],
-    [MPC-06], [Estimate at Completion (EAC)], [$ <= 1.1 * "BAC"$], [$ <= "BAC"$],
-    [MPC-07], [Estimate to Complete (ETC)], [$ <= ("BAC" - "AC") * 1.1$], [$ <= "BAC" - "AC"$],
-  ),
-  caption: [Metriche per il processo di Fornitura],
-  supplement: [Tabella],
-  numbering: "1",
-)*/
+
 #metrica(
   "MPC-01", "Planned Value (PV)", 
   $ "PV" = "BAC" * % "lavoro pianificato" $, 
-  "Valore del lavoro pianificato da completare entro una determinata data.", 
-  $>= 0$, 
-  $<= "BAC"$
+  "Valore del lavoro pianificato da completare entro una determinata data."
 )
 
 #metrica(
   "MPC-02", "Earned Value (EV)", 
   $ "EV" = "BAC" * % "lavoro completato" $, 
-  "Valore del lavoro effettivamente completato in  conformità con il budget previsto.", 
-  $>= "PV" * 0.75$, 
-  $>= "PV"$
+  "Valore del lavoro effettivamente completato in  conformità con il budget previsto."
 )
 
 #metrica(
   "MPC-03", "Actual Cost (AC)", 
   $ "AC" = sum "costi sostenuti" $, 
-  "Costo totale effettivamente sostenuto fino alla data corrente.", 
-  $ 0 <= "AC" <= 1.2 * "EV"$, 
-  $<= "EV"$
+  "Costo totale effettivamente sostenuto fino alla data corrente."
 )
 
 #metrica(
   "MPC-04", "Schedule Performance Index (SPI)", 
   $ "SPI" = "EV" / "PV" $, 
-  "Indica l'efficienza temporale. Se < 1, il progetto è in ritardo.", 
-  $>= 0.9$, 
-  $>= 1.0$
+  "Indica l'efficienza temporale. Se < 1, il progetto è in ritardo."
 )
 
 #metrica(
   "MPC-05", "Cost Performance Index (CPI)", 
   $ "CPI" = "EV" / "AC" $, 
-  "Indica l'efficienza economica. Se < 1, il progetto è fuori budget.", 
-  $>= 0.9$, 
-  $>= 1.0$
+  "Indica l'efficienza economica. Se < 1, il progetto è fuori budget."
 )
 
 #metrica(
   "MPC-06", "Estimate at Completion (EAC)", 
   $ "EAC" = "BAC" / "CPI" $, 
-  "Proiezione del costo totale finale basata sulla performance attuale.", 
-  $<= 1.1 * "BAC"$, 
-  $<= "BAC"$
+  "Proiezione del costo totale finale basata sulla performance attuale."
 )
 
 #metrica(
   "MPC-07", "Estimate to Complete (ETC)", 
   $ "ETC" = "EAC" - "AC" $, 
-  "Costo stimato necessario per completare il lavoro rimanente.", 
-  $<= ("BAC" - "AC") * 1.1$, 
-  $<= "BAC" - "AC"$
+  "Costo stimato necessario per completare il lavoro rimanente."
 )
-/*
-==== Sviluppo
-#figure(
-  table(
-    columns: (4cm, 4cm, 4cm, 4cm),
-    align: (center, left, center, center),
-    stroke: (x, y) => (
-      bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
-      left: 0.4pt + luma(150),
-      right: if x == 3 { 0.4pt + luma(150) } else { none },
-      top: if y == 0 { 0.4pt + luma(150) } else { none },
-    ),
-    inset: 8pt,
-    fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
-    [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
-    
-    [MPC-08], [Requirements Stability Index (RSI)], [$ >= 0.7$], [1.0],
-  ),
-  caption: [Metriche per il processo di Sviluppo],
-  supplement: [Tabella],
-  numbering: "1",
-)*/
 
 #metrica(
   "MPC-08", 
@@ -1158,37 +1080,12 @@ I processi primari comprendono tutte le attività legate direttamente al ciclo d
       - *NRA*: Numero di Requisiti Aggiunti
     ]
   ], 
-  "Misura la stabilità dei requisiti nel tempo, valutando l'impatto di modifiche, cancellazioni o aggiunte rispetto al set iniziale.", 
-  $>= 0.7$, 
-  $1.0$
+  "Misura la stabilità dei requisiti nel tempo, valutando l'impatto di modifiche, cancellazioni o aggiunte rispetto al set iniziale."
 )
 
 === Processi di Supporto
 I processi di supporto raccolgono tutte le attività che servono a tenere sotto controllo il ciclo di sviluppo, garantendone tracciabilità e affidabilità nel tempo.
 Il loro scopo principale è seguire l'andamento dei lavori così da individuare tempestivamente eventuali scostamenti rispetto a quanto pianificato, e poterli correggere prima che diventino critici.
-/*
-==== Documentazione
-#figure(
-  table(
-    columns: (4cm, 4cm, 4cm, 4cm),
-    align: (center, left, center, center),
-    stroke: (x, y) => (
-      bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
-      left: 0.4pt + luma(150),
-      right: if x == 3 { 0.4pt + luma(150) } else { none },
-      top: if y == 0 { 0.4pt + luma(150) } else { none },
-    ),
-    inset: 8pt,
-    fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
-    [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
-    
-    [MPC-09], [Indice di Gulpease], [$ >= 60 $], [$ >= 75 $],
-    [MPC-10], [Correttezza Ortografica], [$ <= 1 $], [0],
-  ),
-  caption: [Metriche per il processo di Documentazione],
-  supplement: [Tabella],
-  numbering: "1",
-)*/
 
 #metrica(
   "MPC-09", "Indice di Gulpease", 
@@ -1203,9 +1100,7 @@ Il loro scopo principale è seguire l'andamento dei lavori così da individuare 
       - *NP*: Numero di Parole
     ]
   ], 
-  "Valuta la leggibilità di un testo in lingua italiana. Un indice basso indica un testo troppo complesso per il target di riferimento.", 
-  $>= 60$, 
-  $>= 75$
+  "Valuta la leggibilità di un testo in lingua italiana. Un indice basso indica un testo troppo complesso per il target di riferimento."
 )
 
 #metrica(
@@ -1220,36 +1115,8 @@ Il loro scopo principale è seguire l'andamento dei lavori così da individuare 
       - *NP*: Numero di Parole
     ]
   ], 
-  "Rileva la densità di errori linguistici nei documenti. Il calcolo viene normalizzato su 1000 parole per facilitare il confronto tra documenti di diversa lunghezza.", 
-  $<= 1$, 
-  $0$
+  "Rileva la densità di errori linguistici nei documenti. Il calcolo viene normalizzato su 1000 parole per facilitare il confronto tra documenti di diversa lunghezza."
 )
-/*
-==== Verifica
-Le attività di verifica accertano che il software sia costruito correttamente e che soddisfi i requisiti tecnici tramite test automatizzati.
-
-#figure(
-  table(
-    columns: (4cm, 4cm, 4cm, 4cm),
-    align: (center, left, center, center),
-    stroke: (x, y) => (
-      bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
-      left: 0.4pt + luma(150),
-      right: if x == 3 { 0.4pt + luma(150) } else { none },
-      top: if y == 0 { 0.4pt + luma(150) } else { none },
-    ),
-    inset: 8pt,
-    fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
-    [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
-    
-    [MPC-11], [Test Success Rate], [$ >= 95% $], [$ 100% $],
-    [MPC-12], [Code Coverage], [$ >= 70% $], [$ >=90% $],
-    
-  ),
-  caption: [Metriche per il processo di Verifica],
-  supplement: [Tabella],
-  numbering: "1",
-)*/
 
 #metrica(
   "MPC-11", "Test Success Rate", 
@@ -1263,9 +1130,7 @@ Le attività di verifica accertano che il software sia costruito correttamente e
       - *NTT*: Numero Totale dei Test eseguiti
     ]
   ], 
-  "Indica la percentuale di test automatizzati che hanno prodotto un esito positivo rispetto al totale dei test previsti.", 
-  $>= 95%$, 
-  $100%$
+  "Indica la percentuale di test automatizzati che hanno prodotto un esito positivo rispetto al totale dei test previsti."
 )
 
 #metrica(
@@ -1280,34 +1145,8 @@ Le attività di verifica accertano che il software sia costruito correttamente e
       - *NLTOT*: Numero di linee di codice totali
     ]
   ], 
-  "Indica la percentuale di linee di codice sorgente effettivamente eseguite durante l'esecuzione della suite di test automatizzati.", 
-  $>= 70%$, 
-  $>= 90%$
+  "Indica la percentuale di linee di codice sorgente effettivamente eseguite durante l'esecuzione della suite di test automatizzati."
 )
-/*
-==== Qualità
-Monitora l'aderenza complessiva del progetto a tutte le metriche di qualità prefissate.
-
-#figure(
-  table(
-    columns: (4cm, 4cm, 4cm, 4cm),
-    align: (center, left, center, center),
-    stroke: (x, y) => (
-      bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
-      left: 0.4pt + luma(150),
-      right: if x == 3 { 0.4pt + luma(150) } else { none },
-      top: if y == 0 { 0.4pt + luma(150) } else { none },
-    ),
-    inset: 8pt,
-    fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
-    [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
-    
-    [MPC-13], [Quality Metrics Satisfied], [$ >=80% $], [$ 100% $],
-  ),
-  caption: [Metriche per il processo di Assicurazione Qualità],
-  supplement: [Tabella],
-  numbering: "1",
-)*/
 
 #metrica(
   "MPC-13", "Quality Metrics Satisfied", 
@@ -1321,34 +1160,10 @@ Monitora l'aderenza complessiva del progetto a tutte le metriche di qualità pre
       - *NMT*: Numero di Metriche Totali monitorate
     ]
   ], 
-  "Rappresenta la percentuale complessiva delle metriche di qualità che rientrano nei range accettabili definiti nelle presenti Norme.", 
-  $>=80%$, 
-  $100%$
+  "Rappresenta la percentuale complessiva delle metriche di qualità che rientrano nei range accettabili definiti nelle presenti Norme."
 )
 === Processi Organizzativi
 Questi processi riguardano la dimensione organizzativa del gruppo: dalla definizione degli standard interni alla gestione della qualità, dallo sviluppo delle competenze al miglioramento continuo. Le metriche associate misurano conformità ed efficacia dei processi di governance, con l'obiettivo di garantire la sostenibilità e la maturità del modello di sviluppo nel tempo.
-/*
-==== Gestione dei Processi
-#figure(
-  table(
-    columns: (4cm, 4cm, 4cm, 4cm),
-    align: (center, left, center, center),
-    stroke: (x, y) => (
-      bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
-      left: 0.4pt + luma(150),
-      right: if x == 3 { 0.4pt + luma(150) } else { none },
-      top: if y == 0 { 0.4pt + luma(150) } else { none },
-    ),
-    inset: 8pt,
-    fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
-    [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
-    
-    [MPC-14], [Time Efficiency], [$ >= 80% $], [$  100% $],
-  ),
-  caption: [Metriche per la Gestione dei Processi],
-  supplement: [Tabella],
-  numbering: "1",
-)*/
 
 #metrica(
   "MPC-14", "Time Efficiency", 
@@ -1362,32 +1177,8 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *OEC*: Ore Effettive Cumulative (impiegate realmente)
     ]
   ], 
-  "Indica il rapporto tra il tempo pianificato e quello effettivamente consumato. Un valore inferiore al 100% segnala che il team sta impiegando più tempo del previsto per le attività.", 
-  $>= 80%$, 
-  $ 100%$
+  "Indica il rapporto tra il tempo pianificato e quello effettivamente consumato. Un valore inferiore al 100% segnala che il team sta impiegando più tempo del previsto per le attività."
 )
-/*
-== Metriche di qualità del prodotto
-=== Funzionalità
-#figure(
-  table(
-    columns: (4cm, 4cm, 4cm, 4cm),
-    align: (center, left, center, center),
-    stroke: (x, y) => (
-      bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
-      left: 0.4pt + luma(150),
-      right: if x == 3 { 0.4pt + luma(150) } else { none },
-      top: if y == 0 { 0.4pt + luma(150) } else { none },
-    ),
-    inset: 8pt,
-    fill: (x, y) => if y == 0 { rgb("#99d6ff") } else { none },
-    [*Codice*], [*Metrica*], [*Accettabile*], [*Ottimo*],
-    [MPD-01], [Requisiti Obbligatori Soddisfatti], [100%], [100%],
-    [MPD-02], [Requisiti Desiderabili Soddisfatti], [$>= 50%$], [$>= 75%$],
-    [MPD-03], [Requisiti Opzionali Soddisfatti], [$>= 0%$], [$>= 50%$],
-  ),
-  caption: [Metriche di Funzionalità],
-)*/
 
 #metrica(
   "MPD-01", "Requisiti Obbligatori Soddisfatti", 
@@ -1399,8 +1190,7 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *NRO*: Numero Totale Requisiti Obbligatori
     ]
   ], 
-  "Indica la percentuale di requisiti essenziali implementati correttamente. È un indicatore critico per il rilascio del prodotto.", 
-  [100%], [100%]
+  "Indica la percentuale di requisiti essenziali implementati correttamente. È un indicatore critico per il rilascio del prodotto."
 )
 
 #metrica(
@@ -1413,8 +1203,7 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *NRO*: Numero Totale Requisiti Desiderabili
     ]
   ], 
-  "Indica la percentuale di requisiti essenziali implementati correttamente. È un indicatore critico per il rilascio del prodotto.", 
-  [100%], [100%]
+  "Indica la percentuale di requisiti essenziali implementati correttamente. È un indicatore critico per il rilascio del prodotto."
 )
 
 #metrica(
@@ -1427,8 +1216,7 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *NRO*: Numero Totale Requisiti Opzionali
     ]
   ], 
-  "Indica la percentuale di requisiti essenziali implementati correttamente. È un indicatore critico per il rilascio del prodotto.", 
-  [100%], [100%]
+  "Indica la percentuale di requisiti essenziali implementati correttamente. È un indicatore critico per il rilascio del prodotto."
 )
 
 === Affidabilità
@@ -1443,8 +1231,7 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *KLOC*: Migliaia di Linee di Codice
     ]
   ], 
-  "Misura la densità di guasti del sistema rispetto alla dimensione del codice sorgente.", 
-  [$<= 0.5$], [$<= 0.2$]
+  "Misura la densità di guasti del sistema rispetto alla dimensione del codice sorgente."
 )
 
 #metrica(
@@ -1457,8 +1244,7 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *ITOT*: Istruzioni Totali nel codice
     ]
   ], 
-  "Percentuale di istruzioni del codice sorgente coperte dall'esecuzione dei test.", 
-  [$>= 80%$], [$>= 95%$]
+  "Percentuale di istruzioni del codice sorgente coperte dall'esecuzione dei test."
 )
 
 #metrica(
@@ -1471,8 +1257,7 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *ITOT*: Istruzioni Totali nel codice
     ]
   ], 
-  "Percentuale di rami del codice che sono coperti da Test automatizzati", 
-  [$>= 60%$], [$>= 80%$]
+  "Percentuale di rami del codice che sono coperti da Test automatizzati"
 )
 
 === Usabilità
@@ -1487,8 +1272,7 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *NAT*: Numero di Azioni Totali
     ]
   ], 
-  "Percentuale di errori rispetto al numero di azioni", 
-  [$<=5%$], [$<=2%$]
+  "Percentuale di errori rispetto al numero di azioni"
 )
 
 #metrica(
@@ -1502,8 +1286,7 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *TPes*: Tempo Pessimista
     ]
   ], 
-  "Stima il tempo medio necessario a un utente per completare correttamente un'operazione specifica.", 
-  [10 minuti], [5 minuti]
+  "Stima il tempo medio necessario a un utente per completare correttamente un'operazione specifica."
 )
 
 === Efficienza
@@ -1511,8 +1294,7 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
 #metrica(
   "MPD-09", "Response Time", 
   [$ "RT" <= t $], 
-  "Tempo impiegato dal sistema per fornire una risposta a seguito di un input dell'utente.", 
-  [$<= 3 " sec"$], [$<= 1 " sec"$]
+  "Tempo impiegato dal sistema per fornire una risposta a seguito di un input dell'utente."
 )
 
 === Manutenibilità
@@ -1528,8 +1310,7 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *NC*: Numero di Componenti
     ]
   ], 
-  "Numero di dipendenza tra i componenti del sistema", 
-  [$<= 10$], [$<= 8$]
+  "Numero di dipendenza tra i componenti del sistema"
 )
 
 #metrica(
@@ -1543,8 +1324,7 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *P*: Numero di componenti connesse
     ]
   ], 
-  "Quantifica la complessità logica del codice contando il numero di percorsi indipendenti.", 
-  [$<= 10$], [$<= 8$]
+  "Quantifica la complessità logica del codice contando il numero di percorsi indipendenti."
 )
 
 #metrica(
@@ -1557,8 +1337,7 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *Ca*: Classi esterne che dipendono dal modulo (Afferent)
     ]
   ], 
-  "Misura la resilienza di un modulo al cambiamento. Un valore vicino a 0 indica massima stabilità.", 
-  [$I >= 0.7 or I <= 0.30$], [$I >= 0.85 or I <= 0.15$]
+  "Misura la resilienza di un modulo al cambiamento. Un valore vicino a 0 indica massima stabilità."
 )
 
 #metrica(
@@ -1570,7 +1349,6 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *NCS*: Numero di Code Smell rilevati \
       - *KLOC*: Migliaia di Linee di Codice
     ]
-  ], 
-  "Indica la densità di potenziali problemi di design o violazioni delle best practice di codifica.", 
-  [$<= 10$], [$<= 5$]
+  ],
+  "Indica la densità di potenziali problemi di design o violazioni delle best practice di codifica."
 )
