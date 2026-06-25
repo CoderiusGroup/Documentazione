@@ -416,7 +416,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 #figure(
   image("../../../images/diagrammiUML/UC4.1b.png", width: 80%),
-  caption: [UC-4.1 : Inclusioni caso d'uso UC-4.1],
+  caption: [UC-4.1 : Inserimento dati nome, sistema operativo e descrizione],
 )
 === UC-4.1.1: Inserimento nome dispositivo <uc4.1.1>
 #v(1em)
@@ -547,10 +547,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* L'utente ha visualizzato lo stato aggregato di valutazione del dispositivo.
 
 - *Scenario principale:*
-  + L'utente visualizza lo stato aggregato del dispositivo, che può essere:
-    - Non valutato;
-    - PASS;
-    - FAIL;
+  + L'utente visualizza lo stato aggregato del dispositivo.
 
 == UC-8: Modifica dati dispositivo <uc8>
 #v(1em)
@@ -962,10 +959,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* L'utente ha visualizzato lo stato di valutazione dell'asset.
 
 - *Scenario principale:*
-  + L'utente visualizza lo stato di valutazione dell'asset, che può essere:
-    - Non valutato;
-    - In corso;
-    - Completato.
+  + L'utente visualizza lo stato di valutazione dell'asset.
 
 == UC-15: Visualizzazione in dettaglio asset <uc15>
 #v(1em)
@@ -1029,7 +1023,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente visualizza la descrizione dell'asset.
 
-=== UC-15.4: Visualizzazione sensibilità asset <uc15.4>
+=== UC-15.4: Visualizzazione sensibilità asset in dettaglio <uc15.4>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -1040,7 +1034,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L’utente visualizza l’indicazione relativa alla sensibilità dell’asset.
 
-=== UC-15.5: Visualizzazione stato valutazione asset <uc15.5>
+=== UC-15.5: Visualizzazione stato valutazione asset in dettaglio <uc15.5>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -1049,10 +1043,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Postcondizioni:* L'utente ha visualizzato lo stato complessivo di valutazione dell'asset.
 
 - *Scenario principale:*
-  + L'utente visualizza lo stato di valutazione dell'asset:
-    - Non valutato;
-    - In corso;
-    - Completato.
+  + L'utente visualizza lo stato di valutazione dell'asset.
 
 
 === UC-15.6: Visualizzazione lista requisiti asset <uc15.6>
@@ -1079,17 +1070,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Precondizioni:* L'utente sta visualizzando la lista dei requisiti dell'asset #link(<uc15.6>)[(UC-15.6)].
 
-- *Postcondizioni:* L'utente ha visualizzato il codice e lo stato di valutazione del requisito.
+- *Postcondizioni:* L'utente ha visualizzato il codice e lo stato di valutazione del requisito (Non valutato, In corso, PASS, FAIL, NOT APPLICABLE).
 
 - *Scenario principale:*
   + L'utente visualizza il codice del requisito.
-  + L'utente visualizza lo stato di valutazione del requisito:
-    - Non valutato;
-    - In corso;
-    - PASS;
-    - FAIL; 
-    - NOT APPLICABLE.
-
+  + L'utente visualizza lo stato di valutazione del requisito.
 
 
 == UC-16: Modifica asset <uc16>
@@ -1183,7 +1168,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + Il sistema carica la selezione della sensibilità dell'asset precedentemente effettuata.
  + L'utente seleziona se l'asset è sensibile o no.
-  + Il sistema registra la nuova selezione.
++ Il sistema registra la nuova selezione.
 
 
 == UC-17: Annullamento modifica asset <uc17>
@@ -1196,7 +1181,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + L'utente seleziona la funzione di annullamento della modifica dell'asset.
-  + Il sistema scarta le modifiche
+  + Il sistema scarta le modifiche.
   + Il sistema ritorna alla visualizzazione in dettaglio dell'asset.
 
 
@@ -1212,14 +1197,13 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - La lista degli asset del dispositivo è stata aggiornata.
 
 - *Scenario principale:*
-  + L'utente seleziona un asset dalla lista.
   + L'utente seleziona la funzione di eliminazione dell'asset.
   + Il sistema mostra un messaggio di conferma.
+  + L'utente conferma l'eliminazione.
   + Il sistema elimina l'asset selezionato.
 
 
 #pagebreak()
-
 
 == UC-19: Esecuzione valutazione dispositivo <uc19>
 #v(1em)
@@ -1245,7 +1229,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenari alternativi:*
   - L'utente interrompe la sessione. #link(<uc24>)[(UC-24)]
   - L'utente salva la sessione di valutazione. #link(<uc25>)[(UC-25)]
-  - L'utente seleziona la funzionalità di visualizzazione dei risultati. #link(<uc27>)[(UC-27)]
 
 - *Inclusioni:*
   - #link(<uc19.1>)[UC-19.1: Visualizzazione dashboard di valutazione]
@@ -1254,7 +1237,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Estensioni:*
   - #link(<uc24>)[UC-24: Uscita anticipata dal test]
   - #link(<uc25>)[UC-25: Salvataggio sessione di valutazione]
-  - #link(<uc27>)[UC-27: Visualizzazione risultati test]
 
 #v(1em)
 #figure(
@@ -1297,19 +1279,17 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema mostra le informazioni dell'asset. #link(<uc20.1>)[(UC-20.1)]
   + Il sistema mostra la lista dei requisiti da valutare. #link(<uc20.2>)[(UC-20.2)]
   + L'utente seleziona un requisito da valutare.
-  + Il sistema mostra il dettaglio del requisito selezionato. #link(<uc21>)[(UC-21)]
-  + I passi 2-4 si ripetono fino alla valutazione di tutti i requisiti.
+  + I passi 2-3 si ripetono fino alla valutazione di tutti i requisiti.
 
 - *Inclusioni:*
   - #link(<uc20.1>)[UC-20.1: Visualizzazione asset in valutazione]
   - #link(<uc20.2>)[UC-20.2: Visualizzazione lista requisiti in valutazione]
-  - #link(<uc21>)[UC-21: Visualizzazione dettaglio requisito]
 
 === UC-20.1: Visualizzazione asset in valutazione <uc20.1>
 #v(1em)
 - *Attore primario:* Utente
 
-- *Precondizioni:* 
+- *Precondizioni:*
   - La sessione di valutazione è attiva
   - L'utente ha selezionato un asset dalla dashboard.
 
@@ -1344,23 +1324,18 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Inclusioni:*
   - #link(<uc20.2.1>)[UC-20.2.1: Visualizzazione singolo requisito nella lista in valutazione]
 
-==== UC-20.2.1: Visualizzazione singolo requisito nella lista in valutazione<uc20.2.1>
+==== UC-20.2.1: Visualizzazione singolo requisito nella lista in valutazione <uc20.2.1>
 #v(1em)
 - *Attore primario:* Utente
 
 - *Precondizioni:* L'utente sta visualizzando la lista dei requisiti
   in valutazione. #link(<uc20.2>)[(UC-20.2)]
 
-- *Postcondizioni:* L'utente ha visualizzato il codice e lo stato di valutazione del requisito.
+- *Postcondizioni:* L'utente ha visualizzato il codice e lo stato di valutazione del requisito (Non valutato, In corso, PASS, FAIL, NOT APPLICABLE).
 
 - *Scenario principale:*
   + Il sistema mostra il codice del requisito.
-  + Il sistema mostra lo stato di valutazione del requisito:
-    - Non valutato;
-    - In corso;
-    - PASS;
-    - FAIL;
-    - NOT APPLICABLE.
+  + Il sistema mostra lo stato di valutazione del requisito.
 
 == UC-21: Visualizzazione dettaglio requisito <uc21>
 #v(1em)
@@ -1420,8 +1395,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - La sessione di valutazione è attiva.
   - L'utente sta visualizzando il dettaglio del requisito. #link(<uc21>)[(UC-21)]
 
-- *Postcondizioni:* Il sistema ha registrato l'esito del decision tree per la
-  coppia asset-requisito corrente.
+- *Postcondizioni:* Il sistema ha registrato l'esito del decision tree (PASS, FAIL o NOT APPLICABLE) per la coppia asset-requisito corrente.
 
 - *Scenario principale:*
   + L'utente avvia l'esecuzione del decision tree per il requisito selezionato.
@@ -1430,11 +1404,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente risponde alla domanda del nodo corrente. #link(<uc22.3>)[(UC-22.3)]
   + Il sistema avanza al nodo successivo in base alla risposta fornita.
   + I passi 2-5 si ripetono fino al raggiungimento di un nodo foglia.
-  + Il sistema mostra l'esito raggiunto. #link(<uc23>)[(UC-23)]
-  + Il sistema registra l'esito tra: 
-    - PASS
-    - FAIL
-    - NOT APPLICABLE
+  + Il sistema mostra e registra l'esito raggiunto. #link(<uc23>)[(UC-23)]
 
 - *Scenari alternativi:*
   - L'utente naviga al nodo precedente per rivedere la risposta già fornita.
@@ -1596,13 +1566,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Precondizioni:* Il sistema ha raggiunto un nodo foglia del decision tree.
 
-- *Postcondizioni:* L'utente ha visualizzato l'esito del requisito per l'asset corrente.
+- *Postcondizioni:* L'utente ha visualizzato l'esito del requisito per l'asset corrente (PASS, FAIL o NOT APPLICABLE).
 
 - *Scenario principale:*
-  + Il sistema mostra l'esito del requisito per l'asset corrente:
-    - PASS;
-    - FAIL;
-    - NOT APPLICABLE.
+  + Il sistema mostra l'esito del requisito per l'asset corrente.
 
 - *Scenari alternativi:*
   - L'utente inserisce una giustificazione per l'esito. #link(<uc23.1>)[(UC-23.1)]
@@ -1680,7 +1647,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Precondizioni:* 
   - Il sistema è attivo e si trova allo stato iniziale.
-  - L'utente dispone di un file di sessione di valutazione precedentemente salvato.
+  - L'utente dispone di un file, salvato in precedenza, relativo a una sessione di valutazione interrotta.
 
 - *Postcondizioni:* Il sistema carica la sessione e il test riprende dal punto di interruzione.
 
@@ -1739,11 +1706,8 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente seleziona un asset dalla lista dei risultati.
   + Il sistema mostra il nome e il tipo dell'asset.
-  + Il sistema mostra l'esito aggregato dell'asset:
-    - PASS;
-    - FAIL;
-    - NOT APPLICABLE.
-  + Il sistema mostra la lista dei requisiti valutati per l'asset con il relativo codice e l'esito di ciascuno
+  + Il sistema mostra l'esito aggregato dell'asset (PASS, FAIL o NOT APPLICABLE).
+  + Il sistema mostra la lista dei requisiti valutati per l'asset con il relativo codice e l'esito di ciascuno.
 
 - *Scenari alternativi:*
   - L'utente seleziona un requisito per visualizzarne il dettaglio. #link(<uc27.1.1>)[(UC-27.1.1)]
@@ -1766,10 +1730,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + L'utente visualizza il codice del requisito.
-  + L'utente visualizza l'esito del requisito per l'asset corrente:
-    - PASS;
-    - FAIL;
-    - NOT APPLICABLE.
+  + L'utente visualizza l'esito del requisito per l'asset corrente (PASS, FAIL o NOT APPLICABLE).
   + L'utente visualizza il percorso logico seguito nel decision tree. #link(<uc27.1.1.1>)[(UC-27.1.1.1)]
 
 - *Inclusioni:*
@@ -1849,7 +1810,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + L'utente seleziona il formato JSON.
-   + Il sistema genera il file JSON contenente, per ogni coppia asset-requisito, l'esito del requisito, l'esito aggregato del decision tree e il percorso
+  + Il sistema genera il file JSON contenente, per ogni coppia asset-requisito, l'esito del requisito, l'esito aggregato del decision tree e il percorso
     logico seguito.
   + Il sistema mette a disposizione il file per il download.
 
@@ -1867,8 +1828,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
     l'esito del requisito, l'esito aggregato del decision tree e il percorso
     logico seguito, in formato tabellare.
   + Il sistema mette a disposizione il file per il download.
-
-#pagebreak()
 
 == UC-29: Visualizzazione elenco decision tree <uc29>
 #v(1em)
@@ -1994,10 +1953,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   decision tree.
 
 - *Scenario principale:*
-  + Per ogni nodo foglia il sistema mostra l'esito assegnato:
-    - PASS;
-    - FAIL;
-    - NOT APPLICABLE.
+  + Per ogni nodo foglia il sistema mostra l'esito assegnato (PASS, FAIL o NOT APPLICABLE).
 
 ==== UC-30.1.3: Visualizzazione collegamenti fra nodi <uc30.1.3>
 #v(1em)
@@ -2207,8 +2163,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Precondizioni:* L'utente sta assegnando un esito a un ramo non collegato. #link(<uc32.3>)[(UC-32.3)]
 
-- *Postcondizioni:* Il ramo non collegato diventa un nodo foglia con esito
-  NOT APPLICABLE.
+- *Postcondizioni:* Il ramo non collegato diventa un nodo foglia con esito NOT APPLICABLE.
 
 - *Scenario principale:*
   + L'utente seleziona NOT APPLICABLE come esito del ramo non collegato.
@@ -2687,7 +2642,6 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-D23], [Il sistema deve permettere la selezione del file sorgente per l'importazione di un decision tree.], [#link(<uc42.1>)[UC-42.1]],
   [RF-D24], [Il sistema deve supportare l'importazione di un decision tree da file in formato JSON.], [#link(<uc42.1.1>)[UC-42.1.1]],
   [RF-D25], [Il sistema deve supportare l'importazione di un decision tree da file in formato CSV.], [#link(<uc42.1.2>)[UC-42.1.2]],
-)
 )
 
 #pagebreak()
