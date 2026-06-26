@@ -2710,7 +2710,7 @@ I requisiti di qualità definiscono i criteri di validazione, gli standard metri
 
   [RQ-Ob01], [Il codice sorgente e la gestione dei processi di sviluppo devono rispettare tassativamente le convenzioni e gli standard definiti nelle Norme di Progetto.], [Norme di Progetto],
   [RQ-Ob02], [Il sistema e i deliverable di progetto devono essere conformi alle metriche, agli indici e agli obiettivi di verifica stabiliti all'interno del Piano di Qualifica.], [Piano di Qualifica],
-  [RQ-Ob03], [Il prodotto software deve essere corredato da una suite di test automatizzati (di Unità, Integrazione, Sistema e Regressione) per verificarne il corretto funzionamento complessivo.], [Capitolato C1, Piano di Qualifica],
+  [RQ-Ob03], [Il prodotto software deve essere corredato da una suite di test automatizzati (di Unità, Integrazione, Sistema e Regressione) per verificarne il corretto funzionamento complessivo.], [#text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[Capitolato C1])], Piano di Qualifica],
   [RQ-Ob04], [Il prodotto software deve superare i Test di Accettazione finali in sede di revisione per dimostrare la piena conformità alle richieste della proponente.], [Capitolato C1],
   [RQ-Ob05], [Il sistema software deve essere accompagnato da un Manuale Utente che descriva in modo chiaro le funzionalità dell'applicazione.], [Capitolato C1],
   [RQ-Ob06], [Il codice sorgente del prodotto deve essere documentato tramite un Manuale Tecnico, e deve essere prodotta una documentazione di progetto comprendente requisiti, architettura, scelte tecnologiche e metodologia di sviluppo.], [Capitolato C1],
