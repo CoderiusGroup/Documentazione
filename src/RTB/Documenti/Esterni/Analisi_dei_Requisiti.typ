@@ -1070,11 +1070,16 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Precondizioni:* L'utente sta visualizzando la lista dei requisiti dell'asset #link(<uc15.6>)[(UC-15.6)].
 
-- *Postcondizioni:* L'utente ha visualizzato il codice e lo stato di valutazione del requisito (Non valutato, In corso, PASS, FAIL, NOT APPLICABLE).
+- *Postcondizioni:* L'utente ha visualizzato il codice e lo stato di valutazione del requisito.
 
 - *Scenario principale:*
   + L'utente visualizza il codice del requisito.
-  + L'utente visualizza lo stato di valutazione del requisito.
+  + L'utente visualizza lo stato di valutazione del requisito:
+    - Non valutato;
+    - In corso;
+    - PASS;
+    - FAIL;
+    - NOT APPLICABLE.
 
 
 == UC-16: Modifica asset <uc16>
@@ -1331,11 +1336,16 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Precondizioni:* L'utente sta visualizzando la lista dei requisiti
   in valutazione. #link(<uc20.2>)[(UC-20.2)]
 
-- *Postcondizioni:* L'utente ha visualizzato il codice e lo stato di valutazione del requisito (Non valutato, In corso, PASS, FAIL, NOT APPLICABLE).
+- *Postcondizioni:* L'utente ha visualizzato il codice e lo stato di valutazione del requisito.
 
 - *Scenario principale:*
   + Il sistema mostra il codice del requisito.
-  + Il sistema mostra lo stato di valutazione del requisito.
+  + Il sistema mostra lo stato di valutazione del requisito:
+   - Non valutato; 
+   - In corso;
+   - PASS;
+   - FAIL;
+   - NOT APPLICABLE.
 
 == UC-21: Visualizzazione dettaglio requisito <uc21>
 #v(1em)
@@ -1395,7 +1405,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - La sessione di valutazione è attiva.
   - L'utente sta visualizzando il dettaglio del requisito. #link(<uc21>)[(UC-21)]
 
-- *Postcondizioni:* Il sistema ha registrato l'esito del decision tree (PASS, FAIL o NOT APPLICABLE) per la coppia asset-requisito corrente.
+- *Postcondizioni:* Il sistema ha registrato l'esito del decision tree per la coppia asset-requisito corrente.
 
 - *Scenario principale:*
   + L'utente avvia l'esecuzione del decision tree per il requisito selezionato.
@@ -1404,7 +1414,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente risponde alla domanda del nodo corrente. #link(<uc22.3>)[(UC-22.3)]
   + Il sistema avanza al nodo successivo in base alla risposta fornita.
   + I passi 2-5 si ripetono fino al raggiungimento di un nodo foglia.
-  + Il sistema mostra e registra l'esito raggiunto. #link(<uc23>)[(UC-23)]
+  + Il sistema mostra e registra l'esito raggiunto: #link(<uc23>)[(UC-23)]
+    - PASS;
+    - FAIL;
+    - NOT APPLICABLE.
 
 - *Scenari alternativi:*
   - L'utente naviga al nodo precedente per rivedere la risposta già fornita.
@@ -1566,10 +1579,13 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Precondizioni:* Il sistema ha raggiunto un nodo foglia del decision tree.
 
-- *Postcondizioni:* L'utente ha visualizzato l'esito del requisito per l'asset corrente (PASS, FAIL o NOT APPLICABLE).
+- *Postcondizioni:* L'utente ha visualizzato l'esito del requisito per l'asset corrente.
 
 - *Scenario principale:*
-  + Il sistema mostra l'esito del requisito per l'asset corrente.
+  + Il sistema mostra l'esito del requisito per l'asset corrente:
+   - PASS;
+   - FAIL;
+   - NOT APPLICABLE.
 
 - *Scenari alternativi:*
   - L'utente inserisce una giustificazione per l'esito. #link(<uc23.1>)[(UC-23.1)]
@@ -1706,7 +1722,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 - *Scenario principale:*
   + L'utente seleziona un asset dalla lista dei risultati.
   + Il sistema mostra il nome e il tipo dell'asset.
-  + Il sistema mostra l'esito aggregato dell'asset (PASS, FAIL o NOT APPLICABLE).
+  + Il sistema mostra l'esito aggregato dell'asset:
+   - PASS;
+   - FAIL;
+   - NOT APPLICABLE.
   + Il sistema mostra la lista dei requisiti valutati per l'asset con il relativo codice e l'esito di ciascuno.
 
 - *Scenari alternativi:*
@@ -1730,7 +1749,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + L'utente visualizza il codice del requisito.
-  + L'utente visualizza l'esito del requisito per l'asset corrente (PASS, FAIL o NOT APPLICABLE).
+  + L'utente visualizza l'esito del requisito per l'asset corrente:
+    - PASS;
+    - FAIL;
+    - NOT APPLICABLE.
   + L'utente visualizza il percorso logico seguito nel decision tree. #link(<uc27.1.1.1>)[(UC-27.1.1.1)]
 
 - *Inclusioni:*
@@ -1953,7 +1975,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   decision tree.
 
 - *Scenario principale:*
-  + Per ogni nodo foglia il sistema mostra l'esito assegnato (PASS, FAIL o NOT APPLICABLE).
+  + Per ogni nodo foglia il sistema mostra l'esito assegnato:
+  - PASS;
+  - FAIL;
+  - NOT APPLICABLE.
 
 ==== UC-30.1.3: Visualizzazione collegamenti fra nodi <uc30.1.3>
 #v(1em)
@@ -2548,7 +2573,7 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-Ob27], [Il sistema deve permettere l'inserimento del nome dell'asset nel form di creazione.], [#link(<uc12.1.1>)[UC-12.1.1]],
   [RF-Ob28], [Il sistema deve permettere la selezione del tipo di asset tra Network, Security, Privacy e Financial.], [#link(<uc12.1.2>)[UC-12.1.2]],
   [RF-Ob29], [Il sistema deve permettere l'inserimento della descrizione dell'asset nel form di creazione.], [#link(<uc12.1.3>)[UC-12.1.3]],
-  [RF-Ob30], [Il sistema deve permettere di impostare la sensibilità dell'asset (SI o NO).], [#link(<uc12.1.4>)[UC-12.1.4]],
+  [RF-Ob30], [Il sistema deve permettere di impostare la sensibilità dell'asset (Yes o No).], [#link(<uc12.1.4>)[UC-12.1.4]],
   [RF-Ob31], [Il sistema deve permettere la visualizzazione della lista degli asset associati ad un determinato dispositivo.], [#link(<uc14>)[UC-14]],
   [RF-Ob32], [Il sistema deve mostrare le informazioni essenziali del singolo asset all'interno della lista.], [#link(<uc14.1>)[UC-14.1]],
   [RF-Ob33], [Il sistema deve mostrare il nome del singolo asset all'interno della lista.], [#link(<uc14.1.1>)[UC-14.1.1]],
@@ -2584,9 +2609,7 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-Ob60], [Il sistema deve mostrare una schermata finale con il riepilogo complessivo di tutti gli esiti del test.], [#link(<uc27>)[UC-27]],
   [RF-Ob61], [Il sistema deve mostrare per ogni asset la lista dei requisiti completati e il percorso logico seguito.], [#link(<uc27.1.1>)[UC-27.1.1]],
   [RF-Ob62], [Il sistema deve mostrare la sequenza ordinata di domande e risposte fornite per un requisito completato.], [#link(<uc27.1.1.1>)[UC-27.1.1.1]],
-
-  // --- AREA GESTIONE DECISION TREE (UC-29 a UC-43) ---
-  [RF-Ob63], [Il sistema deve mostrare l'elenco dei decision tree disponibili memorizzati nel backend.], [#link(<uc29>)[UC-29]],
+  [RF-Ob63], [Il sistema deve mostrare l'elenco dei decision tree disponibili.], [#link(<uc29>)[UC-29]],
   [RF-Ob64], [Il sistema deve mostrare l'ID e il nome del requisito per ogni decision tree in elenco.], [#link(<uc29.1>)[UC-29.1]],
   [RF-Ob65], [Il sistema deve permettere la visualizzazione in dettaglio di un decision tree esistente, mostrandone l'identificativo e il nome del requisito associato.], [#link(<uc30>)[UC-30]],
   [RF-Ob66], [Il sistema deve permettere all'utente di uscire anticipatamente da una sessione di valutazione in corso.], [#link(<uc24>)[UC-24]],
@@ -2600,8 +2623,7 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-Ob74], [Il sistema deve permettere l'esportazione di un file di un decision tree in formato JSON o CSV.], [#link(<uc38>)[UC-38]],
   [RF-Ob75], [Il sistema deve consentire l'esportazione di un decision tree in formato JSON.], [#link(<uc38.1>)[UC-38.1]],
   [RF-Ob76], [Il sistema deve consentire l'esportazione di un decision tree in formato CSV.], [#link(<uc38.2>)[UC-38.2]],
-  [RF-Ob77], [Il sistema deve generare un report di conformità finale contenente, per ogni coppia asset-requisito, l'esito del requisito, l'esito aggregato del decision tree e il percorso logico seguito.], [#link(<uc28>)[UC-28], Verbale esterno],
-)
+  [RF-Ob77], [Il sistema deve generare un report di conformità finale contenente, per ogni coppia asset-requisito, l'esito del requisito, l'esito aggregato del decision tree e il percorso logico seguito.], [#link(<uc28>)[UC-28], #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-05-04_firmato.pdf")[#text(fill: blue)[#underline[Verbale esterno]]]],)
 
 #pagebreak()
 
