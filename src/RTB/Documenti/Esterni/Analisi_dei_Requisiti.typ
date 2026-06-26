@@ -2540,8 +2540,6 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   table.header(
     [*Codice*], [*Descrizione*], [*Fonti*],
   ),
-
-  // --- AREA GESTIONE DISPOSITIVI (UC-1 a UC-11) ---
   [RF-Ob01], [Il sistema deve permettere l'inserimento di un nuovo dispositivo all'interno della piattaforma.], [#link(<uc1>)[UC-1]],
   [RF-Ob02], [Il sistema deve permettere l'importazione di un dispositivo tramite un file di configurazione in formato JSON o CSV.], [#link(<uc2>)[UC-2]],
   [RF-Ob03], [Il sistema deve permettere la selezione del file sorgente per l'importazione del dispositivo.], [#link(<uc2.1>)[UC-2.1]],
@@ -2566,8 +2564,6 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-Ob22], [Il sistema deve permettere l'eliminazione definitiva di un dispositivo dal sistema.], [#link(<uc11>)[UC-11]],
   [RF-Ob23], [Il sistema deve consentire l'eliminazione diretta di un dispositivo senza effettuare il backup dei dati.], [#link(<uc11.1>)[UC-11.1]],
   [RF-Ob24], [Il sistema deve consentire l'eliminazione del dispositivo previa esportazione automatica di backup dei dati.], [#link(<uc11.2>)[UC-11.2]],
-
-  // --- AREA GESTIONE ASSET (UC-12 a UC-18) ---
   [RF-Ob25], [Il sistema deve permettere l'inserimento di un nuovo asset all'interno di un dispositivo.], [#link(<uc12>)[UC-12]],
   [RF-Ob26], [Il sistema deve richiedere la compilazione dei dati dell'asset nel form di creazione.], [#link(<uc12.1>)[UC-12.1]],
   [RF-Ob27], [Il sistema deve permettere l'inserimento del nome dell'asset nel form di creazione.], [#link(<uc12.1.1>)[UC-12.1.1]],
@@ -2579,17 +2575,15 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-Ob33], [Il sistema deve mostrare il nome del singolo asset all'interno della lista.], [#link(<uc14.1.1>)[UC-14.1.1]],
   [RF-Ob34], [Il sistema deve mostrare il tipo del singolo asset all'interno della lista.], [#link(<uc14.1.2>)[UC-14.1.2]],
   [RF-Ob35], [Il sistema deve mostrare lo stato di valutazione del singolo asset all'interno della lista.], [#link(<uc14.1.3>)[UC-14.1.3]],
-  [RF-Ob36], [Il sistema deve permettere la visualizzazione in dettaglio di tutte le informazioni di un singolo asset selezionato.], [#link(<uc15>)[UC-15]],
-  [RF-Ob37], [Il sistema deve mostrare nel dettaglio il nome dell'asset selezionato.], [#link(<uc15.1>)[UC-15.1], #link(<uc20.1>)[UC-20.1]],
-  [RF-Ob38], [Il sistema deve mostrare nel dettaglio il tipo dell'asset selezionato.], [#link(<uc15.2>)[UC-15.2], #link(<uc20.1>)[UC-20.1]],
-  [RF-Ob39], [Il sistema deve mostrare nel dettaglio la descrizione dell'asset selezionato.], [#link(<uc15.3>)[UC-15.3], #link(<uc20.1>)[UC-20.1]],
-  [RF-Ob40], [Il sistema deve mostrare nel dettaglio il livello di sensibilità dell'asset selezionato.], [#link(<uc15.4>)[UC-15.4], #link(<uc20.1>)[UC-20.1]],
-  [RF-Ob41], [Il sistema deve mostrare lo stato complessivo di valutazione dell'asset selezionato.], [#link(<uc15.5>)[UC-15.5], #link(<uc20.1>)[UC-20.1]],
+  [RF-Ob36], [Il sistema deve permettere la visualizzazione in dettaglio di tutte le informazioni di un singolo asset selezionato.], [#link(<uc15>)[UC-15], #link(<uc20.1>)[UC-20.1]],
+  [RF-Ob37], [Il sistema deve mostrare nel dettaglio il nome dell'asset selezionato.], [#link(<uc15.1>)[UC-15.1]],
+  [RF-Ob38], [Il sistema deve mostrare nel dettaglio il tipo dell'asset selezionato.], [#link(<uc15.2>)[UC-15.2]],
+  [RF-Ob39], [Il sistema deve mostrare nel dettaglio la descrizione dell'asset selezionato.], [#link(<uc15.3>)[UC-15.3]],
+  [RF-Ob40], [Il sistema deve mostrare nel dettaglio il livello di sensibilità dell'asset selezionato.], [#link(<uc15.4>)[UC-15.4]],
+  [RF-Ob41], [Il sistema deve mostrare lo stato complessivo di valutazione dell'asset selezionato.], [#link(<uc15.5>)[UC-15.5]],
   [RF-Ob42], [Il sistema deve mostrare la lista dei requisiti da valutare associati all'asset.], [#link(<uc15.6>)[UC-15.6], #link(<uc20.2>)[UC-20.2]],
   [RF-Ob43], [Il sistema deve mostrare il codice identificativo e lo stato di valutazione di ogni requisito nella lista.], [#link(<uc15.6.1>)[UC-15.6.1], #link(<uc20.2.1>)[UC-20.2.1]],
   [RF-Ob44], [Il sistema deve permettere l'eliminazione definitiva di un asset da un dispositivo.], [#link(<uc18>)[UC-18]],
-
-  // --- AREA ESECUZIONE VALUTAZIONE (UC-19 a UC-28) ---
   [RF-Ob45], [Il sistema deve permettere l'esecuzione di una sessione di
   valutazione di conformità per un dispositivo.], [#link(<uc19>)[UC-19]],
   [RF-Ob46], [Il sistema deve mostrare una dashboard di valutazione con la lista degli asset, il loro stato, e il progresso della sessione in tempo reale.], [#link(<uc19.1>)[UC-19.1]],
@@ -2648,22 +2642,19 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-D08], [Il sistema deve permettere il salvataggio intermedio dello stato della sessione di valutazione.], [#link(<uc25>)[UC-25]],
   [RF-D09], [Il sistema deve permettere all'utente di navigare verso il nodo successivo precedentemente già risposto durante l'esecuzione del decision tree.], [#link(<uc22.5>)[UC-22.5]],
   [RF-D10], [Il sistema deve permettere la modifica della risposta a un nodo già risposto, invalidando le risposte successive al nodo corrente.], [#link(<uc22.6>)[UC-22.6]],
-  [RF-D11], [Il sistema deve mostrare la giustificazione testuale del risultato raggiunto al termine dell'esecuzione del decision tree.], [#link(<uc23>)[UC-23]],
-  [RF-D12], [Il sistema deve permettere l'inserimento di una giustificazione testuale per l'esito della coppia asset-requisito al termine dell'esecuzione del decision tree.], [#link(<uc23.1>)[UC-23.1]],
-
-  [RF-D13], [Il sistema deve permettere la modifica delle informazioni anagrafiche di un dispositivo esistente.], [#link(<uc8>)[UC-8]],
-  [RF-D14], [Il sistema deve consentire la modifica del nome del dispositivo.], [#link(<uc8.1>)[UC-8.1]],
-  [RF-D15], [Il sistema deve consentire la modifica del sistema operativo del dispositivo.], [#link(<uc8.2>)[UC-8.2]],
-  [RF-D16], [Il sistema deve consentire la modifica della descrizione del dispositivo.], [#link(<uc8.3>)[UC-8.3]],
-  [RF-D17], [Il sistema deve permettere la modifica delle informazioni di un asset esistente.], [#link(<uc16>)[UC-16]],
-  [RF-D18], [Il sistema deve consentire la modifica del nome dell'asset.], [#link(<uc16.1>)[UC-16.1]],
-  [RF-D19], [Il sistema deve consentire la modifica del tipo dell'asset tramite opzioni predefinite.], [#link(<uc16.2>)[UC-16.2]],
-  [RF-D20], [Il sistema deve consentire la modifica della descrizione dell'asset.], [#link(<uc16.3>)[UC-16.3]],
-  [RF-D21], [Il sistema deve consentire la modifica della sensibilità dell'asset.], [#link(<uc16.4>)[UC-16.4]],
-  [RF-D22], [Il sistema deve permettere l'importazione e la validazione strutturale di un nuovo decision tree da file.], [#link(<uc42>)[UC-42]],
-  [RF-D23], [Il sistema deve permettere la selezione del file sorgente per l'importazione di un decision tree.], [#link(<uc42.1>)[UC-42.1]],
-  [RF-D24], [Il sistema deve supportare l'importazione di un decision tree da file in formato JSON.], [#link(<uc42.1.1>)[UC-42.1.1]],
-  [RF-D25], [Il sistema deve supportare l'importazione di un decision tree da file in formato CSV.], [#link(<uc42.1.2>)[UC-42.1.2]],
+  [RF-D11], [Il sistema deve permettere la modifica delle informazioni anagrafiche di un dispositivo esistente.], [#link(<uc8>)[UC-8]],
+  [RF-D12], [Il sistema deve consentire la modifica del nome del dispositivo.], [#link(<uc8.1>)[UC-8.1]],
+  [RF-D13], [Il sistema deve consentire la modifica del sistema operativo del dispositivo.], [#link(<uc8.2>)[UC-8.2]],
+  [RF-D14], [Il sistema deve consentire la modifica della descrizione del dispositivo.], [#link(<uc8.3>)[UC-8.3]],
+  [RF-D15], [Il sistema deve permettere la modifica delle informazioni di un asset esistente.], [#link(<uc16>)[UC-16]],
+  [RF-D16], [Il sistema deve consentire la modifica del nome dell'asset.], [#link(<uc16.1>)[UC-16.1]],
+  [RF-D17], [Il sistema deve consentire la modifica del tipo dell'asset tramite opzioni predefinite.], [#link(<uc16.2>)[UC-16.2]],
+  [RF-D18], [Il sistema deve consentire la modifica della descrizione dell'asset.], [#link(<uc16.3>)[UC-16.3]],
+  [RF-D19], [Il sistema deve consentire la modifica della sensibilità dell'asset.], [#link(<uc16.4>)[UC-16.4]],
+  [RF-D20], [Il sistema deve permettere l'importazione e la validazione strutturale di un nuovo decision tree da file.], [#link(<uc42>)[UC-42]],
+  [RF-D21], [Il sistema deve permettere la selezione del file sorgente per l'importazione di un decision tree.], [#link(<uc42.1>)[UC-42.1]],
+  [RF-D22], [Il sistema deve supportare l'importazione di un decision tree da file in formato JSON.], [#link(<uc42.1.1>)[UC-42.1.1]],
+  [RF-D23], [Il sistema deve supportare l'importazione di un decision tree da file in formato CSV.], [#link(<uc42.1.2>)[UC-42.1.2]],
 )
 
 #pagebreak()
@@ -2691,7 +2682,7 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-Op10], [Il sistema deve validare la struttura dell'albero modificato secondo i vincoli di consistenza predefiniti.], [#link(<uc36>)[UC-36]],
   [RF-Op11], [Il sistema deve impedire il salvataggio e mostrare un errore se l'albero non è binario o mancano foglie PASS/FAIL.], [#link(<uc36>)[UC-36]],
   [RF-Op12], [Il sistema deve impedire l'eliminazione del nodo radice di un decision tree mostrando un errore.], [#link(<uc39>)[UC-39]],
-  [RF-Op13], [Il sistema deve consentire l'eliminazione definitiva di un decision tree dal backend.], [#link(<uc43>)[UC-43]],
+  [RF-Op13], [Il sistema deve consentire l'eliminazione definitiva di un decision tree.], [#link(<uc43>)[UC-43]],
   [RF-Op14], [Il sistema deve bloccare l'inserimento e mostrare un messaggio di errore se il codice del nodo è già presente nel decision tree.], [#link(<uc32.1.1>)[UC-32.1.1]],
   [RF-Op15], [Il sistema deve permettere all'utente di assegnare un esito (PASS, FAIL o NOT APPLICABLE) ai rami non collegati di un nodo appena aggiunto o modificato nel decision tree, trasformandoli in nodi foglia.], [#link(<uc32.3>)[UC-32.3]],
   [RF-Op16], [Il sistema deve permettere l'annullamento delle modifiche effettuate su un decision tree, ripristinando lo stato iniziale del grafo.], [#link(<uc37>)[UC-37]],
@@ -2700,6 +2691,8 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-Op19], [Il sistema deve consentire il download del report di conformità in formato PDF.], [#link(<uc28.1>)[UC-28.1]],
   [RF-Op20], [Il sistema deve consentire il download del report di conformità in formato JSON.], [#link(<uc28.2>)[UC-28.2]],
   [RF-Op21], [Il sistema deve consentire il download del report di conformità in formato CSV.], [#link(<uc28.3>)[UC-28.3]],
+  [RF-Op22], [Il sistema deve mostrare la giustificazione testuale del risultato raggiunto al termine dell'esecuzione del decision tree.], [#link(<uc23>)[UC-23]],
+  [RF-Op23], [Il sistema deve permettere l'inserimento di una giustificazione testuale per l'esito della coppia asset-requisito al termine dell'esecuzione del decision tree.], [#link(<uc23.1>)[UC-23.1]],
 )
 
 == Requisiti di Qualità
