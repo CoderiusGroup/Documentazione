@@ -100,6 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.6.3], [2026/06/25], [Alberto Canavese], [], [Aggiunta delle sezioni Sprint 6: 4.6.1, 4.6.2, 4.6.3, 4.6.4, 4.6.5, 4.6.6, 4.6.7, 4.6.8],
     [0.6.2], [2026/06/12], [Filippo Zonta Rocha], [Ines Iadadi], [Aggiunta delle sezioni:4.5.5, 4.5.6,4.5.7, 4.5.8],
     [0.6.1], [2026/06/05], [Ines Iadadi], [Alberto Canavese], [Revisione lessicale delle sezioni Sprint 2 e Sprint 3],
     [0.6.0], [2026/06/01], [Filippo Zonta Rocha], [Ines Iadadi], [Aggiunta delle sezioni Sprint 5: 4.5.1, 4.5.2, 4.5.3,4.5.4],
@@ -850,4 +851,95 @@ Sono stati inoltre aggiornati il Piano di Progetto e il Piano di Qualifica, risp
 Si segnala inoltre che i rischi attesi *RI-1* e *RO-2*, individuati in fase di pianificazione, non si sono concretizzati: il team ha mantenuto una disponibilità adeguata e l'intero carico di lavoro pianificato è stato completato nei tempi previsti.
 
 ==== Criticità emerse
-Come anticipato nella sezione dei rischi incontrati, sono stati riscontrati errori in alcuni verbali esterni ma sono stati risolti prontamente durante lo sprint dal team durante una riunione di allineamento. 
+Come anticipato nella sezione dei rischi incontrati, sono stati riscontrati errori in alcuni verbali esterni ma sono stati risolti prontamente durante lo sprint dal team durante una riunione di allineamento.
+
+#pagebreak()
+
+== Sprint 6
+
+=== Periodo
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/06/13],
+  [*Fine prevista:*], [2026/06/26],
+  [*Fine reale:*],    [2026/06/26],
+)
+#v(0.3em)
+
+=== Attività pianificate
+
+Inizialmente il team aveva pianificato per questo periodo uno sprint di una sola settimana; la durata è stata in seguito riportata a quella bisettimanale dopo aver constatato che i tempi ridotti non erano compatibili con il completamento delle attività necessarie alla consegna dell'RTB.
+
+In questo sprint il gruppo si concentra sulla finalizzazione dei documenti richiesti per il Requirements and Technology Baseline (RTB), in vista della consegna e del colloquio di presentazione, dedicando particolare attenzione agli ultimi controlli di qualità, coerenza e completezza. Parallelamente prosegue lo sviluppo del Proof of Concept (PoC).
+Le attività principali saranno:
+
+- Finalizzazione dei documenti richiesti per l'RTB: ultimi controlli sulla qualità, sulla coerenza e sulla completezza dei documenti prima della consegna.
+- Progressione nello sviluppo del Proof of Concept (PoC) da presentare in sede di revisione RTB.
+- Aggiornamento del Glossario: aggiunta dei termini introdotti nei documenti redatti durante lo sprint.
+- Stesura delle presentazioni per il sesto Diario di Bordo.
+- Stesura dei verbali interni ed esterni relativi alle riunioni del periodo.
+
+=== Rischi attesi
+
+- *RI-1*: Lo sprint si colloca in un periodo accademico particolarmente intenso, segnato dalla sessione estiva degli esami. È probabile che la disponibilità di alcuni membri del gruppo risulti ridotta, con conseguenti rallentamenti nello svolgimento delle attività operative.
+- *RO-4*: La concomitanza degli impegni accademici e personali rende più difficile coordinare i tempi del team e organizzare momenti di lavoro condiviso, con il rischio di un disallineamento sulle attività in vista della consegna.
+
+=== Preventivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [5],[-],[-],[-],[-],[-],[5]),
+    ([Edis Hodja],         [-],[-],[-],[-],[-],[7],[7]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[8],[-],[8]),
+    ([Giovanni Angelo Marco Bronte],    [-],[4],[-],[-],[-],[-],[4]),
+    ([Ines Iadadi],        [-],[-],[-],[-],[8],[-],[8]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[-],[-],[7],[7]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*5*],[*4*],[*0*],[*0*],[*16*],[*14*],[*39*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 6]
+)
+
+=== Consuntivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [5],[-],[-],[-],[-],[-],[5]),
+    ([Edis Hodja],         [-],[-],[-],[-],[-],[6 #text(fill: green)[(-1)]],[6]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[7 #text(fill: green)[(-1)]],[-],[7]),
+    ([Giovanni Angelo Marco Bronte],    [-],[4],[-],[-],[-],[-],[4]),
+    ([Ines Iadadi],        [-],[-],[-],[-],[8],[-],[8]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[-],[-],[7],[7]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*5*],[*4*],[*0*],[*0*],[*15*],[*13*],[*37*]),
+  )),
+    caption: [Consuntivo ore per membro - Sprint 6]
+)
+
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [5], [ 150€], [30], [900€],
+    [Amministratore], [20], [4], [80€], [24], [480€],
+    [Analista], [25], [0], [0€], [9], [225€],
+    [Progettista], [25], [0], [   0€], [85], [2125€],
+    [Programmatore], [15], [15], [225€], [83], [1245€],
+    [Verificatore], [15], [13], [ 195€], [73], [1095€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*37*], [*650€*], [*304*], [*6070€*],
+  )
+]
+
+=== Rischi incontrati
+- *RI-1*: La concomitanza con la sessione estiva degli esami ha effettivamente ridotto il tempo che alcuni membri hanno potuto dedicare al progetto, come previsto in fase di pianificazione. Per limitare l'impatto sulle scadenze, il team ha distribuito le attività con maggiore flessibilità sulle date di completamento interne e ha prorogato lo sprint da una a due settimane, così da poter completare tutte le attività necessarie alla consegna dell'RTB senza comprometterne la qualità.
+- *RO-4*: La difficoltà a far coincidere gli impegni personali dei membri ha reso complicato organizzare momenti di lavoro condiviso. Il team ha fatto ricorso ai canali di comunicazione rapidi (WhatsApp e Discord) per coordinarsi anche al di fuori dei meeting prefissati e mantenere allineate le attività in vista della consegna.
+
+=== Retrospettiva
+In vista della consegna e del colloquio di presentazione dell'RTB, il team si è concentrato sulla finalizzazione dei documenti richiesti, eseguendo gli ultimi controlli di qualità, coerenza e completezza prima della scadenza. Parallelamente è proseguito lo sviluppo del Proof of Concept da presentare in sede di revisione RTB.
+Sono inoltre stati aggiornati il Glossario e la documentazione ordinaria, con la stesura delle presentazioni per il sesto Diario di Bordo e dei verbali interni ed esterni relativi alle riunioni del periodo.
+
+==== Criticità emerse
+La principale criticità di questo sprint è derivata dalla sovrapposizione con la sessione estiva degli esami, che ha sottratto tempo al progetto e reso difficoltoso trovarsi e lavorare in modo continuativo. Proprio come conseguenza di questa riduzione di disponibilità, il team ha deciso di prorogare lo sprint da una a due settimane: i tempi inizialmente previsti non erano sufficienti a portare a termine tutte le attività necessarie alla consegna dell'RTB con la qualità richiesta. Grazie a questa proroga, a un coordinamento più frequente tramite i canali di comunicazione rapidi e a una distribuzione flessibile delle attività, il team è riuscito a completare il lavoro pianificato e a rispettare la data di consegna prevista per l'RTB.
