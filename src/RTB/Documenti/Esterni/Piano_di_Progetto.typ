@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.6.2*]
+  #text(size: 20pt)[*Versione 0.6.3*]
 ]
 #pagebreak()
 
@@ -100,7 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.6.3], [2026/06/25], [Alberto Canavese], [], [Aggiunta delle sezioni Sprint 6: 4.6.1, 4.6.2, 4.6.3, 4.6.4, 4.6.5, 4.6.6, 4.6.7, 4.6.8],
+    [0.6.3], [2026/06/25], [Alberto Canavese], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 6: 4.6.1, 4.6.2, 4.6.3, 4.6.4, 4.6.5, 4.6.6, 4.6.7, 4.6.8],
     [0.6.2], [2026/06/12], [Filippo Zonta Rocha], [Ines Iadadi], [Aggiunta delle sezioni:4.5.5, 4.5.6,4.5.7, 4.5.8],
     [0.6.1], [2026/06/05], [Ines Iadadi], [Alberto Canavese], [Revisione lessicale delle sezioni Sprint 2 e Sprint 3],
     [0.6.0], [2026/06/01], [Filippo Zonta Rocha], [Ines Iadadi], [Aggiunta delle sezioni Sprint 5: 4.5.1, 4.5.2, 4.5.3,4.5.4],
@@ -870,9 +870,9 @@ Come anticipato nella sezione dei rischi incontrati, sono stati riscontrati erro
 
 === Attività pianificate
 
-Inizialmente il team aveva pianificato per questo periodo uno sprint di una sola settimana; la durata è stata in seguito riportata a quella bisettimanale dopo aver constatato che i tempi ridotti non erano compatibili con il completamento delle attività necessarie alla consegna dell'RTB.
+Inizialmente il team aveva pianificato per questo periodo uno sprint di una sola settimana; la durata è stata però riportata a quella bisettimanale dopo aver constatato che i tempi ridotti non erano compatibili con il completamento delle attività necessarie alla consegna dell'RTB.
 
-In questo sprint il gruppo si concentra sulla finalizzazione dei documenti richiesti per il Requirements and Technology Baseline (RTB), in vista della consegna e del colloquio di presentazione, dedicando particolare attenzione agli ultimi controlli di qualità, coerenza e completezza. Parallelamente prosegue lo sviluppo del Proof of Concept (PoC).
+In questo sprint il gruppo si concentra sulla finalizzazione dei documenti richiesti per la Requirements and Technology Baseline (RTB), in vista della consegna e del colloquio di presentazione, dedicando particolare attenzione agli ultimi controlli di qualità, coerenza e completezza. Parallelamente prosegue lo sviluppo del Proof of Concept (PoC).
 Le attività principali saranno:
 
 - Finalizzazione dei documenti richiesti per l'RTB: ultimi controlli sulla qualità, sulla coerenza e sulla completezza dei documenti prima della consegna.
