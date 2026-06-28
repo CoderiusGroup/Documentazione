@@ -33,7 +33,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(3em)
-  #text(size: 20pt)[*Versione 0.7.0*]
+  #text(size: 20pt)[*Versione 1.0.0*]
 ]
 
 #pagebreak()
@@ -53,6 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.0.0], [2026/06/26], [Edis Hodja], [], [Approvazione del documento],
     [0.7.0], [2026/06/12], [Giovanni Bronte], [Edis Hodja], [Modifiche a sintassi di alcuni UC, aggiunta di link mancanti e modificati alcuni UC nei requisiti],
     [0.6.0], [2026/06/05], [Ines Iadadi], [Edis Hodja], [Eliminato UC-44, revisione generale del documento e applicate correzioni ai diagrammi UML],
     [0.5.4], [2026/06/04], [Giovanni Bronte], [Ines Iadadi], [Modificati vari UC da obbligatori a desiderabili],
