@@ -52,7 +52,7 @@
         *Luogo:* #luogo ]
     )
     #v(4em)
-    #text(size: 20pt)[*Versione 0.1.0*]
+    #text(size: 20pt)[*Versione 1.0.0*]
   ]
   pagebreak()
 
@@ -73,7 +73,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026-06-26], [Giovanni Bronte], [], [Prima stesura del verbale],
+      [1.0.0], [2026-06-26], [Edis Hodja], [], [Approvazione del verbale],
+      [0.1.0], [2026-06-26], [Giovanni Bronte], [Edis Hodja], [Prima stesura del verbale],
       // aggiungi nuova riga quando viene aggiornato
     )
     
@@ -126,16 +127,18 @@
 = Svolgimento della Riunione
 
 == Rotazione dei ruoli
-Il 2026-06-26 finisce lo sprint 6 del nostro team. Seguendo quanto scritto nelle Norme di Progetto e quanto fatto negli sprint precedenti, il team si è riunito per discutere sulla rotazione dei ruoli da fare per il prossimo sprint. 
+Il 2026-06-26 si è concluso lo sprint 6 del nostro team. In conformità a quanto stabilito nelle #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Norme_di_Progetto.pdf")[#underline(text(fill: blue)[Norme di Progetto])] e in continuità con la prassi adottata negli sprint precedenti, il team si è riunito per discutere la rotazione dei ruoli da applicare nel corso dello sprint successivo.
 
 == Aggiornamento Piano di Progetto e Piano di Qualifica
-Come scritto già negli scorsi verbali interni, alla fine di ogni sprint vengono aggiornati il Piano di Progetto e il Piano di Qualifica inserendo il resoconto dello sprint passato. Nello scorso verbale avevamo inserito nel TODO "Approvazione Piano di Progetto" e "Approvazione Piano di Qualifica", dato che i documenti non sono stati ancora approvati, questi ultimi verranno prima aggiornati con il resoconto dello sprint e successivamente verificati per l'approvazione finale del documento in vista della presentazione RTB.
+Come già indicato nei precedenti verbali interni, al termine di ogni sprint il  #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Piano_di_Progetto.pdf")[#underline(text(fill: blue)[Piano di Progetto])] e il #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Piano_di_Qualifica.pdf")[#underline(text(fill: blue)[Piano di Qualifica])] vengono aggiornati con l'inserimento del resoconto dello sprint appena concluso. Nel verbale precedente erano state inserite nel TODO le voci «Approvazione Piano di Progetto» e «Approvazione Piano di Qualifica»: poiché tali documenti non sono ancora stati approvati, questi verranno dapprima aggiornati con il resoconto dello sprint e successivamente sottoposti a verifica per l'approvazione finale, in vista della presentazione RTB.
 
 == Concludere la verifica dell'Analisi dei Requisiti
-Dallo scorso verbale interno sono stati trovati alcuni errori minori da sistemare per quanto riguarda l'Analisi dei Requisiti. Per questo motivo il team ha deciso di apportare le modifiche necessarie al documento prima che venga approvato in modo definitivo.
+A seguito dell'attività di verifica condotta sullo scorso verbale interno, il verificatore ha individuato alcuni errori minori relativi all'Analisi dei Requisiti. Trattandosi di correzioni circoscritte e non incidenti sui contenuti analitici del documento, il team ha concordato di apportare le modifiche necessarie prima dell'approvazione definitiva.
 
 == Presentazione interna del Proof of Concept 
-I due programmatori di questo sprint hanno presentato al resto del team la versione attuale del Proof of Concept. Il team ha notato una possibile funzionalità mancante alla versione attuale dell'eseguibile. È stato quindi deciso di aggiungere questa funzionalità al Proof of Concept prima della candidatura all'RTB.
+I due programmatori incaricati per lo sprint corrente hanno presentato al resto del team la versione attuale del Proof of Concept. Nel corso della revisione, il team ha rilevato l'assenza di una funzionalità ritenuta necessaria a dimostrare la solidità dell'idea progettuale alla base del software. Si è pertanto deciso di integrare tale funzionalità nel Proof of Concept prima della candidatura alla presentazione RTB.
+
+#pagebreak()
 
 = Conclusione e Decisioni Prese
 #align(center)[
