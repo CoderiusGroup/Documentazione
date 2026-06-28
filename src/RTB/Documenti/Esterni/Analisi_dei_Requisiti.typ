@@ -53,8 +53,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.7.0], [2026/06/12], [Giovanni Bronte], [], [Modifiche a sintassi di alcuni UC, aggiunta di link mancanti e modificati alcuni UC nei requisiti],
-    [0.6.0], [2026/06/05], [Ines Iadadi], [], [Eliminato UC-44, revisione generale del documento e applicate correzioni ai diagrammi UML],
+    [0.7.0], [2026/06/12], [Giovanni Bronte], [Edis Hodja], [Modifiche a sintassi di alcuni UC, aggiunta di link mancanti e modificati alcuni UC nei requisiti],
+    [0.6.0], [2026/06/05], [Ines Iadadi], [Edis Hodja], [Eliminato UC-44, revisione generale del documento e applicate correzioni ai diagrammi UML],
     [0.5.4], [2026/06/04], [Giovanni Bronte], [Ines Iadadi], [Modificati vari UC da obbligatori a desiderabili],
     [0.5.3], [2026/06/03], [Giovanni Bronte], [Ines Iadadi], [Caricamento dei diagrammi UML],
     [0.5.2], [2026/06/03], [Giovanni Bronte], [Ines Iadadi], [Aggiunti UC-43 e UC-44, modificato UC-31],
@@ -109,6 +109,7 @@ In considerazione della natura incrementale del processo di sviluppo adottato, i
 == Glossario
 Per garantire che ogni termine tecnico sia compreso correttamente e per evitare qualsiasi confusione, la documentazione è supportata da un glossario che raccoglie le definizioni dei vocaboli più specifici. Le parole incluse in questo elenco sono segnalate nel testo dalla lettera G posta a pedice (parola#sub[G]). Cliccando su questo simbolo, l'utente viene indirizzato alla sezione della pagina web del glossario dove può consultare la definizione del termine cercato.
 
+#pagebreak()
 
 == Riferimenti
 Il presente documento è stato redatto facendo riferimento, ove applicabile, alle linee guida per la specifica dei requisiti software definite dallo standard IEEE 830:1998, adattandone struttura e contenuti alle esigenze del progetto.
@@ -194,6 +195,8 @@ Lo sviluppo, l'architettura e l'utilizzo del sistema sono soggetti a determinati
 - *Vincoli operativi e d'uso*: il sistema deve poter operare garantendo un'esperienza utente fluida, intuitiva e guidata. L'interfaccia deve semplificare e mascherare la complessità della normativa, permettendo anche ad utenti con competenze tecniche intermedie o non prettamente esperti della direttiva di portare a termine l'analisi di conformità.
 
 Ulteriori vincoli di dettaglio, incluse le specifiche implementative e prestazionali, saranno definiti in maniera puntuale e tracciati all'interno della sezione dedicata ai Requisiti di vincolo.
+
+#pagebreak()
 
 = Casi d'Uso
 
@@ -416,7 +419,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 #figure(
   image("../../../images/diagrammiUML/UC4.1b.png", width: 80%),
-  caption: [UC-4.1 : Inserimento dati nome, sistema operativo e descrizione],
+  caption: [UC-4.1 : Inserimento nome, SO e descrizione dispositivo],
 )
 === UC-4.1.1: Inserimento nome dispositivo <uc4.1.1>
 #v(1em)
@@ -588,7 +591,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC8b.png", width: 80%),
-  caption: [UC-8 : Modifica dati dispositivo],
+  caption: [UC-8 : Modifica nome, SO e descrizione del dispositivo],
 )
 
 === UC-8.1: Modifica nome dispositivo <uc8.1>
@@ -766,7 +769,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Precondizioni:* L'utente si trova nella schermata di visualizzazione del dispositivo.
 
-- *Postcondizioni:* Il sistema ha aggiunto un nuovo asset alla lista degli assets del dispositivo.
+- *Postcondizioni:* Il sistema ha aggiunto un nuovo asset alla lista degli asset del dispositivo.
 
 - *Scenario principale:*
   + L'utente seleziona la funzionalità di inserimento asset.
@@ -816,7 +819,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC12.1b.png", width: 80%),
-  caption: [UC-12.1 : Inclusioni caso d'uso UC-12.1],
+  caption: [UC-12.1 : Inserimento nome, descrizione, tipo e sensibilità asset],
 )
 ==== UC-12.1.1: Inserimento nome asset <uc12.1.1>
 #v(1em)
@@ -881,11 +884,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema scarta i dati inseriti.
 
 
-== UC-14: Visualizzazione lista assets <uc14>
+== UC-14: Visualizzazione lista asset <uc14>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC14.png", width: 80%),
-  caption: [UC-14 : Visualizzazione lista assets],
+  caption: [UC-14 : Visualizzazione lista asset],
 )
 
 - *Attore primario:* Utente
@@ -894,10 +897,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - L'utente sta visualizzando il dispositivo.
   - Il dispositivo possiede almeno un asset.
 
-- *Postcondizioni:* L'utente ha visualizzato la lista degli assets del dispositivo.
+- *Postcondizioni:* L'utente ha visualizzato la lista degli asset del dispositivo.
 
 - *Scenario principale:*
-  + Il sistema mostra la lista degli assets del dispositivo.
+  + Il sistema mostra la lista degli asset del dispositivo.
   + Per ogni asset nella lista l'utente visualizza le informazioni del singolo asset. #link(<uc14.1>)[(UC-14.1)]
 
 - *Inclusioni:*
@@ -911,7 +914,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente ha scelto di visualizzare la lista degli assets #link(<uc14>)[(UC-14)].
+- *Precondizioni:* L'utente ha scelto di visualizzare la lista degli asset #link(<uc14>)[(UC-14)].
 
 - *Postcondizioni:* L'utente ha visualizzato le informazioni essenziali di un singolo asset.
 
@@ -930,7 +933,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando la lista degli assets #link(<uc14.1>)[(UC-14.1)].
+- *Precondizioni:* L'utente sta visualizzando la lista degli asset #link(<uc14.1>)[(UC-14.1)].
 
 - *Postcondizioni:* L'utente ha visualizzato il nome dell'asset.
 
@@ -942,7 +945,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando la lista degli assets #link(<uc14.1>)[(UC-14.1)].
+- *Precondizioni:* L'utente sta visualizzando la lista degli asset #link(<uc14.1>)[(UC-14.1)].
 
 - *Postcondizioni:* L'utente ha visualizzato il tipo dell'asset.
 
@@ -954,7 +957,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando la lista degli assets #link(<uc14.1>)[(UC-14.1)].
+- *Precondizioni:* L'utente sta visualizzando la lista degli asset #link(<uc14.1>)[(UC-14.1)].
 
 - *Postcondizioni:* L'utente ha visualizzato lo stato di valutazione dell'asset.
 
@@ -969,7 +972,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 )
 - *Attore primario:* Utente
 
-- *Precondizioni:* L'utente sta visualizzando la lista degli assets.
+- *Precondizioni:* L'utente sta visualizzando la lista degli asset.
 
 - *Postcondizioni:* L'utente ha visualizzato le informazioni in dettaglio di un singolo asset.
 
@@ -1121,7 +1124,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC16b.png", width: 80%),
-  caption: [UC-16 : Inclusioni caso d'uso UC-16],
+  caption: [UC-16 : Modifica nome, tipo, descrizione e sensibilità asset],
 )
 === UC-16.1: Modifica nome asset <uc16.1>
 #v(1em)
@@ -1172,8 +1175,8 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + Il sistema carica la selezione della sensibilità dell'asset precedentemente effettuata.
- + L'utente seleziona se l'asset è sensibile o no.
-+ Il sistema registra la nuova selezione.
+  + L'utente seleziona se l'asset è sensibile o no.
+  + Il sistema registra la nuova selezione.
 
 
 == UC-17: Annullamento modifica asset <uc17>
@@ -1246,7 +1249,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC19b.png", width: 80%),
-  caption: [UC-19 : Inclusioni caso d'uso UC-19],
+  caption: [UC-19.1 : Dashboard e valutazione asset],
 )
 === UC-19.1: Visualizzazione dashboard di valutazione <uc19.1>
 #v(1em)
@@ -1258,7 +1261,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   valutazione.
 
 - *Scenario principale:*
-  + L'utente visualizza la lista degli assets del dispositivo.
+  + L'utente visualizza la lista degli asset del dispositivo.
   + Per ogni asset il sistema mostra il nome, il tipo e lo stato di valutazione
     corrente.
   + Il sistema mostra l'asset e il requisito correnti in esame.
@@ -1435,7 +1438,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/uc22b.png", width: 80%),
-  caption: [UC-22 : Esecuzione decision tree per un requisito],
+  caption: [UC-22 : Dettaglio dell'esecuzione del decision tree],
 )
 
 
@@ -1634,6 +1637,8 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Estensioni:*
   - #link(<uc25>)[UC-25: Salvataggio sessione di valutazione]
+
+#pagebreak()
 
 == UC-25: Salvataggio sessione di valutazione <uc25>
 #v(1em)
@@ -1896,7 +1901,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC30a.png", width: 100%),
-  caption: [UC-30 : Visualizzazione dettaglio decision tree],
+  caption: [UC-30 : Visualizzazione dettaglio del decision tree],
 )
 - *Attore primario:* Utente
 
@@ -1927,7 +1932,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC30b.png", width: 80%),
-  caption: [UC-30 : Inclusioni caso d'uso UC-30],
+  caption: [UC-30 : Visualizzazione grafo e dipendenze del decision tree],
 )
 
 === UC-30.1: Visualizzazione grafo del decision tree <uc30.1>
@@ -2084,7 +2089,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC32b.png", width: 80%),
-  caption: [UC-32 : Inclusioni caso d'uso UC-32],
+  caption: [UC-32 : Inserimento codice e domanda del nodo],
 )
 
 === UC-32.1: Inserimento codice univoco del nodo <uc32.1>
@@ -2194,6 +2199,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente seleziona NOT APPLICABLE come esito del ramo non collegato.
   + Il sistema crea un nodo foglia NOT APPLICABLE collegato al ramo.
 
+#pagebreak()
 
 == UC-33: Eliminazione nodo dal decision tree <uc33>
 #v(1em)
@@ -2248,6 +2254,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - #link(<uc32.3>)[UC-32.3: Assegnazione esito ramo non collegato]
   - #link(<uc35>)[UC-35: Tentativo di creazione collegamento duplicato]
 
+#pagebreak()
 
 == UC-35: Tentativo di creazione collegamento duplicato <uc35>
 #v(1em)
@@ -2569,7 +2576,7 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-Ob27], [Il sistema deve permettere l'inserimento del nome dell'asset nel form di creazione.], [#link(<uc12.1.1>)[UC-12.1.1]],
   [RF-Ob28], [Il sistema deve permettere la selezione del tipo di asset tra Network, Security, Privacy e Financial.], [#link(<uc12.1.2>)[UC-12.1.2]],
   [RF-Ob29], [Il sistema deve permettere l'inserimento della descrizione dell'asset nel form di creazione.], [#link(<uc12.1.3>)[UC-12.1.3]],
-  [RF-Ob30], [Il sistema deve permettere di impostare la sensibilità dell'asset (Yes o No).], [#link(<uc12.1.4>)[UC-12.1.4]],
+  [RF-Ob30], [Il sistema deve permettere di impostare la sensibilità dell'asset.], [#link(<uc12.1.4>)[UC-12.1.4]],
   [RF-Ob31], [Il sistema deve permettere la visualizzazione della lista degli asset associati ad un determinato dispositivo.], [#link(<uc14>)[UC-14]],
   [RF-Ob32], [Il sistema deve mostrare le informazioni essenziali del singolo asset all'interno della lista.], [#link(<uc14.1>)[UC-14.1]],
   [RF-Ob33], [Il sistema deve mostrare il nome del singolo asset all'interno della lista.], [#link(<uc14.1.1>)[UC-14.1.1]],
@@ -2695,6 +2702,8 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-Op23], [Il sistema deve permettere l'inserimento di una giustificazione testuale per l'esito della coppia asset-requisito al termine dell'esecuzione del decision tree.], [#link(<uc23.1>)[UC-23.1]],
 )
 
+#pagebreak()
+
 == Requisiti di Qualità
 
 I requisiti di qualità definiscono i criteri di validazione, gli standard metrici e gli obblighi di verifica che il team e il prodotto software devono soddisfare in conformità con i criteri di completamento e consegna stabiliti nel capitolato d'appalto e nei documenti di qualifica interni. In linea con l'approccio dei documenti di riferimento, tutti i requisiti di qualità individuati sono da considerarsi strettamente obbligatori.
@@ -2708,14 +2717,16 @@ I requisiti di qualità definiscono i criteri di validazione, gli standard metri
     [*Codice*], [*Descrizione*], [*Fonti*],
   ),
 
-  [RQ-Ob01], [Il codice sorgente e la gestione dei processi di sviluppo devono rispettare tassativamente le convenzioni e gli standard definiti nelle Norme di Progetto.], [Norme di Progetto],
-  [RQ-Ob02], [Il sistema e i deliverable di progetto devono essere conformi alle metriche, agli indici e agli obiettivi di verifica stabiliti all'interno del Piano di Qualifica.], [Piano di Qualifica],
-  [RQ-Ob03], [Il prodotto software deve essere corredato da una suite di test automatizzati (di Unità, Integrazione, Sistema e Regressione) per verificarne il corretto funzionamento complessivo.], [#text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[Capitolato C1])], Piano di Qualifica],
-  [RQ-Ob04], [Il prodotto software deve superare i Test di Accettazione finali in sede di revisione per dimostrare la piena conformità alle richieste della proponente.], [Capitolato C1],
-  [RQ-Ob05], [Il sistema software deve essere accompagnato da un Manuale Utente che descriva in modo chiaro le funzionalità dell'applicazione.], [Capitolato C1],
-  [RQ-Ob06], [Il codice sorgente del prodotto deve essere documentato tramite un Manuale Tecnico, e deve essere prodotta una documentazione di progetto comprendente requisiti, architettura, scelte tecnologiche e metodologia di sviluppo.], [Capitolato C1],
-  [RQ-Ob07], [La gestione del ciclo di vita del progetto e l'organizzazione delle attività del team devono adottare un approccio Agile, garantendo iterazioni regolari e flessibilità.], [Norme di Progetto],
+  [RQ-Ob01], [Il codice sorgente e la gestione dei processi di sviluppo devono rispettare tassativamente le convenzioni e gli standard definiti nelle Norme di Progetto.], [#text(blue)[#underline(link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Norme_di_Progetto.pdf")[Norme di Progetto - Sezione 4])]],
+  [RQ-Ob02], [Il sistema e i deliverable di progetto devono essere conformi alle metriche, agli indici e agli obiettivi di verifica stabiliti all'interno del Piano di Qualifica.], [#text(blue)[#underline(link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Piano_di_Qualifica.pdf")[Piano di Qualifica - Sezione 2])]], 
+  [RQ-Ob03], [Il prodotto software deve essere corredato da una suite di test automatizzati (di Unità, Integrazione, Sistema e Regressione) per verificarne il corretto funzionamento complessivo.], [#text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[Capitolato C1 - Sezione 8])], #text(blue)[#underline(link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Piano_di_Qualifica.pdf")[Piano di Qualifica - Sezione 3])]],  
+  [RQ-Ob04], [Il prodotto software deve superare i Test di Accettazione finali in sede di revisione per dimostrare la piena conformità alle richieste della proponente.], [#text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[Capitolato C1 - Sezione 8])]],
+  [RQ-Ob05], [Il sistema software deve essere accompagnato da un Manuale Utente che descriva in modo chiaro le funzionalità dell'applicazione.], [#text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[Capitolato C1 - Sezione 7])]],
+  [RQ-Ob06], [Il codice sorgente del prodotto deve essere documentato tramite un Manuale Tecnico, e deve essere prodotta una documentazione di progetto comprendente requisiti, architettura, scelte tecnologiche e metodologia di sviluppo.], [#text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[Capitolato C1 - Sezione 7])]],  
+  [RQ-Ob07], [La gestione del ciclo di vita del progetto e l'organizzazione delle attività del team devono adottare un approccio Agile, garantendo iterazioni regolari e flessibilità.], [#text(blue)[#underline(link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Norme_di_Progetto.pdf")[Norme di Progetto - Sezione 4.2.2])]],
 )
+
+#pagebreak()
 
 == Requisiti di Vincolo
 
@@ -2732,12 +2743,12 @@ I requisiti di vincolo definiscono le restrizioni tecniche, le piattaforme e gli
     [*Codice*], [*Descrizione*], [*Fonti*],
   ),
 
-  [RV-Ob01], [La logica di backend deve essere sviluppata in linguaggio Python 3.x e la gestione dei relativi pacchetti software deve essere strutturata tramite Python Packaging utilizzando il file pyproject.toml.], [Capitolato C1],
-  [RV-Ob02], [L'applicazione deve essere distribuita e fruibile sotto forma di applicazione web locale accessibile all'indirizzo localhost, garantendo la piena compatibilità operativa sui principali browser moderni (Google Chrome, Mozilla Firefox, Apple Safari, Microsoft Edge).], [Capitolato C1],
-  [RV-Ob03], [L'interfaccia utente (frontend) dell'applicazione web deve essere realizzata utilizzando la libreria React.], [Verbale Esterno],
-  [RV-Ob04], [Il sistema deve utilizzare Git come software di controllo di versione distribuito per la gestione del codice sorgente.], [Verbale Esterno],
-  [RV-Ob05], [Il sistema deve utilizzare Docker per la containerizzazione e il deployment dell'applicazione.], [Verbale Esterno],
-  [RV-Ob06], [La logica di backend deve essere sviluppata utilizzando il framework Flask.], [Verbale Esterno],
+  [RV-Ob01], [La logica di backend deve essere sviluppata in linguaggio Python 3.x e la gestione dei relativi pacchetti software deve essere strutturata tramite Python Packaging utilizzando il file pyproject.toml.], [#text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[Capitolato C1 - Sezione 4])]],  
+  [RV-Ob02], [L'applicazione deve essere distribuita e fruibile sotto forma di applicazione web locale accessibile all'indirizzo localhost, garantendo la piena compatibilità operativa sui principali browser moderni (Google Chrome, Mozilla Firefox, Apple Safari, Microsoft Edge).], [#text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[Capitolato C1 - Sezione 4])]],  
+  [RV-Ob03], [L'interfaccia utente (frontend) dell'applicazione web deve essere realizzata utilizzando la libreria React.], [#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-06-16_firmato.pdf")[#text(fill: blue)[#underline[Verbale Esterno]]]],
+  [RV-Ob04], [Il sistema deve utilizzare Git come software di controllo di versione distribuito per la gestione del codice sorgente.], [#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-06-16_firmato.pdf")[#text(fill: blue)[#underline[Verbale Esterno]]]],
+  [RV-Ob05], [Il sistema deve utilizzare Docker per la containerizzazione e il deployment dell'applicazione.], [#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-06-16_firmato.pdf")[#text(fill: blue)[#underline[Verbale Esterno]]]],
+  [RV-Ob06], [La logica di backend deve essere sviluppata utilizzando il framework Flask.], [#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-06-16_firmato.pdf")[#text(fill: blue)[#underline[Verbale Esterno]]]],
 )
 
 #pagebreak()
@@ -2792,12 +2803,12 @@ In questa sezione viene fornito un quadro di tracciamento bidirezionale per asso
   [RF-Ob33], [#link(<uc14.1.1>)[UC-14.1.1]],
   [RF-Ob34], [#link(<uc14.1.2>)[UC-14.1.2]],
   [RF-Ob35], [#link(<uc14.1.3>)[UC-14.1.3]],
-  [RF-Ob36], [#link(<uc15>)[UC-15]],
-  [RF-Ob37], [#link(<uc15.1>)[UC-15.1], #link(<uc20.1>)[UC-20.1]],
-  [RF-Ob38], [#link(<uc15.2>)[UC-15.2], #link(<uc20.1>)[UC-20.1]],
-  [RF-Ob39], [#link(<uc15.3>)[UC-15.3], #link(<uc20.1>)[UC-20.1]],
-  [RF-Ob40], [#link(<uc15.4>)[UC-15.4], #link(<uc20.1>)[UC-20.1]],
-  [RF-Ob41], [#link(<uc15.5>)[UC-15.5], #link(<uc20.1>)[UC-20.1]],
+  [RF-Ob36], [#link(<uc15>)[UC-15], #link(<uc20.1>)[UC-20.1]],
+  [RF-Ob37], [#link(<uc15.1>)[UC-15.1]],
+  [RF-Ob38], [#link(<uc15.2>)[UC-15.2]],
+  [RF-Ob39], [#link(<uc15.3>)[UC-15.3]],
+  [RF-Ob40], [#link(<uc15.4>)[UC-15.4]],
+  [RF-Ob41], [#link(<uc15.5>)[UC-15.5]],
   [RF-Ob42], [#link(<uc15.6>)[UC-15.6], #link(<uc20.2>)[UC-20.2]],
   [RF-Ob43], [#link(<uc15.6.1>)[UC-15.6.1], #link(<uc20.2.1>)[UC-20.2.1]],
   [RF-Ob44], [#link(<uc18>)[UC-18]],
@@ -2845,21 +2856,19 @@ In questa sezione viene fornito un quadro di tracciamento bidirezionale per asso
   [RF-D08], [#link(<uc25>)[UC-25]],
   [RF-D09], [#link(<uc22.5>)[UC-22.5]],
   [RF-D10], [#link(<uc22.6>)[UC-22.6]],
-  [RF-D11], [#link(<uc23>)[UC-23]],
-  [RF-D12], [#link(<uc23.1>)[UC-23.1]],
-  [RF-D13], [#link(<uc8>)[UC-8]],
-  [RF-D14], [#link(<uc8.1>)[UC-8.1]],
-  [RF-D15], [#link(<uc8.2>)[UC-8.2]],
-  [RF-D16], [#link(<uc8.3>)[UC-8.3]],
-  [RF-D17], [#link(<uc16>)[UC-16]],
-  [RF-D18], [#link(<uc16.1>)[UC-16.1]],
-  [RF-D19], [#link(<uc16.2>)[UC-16.2]],
-  [RF-D20], [#link(<uc16.3>)[UC-16.3]],
-  [RF-D21], [#link(<uc16.4>)[UC-16.4]],
-  [RF-D22], [#link(<uc42>)[UC-42]],
-  [RF-D23], [#link(<uc42.1>)[UC-42.1]],
-  [RF-D24], [#link(<uc42.1.1>)[UC-42.1.1]],
-  [RF-D25], [#link(<uc42.1.2>)[UC-42.1.2]],
+  [RF-D11], [#link(<uc8>)[UC-8]],
+  [RF-D12], [#link(<uc8.1>)[UC-8.1]],
+  [RF-D13], [#link(<uc8.2>)[UC-8.2]],
+  [RF-D14], [#link(<uc8.3>)[UC-8.3]],
+  [RF-D15], [#link(<uc16>)[UC-16]],
+  [RF-D16], [#link(<uc16.1>)[UC-16.1]],
+  [RF-D17], [#link(<uc16.2>)[UC-16.2]],
+  [RF-D18], [#link(<uc16.3>)[UC-16.3]],
+  [RF-D19], [#link(<uc16.4>)[UC-16.4]],
+  [RF-D20], [#link(<uc42>)[UC-42]],
+  [RF-D21], [#link(<uc42.1>)[UC-42.1]],
+  [RF-D22], [#link(<uc42.1.1>)[UC-42.1.1]],
+  [RF-D23], [#link(<uc42.1.2>)[UC-42.1.2]],
 
   [RF-Op01], [#link(<uc25>)[UC-25]],
   [RF-Op02], [#link(<uc40>)[UC-40]],
@@ -2882,6 +2891,8 @@ In questa sezione viene fornito un quadro di tracciamento bidirezionale per asso
   [RF-Op19], [#link(<uc28.1>)[UC-28.1]],
   [RF-Op20], [#link(<uc28.2>)[UC-28.2]],
   [RF-Op21], [#link(<uc28.3>)[UC-28.3]],
+  [RF-Op22], [#link(<uc23>)[UC-23]],
+  [RF-Op23], [#link(<uc23.1>)[UC-23.1]],
 )
 
 #pagebreak()
@@ -2900,16 +2911,16 @@ La seguente tabella riassume quantitativamente i requisiti individuati all'inter
       [*Tipologia*], [*Obbligatori*], [*Desiderabili*], [*Opzionali*], [*Totali*],
     ),
 
-    [Funzionali (RF)], [77], [25], [21], [123],
+    [Funzionali (RF)], [77], [23], [23], [123],
     [Qualità (RQ)], [7], [0], [0], [7],
     [Vincolo (RV)], [6], [0], [0], [6],
 
-    [*Totali*], [*90*], [*25*], [*21*], [*136*],
+    [*Totali*], [*90*], [*23*], [*23*], [*136*],
   )
 ]
 
 === Conclusioni
 
-Il quadro dei requisiti delineato nel presente documento costituisce la sintesi formale e analitica delle necessità operative espresse nel capitolato d'appalto, progressivamente maturate e convalidate attraverso le sessioni di confronto bilaterale condotte con i rappresentanti dell'azienda proponente.
+Il quadro dei requisiti delineato nel presente documento costituisce la sintesi formale e analitica delle necessità operative espresse nel capitolato d'appalto fornito dalla proponente, progressivamente maturate e convalidate attraverso le sessioni di confronto, documentate nei verbali esterni, condotte con i rappresentanti dell'azienda proponente.
 
-In piena coerenza con l'approccio incrementale e iterativo adottato dal gruppo Coderius, questa specifica non deve essere intesa come un vincolo statico e definitivo, bensì come una linea guida dinamica e in continua evoluzione. Durante le successive fasi del ciclo di vita del software, l'elenco e la granularità dei requisiti saranno soggetti a costanti attività di raffinamento, tracciamento e potenziale espansione. Tale processo di revisione continua consentirà di recepire tempestivamente i feedback della proponente, garantendo la massima aderenza alle aspettative e innalzando gli standard di stabilità e qualità ingegneristica dell'applicazione finale.
+In piena coerenza con l'approccio incrementale e iterativo adottato dal gruppo Coderius, questa specifica non deve essere intesa come un vincolo statico e definitivo, bensì come una linea guida dinamica e in continua evoluzione. Durante le successive fasi del ciclo di vita del software, l'elenco e la granularità dei requisiti saranno soggetti a costanti attività di raffinamento, tracciamento e potenziale espansione. Tale processo di revisione continua consentirà di recepire tempestivamente i feedback della proponente, garantendo la massima aderenza alle aspettative e innalzando gli standard di stabilità e qualità dell'applicazione finale.
