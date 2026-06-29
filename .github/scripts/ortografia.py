@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
 Conta gli errori ortografici nei documenti .typ in src/ usando aspell
-con dizionario italiano. Aggiorna src/metrics/ortografia.json con i
-risultati del commit corrente. Scrive un riepilogo in $GITHUB_STEP_SUMMARY.
+con dizionario italiano. Rigenera da zero src/metrics/ortografia.json con i
+risultati del commit corrente (sovrascrivendo lo storico). 
+Scrive un riepilogo in $GITHUB_STEP_SUMMARY.
 
 Richiede: aspell + aspell-it  (sudo apt-get install aspell aspell-it)
 """
@@ -226,11 +227,11 @@ def load_wordlist() -> set[str]:
     Inizializza con un set di nomi propri e termini di progetto hardcoded,
     ed estende con eventuali termini dal file .github/scripts/wordlist.txt.
     """
-    # Whitelist di base con nomi del team, aziende e termini tecnici.
-    # Tutto in minuscolo per il confronto case-insensitive.
+    # Whitelist di base aggiornata (incluso l'ultimo set di cognomi trovati)
     words = {
         "edis", "hodja", "bronte", "zonta", "filippo", "giovanni", "leonardo",
-        "coderius", "bluewind", "athesys", "monokee", "versionamento", "group"
+        "coderius", "bluewind", "athesys", "monokee", "versionamento", "group",
+        "rocha", "lorenzin", "iadadi", "dell"
     }
 
     if not WORDLIST_FILE.exists():
@@ -306,13 +307,6 @@ def check_spelling(text: str, custom_words: set[str]) -> tuple[int | None, list[
 # Persistenza
 # ---------------------------------------------------------------------------
 
-def load_existing() -> list[dict]:
-    if METRICS_FILE.exists():
-        with open(METRICS_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    return []
-
-
 def save(records: list[dict]) -> None:
     METRICS_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(METRICS_FILE, "w", encoding="utf-8") as f:
@@ -367,11 +361,7 @@ def main() -> None:
         print("Nessun file .typ trovato in src/.")
         return
 
-    records = load_existing()
-    if commit in {r["commit"] for r in records}:
-        print(f"Commit {commit} già presente in ortografia.json — nessun aggiornamento.")
-        return
-
+    # [RIMOZIONE STORICO] Lo script ora rigenera sempre le metriche da zero.
     custom_words   = load_wordlist()
     glossary_words = load_glossary_words()
     custom_words  |= glossary_words
@@ -416,8 +406,8 @@ def main() -> None:
             "sample":   errors[:10],
         })
 
-    records.extend(new_records)
-    save(records)
+    # Sovrascrive direttamente il file json con il nuovo set di record puliti
+    save(new_records)
     print(f"\n✓ Salvati {len(new_records)} record in {METRICS_FILE.relative_to(REPO_ROOT)}")
 
     write_summary(results, commit, today)
