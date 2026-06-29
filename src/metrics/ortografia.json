@@ -1,1848 +1,28 @@
 [
   {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
+    "date": "2026-06-29",
+    "commit": "1a064a1",
     "document": "AnalisiCapitolati 2026 03 13",
-    "errors": 142,
+    "errors": 87,
     "sample": [
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter",
-      "page",
-      "get",
-      "first",
-      "columns"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "DichiarazioneImpegni 2026 03 20",
-    "errors": 103,
-    "sample": [
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter",
-      "page",
-      "get",
-      "first",
-      "columns"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "LetteraPresentazione 2026 03 20",
-    "errors": 80,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleEsterno 2026 03 16",
-    "errors": 119,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleEsterno 2026 03 17",
-    "errors": 119,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleInterno 2026 03 09",
-    "errors": 107,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleInterno 2026 03 18",
-    "errors": 114,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleInterno 2026 03 25",
-    "errors": 119,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "AnalisiRequisiti 2026 04 07",
-    "errors": 50,
-    "sample": [
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter",
-      "page",
-      "get",
-      "first",
-      "columns"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "Glossario",
-    "errors": 55,
-    "sample": [
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter",
-      "page",
-      "get",
-      "first",
-      "columns"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleEsterno 2026 04 03",
-    "errors": 137,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleEsterno 2026 04 17",
-    "errors": 149,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleEsterno 2026 05 04",
-    "errors": 132,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleEsterno 2026 05 18",
-    "errors": 123,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleEsterno 2026 06 03",
-    "errors": 121,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleInterno 2026 03 31",
-    "errors": 108,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleInterno 2026 04 14",
-    "errors": 123,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleInterno 2026 04 21",
-    "errors": 114,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleInterno 2026 05 04",
-    "errors": 115,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleInterno 2026 05 13",
-    "errors": 133,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleInterno 2026 05 18",
-    "errors": 118,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleInterno 2026 05 25",
-    "errors": 132,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-05",
-    "commit": "82ca75b",
-    "document": "VerbaleInterno 2026 05 29",
-    "errors": 128,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "AnalisiCapitolati 2026 03 13",
-    "errors": 142,
-    "sample": [
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter",
-      "page",
-      "get",
-      "first",
-      "columns"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "DichiarazioneImpegni 2026 03 20",
-    "errors": 103,
-    "sample": [
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter",
-      "page",
-      "get",
-      "first",
-      "columns"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "LetteraPresentazione 2026 03 20",
-    "errors": 80,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleEsterno 2026 03 16",
-    "errors": 119,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleEsterno 2026 03 17",
-    "errors": 119,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleInterno 2026 03 09",
-    "errors": 107,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleInterno 2026 03 18",
-    "errors": 114,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleInterno 2026 03 25",
-    "errors": 119,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "AnalisiRequisiti 2026 04 07",
-    "errors": 50,
-    "sample": [
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter",
-      "page",
-      "get",
-      "first",
-      "columns"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "Glossario",
-    "errors": 55,
-    "sample": [
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter",
-      "page",
-      "get",
-      "first",
-      "columns"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleEsterno 2026 04 03",
-    "errors": 140,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleEsterno 2026 04 17",
-    "errors": 152,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleEsterno 2026 05 04",
-    "errors": 135,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleEsterno 2026 05 18",
-    "errors": 129,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleEsterno 2026 06 03",
-    "errors": 121,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleInterno 2026 03 31",
-    "errors": 108,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleInterno 2026 04 14",
-    "errors": 123,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleInterno 2026 04 21",
-    "errors": 114,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleInterno 2026 05 04",
-    "errors": 115,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleInterno 2026 05 13",
-    "errors": 133,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleInterno 2026 05 18",
-    "errors": 118,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleInterno 2026 05 25",
-    "errors": 132,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleInterno 2026 05 29",
-    "errors": 130,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-08",
-    "commit": "8ad1022",
-    "document": "VerbaleInterno 2026 06 08",
-    "errors": 143,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "AnalisiCapitolati 2026 03 13",
-    "errors": 142,
-    "sample": [
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter",
-      "page",
-      "get",
-      "first",
-      "columns"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "DichiarazioneImpegni 2026 03 20",
-    "errors": 103,
-    "sample": [
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter",
-      "page",
-      "get",
-      "first",
-      "columns"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "LetteraPresentazione 2026 03 20",
-    "errors": 80,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleEsterno 2026 03 16",
-    "errors": 119,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleEsterno 2026 03 17",
-    "errors": 119,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleInterno 2026 03 09",
-    "errors": 107,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleInterno 2026 03 18",
-    "errors": 114,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleInterno 2026 03 25",
-    "errors": 119,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "AnalisiRequisiti 2026 04 07",
-    "errors": 50,
-    "sample": [
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter",
-      "page",
-      "get",
-      "first",
-      "columns"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "Glossario",
-    "errors": 55,
-    "sample": [
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter",
-      "page",
-      "get",
-      "first",
-      "columns"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleEsterno 2026 04 03",
-    "errors": 140,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleEsterno 2026 04 17",
-    "errors": 152,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleEsterno 2026 05 04",
-    "errors": 135,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleEsterno 2026 05 18",
-    "errors": 129,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleEsterno 2026 06 03",
-    "errors": 121,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleEsterno 2026 06 16",
-    "errors": 133,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleInterno 2026 03 31",
-    "errors": 108,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleInterno 2026 04 14",
-    "errors": 123,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleInterno 2026 04 21",
-    "errors": 114,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleInterno 2026 05 04",
-    "errors": 115,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleInterno 2026 05 13",
-    "errors": 133,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleInterno 2026 05 18",
-    "errors": 118,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleInterno 2026 05 25",
-    "errors": 132,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleInterno 2026 05 29",
-    "errors": 130,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleInterno 2026 06 08",
-    "errors": 143,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-19",
-    "commit": "bdcab51",
-    "document": "VerbaleInterno 2026 06 12",
-    "errors": 132,
-    "sample": [
-      "document",
-      "title",
-      "author",
-      "page",
-      "paper",
-      "margin",
-      "header",
-      "context",
-      "if",
-      "counter"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "AnalisiCapitolati 2026 03 13",
-    "errors": 109,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Iadadi",
-      "Zonta",
-      "Rocha",
-      "Iadadi",
-      "Edis",
-      "Hodja",
-      "Iadadi",
-      "Bronte"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "DichiarazioneImpegni 2026 03 20",
-    "errors": 17,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Edis",
-      "Hodja",
-      "Zonta",
-      "Rocha",
-      "Edis",
-      "Hodja",
-      "Zonta",
-      "Rocha"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "LetteraPresentazione 2026 03 20",
-    "errors": 8,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Lorenzin",
-      "Lorenzin",
-      "Vardanega",
-      "Cardin",
-      "Automated",
-      "Verification"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleEsterno 2026 03 16",
-    "errors": 34,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Iadadi",
-      "Zonta",
-      "Rocha",
-      "Edis",
-      "Hodja",
-      "Zonta",
-      "Rocha",
-      "Bronte"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleEsterno 2026 03 17",
-    "errors": 36,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Edis",
-      "Hodja",
-      "Iadadi",
-      "Edis",
-      "Hodja",
-      "Zonta",
-      "Rocha",
-      "Bronte"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleInterno 2026 03 09",
-    "errors": 24,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Iadadi",
-      "Edis",
-      "Hodja",
-      "Edis",
-      "Hodja",
-      "Zonta",
-      "Rocha",
-      "Bronte"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleInterno 2026 03 18",
-    "errors": 14,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Lorenzin",
-      "Bronte",
-      "Lorenzin",
-      "Edis",
-      "Hodja",
-      "Zonta",
-      "Rocha",
-      "Bronte"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleInterno 2026 03 25",
-    "errors": 30,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Lorenzin",
-      "Lorenzin",
-      "Edis",
-      "Hodja",
-      "Zonta",
-      "Rocha",
-      "Bronte",
-      "Iadadi"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "Analisi dei Requisiti",
-    "errors": 102,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Edis",
-      "Hodja",
-      "Bronte",
-      "Edis",
-      "Hodja",
-      "Iadadi",
-      "Edis",
-      "Hodja"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "Norme di Progetto",
-    "errors": 74,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Edis",
-      "Hodja",
-      "Bronte",
-      "Edis",
-      "Hodja",
-      "Bronte",
-      "Edis",
-      "Hodja"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleEsterno 2026 04 03",
-    "errors": 47,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Zonta",
-      "Rocha",
-      "Iadadi",
-      "Zonta",
-      "Rocha",
-      "Lorenzin",
-      "Zonta",
-      "Rocha"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleEsterno 2026 04 17",
-    "errors": 59,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Zonta",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
-      "Zonta",
-      "Rocha",
-      "Lorenzin",
-      "Edis"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleEsterno 2026 05 04",
-    "errors": 44,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Zonta",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
-      "Zonta",
-      "Rocha",
-      "Lorenzin",
-      "Edis"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleEsterno 2026 05 18",
-    "errors": 37,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Zonta",
-      "Rocha",
-      "Iadadi",
-      "Bronte",
-      "Zonta",
-      "Rocha",
-      "Bronte",
-      "Edis"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleEsterno 2026 06 03",
-    "errors": 28,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Iadadi",
-      "Iadadi",
-      "Edis",
-      "Hodja",
-      "Zonta",
-      "Rocha",
-      "Bronte",
-      "Lorenzin"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleEsterno 2026 06 16",
-    "errors": 41,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Edis",
-      "Hodja",
-      "Iadadi",
-      "Edis",
-      "Hodja",
-      "Edis",
-      "Hodja",
-      "Zonta"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleInterno 2026 03 31",
-    "errors": 23,
-    "sample": [
-      "Group",
-      "Discord",
-      "versionamento",
-      "Zonta",
-      "Rocha",
-      "Edis",
-      "Hodja",
-      "Zonta",
-      "Rocha",
-      "Bronte"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleInterno 2026 04 14",
-    "errors": 34,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Edis",
-      "Hodja",
-      "Bronte",
-      "Zonta",
-      "Rocha",
-      "Lorenzin",
-      "Zonta",
-      "Rocha"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleInterno 2026 04 21",
-    "errors": 25,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Lorenzin",
-      "Zonta",
-      "Rocha",
-      "Edis",
-      "Hodja",
-      "Zonta",
-      "Rocha",
-      "Bronte"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleInterno 2026 05 04",
-    "errors": 26,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Edis",
-      "Hodja",
-      "Bronte",
-      "Lorenzin",
-      "Edis",
-      "Hodja",
-      "Lorenzin",
-      "Zonta"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleInterno 2026 05 13",
-    "errors": 44,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Edis",
-      "Hodja",
-      "Bronte",
-      "Zonta",
-      "Rocha",
-      "Lorenzin",
-      "Zonta",
-      "Rocha"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleInterno 2026 05 18",
-    "errors": 29,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Bronte",
-      "Edis",
-      "Hodja",
-      "Bronte",
-      "Zonta",
-      "Rocha",
-      "Bronte",
-      "Edis"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleInterno 2026 05 25",
-    "errors": 43,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Bronte",
-      "Zonta",
-      "Rocha",
-      "Bronte",
-      "Zonta",
-      "Rocha",
-      "Bronte",
-      "Edis"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleInterno 2026 05 29",
-    "errors": 41,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Iadadi",
-      "Edis",
-      "Hodja",
-      "Iadadi",
-      "Edis",
-      "Hodja",
-      "Zonta",
-      "Rocha"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleInterno 2026 06 08",
-    "errors": 54,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Iadadi",
-      "Edis",
-      "Hodja",
-      "Iadadi",
-      "Edis",
-      "Hodja",
-      "Zonta",
-      "Rocha"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleInterno 2026 06 12",
-    "errors": 43,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Edis",
-      "Hodja",
-      "Bronte",
-      "Edis",
-      "Hodja",
-      "Edis",
-      "Hodja",
-      "Zonta"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleInterno 2026 06 23",
-    "errors": 16,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Edis",
-      "Hodja",
-      "Bronte",
-      "Edis",
-      "Hodja",
-      "Edis",
-      "Hodja",
-      "Zonta"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "12ccb51",
-    "document": "VerbaleInterno 2026 06 26",
-    "errors": 29,
-    "sample": [
-      "Group",
-      "versionamento",
-      "Edis",
-      "Hodja",
-      "Bronte",
-      "Edis",
-      "Hodja",
-      "Edis",
-      "Hodja",
-      "Zonta"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "6dcec6b",
-    "document": "AnalisiCapitolati 2026 03 13",
-    "errors": 102,
-    "sample": [
-      "Iadadi",
-      "Rocha",
-      "Iadadi",
-      "Iadadi",
-      "Iadadi",
-      "Lorenzin",
-      "Iadadi",
-      "Iadadi",
       "block",
-      "above"
+      "above",
+      "update",
+      "Automated",
+      "Verification",
+      "Pass",
+      "Fail",
+      "Not",
+      "Applicable",
+      "all"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
     "document": "DichiarazioneImpegni 2026 03 20",
-    "errors": 7,
+    "errors": 3,
     "sample": [
-      "Rocha",
-      "Rocha",
-      "Iadadi",
-      "Rocha",
       "block",
       "above",
       "update"
@@ -1850,12 +30,10 @@
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
     "document": "LetteraPresentazione 2026 03 20",
-    "errors": 6,
+    "errors": 4,
     "sample": [
-      "Lorenzin",
-      "Lorenzin",
       "Vardanega",
       "Cardin",
       "Automated",
@@ -1864,442 +42,410 @@
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
     "document": "VerbaleEsterno 2026 03 16",
-    "errors": 27,
+    "errors": 20,
     "sample": [
-      "Iadadi",
-      "Rocha",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
       "sull",
       "Nexum",
       "dall",
       "layout",
-      "layout"
+      "layout",
+      "layout",
+      "all",
+      "mapping",
+      "Amazon",
+      "Comprehend"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
     "document": "VerbaleEsterno 2026 03 17",
-    "errors": 28,
+    "errors": 22,
     "sample": [
-      "Iadadi",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
       "sull",
-      "dell",
-      "dell",
       "Access",
       "Control",
-      "Mechanism"
+      "Mechanism",
+      "Authentication",
+      "Mechanism",
+      "Proof",
+      "Concept",
+      "PoC",
+      "all"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
     "document": "VerbaleInterno 2026 03 09",
-    "errors": 16,
+    "errors": 10,
     "sample": [
-      "Iadadi",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
       "all",
       "Automated",
       "Verification",
       "Eggon",
       "Eggon",
-      "CoderiusGroup"
+      "CoderiusGroup",
+      "Eggon",
+      "CoderiusGroup",
+      "Eggon",
+      "template"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
     "document": "VerbaleInterno 2026 03 18",
-    "errors": 7,
+    "errors": 2,
     "sample": [
-      "Lorenzin",
-      "Lorenzin",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
       "Automated",
       "Verification"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
     "document": "VerbaleInterno 2026 03 25",
-    "errors": 23,
+    "errors": 15,
     "sample": [
-      "Lorenzin",
-      "Lorenzin",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
       "Tracking",
       "System",
       "tracciabilità",
       "all",
-      "template"
+      "template",
+      "fix",
+      "update",
+      "new",
+      "Tracking",
+      "System"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
     "document": "Analisi dei Requisiti",
-    "errors": 71,
+    "errors": 33,
     "sample": [
-      "Iadadi",
-      "Iadadi",
-      "Iadadi",
-      "Iadadi",
-      "Lorenzin",
-      "Lorenzin",
-      "Lorenzin",
-      "Lorenzin",
-      "Iadadi",
-      "Lorenzin"
+      "block",
+      "above",
+      "update",
+      "dall",
+      "nell",
+      "tracciabilità",
+      "report",
+      "report",
+      "report",
+      "report"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
     "document": "Norme di Progetto",
-    "errors": 47,
-    "sample": [
-      "Lorenzin",
-      "Rocha",
-      "Rocha",
-      "Lorenzin",
-      "Rocha",
-      "Rocha",
-      "Rocha",
-      "Rocha",
-      "Lorenzin",
-      "Lorenzin"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "6dcec6b",
-    "document": "VerbaleEsterno 2026 04 03",
     "errors": 32,
     "sample": [
-      "Rocha",
-      "Iadadi",
-      "Rocha",
-      "Lorenzin",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "6dcec6b",
-    "document": "VerbaleEsterno 2026 04 17",
-    "errors": 45,
-    "sample": [
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
-      "Rocha",
-      "Lorenzin",
-      "Rocha",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
-      "Telegram"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "6dcec6b",
-    "document": "VerbaleEsterno 2026 05 04",
-    "errors": 30,
-    "sample": [
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
-      "Rocha",
-      "Lorenzin",
-      "Rocha",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
-      "all"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "6dcec6b",
-    "document": "VerbaleEsterno 2026 05 18",
-    "errors": 26,
-    "sample": [
-      "Rocha",
-      "Iadadi",
-      "Rocha",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
-      "dell",
-      "dell",
+      "it",
+      "update",
+      "text",
+      "size",
       "all",
-      "all"
+      "wireless",
+      "report",
+      "All",
+      "Recuperabilità",
+      "Apprendibilità"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
-    "document": "VerbaleEsterno 2026 06 03",
-    "errors": 21,
+    "commit": "1a064a1",
+    "document": "VerbaleEsterno 2026 04 03",
+    "errors": 15,
     "sample": [
-      "Iadadi",
-      "Iadadi",
-      "Rocha",
-      "Lorenzin",
+      "all",
+      "Excel",
+      "Telegram",
+      "Telegram",
+      "dall",
+      "all",
+      "Interface",
+      "all",
+      "report",
+      "Local"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "1a064a1",
+    "document": "VerbaleEsterno 2026 04 17",
+    "errors": 34,
+    "sample": [
+      "Telegram",
+      "all",
+      "form",
+      "security",
+      "financial",
+      "all",
+      "security",
+      "security",
+      "function",
+      "security"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "1a064a1",
+    "document": "VerbaleEsterno 2026 05 04",
+    "errors": 16,
+    "sample": [
+      "all",
+      "undo",
+      "dall",
+      "all",
+      "Not",
+      "Applicable",
+      "have",
+      "all",
+      "Pass",
+      "Fail"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "1a064a1",
+    "document": "VerbaleEsterno 2026 05 18",
+    "errors": 12,
+    "sample": [
+      "all",
+      "all",
+      "all",
       "mockup",
-      "dell",
+      "mockup",
+      "mockup",
+      "all",
+      "mockup",
       "sull",
-      "dell",
-      "dell",
-      "Mockup"
+      "Discord"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
-    "document": "VerbaleEsterno 2026 06 16",
-    "errors": 28,
+    "commit": "1a064a1",
+    "document": "VerbaleEsterno 2026 06 03",
+    "errors": 10,
     "sample": [
-      "Iadadi",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
+      "mockup",
+      "sull",
+      "Mockup",
+      "mockup",
+      "React",
+      "nell",
+      "sull",
+      "Fiorese",
+      "call",
+      "sull"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "1a064a1",
+    "document": "VerbaleEsterno 2026 06 16",
+    "errors": 22,
+    "sample": [
       "sull",
       "stack",
       "sull",
       "all",
       "sull",
-      "dall"
+      "dall",
+      "all",
+      "dall",
+      "Report",
+      "all"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
     "document": "VerbaleInterno 2026 03 31",
-    "errors": 13,
+    "errors": 6,
     "sample": [
       "Discord",
-      "Rocha",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
-      "dell",
-      "dell",
       "srl",
       "template",
+      "template",
+      "srl",
       "template"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
     "document": "VerbaleInterno 2026 04 14",
-    "errors": 22,
+    "errors": 13,
     "sample": [
-      "Rocha",
-      "Lorenzin",
-      "Rocha",
-      "Lorenzin",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
       "Srl",
-      "dell",
-      "quest"
+      "quest",
+      "Srl",
+      "all",
+      "Srl",
+      "Vue",
+      "React",
+      "React",
+      "Flask",
+      "FastAPI"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
     "document": "VerbaleInterno 2026 04 21",
-    "errors": 15,
+    "errors": 7,
     "sample": [
-      "Lorenzin",
-      "Rocha",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
       "Flask",
       "step",
       "all",
+      "all",
+      "Srl",
       "all",
       "Srl"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
     "document": "VerbaleInterno 2026 05 04",
-    "errors": 11,
+    "errors": 2,
     "sample": [
-      "Lorenzin",
-      "Lorenzin",
-      "Rocha",
-      "Lorenzin",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
       "all",
-      "all",
-      "Iadadi"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "6dcec6b",
-    "document": "VerbaleInterno 2026 05 13",
-    "errors": 27,
-    "sample": [
-      "Rocha",
-      "Lorenzin",
-      "Rocha",
-      "Rocha",
-      "Lorenzin",
-      "Rocha",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
-      "dell"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "6dcec6b",
-    "document": "VerbaleInterno 2026 05 18",
-    "errors": 16,
-    "sample": [
-      "Rocha",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
-      "PlantUML",
-      "dell",
-      "dell",
-      "Figma",
-      "dell",
       "all"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
-    "document": "VerbaleInterno 2026 05 25",
-    "errors": 29,
+    "commit": "1a064a1",
+    "document": "VerbaleInterno 2026 05 13",
+    "errors": 13,
     "sample": [
-      "Rocha",
-      "Rocha",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
       "sull",
-      "dell",
+      "AdR",
       "all",
+      "PdP",
+      "nell",
+      "AdR",
       "all",
-      "sull"
+      "Telegram",
+      "sull",
+      "AdR"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
+    "document": "VerbaleInterno 2026 05 18",
+    "errors": 3,
+    "sample": [
+      "PlantUML",
+      "Figma",
+      "all"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "1a064a1",
+    "document": "VerbaleInterno 2026 05 25",
+    "errors": 16,
+    "sample": [
+      "sull",
+      "all",
+      "all",
+      "sull",
+      "all",
+      "Ob",
+      "Cardin",
+      "Cardin",
+      "nell",
+      "all"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "1a064a1",
     "document": "VerbaleInterno 2026 05 29",
-    "errors": 29,
+    "errors": 17,
     "sample": [
-      "Iadadi",
-      "Iadadi",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
       "Cardin",
-      "dell",
       "Cardin",
       "all",
-      "Cardin"
+      "Cardin",
+      "Google",
+      "Meet",
+      "Cardin",
+      "sull",
+      "Cardin",
+      "all"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
     "document": "VerbaleInterno 2026 06 08",
-    "errors": 41,
+    "errors": 23,
     "sample": [
-      "Iadadi",
-      "Iadadi",
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
       "sull",
       "Gulpease",
-      "dell",
       "typ",
-      "src"
+      "src",
+      "typ",
+      "src",
+      "Wordlist",
+      "effort",
+      "all",
+      "Proof"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
     "document": "VerbaleInterno 2026 06 12",
-    "errors": 28,
+    "errors": 18,
     "sample": [
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
       "sull",
       "Proof",
       "Concept",
-      "dell",
       "all",
-      "dell",
-      "all"
+      "all",
+      "all",
+      "AdR",
+      "all",
+      "sull",
+      "Proof"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
     "document": "VerbaleInterno 2026 06 23",
-    "errors": 5,
+    "errors": 2,
     "sample": [
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
       "sull",
       "dall"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "6dcec6b",
+    "commit": "1a064a1",
     "document": "VerbaleInterno 2026 06 26",
-    "errors": 14,
+    "errors": 8,
     "sample": [
-      "Rocha",
-      "Iadadi",
-      "Lorenzin",
       "Proof",
       "Concept",
       "Proof",
       "Concept",
-      "Lorenzin",
+      "Proof",
+      "Concept",
       "Proof",
       "Concept"
     ]
