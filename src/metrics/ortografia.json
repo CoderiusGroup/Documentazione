@@ -1814,5 +1814,494 @@
       "Hodja",
       "Zonta"
     ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "AnalisiCapitolati 2026 03 13",
+    "errors": 102,
+    "sample": [
+      "Iadadi",
+      "Rocha",
+      "Iadadi",
+      "Iadadi",
+      "Iadadi",
+      "Lorenzin",
+      "Iadadi",
+      "Iadadi",
+      "block",
+      "above"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "DichiarazioneImpegni 2026 03 20",
+    "errors": 7,
+    "sample": [
+      "Rocha",
+      "Rocha",
+      "Iadadi",
+      "Rocha",
+      "block",
+      "above",
+      "update"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "LetteraPresentazione 2026 03 20",
+    "errors": 6,
+    "sample": [
+      "Lorenzin",
+      "Lorenzin",
+      "Vardanega",
+      "Cardin",
+      "Automated",
+      "Verification"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleEsterno 2026 03 16",
+    "errors": 27,
+    "sample": [
+      "Iadadi",
+      "Rocha",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "sull",
+      "Nexum",
+      "dall",
+      "layout",
+      "layout"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleEsterno 2026 03 17",
+    "errors": 28,
+    "sample": [
+      "Iadadi",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "sull",
+      "dell",
+      "dell",
+      "Access",
+      "Control",
+      "Mechanism"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleInterno 2026 03 09",
+    "errors": 16,
+    "sample": [
+      "Iadadi",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "all",
+      "Automated",
+      "Verification",
+      "Eggon",
+      "Eggon",
+      "CoderiusGroup"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleInterno 2026 03 18",
+    "errors": 7,
+    "sample": [
+      "Lorenzin",
+      "Lorenzin",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "Automated",
+      "Verification"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleInterno 2026 03 25",
+    "errors": 23,
+    "sample": [
+      "Lorenzin",
+      "Lorenzin",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "Tracking",
+      "System",
+      "tracciabilità",
+      "all",
+      "template"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "Analisi dei Requisiti",
+    "errors": 71,
+    "sample": [
+      "Iadadi",
+      "Iadadi",
+      "Iadadi",
+      "Iadadi",
+      "Lorenzin",
+      "Lorenzin",
+      "Lorenzin",
+      "Lorenzin",
+      "Iadadi",
+      "Lorenzin"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "Norme di Progetto",
+    "errors": 47,
+    "sample": [
+      "Lorenzin",
+      "Rocha",
+      "Rocha",
+      "Lorenzin",
+      "Rocha",
+      "Rocha",
+      "Rocha",
+      "Rocha",
+      "Lorenzin",
+      "Lorenzin"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleEsterno 2026 04 03",
+    "errors": 32,
+    "sample": [
+      "Rocha",
+      "Iadadi",
+      "Rocha",
+      "Lorenzin",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleEsterno 2026 04 17",
+    "errors": 45,
+    "sample": [
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "Rocha",
+      "Lorenzin",
+      "Rocha",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "Telegram"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleEsterno 2026 05 04",
+    "errors": 30,
+    "sample": [
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "Rocha",
+      "Lorenzin",
+      "Rocha",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "all"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleEsterno 2026 05 18",
+    "errors": 26,
+    "sample": [
+      "Rocha",
+      "Iadadi",
+      "Rocha",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "dell",
+      "dell",
+      "all",
+      "all"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleEsterno 2026 06 03",
+    "errors": 21,
+    "sample": [
+      "Iadadi",
+      "Iadadi",
+      "Rocha",
+      "Lorenzin",
+      "mockup",
+      "dell",
+      "sull",
+      "dell",
+      "dell",
+      "Mockup"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleEsterno 2026 06 16",
+    "errors": 28,
+    "sample": [
+      "Iadadi",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "sull",
+      "stack",
+      "sull",
+      "all",
+      "sull",
+      "dall"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleInterno 2026 03 31",
+    "errors": 13,
+    "sample": [
+      "Discord",
+      "Rocha",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "dell",
+      "dell",
+      "srl",
+      "template",
+      "template"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleInterno 2026 04 14",
+    "errors": 22,
+    "sample": [
+      "Rocha",
+      "Lorenzin",
+      "Rocha",
+      "Lorenzin",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "Srl",
+      "dell",
+      "quest"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleInterno 2026 04 21",
+    "errors": 15,
+    "sample": [
+      "Lorenzin",
+      "Rocha",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "Flask",
+      "step",
+      "all",
+      "all",
+      "Srl"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleInterno 2026 05 04",
+    "errors": 11,
+    "sample": [
+      "Lorenzin",
+      "Lorenzin",
+      "Rocha",
+      "Lorenzin",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "all",
+      "all",
+      "Iadadi"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleInterno 2026 05 13",
+    "errors": 27,
+    "sample": [
+      "Rocha",
+      "Lorenzin",
+      "Rocha",
+      "Rocha",
+      "Lorenzin",
+      "Rocha",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "dell"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleInterno 2026 05 18",
+    "errors": 16,
+    "sample": [
+      "Rocha",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "PlantUML",
+      "dell",
+      "dell",
+      "Figma",
+      "dell",
+      "all"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleInterno 2026 05 25",
+    "errors": 29,
+    "sample": [
+      "Rocha",
+      "Rocha",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "sull",
+      "dell",
+      "all",
+      "all",
+      "sull"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleInterno 2026 05 29",
+    "errors": 29,
+    "sample": [
+      "Iadadi",
+      "Iadadi",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "Cardin",
+      "dell",
+      "Cardin",
+      "all",
+      "Cardin"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleInterno 2026 06 08",
+    "errors": 41,
+    "sample": [
+      "Iadadi",
+      "Iadadi",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "sull",
+      "Gulpease",
+      "dell",
+      "typ",
+      "src"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleInterno 2026 06 12",
+    "errors": 28,
+    "sample": [
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "sull",
+      "Proof",
+      "Concept",
+      "dell",
+      "all",
+      "dell",
+      "all"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleInterno 2026 06 23",
+    "errors": 5,
+    "sample": [
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "sull",
+      "dall"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "6dcec6b",
+    "document": "VerbaleInterno 2026 06 26",
+    "errors": 14,
+    "sample": [
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "Proof",
+      "Concept",
+      "Proof",
+      "Concept",
+      "Lorenzin",
+      "Proof",
+      "Concept"
+    ]
   }
 ]
