@@ -91,7 +91,7 @@ def _skip_code_expr(text: str, i: int, stack: list) -> int:
     n = len(text)
     m = _IDENT_RE.match(text, i)
     if not m:
-        return i                                  # '#' isolato: ignora
+        return i                                          # '#' isolato: ignora
     word = m.group(0)
     i = m.end()
 
@@ -222,13 +222,20 @@ def preprocess_for_spellcheck(text: str) -> str:
 
 def load_wordlist() -> set[str]:
     """
-    Carica la lista di parole da ignorare (termini tecnici, anglicismi, nomi
-    propri). File: .github/scripts/wordlist.txt, una parola per riga.
-    Le righe che iniziano con # sono commenti.
+    Carica la lista di parole da ignorare (termini tecnici, anglicismi, nomi propri). 
+    Inizializza con un set di nomi propri e termini di progetto hardcoded,
+    ed estende con eventuali termini dal file .github/scripts/wordlist.txt.
     """
+    # Whitelist di base con nomi del team, aziende e termini tecnici.
+    # Tutto in minuscolo per il confronto case-insensitive.
+    words = {
+        "edis", "hodja", "bronte", "zonta", "filippo", "giovanni", "leonardo",
+        "coderius", "bluewind", "athesys", "monokee", "versionamento", "group"
+    }
+
     if not WORDLIST_FILE.exists():
-        return set()
-    words = set()
+        return words
+
     with open(WORDLIST_FILE, encoding="utf-8") as f:
         for line in f:
             word = line.strip()
