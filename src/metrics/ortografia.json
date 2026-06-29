@@ -1312,5 +1312,507 @@
       "if",
       "counter"
     ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "AnalisiCapitolati 2026 03 13",
+    "errors": 109,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Iadadi",
+      "Zonta",
+      "Rocha",
+      "Iadadi",
+      "Edis",
+      "Hodja",
+      "Iadadi",
+      "Bronte"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "DichiarazioneImpegni 2026 03 20",
+    "errors": 17,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Edis",
+      "Hodja",
+      "Zonta",
+      "Rocha",
+      "Edis",
+      "Hodja",
+      "Zonta",
+      "Rocha"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "LetteraPresentazione 2026 03 20",
+    "errors": 8,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Lorenzin",
+      "Lorenzin",
+      "Vardanega",
+      "Cardin",
+      "Automated",
+      "Verification"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleEsterno 2026 03 16",
+    "errors": 34,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Iadadi",
+      "Zonta",
+      "Rocha",
+      "Edis",
+      "Hodja",
+      "Zonta",
+      "Rocha",
+      "Bronte"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleEsterno 2026 03 17",
+    "errors": 36,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Edis",
+      "Hodja",
+      "Iadadi",
+      "Edis",
+      "Hodja",
+      "Zonta",
+      "Rocha",
+      "Bronte"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleInterno 2026 03 09",
+    "errors": 24,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Iadadi",
+      "Edis",
+      "Hodja",
+      "Edis",
+      "Hodja",
+      "Zonta",
+      "Rocha",
+      "Bronte"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleInterno 2026 03 18",
+    "errors": 14,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Lorenzin",
+      "Bronte",
+      "Lorenzin",
+      "Edis",
+      "Hodja",
+      "Zonta",
+      "Rocha",
+      "Bronte"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleInterno 2026 03 25",
+    "errors": 30,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Lorenzin",
+      "Lorenzin",
+      "Edis",
+      "Hodja",
+      "Zonta",
+      "Rocha",
+      "Bronte",
+      "Iadadi"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "Analisi dei Requisiti",
+    "errors": 102,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Edis",
+      "Hodja",
+      "Bronte",
+      "Edis",
+      "Hodja",
+      "Iadadi",
+      "Edis",
+      "Hodja"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "Norme di Progetto",
+    "errors": 74,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Edis",
+      "Hodja",
+      "Bronte",
+      "Edis",
+      "Hodja",
+      "Bronte",
+      "Edis",
+      "Hodja"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleEsterno 2026 04 03",
+    "errors": 47,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Zonta",
+      "Rocha",
+      "Iadadi",
+      "Zonta",
+      "Rocha",
+      "Lorenzin",
+      "Zonta",
+      "Rocha"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleEsterno 2026 04 17",
+    "errors": 59,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Zonta",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "Zonta",
+      "Rocha",
+      "Lorenzin",
+      "Edis"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleEsterno 2026 05 04",
+    "errors": 44,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Zonta",
+      "Rocha",
+      "Iadadi",
+      "Lorenzin",
+      "Zonta",
+      "Rocha",
+      "Lorenzin",
+      "Edis"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleEsterno 2026 05 18",
+    "errors": 37,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Zonta",
+      "Rocha",
+      "Iadadi",
+      "Bronte",
+      "Zonta",
+      "Rocha",
+      "Bronte",
+      "Edis"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleEsterno 2026 06 03",
+    "errors": 28,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Iadadi",
+      "Iadadi",
+      "Edis",
+      "Hodja",
+      "Zonta",
+      "Rocha",
+      "Bronte",
+      "Lorenzin"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleEsterno 2026 06 16",
+    "errors": 41,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Edis",
+      "Hodja",
+      "Iadadi",
+      "Edis",
+      "Hodja",
+      "Edis",
+      "Hodja",
+      "Zonta"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleInterno 2026 03 31",
+    "errors": 23,
+    "sample": [
+      "Group",
+      "Discord",
+      "versionamento",
+      "Zonta",
+      "Rocha",
+      "Edis",
+      "Hodja",
+      "Zonta",
+      "Rocha",
+      "Bronte"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleInterno 2026 04 14",
+    "errors": 34,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Edis",
+      "Hodja",
+      "Bronte",
+      "Zonta",
+      "Rocha",
+      "Lorenzin",
+      "Zonta",
+      "Rocha"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleInterno 2026 04 21",
+    "errors": 25,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Lorenzin",
+      "Zonta",
+      "Rocha",
+      "Edis",
+      "Hodja",
+      "Zonta",
+      "Rocha",
+      "Bronte"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleInterno 2026 05 04",
+    "errors": 26,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Edis",
+      "Hodja",
+      "Bronte",
+      "Lorenzin",
+      "Edis",
+      "Hodja",
+      "Lorenzin",
+      "Zonta"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleInterno 2026 05 13",
+    "errors": 44,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Edis",
+      "Hodja",
+      "Bronte",
+      "Zonta",
+      "Rocha",
+      "Lorenzin",
+      "Zonta",
+      "Rocha"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleInterno 2026 05 18",
+    "errors": 29,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Bronte",
+      "Edis",
+      "Hodja",
+      "Bronte",
+      "Zonta",
+      "Rocha",
+      "Bronte",
+      "Edis"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleInterno 2026 05 25",
+    "errors": 43,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Bronte",
+      "Zonta",
+      "Rocha",
+      "Bronte",
+      "Zonta",
+      "Rocha",
+      "Bronte",
+      "Edis"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleInterno 2026 05 29",
+    "errors": 41,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Iadadi",
+      "Edis",
+      "Hodja",
+      "Iadadi",
+      "Edis",
+      "Hodja",
+      "Zonta",
+      "Rocha"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleInterno 2026 06 08",
+    "errors": 54,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Iadadi",
+      "Edis",
+      "Hodja",
+      "Iadadi",
+      "Edis",
+      "Hodja",
+      "Zonta",
+      "Rocha"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleInterno 2026 06 12",
+    "errors": 43,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Edis",
+      "Hodja",
+      "Bronte",
+      "Edis",
+      "Hodja",
+      "Edis",
+      "Hodja",
+      "Zonta"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleInterno 2026 06 23",
+    "errors": 16,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Edis",
+      "Hodja",
+      "Bronte",
+      "Edis",
+      "Hodja",
+      "Edis",
+      "Hodja",
+      "Zonta"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "12ccb51",
+    "document": "VerbaleInterno 2026 06 26",
+    "errors": 29,
+    "sample": [
+      "Group",
+      "versionamento",
+      "Edis",
+      "Hodja",
+      "Bronte",
+      "Edis",
+      "Hodja",
+      "Edis",
+      "Hodja",
+      "Zonta"
+    ]
   }
 ]
