@@ -80,7 +80,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-    #text(size: 20pt)[*Versione 0.3.0*]
+    #text(size: 20pt)[*Versione 1.0.0*]
 ]
 #pagebreak()
 
@@ -99,7 +99,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.3.0], [2026/06/29], [Edis Hodja], [], [Aggiunta dei grafici relativi agli errori ortografici e Gulpease],
+    [1.0.0], [2026/06/29], [Filippo Zonta Rocha], [], [Approvazione del documento],
+    [0.3.0], [2026/06/29], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta dei grafici relativi agli errori ortografici e Gulpease],
     [0.2.4], [2026/06/25], [Giovanni Bronte], [Edis Hodja], [Aggiornamento tabelle dei requisiti e aggiunta sezione relativa allo sprint 6],
     [0.2.3], [2026/06/12], [Leonardo Lorenzin], [Ines Iadadi], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 5],
     [0.2.2], [2026/06/08], [Leonardo Lorenzin], [Ines Iadadi], [Aggiornamento sezioni e correzione refusi],
@@ -1014,9 +1015,9 @@ Il team ha concordato di introdurre riunioni di allineamento preventive all'iniz
 
 === Problemi rilevati
 
-- RI-3 (Errori nei verbali): Sono state rilevate imprecisioni formali in alcuni verbali, che hanno richiesto tempo aggiuntivo non pianificato per la correzione.
-- RI-1 (Ridotta disponibilità): Calo del tempo utile di alcuni membri a causa del carico accademico e dell'avvicinarsi della sessione estiva.
-- RT-1 (Complessità casi d'uso): Difficoltà nella definizione degli ultimi scenari dell'Analisi dei Requisiti e nella loro corretta modellazione nei diagrammi UML.
+- *RI-3 (Errori nei verbali)*: Sono state rilevate imprecisioni formali in alcuni verbali, che hanno richiesto tempo aggiuntivo non pianificato per la correzione.
+- *RI-1 (Ridotta disponibilità)*: Calo del tempo utile di alcuni membri a causa del carico accademico e dell'avvicinarsi della sessione estiva.
+- *RT-1 (Complessità casi d'uso)*: Difficoltà nella definizione degli ultimi scenari dell'Analisi dei Requisiti e nella loro corretta modellazione nei diagrammi UML.
 
 === Azioni intraprese
 
