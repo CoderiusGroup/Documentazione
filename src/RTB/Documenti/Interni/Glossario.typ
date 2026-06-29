@@ -33,7 +33,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(3em)
-  #text(size: 20pt)[*Versione 0.3.0*]
+  #text(size: 20pt)[*Versione 0.4.0*]
 ]
 
 #pagebreak()
@@ -55,6 +55,7 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
 
+    [0.4.0], [2026/07/15], [Ines Iadadi], [], [Aggiunte definizioni],
     [0.3.0], [2026/06/23], [Leonardo Lorenzin], [Edis Hodja], [Aggiunti termini e definizioni],
     [0.2.0], [2026/05/11], [Alberto Canavese], [Filippo Zonta Rocha], [Aggiunti termini e definizioni],
     [0.1.0], [2026/04/15], [Bronte Giovanni], [Ines Iadadi], [Prima stesura del documento],
