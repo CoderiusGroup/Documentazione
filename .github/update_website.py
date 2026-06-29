@@ -85,6 +85,7 @@ def aggiorna_html():
         "CANDIDATURA_PRINCIPALI": [],
         "CANDIDATURA_INTERNI": [],
         "CANDIDATURA_ESTERNI": [],
+        "RTB_PRINCIPALI": [],
         "RTB_ESTERNI": [],
         "RTB_VERBALI_ESTERNI": [],
         "RTB_INTERNI": [],
@@ -116,9 +117,11 @@ def aggiorna_html():
                 categorie["RTB_VERBALI_ESTERNI"].append(card_html)
             elif "Documenti/Interni" in percorso_str:
                 categorie["RTB_INTERNI"].append(card_html)
-            else:
+            elif "Documenti/Esterni" in percorso_str:
                 categorie["RTB_ESTERNI"].append(card_html)
-                
+            else:
+                categorie["RTB_PRINCIPALI"].append(card_html)
+
         elif "PB" in percorso_str:
             categorie["PB_PRINCIPALI"].append(card_html)
 
