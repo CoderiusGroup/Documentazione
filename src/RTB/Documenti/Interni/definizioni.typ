@@ -142,4 +142,7 @@
   "MPC": [Acronimo di Metrica di Qualità del Processo. Indica le misure quantitative definite nel Piano di Qualifica per valutare l'efficacia e l'efficienza dei processi adottati dal team, come l'aderenza al budget, il rispetto delle scadenze e la densità degli errori nella documentazione.],
   "MPD": [Acronimo di Metrica di Qualità del Prodotto. Indica le misure quantitative definite nel Piano di Qualifica per valutare le caratteristiche del software prodotto, come la copertura del codice, la complessità ciclomatica e l'accoppiamento tra moduli.],
   "Time Efficiency": [Metrica di processo che misura l'efficienza temporale del team, calcolata come rapporto tra il tempo stimato per il completamento di un'attività e il tempo effettivamente impiegato. Un valore pari a 1 indica piena corrispondenza tra stima e consuntivo; valori inferiori segnalano una tendenza alla sottostima sistematica.],
+  "ACM": [Abbreviazione di Access Control Mechanism (meccanismo di controllo degli accessi). Insieme di requisiti dello standard EN 18031-1 che disciplinano come l'apparecchiatura gestisce l'accesso delle entità agli asset di sicurezza e di rete.],
+  "AUM": [Abbreviazione di Authentication Mechanism (meccanismo di autenticazione). Insieme di requisiti dello standard EN 18031-1 relativi alla verifica dell'identità delle entità che interagiscono con l'apparecchiatura.],
+
 )
