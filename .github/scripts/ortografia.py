@@ -229,9 +229,35 @@ def load_wordlist() -> set[str]:
     """
     # Whitelist di base aggiornata (incluso l'ultimo set di cognomi trovati)
     words = {
+        # Team, Professori e Nomi
         "edis", "hodja", "bronte", "zonta", "filippo", "giovanni", "leonardo",
-        "coderius", "bluewind", "athesys", "monokee", "versionamento", "group",
-        "rocha", "lorenzin", "iadadi", "dell"
+        "vardanega", "cardin", "fiorese", "rocha", "lorenzin", "iadadi",
+        
+        # Aziende, Enti e Brand
+        "coderius", "coderiusgroup", "bluewind", "athesys", "monokee", "nexum", 
+        "eggon", "amazon", "google", "srl",
+        
+        # Tecnologie e Strumenti
+        "comprehend", "excel", "telegram", "discord", "react", "vue", "flask", 
+        "fastapi", "plantuml", "figma", "meet", "typ", "src",
+        
+        # Acronimi di Progetto
+        "poc", "adr", "pdp", "ob",
+        
+        # Parole troncate dagli apostrofi (causa regex)
+        "sull", "dall", "all", "nell", "dell", "quest",
+        
+        # Inglesismi, Codice e Gergo Tecnico
+        "versionamento", "group", "block", "above", "update", "automated", 
+        "verification", "pass", "fail", "not", "applicable", "layout", "mapping", 
+        "access", "control", "mechanism", "authentication", "proof", "concept", 
+        "tracking", "system", "template", "fix", "new", "report", "it", "text", 
+        "size", "wireless", "interface", "local", "form", "security", "financial", 
+        "function", "undo", "have", "mockup", "call", "stack", "step", "gulpease", 
+        "wordlist", "effort",
+        
+        # Termini italiani non riconosciuti dal dizionario base
+        "tracciabilità", "recuperabilità", "apprendibilità"
     }
 
     if not WORDLIST_FILE.exists():
