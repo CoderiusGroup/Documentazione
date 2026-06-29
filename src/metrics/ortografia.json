@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "AnalisiCapitolati 2026 03 13",
     "errors": 50,
     "sample": [
@@ -19,21 +19,21 @@
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "DichiarazioneImpegni 2026 03 20",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "LetteraPresentazione 2026 03 20",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleEsterno 2026 03 16",
     "errors": 3,
     "sample": [
@@ -44,7 +44,7 @@
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleEsterno 2026 03 17",
     "errors": 2,
     "sample": [
@@ -54,28 +54,28 @@
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleInterno 2026 03 09",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleInterno 2026 03 18",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleInterno 2026 03 25",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "Analisi dei Requisiti",
     "errors": 3,
     "sample": [
@@ -86,7 +86,25 @@
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
+    "document": "Piano di Qualifica",
+    "errors": 51,
+    "sample": [
+      "automiglioramento",
+      "breakable",
+      "true",
+      "Planned",
+      "Value",
+      "Earned",
+      "Value",
+      "Actual",
+      "Cost",
+      "Index"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "158e6d6",
     "document": "Norme di Progetto",
     "errors": 20,
     "sample": [
@@ -104,14 +122,14 @@
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "LetteraPresentazione",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleEsterno 2026 04 03",
     "errors": 1,
     "sample": [
@@ -120,7 +138,7 @@
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleEsterno 2026 04 17",
     "errors": 8,
     "sample": [
@@ -136,28 +154,28 @@
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleEsterno 2026 05 04",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleEsterno 2026 05 18",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleEsterno 2026 06 03",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleEsterno 2026 06 16",
     "errors": 2,
     "sample": [
@@ -167,49 +185,49 @@
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleInterno 2026 03 31",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleInterno 2026 04 14",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleInterno 2026 04 21",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleInterno 2026 05 04",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleInterno 2026 05 13",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleInterno 2026 05 18",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleInterno 2026 05 25",
     "errors": 3,
     "sample": [
@@ -220,21 +238,21 @@
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleInterno 2026 05 29",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleInterno 2026 06 08",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleInterno 2026 06 12",
     "errors": 1,
     "sample": [
@@ -243,14 +261,14 @@
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleInterno 2026 06 23",
     "errors": 0,
     "sample": []
   },
   {
     "date": "2026-06-29",
-    "commit": "b7f33fb",
+    "commit": "158e6d6",
     "document": "VerbaleInterno 2026 06 26",
     "errors": 0,
     "sample": []
