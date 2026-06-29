@@ -1,453 +1,251 @@
 [
   {
     "date": "2026-06-29",
-    "commit": "1a064a1",
+    "commit": "0815ebb",
     "document": "AnalisiCapitolati 2026 03 13",
-    "errors": 87,
+    "errors": 50,
     "sample": [
-      "block",
-      "above",
-      "update",
-      "Automated",
-      "Verification",
-      "Pass",
-      "Fail",
-      "Not",
-      "Applicable",
-      "all"
+      "produrrannò",
+      "Packaging",
+      "Guardian",
+      "Profilazione",
+      "MongoDB",
+      "PostgreSQL",
+      "Actions",
+      "Mentoring",
+      "Node",
+      "coverage"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "1a064a1",
+    "commit": "0815ebb",
     "document": "DichiarazioneImpegni 2026 03 20",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "LetteraPresentazione 2026 03 20",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleEsterno 2026 03 16",
     "errors": 3,
     "sample": [
-      "block",
-      "above",
-      "update"
+      "customizzato",
+      "confidence",
+      "Ferrarin"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "LetteraPresentazione 2026 03 20",
-    "errors": 4,
+    "commit": "0815ebb",
+    "document": "VerbaleEsterno 2026 03 17",
+    "errors": 2,
     "sample": [
-      "Vardanega",
-      "Cardin",
-      "Automated",
-      "Verification"
+      "tool",
+      "tool"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleEsterno 2026 03 16",
+    "commit": "0815ebb",
+    "document": "VerbaleInterno 2026 03 09",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleInterno 2026 03 18",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleInterno 2026 03 25",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "Analisi dei Requisiti",
+    "errors": 3,
+    "sample": [
+      "Yes",
+      "Packaging",
+      "containerizzazione"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "Norme di Progetto",
     "errors": 20,
     "sample": [
-      "sull",
-      "Nexum",
-      "dall",
-      "layout",
-      "layout",
-      "layout",
-      "all",
-      "mapping",
-      "Amazon",
-      "Comprehend"
+      "Attrattività",
+      "NdP",
+      "Analizzabilità",
+      "Testabilità",
+      "Installabilità",
+      "RObbS",
+      "NRObS",
+      "NROb",
+      "RObbS",
+      "RObbS"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleEsterno 2026 03 17",
-    "errors": 22,
-    "sample": [
-      "sull",
-      "Access",
-      "Control",
-      "Mechanism",
-      "Authentication",
-      "Mechanism",
-      "Proof",
-      "Concept",
-      "PoC",
-      "all"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleInterno 2026 03 09",
-    "errors": 10,
-    "sample": [
-      "all",
-      "Automated",
-      "Verification",
-      "Eggon",
-      "Eggon",
-      "CoderiusGroup",
-      "Eggon",
-      "CoderiusGroup",
-      "Eggon",
-      "template"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleInterno 2026 03 18",
-    "errors": 2,
-    "sample": [
-      "Automated",
-      "Verification"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleInterno 2026 03 25",
-    "errors": 15,
-    "sample": [
-      "Tracking",
-      "System",
-      "tracciabilità",
-      "all",
-      "template",
-      "fix",
-      "update",
-      "new",
-      "Tracking",
-      "System"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "Analisi dei Requisiti",
-    "errors": 33,
-    "sample": [
-      "block",
-      "above",
-      "update",
-      "dall",
-      "nell",
-      "tracciabilità",
-      "report",
-      "report",
-      "report",
-      "report"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "Norme di Progetto",
-    "errors": 32,
-    "sample": [
-      "it",
-      "update",
-      "text",
-      "size",
-      "all",
-      "wireless",
-      "report",
-      "All",
-      "Recuperabilità",
-      "Apprendibilità"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
+    "commit": "0815ebb",
     "document": "VerbaleEsterno 2026 04 03",
-    "errors": 15,
+    "errors": 1,
     "sample": [
-      "all",
-      "Excel",
-      "Telegram",
-      "Telegram",
-      "dall",
-      "all",
-      "Interface",
-      "all",
-      "report",
-      "Local"
+      "Storage"
     ]
   },
   {
     "date": "2026-06-29",
-    "commit": "1a064a1",
+    "commit": "0815ebb",
     "document": "VerbaleEsterno 2026 04 17",
-    "errors": 34,
-    "sample": [
-      "Telegram",
-      "all",
-      "form",
-      "security",
-      "financial",
-      "all",
-      "security",
-      "security",
-      "function",
-      "security"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleEsterno 2026 05 04",
-    "errors": 16,
-    "sample": [
-      "all",
-      "undo",
-      "dall",
-      "all",
-      "Not",
-      "Applicable",
-      "have",
-      "all",
-      "Pass",
-      "Fail"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleEsterno 2026 05 18",
-    "errors": 12,
-    "sample": [
-      "all",
-      "all",
-      "all",
-      "mockup",
-      "mockup",
-      "mockup",
-      "all",
-      "mockup",
-      "sull",
-      "Discord"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleEsterno 2026 06 03",
-    "errors": 10,
-    "sample": [
-      "mockup",
-      "sull",
-      "Mockup",
-      "mockup",
-      "React",
-      "nell",
-      "sull",
-      "Fiorese",
-      "call",
-      "sull"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleEsterno 2026 06 16",
-    "errors": 22,
-    "sample": [
-      "sull",
-      "stack",
-      "sull",
-      "all",
-      "sull",
-      "dall",
-      "all",
-      "dall",
-      "Report",
-      "all"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleInterno 2026 03 31",
-    "errors": 6,
-    "sample": [
-      "Discord",
-      "srl",
-      "template",
-      "template",
-      "srl",
-      "template"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleInterno 2026 04 14",
-    "errors": 13,
-    "sample": [
-      "Srl",
-      "quest",
-      "Srl",
-      "all",
-      "Srl",
-      "Vue",
-      "React",
-      "React",
-      "Flask",
-      "FastAPI"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleInterno 2026 04 21",
-    "errors": 7,
-    "sample": [
-      "Flask",
-      "step",
-      "all",
-      "all",
-      "Srl",
-      "all",
-      "Srl"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleInterno 2026 05 04",
-    "errors": 2,
-    "sample": [
-      "all",
-      "all"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleInterno 2026 05 13",
-    "errors": 13,
-    "sample": [
-      "sull",
-      "AdR",
-      "all",
-      "PdP",
-      "nell",
-      "AdR",
-      "all",
-      "Telegram",
-      "sull",
-      "AdR"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleInterno 2026 05 18",
-    "errors": 3,
-    "sample": [
-      "PlantUML",
-      "Figma",
-      "all"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleInterno 2026 05 25",
-    "errors": 16,
-    "sample": [
-      "sull",
-      "all",
-      "all",
-      "sull",
-      "all",
-      "Ob",
-      "Cardin",
-      "Cardin",
-      "nell",
-      "all"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleInterno 2026 05 29",
-    "errors": 17,
-    "sample": [
-      "Cardin",
-      "Cardin",
-      "all",
-      "Cardin",
-      "Google",
-      "Meet",
-      "Cardin",
-      "sull",
-      "Cardin",
-      "all"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleInterno 2026 06 08",
-    "errors": 23,
-    "sample": [
-      "sull",
-      "Gulpease",
-      "typ",
-      "src",
-      "typ",
-      "src",
-      "Wordlist",
-      "effort",
-      "all",
-      "Proof"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleInterno 2026 06 12",
-    "errors": 18,
-    "sample": [
-      "sull",
-      "Proof",
-      "Concept",
-      "all",
-      "all",
-      "all",
-      "AdR",
-      "all",
-      "sull",
-      "Proof"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleInterno 2026 06 23",
-    "errors": 2,
-    "sample": [
-      "sull",
-      "dall"
-    ]
-  },
-  {
-    "date": "2026-06-29",
-    "commit": "1a064a1",
-    "document": "VerbaleInterno 2026 06 26",
     "errors": 8,
     "sample": [
-      "Proof",
-      "Concept",
-      "Proof",
-      "Concept",
-      "Proof",
-      "Concept",
-      "Proof",
-      "Concept"
+      "parameters",
+      "configuration",
+      "Technical",
+      "Documentation",
+      "Technical",
+      "Documentation",
+      "Plans",
+      "Reports"
     ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleEsterno 2026 05 04",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleEsterno 2026 05 18",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleEsterno 2026 06 03",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleEsterno 2026 06 16",
+    "errors": 2,
+    "sample": [
+      "app",
+      "containerization"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleInterno 2026 03 31",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleInterno 2026 04 14",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleInterno 2026 04 21",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleInterno 2026 05 04",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleInterno 2026 05 13",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleInterno 2026 05 18",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleInterno 2026 05 25",
+    "errors": 3,
+    "sample": [
+      "documeto",
+      "brainstorming",
+      "Aggiornarmento"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleInterno 2026 05 29",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleInterno 2026 06 08",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleInterno 2026 06 12",
+    "errors": 1,
+    "sample": [
+      "Ianadi"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleInterno 2026 06 23",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-06-29",
+    "commit": "0815ebb",
+    "document": "VerbaleInterno 2026 06 26",
+    "errors": 0,
+    "sample": []
   }
 ]
