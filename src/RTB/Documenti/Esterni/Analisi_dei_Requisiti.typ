@@ -1400,7 +1400,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-22: Esecuzione decision tree per un requisito <uc22>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/uc22a.png", width: 90%),
+  image("../../../images/diagrammiUML/UC22a.png", width: 90%),
   caption: [UC-22 : Esecuzione decision tree per un requisito],
 )
 - *Attore primario:* Utente
@@ -1438,7 +1438,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/uc22b.png", width: 80%),
+  image("../../../images/diagrammiUML/UC22b.png", width: 80%),
   caption: [UC-22 : Dettaglio dell'esecuzione del decision tree],
 )
 
