@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.6.3*]
+  #text(size: 20pt)[*Versione 0.6.4*]
 ]
 #pagebreak()
 
@@ -100,6 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.6.4], [2026/06/29], [Leonardo Lorenzin], [], [Aggiornamento sezione 2.1 e correzioni minori],
     [0.6.3], [2026/06/25], [Alberto Canavese], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 6: 4.6.1, 4.6.2, 4.6.3, 4.6.4, 4.6.5, 4.6.6, 4.6.7, 4.6.8],
     [0.6.2], [2026/06/12], [Filippo Zonta Rocha], [Ines Iadadi], [Aggiunta delle sezioni:4.5.5, 4.5.6,4.5.7, 4.5.8],
     [0.6.1], [2026/06/05], [Ines Iadadi], [Alberto Canavese], [Revisione lessicale delle sezioni Sprint 2 e Sprint 3],
@@ -186,7 +187,11 @@ Per garantire che ogni termine tecnico sia compreso correttamente e per evitare 
 = Informazioni sul progetto
 
 == Modello di sviluppo
-Il team adotta il framework *Scrum*. Il lavoro è suddiviso in sprint bisettimanali e al termine dello sprint viene garantita la rotazione dei ruoli per massimizzare l'apprendimento e la flessibilità del team, favorendo una conoscenza trasversale del prodotto e riducendo le dipendenze critiche sulle singole persone.
+Il team adotta un approccio Agile, nello specifico il framework Scrum. Le motivazioni che hanno portato alla scelta di questo modello sono le seguenti:
+
+- Rotazione dei ruoli: il framework Scrum divide il lavoro in sprint bisettimanali; al termine di ciascuno di essi, viene garantita la rotazione dei ruoli per massimizzare l’apprendimento e la flessibilità del team, favorendo una conoscenza trasversale del prodotto e riducendo le dipendenze critiche sulle singole persone.
+- Reattività: suddividere il lavoro in sprint consente al team di reagire rapidamente a eventuali imprevisti che possano presentarsi durante lo svolgimento del progetto.
+- Retrospettive: nel metodo Agile, a differenza di altri modelli, viene dedicato un momento per riflettere su come è stato svolto il lavoro assegnato. Questa retrospettiva consente di analizzare eventuali errori commessi durante lo sprint e di aggiornare di conseguenza il Way of Working, riducendo così il rischio di commetterli nuovamente.
 
 == Metodologia di lavoro
 Ogni sprint si apre con una riunione in cui si fissano obiettivi e compiti e a metà periodo si tiene un breve controllo dell'avanzamento. Alla fine dello sprint si svolge una retrospettiva per capire cosa ha funzionato e cosa migliorare nel ciclo successivo. \
@@ -216,21 +221,6 @@ Di seguito è riportato il preventivo economico, dove i costi del progetto sono 
     caption: [Preventivo dei costi ripartito per ruoli.],
   )<tabella-preventivo>
 ]
-#pagebreak()
-
-== Milestone
-
-#align(center)[
-  #table(
-    columns: (1fr, auto),
-    stroke: 0.5pt + luma(100),
-    inset: 7pt,
-    [*Revisione*], [*Data prevista*],
-    [Requirements and Technology Baseline (RTB)], [2026/--/--],
-    [Product Baseline (PB)], [2026/--/--],
-  )
-]
-
 #pagebreak()
 
 = Analisi dei rischi
@@ -468,14 +458,14 @@ In questo sprint ci si aspetta principalmente tre tipologie di problema:
 ]
 
 === Rischi incontrati
-*Stime non accurate (RO-1)* Le ore preventivate per alcuni membri del team sono risultate diverse da quelle effettive. La causa principale è la
+*RO-1:* Le ore preventivate per alcuni membri del team sono risultate diverse da quelle effettive. La causa principale è la
 difficoltà di stimare attività di studio e impostazione documentale senza
 dati di riferimento pregressi. Questo scostamento sarà usato come base per
 calibrare le stime future.
 
-*Difficoltà nella comprensione dei requisiti EN 18031 (RT-2)* La complessità dello standard ha richiesto più tempo del previsto per l'analisi individuale, e sono emersi dubbi interpretativi che hanno reso necessario un confronto interno prima di procedere con la stesura dell'Analisi dei Requisiti.
+*RT-2:* La complessità dello standard ha richiesto più tempo del previsto per l'analisi individuale, e sono emersi dubbi interpretativi che hanno reso necessario un confronto interno prima di procedere con la stesura dell'Analisi dei Requisiti.
 
-*Disponibilità personale (RI-1)* Alcuni componenti non hanno potuto dedicare tutto il tempo necessario allo sprint. La situazione è stata
+*RI-1:* Alcuni componenti non hanno potuto dedicare tutto il tempo necessario allo sprint. La situazione è stata
 gestita redistribuendo i task con maggiore flessibilità sulle date di
 completamento interne, senza impatti sulla data di chiusura dello sprint.
 
@@ -942,4 +932,4 @@ In vista della consegna e del colloquio di presentazione dell'RTB, il team si è
 Sono inoltre stati aggiornati il Glossario e la documentazione ordinaria, con la stesura delle presentazioni per il sesto Diario di Bordo e dei verbali interni ed esterni relativi alle riunioni del periodo.
 
 ==== Criticità emerse
-La principale criticità di questo sprint è derivata dalla sovrapposizione con la sessione estiva degli esami, che ha sottratto tempo al progetto e reso difficoltoso trovarsi e lavorare in modo continuativo. Proprio come conseguenza di questa riduzione di disponibilità, il team ha deciso di prorogare lo sprint da una a due settimane: i tempi inizialmente previsti non erano sufficienti a portare a termine tutte le attività necessarie alla consegna dell'RTB con la qualità richiesta. Grazie a questa proroga, a un coordinamento più frequente tramite i canali di comunicazione rapidi e a una distribuzione flessibile delle attività, il team è riuscito a completare il lavoro pianificato e a rispettare la data di consegna prevista per l'RTB.
+La principale criticità di questo sprint è derivata dalla sovrapposizione con la sessione estiva degli esami, che ha sottratto tempo al progetto e reso difficoltoso trovarsi e lavorare in modo continuativo. Proprio come conseguenza di questa riduzione di disponibilità, il team ha deciso di prorogare lo sprint da una a due settimane: i tempi inizialmente previsti non erano sufficienti a portare a termine tutte le attività necessarie alla consegna dell'RTB con la qualità richiesta. Grazie a questa proroga, un coordinamento più frequente tramite i canali di comunicazione rapidi e a una distribuzione flessibile delle attività, il team è riuscito a completare il lavoro pianificato e a rispettare la data di consegna prevista per l'RTB.
