@@ -63,7 +63,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026/06/29], [Leonardo Lorenzin], [], [Prima stesura della lettera di presentazione],
+      [1.0.0], [2026/06/29], [Ines Iadadi], [], [Approvazione della lettera di presentazione],
+      [0.1.0], [2026/06/29], [Leonardo Lorenzin], [Ines Iadadi], [Prima stesura della lettera di presentazione],
     )
   ]
 
@@ -76,8 +77,7 @@
   [*Lettera di presentazione del gruppo Coderius*]
   
   v(1em)
-  [Egregi Professori Vardanega Tullio e Cardin Riccardo\
-  Alla cortese attenzione dei referenti di *Bluewind S.r.l.*]
+  [Egregi Professori Vardanega Tullio e Cardin Riccardo,]
 
   v(1.5em)
   
@@ -90,11 +90,13 @@
   titolo: "Lettera di Presentazione",
 )
 
-Con la presente, il gruppo *Coderius* intende sottoporre alla vostra attenzione la richiesta ufficiale di sottoporsi alla Requirements and Technology Baseline per il capitolato: 
+Con la presente, il gruppo *Coderius* desidera comunicare l'intenzione di sottoporsi alla revisione di Requirements and Technology Baseline per il capitolato: 
 
 #align(center, text(12pt)[*C1 - Automated EN18031 Compliance Verification*])
 
-La documentazione del gruppo prodotta durante lo svolgimento di questa fase del progetto è disponibile tramite questo link:
+proposto dall'azienda *Bluewind S.r.l.*
+
+La documentazione prodotta durante questa fase del progetto è disponibile all'interno della nostra repository:
 
 #link("https://github.com/CoderiusGroup/Documentazione")[#text(fill:blue)[https://github.com/CoderiusGroup/Documentazione]]
 
@@ -102,7 +104,7 @@ La documentazione può anche essere visualizzata tramite sito web, per facilitar
 
 #link("https://coderiusgroup.github.io/Documentazione/")[#text(fill:blue)[https://coderiusgroup.github.io/Documentazione/]]
 
-Nel sito sono visualizzabili i seguenti documenti:
+Sono consultabili i seguenti documenti:
 #table(
   columns: (50%,50%),
   stroke: none,
@@ -137,7 +139,7 @@ Nel sito sono visualizzabili i seguenti documenti:
   ]
 )
 
-In aggiunta alla documentazione il gruppo *Coderius* ha sviluppato un Proof of Concept, il quale è consultabile a questo indirizzo:
+In aggiunta alla documentazione il gruppo *Coderius* ha sviluppato un Proof of Concept, la repository del quale è disponibile al seguente link:
 
 #link("https://github.com/CoderiusGroup/PoC")[#text(fill:blue)[https://github.com/CoderiusGroup/PoC]]
 
@@ -145,3 +147,15 @@ In aggiunta alla documentazione il gruppo *Coderius* ha sviluppato un Proof of C
 
 #v(1em)
 Infine, riconfermiamo la data ultima di consegna del progetto il *18 Settembre 2026*, con costo stimato di *10 680 €*.
+
+Cordiali saluti,
+
+Il gruppo Coderius
+
+Componenti del gruppo:
+- Bronte Giovanni Angelo Marco [2041845]
+- Canavese Alberto [2076423]
+- Hodja Edis [2116422]
+- Iadadi Ines [2113175]
+- Lorenzin Leonardo [2116434]
+- Zonta Rocha Filippo [1149339]
