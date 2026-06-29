@@ -20,9 +20,10 @@ METRICS_FILE  = REPO_ROOT / "src" / "metrics" / "ortografia.json"
 WORDLIST_FILE = SCRIPT_DIR / "wordlist.txt"
 GLOSSARY_FILE = REPO_ROOT / "src" / "RTB" / "Documenti" / "Interni" / "definizioni.typ"
 
-EXCLUDE_NAME_PATTERNS = ["definizioni.typ", "__glossary_tmp__"]
+# Glossario.typ è auto-generato (solo termini): lo spell-check non è significativo.
+EXCLUDE_NAME_PATTERNS = ["definizioni.typ", "__glossary_tmp__", "Glossario.typ"]
 EXCLUDE_DIRS = {"templates"}
-MIN_WORDS = 100          # ignora file troppo brevi
+MIN_WORDS = 50           # ignora file troppo brevi
 
 SOGLIA_ACCETTABILE = 1   # ≤ 1 errore per documento (come nelle NdP)
 
@@ -57,13 +58,141 @@ def find_typ_files() -> list[Path]:
 # Elaborazione testo
 # ---------------------------------------------------------------------------
 
+# Parole chiave che introducono uno statement di codice (#let, #set, #show…):
+# dopo di esse il codice prosegue oltre l'identificatore (es. "#show: f.with(")
+# fino al primo blocco aperto o a fine riga.
+STMT_KW = {"let", "set", "show", "if", "else", "for", "while",
+           "context", "import", "include", "return"}
+_IDENT_RE = re.compile(r"[A-Za-z_][A-Za-z0-9_-]*")
+_CLOSER = {"[": "]", "{": "}", "(": ")"}
+
+
+def _skip_string(text: str, i: int) -> int:
+    """text[i] == '\"': salta la stringa (gestendo gli escape) e ritorna
+    l'indice del carattere successivo."""
+    n = len(text)
+    i += 1
+    while i < n:
+        if text[i] == "\\":
+            i += 2
+            continue
+        if text[i] == '"':
+            return i + 1
+        i += 1
+    return i
+
+
+def _skip_code_expr(text: str, i: int, stack: list) -> int:
+    """Consuma un'espressione di codice introdotta da '#' (i punta al
+    carattere dopo '#'). Quando incontra un delimitatore di apertura lo
+    mette sullo stack e restituisce il controllo allo scanner principale,
+    così i blocchi multilinea ( … ), { … } e i content block [ … ] vengono
+    gestiti in modo bilanciato."""
+    n = len(text)
+    m = _IDENT_RE.match(text, i)
+    if not m:
+        return i                                  # '#' isolato: ignora
+    word = m.group(0)
+    i = m.end()
+
+    if word in STMT_KW:
+        # Statement: salta fino al primo blocco/delimitatore o a fine riga.
+        while i < n:
+            c = text[i]
+            if c in "([{":
+                stack.append((c, c == "["))       # '[' -> markup, altri -> codice
+                return i + 1
+            if c == "\n":
+                return i
+            if c == '"':
+                i = _skip_string(text, i)
+                continue
+            i += 1
+        return i
+
+    # Chiamata/accesso: gestisci la catena .campo e il primo gruppo ( o [.
+    while i < n:
+        c = text[i]
+        if c == ".":
+            i += 1
+            m2 = _IDENT_RE.match(text, i)
+            if m2:
+                i = m2.end()
+            continue
+        if c == "(":
+            stack.append(("(", False))
+            return i + 1
+        if c == "[":
+            stack.append(("[", True))
+            return i + 1
+        break
+    return i
+
+
 def strip_typst(text: str) -> str:
-    """Rimuove il markup Typst, mantiene la prosa italiana."""
+    """Estrae la sola prosa (testo in markup) da un sorgente Typst,
+    scartando il codice. A differenza di un semplice replace con regex,
+    gestisce i blocchi multilinea: definizioni `#let f(…) = { … }`,
+    chiamate con argomenti su più righe `#table( … )`, `#context { … }`,
+    ecc. Il testo dei content block `[ … ]` viene mantenuto (anche quando
+    annidato negli argomenti, es. le celle di tabella `[*Codice*]`)."""
+    # Rimuove i commenti prima dello scanning.
     text = re.sub(r'/\*.*?\*/', ' ', text, flags=re.DOTALL)
     text = re.sub(r'//[^\n]*', ' ', text)
-    text = re.sub(r'#[a-zA-Z_]+[^[\n]*', ' ', text)
-    text = re.sub(r'\[([^\[\]]{0,500})\]', r' \1 ', text)
-    text = re.sub(r'[\[\]{}()]', ' ', text)
+
+    out: list[str] = []
+    stack: list[tuple[str, bool]] = []   # frame: (delimitatore, emit)
+    i, n = 0, len(text)
+
+    def emitting() -> bool:
+        # Radice del file e content block [ … ] sono markup (emit=True);
+        # i blocchi di codice { … } e gli argomenti ( … ) no (emit=False).
+        return stack[-1][1] if stack else True
+
+    while i < n:
+        c = text[i]
+
+        if c == "#" and emitting():
+            out.append(" ")
+            i = _skip_code_expr(text, i + 1, stack)
+            continue
+
+        if c == '"' and not emitting():
+            i = _skip_string(text, i)
+            continue
+
+        if c == "[":
+            out.append(" ")
+            stack.append(("[", True))
+            i += 1
+            continue
+        if c == "{":
+            stack.append(("{", False))
+            i += 1
+            continue
+        if c == "(":
+            if emitting():
+                out.append(c)            # parentesi letterale nella prosa
+            else:
+                stack.append(("(", False))
+            i += 1
+            continue
+
+        if c in ")]}":
+            if stack and _CLOSER[stack[-1][0]] == c:
+                stack.pop()
+            elif emitting():
+                out.append(c)            # carattere letterale nella prosa
+            out.append(" ")
+            i += 1
+            continue
+
+        if emitting():
+            out.append(c)
+        i += 1
+
+    text = "".join(out)
+    # Pulizia residua: simboli di markup, numeri e spazi multipli.
     text = re.sub(r'[*_=~`@<>#|\\]', ' ', text)
     text = re.sub(r'\b\d+[,./]?\d*\b', ' ', text)
     text = re.sub(r'\s+', ' ', text)
