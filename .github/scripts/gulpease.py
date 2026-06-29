@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Calcola l'Indice di Gulpease per tutti i documenti .typ narrativi in src/.
-Aggiorna src/metrics/gulpease.json con i risultati del commit corrente.
+Rigenera da zero src/metrics/gulpease.json con i risultati del commit corrente 
+(sovrascrivendo lo storico).
 Scrive un riepilogo in $GITHUB_STEP_SUMMARY (visibile nell'Actions UI).
 
 Formula: Gulpease = 89 + (300*F - 10*L) / P
@@ -19,8 +20,8 @@ from datetime import date
 from pathlib import Path
 
 # Posizione dei file
-SCRIPT_DIR  = Path(__file__).resolve().parent          # .github/scripts/
-REPO_ROOT   = SCRIPT_DIR.parent.parent                 # root del repo
+SCRIPT_DIR   = Path(__file__).resolve().parent          # .github/scripts/
+REPO_ROOT    = SCRIPT_DIR.parent.parent                 # root del repo
 METRICS_FILE = REPO_ROOT / "src" / "metrics" / "gulpease.json"
 
 # Pattern da escludere (nome file)
@@ -114,13 +115,6 @@ def doc_name(path: Path) -> str:
 # Persistenza
 # ---------------------------------------------------------------------------
 
-def load_existing() -> list[dict]:
-    if METRICS_FILE.exists():
-        with open(METRICS_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    return []
-
-
 def save(records: list[dict]) -> None:
     METRICS_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(METRICS_FILE, "w", encoding="utf-8") as f:
@@ -183,13 +177,6 @@ def main() -> None:
         print("Nessun file .typ trovato in src/.")
         return
 
-    # Carica storico ed evita duplicati per lo stesso commit
-    records = load_existing()
-    existing_commits = {r["commit"] for r in records}
-    if commit in existing_commits:
-        print(f"Commit {commit} già presente in gulpease.json — nessun aggiornamento.")
-        return
-
     print(f"Calcolo Gulpease per commit {commit} ({today})\n")
     print(f"  {'Documento':<40} {'Score':>6}   dettaglio")
     print(f"  {'-'*40} {'-'*6}   {'-'*30}")
@@ -218,8 +205,8 @@ def main() -> None:
         else:
             print(f"  {nome:<40}    n/d   troppo breve ({P} parole)")
 
-    records.extend(new_records)
-    save(records)
+    # Salvataggio diretto (sovrascrittura)
+    save(new_records)
 
     print(f"\n✓ Salvati {len(new_records)} record in {METRICS_FILE.relative_to(REPO_ROOT)}")
 
