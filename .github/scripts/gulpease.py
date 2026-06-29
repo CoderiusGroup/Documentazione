@@ -145,9 +145,9 @@ def write_summary(
         if score is None:
             lines.append(f"| {nome} | — | {P} | ⚪ troppo breve (< {MIN_WORDS} parole) |")
         else:
-            if score >= 60:
+            if score >= 40:
                 stato = "🟢 accettabile"
-            elif score >= 40:
+            elif score >= 30:
                 stato = "🟡 sotto soglia"
             else:
                 stato = "🔴 critico"
