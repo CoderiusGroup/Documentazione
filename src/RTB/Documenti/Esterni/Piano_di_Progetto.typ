@@ -100,7 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.6.4], [2026/06/29], [Leonardo Lorenzin], [], [Aggiornamento sezione 2.1 e correzioni minori],
+    [0.6.4], [2026/06/29], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiornamento sezione 2.1 e correzioni minori],
     [0.6.3], [2026/06/25], [Alberto Canavese], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 6: 4.6.1, 4.6.2, 4.6.3, 4.6.4, 4.6.5, 4.6.6, 4.6.7, 4.6.8],
     [0.6.2], [2026/06/12], [Filippo Zonta Rocha], [Ines Iadadi], [Aggiunta delle sezioni:4.5.5, 4.5.6,4.5.7, 4.5.8],
     [0.6.1], [2026/06/05], [Ines Iadadi], [Alberto Canavese], [Revisione lessicale delle sezioni Sprint 2 e Sprint 3],
@@ -190,8 +190,8 @@ Per garantire che ogni termine tecnico sia compreso correttamente e per evitare 
 Il team adotta un approccio Agile, nello specifico il framework Scrum. Le motivazioni che hanno portato alla scelta di questo modello sono le seguenti:
 
 - Rotazione dei ruoli: il framework Scrum divide il lavoro in sprint bisettimanali; al termine di ciascuno di essi, viene garantita la rotazione dei ruoli per massimizzare l’apprendimento e la flessibilità del team, favorendo una conoscenza trasversale del prodotto e riducendo le dipendenze critiche sulle singole persone.
-- Reattività: suddividere il lavoro in sprint consente al team di reagire rapidamente a eventuali imprevisti che possano presentarsi durante lo svolgimento del progetto.
-- Retrospettive: nel metodo Agile, a differenza di altri modelli, viene dedicato un momento per riflettere su come è stato svolto il lavoro assegnato. Questa retrospettiva consente di analizzare eventuali errori commessi durante lo sprint e di aggiornare di conseguenza il Way of Working, riducendo così il rischio di commetterli nuovamente.
+- Reattività: suddividere le attività in sprint consente al team di reagire rapidamente a eventuali imprevisti che possano presentarsi durante lo svolgimento del progetto.
+- Retrospettive: nella filosofia Agile, a differenza di altri modelli, viene dedicato un momento per riflettere su come è stato svolto il lavoro assegnato. Questa retrospettiva consente di analizzare eventuali errori commessi durante lo sprint e di aggiornare di conseguenza il Way of Working, riducendo così il rischio di commetterli nuovamente.
 
 == Metodologia di lavoro
 Ogni sprint si apre con una riunione in cui si fissano obiettivi e compiti e a metà periodo si tiene un breve controllo dell'avanzamento. Alla fine dello sprint si svolge una retrospettiva per capire cosa ha funzionato e cosa migliorare nel ciclo successivo. \
