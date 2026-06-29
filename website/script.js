@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
             tabContents.forEach(content => content.classList.remove('active'));
             button.classList.add('active');
             const targetId = button.getAttribute('data-target');
-            document.getElementById(targetId).classList.add('active');
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) targetEl.classList.add('active');
         });
     });
     const tabButtonsContainer = document.querySelector('.tab-buttons');
@@ -44,11 +45,62 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 700);
     }
 
+    // Delay Membri Team
     document.querySelectorAll('.member-card').forEach((card, i) => {
         card.style.transitionDelay = `${i * 0.07}s`;
     });
+    
+    const searchInput = document.getElementById('glossary-search');
+    if (searchInput) {
+        const totalCountEl = document.getElementById('total-count');
+        const foundCountEl = document.getElementById('found-count');
+        const noResultsMsg = document.getElementById('no-results');
+        const terms = document.querySelectorAll('.glossary-term');
+        const letters = document.querySelectorAll('.glossary-letter');
 
-    const revealEls = document.querySelectorAll('.section-eyebrow, .section-title, .doc-grid, .repo-featured, .member-card, .tab-buttons');
+        let total = terms.length;
+        totalCountEl.textContent = total;
+        foundCountEl.textContent = total;
+
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            terms.forEach(term => {
+                const termTitle = term.querySelector('h3').textContent.toLowerCase();
+                if (termTitle.includes(query)) {
+                    term.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    term.style.display = 'none';
+                }
+            });
+
+            letters.forEach(letter => {
+                let next = letter.nextElementSibling;
+                let hasVisibleTerms = false;
+                
+                while (next && next.classList.contains('glossary-term')) {
+                    if (next.style.display !== 'none') {
+                        hasVisibleTerms = true;
+                        break;
+                    }
+                    next = next.nextElementSibling;
+                }
+                letter.style.display = hasVisibleTerms ? 'block' : 'none';
+            });
+
+            foundCountEl.textContent = visibleCount;
+            if (noResultsMsg) {
+                noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+        });
+    }
+
+    const revealEls = document.querySelectorAll(
+        '.section-eyebrow, .section-title, .doc-grid, .repo-featured, .member-card, .tab-buttons, .glossary-term, .glossary-letter'
+    );
+    
     revealEls.forEach(el => el.classList.add('reveal'));
 
     const observer = new IntersectionObserver((entries) => {
@@ -61,20 +113,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1 });
 
     revealEls.forEach(el => observer.observe(el));
-
+    
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.site-nav a[href^="#"]');
 
-    const navObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                navLinks.forEach(link => {
-                    link.classList.toggle('nav-active', link.getAttribute('href') === `#${id}`);
-                });
-            }
-        });
-    }, { threshold: 0.4 });
-
-    sections.forEach(s => navObserver.observe(s));
+    if (sections.length > 0 && navLinks.length > 0) {
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.toggle('nav-active', link.getAttribute('href') === `#${id}`);
+                    });
+                }
+            });
+        }, { threshold: 0.4 });
+        sections.forEach(s => navObserver.observe(s));
+    }
 });
