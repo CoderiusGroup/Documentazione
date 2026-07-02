@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.0.0*]
+  #text(size: 20pt)[*Versione 1.1.0*]
 ]
 #pagebreak()
 
@@ -100,6 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.1.0], [2026/06/30], [Leonardo Lorenzin], [], [Aggiunta delle sezioni Sprint 7: 4.7.1, 4.7.2, 4.7.3, 4.7.4],
     [1.0.0], [2026/06/29], [Leonardo Lorenzin], [], [Approvazione del documento Piano di Progetto],
     [0.6.4], [2026/06/29], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiornamento sezione 2.1 e correzioni minori],
     [0.6.3], [2026/06/25], [Alberto Canavese], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 6: 4.6.1, 4.6.2, 4.6.3, 4.6.4, 4.6.5, 4.6.6, 4.6.7, 4.6.8],
@@ -350,6 +351,7 @@ I rischi sono classificati in tre categorie, identificate dal prefisso del codic
   [La persona coinvolta avvisa il resto del gruppo il più tempestivamente possibile, in modo che gli altri membri possano dividersi il lavoro rimasto o alternativamente rimandarlo se non è urgente che venga completato.],
 )
 
+#pagebreak()
 #scheda-rischio(
   [RI-3],
   [Errore nella scrittura di un documento],
@@ -934,3 +936,48 @@ Sono inoltre stati aggiornati il Glossario e la documentazione ordinaria, con la
 
 ==== Criticità emerse
 La principale criticità di questo sprint è derivata dalla sovrapposizione con la sessione estiva degli esami, che ha sottratto tempo al progetto e reso difficoltoso trovarsi e lavorare in modo continuativo. Proprio come conseguenza di questa riduzione di disponibilità, il team ha deciso di prorogare lo sprint da una a due settimane: i tempi inizialmente previsti non erano sufficienti a portare a termine tutte le attività necessarie alla consegna dell'RTB con la qualità richiesta. Grazie a questa proroga, un coordinamento più frequente tramite i canali di comunicazione rapidi e a una distribuzione flessibile delle attività, il team è riuscito a completare il lavoro pianificato e a rispettare la data di consegna prevista per l'RTB.
+
+== Sprint 7
+
+=== Periodo
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/06/27],
+  [*Fine prevista:*], [2026/06/10],
+  /*[*Fine reale:*],    [2026/06/],*/
+)
+#v(0.3em)
+
+=== Attività pianificate
+
+In questo sprint il gruppo si concentra sulla conclusione della milestone Requirements and Technology Baseline (RTB), in vista del rilascio finale e della partecipazione al colloquio di presentazione. L'obiettivo principale del periodo è il completamento e l'approvazione di tutti i documenti e la conclusione del Proof of Concept (PoC).
+
+Le attività principali saranno:
+- Conclusione del Proof of Concept (PoC): ultimazione dello sviluppo, rifinitura delle funzionalità e consolidamento del codice dell'applicazione da presentare in sede di revisione RTB.
+- Stesura della Lettera di Presentazione
+- Approvazione dei documenti per RTB: esecuzione delle verifiche di secondo livello da parte del ruolo di Responsabile per formalizzare lo stato di approvazione di tutto il materiale prima del congelamento definitivo.
+- Aggiornamento del Glossario: aggiunta dei termini introdotti durante la stesura finale dei documenti del periodo.
+- Stesura delle presentazioni per il settimo Diario di Bordo.
+- Stesura dei verbali interni ed esterni: redazione e formattazione dei resoconti ufficiali relativi alle riunioni tenutesi nel corso del periodo.
+
+=== Rischi attesi
+
+- *RI-1*: Lo sprint si colloca nel pieno della sessione estiva degli esami. La ridotta disponibilità oraria di alcuni membri in questo periodo critico rappresenta un rischio elevato per il completamento puntuale delle ultime attività di verifica e sviluppo prima della consegna.
+- *RI-3*: L'elevata mole di documentazione da sottoporre a revisione finale prima del rilascio comporta il rischio che emergano errori formali o incongruenze ortografiche dell'ultimo minuto, richiedendo la correzione di tali errori.
+- *RO-4*: Il perdurare degli impegni accademici e personali continua a rendere difficile coordinare i tempi del team e organizzare momenti di lavoro condiviso, con il rischio di un disallineamento sulle attività finali in vista della consegna.
+
+=== Preventivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[-],[-],[8],[8]),
+    ([Edis Hodja],         [-],[4],[-],[-],[-],[-],[4]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[],[8],[8]),
+    ([Giovanni Angelo Marco Bronte],    [-],[-],[-],[-],[6],[-],[6]),
+    ([Ines Iadadi],        [-],[-],[-],[-],[6],[-],[6]),
+    ([Leonardo Lorenzin],  [5],[-],[-],[-],[-],[-],[5]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*5*],[*4*],[*0*],[*0*],[*12*],[*16*],[*37*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 7]
+)
