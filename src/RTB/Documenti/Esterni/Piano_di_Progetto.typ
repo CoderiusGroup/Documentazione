@@ -100,7 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.1.0], [2026/06/30], [Leonardo Lorenzin], [], [Aggiunta delle sezioni Sprint 7: 4.7.1, 4.7.2, 4.7.3, 4.7.4],
+    [1.1.0], [2026/06/30], [Leonardo Lorenzin], [Alberto Canavese], [Aggiunta delle sezioni Sprint 7: 4.7.1, 4.7.2, 4.7.3, 4.7.4],
     [1.0.0], [2026/06/29], [Leonardo Lorenzin], [], [Approvazione del documento Piano di Progetto],
     [0.6.4], [2026/06/29], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiornamento sezione 2.1 e correzioni minori],
     [0.6.3], [2026/06/25], [Alberto Canavese], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 6: 4.6.1, 4.6.2, 4.6.3, 4.6.4, 4.6.5, 4.6.6, 4.6.7, 4.6.8],
@@ -945,7 +945,7 @@ La principale criticità di questo sprint è derivata dalla sovrapposizione con 
   stroke: none,
   inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
   [*Inizio:*],        [2026/06/27],
-  [*Fine prevista:*], [2026/06/10],
+  [*Fine prevista:*], [2026/07/10],
   /*[*Fine reale:*],    [2026/06/],*/
 )
 #v(0.3em)
@@ -956,7 +956,7 @@ In questo sprint il gruppo si concentra sulla conclusione della milestone Requir
 
 Le attività principali saranno:
 - Conclusione del Proof of Concept (PoC): ultimazione dello sviluppo, rifinitura delle funzionalità e consolidamento del codice dell'applicazione da presentare in sede di revisione RTB.
-- Stesura della Lettera di Presentazione
+- Stesura della Lettera di Presentazione.
 - Approvazione dei documenti per RTB: esecuzione delle verifiche di secondo livello da parte del ruolo di Responsabile per formalizzare lo stato di approvazione di tutto il materiale prima del congelamento definitivo.
 - Aggiornamento del Glossario: aggiunta dei termini introdotti durante la stesura finale dei documenti del periodo.
 - Stesura delle presentazioni per il settimo Diario di Bordo.
@@ -973,7 +973,7 @@ Le attività principali saranno:
   tabella-ore((
     ([Alberto Canavese],   [-],[-],[-],[-],[-],[8],[8]),
     ([Edis Hodja],         [-],[4],[-],[-],[-],[-],[4]),
-    ([Filippo Zonta Rocha],[-],[-],[-],[-],[],[8],[8]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[-],[8],[8]),
     ([Giovanni Angelo Marco Bronte],    [-],[-],[-],[-],[6],[-],[6]),
     ([Ines Iadadi],        [-],[-],[-],[-],[6],[-],[6]),
     ([Leonardo Lorenzin],  [5],[-],[-],[-],[-],[-],[5]),
