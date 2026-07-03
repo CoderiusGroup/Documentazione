@@ -33,7 +33,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.0.0*]
+  #text(size: 20pt)[*Versione 1.0.1*]
 ]
 
 #pagebreak()
@@ -53,6 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.0.1], [2026/07/03], [Edis Hodja], [], [Aggiornamento contenuti della descrizione relativa ai ruoli],
     [1.0.0], [2026/06/23], [Edis Hodja], [], [Approvazione del documento],
     [0.10.1], [2026/06/13], [Giovanni Bronte], [Edis Hodja], [Modifiche alle tabelle delle metriche],
     [0.10.0], [2026/05/28], [Alberto Canavese], [Giovanni Bronte], [Aggiunta della seguente sezione: 5.3.2.2],
@@ -753,6 +754,8 @@ Di seguito vengono riportati i vari ruoli e vengono descritte le responsabilità
   Stabilisce la struttura del software, che costituirà il prodotto richiesto, definendo l'architettura dell'applicazione e la suddivisione tra i componenti Frontend e Backend.
 - *Programmatore*\
   Rappresenta il ruolo cruciale nella fase di implementazione e codifica, in quanto si occupa di sviluppare il codice sorgente, collaborando con il _Progettista_ riguardo alle decisioni stabilite.
+- *Verificatore*\
+  Si occupa di accertare il rispetto delle norme di qualità per ogni prodotto intermedio e finale del progetto, dalla documentazione al codice sorgente. Pianifica ed esegue le procedure di test necessarie alla validazione del sistema, segnalando tempestivamente eventuali difetti o non conformità al fine di garantire la correttezza e l'affidabilità del prodotto sviluppato.
 
 Pur essendo assegnati ruoli specifici per ciascuno sprint, le attività vengono svolte in modo collaborativo tra i membri del gruppo.
 
