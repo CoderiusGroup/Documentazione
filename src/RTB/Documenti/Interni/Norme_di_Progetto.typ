@@ -53,7 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.0.1], [2026/07/03], [Edis Hodja], [], [Aggiornamento contenuti della descrizione relativa ai ruoli],
+    [1.0.1], [2026/07/03], [Edis Hodja], [Filippo Zonta Rocha], [Aggiornamento contenuti della descrizione relativa ai ruoli],
     [1.0.0], [2026/06/23], [Edis Hodja], [], [Approvazione del documento],
     [0.10.1], [2026/06/13], [Giovanni Bronte], [Edis Hodja], [Modifiche alle tabelle delle metriche],
     [0.10.0], [2026/05/28], [Alberto Canavese], [Giovanni Bronte], [Aggiunta della seguente sezione: 5.3.2.2],
