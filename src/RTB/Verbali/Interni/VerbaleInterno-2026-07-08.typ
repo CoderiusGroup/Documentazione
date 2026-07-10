@@ -52,7 +52,7 @@
         *Luogo:* #luogo ]
     )
     #v(4em)
-    #text(size: 20pt)[*Versione 0.1.0*]
+    #text(size: 20pt)[*Versione 1.0.0*]
   ]
   pagebreak()
 
@@ -73,7 +73,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026-07-08], [Ines Iadadi], [], [Prima stesura del verbale],
+      [1.0.0], [2026-07-08], [Filippo Zonta Rocha], [], [Approvazione del verbale],
+      [0.1.0], [2026-07-08], [Ines Iadadi], [Filippo Zonta Rocha], [Prima stesura del verbale],
       // aggiungi nuova riga quando viene aggiornato
     )
     
@@ -133,7 +134,7 @@ Il team ha discusso l'esito della revisione RTB tenuta con il professor Cardin, 
 A seguito dell'esito positivo ottenuto con il professor Cardin, il team ha discusso la suddivisione dei contenuti e la stesura della presentazione per la seconda parte della revisione RTB, questa volta con il professor Vardanega. È stato concordato di contattarlo via mail per fissare la data dell'incontro.
 
 == Rotazione dei ruoli
-Il 2026-07-09 si concluderà lo sprint 7 del nostro team. In conformità a quanto stabilito dal way of working adottato, il team ha discusso la rotazione dei ruoli da applicare nel corso dello sprint successivo. Sono stati stabiliti i ruoli che verranno assunti a partire dall'ottavo sprint, con la reintroduzione del ruolo di analista, necessario per effettuare le correzioni all'Analisi dei Requisiti segnalate dal professor Cardin.
+Il 2026-07-10 si concluderà lo sprint 7. In conformità a quanto stabilito dal way of working adottato, il team ha discusso la rotazione dei ruoli da applicare nel corso dello sprint successivo. Sono stati stabiliti i ruoli che verranno assunti a partire dall'ottavo sprint, con la reintroduzione del ruolo di analista, necessario per effettuare le correzioni all'Analisi dei Requisiti segnalate dal professor Cardin.
 #pagebreak()
 
 = Conclusione e Decisioni Prese
