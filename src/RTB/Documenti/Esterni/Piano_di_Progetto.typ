@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.0.0*]
+  #text(size: 20pt)[*Versione 1.2.0*]
 ]
 #pagebreak()
 
@@ -100,6 +100,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.2.0], [2026/07/10], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiunta delle sezioni Sprint 7: 4.7.5, 4.7.6, 4.7.7, 4.7.8 e correzione refusi],
+    [1.1.0], [2026/06/30], [Leonardo Lorenzin], [Alberto Canavese], [Aggiunta delle sezioni Sprint 7: 4.7.1, 4.7.2, 4.7.3, 4.7.4],
     [1.0.0], [2026/06/29], [Leonardo Lorenzin], [], [Approvazione del documento Piano di Progetto],
     [0.6.4], [2026/06/29], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiornamento sezione 2.1 e correzioni minori],
     [0.6.3], [2026/06/25], [Alberto Canavese], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 6: 4.6.1, 4.6.2, 4.6.3, 4.6.4, 4.6.5, 4.6.6, 4.6.7, 4.6.8],
@@ -350,6 +352,7 @@ I rischi sono classificati in tre categorie, identificate dal prefisso del codic
   [La persona coinvolta avvisa il resto del gruppo il più tempestivamente possibile, in modo che gli altri membri possano dividersi il lavoro rimasto o alternativamente rimandarlo se non è urgente che venga completato.],
 )
 
+#pagebreak()
 #scheda-rischio(
   [RI-3],
   [Errore nella scrittura di un documento],
@@ -576,7 +579,7 @@ La principale criticità di questo sprint è stata l'assegnazione del ruolo di A
   columns: (0.3fr, 1fr),
   stroke: none,
   inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
-  [*Inizio:*],        [2026/05/01],
+  [*Inizio:*],        [2026/05/02],
   [*Fine prevista:*], [2026/05/15],
   [*Fine reale:*],    [2026/05/15],
 )
@@ -587,7 +590,7 @@ Nel terzo sprint il team si concentrerà sulla continuazione della stesura dei d
 Le attività principali saranno:
 - Continuazione della stesura dell'Analisi dei Requisiti: l'obiettivo è portare il documento a una versione avanzata da sottoporre all'azienda proponente per raccogliere un feedback sulla correttezza e completezza dei contenuti.
 - Incontro con Bluewind: riunione pianificata per il 2026/05/04 per sottoporre i dubbi emersi durante l'analisi dei requisiti.
-- Stesura del secondo Diario di Bordo: redazione del documento di rendicontazione delle attività svolte, da presentare durante l'omonimo incontro di allineamento.
+- Stesura del primo e del secondo Diario di Bordo: redazione del documento di rendicontazione delle attività svolte, da presentare durante l'omonimo incontro di allineamento.
 - Aggiornamento del sito web: aggiunta della sezione dedicata al Diario di Bordo.
 - Stesura dei verbali interni ed esterni relativi alle riunioni del periodo.
 
@@ -665,7 +668,7 @@ Per evitare che questo problema accada nuovamente in futuro, gli analisti dovran
   columns: (0.3fr, 1fr),
   stroke: none,
   inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
-  [*Inizio:*],        [2026/05/15],
+  [*Inizio:*],        [2026/05/16],
   [*Fine prevista:*], [2026/05/29],
   [*Fine reale:*],    [2026/05/29],
 )
@@ -736,7 +739,7 @@ Naturalmente i restanti documenti saranno ancora in via di sviluppo, prossimi a 
 ]
 
 === Rischi incontrati 
-- *RI-3*: Sono stati trovati degli errori in alcuni verbali del team. Tale circostanza ha richiesto l’intervento tempestivo di parte del team, con il conseguente impiego di risorse aggiuntive e il potenziale rallentamento delle attività pianificate. Per mitigare il rischio, sono state corrette alcune imprecisioni e riviste le procedure descrittive attraverso momenti di confronto e collaborazione tra i membri del gruppo, al fine di ridurre la probabilità che situazioni analoghe si ripresentino in futuro.
+- *RI-3*: Sono stati trovati degli errori in alcuni verbali del team. Tale circostanza ha richiesto l’intervento tempestivo da parte del team, con il conseguente impiego di risorse aggiuntive e il potenziale rallentamento delle attività pianificate. Per mitigare il rischio, sono state corrette alcune imprecisioni e riviste le procedure descrittive attraverso momenti di confronto e collaborazione tra i membri del gruppo, al fine di ridurre la probabilità che situazioni analoghe si ripresentino in futuro.
 - *RI-1*: Nel corso di questo periodo bisettimanale, la concomitanza di impegni accademici e personali ha comportato una riduzione della disponibilità di alcuni membri del team. In particolare, l’avvicinarsi della sessione estiva degli esami ha richiesto una maggiore attenzione nella gestione del tempo, con possibili ripercussioni sulla partecipazione alle attività progettuali. Per garantire il rispetto delle scadenze e la continuità del lavoro, il gruppo ha fatto ricorso a un’organizzazione più flessibile delle attività e a un costante coordinamento tra i componenti del team.
 
 === Retrospettiva
@@ -746,7 +749,7 @@ In parallelo, è continuata l’attività di aggiornamento del glossario, arricc
 Durante questo sprint è stata avviata anche la progettazione preliminare dell’interfaccia grafica attraverso la realizzazione di un primo mock-up, utile a visualizzare l’organizzazione delle principali funzionalità e a raccogliere eventuali osservazioni in vista delle fasi successive. Parallelamente, sono proseguite le attività di documentazione ordinaria con la redazione del terzo Diario di Bordo e dei verbali.
 
 
-==== *Criticità emerse*
+==== Criticità emerse
 La principale criticità riscontrata durante questo sprint ha riguardato il completamento degli ultimi casi d’uso dell’Analisi dei Requisiti. In particolare, il team ha incontrato alcune difficoltà nel definire con precisione determinati scenari e nel rappresentarli correttamente attraverso i diagrammi UML, rendendo necessarie ulteriori attività di revisione e confronto.
 Per affrontare tali problematiche, il gruppo ha svolto un colloquio di confronto con il professor Cardin, ottenendo chiarimenti utili sulla modellazione dei casi d’uso e dei relativi diagrammi. 
 
@@ -759,7 +762,7 @@ Per affrontare tali problematiche, il gruppo ha svolto un colloquio di confronto
   columns: (0.3fr, 1fr),
   stroke: none,
   inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
-  [*Inizio:*],        [2026/05/29],
+  [*Inizio:*],        [2026/05/30],
   [*Fine prevista:*], [2026/06/12],
   [*Fine reale:*],    [2026/06/12],
 )
@@ -775,7 +778,7 @@ Requisiti e sulla preparazione del PoC richiesto per la presentazione.
 - Finalizzazione dell'Analisi dei Requisiti: ultimi controlli sulla qualità e completezza del documento.
 - Presentazione del mockup a Bluewind per raccogliere un feedback sull'interfaccia proposta.
 - Sviluppo del PoC da presentare in sede di revisione RTB.
-- Stesura delle presentazioni per il quarto e quinto Diario di Bordo.
+- Stesura della presentazione per il quarto Diario di Bordo.
 - Stesura dei verbali interni ed esterni relativi alle riunioni del periodo.
 - Aggiornamento del Glossario: aggiunta dei termini introdotti nei documenti redatti durante lo sprint.
 
@@ -869,7 +872,7 @@ Le attività principali saranno:
 - Finalizzazione dei documenti richiesti per l'RTB: ultimi controlli sulla qualità, sulla coerenza e sulla completezza dei documenti prima della consegna.
 - Progressione nello sviluppo del Proof of Concept (PoC) da presentare in sede di revisione RTB.
 - Aggiornamento del Glossario: aggiunta dei termini introdotti nei documenti redatti durante lo sprint.
-- Stesura delle presentazioni per il sesto Diario di Bordo.
+- Stesura della presentazione per il quinto Diario di Bordo.
 - Stesura dei verbali interni ed esterni relativi alle riunioni del periodo.
 
 === Rischi attesi
@@ -930,7 +933,95 @@ Le attività principali saranno:
 
 === Retrospettiva
 In vista della consegna e del colloquio di presentazione dell'RTB, il team si è concentrato sulla finalizzazione dei documenti richiesti, eseguendo gli ultimi controlli di qualità, coerenza e completezza prima della scadenza. Parallelamente è proseguito lo sviluppo del Proof of Concept da presentare in sede di revisione RTB.
-Sono inoltre stati aggiornati il Glossario e la documentazione ordinaria, con la stesura delle presentazioni per il sesto Diario di Bordo e dei verbali interni ed esterni relativi alle riunioni del periodo.
+Sono inoltre stati aggiornati il Glossario e la documentazione ordinaria, con la stesura delle presentazioni per il quinto Diario di Bordo e dei verbali interni ed esterni relativi alle riunioni del periodo.
 
 ==== Criticità emerse
 La principale criticità di questo sprint è derivata dalla sovrapposizione con la sessione estiva degli esami, che ha sottratto tempo al progetto e reso difficoltoso trovarsi e lavorare in modo continuativo. Proprio come conseguenza di questa riduzione di disponibilità, il team ha deciso di prorogare lo sprint da una a due settimane: i tempi inizialmente previsti non erano sufficienti a portare a termine tutte le attività necessarie alla consegna dell'RTB con la qualità richiesta. Grazie a questa proroga, un coordinamento più frequente tramite i canali di comunicazione rapidi e a una distribuzione flessibile delle attività, il team è riuscito a completare il lavoro pianificato e a rispettare la data di consegna prevista per l'RTB.
+
+== Sprint 7
+
+=== Periodo
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/06/27],
+  [*Fine prevista:*], [2026/06/10],
+  [*Fine reale:*],    [2026/06/10],
+)
+#v(0.3em)
+
+=== Attività pianificate
+
+In questo sprint il gruppo si concentra sulla conclusione della milestone Requirements and Technology Baseline (RTB), in vista del rilascio finale e della partecipazione al colloquio di presentazione. L'obiettivo principale del periodo è il completamento e l'approvazione di tutti i documenti e la conclusione del Proof of Concept (PoC).
+
+Le attività principali saranno:
+- Conclusione del Proof of Concept (PoC): ultimazione dello sviluppo, rifinitura delle funzionalità e consolidamento del codice dell'applicazione da presentare in sede di revisione RTB.
+- Stesura della Lettera di Presentazione.
+- Approvazione dei documenti per RTB: esecuzione delle verifiche di secondo livello da parte del ruolo di Responsabile per formalizzare lo stato di approvazione di tutto il materiale prima del congelamento definitivo.
+- Aggiornamento del Glossario: aggiunta dei termini introdotti durante la stesura finale dei documenti del periodo.
+- Stesura della presentazione per il sesto Diario di Bordo.
+- Stesura dei verbali interni: redazione e formattazione dei resoconti ufficiali relativi alle riunioni tenutesi nel corso del periodo.
+
+=== Rischi attesi
+
+- *RI-1*: Lo sprint si colloca nel pieno della sessione estiva degli esami. La ridotta disponibilità oraria di alcuni membri in questo periodo critico rappresenta un rischio elevato per il completamento puntuale delle ultime attività di verifica e sviluppo prima della consegna.
+- *RI-3*: L'elevata mole di documentazione da sottoporre a revisione finale prima del rilascio comporta il rischio che emergano errori formali o incongruenze ortografiche dell'ultimo minuto, richiedendo la correzione di tali errori.
+- *RO-4*: Il perdurare degli impegni accademici e personali continua a rendere difficile coordinare i tempi del team e organizzare momenti di lavoro condiviso, con il rischio di un disallineamento sulle attività finali in vista della consegna.
+
+=== Preventivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[-],[-],[8],[8]),
+    ([Edis Hodja],         [-],[4],[-],[-],[-],[-],[4]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[-],[8],[8]),
+    ([Giovanni Angelo Marco Bronte],    [-],[-],[-],[-],[6],[-],[6]),
+    ([Ines Iadadi],        [-],[-],[-],[-],[6],[-],[6]),
+    ([Leonardo Lorenzin],  [5],[-],[-],[-],[-],[-],[5]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*5*],[*4*],[*0*],[*0*],[*12*],[*16*],[*37*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 7]
+)
+
+=== Consuntivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[-],[-],[7#text(fill: green)[(-1)]],[7]),
+    ([Edis Hodja],         [-],[4],[-],[-],[-],[-],[4]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[],[7#text(fill: green)[(-1)]],[7]),
+    ([Giovanni Angelo Marco Bronte],    [-],[-],[-],[-],[6],[-],[6]),
+    ([Ines Iadadi],        [-],[-],[-],[-],[6],[-],[6]),
+    ([Leonardo Lorenzin],  [5],[-],[-],[-],[-],[-],[5]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*5*],[*4*],[*0*],[*0*],[*12*],[*14*],[*35*]),
+  )),
+    caption: [Consuntivo ore per membro - Sprint 7]
+)
+
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [5], [ 150€], [25], [750€],
+    [Amministratore], [20], [4], [80€], [20], [400€],
+    [Analista], [25], [0], [0€], [9], [225€],
+    [Progettista], [25], [0], [   0€], [85], [2125€],
+    [Programmatore], [15], [12], [180€], [71], [1065€],
+    [Verificatore], [15], [14], [ 210€], [59], [885€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*35*], [*620€*], [*269*], [*5450€*],
+  )
+]
+
+=== Rischi incontrati
+- *RI-3*: Durante le ultime verifiche sulla documentazione prima del rilascio, sono emersi alcuni errori formali e incongruenze ortografiche minori. Il rischio è stato gestito tempestivamente attraverso un'attenta attività di revisione da parte dei verificatori, che hanno provveduto a correggere le anomalie riscontrate prima dell'approvazione.
+- *RO-4*: Il perdurare degli impegni della sessione estiva ha effettivamente ostacolato l'organizzazione di sessioni di lavoro condiviso. Il team ha mitigato il problema intensificando le comunicazioni tramite i canali rapidi (WhatsApp e Discord), permettendo a ciascun membro di avanzare in autonomia sulle proprie attività e garantendo il perfetto allineamento in vista della consegna.
+
+=== Retrospettiva
+In questo sprint il gruppo ha completato con successo gli obiettivi prefissati per la chiusura della milestone Requirements and Technology Baseline (RTB). Tutti i documenti previsti sono stati verificati e approvati ed è stata redatta la Lettera di Presentazione per il colloquio di revisione RTB. In parallelo, lo sviluppo del Proof of Concept (PoC) è stato concluso, consolidando le funzionalità necessarie alla dimostrazione tecnologica. Infine sono stati aggiornati il Glossario e la documentazione ordinaria, con la stesura delle presentazioni per il sesto Diario di Bordo e dei verbali interni relativi alle riunioni del periodo.
+
+==== Criticità emerse
+La principale criticità del periodo è stata legata alla gestione della mole di documenti da verificare scrupolosamente e da approvare in vista della milestone Requirements and Technology Baseline (RTB). L'individuazione di piccoli refusi ha richiesto uno sforzo supplementare da parte dei verificatori per assicurare la consegna di documenti privi di anomalie. Tuttavia, grazie alla flessibilità del team e all'uso efficiente dei canali di comunicazione rapidi, questa criticità è stata assorbita senza generare ritardi, consentendo al gruppo di rispettare pienamente la data di consegna prevista per l'RTB.
