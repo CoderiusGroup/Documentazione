@@ -1027,7 +1027,6 @@ In questo sprint il gruppo ha completato con successo gli obiettivi prefissati p
 ==== Criticità emerse
 La principale criticità del periodo è stata legata alla gestione della mole di lavoro documentale da verificare e approvare per il completamento della milestone Requirements and Technology Baseline (RTB). L'individuazione di piccoli refusi ha richiesto uno sforzo supplementare da parte dei verificatori per assicurare la consegna di documenti privi di anomalie. Tuttavia, grazie alla flessibilità del team e all'uso efficiente dei canali di comunicazione rapidi, questa criticità è stata assorbita senza generare ritardi, consentendo al gruppo di rispettare pienamente la data di consegna prevista per l'RTB.
 
-
 == Sommario finale RTB
 
 In questa sezione vengono riepilogate le ore effettivamente svolte da ciascun membro durante l'intero periodo relativo alla fase di Requirements and Technology Baseline (dallo Sprint 1 allo Sprint 7) e viene presentato il consuntivo economico parziale del progetto aggiornato all'attuale milestone.
