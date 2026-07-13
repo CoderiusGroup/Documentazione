@@ -80,7 +80,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-    #text(size: 20pt)[*Versione 1.0.0*]
+    #text(size: 20pt)[*Versione 1.0.1*]
 ]
 #pagebreak()
 
@@ -99,6 +99,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.0.1], [2026/07/10], [Edis Hodja], [Edis Hodja], [Aggiunta sezione relativa allo sprint 7],
     [1.0.0], [2026/06/29], [Filippo Zonta Rocha], [], [Approvazione del documento],
     [0.3.0], [2026/06/29], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta dei grafici relativi agli errori ortografici e Gulpease],
     [0.2.4], [2026/06/25], [Giovanni Bronte], [Edis Hodja], [Aggiornamento tabelle dei requisiti e aggiunta sezione relativa allo sprint 6],
@@ -159,7 +160,7 @@ Questa convenzione permette al lettore di individuare immediatamente i vocaboli 
 
 === Riferimenti Normativi
 #v(0.5em)
-- #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Norme_di_Progetto.pdf")[*Norme di Progetto v0.9.0*] #nota[(documento su branch feature, non ancora unito al main — non consultabile dal sito; il link verrà aggiornato al momento del merge)]
+- #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Norme_di_Progetto.pdf")[*Norme di Progetto v0.9.0*]
 
 - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[*Capitolato C1 — Automated EN18031 Compliance Verification*] #nota[(ultimo accesso: 2026-04-24)]
 
@@ -689,6 +690,8 @@ La seguente tabella riporta il tracciamento bidirezionale completo: ogni test di
   supplement: [Tabella],
 )
 
+#pagebreak()
+
 == Test di Accettazione
 
 I test di accettazione validano il prodotto finale rispetto ai requisiti concordati con il proponente Bluewind S.r.l. A differenza dei test di sistema, che verificano i singoli requisiti in modo atomico, i test di accettazione raggruppano flussi operativi completi e sono condotti in collaborazione con il proponente al termine dello sviluppo. La colonna "Requisito" riporta i principali requisiti funzionali coperti da ciascuno scenario.
@@ -721,7 +724,7 @@ I test di regressione accertano che le modifiche apportate al codice durante lo 
 */
 = Cruscotto di valutazione
 
-La presente sezione costituisce il quadro di monitoraggio quantitativo del progetto e viene aggiornata iterativamente al termine di ogni sprint, registrando l'evoluzione delle metriche di qualità definite nella sezione 2 con il progredire delle attività. I dati economici e orari sono ricavati dal documento #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Piano_di_Progetto.pdf")[*Piano di Progetto*] #nota[(documento su branch feature, non ancora unito al main — non consultabile dal sito; il link verrà aggiornato al momento del merge)]; il Budget at Completion (BAC) del progetto è pari a *€ 10.680* per *522 ore* totali.
+La presente sezione costituisce il quadro di monitoraggio quantitativo del progetto e viene aggiornata iterativamente al termine di ogni sprint, registrando l'evoluzione delle metriche di qualità definite nella sezione 2 con il progredire delle attività. I dati economici e orari sono ricavati dal documento #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Piano_di_Progetto.pdf")[*Piano di Progetto*] ; il Budget at Completion (BAC) del progetto è pari a *€ 10.680* per *522 ore* totali.
 
 Le metriche che richiedono la disponibilità di codice sorgente — tra cui Code Coverage, Test Success Rate e le metriche di prodotto — vengono attivate non appena prendono avvio le corrispondenti attività di sviluppo, e saranno pertanto popolate progressivamente a partire dalla Product Baseline.
 
@@ -747,7 +750,6 @@ Le metriche che richiedono la disponibilità di codice sorgente — tra cui Code
 == MPC-01, MPC-02, MPC-03 — Planned Value, Earned Value, Actual Cost
 
 I valori sono cumulativi: ogni sprint riporta il totale progressivo dall'inizio del progetto. Poiché tutti e sei gli sprint si sono conclusi entro le date previste, l'Earned Value coincide con il Planned Value cumulativo.
-#pagebreak()
 
 #cruscotto-table(
   [Andamento di PV, EV e AC per sprint (valori cumulativi)],
@@ -963,9 +965,11 @@ Le metriche di prodotto definite nella sezione 2 non sono misurabili in questa f
 
 Tutte le misurazioni relative a funzionalità, affidabilità, usabilità, efficienza e manutenibilità del prodotto saranno rilevate a partire dalla Product Baseline, contestualmente all'avvio delle attività di sviluppo e all'implementazione del Proof of Concept.
 
+#pagebreak()
+
 = Automiglioramento
 
-Il processo di automiglioramento è il meccanismo con cui il team Coderius analizza periodicamente la propria efficacia, identifica le criticità emerse durante ogni sprint e definisce azioni correttive concrete da applicare negli sprint successivi. Le informazioni riportate in questa sezione provengono dalle retrospettive di sprint documentate nel #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Piano_di_Progetto.pdf")[*Piano di Progetto*] #nota[(documento su branch feature, non ancora unito al main — non consultabile dal sito; il link verrà aggiornato al momento del merge)].
+Il processo di automiglioramento è il meccanismo con cui il team Coderius analizza periodicamente la propria efficacia, identifica le criticità emerse durante ogni sprint e definisce azioni correttive concrete da applicare negli sprint successivi. Le informazioni riportate in questa sezione provengono dalle retrospettive di sprint documentate nel #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Piano_di_Progetto.pdf")[*Piano di Progetto*].
 
 == Sprint 1 — Retrospettiva e azioni correttive
 
@@ -1054,6 +1058,23 @@ Nel sesto sprint (13/06–26/06/2026), collocato in piena sessione estiva degli 
 - Per assorbire la riduzione di disponibilità, lo sprint è stato prorogato da una a due settimane, così da completare tutte le attività necessarie alla consegna dell'RTB senza comprometterne la qualità.
 - Le attività sono state ridistribuite con maggiore flessibilità sulle date di completamento interne, mantenendo invariata la scadenza dello sprint.
 - Il coordinamento è stato rafforzato attraverso i canali di comunicazione rapidi (WhatsApp e Discord), per allineare il lavoro anche al di fuori dei meeting prefissati.
+
+== Sprint 7 — Retrospettiva e azioni correttive
+
+=== Problemi rilevati
+
+Nel settimo sprint, incentrato sulla conclusione e approvazione di tutto il materiale per la milestone RTB, sono emerse le seguenti criticità:
+
+- *RI-3 — Errori formali e incongruenze*: a causa dell'elevata mole di documentazione da sottoporre a revisione finale prima del rilascio, durante le verifiche sono emersi alcuni refusi e incongruenze ortografiche minori.
+- *RO-4 — Difficoltà di coordinamento*: il perdurare degli impegni accademici della sessione estiva ha continuato a ostacolare l'organizzazione di sessioni di lavoro condiviso, rendendo difficile coordinare i tempi del team in vista della consegna.
+
+=== Azioni intraprese
+
+- Per gestire i refusi documentali (*RI-3*), i verificatori hanno dedicato uno sforzo supplementare, effettuando un'attenta e tempestiva attività di revisione per correggere tutte le anomalie prima dell'approvazione formale dei documenti.
+- Per ovviare alla mancanza di sessioni di lavoro condiviso (*RO-4*), il team ha intensificato le comunicazioni tramite i canali rapidi (WhatsApp e Discord), permettendo a ciascun membro di avanzare in autonomia sulle proprie attività garantendo al contempo un perfetto allineamento.
+- Grazie alla flessibilità del team e all'uso efficiente della comunicazione asincrona, la criticità legata al carico di lavoro extra per le correzioni è stata assorbita senza generare ritardi, consentendo di rispettare pienamente la data di consegna prevista per l'RTB.
+
+#pagebreak()
 
 == Valutazione sugli strumenti di lavoro
 
