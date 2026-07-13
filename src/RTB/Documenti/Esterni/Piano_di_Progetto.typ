@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.2.0*]
+  #text(size: 20pt)[*Versione 1.2.1*]
 ]
 #pagebreak()
 
@@ -100,7 +100,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.2.0], [2026/07/10], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiunta delle sezioni Sprint 7: 4.7.5, 4.7.6, 4.7.7, 4.7.8 e correzione refusi],
+    [1.2.1], [2026/07/13], [Edis Hodja], [], [Aggiunta della sezione relativa al sommario finale RTB],
+    [1.2.0], [2026/07/10], [Leonardo Lorenzin], [], [Aggiunta delle sezioni Sprint 7: 4.7.5, 4.7.6, 4.7.7, 4.7.8 e correzione refusi],
     [1.1.0], [2026/06/30], [Leonardo Lorenzin], [Alberto Canavese], [Aggiunta delle sezioni Sprint 7: 4.7.1, 4.7.2, 4.7.3, 4.7.4],
     [1.0.0], [2026/06/29], [Leonardo Lorenzin], [], [Approvazione del documento Piano di Progetto],
     [0.6.4], [2026/06/29], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiornamento sezione 2.1 e correzioni minori],
@@ -946,8 +947,8 @@ La principale criticità di questo sprint è derivata dalla sovrapposizione con 
   stroke: none,
   inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
   [*Inizio:*],        [2026/06/27],
-  [*Fine prevista:*], [2026/06/10],
-  [*Fine reale:*],    [2026/06/10],
+  [*Fine prevista:*], [2026/07/10],
+  [*Fine reale:*],    [2026/07/10],
 )
 #v(0.3em)
 
@@ -1017,11 +1018,62 @@ Le attività principali saranno:
 ]
 
 === Rischi incontrati
-- *RI-3*: Durante le ultime verifiche sulla documentazione prima del rilascio, sono emersi alcuni errori formali e incongruenze ortografiche minori. Il rischio è stato gestito tempestivamente attraverso un'attenta attività di revisione da parte dei verificatori, che hanno provveduto a correggere le anomalie riscontrate prima dell'approvazione.
+- *RI-3*: Durante le verifiche finali sulla documentazione complessiva prima del rilascio, sono emersi alcuni errori formali e incongruenze ortografiche minori. Il rischio è stato gestito tempestivamente attraverso un'attenta attività di revisione da parte dei verificatori, che hanno provveduto a correggere le anomalie riscontrate prima dell'approvazione.
 - *RO-4*: Il perdurare degli impegni della sessione estiva ha effettivamente ostacolato l'organizzazione di sessioni di lavoro condiviso. Il team ha mitigato il problema intensificando le comunicazioni tramite i canali rapidi (WhatsApp e Discord), permettendo a ciascun membro di avanzare in autonomia sulle proprie attività e garantendo il perfetto allineamento in vista della consegna.
 
 === Retrospettiva
 In questo sprint il gruppo ha completato con successo gli obiettivi prefissati per la chiusura della milestone Requirements and Technology Baseline (RTB). Tutti i documenti previsti sono stati verificati e approvati ed è stata redatta la Lettera di Presentazione per il colloquio di revisione RTB. In parallelo, lo sviluppo del Proof of Concept (PoC) è stato concluso, consolidando le funzionalità necessarie alla dimostrazione tecnologica. Infine sono stati aggiornati il Glossario e la documentazione ordinaria, con la stesura delle presentazioni per il sesto Diario di Bordo e dei verbali interni relativi alle riunioni del periodo.
 
 ==== Criticità emerse
-La principale criticità del periodo è stata legata alla gestione della mole di documenti da verificare scrupolosamente e da approvare in vista della milestone Requirements and Technology Baseline (RTB). L'individuazione di piccoli refusi ha richiesto uno sforzo supplementare da parte dei verificatori per assicurare la consegna di documenti privi di anomalie. Tuttavia, grazie alla flessibilità del team e all'uso efficiente dei canali di comunicazione rapidi, questa criticità è stata assorbita senza generare ritardi, consentendo al gruppo di rispettare pienamente la data di consegna prevista per l'RTB.
+La principale criticità del periodo è stata legata alla gestione della mole di lavoro documentale da verificare e approvare per il completamento della milestone Requirements and Technology Baseline (RTB). L'individuazione di piccoli refusi ha richiesto uno sforzo supplementare da parte dei verificatori per assicurare la consegna di documenti privi di anomalie. Tuttavia, grazie alla flessibilità del team e all'uso efficiente dei canali di comunicazione rapidi, questa criticità è stata assorbita senza generare ritardi, consentendo al gruppo di rispettare pienamente la data di consegna prevista per l'RTB.
+
+
+== Sommario finale RTB
+
+In questa sezione vengono riepilogate le ore effettivamente svolte da ciascun membro durante l'intero periodo relativo alla fase di Requirements and Technology Baseline (dallo Sprint 1 allo Sprint 7) e viene presentato il consuntivo economico parziale del progetto aggiornato all'attuale milestone.
+
+=== Riepilogo orario
+
+La seguente tabella mostra la distribuzione totale delle ore lavorate, suddivise per membro del team e per ruolo ricoperto. I dati riflettono quanto registrato nei consuntivi dei singoli sprint.
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese], [10], [4], [8], [6], [-], [14], [42]),
+    ([Edis Hodja], [5], [8], [14], [-], [10], [6], [43]),
+    ([Filippo Zonta Rocha], [10], [-], [5], [-], [7], [19], [41]),
+    ([Giovanni Angelo Marco Bronte], [5], [7], [13], [-], [6], [7], [38]),
+    ([Ines Iadadi], [-], [7], [16], [5], [14], [7], [49]),
+    ([Leonardo Lorenzin], [5], [8], [7], [-], [-], [20], [40]),
+    (table.cell(align: center, fill: luma(220))[*Totali per ruolo*], [*35*], [*34*], [*63*], [*11*], [*37*], [*73*], [*253*]),
+  )),
+  caption: [Ore totali svolte dai membri del team - Periodo RTB],
+)
+
+=== Riepilogo economico
+
+La tabella sottostante illustra i costi sostenuti per ciascun ruolo, calcolati moltiplicando le ore effettivamente lavorate per il rispettivo costo orario. Viene inoltre riportato il saldo rimanente rispetto al preventivo totale iniziale di 10.680€.
+
+#align(center)[
+  #figure(
+    table(
+      columns: (1.5fr, 1.2fr, 1.2fr, 1.5fr, 1.5fr),
+      align: (left, center, center, center, center),
+      stroke: 0.5pt + luma(100),
+      table.header(
+        [*Ruolo*],
+        [*Costo/h (€)*],
+        [*Ore Svolte*],
+        [*Costo Sostenuto (€)*],
+        [*Saldo Rimanente (€)*]
+      ),
+      [Responsabile], [30], [35], [1.050], [750],
+      [Amministratore], [20], [34], [680], [400],
+      [Analista], [25], [63], [1.575], [225],
+      [Progettista], [25], [11], [275], [2.125],
+      [Programmatore], [15], [37], [555], [1.065],
+      [Verificatore], [15], [73], [1.095], [885],
+      table.cell(colspan: 2, align: center, fill: luma(220))[*Totale complessivo*], [*253*], [*5.230*], [*5.450*],
+    ),
+    caption: [Costo totale sostenuto per ruolo e saldo rimanente - Periodo RTB],
+  )
+]
