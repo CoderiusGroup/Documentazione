@@ -55,7 +55,8 @@ def aggiorna_glossario():
             last_letter = current_letter
             list_html += f'<div class="glossary-letter" id="letter-{last_letter}">{last_letter}</div>\n'
         
-        list_html += f'<div class="glossary-term"><h3>{term_clean}</h3><p>{desc_clean}</p></div>\n'
+        term_id = f"term-{term_clean.lower().replace(' ', '-')}"
+        list_html += f'<div class="glossary-term" id="{term_id}"><h3>{term_clean}</h3><p>{desc_clean}</p></div>\n'
 
     html_content = GLOSSARIO_HTML.read_text(encoding="utf-8")
 
@@ -84,11 +85,13 @@ def aggiorna_html():
         "CANDIDATURA_PRINCIPALI": [],
         "CANDIDATURA_INTERNI": [],
         "CANDIDATURA_ESTERNI": [],
+        "RTB_PRINCIPALI": [],
         "RTB_ESTERNI": [],
         "RTB_VERBALI_ESTERNI": [],
         "RTB_INTERNI": [],
         "RTB_VERBALI_INTERNI": [],
-        "PB_PRINCIPALI": []
+        "PB_PRINCIPALI": [],
+        "DIARIO_BORDO": []
     }
 
     for file_path in BASE_DIR.rglob("*.pdf"):
@@ -114,11 +117,16 @@ def aggiorna_html():
                 categorie["RTB_VERBALI_ESTERNI"].append(card_html)
             elif "Documenti/Interni" in percorso_str:
                 categorie["RTB_INTERNI"].append(card_html)
-            else:
+            elif "Documenti/Esterni" in percorso_str:
                 categorie["RTB_ESTERNI"].append(card_html)
-                
+            else:
+                categorie["RTB_PRINCIPALI"].append(card_html)
+
         elif "PB" in percorso_str:
             categorie["PB_PRINCIPALI"].append(card_html)
+
+        elif "DiariDiBordo" in percorso_str:
+            categorie["DIARIO_BORDO"].append(card_html)
 
     # ordina in modo decrescente
     for cat in categorie:

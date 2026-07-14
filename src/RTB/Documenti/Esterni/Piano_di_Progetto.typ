@@ -1018,7 +1018,7 @@ Le attività principali saranno:
 ]
 
 === Rischi incontrati
-- *RI-3*: Durante le verifiche finali sulla documentazione complessiva prima del rilascio, sono emersi alcuni errori formali e incongruenze ortografiche minori. Il rischio è stato gestito tempestivamente attraverso un'attenta attività di revisione da parte dei verificatori, che hanno provveduto a correggere le anomalie riscontrate prima dell'approvazione.
+- *RI-3*: Durante le ultime verifiche sulla documentazione prima del rilascio, sono emersi alcuni errori formali e incongruenze ortografiche minori. Il rischio è stato gestito tempestivamente attraverso un'attenta attività di revisione da parte dei verificatori, che hanno provveduto a correggere le anomalie riscontrate prima dell'approvazione.
 - *RO-4*: Il perdurare degli impegni della sessione estiva ha effettivamente ostacolato l'organizzazione di sessioni di lavoro condiviso. Il team ha mitigato il problema intensificando le comunicazioni tramite i canali rapidi (WhatsApp e Discord), permettendo a ciascun membro di avanzare in autonomia sulle proprie attività e garantendo il perfetto allineamento in vista della consegna.
 
 === Retrospettiva

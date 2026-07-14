@@ -101,7 +101,7 @@ La scelta è maturata a seguito di un confronto interno tra i membri del gruppo,
 #v(1em)
 *Piano di lavoro*
 #v(0.5em)
-Il gruppo *Coderius* garantisce una disponibilità alta e un impegno costante per l'intera durata del capitolato, la cui conclusione è prevista per il giorno *18 Settembre 2026*. Per il raggiungimento di tale traguardo, ogni componente del team si impegna a dedicare *93 ore* produttive individuali, per un monte ore complessivo pari a *558 ore*. Sulla base di quanto scritto, il costo stimato per la realizzazione del progetto ammonta a *10 680 €*.
+Il gruppo *Coderius* garantisce una disponibilità alta e un impegno costante per l'intera durata del capitolato, la cui conclusione è prevista per il giorno *18 Settembre 2026*. Per il raggiungimento di tale traguardo, ogni componente del team si impegna a dedicare *87 ore* produttive individuali, per un monte ore complessivo pari a *522 ore*. Sulla base di quanto scritto, il costo stimato per la realizzazione del progetto ammonta a *10 680 €*.
 
 
 Ulteriori informazioni riguardanti il gruppo e il progetto sono consultabili presso il nostro repository pubblico e sul sito di riferimento:
