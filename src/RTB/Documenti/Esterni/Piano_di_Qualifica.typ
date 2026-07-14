@@ -99,7 +99,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.0.1], [2026/07/10], [Edis Hodja], [Edis Hodja], [Aggiunta sezione relativa allo sprint 7],
+    [1.0.1], [2026/07/10], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta sezione relativa allo sprint 7],
     [1.0.0], [2026/06/29], [Filippo Zonta Rocha], [], [Approvazione del documento],
     [0.3.0], [2026/06/29], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta dei grafici relativi agli errori ortografici e Gulpease],
     [0.2.4], [2026/06/25], [Giovanni Bronte], [Edis Hodja], [Aggiornamento tabelle dei requisiti e aggiunta sezione relativa allo sprint 6],
@@ -160,7 +160,7 @@ Questa convenzione permette al lettore di individuare immediatamente i vocaboli 
 
 === Riferimenti Normativi
 #v(0.5em)
-- #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Norme_di_Progetto.pdf")[*Norme di Progetto v0.9.0*]
+- #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Norme_di_Progetto.pdf")[*Norme di Progetto v1.0.1*]
 
 - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[*Capitolato C1 — Automated EN18031 Compliance Verification*] #nota[(ultimo accesso: 2026-04-24)]
 
