@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.2.1*]
+  #text(size: 20pt)[*Versione 1.3.0*]
 ]
 #pagebreak()
 
@@ -100,6 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.3.0], [2026/07/13], [Edis Hodja], [], [Aggiunta delle sezioni Sprint 8: 4.9.1, 4.9.2, 4.9.3, 4.9.4, 4.9.5],
     [1.2.1], [2026/07/13], [Edis Hodja], [], [Aggiunta della sezione relativa al sommario finale RTB],
     [1.2.0], [2026/07/10], [Leonardo Lorenzin], [], [Aggiunta delle sezioni Sprint 7: 4.7.5, 4.7.6, 4.7.7, 4.7.8 e correzione refusi],
     [1.1.0], [2026/06/30], [Leonardo Lorenzin], [Alberto Canavese], [Aggiunta delle sezioni Sprint 7: 4.7.1, 4.7.2, 4.7.3, 4.7.4],
@@ -1018,7 +1019,7 @@ Le attività principali saranno:
 ]
 
 === Rischi incontrati
-- *RI-3*: Durante le ultime verifiche sulla documentazione prima del rilascio, sono emersi alcuni errori formali e incongruenze ortografiche minori. Il rischio è stato gestito tempestivamente attraverso un'attenta attività di revisione da parte dei verificatori, che hanno provveduto a correggere le anomalie riscontrate prima dell'approvazione.
+- *RI-3*: Durante le verifiche finali sulla documentazione complessiva prima del rilascio, sono emersi alcuni errori formali e incongruenze ortografiche minori. Il rischio è stato gestito tempestivamente attraverso un'attenta attività di revisione da parte dei verificatori, che hanno provveduto a correggere le anomalie riscontrate prima dell'approvazione.
 - *RO-4*: Il perdurare degli impegni della sessione estiva ha effettivamente ostacolato l'organizzazione di sessioni di lavoro condiviso. Il team ha mitigato il problema intensificando le comunicazioni tramite i canali rapidi (WhatsApp e Discord), permettendo a ciascun membro di avanzare in autonomia sulle proprie attività e garantendo il perfetto allineamento in vista della consegna.
 
 === Retrospettiva
@@ -1076,3 +1077,58 @@ La tabella sottostante illustra i costi sostenuti per ciascun ruolo, calcolati m
     caption: [Costo totale sostenuto per ruolo e saldo rimanente - Periodo RTB],
   )
 ]
+
+#pagebreak()
+
+== Sprint 8
+
+=== Periodo
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/07/11],
+  [*Fine prevista:*], [2026/07/24],
+  [*Fine reale:*],    [2026/07/24],
+)
+#v(0.3em)
+
+=== Attività pianificate
+
+A seguito del superamento della milestone di Requirements and Technology Baseline (RTB) e in attesa della valutazione ufficiale, il gruppo ha pianificato, su indicazione del docente, una fase transitoria di "palestra". 
+
+Durante questo periodo, l'impegno del team si articolerà nelle seguenti attività principali:
+
+- *Autoformazione tecnica*: studio individuale e approfondito delle tecnologie ritenute idonee per lo sviluppo del prodotto finale. Nello specifico, la formazione si baserà sulla consultazione delle seguenti risorse:
+
+  - #link("https://flask.palletsprojects.com/en/stable/")[#text(fill: blue)[User's Guide ufficiale di Flask]];
+  - #link("https://it.react.dev/reference/react")[#text(fill: blue)[Documentazione ufficiale di React]].
+
+- *Ottimizzazione dei processi*: analisi delle dinamiche interne allo scopo di individuare proattivamente dei miglioramenti da applicare al *Way of Working* del gruppo.
+
+- *Confronto con la proponente*: contatto con l'azienda Bluewind per fissare un incontro di allineamento, essenziale per definire le scelte relative alla progettazione architetturale da adottare per lo sviluppo del MVP.
+
+- *Revisione documentale*: recepimento tempestivo delle correzioni e dei suggerimenti proposti dal corpo docente. Particolare attenzione verrà data ai contenuti dell'#link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Esterni/Analisi_dei_Requisiti.pdf")[#text(fill: blue)[Analisi dei Requisiti]], al fine di colmare in maniera mirata eventuali lacune o imprecisioni individuate.
+
+=== Rischi attesi
+
+=== Rischi attesi
+
+- *RT-1*: Poiché il focus principale di questo sprint è la fase transitoria di "palestra" sulle tecnologie Flask e React, l'inesperienza pratica del team con questi framework rappresenta il rischio tecnico principale. Pur essendo un rischio atteso e noto, lo scopo stesso di questa attività di autoformazione è proprio quello di mitigarlo prima di iniziare l'effettivo sviluppo dell'MVP.
+- *RO-3*: Tra le attività principali vi è il contatto con Bluewind per fissare un incontro esplorativo sulla progettazione architetturale. Considerando il periodo, c'è il rischio di riscontrare difficoltà o ritardi nel trovare una disponibilità condivisa per la call a causa dell'avvicinarsi delle ferie aziendali o degli impegni della proponente.
+- *RI-1*: Lo sprint si svolge in un periodo dell'anno critico, caratterizzato dalla fase finale della sessione estiva degli esami o dall'inizio di impegni personali e lavorativi estivi. È altamente probabile una disponibilità ridotta o asimmetrica tra i membri del gruppo, che potrebbe rallentare lo studio individuale o le correzioni documentali.
+
+=== Preventivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[6],[-],[-],[6]),
+    ([Edis Hodja],         [4],[-],[-],[-],[-],[-],[4]),
+    ([Filippo Zonta Rocha],[-],[4],[-],[-],[-],[-],[4]),
+    ([Giovanni Angelo Marco Bronte],    [-],[-],[-],[6],[-],[-],[6]),
+    ([Ines Iadadi],        [-],[-],[4],[-],[-],[-],[4]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[-],[-],[5],[5]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*4*],[*4*],[*4*],[*12*],[*0*],[*5*],[*29*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 8]
+)
