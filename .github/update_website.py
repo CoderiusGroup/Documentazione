@@ -90,6 +90,10 @@ def aggiorna_html():
         "RTB_INTERNI": [],
         "RTB_VERBALI_INTERNI": [],
         "PB_PRINCIPALI": [],
+        "PB_ESTERNI": [],
+        "PB_VERBALI_ESTERNI": [],
+        "PB_INTERNI": [],
+        "PB_VERBALI_INTERNI": [],
         "DIARIO_BORDO": []
     }
 
@@ -120,7 +124,16 @@ def aggiorna_html():
                 categorie["RTB_ESTERNI"].append(card_html)
                 
         elif "PB" in percorso_str:
-            categorie["PB_PRINCIPALI"].append(card_html)
+            if "Verbali/Interni" in percorso_str:
+                categorie["PB_VERBALI_INTERNI"].append(card_html)
+            elif "Verbali/Esterni" in percorso_str:
+                categorie["PB_VERBALI_ESTERNI"].append(card_html)
+            elif "Documenti/Interni" in percorso_str:
+                categorie["PB_INTERNI"].append(card_html)
+            elif "Documenti/Esterni" in percorso_str:
+                categorie["PB_ESTERNI"].append(card_html)
+            else:
+                categorie["PB_PRINCIPALI"].append(card_html)
 
         elif "DiariDiBordo" in percorso_str:
             categorie["DIARIO_BORDO"].append(card_html)
