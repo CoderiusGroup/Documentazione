@@ -52,7 +52,7 @@
         *Luogo:* #luogo ]
     )
     #v(4em)
-    #text(size: 20pt)[*Versione 0.1.0*]
+    #text(size: 20pt)[*Versione 1.0.0*]
   ]
   pagebreak()
 
@@ -73,8 +73,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026-07-13], [Alberto Canavese], [], [Prima stesura del verbale],
-      // aggiungi nuova riga quando viene aggiornato
+      [1.0.0], [2026-07-13], [Leonardo Lorenzin], [], [Approvazione del verbale],
+      [0.1.0], [2026-07-13], [Alberto Canavese], [Leonardo Lorenzin], [Prima stesura del verbale],
     )
 
   ]
@@ -131,19 +131,20 @@ A seguito del "semaforo verde" ottenuto dal professor Cardin per la fase di Requ
 
 Il team ha innanzitutto ripercorso l'esito della revisione con il professor Cardin, così da individuare gli aspetti su cui porre maggiore attenzione durante l'esposizione. Si è quindi proceduto alla suddivisione dei contenuti tra i membri del gruppo, definendo per ciascuno l'argomento da illustrare e la porzione di presentazione di cui curare la stesura. Sono stati inoltre stabiliti l'ordine degli interventi e la tempistica complessiva, in modo da garantire un'esposizione chiara, coerente e contenuta nei tempi previsti.
 
-Particolare cura è stata rivolta alla presentazione delle scelte tecnologiche e dello stato di avanzamento del Proof of Concept, elementi ritenuti centrali per dimostrare la solidità dell'idea progettuale. Il team ha infine concordato di dedicare la parte conclusiva della riunione a una prova generale dell'esposizione, così da uniformare lo stile della presentazione e verificarne la scorrevolezza.
+Il team ha infine concordato di dedicare la parte conclusiva della riunione a una prova generale dell'esposizione, così da uniformare lo stile della presentazione e verificarne la scorrevolezza.
 
 == Palestra personale e studio delle tecnologie in vista della fase di Product Baseline
 In prospettiva dell'avvio della fase di Product Baseline, il team ha condiviso la necessità di consolidare le competenze tecniche di ciascun membro attraverso un'attività di palestra personale. Tale attività consiste in un percorso di studio e sperimentazione individuale sulle tecnologie che verranno impiegate nello sviluppo del prodotto, così da affrontare la fase realizzativa con maggiore consapevolezza e ridurre i tempi di apprendimento durante gli sprint successivi.
 
 Il team ha discusso le principali tecnologie individuate nel corso della fase RTB e ha concordato che ciascun membro approfondisca autonomamente gli strumenti e i framework di riferimento, sperimentandone l'utilizzo su piccoli casi d'uso rappresentativi. L'obiettivo è arrivare all'inizio della fase di Product Baseline con una base tecnica comune e condivisa, evitando che eventuali lacune individuali rallentino l'avanzamento complessivo del progetto.
 
+#pagebreak()
 == Organizzazione dell'incontro di allineamento con l'azienda Bluewind
-Il team ha infine affrontato il tema dell'allineamento con l'azienda proponente Bluewind. Considerata l'imminente transizione verso la fase di Product Baseline, si è ritenuto opportuno pianificare un incontro di allineamento con l'azienda, così da condividere lo stato di avanzamento del progetto, raccogliere eventuali indicazioni aggiuntive e assicurarsi che le scelte adottate siano coerenti con le aspettative del committente.
+Il team ha infine affrontato il tema dell'allineamento con l'azienda proponente Bluewind. Considerata l'imminente transizione verso la fase di Product Baseline, si è ritenuto opportuno pianificare un incontro di allineamento con l'azienda, così da condividere lo stato di avanzamento del progetto, raccogliere eventuali indicazioni aggiuntive e assicurarsi che le scelte adottate siano coerenti con le aspettative della proponente.
 
 È stato pertanto concordato di contattare l'azienda Bluewind per proporre la fissazione di un incontro, comunicando la disponibilità del team e individuando una data compatibile con le esigenze di entrambe le parti.
 
-#pagebreak()
+
 
 = Conclusione e Decisioni Prese
 #align(center)[
@@ -151,7 +152,7 @@ Il team ha infine affrontato il tema dell'allineamento con l'azienda proponente 
     columns: (auto, 1fr),
     align: (center, left),
     [*Codice*], [*Descrizione*],
-    [VI-14.1], [Completamento dell'esposizione per l'incontro con il professor Vardanega],
+    [VI-14.1], [Approvazione della struttura della presentazione e suddivisione delle parti tra i membri per l'incontro con il professor Vardanega],
     [VI-14.2], [Svolgimento della palestra personale e studio delle tecnologie in vista della fase di Product Baseline],
     [VI-14.3], [Contattare l'azienda Bluewind per fissare l'incontro di allineamento],
   )
@@ -168,8 +169,7 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-14.1], [Completamento dell'esposizione per l'incontro con il professor Vardanega], [Team], [VI-14.1],
-    [TD-14.2], [Svolgimento della palestra personale e studio delle tecnologie in vista della fase di Product Baseline], [Team], [VI-14.2],
-    [TD-14.3], [Contattare l'azienda Bluewind per fissare l'incontro di allineamento], [Team], [VI-14.3],
+    [TD-14.1], [Svolgimento della palestra personale e studio delle tecnologie in vista della fase di Product Baseline], [Team], [VI-14.2],
+    [TD-14.2], [Contattare l'azienda Bluewind per fissare l'incontro di allineamento], [Edis Hodja], [VI-14.3],
   )
 ]
