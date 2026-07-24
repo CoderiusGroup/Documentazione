@@ -222,42 +222,33 @@ def preprocess_for_spellcheck(text: str) -> str:
 # ---------------------------------------------------------------------------
 
 def load_wordlist() -> set[str]:
-    """
-    Carica la lista di parole da ignorare (termini tecnici, anglicismi, nomi propri). 
-    Inizializza con un set di nomi propri e termini di progetto hardcoded,
-    ed estende con eventuali termini dal file .github/scripts/wordlist.txt.
-    """
-    # Whitelist di base aggiornata (incluso l'ultimo set di cognomi trovati)
     words = {
-        # Team, Professori e Nomi
+        # Team, Nomi e Brand (già presenti + nuovi dal report)
         "edis", "hodja", "bronte", "zonta", "filippo", "giovanni", "leonardo",
-        "vardanega", "cardin", "fiorese", "rocha", "lorenzin", "iadadi",
+        "vardanega", "cardin", "fiorese", "rocha", "lorenzin", "iadadi", "ferrarin",
+        "coderius", "bluewind", "athesys", "monokee", "nexum", "eggon", 
         
-        # Aziende, Enti e Brand
-        "coderius", "coderiusgroup", "bluewind", "athesys", "monokee", "nexum", 
-        "eggon", "amazon", "google", "srl",
+        # Tecnologie, Web e Sviluppo
+        "backend", "frontend", "framework", "javascript", "python", "docker", 
+        "containerization", "containerizzazione", "deployment", "localhost", 
+        "chrome", "mozilla", "firefox", "apple", "microsoft", "edge", "git", 
+        "cloud", "storage", "dashboard", "app", "python", "issue", "issues",
         
-        # Tecnologie e Strumenti
-        "comprehend", "excel", "telegram", "discord", "react", "vue", "flask", 
-        "fastapi", "plantuml", "figma", "meet", "typ", "src",
+        # Terminologia Metodologica e Metriche
+        "milestone", "stakeholder", "decision", "tree", "way", "working", 
+        "asset", "assets", "testing", "brainstorming", "proattiva", "cybersecurity",
+        "bluetooth", "iot", "slide", "analysis", "technical", "documentation",
+        "plans", "reports", "packaging", "parsing", "parameters", "configuration",
+        "workflow", "effort", "efficiency", "failure", "density", "statement",
+        "coverage", "cyclomatic", "complexity", "instability", "index", "smell",
+        "coupling", "afferent", "efferent", "attrattività", "testabilità", 
+        "installabilità", "deploy", "robbs", "nrobs", "nrop", "tpes", "coefficient",
         
-        # Acronimi di Progetto
-        "poc", "adr", "pdp", "ob",
+        # Parole inglesi comuni che Aspell (Italiano) flagga sempre
+        "of", "to", "tool", "tools", "true", "times", "feature", "satisfied",
         
-        # Parole troncate dagli apostrofi (causa regex)
-        "sull", "dall", "all", "nell", "dell", "quest",
-        
-        # Inglesismi, Codice e Gergo Tecnico
-        "versionamento", "group", "block", "above", "update", "automated", 
-        "verification", "pass", "fail", "not", "applicable", "layout", "mapping", 
-        "access", "control", "mechanism", "authentication", "proof", "concept", 
-        "tracking", "system", "template", "fix", "new", "report", "it", "text", 
-        "size", "wireless", "interface", "local", "form", "security", "financial", 
-        "function", "undo", "have", "mockup", "call", "stack", "step", "gulpease", 
-        "wordlist", "effort",
-        
-        # Termini italiani non riconosciuti dal dizionario base
-        "tracciabilità", "recuperabilità", "apprendibilità"
+        # Parole troncate
+        "sull", "dall", "all", "nell", "dell", "quest"
     }
 
     if not WORDLIST_FILE.exists():
