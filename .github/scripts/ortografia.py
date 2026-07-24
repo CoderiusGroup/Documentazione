@@ -223,42 +223,56 @@ def preprocess_for_spellcheck(text: str) -> str:
 
 def load_wordlist() -> set[str]:
     words = {
-        # Team, Nomi e Brand (già presenti + nuovi dal report)
+        # --- Team, Nomi, Aziende e Brand ---
         "edis", "hodja", "bronte", "zonta", "filippo", "giovanni", "leonardo",
         "vardanega", "cardin", "fiorese", "rocha", "lorenzin", "iadadi", "ferrarin",
-        "coderius", "bluewind", "athesys", "monokee", "nexum", "eggon", 
+        "coderius", "coderiusgroup", "bluewind", "athesys", "monokee", "nexum", "eggon",
+        "amazon", "google", "apple", "microsoft", "srl",
         
-        # Tecnologie, Web e Sviluppo
+        # --- Tecnologie, Web, Strumenti e Linguaggi ---
         "backend", "frontend", "framework", "javascript", "python", "docker", 
         "containerization", "containerizzazione", "deployment", "localhost", 
-        "chrome", "mozilla", "firefox", "apple", "microsoft", "edge", "git", 
-        "cloud", "storage", "dashboard", "app", "python", "issue", "issues",
+        "chrome", "mozilla", "firefox", "edge", "git", "cloud", "storage", 
+        "dashboard", "app", "issue", "issues", "vue", "react", "flask", "fastapi",
+        "telegram", "discord", "excel", "meet", "comprehend", "plantuml", "figma",
+        "typ", "src", "gulpease",
         
-        # Terminologia Metodologica e Metriche
+        # --- Terminologia Informatica / Inglese tecnico ---
+        "layout", "mapping", "template", "stack", "interface", "local", "form",
+        "security", "financial", "function", "text", "size", "wireless", "block",
+        "above", "undo", "mockup", "step", "call", "tracking", "report", "reports",
+        "fix", "update", "new", "pass", "fail", "yes", "have", "not", "applicable",
+        "confidence", "proof", "concept", "poc", "access", "control", "mechanism",
+        "authentication", "automated", "verification", "system", "group", "wordlist",
+        
+        # --- Metodologia di Progetto e Documentazione ---
         "milestone", "stakeholder", "decision", "tree", "way", "working", 
         "asset", "assets", "testing", "brainstorming", "proattiva", "cybersecurity",
         "bluetooth", "iot", "slide", "analysis", "technical", "documentation",
-        "plans", "reports", "packaging", "parsing", "parameters", "configuration",
+        "plans", "packaging", "parsing", "parameters", "configuration",
         "workflow", "effort", "efficiency", "failure", "density", "statement",
         "coverage", "cyclomatic", "complexity", "instability", "index", "smell",
         "coupling", "afferent", "efferent", "attrattività", "testabilità", 
         "installabilità", "deploy", "robbs", "nrobs", "nrop", "tpes", "coefficient",
+        "tracciabilità", "recuperabilità", "apprendibilità", "analizzabilità",
+        "automiglioramento", "breakable", "stability", "quality", "metrics",
+        "error", "response", "process", "lead", "indiceradice", "indiceannidato",
+        "adr", "pdp", "ndp", "ob", "nrops",
         
-        # Parole inglesi comuni che Aspell (Italiano) flagga sempre
-        "of", "to", "tool", "tools", "true", "times", "feature", "satisfied",
+        # --- Parole inglesi comuni (falsi positivi di Aspell ITA) ---
+        "of", "to", "tool", "tools", "true", "times", "feature", "satisfied", "it",
         
-        # Parole troncate
+        # --- Parole troncate dall'apostrofo ---
         "sull", "dall", "all", "nell", "dell", "quest"
     }
 
-    if not WORDLIST_FILE.exists():
-        return words
-
-    with open(WORDLIST_FILE, encoding="utf-8") as f:
-        for line in f:
-            word = line.strip()
-            if word and not word.startswith("#"):
-                words.add(word.lower())
+    # Carica da file esterno se esiste
+    if WORDLIST_FILE.exists():
+        with open(WORDLIST_FILE, encoding="utf-8") as f:
+            for line in f:
+                word = line.strip()
+                if word and not word.startswith("#"):
+                    words.add(word.lower())
     return words
 
 
