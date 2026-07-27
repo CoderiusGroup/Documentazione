@@ -100,6 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.2.0], [2026/07/27], [Alberto Canavese], [], [Stesura della sezione 1],
     [0.2.0], [2026/07/27], [Giovanni Bronte], [], [Stesura della sezione 2],
     [0.1.0], [2026/07/21], [Giovanni Bronte], [], [Prima stesura del documento],
   )
@@ -116,7 +117,49 @@
 #counter(page).update(1)
 
 
-= Introduzione 
+= Introduzione
+
+== Scopo del documento
+La presente documentazione è redatta con il fine di illustrare in modo esaustivo l'architettura, sia logica che infrastrutturale, del sistema concepito dal *Coderius Group*. La *Specifica Tecnica* si pone come linea guida vincolante per l'intera fase di implementazione, fungendo da ponte tra l'analisi dei requisiti e la realizzazione concreta del software, per assicurarne solidità e coerenza strutturale.
+
+Nel dettaglio, gli obiettivi preposti per questo documento sono:
+- *Motivare l'infrastruttura tecnologica:* argomentare le ragioni dietro la scelta degli strumenti di sviluppo (inclusi Python, React, Flask e Vite), selezionati per rispondere appieno ai criteri di flessibilità, performance e scalabilità richiesti dal progetto.
+- *Strutturare la logica applicativa e i design pattern:* mappare l'organizzazione interna dei moduli e i loro flussi di comunicazione, dimostrando come i pattern implementati favoriscano la creazione di codice disaccoppiato e orientato al testing.
+- *Pianificare la strategia di deployment:* definire le modalità di distribuzione dell'applicativo e l'allocazione delle sue parti all'interno degli ambienti operativi, sfruttando la containerizzazione offerta da Docker.
+- *Promuovere la manutenibilità a lungo termine:* fornire direttive chiare al team di sviluppo per rendere la base di codice facilmente interpretabile, supportando così agevolmente le future iterazioni, correzioni ed espansioni del sistema.
+
+== Scopo del prodotto
+Il prodotto mira ad automatizzare e digitalizzare il processo di verifica della conformità alla normativa di sicurezza EN 18031, come richiesto dal capitolato *Automated EN18031 Compliance Verification* proposto da Bluewind S.r.l. L'obiettivo è sostituire le attuali procedure manuali, spesso dispendiose in termini di tempo e soggette a errore umano, con una soluzione software moderna ed efficiente.
+
+Il sistema permetterà di valutare sistematicamente i requisiti di sicurezza per i dispositivi, elaborando esiti certi e tracciabili attraverso l'esecuzione di alberi decisionali. Tramite un'interfaccia utente web fluida e reattiva, il prodotto finale ottimizzerà i tempi operativi della proponente, garantendo al contempo un elevato standard di affidabilità nella validazione dei dati.
+
+== Glossario
+Al fine di evitare ambiguità e incomprensioni legate alla terminologia tecnica presente in questo documento e nel resto della documentazione prodotta dal Coderius Group, è stato redatto un apposito glossario. 
+Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è contrassegnato nel testo da una "G" a pedice (es. _termine_#sub[G]). Cliccando sull'indicatore, il lettore verrà reindirizzato direttamente alla definizione corrispondente all'interno del documento #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Glossario.pdf")[*Glossario*].
+
+== Riferimenti
+
+=== Riferimenti normativi
+- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[*Capitolato d'appalto C1:* _Automated EN18031 Compliance Verification_ - Bluewind S.r.l.]
+- #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Norme_di_Progetto.pdf")[*Norme di Progetto:* Coderius Group]
+- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf")[*Regolamento del progetto didattico:* Corso di Ingegneria del Software]
+
+=== Riferimenti informativi
+- *Materiale didattico del corso di Ingegneria del Software:*
+  - #link("https://www.math.unipd.it/~rcardin/swea/2023/Diagrammi%20delle%20Classi.pdf")[Diagrammi delle Classi]
+  - #link("https://www.math.unipd.it/~rcardin/swea/2022/Software%20Architecture%20Patterns.pdf")[Pattern Architetturali]
+  - #link("https://www.math.unipd.it/~rcardin/swea/2022/Design%20Pattern%20Creazionali.pdf")[Pattern Creazionali]
+  - #link("https://www.math.unipd.it/~rcardin/swea/2022/Design%20Pattern%20Strutturali.pdf")[Pattern Strutturali]
+  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T06.pdf")[Progettazione Software]
+- *Documentazione delle tecnologie:*
+  - *Python:* #link("https://docs.python.org/3/")
+  - *JavaScript:* #link("https://developer.mozilla.org/en-US/docs/Web/JavaScript")
+  - *React:* #link("https://react.dev/")
+  - *Vite:* #link("https://vite.dev/guide/")
+  - *Flask:* #link("https://flask.palletsprojects.com/")
+  - *Docker:* #link("https://docs.docker.com/")
+  - *Vitest:* #link("https://vitest.dev/")
+  - *React Testing Library:* #link("https://testing-library.com/docs/react-testing-library/intro/")
 
 = Tecnologie
 Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del capitolato Automated EN18031 Compliance Verification.
