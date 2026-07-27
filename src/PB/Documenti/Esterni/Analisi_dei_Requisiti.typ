@@ -33,7 +33,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(3em)
-  #text(size: 20pt)[*Versione 1.0.0*]
+  #text(size: 20pt)[*Versione 1.1.0*]
 ]
 
 #pagebreak()
@@ -53,6 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.1.0], [2026/07/24], [Ines Iadadi], [], [Correzioni a seguito della revisione RTB],
     [1.0.0], [2026/06/26], [Edis Hodja], [], [Approvazione del documento],
     [0.7.0], [2026/06/12], [Giovanni Bronte], [Edis Hodja], [Modifiche a sintassi di alcuni UC, aggiunta di link mancanti e modificati alcuni UC nei requisiti],
     [0.6.0], [2026/06/05], [Ines Iadadi], [Edis Hodja], [Eliminato UC-44, revisione generale del documento e applicate correzioni ai diagrammi UML],
@@ -1216,7 +1217,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 == UC-19: Esecuzione valutazione dispositivo <uc19>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/UC19a.png", width: 100%),
+  image("../../../images/diagrammiUML/UC19a-new.png", width: 100%),
   caption: [UC-19 : Esecuzione valutazione dispositivo],
 )
 - *Attore primario:* Utente
@@ -1236,7 +1237,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenari alternativi:*
   - L'utente interrompe la sessione. #link(<uc24>)[(UC-24)]
-  - L'utente salva la sessione di valutazione. #link(<uc25>)[(UC-25)]
 
 - *Inclusioni:*
   - #link(<uc19.1>)[UC-19.1: Visualizzazione dashboard di valutazione]
@@ -1244,7 +1244,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Estensioni:*
   - #link(<uc24>)[UC-24: Uscita anticipata dal test]
-  - #link(<uc25>)[UC-25: Salvataggio sessione di valutazione]
 
 #v(1em)
 #figure(
@@ -1516,7 +1515,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 === UC-22.4: Visualizzazione risposta al nodo precedente <uc22.4>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/UC22.4.png", width: 100%),
+  image("../../../images/diagrammiUML/UC22.4-new.png", width: 100%),
   caption: [UC-22.4 : Visualizzazione risposta al nodo precedente],
 )
 - *Attore primario:* Utente
@@ -1997,7 +1996,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 === UC-30.2: Visualizzazione dipendenze del decision tree <uc30.2>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/UC30.2.png", width: 100%),
+  image("../../../images/diagrammiUML/UC30.2-new.png", width: 100%),
   caption: [UC-30.2 : Visualizzazione dipendenze del decision tree],
 )
 - *Attore primario:* Utente
@@ -2012,11 +2011,16 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
     decision tree corrente.
   + Per ogni dipendenza il sistema mostra il codice del requisito.
 
+- *Scenari alternativi:*
+  - L'utente seleziona la funzionalità di aggiunta di una nuova dipendenza. #link(<uc40>)[(UC-40)]
+
+- *Estensioni:*
+  - #link(<uc40>)[UC-40: Aggiunta dipendenza]
 
 == UC-31: Modifica decision tree <uc31>
 #v(1em)
 #figure(
-  image("../../../images/diagrammiUML/UC31.png", width: 100%),
+  image("../../../images/diagrammiUML/UC31-new.png", width: 100%),
   caption: [UC-31 : Modifica decision tree],
 )
 - *Attore primario:* Utente
@@ -2040,10 +2044,6 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - #link(<uc36>)[UC-36: Validazione fallita modifica decision tree]
   - #link(<uc37>)[UC-37: Annullamento modifica decision tree]
 
-- *Specializzazioni:*
-  - #link(<uc32>)[UC-32: Aggiunta nodo al decision tree]
-  - #link(<uc33>)[UC-33: Eliminazione nodo dal decision tree]
-  - #link(<uc34>)[UC-34: Modifica destinazione collegamento del decision tree]
 
 
 == UC-32: Aggiunta nodo al decision tree <uc32>
@@ -2585,36 +2585,39 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   valutazione di conformità per un dispositivo.], [#link(<uc19>)[UC-19]],
   [RF-Ob46], [Il sistema deve mostrare una dashboard di valutazione con la lista degli asset, il loro stato, e il progresso della sessione in tempo reale.], [#link(<uc19.1>)[UC-19.1]],
   [RF-Ob47], [Il sistema deve consentire la selezione e l'avvio della valutazione dei requisiti di un singolo asset.], [#link(<uc20>)[UC-20]],
-  [RF-Ob48], [Il sistema deve mostrare il codice e il nome del requisito selezionato prima dell'avvio dell'esecuzione del decision tree.], [#link(<uc21>)[UC-21]],
-  [RF-Ob49], [Il sistema deve mostrare le dipendenze del requisito selezionato e il loro stato di valutazione prima dell'esecuzione.], [#link(<uc21.1>)[UC-21.1]],
-  [RF-Ob50], [Il sistema deve guidare l'utente eseguendo il decision tree associato al requisito selezionato.], [#link(<uc22>)[UC-22]],
-  [RF-Ob51], [Il sistema deve mostrare il codice univoco e il testo della domanda del nodo corrente dell'albero.], [#link(<uc22.1>)[UC-22.1]],
-  [RF-Ob52], [Il sistema deve registrare la risposta dell'utente avanzandone il percorso sul grafo.], [#link(<uc22.3>)[UC-22.3]],
-  [RF-Ob53], [Il sistema deve gestire la risposta affermativa ("Yes") spostando il flusso sul relativo ramo.], [#link(<uc22.3.1>)[UC-22.3.1]],
-  [RF-Ob54], [Il sistema deve gestire la risposta negativa ("No") spostando il flusso sul relativo ramo.], [#link(<uc22.3.2>)[UC-22.3.2]],
-  [RF-Ob55], [Il sistema deve visualizzare a schermo il grafo completo del decision tree durante l'esecuzione.], [#link(<uc22.2>)[UC-22.2]],
-  [RF-Ob56], [Il sistema deve evidenziare graficamente nel grafo il nodo corrente e il percorso già intrapreso.], [#link(<uc22.2>)[UC-22.2]],
-  [RF-Ob57], [Il sistema deve mostrare un nodo foglia al termine del percorso con l'esito (PASS, FAIL, NOT APPLICABLE).], [#link(<uc23>)[UC-23]],
-  [RF-Ob58], [Il sistema deve generare un file JSON contenente lo stato della sessione di valutazione per il download.], [#link(<uc25>)[UC-25]],
-  [RF-Ob59], [Il sistema deve permettere il caricamento di un file di sessione per riprendere un test interrotto.], [#link(<uc26>)[UC-26]],
-  [RF-Ob60], [Il sistema deve mostrare una schermata finale con il riepilogo complessivo di tutti gli esiti del test.], [#link(<uc27>)[UC-27]],
-  [RF-Ob61], [Il sistema deve mostrare per ogni asset la lista dei requisiti completati e il percorso logico seguito.], [#link(<uc27.1.1>)[UC-27.1.1]],
-  [RF-Ob62], [Il sistema deve mostrare la sequenza ordinata di domande e risposte fornite per un requisito completato.], [#link(<uc27.1.1.1>)[UC-27.1.1.1]],
-  [RF-Ob63], [Il sistema deve mostrare l'elenco dei decision tree disponibili.], [#link(<uc29>)[UC-29]],
-  [RF-Ob64], [Il sistema deve mostrare l'ID e il nome del requisito per ogni decision tree in elenco.], [#link(<uc29.1>)[UC-29.1]],
-  [RF-Ob65], [Il sistema deve permettere la visualizzazione in dettaglio di un decision tree esistente, mostrandone l'identificativo e il nome del requisito associato.], [#link(<uc30>)[UC-30]],
-  [RF-Ob66], [Il sistema deve permettere all'utente di uscire anticipatamente da una sessione di valutazione in corso.], [#link(<uc24>)[UC-24]],
-  [RF-Ob67], [Il sistema deve mostrare il riepilogo degli esiti per ogni singolo asset al termine del test.], [#link(<uc27.1>)[UC-27.1]],
-  [RF-Ob68], [Il sistema deve permettere il salvataggio della sessione di valutazione in corso, generando un file con lo stato della sessione.], [#link(<uc25>)[UC-25]],
-  [RF-Ob69], [Il sistema deve visualizzare il grafo del decision tree nel dettaglio, mostrando nodi interni, nodi foglia con esito e collegamenti fra nodi.], [#link(<uc30.1>)[UC-30.1]],
-  [RF-Ob70], [Il sistema deve mostrare i nodi interni del grafo del decision tree, con il relativo codice univoco e il testo della domanda.], [#link(<uc30.1.1>)[UC-30.1.1]],
-  [RF-Ob71], [Il sistema deve mostrare i nodi foglia del grafo del decision tree, con l'esito associato (PASS, FAIL, NOT APPLICABLE).], [#link(<uc30.1.2>)[UC-30.1.2]],
-  [RF-Ob72], [Il sistema deve mostrare i collegamenti fra i nodi del grafo del decision tree, con l'etichetta Yes/No associata a ciascun ramo.], [#link(<uc30.1.3>)[UC-30.1.3]],
-  [RF-Ob73], [Il sistema deve mostrare le dipendenze del decision tree, elencando i requisiti da cui esso dipende con il relativo codice.], [#link(<uc30.2>)[UC-30.2]],
-  [RF-Ob74], [Il sistema deve permettere l'esportazione di un file di un decision tree in formato JSON o CSV.], [#link(<uc38>)[UC-38]],
-  [RF-Ob75], [Il sistema deve consentire l'esportazione di un decision tree in formato JSON.], [#link(<uc38.1>)[UC-38.1]],
-  [RF-Ob76], [Il sistema deve consentire l'esportazione di un decision tree in formato CSV.], [#link(<uc38.2>)[UC-38.2]],
-  [RF-Ob77], [Il sistema deve generare un report di conformità finale contenente, per ogni coppia asset-requisito, l'esito del requisito, l'esito aggregato del decision tree e il percorso logico seguito.], [#link(<uc28>)[UC-28], #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-05-04_firmato.pdf")[#text(fill: blue)[#underline[Verbale esterno]]]],)
+  [RF-Ob48], [Il sistema deve mostrare il nome, il tipo, la descrizione, la sensibilità e lo stato di valutazione dell'asset selezionato per la valutazione.], [#link(<uc20.1>)[UC-20.1]],
+  [RF-Ob49], [Il sistema deve mostrare la lista dei requisiti associati all'asset in valutazione.], [#link(<uc20.2>)[UC-20.2]],
+  [RF-Ob50], [Il sistema deve mostrare, per ciascun requisito nella lista, il codice e lo stato di valutazione.], [#link(<uc20.2.1>)[UC-20.2.1]],
+  [RF-Ob51], [Il sistema deve mostrare il codice e il nome del requisito selezionato prima dell'avvio dell'esecuzione del decision tree.], [#link(<uc21>)[UC-21]],
+  [RF-Ob52], [Il sistema deve mostrare le dipendenze del requisito selezionato e il loro stato di valutazione prima dell'esecuzione.], [#link(<uc21.1>)[UC-21.1]],
+  [RF-Ob53], [Il sistema deve guidare l'utente eseguendo il decision tree associato al requisito selezionato.], [#link(<uc22>)[UC-22]],
+  [RF-Ob54], [Il sistema deve mostrare il codice univoco e il testo della domanda del nodo corrente dell'albero.], [#link(<uc22.1>)[UC-22.1]],
+  [RF-Ob55], [Il sistema deve registrare la risposta dell'utente avanzandone il percorso sul grafo.], [#link(<uc22.3>)[UC-22.3]],
+  [RF-Ob56], [Il sistema deve gestire la risposta affermativa ("Yes") spostando il flusso sul relativo ramo.], [#link(<uc22.3.1>)[UC-22.3.1]],
+  [RF-Ob57], [Il sistema deve gestire la risposta negativa ("No") spostando il flusso sul relativo ramo.], [#link(<uc22.3.2>)[UC-22.3.2]],
+  [RF-Ob58], [Il sistema deve visualizzare a schermo il grafo completo del decision tree durante l'esecuzione.], [#link(<uc22.2>)[UC-22.2]],
+  [RF-Ob59], [Il sistema deve evidenziare graficamente nel grafo il nodo corrente e il percorso già intrapreso.], [#link(<uc22.2>)[UC-22.2]],
+  [RF-Ob60], [Il sistema deve mostrare un nodo foglia al termine del percorso con l'esito (PASS, FAIL, NOT APPLICABLE).], [#link(<uc23>)[UC-23]],
+  [RF-Ob61], [Il sistema deve generare un file JSON contenente lo stato della sessione di valutazione per il download.], [#link(<uc25>)[UC-25]],
+  [RF-Ob62], [Il sistema deve permettere il caricamento di un file di sessione per riprendere un test interrotto.], [#link(<uc26>)[UC-26]],
+  [RF-Ob63], [Il sistema deve mostrare una schermata finale con il riepilogo complessivo di tutti gli esiti del test.], [#link(<uc27>)[UC-27]],
+  [RF-Ob64], [Il sistema deve mostrare per ogni asset la lista dei requisiti completati e il percorso logico seguito.], [#link(<uc27.1.1>)[UC-27.1.1]],
+  [RF-Ob65], [Il sistema deve mostrare la sequenza ordinata di domande e risposte fornite per un requisito completato.], [#link(<uc27.1.1.1>)[UC-27.1.1.1]],
+  [RF-Ob66], [Il sistema deve mostrare l'elenco dei decision tree disponibili.], [#link(<uc29>)[UC-29]],
+  [RF-Ob67], [Il sistema deve mostrare l'ID e il nome del requisito per ogni decision tree in elenco.], [#link(<uc29.1>)[UC-29.1]],
+  [RF-Ob68], [Il sistema deve permettere la visualizzazione in dettaglio di un decision tree esistente, mostrandone l'identificativo e il nome del requisito associato.], [#link(<uc30>)[UC-30]],
+  [RF-Ob69], [Il sistema deve permettere all'utente di uscire anticipatamente da una sessione di valutazione in corso.], [#link(<uc24>)[UC-24]],
+  [RF-Ob70], [Il sistema deve mostrare il riepilogo degli esiti per ogni singolo asset al termine del test.], [#link(<uc27.1>)[UC-27.1]],
+  [RF-Ob71], [Il sistema deve permettere il salvataggio della sessione di valutazione in corso, generando un file con lo stato della sessione.], [#link(<uc25>)[UC-25]],
+  [RF-Ob72], [Il sistema deve visualizzare il grafo del decision tree nel dettaglio, mostrando nodi interni, nodi foglia con esito e collegamenti fra nodi.], [#link(<uc30.1>)[UC-30.1]],
+  [RF-Ob73], [Il sistema deve mostrare i nodi interni del grafo del decision tree, con il relativo codice univoco e il testo della domanda.], [#link(<uc30.1.1>)[UC-30.1.1]],
+  [RF-Ob74], [Il sistema deve mostrare i nodi foglia del grafo del decision tree, con l'esito associato (PASS, FAIL, NOT APPLICABLE).], [#link(<uc30.1.2>)[UC-30.1.2]],
+  [RF-Ob75], [Il sistema deve mostrare i collegamenti fra i nodi del grafo del decision tree, con l'etichetta Yes/No associata a ciascun ramo.], [#link(<uc30.1.3>)[UC-30.1.3]],
+  [RF-Ob76], [Il sistema deve mostrare le dipendenze del decision tree, elencando i requisiti da cui esso dipende con il relativo codice.], [#link(<uc30.2>)[UC-30.2]],
+  [RF-Ob77], [Il sistema deve permettere l'esportazione di un file di un decision tree in formato JSON o CSV.], [#link(<uc38>)[UC-38]],
+  [RF-Ob78], [Il sistema deve consentire l'esportazione di un decision tree in formato JSON.], [#link(<uc38.1>)[UC-38.1]],
+  [RF-Ob79], [Il sistema deve consentire l'esportazione di un decision tree in formato CSV.], [#link(<uc38.2>)[UC-38.2]],
+  [RF-Ob80], [Il sistema deve generare un report di conformità finale contenente, per ogni coppia asset-requisito, l'esito del requisito, l'esito aggregato del decision tree e il percorso logico seguito.], [#link(<uc28>)[UC-28], #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-05-04_firmato.pdf")[#text(fill: blue)[#underline[Verbale esterno]]]],)
 
 #pagebreak()
 
@@ -2682,14 +2685,17 @@ I requisiti funzionali definiscono in modo atomico le capacità, i comportamenti
   [RF-Op13], [Il sistema deve consentire l'eliminazione definitiva di un decision tree.], [#link(<uc43>)[UC-43]],
   [RF-Op14], [Il sistema deve bloccare l'inserimento e mostrare un messaggio di errore se il codice del nodo è già presente nel decision tree.], [#link(<uc32.1.1>)[UC-32.1.1]],
   [RF-Op15], [Il sistema deve permettere all'utente di assegnare un esito (PASS, FAIL o NOT APPLICABLE) ai rami non collegati di un nodo appena aggiunto o modificato nel decision tree, trasformandoli in nodi foglia.], [#link(<uc32.3>)[UC-32.3]],
-  [RF-Op16], [Il sistema deve permettere l'annullamento delle modifiche effettuate su un decision tree, ripristinando lo stato iniziale del grafo.], [#link(<uc37>)[UC-37]],
-  [RF-Op17], [Il sistema deve permettere la modifica della destinazione di un collegamento tra nodi (Yes/No).], [#link(<uc34>)[UC-34]],
-  [RF-Op18], [Il sistema deve permettere la modifica strutturale di un decision tree esistente.], [#link(<uc31>)[UC-31]],
-  [RF-Op19], [Il sistema deve consentire il download del report di conformità in formato PDF.], [#link(<uc28.1>)[UC-28.1]],
-  [RF-Op20], [Il sistema deve consentire il download del report di conformità in formato JSON.], [#link(<uc28.2>)[UC-28.2]],
-  [RF-Op21], [Il sistema deve consentire il download del report di conformità in formato CSV.], [#link(<uc28.3>)[UC-28.3]],
-  [RF-Op22], [Il sistema deve mostrare la giustificazione testuale del risultato raggiunto al termine dell'esecuzione del decision tree.], [#link(<uc23>)[UC-23]],
-  [RF-Op23], [Il sistema deve permettere l'inserimento di una giustificazione testuale per l'esito della coppia asset-requisito al termine dell'esecuzione del decision tree.], [#link(<uc23.1>)[UC-23.1]],
+  [RF-Op16], [Il sistema deve assegnare l'esito PASS al ramo non collegato selezionato dall'utente, creando un nodo foglia PASS.], [#link(<uc32.3.1>)[UC-32.3.1]],
+  [RF-Op17], [Il sistema deve assegnare l'esito FAIL al ramo non collegato selezionato dall'utente, creando un nodo foglia FAIL.], [#link(<uc32.3.2>)[UC-32.3.2]],
+  [RF-Op18], [Il sistema deve assegnare l'esito NOT APPLICABLE al ramo non collegato selezionato dall'utente, creando un nodo foglia NOT APPLICABLE.], [#link(<uc32.3.3>)[UC-32.3.3]],
+  [RF-Op19], [Il sistema deve permettere l'annullamento delle modifiche effettuate su un decision tree, ripristinando lo stato iniziale del grafo.], [#link(<uc37>)[UC-37]],
+  [RF-Op20], [Il sistema deve permettere la modifica della destinazione di un collegamento tra nodi (Yes/No).], [#link(<uc34>)[UC-34]],
+  [RF-Op21], [Il sistema deve permettere la modifica strutturale di un decision tree esistente.], [#link(<uc31>)[UC-31]],
+  [RF-Op22], [Il sistema deve consentire il download del report di conformità in formato PDF.], [#link(<uc28.1>)[UC-28.1]],
+  [RF-Op23], [Il sistema deve consentire il download del report di conformità in formato JSON.], [#link(<uc28.2>)[UC-28.2]],
+  [RF-Op24], [Il sistema deve consentire il download del report di conformità in formato CSV.], [#link(<uc28.3>)[UC-28.3]],
+  [RF-Op25], [Il sistema deve mostrare la giustificazione testuale del risultato raggiunto al termine dell'esecuzione del decision tree.], [#link(<uc23>)[UC-23]],
+  [RF-Op26], [Il sistema deve permettere l'inserimento di una giustificazione testuale per l'esito della coppia asset-requisito al termine dell'esecuzione del decision tree.], [#link(<uc23.1>)[UC-23.1]],
 )
 
 #pagebreak()
@@ -2714,6 +2720,7 @@ I requisiti di qualità definiscono i criteri di validazione, gli standard metri
   [RQ-Ob05], [Il sistema software deve essere accompagnato da un Manuale Utente che descriva in modo chiaro le funzionalità dell'applicazione.], [#text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[Capitolato C1 - Sezione 7])]],
   [RQ-Ob06], [Il codice sorgente del prodotto deve essere documentato tramite un Manuale Tecnico, e deve essere prodotta una documentazione di progetto comprendente requisiti, architettura, scelte tecnologiche e metodologia di sviluppo.], [#text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[Capitolato C1 - Sezione 7])]],
   [RQ-Ob07], [La gestione del ciclo di vita del progetto e l'organizzazione delle attività del team devono adottare un approccio Agile, garantendo iterazioni regolari e flessibilità.], [#text(blue)[#underline(link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Norme_di_Progetto.pdf")[Norme di Progetto v1.0.0 - Sezione 4.2.2])]],
+  [RQ-Ob08], [Il sistema deve utilizzare Git come software di controllo di versione distribuito per la gestione del codice sorgente.], [#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-06-16_firmato.pdf")[#text(fill: blue)[#underline[Verbale Esterno]]]],
 )
 
 #pagebreak()
@@ -2734,11 +2741,10 @@ I requisiti di vincolo definiscono le restrizioni tecniche, le piattaforme e gli
   ),
 
   [RV-Ob01], [La logica di backend deve essere sviluppata in linguaggio Python 3.x e la gestione dei relativi pacchetti software deve essere strutturata tramite Python Packaging utilizzando il file pyproject.toml.], [#text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[Capitolato C1 - Sezione 4])]],
-  [RV-Ob02], [L'applicazione deve essere distribuita e fruibile sotto forma di applicazione web locale accessibile all'indirizzo localhost, garantendo la piena compatibilità operativa sui principali browser moderni (Google Chrome, Mozilla Firefox, Apple Safari, Microsoft Edge).], [#text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[Capitolato C1 - Sezione 4])]],
+  [RV-Ob02], [L'applicazione deve essere distribuita e fruibile sotto forma di applicazione web locale accessibile all'indirizzo localhost, garantendo la piena compatibilità operativa sulle ultime due versioni principali dei browser moderni (Google Chrome, Mozilla Firefox, Apple Safari, Microsoft Edge).], [#text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[Capitolato C1 - Sezione 4])]],
   [RV-Ob03], [L'interfaccia utente (frontend) dell'applicazione web deve essere realizzata utilizzando la libreria React.], [#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-06-16_firmato.pdf")[#text(fill: blue)[#underline[Verbale Esterno]]]],
-  [RV-Ob04], [Il sistema deve utilizzare Git come software di controllo di versione distribuito per la gestione del codice sorgente.], [#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-06-16_firmato.pdf")[#text(fill: blue)[#underline[Verbale Esterno]]]],
-  [RV-Ob05], [Il sistema deve utilizzare Docker per la containerizzazione e il deployment dell'applicazione.], [#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-06-16_firmato.pdf")[#text(fill: blue)[#underline[Verbale Esterno]]]],
-  [RV-Ob06], [La logica di backend deve essere sviluppata utilizzando il framework Flask.], [#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-06-16_firmato.pdf")[#text(fill: blue)[#underline[Verbale Esterno]]]],
+  [RV-Ob04], [Il sistema deve utilizzare Docker per la containerizzazione e il deployment dell'applicazione.], [#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-06-16_firmato.pdf")[#text(fill: blue)[#underline[Verbale Esterno]]]],
+  [RV-Ob05], [La logica di backend deve essere sviluppata utilizzando il framework Flask.], [#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-06-16_firmato.pdf")[#text(fill: blue)[#underline[Verbale Esterno]]]],
 )
 
 #pagebreak()
@@ -2805,36 +2811,39 @@ In questa sezione viene fornito un quadro di tracciamento bidirezionale per asso
   [RF-Ob45], [#link(<uc19>)[UC-19]],
   [RF-Ob46], [#link(<uc19.1>)[UC-19.1]],
   [RF-Ob47], [#link(<uc20>)[UC-20]],
-  [RF-Ob48], [#link(<uc21>)[UC-21]],
-  [RF-Ob49], [#link(<uc21.1>)[UC-21.1]],
-  [RF-Ob50], [#link(<uc22>)[UC-22]],
-  [RF-Ob51], [#link(<uc22.1>)[UC-22.1]],
-  [RF-Ob52], [#link(<uc22.3>)[UC-22.3]],
-  [RF-Ob53], [#link(<uc22.3.1>)[UC-22.3.1]],
-  [RF-Ob54], [#link(<uc22.3.2>)[UC-22.3.2]],
-  [RF-Ob55], [#link(<uc22.2>)[UC-22.2]],
-  [RF-Ob56], [#link(<uc22.2>)[UC-22.2]],
-  [RF-Ob57], [#link(<uc23>)[UC-23]],
-  [RF-Ob58], [#link(<uc25>)[UC-25]],
-  [RF-Ob59], [#link(<uc26>)[UC-26]],
-  [RF-Ob60], [#link(<uc27>)[UC-27]],
-  [RF-Ob61], [#link(<uc27.1.1>)[UC-27.1.1]],
-  [RF-Ob62], [#link(<uc27.1.1.1>)[UC-27.1.1.1]],
-  [RF-Ob63], [#link(<uc29>)[UC-29]],
-  [RF-Ob64], [#link(<uc29.1>)[UC-29.1]],
-  [RF-Ob65], [#link(<uc30>)[UC-30]],
-  [RF-Ob66], [#link(<uc24>)[UC-24]],
-  [RF-Ob67], [#link(<uc27.1>)[UC-27.1]],
-  [RF-Ob68], [#link(<uc25>)[UC-25]],
-  [RF-Ob69], [#link(<uc30.1>)[UC-30.1]],
-  [RF-Ob70], [#link(<uc30.1.1>)[UC-30.1.1]],
-  [RF-Ob71], [#link(<uc30.1.2>)[UC-30.1.2]],
-  [RF-Ob72], [#link(<uc30.1.3>)[UC-30.1.3]],
-  [RF-Ob73], [#link(<uc30.2>)[UC-30.2]],
-  [RF-Ob74], [#link(<uc38>)[UC-38]],
-  [RF-Ob75], [#link(<uc38.1>)[UC-38.1]],
-  [RF-Ob76], [#link(<uc38.2>)[UC-38.2]],
-  [RF-Ob77], [#link(<uc28>)[UC-28]],
+  [RF-Ob48], [#link(<uc20.1>)[UC-20.1]],
+  [RF-Ob49], [#link(<uc20.2>)[UC-20.2]],
+  [RF-Ob50], [#link(<uc20.2.1>)[UC-20.2.1]],
+  [RF-Ob51], [#link(<uc21>)[UC-21]],
+  [RF-Ob52], [#link(<uc21.1>)[UC-21.1]],
+  [RF-Ob53], [#link(<uc22>)[UC-22]],
+  [RF-Ob54], [#link(<uc22.1>)[UC-22.1]],
+  [RF-Ob55], [#link(<uc22.3>)[UC-22.3]],
+  [RF-Ob56], [#link(<uc22.3.1>)[UC-22.3.1]],
+  [RF-Ob57], [#link(<uc22.3.2>)[UC-22.3.2]],
+  [RF-Ob58], [#link(<uc22.2>)[UC-22.2]],
+  [RF-Ob59], [#link(<uc22.2>)[UC-22.2]],
+  [RF-Ob60], [#link(<uc23>)[UC-23]],
+  [RF-Ob61], [#link(<uc25>)[UC-25]],
+  [RF-Ob62], [#link(<uc26>)[UC-26]],
+  [RF-Ob63], [#link(<uc27>)[UC-27]],
+  [RF-Ob64], [#link(<uc27.1.1>)[UC-27.1.1]],
+  [RF-Ob65], [#link(<uc27.1.1.1>)[UC-27.1.1.1]],
+  [RF-Ob66], [#link(<uc29>)[UC-29]],
+  [RF-Ob67], [#link(<uc29.1>)[UC-29.1]],
+  [RF-Ob68], [#link(<uc30>)[UC-30]],
+  [RF-Ob69], [#link(<uc24>)[UC-24]],
+  [RF-Ob70], [#link(<uc27.1>)[UC-27.1]],
+  [RF-Ob71], [#link(<uc25>)[UC-25]],
+  [RF-Ob72], [#link(<uc30.1>)[UC-30.1]],
+  [RF-Ob73], [#link(<uc30.1.1>)[UC-30.1.1]],
+  [RF-Ob74], [#link(<uc30.1.2>)[UC-30.1.2]],
+  [RF-Ob75], [#link(<uc30.1.3>)[UC-30.1.3]],
+  [RF-Ob76], [#link(<uc30.2>)[UC-30.2]],
+  [RF-Ob77], [#link(<uc38>)[UC-38]],
+  [RF-Ob78], [#link(<uc38.1>)[UC-38.1]],
+  [RF-Ob79], [#link(<uc38.2>)[UC-38.2]],
+  [RF-Ob80], [#link(<uc28>)[UC-28]],
 
   [RF-D01], [#link(<uc6>)[UC-6]],
   [RF-D02], [#link(<uc9>)[UC-9]],
@@ -2875,14 +2884,154 @@ In questa sezione viene fornito un quadro di tracciamento bidirezionale per asso
   [RF-Op13], [#link(<uc43>)[UC-43]],
   [RF-Op14], [#link(<uc32.1.1>)[UC-32.1.1]],
   [RF-Op15], [#link(<uc32.3>)[UC-32.3]],
-  [RF-Op16], [#link(<uc37>)[UC-37]],
-  [RF-Op17], [#link(<uc34>)[UC-34]],
-  [RF-Op18], [#link(<uc31>)[UC-31]],
-  [RF-Op19], [#link(<uc28.1>)[UC-28.1]],
-  [RF-Op20], [#link(<uc28.2>)[UC-28.2]],
-  [RF-Op21], [#link(<uc28.3>)[UC-28.3]],
-  [RF-Op22], [#link(<uc23>)[UC-23]],
-  [RF-Op23], [#link(<uc23.1>)[UC-23.1]],
+  [RF-Op16], [#link(<uc32.3.1>)[UC-32.3.1]],
+  [RF-Op17], [#link(<uc32.3.2>)[UC-32.3.2]],
+  [RF-Op18], [#link(<uc32.3.3>)[UC-32.3.3]],
+  [RF-Op19], [#link(<uc37>)[UC-37]],
+  [RF-Op20], [#link(<uc34>)[UC-34]],
+  [RF-Op21], [#link(<uc31>)[UC-31]],
+  [RF-Op22], [#link(<uc28.1>)[UC-28.1]],
+  [RF-Op23], [#link(<uc28.2>)[UC-28.2]],
+  [RF-Op24], [#link(<uc28.3>)[UC-28.3]],
+  [RF-Op25], [#link(<uc23>)[UC-23]],
+  [RF-Op26], [#link(<uc23.1>)[UC-23.1]],
+)
+
+#pagebreak()
+
+=== Tabella di Tracciamento Casi d'Uso - Requisiti
+
+La seguente tabella fornisce la vista inversa della tracciabilità: per ciascun caso d'uso individuato nell'analisi viene riportato il requisito (o i requisiti) funzionale che esso ha generato.
+
+#table(
+  columns: (1.5fr, 2fr),
+  align: (center, center),
+  stroke: 0.5pt + luma(150),
+  fill: (x, y) => if y == 0 { luma(230) } else { none },
+  table.header(
+    [*Caso d'Uso*], [*Requisiti Associati*],
+  ),
+
+  [#link(<uc1>)[UC-1]], [RF-Ob01],
+  [#link(<uc2>)[UC-2]], [RF-Ob02, RF-Ob06],
+  [#link(<uc2.1>)[UC-2.1]], [RF-Ob03],
+  [#link(<uc2.1.1>)[UC-2.1.1]], [RF-Ob04],
+  [#link(<uc2.1.2>)[UC-2.1.2]], [RF-Ob05],
+  [#link(<uc3>)[UC-3]], [RF-Ob07],
+  [#link(<uc4>)[UC-4]], [RF-Ob08],
+  [#link(<uc4.1>)[UC-4.1]], [RF-Ob09],
+  [#link(<uc4.1.1>)[UC-4.1.1]], [RF-Ob10],
+  [#link(<uc4.1.2>)[UC-4.1.2]], [RF-Ob11],
+  [#link(<uc4.1.3>)[UC-4.1.3]], [RF-Ob12],
+  [#link(<uc5>)[UC-5]], [RF-Ob13],
+  [#link(<uc6>)[UC-6]], [RF-D01],
+  [#link(<uc7>)[UC-7]], [RF-Ob14],
+  [#link(<uc7.1>)[UC-7.1]], [RF-Ob15],
+  [#link(<uc7.2>)[UC-7.2]], [RF-Ob16],
+  [#link(<uc7.3>)[UC-7.3]], [RF-Ob17],
+  [#link(<uc7.4>)[UC-7.4]], [RF-Ob18],
+  [#link(<uc8>)[UC-8]], [RF-D11],
+  [#link(<uc8.1>)[UC-8.1]], [RF-D12],
+  [#link(<uc8.2>)[UC-8.2]], [RF-D13],
+  [#link(<uc8.3>)[UC-8.3]], [RF-D14],
+  [#link(<uc9>)[UC-9]], [RF-D02],
+  [#link(<uc10>)[UC-10]], [RF-Ob19],
+  [#link(<uc10.1>)[UC-10.1]], [RF-Ob20],
+  [#link(<uc10.2>)[UC-10.2]], [RF-Ob21],
+  [#link(<uc11>)[UC-11]], [RF-Ob22, RF-D03],
+  [#link(<uc11.1>)[UC-11.1]], [RF-Ob23],
+  [#link(<uc11.2>)[UC-11.2]], [RF-Ob24],
+  [#link(<uc12>)[UC-12]], [RF-Ob25],
+  [#link(<uc12.1>)[UC-12.1]], [RF-Ob26],
+  [#link(<uc12.1.1>)[UC-12.1.1]], [RF-Ob27],
+  [#link(<uc12.1.2>)[UC-12.1.2]], [RF-Ob28],
+  [#link(<uc12.1.3>)[UC-12.1.3]], [RF-Ob29],
+  [#link(<uc12.1.4>)[UC-12.1.4]], [RF-Ob30],
+  [#link(<uc13>)[UC-13]], [RF-D04],
+  [#link(<uc14>)[UC-14]], [RF-Ob31],
+  [#link(<uc14.1>)[UC-14.1]], [RF-Ob32],
+  [#link(<uc14.1.1>)[UC-14.1.1]], [RF-Ob33],
+  [#link(<uc14.1.2>)[UC-14.1.2]], [RF-Ob34],
+  [#link(<uc14.1.3>)[UC-14.1.3]], [RF-Ob35],
+  [#link(<uc15>)[UC-15]], [RF-Ob36],
+  [#link(<uc15.1>)[UC-15.1]], [RF-Ob37],
+  [#link(<uc15.2>)[UC-15.2]], [RF-Ob38],
+  [#link(<uc15.3>)[UC-15.3]], [RF-Ob39],
+  [#link(<uc15.4>)[UC-15.4]], [RF-Ob40],
+  [#link(<uc15.5>)[UC-15.5]], [RF-Ob41],
+  [#link(<uc15.6>)[UC-15.6]], [RF-Ob42],
+  [#link(<uc15.6.1>)[UC-15.6.1]], [RF-Ob43],
+  [#link(<uc16>)[UC-16]], [RF-D15],
+  [#link(<uc16.1>)[UC-16.1]], [RF-D16],
+  [#link(<uc16.2>)[UC-16.2]], [RF-D17],
+  [#link(<uc16.3>)[UC-16.3]], [RF-D18],
+  [#link(<uc16.4>)[UC-16.4]], [RF-D19],
+  [#link(<uc17>)[UC-17]], [RF-D05],
+  [#link(<uc18>)[UC-18]], [RF-Ob44, RF-D06],
+  [#link(<uc19>)[UC-19]], [RF-Ob45],
+  [#link(<uc19.1>)[UC-19.1]], [RF-Ob46],
+  [#link(<uc20>)[UC-20]], [RF-Ob47],
+  [#link(<uc20.1>)[UC-20.1]], [RF-Ob48],
+  [#link(<uc20.2>)[UC-20.2]], [RF-Ob49],
+  [#link(<uc20.2.1>)[UC-20.2.1]], [RF-Ob50],
+  [#link(<uc21>)[UC-21]], [RF-Ob51],
+  [#link(<uc21.1>)[UC-21.1]], [RF-Ob52],
+  [#link(<uc22>)[UC-22]], [RF-Ob53],
+  [#link(<uc22.1>)[UC-22.1]], [RF-Ob54],
+  [#link(<uc22.2>)[UC-22.2]], [RF-Ob58, RF-Ob59],
+  [#link(<uc22.3>)[UC-22.3]], [RF-Ob55],
+  [#link(<uc22.3.1>)[UC-22.3.1]], [RF-Ob56],
+  [#link(<uc22.3.2>)[UC-22.3.2]], [RF-Ob57],
+  [#link(<uc22.4>)[UC-22.4]], [RF-D07],
+  [#link(<uc22.5>)[UC-22.5]], [RF-D09],
+  [#link(<uc22.6>)[UC-22.6]], [RF-D10],
+  [#link(<uc23>)[UC-23]], [RF-Ob60, RF-Op25],
+  [#link(<uc23.1>)[UC-23.1]], [RF-Op26],
+  [#link(<uc24>)[UC-24]], [RF-Ob69],
+  [#link(<uc25>)[UC-25]], [RF-Ob61, RF-Ob71, RF-D08, RF-Op01],
+  [#link(<uc26>)[UC-26]], [RF-Ob62],
+  [#link(<uc27>)[UC-27]], [RF-Ob63],
+  [#link(<uc27.1>)[UC-27.1]], [RF-Ob70],
+  [#link(<uc27.1.1>)[UC-27.1.1]], [RF-Ob64],
+  [#link(<uc27.1.1.1>)[UC-27.1.1.1]], [RF-Ob65],
+  [#link(<uc28>)[UC-28]], [RF-Ob80],
+  [#link(<uc28.1>)[UC-28.1]], [RF-Op22],
+  [#link(<uc28.2>)[UC-28.2]], [RF-Op23],
+  [#link(<uc28.3>)[UC-28.3]], [RF-Op24],
+  [#link(<uc29>)[UC-29]], [RF-Ob66],
+  [#link(<uc29.1>)[UC-29.1]], [RF-Ob67],
+  [#link(<uc30>)[UC-30]], [RF-Ob68],
+  [#link(<uc30.1>)[UC-30.1]], [RF-Ob72],
+  [#link(<uc30.1.1>)[UC-30.1.1]], [RF-Ob73],
+  [#link(<uc30.1.2>)[UC-30.1.2]], [RF-Ob74],
+  [#link(<uc30.1.3>)[UC-30.1.3]], [RF-Ob75],
+  [#link(<uc30.2>)[UC-30.2]], [RF-Ob76],
+  [#link(<uc31>)[UC-31]], [RF-Op21],
+  [#link(<uc32>)[UC-32]], [RF-Op05],
+  [#link(<uc32.1>)[UC-32.1]], [RF-Op06],
+  [#link(<uc32.1.1>)[UC-32.1.1]], [RF-Op14],
+  [#link(<uc32.2>)[UC-32.2]], [RF-Op07],
+  [#link(<uc32.3>)[UC-32.3]], [RF-Op15],
+  [#link(<uc32.3.1>)[UC-32.3.1]], [RF-Op16],
+  [#link(<uc32.3.2>)[UC-32.3.2]], [RF-Op17],
+  [#link(<uc32.3.3>)[UC-32.3.3]], [RF-Op18],
+  [#link(<uc33>)[UC-33]], [RF-Op08],
+  [#link(<uc34>)[UC-34]], [RF-Op20],
+  [#link(<uc35>)[UC-35]], [RF-Op09],
+  [#link(<uc36>)[UC-36]], [RF-Op10, RF-Op11],
+  [#link(<uc37>)[UC-37]], [RF-Op19],
+  [#link(<uc38>)[UC-38]], [RF-Ob77],
+  [#link(<uc38.1>)[UC-38.1]], [RF-Ob78],
+  [#link(<uc38.2>)[UC-38.2]], [RF-Ob79],
+  [#link(<uc39>)[UC-39]], [RF-Op12],
+  [#link(<uc40>)[UC-40]], [RF-Op02],
+  [#link(<uc40.1>)[UC-40.1]], [RF-Op04],
+  [#link(<uc41>)[UC-41]], [RF-Op03],
+  [#link(<uc42>)[UC-42]], [RF-D20],
+  [#link(<uc42.1>)[UC-42.1]], [RF-D21],
+  [#link(<uc42.1.1>)[UC-42.1.1]], [RF-D22],
+  [#link(<uc42.1.2>)[UC-42.1.2]], [RF-D23],
+  [#link(<uc43>)[UC-43]], [RF-Op13],
 )
 
 #pagebreak()
@@ -2901,11 +3050,11 @@ La seguente tabella riassume quantitativamente i requisiti individuati all'inter
       [*Tipologia*], [*Obbligatori*], [*Desiderabili*], [*Opzionali*], [*Totali*],
     ),
 
-    [Funzionali (RF)], [77], [23], [23], [123],
-    [Qualità (RQ)], [7], [0], [0], [7],
-    [Vincolo (RV)], [6], [0], [0], [6],
+    [Funzionali (RF)], [80], [23], [26], [129],
+    [Qualità (RQ)], [8], [0], [0], [8],
+    [Vincolo (RV)], [5], [0], [0], [5],
 
-    [*Totali*], [*90*], [*23*], [*23*], [*136*],
+    [*Totali*], [*93*], [*23*], [*26*], [*142*],
   )
 ]
 
