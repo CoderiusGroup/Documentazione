@@ -100,7 +100,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.1.0], [2026/04/21], [Giovanni Bronte], [], [Prima stesura del documento],
+    [0.2.0], [2026/07/27], [Giovanni Bronte], [], [Stesura della sezione 2],
+    [0.1.0], [2026/07/21], [Giovanni Bronte], [], [Prima stesura del documento],
   )
 ]
 #pagebreak()
@@ -118,6 +119,101 @@
 = Introduzione 
 
 = Tecnologie
+Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del capitolato Automated EN18031 Compliance Verification.
+
+== Linguaggi di Programmazione 
+
+#table(
+    columns: (auto, 1fr, 6fr),
+    align: center + horizon,
+    fill: (x, y) => if y == 0 { blue.lighten(70%) },
+    [*Tecnologia*], [*Versione*], [*Descrizione*],
+
+    [Python],
+    [3.9.6],
+    [Python è un linguaggio di programmazione ad alto livello, orientato a oggetti, adatto, tra gli altri usi, a sviluppare applicazioni distribuite, scripting, computazione numerica e system testing. 
+    Nel nostro progetto è stato scelto per la gestione del lato backend dato che è il linguaggio prediletto dalla proponente e per la sua estrema versatilità.],
+
+    [Javascript],
+    [ES2020],
+    [JavaScript è un linguaggio di programmazione multi paradigma orientato agli eventi. Nel nostro progetto è utilizzato per la gestione del frontend assieme alla libreria React ],
+)
+
+== Framework usati
+
+#table(
+    columns: (auto, 1fr, 6fr),
+    align: center + horizon,
+    fill: (x, y) => if y == 0 { blue.lighten(70%) },
+    [*Tecnologia*], [*Versione*], [*Descrizione*],
+
+    [Flask],
+    [3.1.3],
+    [Flask è un micro-framework Web scritto in Python, è progettato per essere rapido e semplice, offrendo al contempo la possibilità di essere utilizzato per applicazioni complesse.
+    È inoltre molto semplice da imparare, flessibile e ha buone performance.
+    ],
+)
+
+== Strumenti di build
+
+#table(
+    columns: (auto, 1fr, 6fr),
+    align: center + horizon,
+    fill: (x, y) => if y == 0 { blue.lighten(70%) },
+    [*Tecnologia*], [*Versione*], [*Descrizione*],
+
+    [Vite],
+    [8.0.16],
+    [Vite è diventato lo standard de facto dell'ecosistema frontend. È il motore ufficiale dietro i framework moderni come Vue, e i template ufficiali di React.
+    È inoltre molto più veloce a creare il server rispetto ad altri strumenti simili ed è anche molto facile da implementare grazie alla sua configurazione minima richiesta. 
+    ],
+)
+
+== Tecnologie per deployment
+
+#table(
+    columns: (auto, 1fr, 6fr),
+    align: center + horizon,
+    fill: (x, y) => if y == 0 { blue.lighten(70%) },
+    [*Tecnologia*], [*Versione*], [*Descrizione*],
+
+    [Docker],
+    [3.1.3],
+    [Docker è una piattaforma open source che consente agli sviluppatori di creare, implementare, eseguire, aggiornare e gestire i container. 
+    I container sono componenti standardizzati ed eseguibili che combinano il codice sorgente dell'applicazione con le librerie e le dipendenze del sistema operativo necessarie per eseguire tale codice in qualsiasi ambiente.
+    ],
+)
+
+== Librerie
+
+#table(
+    columns: (auto, 1fr, 6fr),
+    align: center + horizon,
+    fill: (x, y) => if y == 0 { blue.lighten(70%) },
+    [*Tecnologia*], [*Versione*], [*Descrizione*],
+
+    [React],
+    [19.2.7],
+    [React è una libreria completa, molto flessibile e permette la creazione e la gestione dell'interfaccia utente. Nel nostro progetto viene utilizzato per le varie librerie che permettono di gestire l'interfaccia utente al meglio.],
+)
+
+== Tecnologie per testing
+
+#table(
+    columns: (auto, 1fr, 6fr),
+    align: center + horizon,
+    fill: (x, y) => if y == 0 { blue.lighten(70%) },
+    [*Tecnologia*], [*Versione*], [*Descrizione*],
+
+    [Vitest],
+    [/],
+    [Vitest è un framework per il test di Javascript, progettato per essere veloce e leggero, con supporto per diversi tipi di test.],
+
+    [React Testing Library],
+    [/],
+    [React Testing Library è una soluzione molto leggera per il testing di componenti React. Offre funzioni di utilità essenziali basate su react-dom e react-dom/test-utils, incoraggiando al contempo migliori pratiche di testing.]
+)
+
 
 = Architettura
 
