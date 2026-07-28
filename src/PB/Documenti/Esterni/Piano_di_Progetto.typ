@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.3.0*]
+  #text(size: 20pt)[*Versione 1.3.1*]
 ]
 #pagebreak()
 
@@ -100,6 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.3.1], [2026/07/25], [Edis Hodja], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 8: 4.9.6, 4.9.7, 4.9.8],
     [1.3.0], [2026/07/13], [Edis Hodja], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 8: 4.9.1, 4.9.2, 4.9.3, 4.9.4, 4.9.5],
     [1.2.1], [2026/07/13], [Edis Hodja], [Leonardo Lorenzin], [Aggiunta della sezione relativa al sommario finale RTB],
     [1.2.0], [2026/07/10], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiunta delle sezioni Sprint 7: 4.7.5, 4.7.6, 4.7.7, 4.7.8 e correzione refusi],
@@ -1112,8 +1113,6 @@ Durante questo periodo, l'impegno del team si articolerà nelle seguenti attivit
 
 === Rischi attesi
 
-=== Rischi attesi
-
 - *RT-1*: Poiché il focus principale di questo sprint è la fase transitoria di "palestra" sulle tecnologie Flask e React, l'inesperienza pratica del team con questi framework rappresenta il rischio tecnico principale. Pur essendo un rischio atteso e noto, lo scopo stesso di questa attività di autoformazione è proprio quello di mitigarlo prima di iniziare l'effettivo sviluppo dell'MVP.
 - *RO-3*: Tra le attività principali vi è il contatto con Bluewind per fissare un incontro esplorativo sulla progettazione architetturale. Considerando il periodo, c'è il rischio di riscontrare difficoltà o ritardi nel trovare una disponibilità condivisa per la call a causa dell'avvicinarsi delle ferie aziendali o degli impegni della proponente.
 - *RI-1*: Lo sprint si svolge in un periodo dell'anno critico, caratterizzato dalla fase finale della sessione estiva degli esami o dall'inizio di impegni personali e lavorativi estivi. È altamente probabile una disponibilità ridotta o asimmetrica tra i membri del gruppo, che potrebbe rallentare lo studio individuale o le correzioni documentali.
@@ -1132,3 +1131,45 @@ Durante questo periodo, l'impegno del team si articolerà nelle seguenti attivit
   )),
     caption: [Preventivo ore per membro - Sprint 8]
 )
+
+=== Consuntivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[6],[-],[-],[6]),
+    ([Edis Hodja], [3#text(fill: green)[(-1)]],[-],[-],[-],[-],[-],[3]),
+    ([Filippo Zonta Rocha],[-],[4],[-],[-],[-],[-],[4]),
+    ([Giovanni Angelo Marco Bronte],    [-],[-],[-],[5#text(fill: green)[(-1)]],[-],[-],[5]),
+    ([Ines Iadadi],        [-],[-],[4],[-],[-],[-],[4]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[-],[-],[5],[5]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*4*],[*4*],[*11*],[*0*],[*5*],[*27*]),
+  )),
+    caption: [Consuntivo ore per membro - Sprint 8]
+)
+
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [3], [ 90€], [22], [640€],
+    [Amministratore], [20], [4], [80€], [16], [320€],
+    [Analista], [25], [4], [100€], [5], [125€],
+    [Progettista], [25], [11], [275€], [74], [1850€],
+    [Programmatore], [15], [0], [0€], [71], [1065€],
+    [Verificatore], [15], [5], [75€], [54], [810€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*27*], [*620€*], [*242*], [*4810€*],
+  )
+]
+
+=== Rischi incontrati
+- *RI-1*: Durante lo sprint si è verificata una riduzione della disponibilità di alcuni membri del gruppo, dovuta alla concomitanza con la fase conclusiva della sessione estiva degli esami e con l'inizio di impegni personali e lavorativi tipici del periodo estivo. Questa situazione ha determinato una disponibilità non uniforme all'interno del team, rallentando in alcuni momenti le attività di studio individuale, revisione della documentazione e coordinamento delle attività previste dallo sprint. Il gruppo ha mitigato l'impatto del rischio attraverso una pianificazione più flessibile delle attività e una redistribuzione del carico di lavoro tra i membri disponibili.
+
+=== Retrospettiva
+Durante questo sprint il gruppo ha avviato la fase di "palestra" successiva al completamento della milestone Requirements and Technology Baseline (RTB). Le attività si sono concentrate sull'autoformazione tecnica mediante lo studio delle tecnologie selezionate, sul miglioramento del Way of Working, sull'avvio del confronto con l'azienda proponente per definire le future scelte architetturali e sull'aggiornamento della documentazione recependo le correzioni emerse dalla revisione della RTB.
+
+==== Criticità emerse
+La principale criticità riscontrata durante lo sprint è stata la ridotta disponibilità di alcuni membri del gruppo, dovuta alla concomitanza con la sessione estiva degli esami e con impegni personali e lavorativi. Tale situazione ha reso difficoltosa la partecipazione simultanea di tutti i componenti durante alcune riunioni e nei momenti decisionali più rilevanti, rallentando il confronto e la condivisione delle scelte. Per limitare l'impatto di questa criticità, il gruppo ha mantenuto una comunicazione costante tramite gli strumenti di collaborazione adottati e ha condiviso tempestivamente gli esiti delle decisioni con i membri assenti.
