@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.1.0*]
+  #text(size: 20pt)[*Versione 0.3.0*]
 ]
 #pagebreak()
 
@@ -100,9 +100,9 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.2.0], [2026/07/27], [Alberto Canavese], [], [Stesura della sezione 1],
-    [0.2.0], [2026/07/27], [Giovanni Bronte], [], [Stesura della sezione 2],
-    [0.1.0], [2026/07/21], [Giovanni Bronte], [], [Prima stesura del documento],
+    [0.3.0], [2026/07/27], [Giovanni Bronte], [Leonardo Lorenzin], [Stesura della sezione 2],
+    [0.2.0], [2026/07/27], [Alberto Canavese], [Leonardo Lorenzin], [Stesura della sezione 1],
+    [0.1.0], [2026/07/21], [Giovanni Bronte], [Leonardo Lorenzin], [Prima stesura del documento],
   )
 ]
 #pagebreak()
@@ -123,7 +123,9 @@
 La presente documentazione è redatta con il fine di illustrare in modo esaustivo l'architettura, sia logica che infrastrutturale, del sistema concepito dal *Coderius Group*. La *Specifica Tecnica* si pone come linea guida vincolante per l'intera fase di implementazione, fungendo da ponte tra l'analisi dei requisiti e la realizzazione concreta del software, per assicurarne solidità e coerenza strutturale.
 
 Nel dettaglio, gli obiettivi preposti per questo documento sono:
+
 - *Motivare l'infrastruttura tecnologica:* argomentare le ragioni dietro la scelta degli strumenti di sviluppo (inclusi Python, React, Flask e Vite), selezionati per rispondere appieno ai criteri di flessibilità, performance e scalabilità richiesti dal progetto.
+
 - *Strutturare la logica applicativa e i design pattern:* mappare l'organizzazione interna dei moduli e i loro flussi di comunicazione, dimostrando come i pattern implementati favoriscano la creazione di codice disaccoppiato e orientato al testing.
 - *Pianificare la strategia di deployment:* definire le modalità di distribuzione dell'applicativo e l'allocazione delle sue parti all'interno degli ambienti operativi, sfruttando la containerizzazione offerta da Docker.
 - *Promuovere la manutenibilità a lungo termine:* fornire direttive chiare al team di sviluppo per rendere la base di codice facilmente interpretabile, supportando così agevolmente le future iterazioni, correzioni ed espansioni del sistema.
@@ -135,36 +137,59 @@ Il sistema permetterà di valutare sistematicamente i requisiti di sicurezza per
 
 == Glossario
 Al fine di evitare ambiguità e incomprensioni legate alla terminologia tecnica presente in questo documento e nel resto della documentazione prodotta dal Coderius Group, è stato redatto un apposito glossario. 
+
 Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è contrassegnato nel testo da una "G" a pedice (es. _termine_#sub[G]). Cliccando sull'indicatore, il lettore verrà reindirizzato direttamente alla definizione corrispondente all'interno del documento #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Glossario.pdf")[*Glossario*].
 
 == Riferimenti
 
-=== Riferimenti normativi
-- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[*Capitolato d'appalto C1:* _Automated EN18031 Compliance Verification_ - Bluewind S.r.l.]
-- #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Norme_di_Progetto.pdf")[*Norme di Progetto:* Coderius Group]
-- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf")[*Regolamento del progetto didattico:* Corso di Ingegneria del Software]
+- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[#text(
+    fill: blue,
+  )[Capitolato C1 - _Automated EN18031 Compliance Verification_, Bluewind S.r.l.]]
+
+- #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Norme_di_Progetto.pdf")[#text(
+    fill: blue,
+  )[Norme di Progetto - Coderius Group]]
+
+- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf")[#text(
+    fill: blue,
+  )[Slide IS A.A. 2025/2026 - _Regolamento del progetto didattico_]]
 
 === Riferimenti informativi
-- *Materiale didattico del corso di Ingegneria del Software:*
-  - #link("https://www.math.unipd.it/~rcardin/swea/2023/Diagrammi%20delle%20Classi.pdf")[Diagrammi delle Classi]
-  - #link("https://www.math.unipd.it/~rcardin/swea/2022/Software%20Architecture%20Patterns.pdf")[Pattern Architetturali]
-  - #link("https://www.math.unipd.it/~rcardin/swea/2022/Design%20Pattern%20Creazionali.pdf")[Pattern Creazionali]
-  - #link("https://www.math.unipd.it/~rcardin/swea/2022/Design%20Pattern%20Strutturali.pdf")[Pattern Strutturali]
-  - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T06.pdf")[Progettazione Software]
-- *Documentazione delle tecnologie:*
-  - *Python:* #link("https://docs.python.org/3/")
-  - *JavaScript:* #link("https://developer.mozilla.org/en-US/docs/Web/JavaScript")
-  - *React:* #link("https://react.dev/")
-  - *Vite:* #link("https://vite.dev/guide/")
-  - *Flask:* #link("https://flask.palletsprojects.com/")
-  - *Docker:* #link("https://docs.docker.com/")
-  - *Vitest:* #link("https://vitest.dev/")
-  - *React Testing Library:* #link("https://testing-library.com/docs/react-testing-library/intro/")
+
+- #link("https://www.math.unipd.it/~rcardin/swea/2023/Diagrammi%20delle%20Classi.pdf")[#text(
+    fill: blue,
+  )[Slide IS A.A. 2023/2024 - _Diagrammi delle Classi_]]
+
+- #link("https://www.math.unipd.it/~rcardin/swea/2022/Software%20Architecture%20Patterns.pdf")[#text(
+    fill: blue,
+  )[Slide IS A.A. 2022/2023 - _Pattern Architetturali_]]
+
+- #link("https://www.math.unipd.it/~rcardin/swea/2022/Design%20Pattern%20Creazionali.pdf")[#text(
+    fill: blue,
+  )[Slide IS A.A. 2022/2023 - _Design Pattern Creazionali_]]
+
+- #link("https://www.math.unipd.it/~rcardin/swea/2022/Design%20Pattern%20Strutturali.pdf")[#text(
+    fill: blue,
+  )[Slide IS A.A. 2022/2023 - _Design Pattern Strutturali_]]
+
+- #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T06.pdf")[#text(
+    fill: blue,
+  )[Slide IS A.A. 2025/2026 - _Progettazione Software_]]
+
+- Documentazione delle tecnologie:
+  - #link("https://docs.python.org/3/")[#text(fill: blue)[Python]]
+  - #link("https://developer.mozilla.org/en-US/docs/Web/JavaScript")[#text(fill: blue)[JavaScript]]
+  - #link("https://react.dev/")[#text(fill: blue)[React]]
+  - #link("https://vite.dev/guide/")[#text(fill: blue)[Vite]]
+  - #link("https://flask.palletsprojects.com/")[#text(fill: blue)[Flask]]
+  - #link("https://docs.docker.com/")[#text(fill: blue)[Docker]]
+  - #link("https://vitest.dev/")[#text(fill: blue)[Vitest]]
+  - #link("https://testing-library.com/docs/react-testing-library/intro/")[#text(fill: blue)[React Testing Library]]
 
 = Tecnologie
-Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del capitolato Automated EN18031 Compliance Verification.
+Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del capitolato *Automated EN18031 Compliance Verification*.
 
-== Linguaggi di Programmazione 
+== Linguaggi di programmazione 
 
 #table(
     columns: (auto, 1fr, 6fr),
@@ -173,7 +198,7 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     [*Tecnologia*], [*Versione*], [*Descrizione*],
 
     [Python],
-    [3.9.6],
+    [3.12],
     [Python è un linguaggio di programmazione ad alto livello, orientato a oggetti, adatto, tra gli altri usi, a sviluppare applicazioni distribuite, scripting, computazione numerica e system testing. 
     Nel nostro progetto è stato scelto per la gestione del lato backend dato che è il linguaggio prediletto dalla proponente e per la sua estrema versatilità.],
 
@@ -182,7 +207,7 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     [JavaScript è un linguaggio di programmazione multi paradigma orientato agli eventi. Nel nostro progetto è utilizzato per la gestione del frontend assieme alla libreria React ],
 )
 
-== Framework usati
+== Frameworks
 
 #table(
     columns: (auto, 1fr, 6fr),
@@ -212,7 +237,7 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     ],
 )
 
-== Tecnologie per deployment
+== Deployment
 
 #table(
     columns: (auto, 1fr, 6fr),
@@ -243,7 +268,7 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
 == Tecnologie per testing
 
 #table(
-    columns: (auto, 1fr, 6fr),
+    columns: (auto, 1fr, 5.5fr),
     align: center + horizon,
     fill: (x, y) => if y == 0 { blue.lighten(70%) },
     [*Tecnologia*], [*Versione*], [*Descrizione*],
