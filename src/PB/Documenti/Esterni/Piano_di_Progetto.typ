@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.3.1*]
+  #text(size: 20pt)[*Versione 1.4.0*]
 ]
 #pagebreak()
 
@@ -100,6 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.4.0], [2026/07/25], [Ines Iadadi], [], [Aggiunta delle sezioni Sprint 9: 4.10.1, 4.10.2, 4.10.3, 4.10.4],
     [1.3.1], [2026/07/25], [Edis Hodja], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 8: 4.9.6, 4.9.7, 4.9.8],
     [1.3.0], [2026/07/13], [Edis Hodja], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 8: 4.9.1, 4.9.2, 4.9.3, 4.9.4, 4.9.5],
     [1.2.1], [2026/07/13], [Edis Hodja], [Leonardo Lorenzin], [Aggiunta della sezione relativa al sommario finale RTB],
@@ -1173,3 +1174,55 @@ Durante questo sprint il gruppo ha avviato la fase di "palestra" successiva al c
 
 ==== Criticità emerse
 La principale criticità riscontrata durante lo sprint è stata la ridotta disponibilità di alcuni membri del gruppo, dovuta alla concomitanza con la sessione estiva degli esami e con impegni personali e lavorativi. Tale situazione ha reso difficoltosa la partecipazione simultanea di tutti i componenti durante alcune riunioni e nei momenti decisionali più rilevanti, rallentando il confronto e la condivisione delle scelte. Per limitare l'impatto di questa criticità, il gruppo ha mantenuto una comunicazione costante tramite gli strumenti di collaborazione adottati e ha condiviso tempestivamente gli esiti delle decisioni con i membri assenti.
+
+== Sprint 9
+
+=== Periodo
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/07/24],
+  [*Fine prevista:*], [2026/07/31],
+  [*Fine reale:*],    [],
+)
+#v(0.3em)
+
+=== Attività pianificate
+
+Il gruppo avvia in questo sprint,
+di durata ridotta a una settimana, le prime attività operative di consolidamento e sviluppo.
+
+Le attività principali pianificate sono:
+
+- *Consolidamento delle scelte architetturali*: formalizzazione delle decisioni progettuali tramite confronto con Bluewind, verificandone la coerenza con i requisiti individuati nell'Analisi dei Requisiti.
+
+- *Avvio della Specifica Tecnica*: prima stesura dei contenuti relativi all'architettura del sistema, ai componenti principali e alle loro interazioni.
+
+- *Avvio dello sviluppo dell'MVP*: implementazione delle prime funzionalità di base.
+
+
+=== Rischi attesi
+
+- *RT-1*: Nonostante la fase di autoformazione svolta nello Sprint 8, l'inesperienza pratica del team con lo stack tecnologico in un contesto di sviluppo reale rimane un rischio tecnico rilevante, soprattutto nelle prime attività implementative dell'MVP.
+
+- *RO-1*: La durata ridotta dello sprint aumenta il rischio di imprecisioni nella pianificazione e nella stima delle attività, potendo richiedere un riadattamento del carico di lavoro nei prossimi sprint.
+
+- *RO-2*: Trattandosi del primo sprint di sviluppo effettivo dopo la fase  di "palestra", vi è il rischio che alcune attività pianificate  non vengano completate entro la settimana, data la scarsa esperienza pregressa con task di sviluppo reali su queste tecnologie.
+
+- *RI-1*: Il periodo estivo comporta il rischio di una disponibilità ridotta o non uniforme tra i membri del gruppo a causa di impegni personali.
+
+=== Preventivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[-],[6],[-],[6]),
+    ([Edis Hodja],         [-],[-],[-],[-],[-],[4],[4]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[5],[-],[-],[5]),
+    ([Giovanni Angelo Marco Bronte],[-],[3],[-],[-],[-],[-],[3]),
+    ([Ines Iadadi],        [4],[-],[-],[-],[-],[-],[4]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[5],[-],[-],[5]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*4*],[*3*],[*0*],[*10*],[*6*],[*4*],[*27*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 9]
+)
