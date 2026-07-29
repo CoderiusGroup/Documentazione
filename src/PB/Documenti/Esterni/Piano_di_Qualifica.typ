@@ -796,7 +796,7 @@ SPI = EV / PV. CPI = EV / AC. Valori prossimi a 1 indicano rispetto di tempi e b
   supplement: [Figura],
 )
 
-SPI = 1,000 in tutti e sei gli sprint: il team ha rispettato perfettamente le scadenze pianificate, senza mai accumulare ritardi. Il CPI, superiore all'unità in ogni sprint, evidenzia un costante risparmio di costo rispetto al lavoro prodotto, con un trend complessivamente crescente (da 1,017 a 1,043, dopo una lieve flessione a 1,015 nello Sprint 2). L'andamento omogeneo dei due indicatori suggerisce che le stime iniziali fossero realistiche e che l'esecuzione sia stata disciplinata.
+SPI = 1,000 in tutti e otto gli sprint: il team ha rispettato perfettamente le scadenze pianificate, senza mai accumulare ritardi. Il CPI, superiore all'unità in ogni sprint, evidenzia un costante risparmio di costo rispetto al lavoro prodotto, con un trend complessivamente crescente (da 1,017 a 1,043, dopo una lieve flessione a 1,015 nello Sprint 2) ne segue una tendenza di crescita con il picco nello sprint 7 con un leggero calo nello sprint 8. L'andamento omogeneo dei due indicatori suggerisce che le stime iniziali fossero realistiche e che l'esecuzione sia stata disciplinata.
 
 == MPC-06 — Estimate at Completion
 
@@ -811,8 +811,8 @@ EAC = BAC / CPI. Rappresenta la stima del costo finale del progetto sulla base d
   [4], [1,043], [10.240], [10.680], [-440 (-4,1%)], [$<= 1.1 times "BAC"$ (110%) ✓],
   [5], [1,043], [10.240], [10.680], [-440 (-4,1%)], [$<= 1.1 times "BAC"$ (110%) ✓],
   [6], [1,043], [10.240], [10.680], [-440 (-4,1%)], [$<= 1.1 times "BAC"$ (110%) ✓],
-  [7], [1,086], [9,834], [10.680], [-846 (-7,9%)], [$<= 1.1 times "BAC"$ (110%) ✓], 
-  [8], [1,054], [10,142],  [10.680], [-538 (-5,0%)], [$<= 1.1 times "BAC"$ (110%) ✓]
+  [7], [1,086], [9.834], [10.680], [-846 (-7,9%)], [$<= 1.1 times "BAC"$ (110%) ✓], 
+  [8], [1,054], [10.142],  [10.680], [-538 (-5,0%)], [$<= 1.1 times "BAC"$ (110%) ✓]
 )
 
 #figure(
@@ -821,7 +821,7 @@ EAC = BAC / CPI. Rappresenta la stima del costo finale del progetto sulla base d
   supplement: [Figura],
 )
 
-L'EAC si mantiene costantemente al di sotto del BAC (€10.680), con uno scostamento che cresce da −€178 (Sprint 1) a −€440 (Sprint 6) man mano che l'efficienza di costo si consolida. La tendenza decrescente dell'EAC indica che il progetto ha progressivamente migliorato la propria stima di costo finale, stabilizzandosi su un risparmio attorno al 4% del budget totale.
+L'EAC si mantiene costantemente al di sotto del BAC (€10.680), con uno scostamento che cresce da −€178 (Sprint 1) a −€440 (Sprint 6) man mano che l'efficienza di costo si consolida. Durante lo Sprint 7, l'EAC scende ulteriormente a €9.834, con uno scostamento di −€846 (−7,9%), a seguito di un incremento del CPI a 1,086. Nello Sprint 8 l'EAC risale leggermente a €10.142, con uno scostamento di −€538 (−5,0%), in corrispondenza di un lieve calo del CPI a 1,054. In ogni caso, il valore stimato rimane sempre al di sotto della soglia di accettabilità (≤ 110% del BAC).
 
 == MPC-07 — Estimate to Complete
 
@@ -865,7 +865,7 @@ RSI = (NR − NRC) / NR, dove NR è il numero di requisiti definiti e NRC il num
   supplement: [Figura],
 )
 
-Nello Sprint 1 tutti gli otto requisiti iniziali sono risultati stabili (RSI = 1,000). Nello Sprint 2 due requisiti sui 26 definiti sono stati revisionati a seguito di un approfondimento delle specifiche EN 18031 durante la stesura dell'Analisi dei Requisiti (RSI = 0,923). Nello Sprint 3, con 34 requisiti totali e le stesse due modifiche pregresse non ripetute, l'indice è risalito a 0,941: la crescita del documento di analisi non ha comportato ulteriori instabilità retroattive. Nello Sprint 4 il documento è cresciuto fino a 42 casi d'uso senza nuove modifiche retroattive, portando l'indice a 0,952. Nello Sprint 5, durante la finalizzazione dell'Analisi dei Requisiti, il numero di casi d'uso si è assestato a 43 — l'UC-44, introdotto temporaneamente, è stato successivamente eliminato — ed è stato revisionato l'UC-31, con l'RSI a 0,930. Nello Sprint 6 non sono state apportate ulteriori modifiche ai casi d'uso e l'indice è rimasto stabile a 0,930, sempre ampiamente al di sopra della soglia di 0,7.
+Nello Sprint 1 tutti gli otto requisiti iniziali sono risultati stabili (RSI = 1,000). Nello Sprint 2 due requisiti sui 26 definiti sono stati revisionati a seguito di un approfondimento delle specifiche EN 18031 durante la stesura dell'Analisi dei Requisiti (RSI = 0,923). Nello Sprint 3, con 34 requisiti totali e le stesse due modifiche pregresse non ripetute, l'indice è risalito a 0,941: la crescita del documento di analisi non ha comportato ulteriori instabilità retroattive. Nello Sprint 4 il documento è cresciuto fino a 42 casi d'uso senza nuove modifiche retroattive, portando l'indice a 0,952. Nello Sprint 5, durante la finalizzazione dell'Analisi dei Requisiti, il numero di casi d'uso si è assestato a 43 — l'UC-44, introdotto temporaneamente, è stato successivamente eliminato — ed è stato revisionato l'UC-31, con l'RSI a 0,930. Nello Sprint 6 non sono state apportate ulteriori modifiche ai casi d'uso e l'indice è rimasto stabile a 0,930, sempre ampiamente al di sopra della soglia di 0,7. Nell sprint 8 sono stati revisionati quattro requisiti (UC4.1.2, UC10, UC22.4, UC30.2) sui 43 totali, portando l'RSI a 0,907: il valore resta comunque ampiamente al di sopra della soglia di accettabilità.
 
 == MPC-09, MPC-10 — Indice di Gulpease, Correttezza Ortografica
 
@@ -941,7 +941,7 @@ Time Efficiency (TE) = (Ore Previste Cumulative / Ore Effettive Cumulative) × 1
   supplement: [Figura],
 )
 
-La Time Efficiency si mantiene tra il 100,0% (Sprint 1 e 2) e il 103,7% (Sprint 6), sempre ampiamente al di sopra della soglia dell'80%. Su base cumulativa il team ha impiegato 218 ore effettive a fronte delle 226 preventivate (−8 ore, circa il 3,5% in meno): uno scostamento contenuto e a favore del progetto, indicativo di una buona affidabilità delle stime.
+La Time Efficiency si mantiene tra il 100,0% (Sprint 1 e 2) e il 104,8% (Sprint 8), sempre ampiamente al di sopra della soglia dell'80%. Su base cumulativa il team ha impiegato 280 ore effettive a fronte delle 294 preventivate (−14 ore, circa un -4,8%): uno scostamento contenuto e a favore del progetto, indicativo di una buona affidabilità delle stime.
 
 == Metriche di qualità di prodotto (MPD)
 
