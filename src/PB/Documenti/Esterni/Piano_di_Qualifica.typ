@@ -762,7 +762,7 @@ I valori sono cumulativi: ogni sprint riporta il totale progressivo dall'inizio 
   [5], [2026/06/12], [4.130], [4.130], [3.960],
   [6], [2026/06/26], [4.810], [4.810], [4.610],
   [7], [2026/07/10], [5.680], [5.680], [5.230],
-  [8], [2026/07/24], [6.550], [6.550], [5.850],
+  [8], [2026/07/24], [6.165], [6.165], [5.850],
 )
 
 #figure(
@@ -771,8 +771,8 @@ I valori sono cumulativi: ogni sprint riporta il totale progressivo dall'inizio 
   supplement: [Figura],
 )
 
-Tutti e sei gli sprint si sono conclusi entro le date previste (fine reale = fine prevista), confermando il pieno allineamento tra lavoro pianificato ed eseguito. I costi effettivi (AC) risultano sistematicamente inferiori al Planned Value, con uno scostamento cumulativo di €200 a favore del progetto al termine dello Sprint 6. Questo andamento indica una stima iniziale delle ore sostanzialmente accurata e una gestione del budget efficiente lungo tutta la fase RTB.
-
+Tutti e gli otto sprint si sono conclusi entro le date previste (fine reale = fine prevista), confermando il pieno allineamento tra lavoro pianificato ed eseguito. I costi effettivi (AC) risultano sistematicamente inferiori al Planned Value, con uno scostamento cumulativo di €315 a favore del progetto al termine dello Sprint 8. Questo andamento indica una stima iniziale delle ore sostanzialmente accurata e una gestione del budget efficiente lungo tutta la fase RTB.
+#pagebreak()
 == MPC-04, MPC-05 — Schedule Performance Index, Cost Performance Index
 
 SPI = EV / PV. CPI = EV / AC. Valori prossimi a 1 indicano rispetto di tempi e budget. Valori > 1 indicano risparmio.
@@ -787,7 +787,7 @@ SPI = EV / PV. CPI = EV / AC. Valori prossimi a 1 indicano rispetto di tempi e b
   [5], [1,000], [$>= 0.9$ ✓], [1,043], [$>= 0.9$ ✓],
   [6], [1,000], [$>= 0.9$ ✓], [1,043], [$>= 0.9$ ✓],
   [7], [1,000], [$>= 0.9$ ✓], [1,086], [$>= 0.9$ ✓],
-  [8], [1,000], [$>= 0.9$ ✓], [1,118], [$>= 0.9$ ✓]
+  [8], [1,000], [$>= 0.9$ ✓], [1,054], [$>= 0.9$ ✓]
 )
 
 #figure(
@@ -798,7 +798,6 @@ SPI = EV / PV. CPI = EV / AC. Valori prossimi a 1 indicano rispetto di tempi e b
 
 SPI = 1,000 in tutti e sei gli sprint: il team ha rispettato perfettamente le scadenze pianificate, senza mai accumulare ritardi. Il CPI, superiore all'unità in ogni sprint, evidenzia un costante risparmio di costo rispetto al lavoro prodotto, con un trend complessivamente crescente (da 1,017 a 1,043, dopo una lieve flessione a 1,015 nello Sprint 2). L'andamento omogeneo dei due indicatori suggerisce che le stime iniziali fossero realistiche e che l'esecuzione sia stata disciplinata.
 
-#pagebreak()
 == MPC-06 — Estimate at Completion
 
 EAC = BAC / CPI. Rappresenta la stima del costo finale del progetto sulla base dell'efficienza attuale.
@@ -812,8 +811,8 @@ EAC = BAC / CPI. Rappresenta la stima del costo finale del progetto sulla base d
   [4], [1,043], [10.240], [10.680], [-440 (-4,1%)], [$<= 1.1 times "BAC"$ (110%) ✓],
   [5], [1,043], [10.240], [10.680], [-440 (-4,1%)], [$<= 1.1 times "BAC"$ (110%) ✓],
   [6], [1,043], [10.240], [10.680], [-440 (-4,1%)], [$<= 1.1 times "BAC"$ (110%) ✓],
-  [7], [1,043], [10.240], [10.680], [-440 (-4,1%)], [$<= 1.1 times "BAC"$ (110%) ✓], 
-  [8], [1,118], [9.555],  [10.680], [-1.125 (-10,5%)], [$<= 1.1 times "BAC"$ (110%) ✓]
+  [7], [1,086], [9,834], [10.680], [-846 (-7,9%)], [$<= 1.1 times "BAC"$ (110%) ✓], 
+  [8], [1,054], [10,142],  [10.680], [-538 (-5,0%)], [$<= 1.1 times "BAC"$ (110%) ✓]
 )
 
 #figure(
@@ -837,11 +836,11 @@ ETC = EAC − AC. Rappresenta la stima del costo ancora necessario per portare a
   [4], [7.015], [$<= 8.201$ ✓],
   [5], [6.280], [$<= 7.392$ ✓],
   [6], [5.630], [$<= 6.677$ ✓],
-  [7], [5.030], [$<= 5.980$ ✓],
-  [8], [4.705], [$<= 5.382$ ✓]
+  [7], [4.604], [$<= 5.995$ ✓],
+  [8], [4.292], [$<= 5.313$ ✓]
 )
 
-L'ETC decresce regolarmente sprint dopo sprint (da €9.617 nello Sprint 1 a €4.705 nello Sprint 8), confermando la progressione costante delle attività e la corretta imputazione dei costi.
+L'ETC decresce regolarmente sprint dopo sprint (da €9.617 nello Sprint 1 a €4.292 nello Sprint 8), confermando la progressione costante delle attività e la corretta imputazione dei costi.
 
 == MPC-08 — Requirements Stability Index
 
