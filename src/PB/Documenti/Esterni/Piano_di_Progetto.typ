@@ -1155,13 +1155,13 @@ Durante questo periodo, l'impegno del team si articolerà nelle seguenti attivit
     inset: (x: 8pt, y: 6pt),
     [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
     [*Ore residue*], [*Budget residuo*],
-    [Responsabile], [30], [3], [ 90€], [22], [640€],
+    [Responsabile], [30], [3], [ 90€], [22], [660€],
     [Amministratore], [20], [4], [80€], [16], [320€],
     [Analista], [25], [4], [100€], [5], [125€],
     [Progettista], [25], [11], [275€], [74], [1850€],
     [Programmatore], [15], [0], [0€], [71], [1065€],
     [Verificatore], [15], [5], [75€], [54], [810€],
-    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*27*], [*620€*], [*242*], [*4810€*],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*27*], [*620€*], [*242*], [*4830€*],
   )
 ]
 
