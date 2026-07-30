@@ -99,7 +99,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.0.2], [2026/07/24], [Filippo Zonta Rocha], [], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 8],
+    [1.0.2], [2026/07/24], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 8],
     [1.0.1], [2026/07/10], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta sezione relativa allo sprint 7],
     [1.0.0], [2026/06/29], [Filippo Zonta Rocha], [], [Approvazione del documento],
     [0.3.0], [2026/06/29], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta dei grafici relativi agli errori ortografici e Gulpease],
