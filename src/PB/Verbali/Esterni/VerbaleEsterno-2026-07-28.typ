@@ -64,8 +64,10 @@
       ),
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
-      [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026/07/28], [Alberto Canavese], [], [Prima stesura del verbale]
+      [*Versione*], [*Data*], [*Autore*],
+      [*Verificatore*], [*Descrizione*],
+      [1.0.0], [2026/07/28], [Edis Hodja], [], [Approvazione del verbale],
+      [0.1.0], [2026/07/28], [Alberto Canavese], [Edis Hodja], [Prima stesura del verbale]
     )
   ]
 
@@ -136,7 +138,7 @@ La riunione ha avuto come obiettivo principale l'allineamento con il referente a
 Di seguito vengono riportate le domande poste dal team e le relative risposte fornite dal referente aziendale.
 
 #heading(level: 3, numbering: none, outlined: false)[1. Scope e sincronizzazione delle modifiche ai Decision Tree]
-*Domanda:* Siamo entrati nella fase PB dopo il superamento della fase RTB, abbiamo modificato leggermente l'analisi dei requisiti. È risaltato che c’era un'incongruenza all’analisi dei DT: pensavamo di realizzare un'app che andava in un container locale, ma andava contro l’idea iniziale che la modifica dei DT andava a diffondersi e sincronizzarsi su tutte le istanze dell’app. Quindi abbiamo deciso di non implementare la modifica dei DT, a voi va bene? O preferite solo modifica in locale non distribuita? \
+*Domanda:* Siamo entrati nella fase PB dopo il superamento della fase RTB, abbiamo modificato leggermente l'Analisi dei Requisiti. È risaltato che c’era un'incongruenza all’analisi dei Decision Tree: pensavamo di realizzare un'app che andava in un container locale, ma andava contro l’idea iniziale che la modifica dei DT andava a diffondersi e sincronizzarsi su tutte le istanze dell’app. Quindi abbiamo deciso di non implementare la modifica dei DT, a voi va bene? O preferite solo modifica in locale non distribuita? \
 *Risposta:* Mantenere la funzionalità limitandola a una modifica esclusivamente locale è una soluzione considerata valida e preferibile rispetto alla sua rimozione totale. Non è necessario implementare un sistema di sincronizzazione distribuita: la condivisione dei Decision Tree aggiornati può essere gestita esternamente all'applicativo, permettendo agli utenti di esportare i file modificati in locale e distribuirli manualmente agli altri utilizzatori.
 
 #heading(level: 3, numbering: none, outlined: false)[2. Struttura dei file per l'importazione del dispositivo]
@@ -144,7 +146,7 @@ Di seguito vengono riportate le domande poste dal team e le relative risposte fo
 *Risposta:* È preferibile che sia il team di sviluppo a proporre e definire una bozza della struttura dati per i file di importazione. Tale proposta verrà successivamente analizzata e validata congiuntamente con l'azienda.
 
 #heading(level: 3, numbering: none, outlined: false)[3. Struttura del report di conformità]
-*Domanda:* Stessa cosa anche per il report di conformità? \
+*Domanda:* Medesima situazione anche interessa anche il report di conformità? \
 *Risposta:* Sì, l'approccio è confermato anche per il report di conformità: il team di sviluppo è incaricato di progettarne la struttura, che sarà poi sottoposta a revisione e validazione da parte dell'azienda.
 
 #heading(level: 3, numbering: none, outlined: false)[4. Modalità di revisione e prossimi passi]
