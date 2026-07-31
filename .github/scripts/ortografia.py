@@ -222,12 +222,12 @@ def preprocess_for_spellcheck(text: str) -> str:
 # ---------------------------------------------------------------------------
 
 def load_wordlist() -> set[str]:
-    words = {
+    words_raw = {
         # --- Team, Nomi, Aziende e Brand ---
         "edis", "hodja", "bronte", "zonta", "filippo", "giovanni", "leonardo",
         "vardanega", "cardin", "fiorese", "rocha", "lorenzin", "iadadi", "ferrarin",
         "coderius", "coderiusgroup", "bluewind", "athesys", "monokee", "nexum", "eggon",
-        "amazon", "google", "apple", "microsoft", "srl",
+        "amazon", "google", "apple", "microsoft", "srl", "realizzativa",
         
         # --- Tecnologie, Web, Strumenti e Linguaggi ---
         "backend", "frontend", "framework", "javascript", "python", "docker", 
@@ -235,7 +235,9 @@ def load_wordlist() -> set[str]:
         "chrome", "mozilla", "firefox", "edge", "git", "cloud", "storage", 
         "dashboard", "app", "issue", "issues", "vue", "react", "flask", "fastapi",
         "telegram", "discord", "excel", "meet", "comprehend", "plantuml", "figma",
-        "typ", "src", "gulpease",
+        "typ", "src", "gulpease", "nrob", "planned", "value", "earned", "actual",
+        "cost", "at", "completion", "upright", "sec", "projects", "actions", "main", 
+        "whatsapp", 
         
         # --- Terminologia Informatica / Inglese tecnico ---
         "layout", "mapping", "template", "stack", "interface", "local", "form",
@@ -257,7 +259,7 @@ def load_wordlist() -> set[str]:
         "tracciabilità", "recuperabilità", "apprendibilità", "analizzabilità",
         "automiglioramento", "breakable", "stability", "quality", "metrics",
         "error", "response", "process", "lead", "indiceradice", "indiceannidato",
-        "adr", "pdp", "ndp", "ob", "nrops",
+        "adr", "pdp", "ndp", "ob", "nrops", "versionamento", "customizzato", 
         
         # --- Parole inglesi comuni (falsi positivi di Aspell ITA) ---
         "of", "to", "tool", "tools", "true", "times", "feature", "satisfied", "it",
@@ -265,6 +267,9 @@ def load_wordlist() -> set[str]:
         # --- Parole troncate dall'apostrofo ---
         "sull", "dall", "all", "nell", "dell", "quest"
     }
+    
+    # Forza tutte le parole in minuscolo per evitare discrepanze con w.lower()
+    words = {w.lower() for w in words_raw}
 
     # Carica da file esterno se esiste
     if WORDLIST_FILE.exists():
