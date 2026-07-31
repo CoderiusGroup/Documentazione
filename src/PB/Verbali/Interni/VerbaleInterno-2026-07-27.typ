@@ -73,7 +73,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026-07-27], [Giovanni Bronte], [], [Prima stesura del verbale],
+      [1.0.0], [2026-07-31], [Edis Hodja], [], [Approvazione del verbale],
+      [0.1.0], [2026-07-27], [Giovanni Bronte], [Edis Hodja], [Prima stesura del verbale],
     )
 
   ]
@@ -118,22 +119,26 @@
 
 
 = Ordine del Giorno
-+ Divisione ruoli per sprint 9 e cambio di durata degli sprint
-+ Organizzazione delle attività per l'avvio della fase di Product Baseline
-+ Preparazione per colloquio con Bluewind
++ Divisione ruoli per lo Sprint 9.
++ Organizzazione delle attività relative alla fase di Product Baseline.
++ Discussione relativa ai quesiti da porre durante colloquio con la proponente Bluewind.
 
 = Svolgimento della Riunione
 
 ==  Organizzazione delle attività per l'avvio della fase di Product Baseline
-Dopo aver superato con successo i colloqui per la fase RTB, abbiamo ufficialmente avviato le attività per la successiva fase di PB. Il team ha quindi discusso quali documenti dovranno essere aggiornati e quali documenti dovranno essere scritti per la PB.
-Il team ha deciso di continuare ad aggiornare i documenti Piano di Progetto e Piano di Qualifica, dato che sono fondamentali per tenere traccia dell'andamento del progetto. Inoltre, è stato deciso di iniziare a scrivere il documento di Specifica Tecnica, che sarà fondamentale per i futuri programmatori, in quanto definisce l'architettura dietro l'applicazione web.
+Dopo aver ricevuto esito positivo ed aver superato con successo la fase RTB, abbiamo ufficialmente avviato le attività per la successiva fase di Product Baseline. Il team ha quindi discusso quali documenti dovranno essere aggiornati e quali documenti dovranno essere scritti per la Product Baseline.
 
-== Divisione ruoli per sprint 9 e cambio di durata degli sprint
-Come ogni inizio di sprint, il team ha discusso su come dividersi i ruoli al meglio per il prossimo sprint. Abbiamo deciso di introdurre un programmatore insieme ai due progettisti per iniziare a scrivere il codice dell'applicazione web, seguendo le indicazioni dettate dall'architettura scritta dai progettisti.
-A causa di esigenze organizzative e produttive, è stato inoltre deciso di cambiare la durata degli sprint da due settimane a una settimana per sprint. Questo ci permette di essere più flessibili ai cambiamenti e di pianificare attività in modo che siano più facilmente gestibili.
+Il team ha deciso di continuare ad aggiornare i documenti Piano di Progetto e Piano di Qualifica, dato che sono fondamentali per tenere traccia dell'andamento del progetto. Inoltre, è stato deciso di iniziare la stesura del documento relativo alla Specifica Tecnica, che sarà fondamentale per i futuri programmatori, in quanto definisce l'architettura dietro il prodotto finale, ovvero l'applicazione web.
 
-== Preparazione per colloquio con Bluewind
-Il team ha discusso sugli argomenti da affrontare con l'azienda proponente nel prossimo incontro. Dato che non sono stati fatti cambiamenti radicali all'AdR e che il lavoro riguardante la fase PB è ancora agli inizi, è stato deciso di aggiornare l'azienda sull'esito dei colloqui per l'RTB e di porre solo qualche domanda riguardante i dubbi sorti durante la stesura del documento di Specifica Tecnica.
+== Divisione ruoli per lo Sprint 9
+In vista del termine dello Sprint 8, durante l'incontro interno il team ha discusso della suddivisione dei ruoli per lo sprint successivo. La decisione, presa in maniera collettiva, è stata quella di introdurre due figure con il ruolo di progettisti che affiancheranno il programmatore. Lo scopo è di gestire l'inizio della progettazione dell'applicazione web, cercando di seguire le linee architetturali definite dai progettisti stessi.
+
+A causa di esigenze organizzative e produttive, è stato inoltre deciso di modificare la durata degli sprint da due settimane a una settimana. Questo ci permette di essere più flessibili ai cambiamenti e di pianificare le attività in modo che siano più facilmente gestibili.
+
+== Preparazione per colloquio esterno con la proponente Bluewind
+Il gruppo di lavoro ha deliberato gli argomenti di discussione per il prossimo incontro esterno con l'azienda proponente. Considerata l'assenza di variazioni sostanziali ai contenuti dell'Analisi dei Requisiti e trovandosi le attività di Product Baseline in fase di inizializzazione, si è deciso di incentrare l'incontro sul resoconto dei colloqui per l'RTB e sull'approfondimento tecnico dei dubbi emersi durante la redazione della Specifica Tecnica.
+
+#pagebreak()
 
 = Conclusione e Decisioni Prese
 #align(center)[
@@ -141,14 +146,14 @@ Il team ha discusso sugli argomenti da affrontare con l'azienda proponente nel p
     columns: (auto, 1fr),
     align: (center, left),
     [*Codice*], [*Descrizione*],
-    [VI-15.1], [Aggiornamento Piano di Progetto],
-    [VI-15.2], [Aggiornamento Piano di Qualifica],
-    [VI-15.3], [Inizio Redazione Specifica Tecnica],
-    [VI-15.4], [Inizio scrittura codice applicazione web],
+    [VI-15.1], [Aggiornamento del Piano di Progetto],
+    [VI-15.2], [Aggiornamento del Piano di Qualifica],
+    [VI-15.3], [Avvio stesura della Specifica Tecnica],
+    [VI-15.4], [Avvio sviluppo dell'applicazione web],
   )
 ]
 == Ordine del Giorno del prossimo incontro
-+ Aggiornamento sullo stato dei documenti 
++ Aggiornamento sullo stato di avanzamento riguardante la redazione dei documenti 
 
 = TODO
 Elenco dei compiti assegnati ai membri del team in vista della prossima riunione.
@@ -157,9 +162,9 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-15.1], [Aggiornamento Piano di Progetto], [Ines Iadadi], [VI-15.1],
-    [TD-15.2], [Aggiornamento Piano di Qualifica], [Giovanni Bronte], [VI-15.2],
-    [TD-15.3], [Inizio Redazione Specifica Tecnica], [Filippo Zonta Rocha,\ Leonardo Lorenzin], [VI-15.3],
-    [TD-15.4], [Inizio scrittura codice applicazione web], [Alberto Canavese], [VI-15.4],
+    [TD-15.1], [Aggiornamento del Piano di Progetto], [Ines Iadadi], [VI-15.1],
+    [TD-15.2], [Aggiornamento del Piano di Qualifica], [Giovanni Bronte], [VI-15.2],
+    [TD-15.3], [Avvio stesura della Specifica Tecnica], [Filippo Zonta Rocha,\ Leonardo Lorenzin], [VI-15.3],
+    [TD-15.4], [Avvio sviluppo dell'applicazione web], [Alberto Canavese], [VI-15.4],
   )
 ]
