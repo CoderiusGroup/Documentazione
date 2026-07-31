@@ -6,7 +6,7 @@
       #set text(size: 9pt, fill: luma(100))
       #grid(
         columns: (1fr, 1fr),
-        align(left)[Piano di Progetto], align(right)[Coderius Group],
+        align(left)[Specifica Tecnica], align(right)[Coderius Group],
       )
       #v(-0.5em)
       #line(length: 100%, stroke: 0.4pt + luma(150))
@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.3.0*]
+  #text(size: 20pt)[*Versione 0.4.0*]
 ]
 #pagebreak()
 
@@ -100,8 +100,9 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.3.0], [2026/07/27], [Giovanni Bronte], [Leonardo Lorenzin], [Stesura della sezione 2],
-    [0.2.0], [2026/07/27], [Alberto Canavese], [Leonardo Lorenzin], [Stesura della sezione 1],
+    [0.4.0], [2026/07/29], [Leonardo Lorenzin], [], [Stesura iniziale della sezione 3],
+    [0.3.0], [2026/07/24], [Giovanni Bronte], [Leonardo Lorenzin], [Stesura della sezione 2],
+    [0.2.0], [2026/07/24], [Alberto Canavese], [Leonardo Lorenzin], [Stesura della sezione 1],
     [0.1.0], [2026/07/21], [Giovanni Bronte], [Leonardo Lorenzin], [Prima stesura del documento],
   )
 ]
@@ -110,6 +111,11 @@
 #show link: underline;
 #text(size: 18pt, weight: "bold")[Indice]
 #outline(title: none, depth: 3)
+
+#outline(
+  title: [Elenco delle Figure],
+  target: figure.where(kind: image),
+)
 
 #pagebreak()
 
@@ -186,6 +192,7 @@ Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è cont
   - #link("https://vitest.dev/")[#text(fill: blue)[Vitest]]
   - #link("https://testing-library.com/docs/react-testing-library/intro/")[#text(fill: blue)[React Testing Library]]
 
+#pagebreak()
 = Tecnologie
 Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del capitolato *Automated EN18031 Compliance Verification*.
 
@@ -252,6 +259,7 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     ],
 )
 
+#pagebreak()
 == Librerie
 
 #table(
@@ -263,6 +271,22 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     [React],
     [19.2.7],
     [React è una libreria completa, molto flessibile e permette la creazione e la gestione dell'interfaccia utente. Nel nostro progetto viene utilizzato per le varie librerie che permettono di gestire l'interfaccia utente al meglio.],
+
+    [Zustand],
+    [/],
+    [Zustand è una libreria minimale per la gestione dello stato globale in applicazioni React: gli store si definiscono tramite funzioni hook, senza richiedere Provider né il boilerplate legato ad azioni e reducer tipico di altre soluzioni. Nel nostro progetto viene utilizzato per implementare gli store separati per area funzionale (DeviceStore, SessionStore, TreeStore, ResultStore, UIStore) del frontend.],
+
+    [Zod],
+    [/],
+    [Zod è una libreria per la definizione e validazione di schemi dati, con inferenza automatica dei tipi TypeScript a partire dallo schema stesso. Nel nostro progetto viene utilizzata nel Domain Layer del frontend per validare la struttura dei dati in ingresso (dispositivi, asset) prima che vengano elaborati dal resto dell'applicazione.],
+
+    [react-hot-toast],
+    [/],
+    [react-hot-toast è una libreria leggera per la gestione di notifiche toast in applicazioni React, con supporto nativo a coda, timer di auto-dismiss e stacking dei messaggi. Nel nostro progetto viene utilizzata nell'Infrastructure Layer del frontend come implementazione concreta dietro l'interfaccia NotificationService.],
+
+    [TanStack Query],
+    [/],
+    [TanStack Query è una libreria per la gestione dello stato server-side in applicazioni React: si occupa di caching, retry con backoff e deduplica delle richieste in volo. Nel nostro progetto viene utilizzata nell'Infrastructure Layer del frontend per orchestrare le chiamate al decision tree sopra FetchApiClient, senza sostituirlo.],
 )
 
 == Tecnologie per testing
@@ -284,6 +308,100 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
 
 
 = Architettura
+== Panoramica e stile architetturale
+
+L'applicazione è strutturata secondo il paradigma *Client-Server*, con una distinzione precisa tra il livello che gestisce l'interazione con l'utente e quello che si occupa della logica applicativa e della persistenza. Tenere separate queste due responsabilità permette di far evolvere ciascuna parte in modo autonomo e di ridurre le dipendenze reciproche tra le tecnologie impiegate.
+
+Concretamente, il prodotto è composto da un client *React*, che costituisce l'intera interfaccia grafica, e da un server *Flask* scritto in Python 3.12, che raccoglie la logica di business e amministra i dati. Il primo si occupa di mostrare le viste, raccogliere e validare gli input, tenere traccia dello stato di navigazione e rendere interattiva la consultazione dei decision tree e degli esiti. Il secondo espone le funzionalità applicative, verifica la correttezza dei dati in ingresso, coordina l'importazione e l'esportazione dei file *JSON* e produce i report finali nei formati *JSON* e *PDF*.
+
+=== Modalità di comunicazione
+Client e server restano deliberatamente indipendenti e dialogano esclusivamente attraverso chiamate *HTTP* secondo lo stile architetturale *REST*. Ogni operazione di lettura, creazione o modifica delle risorse (dispositivi, decision tree, sessioni di valutazione, risultati)  si traduce in una richiesta del frontend verso gli endpoint esposti dal backend, con i dati veicolati in formato *JSON*.
+
+Si tratta di uno scambio *stateless*: il server non conserva alcuno stato di sessione tra una richiesta e la successiva, e ogni chiamata deve contenere tutte le informazioni necessarie alla propria elaborazione. Questa impostazione è coerente con la scelta di non adottare un database relazionale: la persistenza è affidata alla lettura e alla scrittura di file *JSON* sul filesystem del server, sia per i dispositivi importati sia per i decision tree e le sessioni di valutazione.
+
+Il client, da parte sua, ignora completamente come tali dati vengano archiviati o come venga eseguita la logica di valutazione dei singoli nodi: si limita a rispettare i contratti stabiliti dalle API, che rappresentano l'unico punto di contatto tra le due componenti e l'unica fonte di verità condivisa.
+
+== Architettura di deployment
+Il sistema viene distribuito come applicazione monolitica — un singolo backend *Flask* e un singolo frontend *React* — anziché come insieme di microservizi indipendenti, con i due container orchestrati tramite *Docker Compose*.
+
+Questa scelta è coerente con la natura del dominio applicativo: il sistema elabora un dispositivo alla volta all'interno di una singola sessione di valutazione, senza richiedere l'elaborazione concorrente di grandi volumi di richieste né la scalabilità orizzontale indipendente delle sue parti. La separazione tra client e server, unita all'organizzazione interna a layer descritta nelle sezioni successive, è già sufficiente a garantire la modularità e il disaccoppiamento necessari, senza dover ricorrere a una scomposizione fisica in servizi separati.
+
+Adottare i microservizi in questo contesto introdurrebbe una complessità infrastrutturale sproporzionata rispetto ai benefici, a fronte di un dominio applicativo ben delimitato. Un'architettura monolitica containerizzata risulta invece più semplice da avviare, interrompere e manutenere, richiede meno risorse computazionali e consente cicli di deploy più rapidi: caratteristiche che meglio si adattano sia alle dimensioni del team di sviluppo, sia al carattere di strumento interno del prodotto.
+
+== Frontend
+
+Il frontend è realizzato come *Single Page Application* in React. Le pagine non contengono logica di business: si limitano a comporre la UI e a delegare recupero dati, validazioni e transizioni di stato a hook applicativi dedicati, i quali a loro volta si appoggiano su store di stato condiviso e su service per orchestrare i casi d'uso principali (gestione di device e asset, esecuzione guidata del test di conformità, produzione e consultazione dei risultati). Per mantenere il codice manutenibile e facilmente estendibile con nuovi requisiti EN 18031, l'applicazione è organizzata secondo un'architettura a livelli, in cui ogni livello ha una responsabilità unica e dipende solo da quelli sottostanti. Nella sezione seguente sono riportati i livelli individuati e le principali scelte tecnologiche adottate per ciascuno.
+
+=== Organizzazione a livelli
+Il frontend è organizzato in sei livelli, ciascuno con una responsabilità unica:
+
+- *Presentation Layer*:  Pagine e componenti React con instradamento basato su React Router.
+
+- *Application Layer*: Custom Hooks e Service dedicati all'orchestrazione dei casi d'uso.
+- *State Management*: Store distribuiti per area funzionale (DeviceStore, SessionStore, TreeStore, ResultStore, UIStore) basati su Zustand.
+- *Infrastructure Layer*: Gestione comunicazione HTTP tramite fetch nativo incapsulato e mapping degli errori unico.
+- *Domain Layer*:  Entità di business (Device, Asset, DecisionTree, Node), validazione dei dati tramite Zod e logica di esecuzione/ripresa (treeRules).
+- *Shared*: Soluzioni custom senza librerie esterne di validazione o gestione UI.
+
+La dipendenza tra livelli è a senso unico: Presentation dipende da Application, Application dipende
+da State/Domain/Infrastructure, mentre Domain non dipende da nessun altro livello. Questo vincolo è
+quello che permette di sostituire un dettaglio tecnico (es. il client HTTP) senza toccare le
+pagine, ed è il criterio guida usato nelle scelte descritte di seguito.
+
+Si è deliberatamente scelto di non applicare una separazione esagonale rigorosa in ogni punto: i
+service applicativi possono scrivere direttamente sugli store invece di passare sempre da
+un'astrazione intermedia aggiuntiva, mantenendo nonostante ciò il vincolo di dipendenza a senso unico  rispettato.
+
+==== Presentation Layer
+
+Il Presentation Layer raggruppa le pagine dell'applicazione (HomeView, DeviceFormView, DeviceAssetManagementView, AssetFormView, DeviceSummaryView, SessionRunnerView, ModifySessionView, ResultView) e i componenti UI che le compongono. Ogni pagina corrisponde all'ingresso di un caso d'uso specifico e si limita a comporre elementi visuali, senza contenere logica di validazione o chiamate dirette al backend: ogni decisione viene delegata al layer applicativo sottostante tramite hook dedicati. L'instradamento tra le pagine è affidato a React Router, che associa a ciascuna vista un percorso proprio e permette di applicare guardie di accesso (route guard) alle pagine che richiedono precondizioni — ad esempio impedire l'apertura di SessionRunnerView se non è stato prima definito un device attivo. Il layer non mantiene alcuno stato condiviso tra viste: legge dati e funzioni esposti dagli hook e si occupa solo di renderizzarli e di inoltrare gli eventi generati dall'utente.
+
+==== Application Layer
+
+L'Application Layer contiene gli hook applicativi e i service che orchestrano i casi d'uso. Ogni hook incapsula un flusso operativo specifico (navigazione dalla home, gestione asset, esecuzione della sessione di valutazione, export) ed espone alle pagine solo lo stato e le funzioni necessarie a renderlo, nascondendo la sequenza di chiamate a service e store sottostanti. I service applicativi centralizzano operazioni che hanno senso indipendentemente da una singola vista: il servizio di sessione coordina creazione, risposta, navigazione e ripresa del test; il servizio degli alberi decisionali si occupa di caricamento e normalizzazione; il servizio device gestisce le operazioni su device e asset; il servizio di export produce i file scaricabili. 
+==== State Management
+
+Lo stato condiviso tra più pagine è distribuito su cinque store distinti per area funzionale (DeviceStore, SessionStore, TreeStore, ResultStore, UIStore), ciascuno implementato come store *Zustand* indipendente. /*Zustand è stato scelto rispetto a un approccio basato su React Context + useReducer perché evita la ricreazione di Provider annidati e i re-render indiscriminati tipici del Context quando lo stato cambia, mantenendo comunque store separati per responsabilità invece di un unico store monolitico.*/ Ogni store definisce uno stato iniziale, un insieme di azioni tipizzate che ne descrivono le uniche modifiche ammesse, e un hook selettore dedicato attraverso cui i componenti leggono i dati senza conoscere la forma interna dello store. Questa organizzazione impedisce che lo stato venga alterato da un punto qualsiasi del codice, facendo sì che ogni cambiamento passi da un'azione esplicita, tracciabile e riconducibile a un preciso caso d'uso gestito dal layer applicativo.
+
+==== Infrastructure Layer
+
+L'Infrastructure Layer racchiude i dettagli tecnici dietro interfacce stabili usate dal layer applicativo. FetchApiClient realizza la comunicazione HTTP tramite fetch nativo, esposto ai service tramite l'interfaccia ApiClientService. Sopra questo livello, *TanStack Query* orchestra le chiamate al decision tree occupandosi di cache, retry e deduplica delle richieste, senza che i service debbano gestirle manualmente; una funzione di mapping degli errori converte i fallimenti di rete o di protocollo in errori applicativi tipizzati, in modo che il resto dell'applicazione non debba mai interpretare direttamente uno stato HTTP o un'eccezione di rete.\
+NotificationManager realizza in modo analogo la consegna concreta delle notifiche dietro l'interfaccia NotificationService, appoggiandosi alla libreria *react-hot-toast* per la gestione di coda, timer di auto-dismiss e stacking dei messaggi. /*L'isolamento di questi dettagli in un layer separato consente di sostituire un'implementazione tecnica, ad esempio il client HTTP, senza modificare il layer applicativo che la utilizza.*/
+
+==== Domain Layer
+
+Il Domain Layer rappresenta il problema applicativo in modo indipendente da React, dal routing e dal backend. Le entità Device e Asset incapsulano i propri dati ed espongono metodi per la gestione degli asset e l'assegnazione dei requisiti, mantenendosi internamente coerenti; Node e DecisionTree offrono una rappresentazione tipizzata di domanda/foglia e dell'albero di valutazione, con una funzione di conversione esplicita dal payload restituito dal backend. Le regole pure treeRules determinano se un requisito è ancora riprendibile o va considerato concluso, mentre la validazione della struttura dei dati in ingresso è affidata a schemi *Zod*, così da individuare payload malformati prima che raggiungano il resto dell'applicazione.
+
+=== Moduli applicativi del frontend /*Elementi costitutivi del frontend*/
+Le sezioni precedenti hanno definito i livelli architetturali del frontend e le relative scelte
+tecnologiche. Questa sezione ne descrive l'implementazione concreta: le pagine, gli hook, i service, gli store e le entità del, con ruolo e responsabilità di ciascun modulo.
+==== Pagine dell'applicazione
+
+Il Presentation Layer è composto da otto pagine, ciascuna corrispondente a un caso d'uso
+specifico del flusso di valutazione, dalla creazione del device fino alla consultazione dei
+risultati finali. Di seguito è riportato il ruolo di ciascuna pagina: 
+
+- *LandingPage*: permette di creare un nuovo device, caricarne
+  uno esistente o riprendere una sessione di valutazione già avviata.
+
+- *DeviceFormPage*: raccolta e validazione dei dati descrittivi del device.
+- *DeviceAssetManagementPage*: gestione dell'elenco degli asset associati al device (aggiunta,
+  modifica, rimozione).
+- *AssetFormPage*: creazione o modifica di un singolo asset e assegnazione dei requisiti EN 18031
+  da valutare.
+- *DeviceSummaryPage*: riepilogo di device e asset prima di avviare la valutazione.
+- *SessionRunnerPage*: presenta la domanda corrente del decision tree e gestisce la navigazione
+  tra le risposte.
+- *ModifySessionPage*: permette di scegliere quale requisito/asset riprendere o rifare all'interno
+  di una sessione in corso.
+- *ResultsPage*: mostra i risultati aggregati della valutazione e ne consente l'esportazione.
+
+#v(1em)
+#figure(
+  image("../../../images/specifica_tecnica/diagramma_pagine.png", width: 100%),
+  caption: [Diagramma delle pagine],
+)
+
 
 = Tracciamento
 
