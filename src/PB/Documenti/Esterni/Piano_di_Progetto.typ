@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.4.0*]
+  #text(size: 20pt)[*Versione 1.4.1*]
 ]
 #pagebreak()
 
@@ -100,6 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.4.1], [2026/07/31], [Ines Iadadi], [], [Aggiunta delle sezioni Sprint 9: 4.10.5, 4.10.6, 4.10.7, 4.10.8],
     [1.4.0], [2026/07/25], [Ines Iadadi], [Edis Hodja], [Aggiunta delle sezioni Sprint 9: 4.10.1, 4.10.2, 4.10.3, 4.10.4],
     [1.3.1], [2026/07/25], [Edis Hodja], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 8: 4.9.6, 4.9.7, 4.9.8],
     [1.3.0], [2026/07/13], [Edis Hodja], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 8: 4.9.1, 4.9.2, 4.9.3, 4.9.4, 4.9.5],
@@ -1184,14 +1185,13 @@ La principale criticità riscontrata durante lo sprint è stata la ridotta dispo
   inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
   [*Inizio:*],        [2026/07/24],
   [*Fine prevista:*], [2026/07/31],
-  [*Fine reale:*],    [],
+  [*Fine reale:*],    [2026/07/31],
 )
 #v(0.3em)
 
 === Attività pianificate
 
-Il gruppo avvia in questo sprint,
-di durata ridotta a una settimana, le prime attività operative di consolidamento e sviluppo.
+Il gruppo avvia in questo sprint le prime attività operative di consolidamento e sviluppo. A differenza dei periodi precedenti, dedicati principalmente alla stesura di documentazione estesa, le attività pianificate risultano più numerose e brevi, in quanto circoscritte al consolidamento di scelte già discusse con la proponente e all'avvio di attività di sviluppo puntuali. Per questo motivo si è scelto di ridurre la durata dello sprint a una settimana, così da poter verificare con maggiore frequenza l'avanzamento delle prime attività di sviluppo e reagire tempestivamente a eventuali criticità.
 
 Le attività principali pianificate sono:
 
@@ -1226,3 +1226,47 @@ Le attività principali pianificate sono:
   )),
     caption: [Preventivo ore per membro - Sprint 9]
 )
+
+=== Consuntivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[-],[6],[-],[6]),
+    ([Edis Hodja],         [-],[-],[-],[-],[-],[4],[4]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[4#text(fill: green)[(-1)]],[-],[-],[4]),
+    ([Giovanni Angelo Marco Bronte],[-],[3],[-],[-],[-],[-],[3]),
+    ([Ines Iadadi],        [4],[-],[-],[-],[-],[-],[4]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[6#text(fill: red)[(+1)]],[-],[-],[6]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*4*],[*3*],[*0*],[*10*],[*6*],[*4*],[*27*]),
+  )),
+    caption: [Consuntivo ore per membro - Sprint 9]
+)
+
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [4], [120€], [18], [540€],
+    [Amministratore], [20], [3], [60€], [13], [260€],
+    [Analista], [25], [0], [0€], [5], [125€],
+    [Progettista], [25], [10], [250€], [64], [1600€],
+    [Programmatore], [15], [6], [90€], [65], [975€],
+    [Verificatore], [15], [4], [60€], [50], [750€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*27*], [*580€*], [*215*], [*4250€*],
+  )
+]
+
+=== Rischi incontrati
+- *RT-1*: L'inesperienza pratica del team con lo stack tecnologico si è manifestata nelle prime attività implementative dell'MVP, rallentando in alcuni momenti l'avvio dello sviluppo. Il gruppo ha mitigato il rischio facendo ricorso al confronto interno e alla documentazione ufficiale consultata durante la fase di autoformazione dello Sprint 8.
+
+- *RO-1*: La durata ridotta dello sprint ha reso più delicata la stima delle attività, generando alcune imprecisioni rispetto al preventivo. Il gruppo ha gestito lo scostamento riadattando il carico di lavoro tra i membri coinvolti.
+
+=== Retrospettiva
+Durante questo sprint il gruppo ha avviato le prime attività operative di consolidamento e sviluppo, a seguito della fase di "palestra" svolta nello Sprint precedente. È proseguito il confronto con Bluewind, che ha permesso di consolidare le scelte architetturali già discusse. È stata inoltre avviata la stesura della Specifica Tecnica e sono state avviate le prime attività di sviluppo dell'MVP.
+
+==== Criticità emerse
+La principale criticità riscontrata durante lo sprint ha riguardato l'avvio dello sviluppo dell'MVP, per il quale l'inesperienza pratica del team con lo stack tecnologico ha reso necessario un maggiore tempo di adattamento rispetto a quanto preventivato.
