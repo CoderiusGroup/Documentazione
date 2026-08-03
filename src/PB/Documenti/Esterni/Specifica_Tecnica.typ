@@ -100,7 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.4.0], [2026/07/29], [Leonardo Lorenzin], [], [Stesura iniziale della sezione 3],
+    [0.4.0], [2026/07/29], [Leonardo Lorenzin], [Edis Hodja], [Stesura iniziale della sezione 3],
     [0.3.0], [2026/07/24], [Giovanni Bronte], [Leonardo Lorenzin], [Stesura della sezione 2],
     [0.2.0], [2026/07/24], [Alberto Canavese], [Leonardo Lorenzin], [Stesura della sezione 1],
     [0.1.0], [2026/07/21], [Giovanni Bronte], [Leonardo Lorenzin], [Prima stesura del documento],
@@ -126,7 +126,7 @@
 = Introduzione
 
 == Scopo del documento
-La presente documentazione è redatta con il fine di illustrare in modo esaustivo l'architettura, sia logica che infrastrutturale, del sistema concepito dal *Coderius Group*. La *Specifica Tecnica* si pone come linea guida vincolante per l'intera fase di implementazione, fungendo da ponte tra l'analisi dei requisiti e la realizzazione concreta del software, per assicurarne solidità e coerenza strutturale.
+La presente documentazione è redatta con il fine di illustrare in modo esaustivo l'architettura, sia logica che infrastrutturale, del sistema concepito dal gruppo *Coderius*. \ La *Specifica Tecnica* si pone come linea guida vincolante per l'intera fase di implementazione, fungendo da ponte tra l'#underline(text(fill: blue)[#link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Esterni/Analisi_dei_Requisiti.pdf")[Analisi dei Requisiti]]) e la realizzazione concreta del software, per assicurarne solidità e coerenza strutturale.
 
 Nel dettaglio, gli obiettivi preposti per questo documento sono:
 
@@ -140,6 +140,8 @@ Nel dettaglio, gli obiettivi preposti per questo documento sono:
 Il prodotto mira ad automatizzare e digitalizzare il processo di verifica della conformità alla normativa di sicurezza EN 18031, come richiesto dal capitolato *Automated EN18031 Compliance Verification* proposto da Bluewind S.r.l. L'obiettivo è sostituire le attuali procedure manuali, spesso dispendiose in termini di tempo e soggette a errore umano, con una soluzione software moderna ed efficiente.
 
 Il sistema permetterà di valutare sistematicamente i requisiti di sicurezza per i dispositivi, elaborando esiti certi e tracciabili attraverso l'esecuzione di alberi decisionali. Tramite un'interfaccia utente web fluida e reattiva, il prodotto finale ottimizzerà i tempi operativi della proponente, garantendo al contempo un elevato standard di affidabilità nella validazione dei dati.
+
+#pagebreak()
 
 == Glossario
 Al fine di evitare ambiguità e incomprensioni legate alla terminologia tecnica presente in questo documento e nel resto della documentazione prodotta dal Coderius Group, è stato redatto un apposito glossario. 
@@ -182,15 +184,17 @@ Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è cont
     fill: blue,
   )[Slide IS A.A. 2025/2026 - _Progettazione Software_]]
 
-- Documentazione delle tecnologie:
-  - #link("https://docs.python.org/3/")[#text(fill: blue)[Python]]
-  - #link("https://developer.mozilla.org/en-US/docs/Web/JavaScript")[#text(fill: blue)[JavaScript]]
-  - #link("https://react.dev/")[#text(fill: blue)[React]]
-  - #link("https://vite.dev/guide/")[#text(fill: blue)[Vite]]
-  - #link("https://flask.palletsprojects.com/")[#text(fill: blue)[Flask]]
-  - #link("https://docs.docker.com/")[#text(fill: blue)[Docker]]
-  - #link("https://vitest.dev/")[#text(fill: blue)[Vitest]]
-  - #link("https://testing-library.com/docs/react-testing-library/intro/")[#text(fill: blue)[React Testing Library]]
+=== Documentazione delle tecnologie:
+
+  - #link("https://docs.python.org/3/")[#underline[#text(fill: blue)[Python 3 Official Documentation]]]
+
+  - #link("https://developer.mozilla.org/en-US/docs/Web/JavaScript")[#underline[#text(fill: blue)[MDN JavaScript Reference]]]
+  - #link("https://react.dev/")[#underline[#text(fill: blue)[React Official Documentation]]]
+  - #link("https://vite.dev/guide/")[#underline[#text(fill: blue)[Vite Getting Started Guide]]]
+  - #link("https://flask.palletsprojects.com/")[#underline[#text(fill: blue)[Flask Official Documentation]]]
+  - #link("https://docs.docker.com/")[#underline[#text(fill: blue)[Docker Documentation]]]
+  - #link("https://vitest.dev/")[#underline[#text(fill: blue)[Vitest Documentation]]]
+  - #link("https://testing-library.com/docs/react-testing-library/intro/")[#underline[#text(fill: blue)[React Testing Library Documentation]]]
 
 #pagebreak()
 = Tecnologie
