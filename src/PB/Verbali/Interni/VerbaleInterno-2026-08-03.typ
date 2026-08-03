@@ -52,33 +52,11 @@
         *Luogo:* #luogo ]
     )
     #v(4em)
-    #text(size: 20pt)[*Versione 0.1.0*]
+    #text(size: 20pt)[*Versione 1.0.0*]
   ]
   pagebreak()
 
-  // --- REGISTRO DELLE MODIFICHE ---
-  heading(numbering: none, outlined: false)[Tabella di versionamento]
-  v(2em)
 
-  align(center)[
-    #table(
-      columns: (auto, auto, auto, auto, 1fr),
-      align: (center, center, center, center, left),
-      stroke: (x, y) => (
-        bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
-        left: 0.4pt + luma(150),
-        right: if x == 4 { 0.4pt + luma(150) } else { none },
-        top: if y == 0 { 0.4pt + luma(150) } else { none },
-      ),
-      inset: 7pt,
-      fill: (x, y) => if y == 0 { luma(230) } else { none },
-      [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026-08-03], [Filippo Zonta Rocha], [], [Prima stesura del verbale],
-    )
-
-  ]
-
-  pagebreak()
 
   //--- indice ---
   show outline.entry.where(level: 1): set block(above: 1.5em)
@@ -124,14 +102,17 @@
 
 = Svolgimento della Riunione
 
-== Divisione ruoli per lo Sprint 10.
-Vista la conclusione dello Sprint 9, il team ha deciso di procedere con la divisione dei ruoli per lo Sprint 10. Inoltre, si è deciso di mantenere la durata settimanale dello sprint, al fine di avere un ritmo di lavoro costante e un'equa distribuzione delle attività da svolgere.
+== Divisione ruoli per lo Sprint 10
+
+A seguito della conclusione dello Sprint 9, il team ha discusso la suddivisione dei ruoli per lo Sprint 10. Inoltre, si è deciso di mantenere la durata settimanale dello sprint, al fine di avere un ritmo di lavoro costante e un'equa distribuzione delle attività da svolgere.
 
 == Aggiornamento dei documenti per la PB
-Il team continua con la stesura dei documenti per la PB, al fine di disporre di una documentazione completa e aggiornata. In particolare, si è deciso di proseguire con la redazione della Specifica Tecnica, così da avere una base solida per lo sviluppo dell'applicazione web. Inoltre, si è deciso di aggiornare il Piano di Progetto e il Piano di Qualifica, in modo da mantenere un controllo completo sullo stato di avanzamento del progetto e sulle attività da svolgere.
+
+Il team prosegue l'attività di redazione e aggiornamento della documentazione richiesta per la Product Baseline (PB). Nello specifico, le attività si concentrano sulla prosecuzione della Specifica Tecnica, fondamentale per definire nel dettaglio l'architettura e guidare lo sviluppo dell'applicazione web. Contestualmente, si procede al continuo allineamento del Piano di Progetto e del Piano di Qualifica, al fine di garantire un monitoraggio rigoroso dell'avanzamento dei lavori e del rispetto degli standard di qualità predefiniti.
 
 == Stato di avanzamento dello sviluppo dell'applicazione web
-Durante la riunione, il team ha deciso di proseguire con lo sviluppo dell'applicazione web, in modo da avere un'idea chiara del suo stato di avanzamento.
+
+Durante l'incontro, il team ha concordato di proseguire con l'implementazione dell'applicazione web, focalizzandosi sul completamento dei moduli pianificati. Tale avanzamento permetterà di verificare l'effettiva coerenza alle specifiche e di monitorare con precisione lo stato di maturità dell'MVP.
  
 #pagebreak()
 
@@ -144,8 +125,8 @@ Durante la riunione, il team ha deciso di proseguire con lo sviluppo dell'applic
     [VI-16.1], [Aggiornamento del Piano di Progetto],
     [VI-16.2], [Aggiornamento del Piano di Qualifica],
     [VI-16.3], [Aggiornamento della Specifica Tecnica],
-    [VI-16.4], [Aggiornamento dello sviluppo dell'applicazione web],
-    [VI-16.5], [Invio mail a Bluewind],
+    [VI-16.4], [Proseguimento dello sviluppo dell'applicazione web],
+    [VI-16.5], [Invio mail all'azienda Bluewind],
   )
 ]
 == Ordine del Giorno del prossimo incontro
@@ -162,7 +143,7 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     [TD-16.1], [Aggiornamento del Piano di Progetto], [Leonardo Lorenzin], [VI-16.1],
     [TD-16.2], [Aggiornamento del Piano di Qualifica], [Alberto Canavese], [VI-16.2],
     [TD-16.3], [Aggiornamento della Specifica Tecnica], [Edis Hodja], [VI-16.3],
-    [TD-16.4], [Aggiornamento dello sviluppo dell'applicazione web], [Ines Iadadi, Giovanni Bronte], [VI-16.4],
-    [TD-16.5], [Invio mail a Bluewind], [Leonardo Lorenzin], [VI-16.5],
+    [TD-16.4], [Proseguimento dello sviluppo dell'applicazione web], [Ines Iadadi, Giovanni Bronte], [VI-16.4],
+    [TD-16.5], [Invio mail all'azienda Bluewind], [Leonardo Lorenzin], [VI-16.5],
   )
 ]

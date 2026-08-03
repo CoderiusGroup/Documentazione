@@ -56,31 +56,6 @@
   ]
   pagebreak()
 
-  // --- REGISTRO DELLE MODIFICHE ---
-  heading(numbering: none, outlined: false)[Tabella di versionamento]
-  v(2em)
-
-  align(center)[
-    #table(
-      columns: (auto, auto, auto, auto, 1fr),
-      align: (center, center, center, center, left),
-      stroke: (x, y) => (
-        bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
-        left: 0.4pt + luma(150),
-        right: if x == 4 { 0.4pt + luma(150) } else { none },
-        top: if y == 0 { 0.4pt + luma(150) } else { none },
-      ),
-      inset: 7pt,
-      fill: (x, y) => if y == 0 { luma(230) } else { none },
-      [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [1.0.0], [2026-07-13], [Leonardo Lorenzin], [], [Approvazione del verbale],
-      [0.1.0], [2026-07-13], [Alberto Canavese], [Leonardo Lorenzin], [Prima stesura del verbale],
-    )
-
-  ]
-
-  pagebreak()
-
   //--- indice ---
   show outline.entry.where(level: 1): set block(above: 1.5em)
   outline(
