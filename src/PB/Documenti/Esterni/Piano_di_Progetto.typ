@@ -1227,6 +1227,18 @@ Le attività principali pianificate sono:
     caption: [Preventivo ore per membro - Sprint 9]
 )
 
+=== Retrospettiva
+Durante questo sprint il gruppo ha avviato le prime attività operative di consolidamento e sviluppo, a seguito della fase di "palestra" svolta nello Sprint precedente. È proseguito il confronto con Bluewind, che ha permesso di consolidare le scelte architetturali già discusse. È stata inoltre avviata la stesura della Specifica Tecnica e sono state avviate le prime attività di sviluppo dell'MVP.
+
+=== Rischi incontrati
+- *RT-1*: L'inesperienza pratica del team con lo stack tecnologico si è manifestata nelle prime attività implementative dell'MVP, rallentando in alcuni momenti l'avvio dello sviluppo. Il gruppo ha mitigato il rischio facendo ricorso al confronto interno e alla documentazione ufficiale consultata durante la fase di autoformazione dello Sprint 8.
+
+- *RO-1*: La durata ridotta dello sprint ha reso più delicata la stima delle attività, generando alcune imprecisioni rispetto al preventivo. Il gruppo ha gestito lo scostamento riadattando il carico di lavoro tra i membri coinvolti.
+
+
+==== Criticità emerse
+La principale criticità riscontrata durante lo sprint ha riguardato l'avvio dello sviluppo dell'MVP, per il quale l'inesperienza pratica del team con lo stack tecnologico ha reso necessario un maggiore tempo di adattamento rispetto a quanto preventivato.
+
 === Consuntivo
 #figure(
   tabella-ore((
@@ -1259,14 +1271,3 @@ Le attività principali pianificate sono:
     table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*27*], [*580€*], [*215*], [*4250€*],
   )
 ]
-
-=== Rischi incontrati
-- *RT-1*: L'inesperienza pratica del team con lo stack tecnologico si è manifestata nelle prime attività implementative dell'MVP, rallentando in alcuni momenti l'avvio dello sviluppo. Il gruppo ha mitigato il rischio facendo ricorso al confronto interno e alla documentazione ufficiale consultata durante la fase di autoformazione dello Sprint 8.
-
-- *RO-1*: La durata ridotta dello sprint ha reso più delicata la stima delle attività, generando alcune imprecisioni rispetto al preventivo. Il gruppo ha gestito lo scostamento riadattando il carico di lavoro tra i membri coinvolti.
-
-=== Retrospettiva
-Durante questo sprint il gruppo ha avviato le prime attività operative di consolidamento e sviluppo, a seguito della fase di "palestra" svolta nello Sprint precedente. È proseguito il confronto con Bluewind, che ha permesso di consolidare le scelte architetturali già discusse. È stata inoltre avviata la stesura della Specifica Tecnica e sono state avviate le prime attività di sviluppo dell'MVP.
-
-==== Criticità emerse
-La principale criticità riscontrata durante lo sprint ha riguardato l'avvio dello sviluppo dell'MVP, per il quale l'inesperienza pratica del team con lo stack tecnologico ha reso necessario un maggiore tempo di adattamento rispetto a quanto preventivato.
