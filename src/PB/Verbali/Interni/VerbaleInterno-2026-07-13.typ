@@ -102,7 +102,7 @@
 
 #show: verbale.with(
   titolo: "Verbale Riunione Interna",
-  data: "13/07/2026",
+  data: "2026/07/13",
   ora_inizio: "14:00",
   ora_fine: "17:00",
   luogo: "Canale vocale Discord"
