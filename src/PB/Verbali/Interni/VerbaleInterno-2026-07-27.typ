@@ -52,33 +52,8 @@
         *Luogo:* #luogo ]
     )
     #v(4em)
-    #text(size: 20pt)[*Versione 0.1.0*]
+    #text(size: 20pt)[*Versione 1.0.0*]
   ]
-  pagebreak()
-
-  // --- REGISTRO DELLE MODIFICHE ---
-  heading(numbering: none, outlined: false)[Tabella di versionamento]
-  v(2em)
-
-  align(center)[
-    #table(
-      columns: (auto, auto, auto, auto, 1fr),
-      align: (center, center, center, center, left),
-      stroke: (x, y) => (
-        bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
-        left: 0.4pt + luma(150),
-        right: if x == 4 { 0.4pt + luma(150) } else { none },
-        top: if y == 0 { 0.4pt + luma(150) } else { none },
-      ),
-      inset: 7pt,
-      fill: (x, y) => if y == 0 { luma(230) } else { none },
-      [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [1.0.0], [2026-07-31], [Edis Hodja], [], [Approvazione del verbale],
-      [0.1.0], [2026-07-27], [Giovanni Bronte], [Edis Hodja], [Prima stesura del verbale],
-    )
-
-  ]
-
   pagebreak()
 
   //--- indice ---
@@ -102,7 +77,7 @@
 
 #show: verbale.with(
   titolo: "Verbale Riunione Interna",
-  data: "27/07/2026",
+  data: "2026/07/27",
   ora_inizio: "10:00",
   ora_fine: "11:00",
   luogo: "Canale vocale Discord"
@@ -121,19 +96,21 @@
 = Ordine del Giorno
 + Divisione ruoli per lo Sprint 9.
 + Organizzazione delle attività relative alla fase di Product Baseline.
-+ Discussione relativa ai quesiti da porre durante colloquio con la proponente Bluewind.
++ Preparazione per colloquio esterno con la proponente Bluewind.
 
 = Svolgimento della Riunione
-
-==  Organizzazione delle attività per l'avvio della fase di Product Baseline
-Dopo aver ricevuto esito positivo ed aver superato con successo la fase RTB, abbiamo ufficialmente avviato le attività per la successiva fase di Product Baseline. Il team ha quindi discusso quali documenti dovranno essere aggiornati e quali documenti dovranno essere scritti per la Product Baseline.
-
-Il team ha deciso di continuare ad aggiornare i documenti Piano di Progetto e Piano di Qualifica, dato che sono fondamentali per tenere traccia dell'andamento del progetto. Inoltre, è stato deciso di iniziare la stesura del documento relativo alla Specifica Tecnica, che sarà fondamentale per i futuri programmatori, in quanto definisce l'architettura dietro il prodotto finale, ovvero l'applicazione web.
 
 == Divisione ruoli per lo Sprint 9
 In vista del termine dello Sprint 8, durante l'incontro interno il team ha discusso della suddivisione dei ruoli per lo sprint successivo. La decisione, presa in maniera collettiva, è stata quella di introdurre due figure con il ruolo di progettisti che affiancheranno il programmatore. Lo scopo è di gestire l'inizio della progettazione dell'applicazione web, cercando di seguire le linee architetturali definite dai progettisti stessi.
 
 A causa di esigenze organizzative e produttive, è stato inoltre deciso di modificare la durata degli sprint da due settimane a una settimana. Questo ci permette di essere più flessibili ai cambiamenti e di pianificare le attività in modo che siano più facilmente gestibili.
+
+== Organizzazione delle attività relatice alla fase di Product Baseline
+Dopo aver ricevuto esito positivo ed aver superato con successo la fase RTB, abbiamo ufficialmente avviato le attività per la successiva fase di Product Baseline. Il team ha quindi discusso quali documenti dovranno essere aggiornati e quali documenti dovranno essere scritti per la Product Baseline.
+
+Il team ha deciso di continuare ad aggiornare i documenti Piano di Progetto e Piano di Qualifica, dato che sono fondamentali per tenere traccia dell'andamento del progetto. Inoltre, è stato deciso di iniziare la stesura del documento relativo alla Specifica Tecnica, che sarà fondamentale per i futuri programmatori, in quanto definisce l'architettura dietro il prodotto finale, ovvero l'applicazione web.
+
+
 
 == Preparazione per colloquio esterno con la proponente Bluewind
 Il gruppo di lavoro ha deliberato gli argomenti di discussione per il prossimo incontro esterno con l'azienda proponente. Considerata l'assenza di variazioni sostanziali ai contenuti dell'Analisi dei Requisiti e trovandosi le attività di Product Baseline in fase di inizializzazione, si è deciso di incentrare l'incontro sul resoconto dei colloqui per l'RTB e sull'approfondimento tecnico dei dubbi emersi durante la redazione della Specifica Tecnica.
