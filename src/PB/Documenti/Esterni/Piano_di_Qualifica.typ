@@ -80,7 +80,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-    #text(size: 20pt)[*Versione 1.0.2*]
+    #text(size: 20pt)[*Versione 1.0.3*]
 ]
 #pagebreak()
 
@@ -99,6 +99,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.0.3], [2026/07/24], [Giovanni Bronte], [], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 9],
     [1.0.2], [2026/07/24], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 8],
     [1.0.1], [2026/07/10], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta sezione relativa allo sprint 7],
     [1.0.0], [2026/06/29], [Filippo Zonta Rocha], [], [Approvazione del documento],
@@ -750,7 +751,7 @@ Le metriche che richiedono la disponibilità di codice sorgente — tra cui Code
 
 == MPC-01, MPC-02, MPC-03 — Planned Value, Earned Value, Actual Cost
 
-I valori sono cumulativi: ogni sprint riporta il totale progressivo dall'inizio del progetto. Poiché tutti e sei gli sprint si sono conclusi entro le date previste, l'Earned Value coincide con il Planned Value cumulativo.
+I valori sono cumulativi: ogni sprint riporta il totale progressivo dall'inizio del progetto. Poiché tutti e nove gli sprint si sono conclusi entro le date previste, l'Earned Value coincide con il Planned Value cumulativo.
 
 #cruscotto-table(
   [Andamento di PV, EV e AC per sprint (valori cumulativi)],
@@ -763,6 +764,7 @@ I valori sono cumulativi: ogni sprint riporta il totale progressivo dall'inizio 
   [6], [2026/06/26], [4.810], [4.810], [4.610],
   [7], [2026/07/10], [5.680], [5.680], [5.230],
   [8], [2026/07/24], [6.165], [6.165], [5.850],
+  [9], [2026/07/31], [6.745], [6.745], [6.430],
 )
 
 #figure(
@@ -771,7 +773,7 @@ I valori sono cumulativi: ogni sprint riporta il totale progressivo dall'inizio 
   supplement: [Figura],
 )
 
-Tutti e gli otto sprint si sono conclusi entro le date previste (fine reale = fine prevista), confermando il pieno allineamento tra lavoro pianificato ed eseguito. I costi effettivi (AC) risultano sistematicamente inferiori al Planned Value, con uno scostamento cumulativo di €315 a favore del progetto al termine dello Sprint 8. Questo andamento indica una stima iniziale delle ore sostanzialmente accurata e una gestione del budget efficiente lungo tutta la fase RTB.
+Tutti e nove sprint si sono conclusi entro le date previste (fine reale = fine prevista), confermando il pieno allineamento tra lavoro pianificato ed eseguito. I costi effettivi (AC) risultano sistematicamente inferiori al Planned Value, con uno scostamento cumulativo di €315 a favore del progetto al termine dello Sprint 9. Questo andamento indica una stima iniziale delle ore sostanzialmente accurata e una gestione del budget efficiente lungo tutta la fase RTB.
 #pagebreak()
 == MPC-04, MPC-05 — Schedule Performance Index, Cost Performance Index
 
@@ -787,7 +789,8 @@ SPI = EV / PV. CPI = EV / AC. Valori prossimi a 1 indicano rispetto di tempi e b
   [5], [1,000], [$>= 0.9$ ✓], [1,043], [$>= 0.9$ ✓],
   [6], [1,000], [$>= 0.9$ ✓], [1,043], [$>= 0.9$ ✓],
   [7], [1,000], [$>= 0.9$ ✓], [1,086], [$>= 0.9$ ✓],
-  [8], [1,000], [$>= 0.9$ ✓], [1,054], [$>= 0.9$ ✓]
+  [8], [1,000], [$>= 0.9$ ✓], [1,054], [$>= 0.9$ ✓],
+  [9], [1,000], [$>= 0.9$ ✓], [1,048], [$>= 0.9$ ✓],
 )
 
 #figure(
@@ -796,7 +799,7 @@ SPI = EV / PV. CPI = EV / AC. Valori prossimi a 1 indicano rispetto di tempi e b
   supplement: [Figura],
 )
 
-SPI = 1,000 in tutti e otto gli sprint: il team ha rispettato perfettamente le scadenze pianificate, senza mai accumulare ritardi. Il CPI, superiore all'unità in ogni sprint, evidenzia un costante risparmio di costo rispetto al lavoro prodotto, con un trend complessivamente crescente (da 1,017 a 1,043, dopo una lieve flessione a 1,015 nello Sprint 2) ne segue una tendenza di crescita con il picco nello sprint 7 con un leggero calo nello sprint 8. L'andamento omogeneo dei due indicatori suggerisce che le stime iniziali fossero realistiche e che l'esecuzione sia stata disciplinata.
+SPI = 1,000 in tutti e otto nove sprint: il team ha rispettato perfettamente le scadenze pianificate, senza mai accumulare ritardi. Il CPI, superiore all'unità in ogni sprint, evidenzia un costante risparmio di costo rispetto al lavoro prodotto, con un trend complessivamente crescente (da 1,017 a 1,048, dopo una lieve flessione a 1,015 nello Sprint 2) ne segue una tendenza di crescita con il picco nello sprint 7 con un leggero calo nello sprint 8 e 9. L'andamento omogeneo dei due indicatori suggerisce che le stime iniziali fossero realistiche e che l'esecuzione sia stata disciplinata.
 
 == MPC-06 — Estimate at Completion
 
@@ -812,7 +815,8 @@ EAC = BAC / CPI. Rappresenta la stima del costo finale del progetto sulla base d
   [5], [1,043], [10.240], [10.680], [-440 (-4,1%)], [$<= 1.1 times "BAC"$ (110%) ✓],
   [6], [1,043], [10.240], [10.680], [-440 (-4,1%)], [$<= 1.1 times "BAC"$ (110%) ✓],
   [7], [1,086], [9.834], [10.680], [-846 (-7,9%)], [$<= 1.1 times "BAC"$ (110%) ✓], 
-  [8], [1,054], [10.142],  [10.680], [-538 (-5,0%)], [$<= 1.1 times "BAC"$ (110%) ✓]
+  [8], [1,054], [10.142],  [10.680], [-538 (-5,0%)], [$<= 1.1 times "BAC"$ (110%) ✓],
+  [9], [1,048], [10.191],  [10.680], [-489 (-4,6%)], [$<= 1.1 times "BAC"$ (110%) ✓]
 )
 
 #figure(
@@ -837,10 +841,11 @@ ETC = EAC − AC. Rappresenta la stima del costo ancora necessario per portare a
   [5], [6.280], [$<= 7.392$ ✓],
   [6], [5.630], [$<= 6.677$ ✓],
   [7], [4.604], [$<= 5.995$ ✓],
-  [8], [4.292], [$<= 5.313$ ✓]
+  [8], [4.292], [$<= 5.313$ ✓],
+  [9], [3.761], [$<= 4.675$ ✓],
 )
 
-L'ETC decresce regolarmente sprint dopo sprint (da €9.617 nello Sprint 1 a €4.292 nello Sprint 8), confermando la progressione costante delle attività e la corretta imputazione dei costi.
+L'ETC decresce regolarmente sprint dopo sprint (da €9.617 nello Sprint 1 a €3.761 nello Sprint 9), confermando la progressione costante delle attività e la corretta imputazione dei costi.
 
 == MPC-08 — Requirements Stability Index
 
@@ -857,6 +862,7 @@ RSI = (NR − NRC) / NR, dove NR è il numero di requisiti definiti e NRC il num
   [6], [43], [3], [0,930], [$>= 0.7$ ✓],
   [7], [43], [3], [0,930], [$>= 0.7$ ✓],
   [8], [43], [4], [0,907], [$>= 0.7$ ✓],
+  [9], [43], [0], [1,000], [$>= 0.7$ ✓],
 )
 
 #figure(
@@ -865,7 +871,7 @@ RSI = (NR − NRC) / NR, dove NR è il numero di requisiti definiti e NRC il num
   supplement: [Figura],
 )
 
-Nello Sprint 1 tutti gli otto requisiti iniziali sono risultati stabili (RSI = 1,000). Nello Sprint 2 due requisiti sui 26 definiti sono stati revisionati a seguito di un approfondimento delle specifiche EN 18031 durante la stesura dell'Analisi dei Requisiti (RSI = 0,923). Nello Sprint 3, con 34 requisiti totali e le stesse due modifiche pregresse non ripetute, l'indice è risalito a 0,941: la crescita del documento di analisi non ha comportato ulteriori instabilità retroattive. Nello Sprint 4 il documento è cresciuto fino a 42 casi d'uso senza nuove modifiche retroattive, portando l'indice a 0,952. Nello Sprint 5, durante la finalizzazione dell'Analisi dei Requisiti, il numero di casi d'uso si è assestato a 43 — l'UC-44, introdotto temporaneamente, è stato successivamente eliminato — ed è stato revisionato l'UC-31, con l'RSI a 0,930. Nello Sprint 6 non sono state apportate ulteriori modifiche ai casi d'uso e l'indice è rimasto stabile a 0,930, sempre ampiamente al di sopra della soglia di 0,7. Nell sprint 8 sono stati revisionati quattro requisiti (UC4.1.2, UC10, UC22.4, UC30.2) sui 43 totali, portando l'RSI a 0,907: il valore resta comunque ampiamente al di sopra della soglia di accettabilità.
+Nello Sprint 1 tutti gli otto requisiti iniziali sono risultati stabili (RSI = 1,000). Nello Sprint 2 due requisiti sui 26 definiti sono stati revisionati a seguito di un approfondimento delle specifiche EN 18031 durante la stesura dell'Analisi dei Requisiti (RSI = 0,923). Nello Sprint 3, con 34 requisiti totali e le stesse due modifiche pregresse non ripetute, l'indice è risalito a 0,941: la crescita del documento di analisi non ha comportato ulteriori instabilità retroattive. Nello Sprint 4 il documento è cresciuto fino a 42 casi d'uso senza nuove modifiche retroattive, portando l'indice a 0,952. Nello Sprint 5, durante la finalizzazione dell'Analisi dei Requisiti, il numero di casi d'uso si è assestato a 43 — l'UC-44, introdotto temporaneamente, è stato successivamente eliminato — ed è stato revisionato l'UC-31, con l'RSI a 0,930. Nello Sprint 6 non sono state apportate ulteriori modifiche ai casi d'uso e l'indice è rimasto stabile a 0,930, sempre ampiamente al di sopra della soglia di 0,7. Nell sprint 8 sono stati revisionati quattro requisiti (UC4.1.2, UC10, UC22.4, UC30.2) sui 43 totali, portando l'RSI a 0,907: il valore resta comunque ampiamente al di sopra della soglia di accettabilità. Nello sprint 9 non sono stati modificati Requisiti dato che l'ultimo sprint sono stati effettuati gli ultimi cambiamenti a seguito della revisione RTB, questo ha portato l'RSI a 1,000.
 
 == MPC-09, MPC-10 — Indice di Gulpease, Correttezza Ortografica
 
@@ -905,7 +911,8 @@ Percentuale di metriche misurabili che rientrano nel range accettabile. Sono esc
   [5], [9], [9], [100%], [$>= 80%$ ✓],
   [6], [9], [9], [100%], [$>= 80%$ ✓],
   [7], [9], [9], [100%], [$>= 80%$ ✓],
-  [8], [9], [9], [100%], [$>= 80%$ ✓]
+  [8], [9], [9], [100%], [$>= 80%$ ✓],
+  [9], [9], [9], [100%], [$>= 80%$ ✓],
 )
 
 #figure(
@@ -932,7 +939,8 @@ Time Efficiency (TE) = (Ore Previste Cumulative / Ore Effettive Cumulative) × 1
   [5], [187], [181], [103,3%], [$>= 80%$ ✓],
   [6], [226], [218], [103,7%], [$>= 80%$ ✓],
   [7], [265], [253], [103,9%], [$>= 80%$ ✓],
-  [8], [294], [280], [104,8%], [$>= 80%$ ✓]
+  [8], [294], [280], [104,8%], [$>= 80%$ ✓],
+  [9], [321], [307], [104,6%], [$>= 80%$ ✓]
 )
 
 #figure(
@@ -941,7 +949,7 @@ Time Efficiency (TE) = (Ore Previste Cumulative / Ore Effettive Cumulative) × 1
   supplement: [Figura],
 )
 
-La Time Efficiency si mantiene tra il 100,0% (Sprint 1 e 2) e il 104,8% (Sprint 8), sempre ampiamente al di sopra della soglia dell'80%. Su base cumulativa il team ha impiegato 280 ore effettive a fronte delle 294 preventivate (−14 ore, circa un -4,8%): uno scostamento contenuto e a favore del progetto, indicativo di una buona affidabilità delle stime.
+La Time Efficiency si mantiene tra il 100,0% (Sprint 1 e 2) e il 104,6% (Sprint 9), sempre ampiamente al di sopra della soglia dell'80%. Su base cumulativa il team ha impiegato 307 ore effettive a fronte delle 321 preventivate (−14 ore, circa un -4,8%): uno scostamento contenuto e a favore del progetto, indicativo di una buona affidabilità delle stime.
 
 == Metriche di qualità di prodotto (MPD)
 
@@ -1090,6 +1098,16 @@ Durante l'ottavo sprint, dedicato soprattutto alla autoformazione e ottimizzazio
 
 - *RI-1 — Ridotta disponibilità per impegni accademici*: la concomitanza con la fase finale della sessione d'esami e da impegni personali ha ridotto la disponibilità di alcuni membri, rallentando il progresso durante lo sprint.
 
+== Sprint 9 — Retrospettiva e azioni correttive
+
+=== Problemi rilevati
+Durante il nono sprint, primo sprint della durata di una settimana dove il team si è concentrato sulla scrittura della specifica tecnica e l'inizio di scrittura del codice dell'MVP, sono state riscontrate le seguenti criticità:
+- *RT-1*:L'inesperienza pratica del team con lo stack tecnologico ha causato il rallentamento nell'implementazione dell'MVP 
+- *RO-1*: Il cambio di durata di sprintt ha reso più delicata la stima delle attività, questo ha causato alcune imprecisioni rispetto al preventivo.
+
+=== Azioni intraprese
+- Il team ha fatto ricorso al confronto interno e alla documentazione ufficiale consultata durante la fase di autoformazione dello Sprint 8.
+- Il gruppo ha gestito lo scostamento riadattando il carico di lavoro tra i membri coinvolti.
 
 #pagebreak()
 
