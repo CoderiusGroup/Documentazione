@@ -1,0 +1,206 @@
+{
+  "descrizione": "Storico dell'Indice di Gulpease per sprint. Append-only: gli sprint conclusi non vengono piu' ricalcolati, cosi' il valore resta quello misurato allora. Aggiornato da .github/scripts/storico_metriche.py.",
+  "sprint": [
+    {
+      "numero": 1,
+      "fine": "2026-04-21",
+      "aggiornato": "2026-07-31",
+      "documenti": {
+        "Verbali": {
+          "parole": 6948,
+          "lettere": 41117,
+          "frasi": 372
+        }
+      }
+    },
+    {
+      "numero": 2,
+      "fine": "2026-05-01",
+      "aggiornato": "2026-07-31",
+      "documenti": {
+        "Norme di progetto": {
+          "parole": 3834,
+          "lettere": 24358,
+          "frasi": 140
+        },
+        "Verbali": {
+          "parole": 7545,
+          "lettere": 44561,
+          "frasi": 394
+        }
+      }
+    },
+    {
+      "numero": 3,
+      "fine": "2026-05-15",
+      "aggiornato": "2026-07-31",
+      "documenti": {
+        "Analisi dei requisiti": {
+          "parole": 863,
+          "lettere": 5412,
+          "frasi": 27
+        },
+        "Norme di progetto": {
+          "parole": 7003,
+          "lettere": 44898,
+          "frasi": 258
+        },
+        "Piano di qualifica": {
+          "parole": 457,
+          "lettere": 2785,
+          "frasi": 20
+        },
+        "Verbali": {
+          "parole": 10342,
+          "lettere": 60940,
+          "frasi": 535
+        }
+      }
+    },
+    {
+      "numero": 4,
+      "fine": "2026-05-29",
+      "aggiornato": "2026-07-31",
+      "documenti": {
+        "Analisi dei requisiti": {
+          "parole": 863,
+          "lettere": 5412,
+          "frasi": 27
+        },
+        "Norme di progetto": {
+          "parole": 9445,
+          "lettere": 59448,
+          "frasi": 446
+        },
+        "Piano di qualifica": {
+          "parole": 4662,
+          "lettere": 26307,
+          "frasi": 240
+        },
+        "Verbali": {
+          "parole": 12718,
+          "lettere": 75127,
+          "frasi": 644
+        }
+      }
+    },
+    {
+      "numero": 5,
+      "fine": "2026-06-12",
+      "aggiornato": "2026-07-31",
+      "documenti": {
+        "Analisi dei requisiti": {
+          "parole": 863,
+          "lettere": 5412,
+          "frasi": 27
+        },
+        "Norme di progetto": {
+          "parole": 9448,
+          "lettere": 59465,
+          "frasi": 446
+        },
+        "Piano di qualifica": {
+          "parole": 6313,
+          "lettere": 35551,
+          "frasi": 316
+        },
+        "Verbali": {
+          "parole": 14844,
+          "lettere": 87871,
+          "frasi": 736
+        }
+      }
+    },
+    {
+      "numero": 6,
+      "fine": "2026-06-26",
+      "aggiornato": "2026-07-31",
+      "documenti": {
+        "Analisi dei requisiti": {
+          "parole": 13179,
+          "lettere": 79854,
+          "frasi": 1267
+        },
+        "Norme di progetto": {
+          "parole": 8814,
+          "lettere": 56431,
+          "frasi": 425
+        },
+        "Piano di qualifica": {
+          "parole": 6313,
+          "lettere": 35551,
+          "frasi": 316
+        },
+        "Verbali": {
+          "parole": 17013,
+          "lettere": 100530,
+          "frasi": 818
+        }
+      }
+    },
+    {
+      "numero": 7,
+      "fine": "2026-07-10",
+      "aggiornato": "2026-07-31",
+      "documenti": {
+        "Analisi dei requisiti": {
+          "parole": 13173,
+          "lettere": 79861,
+          "frasi": 1268
+        },
+        "Norme di progetto": {
+          "parole": 8877,
+          "lettere": 56834,
+          "frasi": 428
+        },
+        "Piano di progetto": {
+          "parole": 6167,
+          "lettere": 37473,
+          "frasi": 311
+        },
+        "Piano di qualifica": {
+          "parole": 7288,
+          "lettere": 41037,
+          "frasi": 358
+        },
+        "Verbali": {
+          "parole": 18107,
+          "lettere": 106721,
+          "frasi": 862
+        }
+      }
+    },
+    {
+      "numero": 8,
+      "fine": "2026-07-24",
+      "aggiornato": "2026-07-31",
+      "documenti": {
+        "Analisi dei requisiti": {
+          "parole": 13173,
+          "lettere": 79861,
+          "frasi": 1268
+        },
+        "Norme di progetto": {
+          "parole": 8877,
+          "lettere": 56834,
+          "frasi": 428
+        },
+        "Piano di progetto": {
+          "parole": 6708,
+          "lettere": 40842,
+          "frasi": 338
+        },
+        "Piano di qualifica": {
+          "parole": 7484,
+          "lettere": 42327,
+          "frasi": 364
+        },
+        "Verbali": {
+          "parole": 18107,
+          "lettere": 106721,
+          "frasi": 862
+        }
+      }
+    }
+  ]
+}
