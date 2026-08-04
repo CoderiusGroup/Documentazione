@@ -100,7 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.4.1], [2026/07/31], [Ines Iadadi], [], [Aggiunta delle sezioni Sprint 9: 4.10.5, 4.10.6, 4.10.7, 4.10.8],
+    [1.4.1], [2026/07/31], [Ines Iadadi], [Edis Hodja], [Aggiunta delle sezioni Sprint 9: 4.10.5, 4.10.6, 4.10.7, 4.10.8],
     [1.4.0], [2026/07/25], [Ines Iadadi], [Edis Hodja], [Aggiunta delle sezioni Sprint 9: 4.10.1, 4.10.2, 4.10.3, 4.10.4],
     [1.3.1], [2026/07/25], [Edis Hodja], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 8: 4.9.6, 4.9.7, 4.9.8],
     [1.3.0], [2026/07/13], [Edis Hodja], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 8: 4.9.1, 4.9.2, 4.9.3, 4.9.4, 4.9.5],
