@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.4.1*]
+  #text(size: 20pt)[*Versione 1.5.0*]
 ]
 #pagebreak()
 
@@ -100,6 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.5.0], [2026/08/03], [Leonardo Lorenzin], [], [Aggiunta delle sezioni Sprint 10: 4.11.1, 4.11.2, 4.11.3, 4.11.4],
     [1.4.1], [2026/07/31], [Ines Iadadi], [Edis Hodja], [Aggiunta delle sezioni Sprint 9: 4.10.5, 4.10.6, 4.10.7, 4.10.8],
     [1.4.0], [2026/07/25], [Ines Iadadi], [Edis Hodja], [Aggiunta delle sezioni Sprint 9: 4.10.1, 4.10.2, 4.10.3, 4.10.4],
     [1.3.1], [2026/07/25], [Edis Hodja], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 8: 4.9.6, 4.9.7, 4.9.8],
@@ -1270,4 +1271,54 @@ La principale criticità riscontrata durante lo sprint ha riguardato l'avvio del
     [Verificatore], [15], [4], [60€], [50], [750€],
     table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*27*], [*580€*], [*215*], [*4250€*],
   )
-]
+  ]
+
+#pagebreak()
+
+== Sprint 10
+
+=== Periodo
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/08/01],
+  [*Fine prevista:*], [2026/08/07],
+  /*[*Fine reale:*],    [2026/08/07],*/
+)
+#v(0.3em)
+
+=== Attività pianificate
+
+In seguito alla conclusione dello sprint precedente, che ha permesso di definire la struttura architetturale di base del sistema, il gruppo in questo sprint si concentra sulla stesura dettagliata della documentazione tecnica e sull'avanzamento pratico dell'MVP. Si è deciso di mantenere la durata di una settimana per garantire un monitoraggio più efficiente e costante dell'avanzamento.
+
+Le attività principali pianificate sono:
+
+- *Continuazione della Specifica Tecnica*: proseguimento della stesura dei contenuti relativi all'architettura del sistema, ai componenti principali e alle loro interazioni.
+
+- *Avanzamento dello sviluppo dell'MVP*: implementazione e consolidamento delle funzionalità di base dell'applicazione web, integrando i primi moduli software.
+- *Rifinimento architetturale*: eventuale revisione o aggiustamento delle scelte architetturali a fronte delle prime evidenze emerse durante la fase di codifica dell'MVP.
+
+
+=== Rischi attesi
+
+- *RT-1*: Analogamente allo sprint precedente, l'inesperienza pratica del team con lo stack tecnologico in un contesto di sviluppo reale rimane un rischio tecnico rilevante. 
+
+- *RO-1*: Il mantenimento dello sprint di una sola settimana continua a generare il rischio di imprecisioni nella pianificazione e nella stima delle attività, con la possibilità di un riadattamento del carico di lavoro nei prossimi sprint.
+
+- *RI-1*: Il periodo estivo comporta il rischio di una disponibilità ridotta o non uniforme tra i membri del gruppo a causa di impegni personali.
+
+=== Preventivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[3],[-],[-],[-],[-],[3]),
+    ([Edis Hodja],         [-],[-],[-],[7],[-],[-],[7]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[-],[6],[6]),
+    ([Giovanni Angelo Marco Bronte],[-],[-],[-],[-],[6],[-],[6]),
+    ([Ines Iadadi],        [-],[-],[-],[-],[6],[-],[6]),
+    ([Leonardo Lorenzin],  [4],[-],[-],[-],[-],[-],[4]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*4*],[*3*],[*0*],[*7*],[*12*],[*6*],[*32*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 10]
+)
