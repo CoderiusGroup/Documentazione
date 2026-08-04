@@ -99,7 +99,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.0.3], [2026/07/24], [Giovanni Bronte], [], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 9],
+    [1.0.3], [2026/07/24], [Giovanni Bronte], [Edis Hodja], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 9],
     [1.0.2], [2026/07/24], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 8],
     [1.0.1], [2026/07/10], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta sezione relativa allo sprint 7],
     [1.0.0], [2026/06/29], [Filippo Zonta Rocha], [], [Approvazione del documento],
@@ -1101,8 +1101,9 @@ Durante l'ottavo sprint, dedicato soprattutto alla autoformazione e ottimizzazio
 == Sprint 9 — Retrospettiva e azioni correttive
 
 === Problemi rilevati
-Durante il nono sprint, primo sprint della durata di una settimana dove il team si è concentrato sulla scrittura della specifica tecnica e l'inizio di scrittura del codice dell'MVP, sono state riscontrate le seguenti criticità:
-- *RT-1*:L'inesperienza pratica del team con lo stack tecnologico ha causato il rallentamento nell'implementazione dell'MVP 
+Durante il nono sprint, primo sprint della durata di una settimana dove il team si è concentrato sulla scrittura della #underline(text(fill: blue)[#link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Esterni/Specifica_Tecnica.pdf")[Specifica Tecnica]]) e l'inizio di scrittura del codice dell'MVP, sono state riscontrate le seguenti criticità:
+
+- *RT-1*: L'inesperienza pratica del team con lo stack tecnologico ha causato il rallentamento nell'implementazione dell'MVP 
 - *RO-1*: Il cambio di durata di sprintt ha reso più delicata la stima delle attività, questo ha causato alcune imprecisioni rispetto al preventivo.
 
 === Azioni intraprese
