@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.5.0*]
+  #text(size: 20pt)[*Versione 1.5.1*]
 ]
 #pagebreak()
 
@@ -100,6 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.5.1], [2026/08/07], [Leonardo Lorenzin], [], [Aggiunta delle sezioni Sprint 10: 4.11.5, 4.11.6, 4.11.7, 4.11.8],
     [1.5.0], [2026/08/03], [Leonardo Lorenzin], [], [Aggiunta delle sezioni Sprint 10: 4.11.1, 4.11.2, 4.11.3, 4.11.4],
     [1.4.1], [2026/07/31], [Ines Iadadi], [Edis Hodja], [Aggiunta delle sezioni Sprint 9: 4.10.5, 4.10.6, 4.10.7, 4.10.8],
     [1.4.0], [2026/07/25], [Ines Iadadi], [Edis Hodja], [Aggiunta delle sezioni Sprint 9: 4.10.1, 4.10.2, 4.10.3, 4.10.4],
@@ -1322,3 +1323,51 @@ Le attività principali pianificate sono:
   )),
     caption: [Preventivo ore per membro - Sprint 10]
 )
+
+=== Retrospettiva
+Durante questo sprint il gruppo ha proseguito con le attività di stesura documentale e sviluppo, consolidando il flusso di lavoro avviato nello Sprint precedente. È proseguita la stesura della Specifica Tecnica, permettendo di dettagliare i componenti del sistema e le loro interazioni. Contestualmente, lo sviluppo dell'MVP ha fatto un ulteriore passo avanti, affiancato da un continuo rifinimento delle scelte architetturali a fronte delle evidenze emerse durante la codifica. La durata settimanale dello sprint si è confermata adeguata per monitorare costantemente l'avanzamento dei lavori.
+
+=== Rischi incontrati
+
+- *RO-1*: Il mantenimento dello sprint di una sola settimana ha confermato la delicatezza nella stima delle attività, richiedendo un costante monitoraggio per evitare scostamenti significativi rispetto alla pianificazione.
+
+- *RI-1*: Gli impegni personali dovuti  al periodo estivo hanno comportato lievi disomogeneità nella disponibilità oraria di alcuni membri; tuttavia, la flessibilità del gruppo ha permesso di assorbire la situazione senza particolari impatti sulla tabella di marcia.
+
+#pagebreak()
+==== Criticità emerse
+Pur non essendosi verificate criticità bloccanti, la combinazione tra la durata settimanale dello sprint e alcune concomitanze personali legate al periodo estivo ha richiesto un monitoraggio costante nella gestione quotidiana delle attività. È stato infatti necessario un riallineamento frequente per ripartire queste ultime ed evitare rallentamenti nel flusso operativo.
+
+
+=== Consuntivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[3],[-],[-],[-],[-],[3]),
+    ([Edis Hodja],         [-],[-],[-],[6#text(fill: green)[(-1)]],[-],[-],[6]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[-],[6],[6]),
+    ([Giovanni Angelo Marco Bronte],[-],[-],[-],[-],[7#text(fill: red)[(+1)]],[-],[7]),
+    ([Ines Iadadi],        [-],[-],[-],[-],[6],[-],[6]),
+    ([Leonardo Lorenzin],  [4],[-],[-],[-],[-],[-],[4]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*4*],[*3*],[*0*],[*6*],[*13*],[*6*],[*32*]),
+  )),
+    caption: [Consuntivo ore per membro - Sprint 10]
+)
+
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [4], [120€], [14], [420€],
+    [Amministratore], [20], [3], [60€], [10], [200€],
+    [Analista], [25], [0], [0€], [5], [125€],
+    [Progettista], [25], [6], [150€], [58], [1450€],
+    [Programmatore], [15], [13], [195€], [52], [780€],
+    [Verificatore], [15], [6], [90€], [44], [660€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*32*], [*615€*], [*183*], [*3635€*],
+  )
+  ]
+
