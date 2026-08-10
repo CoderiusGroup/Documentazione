@@ -100,8 +100,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.5.1], [2026/08/07], [Leonardo Lorenzin], [], [Aggiunta delle sezioni Sprint 10: 4.11.5, 4.11.6, 4.11.7, 4.11.8],
-    [1.5.0], [2026/08/03], [Leonardo Lorenzin], [], [Aggiunta delle sezioni Sprint 10: 4.11.1, 4.11.2, 4.11.3, 4.11.4],
+    [1.5.1], [2026/08/07], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiunta delle sezioni Sprint 10: 4.11.5, 4.11.6, 4.11.7, 4.11.8],
+    [1.5.0], [2026/08/03], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiunta delle sezioni Sprint 10: 4.11.1, 4.11.2, 4.11.3, 4.11.4],
     [1.4.1], [2026/07/31], [Ines Iadadi], [Edis Hodja], [Aggiunta delle sezioni Sprint 9: 4.10.5, 4.10.6, 4.10.7, 4.10.8],
     [1.4.0], [2026/07/25], [Ines Iadadi], [Edis Hodja], [Aggiunta delle sezioni Sprint 9: 4.10.1, 4.10.2, 4.10.3, 4.10.4],
     [1.3.1], [2026/07/25], [Edis Hodja], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 8: 4.9.6, 4.9.7, 4.9.8],
@@ -1291,7 +1291,7 @@ La principale criticità riscontrata durante lo sprint ha riguardato l'avvio del
 
 === Attività pianificate
 
-In seguito alla conclusione dello sprint precedente, che ha permesso di definire la struttura architetturale di base del sistema, il gruppo in questo sprint si concentra sulla stesura dettagliata della documentazione tecnica e sull'avanzamento pratico dell'MVP. Si è deciso di mantenere la durata di una settimana per garantire un monitoraggio più efficiente e costante dell'avanzamento.
+In seguito alla conclusione dello sprint precedente, che ha permesso di definire la struttura architetturale di base del sistema, il gruppo in questo sprint si concentra sulla stesura dettagliata della documentazione tecnica e sull'avanzamento pratico dell'MVP. Si è deciso di mantenere sprint settimanali per garantire un monitoraggio più efficiente e costante dell'avanzamento.
 
 Le attività principali pianificate sono:
 
