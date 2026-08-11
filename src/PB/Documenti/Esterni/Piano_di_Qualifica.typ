@@ -99,7 +99,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.0.4], [2026/08/09], [Alberto Canavese], [], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 10],
+    [1.0.4], [2026/08/09], [Alberto Canavese], [Filippo Zonta Rocha], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 10],
     [1.0.3], [2026/07/24], [Giovanni Bronte], [Edis Hodja], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 9],
     [1.0.2], [2026/07/24], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 8],
     [1.0.1], [2026/07/10], [Edis Hodja], [Filippo Zonta Rocha], [Aggiunta sezione relativa allo sprint 7],
@@ -1127,7 +1127,7 @@ Nel decimo sprint (01/08–07/08/2026), secondo sprint consecutivo della durata 
 - *RI-1 — Disponibilità non uniforme nel periodo estivo*: gli impegni personali legati al periodo estivo hanno comportato lievi disomogeneità nella disponibilità oraria di alcuni membri. La combinazione con la durata ridotta dello sprint ha reso necessari riallineamenti frequenti nella ripartizione quotidiana delle attività.
 
 === Azioni intraprese
-- Il gruppo ha adottato un monitoraggio ravvicinato dell'avanzamento, con riallineamenti frequenti per ridistribuire le attività ed evitare rallentamenti nel flusso operativo.
+- Il gruppo ha adottato un monitoraggio costante, con riallineamenti frequenti per ridistribuire le attività ed evitare rallentamenti nel flusso operativo.
 - La flessibilità nella copertura dei task ha permesso di assorbire le disomogeneità di disponibilità senza impatti sulla tabella di marcia, chiudendo lo sprint entro la data prevista.
 - L'affinamento delle stime si è riflesso nel consuntivo: le 32 ore preventivate sono state rispettate nel totale, con la sola redistribuzione di un'ora dal ruolo di Progettista a quello di Programmatore a fronte del maggiore carico implementativo.
 
