@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.4.0*]
+  #text(size: 20pt)[*Versione 0.5.0*]
 ]
 #pagebreak()
 
@@ -100,6 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.5.0], [2026/08/13], [Filippo Zonta Rocha], [], [Stesura della sezione 3.4],
     [0.4.0], [2026/07/29], [Leonardo Lorenzin], [Edis Hodja], [Stesura iniziale della sezione 3],
     [0.3.0], [2026/07/24], [Giovanni Bronte], [Leonardo Lorenzin], [Stesura della sezione 2],
     [0.2.0], [2026/07/24], [Alberto Canavese], [Leonardo Lorenzin], [Stesura della sezione 1],
@@ -307,7 +308,11 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
 
     [React Testing Library],
     [/],
-    [React Testing Library è una soluzione molto leggera per il testing di componenti React. Offre funzioni di utilità essenziali basate su react-dom e react-dom/test-utils, incoraggiando al contempo migliori pratiche di testing.]
+    [React Testing Library è una soluzione molto leggera per il testing di componenti React. Offre funzioni di utilità essenziali basate su react-dom e react-dom/test-utils, incoraggiando al contempo migliori pratiche di testing.],
+
+    [Pytest],
+    [/],
+    [Pytest è un framework per il test di Python, che permette di scrivere test automatizzati in modo semplice e leggibile.]
 )
 
 
@@ -405,6 +410,90 @@ risultati finali. Di seguito è riportato il ruolo di ciascuna pagina:
   image("../../../images/specifica_tecnica/diagramma_pagine.png", width: 100%),
   caption: [Diagramma delle pagine],
 )
+
+== Dettaglio dei moduli applicativi del frontend
+
+In questa sezione si documentano i moduli implementativi del frontend, partendo dalle viste reali fino ai servizi e al modello di dominio. L'intento è mostrare come l'architettura a livelli si traduce in elementi concreti dell'applicazione.
+
+=== Viste dell'applicazione
+
+Le viste corrispondono ai casi d'uso principali e sono rese esplicite con i nomi delle pagine.
+
+- *HomeView*: ingresso dell'applicazione e scelta tra nuovo dispositivo, importazione da JSON e ripresa di una sessione salvata.
+- *DeviceFormView*: inserimento dei metadati del dispositivo.
+- *DeviceAssetManagementView*: gestione della lista degli asset associati e visualizzazione dello stato di valutazione.
+- *AssetFormView*: creazione o modifica di un asset e assegnazione dei requisiti EN 18031.
+- *DeviceSummaryView*: riepilogo dei dati del dispositivo e degli asset prima dell'avvio della valutazione.
+- *SessionRunnerView*: esecuzione guidata del decision tree, con presentazione della domanda corrente e raccolta delle risposte.
+- *ModifySessionView*: selezione del requisito o dell'asset da riprendere o rivalutare nella sessione in corso.
+- *ResultView*: consultazione degli esiti finali e avvio dell'esportazione del report.
+
+Componenti riutilizzabili:
+
+- *Esito*: etichetta che rappresenta lo stato di valutazione con un codice colore.
+- *GrafoDecisionTree*: visualizzazione dell'albero decisionale per un requisito.
+
+=== Orchestrazione applicativa
+
+La logica operativa è gestita da hook e service che coordinano i casi d'uso senza disperdere la complessità nelle viste.
+
+- Gli *hook applicativi* espongono lo stato e le azioni necessarie alle viste; tradiscono così solo ciò che serve per il rendering e l'interazione.
+- I *service applicativi* centralizzano le operazioni trasversali:
+  - *DeviceService*: crea, aggiorna e persiste device e asset.
+  - *SessionService*: avvia e gestisce la sessione di valutazione, registra risposte e abilita la ripresa.
+  - *DecisionTreeService*: carica gli alberi decisionali, ne normalizza la struttura e mette a disposizione le regole di navigazione tra i nodi.
+  - *ExportService*: produce i dati pronti per l'esportazione in JSON, PDF.
+
+Questi service si appoggiano alle astrazioni tecniche dell'Infrastructure Layer per le chiamate al backend e la consegna delle notifiche.
+
+=== Stato applicativo
+
+Lo stato condiviso è suddiviso su store distinti, uno per ciascuna area funzionale.
+
+- *DeviceStore*: mantiene il device in lavorazione e i relativi asset.
+- *SessionStore*: mantiene la sessione attiva, il requisito corrente, il percorso svolto e l'avanzamento.
+- *TreeStore*: conserva i dati dei decision tree e la rappresentazione dell'albero in uso.
+- *ResultStore*: contiene gli esiti aggregati della valutazione e i dati per l'esportazione.
+- *UIStore*: gestisce lo stato di presentazione, come notifiche e indicatori di caricamento.
+
+Ogni store espone hook selettori dedicati, in modo che gli strati superiori leggano lo stato senza dipendere dalla sua struttura interna.
+
+=== Modello di dominio e validazione
+
+Il dominio applicativo è rappresentato da entità indipendenti dall'interfaccia e dalla persistenza.
+
+- *Device*: rappresenta il dispositivo e aggrega gli asset.
+- *Asset*: rappresenta un bene da valutare, con metadati e requisiti assegnati.
+- *DecisionTree* e *Node*: rappresentano l'albero decisionale e i suoi nodi di domanda o foglia.
+- *Result*: rappresenta l'esito di conformità per requisito e asset.
+
+La validazione dei dati in ingresso, sia quelli raccolti dall'utente sia quelli ricevuti dal backend, è delegata a schemi *Zod*.
+
+Le regole pure di decisione (*treeRules*) definiscono quando un requisito è ancora riprendibile, quando un ramo si conclude e quale esito applicare a una foglia.
+
+=== Dettagli infrastrutturali
+
+L'Infrastructure Layer isola i meccanismi tecnici dal comportamento dell'applicazione.
+
+- *FetchApiClient* / *ApiClientService*: eseguono le chiamate HTTP verso il backend, serializzano i payload JSON e convertono gli errori di rete in errori applicativi tipizzati.
+- *TanStack Query*: gestisce fetch, cache, retry e deduplica delle richieste per i dati dei decision tree.
+- *NotificationManager* / *NotificationService*: consegnano messaggi all'utente tramite `react-hot-toast`.
+
+Questa separazione consente di sostituire l'implementazione HTTP o il sistema di notifiche senza modificare il comportamento delle viste e dei service.
+
+=== Flussi applicativi principali
+
+I moduli del frontend collaborano nei flussi end-to-end principali:
+
+- *Nuova valutazione*: HomeView → DeviceFormView → DeviceAssetManagementView → AssetFormView → DeviceSummaryView. Il DeviceService costruisce il modello del dispositivo, il DeviceStore mantiene l'elenco degli asset e il frontend verifica la completezza dei dati prima di procedere.
+- *Importazione di un dispositivo*: HomeView carica un JSON, il servizio di importazione valida il payload con Zod e popola il DeviceStore prima di passare al riepilogo.
+- *Avvio della valutazione*: DeviceSummaryView attiva il SessionService, che crea la sessione e carica il decision tree iniziale tramite DecisionTreeService.
+- *Esecuzione del decision tree*: SessionRunnerView presenta la domanda corrente, raccoglie la risposta `Sì`/`No` e delega al SessionService l'aggiornamento dello stato e la scelta del nodo successivo.
+- *Ripresa/modifica di sessione*: ModifySessionView legge il SessionStore e permette di selezionare il requisito o l'asset da rivalutare; il SessionService applica le modifiche senza invalidare l'intera sessione.
+- *Esportazione dei risultati*: ResultView utilizza l'ExportService per generare i file scaricabili a partire dai dati del ResultStore.
+
+Questa organizzazione mantiene il frontend modulare e facilmente estendibile: nuove viste o requisiti EN 18031 possono essere introdotti estendendo i moduli del dominio e dei service senza riprogettare l'intera applicazione.
+
 
 
 = Tracciamento
