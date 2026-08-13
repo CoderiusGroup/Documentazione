@@ -145,7 +145,7 @@ Il sistema permetterà di valutare sistematicamente i requisiti di sicurezza per
 #pagebreak()
 
 == Glossario
-Al fine di evitare ambiguità e incomprensioni legate alla terminologia tecnica presente in questo documento e nel resto della documentazione prodotta dal Coderius Group, è stato redatto un apposito glossario. 
+Al fine di evitare ambiguità e incomprensioni legate alla terminologia tecnica presente in questo documento e nel resto della documentazione prodotta dal gruppo Coderius, è stato redatto un apposito glossario. 
 
 Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è contrassegnato nel testo da una "G" a pedice (es. _termine_#sub[G]). Cliccando sull'indicatore, il lettore verrà reindirizzato direttamente alla definizione corrispondente all'interno del documento #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Glossario.pdf")[*Glossario*].
 
@@ -189,7 +189,7 @@ Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è cont
 
   - #link("https://docs.python.org/3/")[#underline[#text(fill: blue)[Python 3 Official Documentation]]]
 
-  - #link("https://developer.mozilla.org/en-US/docs/Web/JavaScript")[#underline[#text(fill: blue)[MDN JavaScript Reference]]]
+  - #link("https://www.typescriptlang.org/docs/")[#underline[#text(fill: blue)[TypeScript Official Documentation]]]
   - #link("https://react.dev/")[#underline[#text(fill: blue)[React Official Documentation]]]
   - #link("https://vite.dev/guide/")[#underline[#text(fill: blue)[Vite Getting Started Guide]]]
   - #link("https://flask.palletsprojects.com/")[#underline[#text(fill: blue)[Flask Official Documentation]]]
@@ -211,12 +211,12 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
 
     [Python],
     [3.12],
-    [Python è un linguaggio di programmazione ad alto livello, orientato a oggetti, adatto, tra gli altri usi, a sviluppare applicazioni distribuite, scripting, computazione numerica e system testing. 
+    [Python è un linguaggio di programmazione ad alto livello, orientato ad oggetti, adatto, tra gli altri usi, a sviluppare applicazioni distribuite, scripting, computazione numerica e system testing. 
     Nel nostro progetto è stato scelto per la gestione del lato backend dato che è il linguaggio prediletto dalla proponente e per la sua estrema versatilità.],
 
-    [Javascript],
-    [ES2020],
-    [JavaScript è un linguaggio di programmazione multi paradigma orientato agli eventi. Nel nostro progetto è utilizzato per la gestione del frontend assieme alla libreria React ],
+    [TypeScript],
+    [5.4],
+    [TypeScript è un metalinguaggio open source sviluppato da Microsoft che si basa su JavaScript, aggiungendovi la tipizzazione statica. Nel nostro progetto è utilizzato per lo sviluppo del frontend assieme alla libreria React: l'introduzione dei tipi garantisce maggiore robustezza, facilita la manutenibilità del codice nel tempo e permette di intercettare numerosi errori già in fase di compilazione.],
 )
 
 == Frameworks
@@ -264,7 +264,6 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     ],
 )
 
-#pagebreak()
 == Librerie
 
 #table(
@@ -294,6 +293,8 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     [TanStack Query è una libreria per la gestione dello stato server-side in applicazioni React: si occupa di caching, retry con backoff e deduplica delle richieste in volo. Nel nostro progetto viene utilizzata nell'Infrastructure Layer del frontend per orchestrare le chiamate al decision tree sopra FetchApiClient, senza sostituirlo.],
 )
 
+#pagebreak()
+
 == Tecnologie per testing
 
 #table(
@@ -304,7 +305,7 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
 
     [Vitest],
     [/],
-    [Vitest è un framework per il test di Javascript, progettato per essere veloce e leggero, con supporto per diversi tipi di test.],
+    [Vitest è un framework per il test di applicazioni TypeScript e JavaScript, progettato per essere veloce e leggero. Sfruttando la stessa configurazione di Vite, garantisce un ambiente di testing altamente performante e coerente con la build.],
 
     [React Testing Library],
     [/],
@@ -494,6 +495,30 @@ I moduli del frontend collaborano nei flussi end-to-end principali:
 
 Questa organizzazione mantiene il frontend modulare e facilmente estendibile: nuove viste o requisiti EN 18031 possono essere introdotti estendendo i moduli del dominio e dei service senza riprogettare l'intera applicazione.
 
+
+=== Componenti principali e flussi
+
+Al fine di garantire la manutenibilità del codice e una chiara separazione delle responsabilità, il flusso dei dati all'interno del frontend segue un approccio rigorosamente *unidirezionale*. Le pagine e i componenti di presentazione non modificano mai direttamente lo stato globale né comunicano direttamente con il backend, ma si affidano a un ciclo di interazione standardizzato basato su tre attori principali: le *Viste* (Presentation Layer), gli *Hook/Service* (Application Layer) e gli *Store* (State Management).
+
+Il flusso tipico per l'esecuzione di un'operazione di business si articola nei seguenti step:
++ *Innesco (Trigger):* L'utente interagisce con la UI (es. preme un pulsante per rispondere a una domanda del decision tree). La vista cattura l'evento e invoca il metodo esposto dal custom hook applicativo (es. `useSessionRunner`).
++ *Orchestrazione:* L'hook delega la logica di business al servizio di competenza (es. `SessionService`).
++ *Comunicazione asincrona:* Il servizio, tramite l'Infrastructure Layer (`ApiClientService`), inoltra la richiesta HTTP al backend.
++ *Mutazione dello stato:* Al ricevimento di una risposta positiva dal server, il servizio invoca le azioni tipizzate degli store Zustand (es. `SessionStore.updateCurrentNode()`) per aggiornare lo stato locale in base ai nuovi dati.
++ *Reattività:* Gli store notificano automaticamente i componenti React in ascolto, innescando il re-render della UI con i dati aggiornati (es. mostrando la domanda successiva).
+
+Di seguito viene illustrato il diagramma di sequenza relativo al flusso critico di *Avanzamento nell'Albero Decisionale*, che rappresenta il cuore del processo di valutazione della conformità EN 18031.
+
+#v(1em)
+
+#figure(
+  image("../../../images/specifica_tecnica/seq_avanzamento_albero.png", width: 120%),
+  caption: [Diagramma delle pagine],
+)
+
+#v(1em)
+
+Questo pattern architetturale, oltre a disaccoppiare la logica visiva da quella applicativa, garantisce che lo stato del client (gestito da Zustand) e lo stato del server (gestito dal backend Flask) rimangano costantemente sincronizzati, centralizzando la gestione degli errori e del caricamento (loading state) all'interno dell'Application Layer.
 
 
 = Tracciamento
