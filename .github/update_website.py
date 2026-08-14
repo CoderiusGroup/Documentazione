@@ -98,9 +98,14 @@ def aggiorna_html():
     }
 
     for file_path in BASE_DIR.rglob("*.pdf"):
-        percorso_str = file_path.as_posix()
-        
-        if "website" in percorso_str or ".github" in percorso_str:
+        percorso_relativo = file_path.relative_to(BASE_DIR)
+        percorso_str = percorso_relativo.as_posix()
+
+        # Ignora le cartelle nascoste (.github, .git, worktree locali...): altrimenti
+        # una copia del repo dentro la cartella di lavoro duplica tutte le card.
+        if any(parte.startswith(".") for parte in percorso_relativo.parts):
+            continue
+        if "website" in percorso_str:
             continue
         if "Verbali/Esterni" in percorso_str and not file_path.stem.endswith("_firmato"):
             continue
