@@ -351,7 +351,7 @@ Il frontend è organizzato in sei livelli, ciascuno con una responsabilità unic
 - *State Management*: Store distribuiti per area funzionale (DeviceStore, SessionStore, TreeStore, ResultStore, UIStore) basati su Zustand.
 - *Infrastructure Layer*: Gestione comunicazione HTTP tramite fetch nativo incapsulato e mapping degli errori unico.
 - *Domain Layer*:  Entità di business (Device, Asset, DecisionTree, Node), validazione dei dati tramite Zod e logica di esecuzione/ripresa (treeRules).
-- *Shared*: Soluzioni custom senza librerie esterne di validazione o gestione UI.
+- *Shared*: Soluzioni custom per componenti UI (evitando l'introduzione di librerie UI pesanti); la validazione dei dati è affidata a Zod nel Domain Layer.
 
 La dipendenza tra livelli è a senso unico: Presentation dipende da Application, Application dipende
 da State/Domain/Infrastructure, mentre Domain non dipende da nessun altro livello. Questo vincolo è
@@ -375,7 +375,7 @@ Lo stato condiviso tra più pagine è distribuito su cinque store distinti per a
 
 ==== Infrastructure Layer
 
-L'Infrastructure Layer racchiude i dettagli tecnici dietro interfacce stabili usate dal layer applicativo. FetchApiClient realizza la comunicazione HTTP tramite fetch nativo, esposto ai service tramite l'interfaccia ApiClientService. Sopra questo livello, *TanStack Query* orchestra le chiamate al decision tree occupandosi di cache, retry e deduplica delle richieste, senza che i service debbano gestirle manualmente; una funzione di mapping degli errori converte i fallimenti di rete o di protocollo in errori applicativi tipizzati, in modo che il resto dell'applicazione non debba mai interpretare direttamente uno stato HTTP o un'eccezione di rete.\
+L'Infrastructure Layer racchiude i dettagli tecnici dietro interfacce stabili usate dal layer applicativo. FetchApiClient realizza la comunicazione HTTP tramite fetch nativo, esposto ai service tramite l'interfaccia ApiClientService. Sopra questo livello, *TanStack Query* orchestra le chiamate al decision tree occupandosi di cache, retry e deduplica delle richieste, senza che i service debbano gestirle manualmente; una funzione di mapping degli errori converte i fallimenti di rete o di protocollo in errori applicativi tipizzati, in modo che il resto dell'applicazione non debba mai interpretare direttamente uno stato HTTP o un'eccezione di rete. In particolare, TanStack Query utilizza FetchApiClient tramite un adapter/fetcher dedicato: in questo modo la serializzazione dei payload e il mapping degli errori restano centralizzati nell'Infrastructure Layer.
 NotificationManager realizza in modo analogo la consegna concreta delle notifiche dietro l'interfaccia NotificationService, appoggiandosi alla libreria *react-hot-toast* per la gestione di coda, timer di auto-dismiss e stacking dei messaggi. /*L'isolamento di questi dettagli in un layer separato consente di sostituire un'implementazione tecnica, ad esempio il client HTTP, senza modificare il layer applicativo che la utilizza.*/
 
 ==== Domain Layer
@@ -391,20 +391,15 @@ Il Presentation Layer è composto da otto pagine, ciascuna corrispondente a un c
 specifico del flusso di valutazione, dalla creazione del device fino alla consultazione dei
 risultati finali. Di seguito è riportato il ruolo di ciascuna pagina: 
 
-- *LandingPage*: permette di creare un nuovo device, caricarne
-  uno esistente o riprendere una sessione di valutazione già avviata.
+- *HomeView*: permette di creare un nuovo device, caricarne uno esistente o riprendere una sessione di valutazione già avviata.
 
-- *DeviceFormPage*: raccolta e validazione dei dati descrittivi del device.
-- *DeviceAssetManagementPage*: gestione dell'elenco degli asset associati al device (aggiunta,
-  modifica, rimozione).
-- *AssetFormPage*: creazione o modifica di un singolo asset e assegnazione dei requisiti EN 18031
-  da valutare.
-- *DeviceSummaryPage*: riepilogo di device e asset prima di avviare la valutazione.
-- *SessionRunnerPage*: presenta la domanda corrente del decision tree e gestisce la navigazione
-  tra le risposte.
-- *ModifySessionPage*: permette di scegliere quale requisito/asset riprendere o rifare all'interno
-  di una sessione in corso.
-- *ResultsPage*: mostra i risultati aggregati della valutazione e ne consente l'esportazione.
+- *DeviceFormView*: raccolta e validazione dei dati descrittivi del device.
+- *DeviceAssetManagementView*: gestione dell'elenco degli asset associati al device (aggiunta, modifica, rimozione).
+- *AssetFormView*: creazione o modifica di un singolo asset e assegnazione dei requisiti EN 18031 da valutare.
+- *DeviceSummaryView*: riepilogo di device e asset prima di avviare la valutazione.
+- *SessionRunnerView*: presenta la domanda corrente del decision tree e gestisce la navigazione tra le risposte.
+- *ModifySessionView*: permette di scegliere quale requisito/asset riprendere o rifare all'interno di una sessione in corso.
+- *ResultView*: mostra i risultati aggregati della valutazione e ne consente l'esportazione.
 
 #v(1em)
 #figure(
@@ -489,7 +484,7 @@ I moduli del frontend collaborano nei flussi end-to-end principali:
 - *Nuova valutazione*: HomeView → DeviceFormView → DeviceAssetManagementView → AssetFormView → DeviceSummaryView. Il DeviceService costruisce il modello del dispositivo, il DeviceStore mantiene l'elenco degli asset e il frontend verifica la completezza dei dati prima di procedere.
 - *Importazione di un dispositivo*: HomeView carica un JSON, il servizio di importazione valida il payload con Zod e popola il DeviceStore prima di passare al riepilogo.
 - *Avvio della valutazione*: DeviceSummaryView attiva il SessionService, che crea la sessione e carica il decision tree iniziale tramite DecisionTreeService.
-- *Esecuzione del decision tree*: SessionRunnerView presenta la domanda corrente, raccoglie la risposta `Sì`/`No` e delega al SessionService l'aggiornamento dello stato e la scelta del nodo successivo.
+- *Esecuzione del decision tree*: SessionRunnerView presenta la domanda corrente, raccoglie la risposta `yes`/`no` e delega al SessionService l'aggiornamento dello stato e la scelta del nodo successivo.
 - *Ripresa/modifica di sessione*: ModifySessionView legge il SessionStore e permette di selezionare il requisito o l'asset da rivalutare; il SessionService applica le modifiche senza invalidare l'intera sessione.
 - *Esportazione dei risultati*: ResultView utilizza l'ExportService per generare i file scaricabili a partire dai dati del ResultStore.
 
@@ -520,6 +515,168 @@ Di seguito viene illustrato il diagramma di sequenza relativo al flusso critico 
 
 Questo pattern architetturale, oltre a disaccoppiare la logica visiva da quella applicativa, garantisce che lo stato del client (gestito da Zustand) e lo stato del server (gestito dal backend Flask) rimangano costantemente sincronizzati, centralizzando la gestione degli errori e del caricamento (loading state) all'interno dell'Application Layer.
 
+
+== Elementi principali del dominio
+
+Questa microsezione definisce le entità principali del dominio che costituiscono il nucleo funzionale dell'applicazione. L'obiettivo è chiarire i concetti di business su cui si basa la valutazione di conformità EN 18031 e il rapporto tra essi, senza introdurre dettagli tecnici marginali al design del prodotto.
+
+=== Classi principali
+
+=== Device
+
+- *Ruolo*: rappresenta il dispositivo sottoposto a valutazione e aggrega gli asset a esso associati.
+
+- *Attributi principali*:
+  - id: string — identificatore univoco del dispositivo (UUID o codice interno).
+  - nome: string — denominazione leggibile del dispositivo.
+  - sistemaOperativo: string — stringa descrittiva del sistema operativo.
+  - descrizione: string — descrizione testuale e note contestuali.
+  - assetIds: string[] — elenco degli identificativi degli asset associati.
+
+- *Metodi principali*:
+  - addAsset(asset: Asset): void — associa un asset al dispositivo (aggiorna assetIds).
+  - removeAsset(assetId: string): void — rimuove l'associazione di un asset.
+  - validateMetadata(): boolean — verifica la presenza dei campi obbligatori per l'avvio della valutazione.
+  - toPayload(): object — serializza lo stato del device in formato JSON per trasmissione o persistenza.
+
+*Responsabilità*: raccogliere i dati descrittivi del dispositivo, gestire l'elenco degli asset e fornire operazioni di serializzazione e validazione dei metadati.
+
+ *UC rilevanti*: UC-4, UC-7, UC-10, UC-11.
+
+=== Asset
+
+ *Ruolo*: rappresenta un elemento del device soggetto a valutazione (es. interfaccia di rete, credenziali, registro accessi).
+
+ *Attributi principali*:
+  - id: string — identificatore univoco dell'asset.
+  - nome: string — denominazione leggibile dell'asset.
+  - tipo: string — categoria funzionale (es. "network", "security", "privacy", "financial").
+  - descrizione: string — descrizione testuale dell'asset.
+  - sensibile: boolean — flag che indica se l'asset tratta dati sensibili.
+  - requisiti: string[] — elenco dei codici requisito selezionati per l'asset.
+  - stato: enum { non_valutato, in_corso, PASS, FAIL, NOT_APPLICABLE } — stato sintetico per visualizzazione e aggregazione.
+
+ *Metodi principali*:
+  - assignRequirement(code: string): void — associa un requisito all'asset.
+  - removeRequirement(code: string): void — rimuove un requisito assegnato.
+  - setState(result): void — aggiorna lo stato di valutazione dell'asset.
+  - summary(): object — restituisce un oggetto sintetico per visualizzazione in elenco.
+
+*Responsabilità*: mantenere metadati e requisiti associati, esporre operazioni di aggiornamento dello stato e fornire rappresentazioni per la UI.
+
+*UC rilevanti*: UC-12, UC-14, UC-15, UC-16, UC-18.
+
+=== DecisionTree
+
+ *Ruolo*: rappresenta l'albero decisionale che guida la valutazione di un requisito EN 18031.
+
+ *Attributi principali:*
+  - requisito: string — codice del requisito (es. "ACM-1").
+  - nome: string — titolo descrittivo del requisito.
+  - versione: string — versione del decision tree.
+  - applicabileA: string[] — tipi di asset a cui il tree è applicabile.
+  - dipendenze: string[] — altri requisiti da cui questo requisito dipende.
+  - radice: string — id del nodo radice.
+  - nodi: Node[] — collezione dei nodi in formato piatto.
+
+* Metodi principali:*
+  - findNode(id: string): Node | null — restituisce il nodo corrispondente all'identificatore.
+  - validateIntegrity(): { ok: boolean, errors: string[] } — verifica unicità degli id, presenza della radice e assenza di riferimenti orfani.
+  - normalize(rawPayload): DecisionTree — converte un payload di importazione in una struttura valida.
+  - export(): object — serializza l'albero per esportazione.
+* Responsabilità:* fornire accesso e operazioni di consistenza sulla struttura dell'albero, oltre a funzioni di import/export.
+
+* UC rilevanti:* UC-29, UC-30, UC-38, UC-42.
+
+=== Node (Nodo)
+
+Ruolo: elemento atomico dell'albero; può rappresentare una domanda o una foglia di conclusione.
+
+ *Attributi principali:*
+  - id: string — identificatore del nodo.
+  - tipo: enum { domanda | foglia } — distingue nodi di decisione e nodi di esito.
+  - testo: string — testo della domanda o del messaggio esplicativo.
+  - rami?: { sì: string, no: string } — mappe ad id di nodo (solo per domande).
+  - esito?: enum { PASS | FAIL | NOT_APPLICABLE } — esito assegnato (solo per foglie).
+
+ *Metodi principali*:
+ - isQuestion(): boolean — ritorna true se il nodo è di tipo domanda.
+ - nextNode(answer: 'yes'|'no'): string | null — restituisce l'id del nodo successivo per il ramo scelto.
+  - toString(): string — rappresentazione testuale utile per logging e spiegazioni.
+
+* Responsabilità*: determinare il comportamento locale del nodo nell'esecuzione del decision tree e fornire metodi di navigazione.
+
+* UC rilevanti:* UC-22, UC-23, UC-32..UC-34.
+
+=== Session (Sessione di valutazione)
+
+Ruolo: istanza di esecuzione della valutazione per un device, con la memoria del percorso seguito e lo stato della procedura.
+
+*Attributi principali:*
+  - id: string — identificatore univoco della sessione.
+  - deviceId: string — riferimento al device valutato.
+  - currentAssetId: string — id dell'asset attualmente in valutazione.
+  - currentRequirement: string — codice del requisito corrente.
+  - percorso: { nodo: string, domanda: string, risposta: 'yes'|'no' } — sequenza delle risposte registrate.
+  - stato: enum { attiva | salvata | completata } — stato della sessione.
+  - createdAt: timestamp
+  - updatedAt: timestamp
+
+*Metodi principali:*
+  - start(deviceId: string): Session — inizializza una nuova sessione per il device.
+  - recordAnswer(nodeId: string, answer: 'yes'|'no'): { nextNodeId?: string, partialResult?: Result } — registra la risposta e calcola il passo successivo.
+  - resume(sessionId: string): Session — carica lo stato di una sessione salvata.
+  - save(): void — persiste lo stato corrente della sessione.
+  - undoLastAnswer(): void — rimuove l'ultima mossa dal percorso e ripristina lo stato conseguente.
+
+*Responsabilità*: orchestrare il flusso di esecuzione del decision tree per i vari asset e requisiti, mantenere la cronologia delle scelte e offrire operazioni di salvataggio e ripresa.
+
+*UC rilevanti*: UC-19, UC-20, UC-25, UC-26.
+
+=== Result (Esito)
+
+*Ruolo:* rappresenta il risultato della conformità per una coppia asset, requisito e l'aggregazione degli esiti per asset.
+
+ *Attributi principali:*
+  - assetId: string — riferimento all'asset valutato.
+  - requisito: string — codice del requisito valutato.
+  - esito: enum { PASS | FAIL | NOT_APPLICABLE } — esito assegnato.
+  - motivazione: string — spiegazione testuale dell'esito (opzionale).
+
+*Metodi principali:*
+  - toReportEntry(): object — converte l'esito in un formato adatto all'export.
+  - mergeWith(other: Result): Result — unisce informazioni per aggregare esiti a livello di asset.
+
+* Responsabilità:* rappresentare e serializzare i risultati della valutazione e supportare l'aggregazione per il reporting.
+
+* UC rilevanti:* UC-27, UC-28.
+
+=== Catalog (Catalogo degli alberi)
+
+*Ruolo:* indice dei decision tree disponibili, utile a selezionare, importare e consultare i requisiti e i rispettivi alberi.
+
+*Attributi principali:*
+  - entries: { requisito: string, nome: string, nodi: number, dipendenze: string[] }
+  
+* Metodi principali:*
+  - listTrees(): CatalogEntry[] — restituisce l'elenco sintetico degli alberi disponibili.
+  - loadTree(requirement: string): DecisionTree — carica la struttura completa del tree richiesto.
+  - importTree(file): DecisionTree — importa un albero da file e ne verifica la validità.
+  - exportTree(requirement: string): object — prepara la struttura per l'esportazione.
+
+* Responsabilità:* tenere l'indice dei decision tree e abilitare operazioni di ricerca, importazione ed esportazione.
+
+* UC rilevanti:* UC-29, UC-30, UC-38, UC-42.
+
+=== Vincoli e regole di integrità
+
+- Un nodo deve avere un identificatore univoco all'interno del medesimo decision tree (RF-Op14).
+- Non è consentita l'eliminazione del nodo radice (RF-Op12 / UC-39).
+- L'aggiunta di un nodo che introduca dipendenze circolari tra requisiti deve essere impedita (RF-Op04 / UC-40.1).
+- I rami non collegati possono essere trasformati in nodi foglia con un esito assegnato (RF-Op15 / UC-32.3).
+- Le modifiche strutturali di un decision tree devono poter essere annullate (RF-Op16 / UC-37).
+
+Queste regole definiscono l'integrità del dominio applicativo e devono essere rispettate sia nella modellazione concettuale sia nell'implementazione concreta del prodotto.
 
 = Tracciamento
 
