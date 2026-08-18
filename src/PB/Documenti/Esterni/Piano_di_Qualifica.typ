@@ -99,7 +99,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.0.5], [2026/08/14], [Leonardo Lorenzin], [], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 11],
+    [1.0.5], [2026/08/14], [Leonardo Lorenzin], [Alberto Canavese], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 11],
     [1.0.4], [2026/08/09], [Alberto Canavese], [Filippo Zonta Rocha], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 10],
     [1.0.3], [2026/07/24], [Giovanni Bronte], [Edis Hodja], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 9],
     [1.0.2], [2026/07/24], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 8],
@@ -768,7 +768,7 @@ I valori sono cumulativi: ogni sprint riporta il totale progressivo dall'inizio 
   [8], [2026/07/24], [6.165], [6.165], [5.850],
   [9], [2026/07/31], [6.745], [6.745], [6.430],
   [10], [2026/08/07], [7.370], [7.370], [7.045],
-  [11], [2026/08/14], [8.015], [8.015], [7.690],
+  [11], [2026/08/14], [8.015], [8.015], [7.715],
 )
 
 #figure(
@@ -777,7 +777,7 @@ I valori sono cumulativi: ogni sprint riporta il totale progressivo dall'inizio 
   supplement: [Figura],
 )
 
-Tutti e undici gli sprint si sono conclusi entro le date previste (fine reale = fine prevista), confermando il pieno allineamento tra lavoro pianificato ed eseguito. I costi effettivi (AC) risultano sistematicamente inferiori al Planned Value, con uno scostamento cumulativo di €325 a favore del progetto al termine dello Sprint 11: nello Sprint 11 il consuntivo (€645) è risultato uguale al preventivo. Questo andamento indica una stima iniziale delle ore  accurata e una gestione del budget efficiente lungo tutta la fase RTB e nel corso della PB.
+Tutti e undici gli sprint si sono conclusi entro le date previste (fine reale = fine prevista), confermando il pieno allineamento tra lavoro pianificato ed eseguito. I costi effettivi (AC) risultano sistematicamente inferiori al Planned Value, con uno scostamento cumulativo di €300 a favore del progetto al termine dello Sprint 11: nello Sprint 11 il consuntivo (€670) ha superato di €25 il preventivo (€645). Questo andamento indica una stima iniziale delle ore  accurata e una gestione del budget efficiente lungo tutta la fase RTB e nel corso della PB.
 #pagebreak()
 == MPC-04, MPC-05 — Schedule Performance Index, Cost Performance Index
 
@@ -796,7 +796,7 @@ SPI = EV / PV. CPI = EV / AC. Valori prossimi a 1 indicano rispetto di tempi e b
   [8], [1,000], [$>= 0.9$ ✓], [1,054], [$>= 0.9$ ✓],
   [9], [1,000], [$>= 0.9$ ✓], [1,048], [$>= 0.9$ ✓],
   [10], [1,000], [$>= 0.9$ ✓], [1,046], [$>= 0.9$ ✓],
-  [11], [1,000], [$>= 0.9$ ✓], [1,042], [$>= 0.9$ ✓],
+  [11], [1,000], [$>= 0.9$ ✓], [1,039], [$>= 0.9$ ✓],
 )
 
 #figure(
@@ -805,7 +805,7 @@ SPI = EV / PV. CPI = EV / AC. Valori prossimi a 1 indicano rispetto di tempi e b
   supplement: [Figura],
 )
 
-SPI = 1,000 in tutti e undici gli sprint: il team ha rispettato perfettamente le scadenze pianificate, senza mai accumulare ritardi. Il CPI, superiore all'unità in ogni sprint, evidenzia un costante risparmio di costo rispetto al lavoro prodotto. Dopo una lieve flessione nello Sprint 2 (1,015), l'indicatore segue una tendenza di crescita fino al picco dello Sprint 7 (1,086), per poi assestarsi su valori leggermente inferiori negli Sprint 8, 9, 10 e 11 (1,054, 1,048, 1,046 e 1,042), man mano che il margine accumulato viene diluito su una base di lavoro cumulativa più ampia. L'andamento omogeneo dei due indicatori suggerisce che le stime iniziali fossero realistiche e che l'esecuzione sia stata disciplinata.
+SPI = 1,000 in tutti e undici gli sprint: il team ha rispettato perfettamente le scadenze pianificate, senza mai accumulare ritardi. Il CPI, superiore all'unità in ogni sprint, evidenzia un costante risparmio di costo rispetto al lavoro prodotto. Dopo una lieve flessione nello Sprint 2 (1,015), l'indicatore segue una tendenza di crescita fino al picco dello Sprint 7 (1,086), per poi assestarsi su valori leggermente inferiori negli Sprint 8, 9, 10 e 11 (1,054, 1,048, 1,046 e 1,039), man mano che il margine accumulato viene diluito su una base di lavoro cumulativa più ampia. L'andamento omogeneo dei due indicatori suggerisce che le stime iniziali fossero realistiche e che l'esecuzione sia stata disciplinata.
 
 == MPC-06 — Estimate at Completion
 
@@ -824,7 +824,7 @@ EAC = BAC / CPI. Rappresenta la stima del costo finale del progetto sulla base d
   [8], [1,054], [10.134],  [10.680], [-546 (-5,1%)], [$<= 1.1 times "BAC"$ (110%) ✓],
   [9], [1,048], [10.191],  [10.680], [-489 (-4,6%)], [$<= 1.1 times "BAC"$ (110%) ✓],
   [10], [1,046], [10.210],  [10.680], [-470 (-4,4%)], [$<= 1.1 times "BAC"$ (110%) ✓],
-  [11], [1,042], [10.250],  [10.680], [-430 (-4,0%)], [$<= 1.1 times "BAC"$ (110%) ✓]
+  [11], [1,039], [10.279],  [10.680], [-401 (-3,8%)], [$<= 1.1 times "BAC"$ (110%) ✓]
 )
 
 #figure(
@@ -833,7 +833,7 @@ EAC = BAC / CPI. Rappresenta la stima del costo finale del progetto sulla base d
   supplement: [Figura],
 )
 
-L'EAC si mantiene costantemente al di sotto del BAC (€10.680), con uno scostamento che cresce da −€178 (Sprint 1) a −€440 (Sprint 6) man mano che l'efficienza di costo si consolida. Durante lo Sprint 7, l'EAC scende ulteriormente a €9.834, con uno scostamento di −€846 (−7,9%), a seguito di un incremento del CPI a 1,086. Nello Sprint 8 l'EAC risale leggermente a €10.134, con uno scostamento di −€546 (−5,1%), in corrispondenza di un lieve calo del CPI a 1,054. La stessa tendenza prosegue negli Sprint 9, 10 e 11, con l'EAC a €10.191 (−€489, −4,6%), a €10.210 (−€470, −4,4%) e a €10.250 (−€430, −4,0%): il riassorbimento è coerente con il rientro del CPI verso l'unità e non segnala un peggioramento dell'efficienza, bensì la progressiva diluizione del margine su una base cumulativa più ampia. In ogni caso, il valore stimato rimane sempre al di sotto della soglia di accettabilità (≤ 110% del BAC).
+L'EAC si mantiene costantemente al di sotto del BAC (€10.680), con uno scostamento che cresce da −€178 (Sprint 1) a −€440 (Sprint 6) man mano che l'efficienza di costo si consolida. Durante lo Sprint 7, l'EAC scende ulteriormente a €9.834, con uno scostamento di −€846 (−7,9%), a seguito di un incremento del CPI a 1,086. Nello Sprint 8 l'EAC risale leggermente a €10.134, con uno scostamento di −€546 (−5,1%), in corrispondenza di un lieve calo del CPI a 1,054. La stessa tendenza prosegue negli Sprint 9, 10 e 11, con l'EAC a €10.191 (−€489, −4,6%), a €10.210 (−€470, −4,4%) e a €10.279 (−€401, −3,8%): il riassorbimento è coerente con il rientro del CPI verso l'unità e non segnala un peggioramento dell'efficienza, bensì la progressiva diluizione del margine su una base cumulativa più ampia. In ogni caso, il valore stimato rimane sempre al di sotto della soglia di accettabilità (≤ 110% del BAC).
 
 == MPC-07 — Estimate to Complete
 
@@ -852,11 +852,11 @@ ETC = EAC − AC. Rappresenta la stima del costo ancora necessario per portare a
   [8], [4.284], [$<= 5.313$ ✓],
   [9], [3.761], [$<= 4.675$ ✓],
   [10], [3.165], [$<= 3.999$ ✓],
-  [11], [2.560], [$<= 3.289$ ✓]
+  [11], [2.564], [$<= 3.262$ ✓]
   
 )
 
-L'ETC decresce regolarmente sprint dopo sprint (da €9.617 nello Sprint 1 a €2.560 nello Sprint 11), confermando la progressione costante delle attività e la corretta imputazione dei costi. Al termine dello Sprint 11 la stima del costo residuo si mantiene inferiore al budget ancora disponibile (€2.990), lasciando un margine di €430 per il completamento delle attività della Product Baseline.
+L'ETC decresce regolarmente sprint dopo sprint (da €9.617 nello Sprint 1 a €2.564 nello Sprint 11), confermando la progressione costante delle attività e la corretta imputazione dei costi. Al termine dello Sprint 11 la stima del costo residuo si mantiene inferiore al budget ancora disponibile (€2.965), lasciando un margine di €401 per il completamento delle attività della Product Baseline.
 
 == MPC-08 — Requirements Stability Index
 
@@ -957,7 +957,7 @@ Time Efficiency (TE) = (Ore Previste Cumulative / Ore Effettive Cumulative) × 1
   [8], [294], [280], [104,8%], [$>= 80%$ ✓],
   [9], [321], [307], [104,6%], [$>= 80%$ ✓],
   [10], [353], [339], [104,1%], [$>= 80%$ ✓],
-  [11], [385], [371], [103,8%], [$>= 80%$ ✓],
+  [11], [384], [371], [103,5%], [$>= 80%$ ✓],
 )
 
 #figure(
@@ -966,7 +966,7 @@ Time Efficiency (TE) = (Ore Previste Cumulative / Ore Effettive Cumulative) × 1
   supplement: [Figura],
 )
 
-La Time Efficiency si mantiene tra il 100,0% (Sprint 1 e 2) e il 104,8% (Sprint 8), sempre ampiamente al di sopra della soglia dell'80%, attestandosi al 103,8% al termine dello Sprint 11. Su base cumulativa il team ha impiegato 371 ore effettive a fronte delle 385 preventivate (−14 ore, circa un −3,6%): uno scostamento contenuto e a favore del progetto, indicativo di un'elevata accuratezza delle stime orarie. Nello Sprint 11 le ore effettive hanno coinciso perfettamente con le 32 ore preventivate (con consuntivo pari al preventivo), a conferma della maturazione metodologica e della stabilità raggiunta dal team nella pianificazione delle attività.
+La Time Efficiency si mantiene tra il 100,0% (Sprint 1 e 2) e il 104,8% (Sprint 8), sempre ampiamente al di sopra della soglia dell'80%, attestandosi al 103,5% al termine dello Sprint 11. Su base cumulativa il team ha impiegato 371 ore effettive a fronte delle 384 preventivate (−13 ore, circa un −3,4%): uno scostamento contenuto e a favore del progetto, indicativo di un'elevata accuratezza delle stime orarie. Nello Sprint 11 alle 31 ore preventivate ne sono corrisposte 32 effettive (+1 ora, assorbita dal ruolo di Progettista a fronte del maggiore carico implementativo), uno scostamento minimo che conferma la maturazione metodologica e la stabilità raggiunta dal team nella pianificazione delle attività.
 
 == Metriche di qualità di prodotto (MPD)
 
@@ -1149,7 +1149,7 @@ Nell'undicesimo sprint (08/08–14/08/2026), il team ha proseguito la stesura de
 
 === Azioni intraprese
 - Il gruppo ha gestito le assenze temporanee ridistribuendo prontamente i compiti e il carico di lavoro tra i membri disponibili, assorbendo la variazione di disponibilità senza impatti sulla scadenza dello sprint.
-- L'accuratezza raggiunta nella pianificazione ha trovato piena conferma nel consuntivo: le 32 ore preventivate sono state rispettate nel totale complessivo, garantendo la chiusura dello sprint entro la data stabilita.
+- L'accuratezza raggiunta nella pianificazione ha trovato sostanziale conferma nel consuntivo: a fronte di 31 ore preventivate ne sono state impiegate 32, con la sola ora aggiuntiva sul ruolo di Progettista dovuta al maggiore carico implementativo, garantendo la chiusura dello sprint entro la data stabilita.
 #pagebreak()
 
 == Valutazione sugli strumenti di lavoro
