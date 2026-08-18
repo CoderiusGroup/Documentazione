@@ -119,10 +119,10 @@ Il team ha pertanto deciso di organizzare le tempistiche in modo da sfruttare qu
     columns: (auto, 1fr),
     align: (center, left),
     [*Codice*], [*Descrizione*],
-    [VI-16.1], [Approvazione formale dei ruoli previsti per lo Sprint 11],
-    [VI-16.2], [Stesura del Diario di Bordo del 2026-08-14],
-    [VI-16.3], [Definizione dell'approccio per la stesura della Specifica Tecnica in relazione ai dubbi di implementazione],
-    [VI-16.4], [Continuazione dello sviluppo relativo alla MVP],
+    [VI-17.1], [Approvazione formale dei ruoli previsti per lo Sprint 11],
+    [VI-17.2], [Stesura del Diario di Bordo del 2026-08-14],
+    [VI-17.3], [Definizione dell'approccio per la stesura della Specifica Tecnica in relazione ai dubbi di implementazione],
+    [VI-17.4], [Continuazione dello sviluppo relativo alla MVP],
   )
 ]
 
@@ -138,9 +138,9 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-16.1], [Aggiornamento parte preventivo Sprint 11 del Piano di Progetto], [Leonardo Lorenzin], [VI-16.1],
-    [TD-16.2], [Stesura del Diario di Bordo], [Giovanni Angelo Marco Bronte], [VI-16.2],
-    [TD-16.3], [Integrazione e continua stesura della Specifica Tecnica], [Edis Hodja, \ Filippo Zonta Rocha], [VI-16.3],
-    [TD-16.4], [Continuare con sviluppo MVP], [Ines Iadadi], [VI-16.4],
+    [TD-17.1], [Aggiornamento parte preventivo Sprint 11 del Piano di Progetto], [Leonardo Lorenzin], [VI-17.1],
+    [TD-17.2], [Stesura del Diario di Bordo], [Giovanni Angelo Marco Bronte], [VI-17.2],
+    [TD-17.3], [Integrazione e continua stesura della Specifica Tecnica], [Edis Hodja, \ Filippo Zonta Rocha], [VI-17.3],
+    [TD-17.4], [Continuare con sviluppo MVP], [Ines Iadadi], [VI-17.4],
   )
 ]
