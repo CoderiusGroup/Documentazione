@@ -141,7 +141,7 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     [TD-16.1], [Aggiornamento parte preventivo Sprint 12 del Piano di Progetto], [Alberto Canavese], [VI-16.1],
     [TD-16.2], [Stesura del Diario di Bordo], [Alberto Canavese], [VI-16.2],
     [TD-16.3], [Organizzazione per l'incontro con Bluewind], [Team], [VI-16.3],
-    [TD-16.4], [Continuare con sviluppo MVP], [Leonardo Lorenzin, Edis Hodja, Filippo Zonta Rocha], [VI-16.4],
-    [TD-16.5], [Continuazione stesura della Specifica Tecnica], [Ines Iadadi, Giovanni Angelo Marco Bronte], [VI-16.5],
+    [TD-16.4], [Continuare con sviluppo MVP], [Leonardo Lorenzin, Edis Hodja, \ Filippo Zonta Rocha], [VI-16.4],
+    [TD-16.5], [Continuazione stesura della Specifica Tecnica], [Ines Iadadi, \ Giovanni Angelo Marco Bronte], [VI-16.5],
   )
 ]
