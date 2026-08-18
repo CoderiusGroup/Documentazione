@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.5.1*]
+  #text(size: 20pt)[*Versione 1.6.1*]
 ]
 #pagebreak()
 
@@ -100,8 +100,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.6.1], [2026/08/18], [Giovanni Bronte], [], [Correzzioni varie allo sprint 11],
-    [1.6.0], [2026/08/16], [Giovanni Bronte], [], [Aggiunta delle sezioni Sprint 11: dalla 4.12.1 alla 4.12.8],
+    [1.6.1], [2026/08/18], [Giovanni Bronte], [Alberto Canavese], [Correzioni varie allo sprint 11],
+    [1.6.0], [2026/08/16], [Giovanni Bronte], [Alberto Canavese], [Aggiunta delle sezioni Sprint 11: dalla 4.12.1 alla 4.12.8],
     [1.5.1], [2026/08/07], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiunta delle sezioni Sprint 10: 4.11.5, 4.11.6, 4.11.7, 4.11.8],
     [1.5.0], [2026/08/03], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiunta delle sezioni Sprint 10: 4.11.1, 4.11.2, 4.11.3, 4.11.4],
     [1.4.1], [2026/07/31], [Ines Iadadi], [Edis Hodja], [Aggiunta delle sezioni Sprint 9: 4.10.5, 4.10.6, 4.10.7, 4.10.8],
