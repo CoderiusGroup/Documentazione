@@ -100,6 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.6.1], [2026/08/18], [Giovanni Bronte], [], [Correzzioni varie allo sprint 11],
     [1.6.0], [2026/08/16], [Giovanni Bronte], [], [Aggiunta delle sezioni Sprint 11: dalla 4.12.1 alla 4.12.8],
     [1.5.1], [2026/08/07], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiunta delle sezioni Sprint 10: 4.11.5, 4.11.6, 4.11.7, 4.11.8],
     [1.5.0], [2026/08/03], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiunta delle sezioni Sprint 10: 4.11.1, 4.11.2, 4.11.3, 4.11.4],
@@ -1368,7 +1369,7 @@ Pur non essendosi verificate criticità bloccanti, la combinazione tra la durata
     [Progettista], [25], [6], [150€], [58], [1450€],
     [Programmatore], [15], [13], [195€], [52], [780€],
     [Verificatore], [15], [6], [90€], [44], [660€],
-    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*32*], [*625€*], [*183*], [*3635€*],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*32*], [*615€*], [*183*], [*3635€*],
   )
   ]
 
@@ -1380,14 +1381,14 @@ Pur non essendosi verificate criticità bloccanti, la combinazione tra la durata
   columns: (0.3fr, 1fr),
   stroke: none,
   inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
-  [*Inizio:*],        [2026/08/10],
+  [*Inizio:*],        [2026/08/08],
   [*Fine prevista:*], [2026/08/14],
-  /*[*Fine reale:*],    [2026/08/07],*/
+  [*Fine reale:*],    [2026/08/14],
 )
 #v(0.3em)
 
 === Attività pianificate
-Dopo aver consolidato le scelte architetturali e avviato lo sviluppo dell'MVP, il gruppo si concentra in questo sprint sul completamento della Specifica Tecnica e sul proseguimento dello sviluppo dell'applicazione web.
+Dopo aver consolidato le scelte architetturali e avviato lo sviluppo dell'MVP, il gruppo si concentra in questo sprint sulla continua redazione della Specifica Tecnica e sul proseguimento dello sviluppo dell'applicazione web.
 Le attività principali pianificate per questo sprint sono:
 
 - Continuazione della stesura della Specifica Tecnica, con attenzione alla descrizione dei componenti principali e delle loro interazioni.
@@ -1409,8 +1410,8 @@ Le attività principali pianificate per questo sprint sono:
     ([Filippo Zonta Rocha],[-],[-],[-],[6],[-],[-],[6]),
     ([Giovanni Angelo Marco Bronte],[3],[-],[-],[-],[-],[-],[3]),
     ([Ines Iadadi],        [-],[-],[-],[-],[7],[-],[7]),
-    ([Leonardo Lorenzin],  [-],[4],[-],[-],[-],[-],[4]),
-    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*4*],[*0*],[*12*],[*7*],[*6*],[*32*]),
+    ([Leonardo Lorenzin],  [-],[3],[-],[-],[-],[-],[3]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*3*],[*0*],[*12*],[*7*],[*6*],[*31*]),
   )),
     caption: [Preventivo ore per membro - Sprint 11]
 )
@@ -1418,13 +1419,13 @@ Le attività principali pianificate per questo sprint sono:
 === Retrospettiva
 Questo sprint ha visto il proseguimento della stesura della Specifica Tecnica, con un approfondimento delle scelte architetturali definite dai progettisti e la loro concreta applicazione nell’MVP. In parallelo, il team ha aggiornato i documenti fondamentali della fase PB del progetto, assicurando coerenza tra la documentazione prodotta e lo stato di avanzamento dell’implementazione.
 
-=== Rischi incontr
+=== Rischi incontrati
 
 - *RI-1*: Gli impegni personali dovuti  al periodo estivo hanno comportato lievi disomogeneità nella disponibilità oraria di alcuni membri; tuttavia, la flessibilità del gruppo ha permesso di assorbire la situazione senza particolari impatti sulla tabella di marcia.
 
 #pagebreak()
 ==== Criticità emerse
-Non sono emerse criticità particolarmente rilevanti; tuttavia, la temporanea assenza di alcuni membri del team ha comportato un lieve ritardo in alcune attività rispetto alla pianificazione. Il gruppo ha comunque gestito il problema ridistribuendo correttamente i compiti tra i membri disponibili, evitando un impatto significativo sullo sprint.
+Non sono emerse criticità particolarmente rilevanti; tuttavia, la temporanea assenza di alcuni membri del team ha comportato un lieve ritardo in alcune attività rispetto alla pianificazione. Il gruppo ha comunque gestito il problema ridistribuendo correttamente i compiti tra i membri disponibili, evitando un impatto significativo sullo sprint. Inoltre, l’inesperienza pratica del team con lo stack tecnologico non si è rivelata una criticità rilevante durante questo sprint.
 
 
 
@@ -1433,11 +1434,11 @@ Non sono emerse criticità particolarmente rilevanti; tuttavia, la temporanea as
   tabella-ore((
     ([Alberto Canavese],   [-],[-],[-],[-],[-],[6],[6]),
     ([Edis Hodja],         [-],[-],[-],[6],[-],[-],[6]),
-    ([Filippo Zonta Rocha],[-],[-],[-],[6],[-],[-],[6]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[7#text(fill: red)[(+1)]],[-],[-],[7]),
     ([Giovanni Angelo Marco Bronte],[3],[-],[-],[-],[-],[-],[3]),
     ([Ines Iadadi],        [-],[-],[-],[-],[7],[-],[7]),
-    ([Leonardo Lorenzin],  [-],[4],[-],[-],[-],[-],[4]),
-    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*4*],[*0*],[*12*],[*7*],[*6*],[*32*]),
+    ([Leonardo Lorenzin],  [-],[3],[-],[-],[-],[-],[3]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*3*],[*0*],[*13*],[*7*],[*6*],[*32*]),
   )),
     caption: [Consuntivo ore per membro - Sprint 11]
 )
@@ -1454,10 +1455,10 @@ Non sono emerse criticità particolarmente rilevanti; tuttavia, la temporanea as
     [Responsabile], [30], [3], [90€], [11], [330€],
     [Amministratore], [20], [3], [60€], [7], [140€],
     [Analista], [25], [0], [0€], [5], [125€],
-    [Progettista], [25], [12], [300€], [46], [1150€],
+    [Progettista], [25], [13], [325€], [45], [1125€],
     [Programmatore], [15], [7], [105€], [45], [675€],
     [Verificatore], [15], [6], [90€], [38], [570€],
-    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*32*], [*645€*], [*152*], [*2990€*],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*32*], [*670€*], [*151*], [*2965€*],
   )
   ]
 
