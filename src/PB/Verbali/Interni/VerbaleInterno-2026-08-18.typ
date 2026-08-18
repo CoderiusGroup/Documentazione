@@ -119,11 +119,11 @@ L'ultimo punto all'ordine del giorno ha riguardato la distribuzione delle attivi
     columns: (auto, 1fr),
     align: (center, left),
     [*Codice*], [*Descrizione*],
-    [VI-16.1], [Approvazione formale dei ruoli previsti per lo Sprint 12],
-    [VI-16.2], [Stesura del Diario di Bordo del 2026-08-21],
-    [VI-16.3], [Organizzazione in vista dell'incontro con Bluewind],
-    [VI-16.4], [Continuazione dello sviluppo relativo al MVP],
-    [VI-16.5], [Continuazione della stesura della Specifica Tecnica],
+    [VI-18.1], [Approvazione formale dei ruoli previsti per lo Sprint 12],
+    [VI-18.2], [Stesura del Diario di Bordo del 2026-08-21],
+    [VI-18.3], [Organizzazione in vista dell'incontro con Bluewind],
+    [VI-18.4], [Continuazione dello sviluppo relativo al MVP],
+    [VI-18.5], [Continuazione della stesura della Specifica Tecnica],
       )
 ]
 
@@ -138,10 +138,10 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-16.1], [Aggiornamento parte preventivo Sprint 12 del Piano di Progetto], [Alberto Canavese], [VI-16.1],
-    [TD-16.2], [Stesura del Diario di Bordo], [Alberto Canavese], [VI-16.2],
-    [TD-16.3], [Organizzazione per l'incontro con Bluewind], [Team], [VI-16.3],
-    [TD-16.4], [Continuare con sviluppo MVP], [Leonardo Lorenzin, Edis Hodja, \ Filippo Zonta Rocha], [VI-16.4],
-    [TD-16.5], [Continuazione stesura della Specifica Tecnica], [Ines Iadadi, \ Giovanni Angelo Marco Bronte], [VI-16.5],
+    [TD-18.1], [Aggiornamento parte preventivo Sprint 12 del Piano di Progetto], [Alberto Canavese], [VI-18.1],
+    [TD-18.2], [Stesura del Diario di Bordo], [Alberto Canavese], [VI-18.2],
+    [TD-18.3], [Organizzazione per l'incontro con Bluewind], [Team], [VI-18.3],
+    [TD-18.4], [Continuare con sviluppo MVP], [Leonardo Lorenzin, Edis Hodja, \ Filippo Zonta Rocha], [VI-18.4],
+    [TD-18.5], [Continuazione stesura della Specifica Tecnica], [Ines Iadadi, \ Giovanni Angelo Marco Bronte], [VI-18.5],
   )
 ]
