@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.6.0*]
+  #text(size: 20pt)[*Versione 0.7.0*]
 ]
 #pagebreak()
 
@@ -100,6 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.7.0], [2026/08/22], [Ines Iadadi], [], [Stesura della sezione Backend 3.6],
     [0.6.0], [2026/08/13], [Filippo Zonta Rocha], [], [Stesura della sezione 3.5],
     [0.5.0], [2026/08/10], [Edis Hodja], [], [Stesura della sezione 3.4],
     [0.4.0], [2026/07/29], [Leonardo Lorenzin], [Edis Hodja], [Stesura iniziale della sezione 3],
@@ -678,6 +679,225 @@ Ruolo: istanza di esecuzione della valutazione per un device, con la memoria del
 - Le modifiche strutturali di un decision tree devono poter essere annullate (RF-Op16 / UC-37).
 
 Queste regole definiscono l'integrità del dominio applicativo e devono essere rispettate sia nella modellazione concettuale sia nell'implementazione concreta del prodotto.
+
+== Backend
+
+Il backend è realizzato come applicazione Flask scritta in Python 3.12, esposta come singola API REST stateless. Lato backend l'applicazione è organizzata secondo un'architettura a livelli, in cui ogni livello ha una responsabilità unica e dipende solo da quelli sottostanti, con l'obiettivo di isolare la logica di dominio dai dettagli di framework e di persistenza e di renderla verificabile in modo indipendente tramite unit test.
+
+=== Organizzazione a livelli
+
+Il backend è organizzato in quattro livelli:
+
+- *Presentation Layer*: blueprint Flask che espongono gli endpoint REST.
+- *Application Layer*: service che orchestrano i casi d'uso.
+- *Domain Layer*: entità (Device, Node, DecisionTree) e regole pure (treeRules), senza alcuna dipendenza da Flask, da repository o dal filesystem.
+- *Persistence Layer*: interfacce e implementazioni concrete di accesso ai dati.
+
+La dipendenza tra livelli è a senso unico: Presentation dipende da Application, Application dipende da Domain e da Persistence, mentre Domain non dipende da nessun altro livello. Questa direzione è ciò che permette di sostituire un dettaglio tecnico (es. il meccanismo di persistenza) senza toccare le route, ed è verificata dai test di dominio, che non richiedono alcun contesto applicativo Flask per essere eseguiti.
+
+Si è scelta un'architettura a livelli invece di un'architettura esagonale applicata rigorosamente. Il dominio applicativo del backend è delimitato: un solo meccanismo di persistenza su filesystem, un'unica API REST esposta al client React, per cui l'introduzione di porte e adapter espliciti per ogni dipendenza tecnica aggiungerebbe indirezione senza un beneficio proporzionato in termini di sostituibilità. L'unico punto in cui il disaccoppiamento esplicito interfaccia/implementazione è sfruttato è l'accesso ai decision tree, dove esiste più di una ragione concreta per prevedere un'implementazione alternativa. Per le altre dipendenze tecniche, l'architettura a livelli è già sufficiente a garantire la separazione delle responsabilità e la testabilità del dominio, senza introdurre overhead architetturale non giustificato dalle dimensioni del team e del progetto.
+
+==== Presentation Layer
+
+Il Presentation Layer raggruppa i blueprint Flask che espongono gli endpoint REST del sistema. Ogni route riceve la richiesta HTTP, delega l'elaborazione al service applicativo di competenza e traduce il risultato restituito in una risposta HTTP con il codice di stato appropriato. Le route non contengono logica di business ma si limitano a deserializzare il payload in ingresso, invocare il service e serializzare la risposta, in modo analogo a come le pagine del frontend non contengono logica di validazione o di navigazione. L'applicazione viene composta tramite una application factory, che registra i blueprint e la configurazione, così da poter istanziare istanze isolate dell'app nei test.
+
+==== Application Layer
+
+L'Application Layer contiene i service che orchestrano i casi d'uso, in modo simmetrico ai service applicativi del frontend. Ogni service centralizza un'area di responsabilità del dominio applicativo:
+
+- *DeviceService*: valida i soli metadati di un device in ingresso (nome, sistema operativo, descrizione) e ne costruisce l'entità, rispettando l'`id` se fornito o generandone uno con `uuid4` altrimenti. È l'unico punto di validazione del device, condiviso sia dal percorso di creazione manuale sia da quello di importazione così da evitare due logiche di validazione divergenti per lo stesso concetto.
+- *AssetService*: valida i campi di un asset (nome, tipo, descrizione, sensitibilità) e ne deriva automaticamente i requisiti applicabili quando non forniti esplicitamente: interroga `DecisionTreeService.list_requirement_ids_for_type()`, che scansiona l'intero catalogo di decision tree posseduto dal backend e restituisce gli id dei requisiti il cui campo `appliesTo` include il tipo dell'asset. 
+- *DecisionTreeService*: carica un decision tree tramite il repository dedicato, ne verifica l'integrità strutturale e lo normalizza prima di restituirlo al chiamante. Espone inoltre `list_requirement_ids_for_type()`, usato da `AssetService` per la derivazione dei requisiti.
+
+I service dipendono sia dal Domain Layer sia dal Persistence Layer, e sono quindi il livello in cui la logica di business pura (nel dominio) viene combinata con l'accesso ai dati (nella persistenza).
+
+Va precisato che la ragione per cui Asset ha un endpoint proprio non è la stessa che regola l'id: l'id di un Asset resta comunque un vincolo puramente locale al proprio device (nessun'altra entità lo referenzia in modo indipendente, coerentemente col fatto che il routing non usa mai un `:id` di asset). La necessità di un endpoint per Asset nasce dalla necessità di derivazione dei requisiti applicabili, che è logica di dominio server-side e non un'esigenza di identità.
+
+==== Domain Layer
+
+Il Domain Layer rappresenta le entità del problema applicativo in modo indipendente da Flask, dalle route e dal meccanismo di persistenza. Le entità Device, Node e DecisionTree e le regole pure treeRules qui definite sono concettualmente le stesse descritte per il frontend nella sezione @elementi-dominio, ma nella loro forma lato server: non contengono alcuna dipendenza da librerie web o di accesso a file, il che le rende testabili con semplici unit test che non richiedono di avviare un'istanza dell'applicazione Flask. Le regole treeRules lato server determinano la validità strutturale di un albero (unicità degli id, presenza della radice, assenza di riferimenti orfani) e sono condivise concettualmente, ma non nel codice, con le regole equivalenti applicate lato client durante la navigazione.
+
+==== Persistence Layer <principio-repository>
+
+Il Persistence Layer isola i dettagli di accesso ai dati dietro interfacce, seguendo un principio deliberatamente selettivo: un repository esiste solo per le entità che il backend possiede autonomamente, non per ogni entità di dominio. Il decision tree è l'unico dato che il sistema possiede e mette a disposizione dell'utente (e non viceversa): per questo motivo `IDecisionTreeRepository` e la sua implementazione concreta `JsonDecisionTreeRepository` sono l'unica coppia interfaccia/implementazione del backend. `JsonDecisionTreeRepository` legge i file JSON in `backend/data/decision_trees/` , che costituiscono dati seed dell'applicazione e non dati generati a runtime dall'utente. L'interfaccia `IDecisionTreeRepository` dichiara `save()`, `delete()`, `get()` e `list()` (quest'ultimo usato da `AssetService` per la derivazione dei requisiti).
+
+Device non ha repository in quanto è un dato che l'utente porta al sistema (creazione manuale o import) e riporta via (export, o incorporato in una sessione), mai una collezione posseduta e servita per id dal backend. Per questo `POST /devices` è stateless, il device non viene mai scritto su disco dal backend, e vive per l'intera durata della sessione solo nel DeviceStore del frontend. Lo stesso vale per Asset dal punto di vista della persistenza anche se, a differenza del Device, Asset ha un endpoint e un service dedicati.
+
+=== Dettaglio dei moduli applicativi del backend
+
+==== Endpoint REST <endpoint-rest>
+
+La seguente tabella riassume gli endpoint esposti dal backend, distinguendo quelli già implementati da quelli pianificati. Per gli endpoint pianificati, il verbo e il percorso indicati sono un'ipotesi di lavoro coerente con le convenzioni REST già in uso, non ancora verificata in fase di implementazione.
+
+#table(
+  columns: (auto, 2fr, 1fr, 1fr),
+  align: (center, left, left, center),
+  fill: (x, y) => if y == 0 { blue.lighten(70%) },
+  [*Metodo*], [*Percorso*], [*Descrizione*], [*Stato*],
+  [POST], [`/devices`],
+  [Valida i metadati obbligatori di un device (nome, sistema operativo, descrizione), rispetta l'`id` se fornito o ne genera uno con `uuid4` altrimenti, restituisce l'entità serializzata (con `assets` sempre vuoto: gli asset non fanno parte di questo payload). Nessuna scrittura su disco. Contratto unico condiviso dalla creazione manuale (UC-4) e dall'importazione (UC-2): il file importato viene validato nella sua forma da Zod lato client, ma i soli metadati del device vengono comunque sottoposti a questo stesso endpoint per la risoluzione dell'id.],
+  [Implementato],
+
+  [POST], [`/assets`],
+  [Valida i campi di un asset (nome, tipo, descrizione, `sensitive`) e ne deriva automaticamente i requisiti applicabili (campo `requirements`) quando non forniti esplicitamente, interrogando l'intero catalogo di decision tree tramite `DecisionTreeService`. Rispetta l'`id` se fornito, altrimenti ne genera uno con `uuid4`. Nessuna scrittura su disco.],
+  [Implementato],
+
+  [GET], [`/decision-trees/{requirementId}`],
+  [Carica il decision tree del requisito indicato tramite `JsonDecisionTreeRepository`, ne normalizza la struttura e lo restituisce.],
+  [Implementato],
+)
+
+==== Flussi applicativi principali
+
+- *Creazione di un device*: il client invia i metadati raccolti in DeviceFormView a `POST /devices`; la route delega a `DeviceService`, che valida i campi tramite le regole del Domain Layer e genera un id se assente; la risposta serializzata viene restituita al client, che la mantiene nel proprio DeviceStore. Gli asset vengono poi aggiunti in DeviceAssetManagementView/AssetFormView senza ulteriori scritture lato server.
+- *Importazione di un device (JSON)*: il client acquisisce il file, lo valida nella sua interezza (metadati e asset) con gli schemi Zod del Domain Layer frontend; solo i metadati del device vengono poi inviati a `POST /devices`, con lo stesso contratto della creazione manuale, per la risoluzione dell'id (rispettato se presente nel file); il client ricompone il device risolto con gli asset già validati localmente e popola il DeviceStore.
+- *Creazione di un asset*: il client invia i dati raccolti in AssetFormView a `POST /assets`; la route delega ad `AssetService`, che valida i campi e, se `requirements` non è specificato, chiede a `DecisionTreeService` di derivarli scansionando il catalogo dei decision tree; l'asset risolto viene restituito al client, che lo aggiunge alla lista asset del device corrente nel DeviceStore.
+- *Caricamento di un decision tree*: il client richiede `GET /decision-trees/{requirementId}`; la route delega a `DecisionTreeService`, che si appoggia a `JsonDecisionTreeRepository` per leggere il file seed corrispondente, ne verifica l'integrità tramite `validateIntegrity()` e restituisce la struttura normalizzata; TanStack Query, lato client, si occupa di cache e deduplica di questa chiamata.
+
+=== Testing
+
+I test del backend sono organizzati in una cartella `tests/` separata, a specchio della struttura di `src/` — la convenzione idiomatica per progetti Pytest, deliberatamente diversa da quella adottata nel frontend (test colocati accanto al file testato), dove invece si segue la convenzione idiomatica Vitest. Il Domain Layer, non avendo dipendenze da Flask o dal filesystem, è verificabile con semplici unit test; i service sono verificati con test che sostituiscono il repository con un'implementazione o un doppio di test; le route sono verificate con test di integrazione tramite il test client di Flask. La qualità del codice è inoltre verificata tramite `ruff check` e `ruff format --check` in CI.
+
+== Elementi principali del dominio <elementi-dominio>
+
+Questa microsezione definisce le entità principali del dominio che costituiscono il nucleo funzionale dell'applicazione. L'obiettivo è chiarire i concetti di business su cui si basa la valutazione di conformità EN 18031 e il rapporto tra essi, senza introdurre dettagli tecnici marginali al design del prodotto.
+
+=== Classi principali
+
+/*=== Device
+
+- *Ruolo*: rappresenta il dispositivo sottoposto a valutazione e aggrega gli asset a esso associati.
+
+- *Attributi principali*:
+  - id: string — identificatore univoco del dispositivo (UUID o codice interno).
+  - nome: string — denominazione leggibile del dispositivo.
+  - sistemaOperativo: string — stringa descrittiva del sistema operativo.
+  - descrizione: string — descrizione testuale e note contestuali.
+  - assetIds: string[] — elenco degli identificativi degli asset associati.
+
+- *Metodi principali*:
+  - addAsset(asset: Asset): void — associa un asset al dispositivo (aggiorna assetIds).
+  - removeAsset(assetId: string): void — rimuove l'associazione di un asset.
+  - validateMetadata(): boolean — verifica la presenza dei campi obbligatori per l'avvio della valutazione.
+  - toPayload(): object — serializza lo stato del device in formato JSON per trasmissione o persistenza.
+
+*Responsabilità*: raccogliere i dati descrittivi del dispositivo, gestire l'elenco degli asset e fornire operazioni di serializzazione e validazione dei metadati.
+
+=== Asset
+
+ *Ruolo*: rappresenta un elemento del device soggetto a valutazione (es. interfaccia di rete, credenziali, registro accessi).
+
+ *Attributi principali*:
+  - id: string — identificatore univoco dell'asset.
+  - nome: string — denominazione leggibile dell'asset.
+  - tipo: string — categoria funzionale (es. "network", "security", "privacy", "financial").
+  - descrizione: string — descrizione testuale dell'asset.
+  - sensibile: boolean — flag che indica se l'asset tratta dati sensibili.
+  - requisiti: string[] — elenco dei codici requisito selezionati per l'asset.
+  - stato: enum { non_valutato, in_corso, PASS, FAIL, NOT_APPLICABLE } — stato sintetico per visualizzazione e aggregazione.
+
+ *Metodi principali*:
+  - assignRequirement(code: string): void — associa un requisito all'asset.
+  - removeRequirement(code: string): void — rimuove un requisito assegnato.
+  - setState(result): void — aggiorna lo stato di valutazione dell'asset.
+  - summary(): object — restituisce un oggetto sintetico per visualizzazione in elenco.
+
+*Responsabilità*: mantenere metadati e requisiti associati, esporre operazioni di aggiornamento dello stato e fornire rappresentazioni per la UI.
+
+=== DecisionTree
+
+ *Ruolo*: rappresenta l'albero decisionale che guida la valutazione di un requisito EN 18031.
+
+ *Attributi principali:*
+  - requisito: string — codice del requisito (es. "ACM-1").
+  - nome: string — titolo descrittivo del requisito.
+  - versione: string — versione del decision tree.
+  - applicabileA: string[] — tipi di asset a cui il tree è applicabile.
+  - dipendenze: string[] — altri requisiti da cui questo requisito dipende.
+  - radice: string — id del nodo radice.
+  - nodi: Node[] — collezione dei nodi in formato piatto.
+
+* Metodi principali:*
+  - findNode(id: string): Node | null — restituisce il nodo corrispondente all'identificatore.
+  - validateIntegrity(): { ok: boolean, errors: string[] } — verifica unicità degli id, presenza della radice e assenza di riferimenti orfani.
+  - normalize(rawPayload): DecisionTree — converte un payload di importazione in una struttura valida.
+  - export(): object — serializza l'albero per esportazione.
+* Responsabilità:* fornire accesso e operazioni di consistenza sulla struttura dell'albero, oltre a funzioni di import/export.
+
+
+=== Node (Nodo)
+
+Ruolo: elemento atomico dell'albero; può rappresentare una domanda o una foglia di conclusione.
+
+ *Attributi principali:*
+  - id: string — identificatore del nodo.
+  - tipo: enum { domanda | foglia } — distingue nodi di decisione e nodi di esito.
+  - testo: string — testo della domanda o del messaggio esplicativo.
+  - rami?: { sì: string, no: string } — mappe ad id di nodo (solo per domande).
+  - esito?: enum { PASS | FAIL | NOT_APPLICABLE } — esito assegnato (solo per foglie).
+
+ *Metodi principali*:
+ - isQuestion(): boolean — ritorna true se il nodo è di tipo domanda.
+ - nextNode(answer: 'yes'|'no'): string | null — restituisce l'id del nodo successivo per il ramo scelto.
+  - toString(): string — rappresentazione testuale utile per logging e spiegazioni.
+
+* Responsabilità*: determinare il comportamento locale del nodo nell'esecuzione del decision tree e fornire metodi di navigazione.
+
+=== Session (Sessione di valutazione)
+
+Ruolo: istanza di esecuzione della valutazione per un device, con la memoria del percorso seguito e lo stato della procedura.
+
+*Attributi principali:*
+  - id: string — identificatore univoco della sessione.
+  - deviceId: string — riferimento al device valutato.
+  - currentAssetId: string — id dell'asset attualmente in valutazione.
+  - currentRequirement: string — codice del requisito corrente.
+  - percorso: { nodo: string, domanda: string, risposta: 'yes'|'no' } — sequenza delle risposte registrate.
+  - stato: enum { attiva | salvata | completata } — stato della sessione.
+  - createdAt: timestamp
+  - updatedAt: timestamp
+
+*Metodi principali:*
+  - start(deviceId: string): Session — inizializza una nuova sessione per il device.
+  - recordAnswer(nodeId: string, answer: 'yes'|'no'): { nextNodeId?: string, partialResult?: Result } — registra la risposta e calcola il passo successivo.
+  - resume(sessionId: string): Session — carica lo stato di una sessione salvata.
+  - save(): void — persiste lo stato corrente della sessione.
+  - undoLastAnswer(): void — rimuove l'ultima mossa dal percorso e ripristina lo stato conseguente.
+
+*Responsabilità*: orchestrare il flusso di esecuzione del decision tree per i vari asset e requisiti, mantenere la cronologia delle scelte e offrire operazioni di salvataggio e ripresa.
+
+=== Result (Esito)
+
+*Ruolo:* rappresenta il risultato della conformità per una coppia asset, requisito e l'aggregazione degli esiti per asset.
+
+ *Attributi principali:*
+  - assetId: string — riferimento all'asset valutato.
+  - requisito: string — codice del requisito valutato.
+  - esito: enum { PASS | FAIL | NOT_APPLICABLE } — esito assegnato.
+  - motivazione: string — spiegazione testuale dell'esito (opzionale).
+
+*Metodi principali:*
+  - toReportEntry(): object — converte l'esito in un formato adatto all'export.
+  - mergeWith(other: Result): Result — unisce informazioni per aggregare esiti a livello di asset.
+
+* Responsabilità:* rappresentare e serializzare i risultati della valutazione e supportare l'aggregazione per il reporting.
+
+=== Catalog (Catalogo degli alberi)
+
+*Ruolo:* indice dei decision tree disponibili, utile a selezionare, importare e consultare i requisiti e i rispettivi alberi.
+
+*Attributi principali:*
+  - entries: { requisito: string, nome: string, nodi: number, dipendenze: string[] }
+  
+* Metodi principali:*
+  - listTrees(): CatalogEntry[] — restituisce l'elenco sintetico degli alberi disponibili.
+  - loadTree(requirement: string): DecisionTree — carica la struttura completa del tree richiesto.
+  - importTree(file): DecisionTree — importa un albero da file e ne verifica la validità.
+  - exportTree(requirement: string): object — prepara la struttura per l'esportazione.
+
+* Responsabilità:* tenere l'indice dei decision tree e abilitare operazioni di ricerca, importazione ed esportazione.
+
+=== Vincoli e regole di integrità*/
 
 = Tracciamento
 
