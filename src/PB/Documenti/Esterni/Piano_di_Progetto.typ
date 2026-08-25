@@ -100,6 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.7.0], [2026/08/21], [Alberto Canavese], [], [Aggiunta delle sezioni Sprint 12: dalla 4.13.1 alla 4.13.8],
     [1.6.1], [2026/08/18], [Giovanni Bronte], [Alberto Canavese], [Correzioni varie allo sprint 11],
     [1.6.0], [2026/08/16], [Giovanni Bronte], [Alberto Canavese], [Aggiunta delle sezioni Sprint 11: dalla 4.12.1 alla 4.12.8],
     [1.5.1], [2026/08/07], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiunta delle sezioni Sprint 10: 4.11.5, 4.11.6, 4.11.7, 4.11.8],
@@ -1462,3 +1463,98 @@ Non sono emerse criticità particolarmente rilevanti; tuttavia, la temporanea as
   )
   ]
 
+
+
+== Sprint 12
+
+=== Periodo
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/08/15],
+  [*Fine prevista:*], [2026/08/21],
+  [*Fine reale:*],    [2026/08/21],
+)
+#v(0.3em)
+
+=== Attività pianificate
+Dopo aver consolidato nello sprint precedente le funzionalità principali dell'applicazione, il gruppo dedica questo sprint al completamento delle parti ancora mancanti dell'MVP e alla loro integrazione, affiancando alle attività di sviluppo una revisione dell'organizzazione del lavoro sulla repository.
+Le attività principali pianificate per questo sprint sono:
+
+- Completamento della gestione dell'esito e del recupero di sessione, in modo da permettere all'utente di riprendere una verifica interrotta senza perdere i dati già inseriti.
+- Completamento dei test di integrazione e rifinitura dell'interfaccia grafica, per garantire il corretto funzionamento congiunto dei moduli sviluppati e migliorare l'esperienza d'uso dell'applicazione.
+- Completamento del back-end e della sua integrazione con l'applicazione, così da disporre di un flusso funzionante end-to-end.
+- Riorganizzazione della gestione dei branch della repository, al fine di evitare sovrapposizioni tra le attività svolte in parallelo dai diversi membri del gruppo.
+
+=== Rischi attesi
+
+- *RT-1*: il completamento del back-end e la sua integrazione con il front-end costituiscono le attività tecnicamente più complesse affrontate finora; l'inesperienza pratica del team con lo stack tecnologico rimane pertanto un rischio rilevante.
+
+- *RO-4*: lo sviluppo in parallelo di più funzionalità su branch distinti aumenta il rischio di sovrapposizioni e disallineamenti tra i membri del gruppo, con possibili conflitti in fase di integrazione del codice.
+
+- *RI-1*: la collocazione dello sprint nella settimana di Ferragosto comporta il rischio di una disponibilità ridotta o non uniforme tra i membri del gruppo a causa di impegni personali.
+
+=== Preventivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [3],[-],[-],[-],[-],[-],[3]),
+    ([Edis Hodja],         [-],[3],[-],[-],[-],[-],[3]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[6],[-],[6]),
+    ([Giovanni Angelo Marco Bronte],[-],[-],[-],[-],[-],[6],[6]),
+    ([Ines Iadadi],        [-],[-],[-],[7],[-],[-],[7]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[-],[7],[-],[7]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*3*],[*0*],[*7*],[*13*],[*6*],[*32*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 12]
+)
+
+=== Retrospettiva
+Lo sprint ha portato l'MVP a un livello di sviluppo avanzato: sono state completate la gestione dell'esito e il recupero di sessione, i test di integrazione e la rifinitura dell'interfaccia grafica, ed è stato ultimato il back-end con la relativa integrazione nell'applicazione. In parallelo il gruppo ha aggiornato tutti i documenti inerenti al progetto, ovvero il Piano di Qualifica, la Specifica Tecnica e il Piano di Progetto, mantenendo la coerenza tra quanto prodotto e lo stato effettivo dell'implementazione. Nel corso dello sprint si è inoltre svolto un incontro di aggiornamento con l'azienda proponente Bluewind S.r.l., nel quale il team ha illustrato lo stato di avanzamento dell'MVP e raccolto le indicazioni della proponente. Infine, è stata rivista l'organizzazione dei branch della repository, così da ridurre le sovrapposizioni tra le attività portate avanti in parallelo.
+
+=== Rischi incontrati
+
+- *RO-4*: la gestione asincrona dei numerosi branch attivi sulla repository si è rivelata più onerosa del previsto, generando sovrapposizioni tra le attività di più membri e rendendo laboriosa l'integrazione dei contributi. Il gruppo ha mitigato il rischio riorganizzando la struttura dei branch e ricorrendo ai canali di comunicazione rapidi per segnalare tempestivamente gli interventi in corso.
+
+- *RO-1*: le ore effettivamente impiegate per il ruolo di Programmatore hanno superato di un'unità quelle preventivate. Lo scostamento, concentrato sull'attività di Leonardo Lorenzin, è riconducibile al maggior carico richiesto dal completamento del back-end e dalla risoluzione dei conflitti emersi durante l'integrazione dei branch. Il gruppo terrà conto di questa evidenza nella calibrazione delle stime dei prossimi sprint.
+
+- *RI-1*: gli impegni personali legati al periodo estivo hanno comportato lievi disomogeneità nella disponibilità oraria di alcuni membri; tuttavia, la flessibilità del gruppo ha permesso di assorbire la situazione senza particolari impatti sulla tabella di marcia.
+
+#pagebreak()
+==== Criticità emerse
+La criticità principale dello sprint ha riguardato la gestione asincrona dei branch sulla repository: il numero di attività implementative portate avanti in parallelo ha reso difficile mantenere allineate le diverse linee di sviluppo, con conseguenti sovrapposizioni e con la necessità di dedicare tempo aggiuntivo alla risoluzione dei conflitti in fase di integrazione. Il gruppo è intervenuto riorganizzando la gestione dei branch e definendo in modo più netto la corrispondenza tra branch e attività, in modo da prevenire il ripetersi del problema nei prossimi sprint. Proprio il tempo aggiuntivo richiesto da questa attività, unito alla mole di lavoro necessaria per ultimare il back-end, ha portato Leonardo Lorenzin a superare di un'ora il proprio preventivo, unico scostamento registrato nello sprint. Il rischio tecnico *RT-1*, individuato in fase di pianificazione, non si è invece concretizzato: l'esperienza maturata negli sprint precedenti ha permesso di completare il back-end e la sua integrazione senza blocchi rilevanti.
+
+=== Consuntivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [3],[-],[-],[-],[-],[-],[3]),
+    ([Edis Hodja],         [-],[3],[-],[-],[-],[-],[3]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[6],[-],[6]),
+    ([Giovanni Angelo Marco Bronte],[-],[-],[-],[-],[-],[6],[6]),
+    ([Ines Iadadi],        [-],[-],[-],[7],[-],[-],[7]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[-],[8#text(fill: red)[(+1)]],[-],[8]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*3*],[*0*],[*7*],[*14*],[*6*],[*33*]),
+  )),
+    caption: [Consuntivo ore per membro - Sprint 12]
+)
+
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [3], [90€], [8], [240€],
+    [Amministratore], [20], [3], [60€], [4], [80€],
+    [Analista], [25], [0], [0€], [5], [125€],
+    [Progettista], [25], [7], [175€], [38], [950€],
+    [Programmatore], [15], [14], [210€], [31], [465€],
+    [Verificatore], [15], [6], [90€], [32], [480€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*33*], [*625€*], [*118*], [*2340€*],
+  )
+  ]
