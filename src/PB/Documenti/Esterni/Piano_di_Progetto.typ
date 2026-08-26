@@ -1558,3 +1558,47 @@ La criticità principale dello sprint ha riguardato la gestione asincrona dei br
     table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*33*], [*625€*], [*118*], [*2340€*],
   )
   ]
+
+  == Sprint 13
+
+=== Periodo
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/08/22],
+  [*Fine prevista:*], [2026/08/28],
+  [*Fine reale:*],    [],
+)
+#v(0.3em)
+
+=== Attività pianificate
+Proseguendo il lavoro avviato nello sprint precedente, il gruppo concentra questo sprint sul completamento dell'implementazione dei requisiti obbligatori nell'MVP e sulla conclusione della stesura della Specifica Tecnica.
+Le attività principali pianificate per questo sprint sono:
+
+- Giungere a uno stato avanzato dell'MVP, consolidando le funzionalità sviluppate e le relative integrazioni e implementando la navigazione degli alberi decisionali.
+- Continuare e concludere l'aggiornamento della Specifica Tecnica.
+- Iniziare la stesura del Manuale Utente.
+
+=== Rischi attesi
+
+- *RT-1*: la finalizzazione delle funzionalità residue dell'MVP richiede il consolidamento di parti sviluppate in parallelo nei branch, con un rischio di disallineamenti in fase di integrazione.
+
+- *RI-1*: gli impegni personali legati al periodo estivo potrebbero comportare una disponibilità oraria non uniforme tra i membri del gruppo.
+
+=== Preventivo
+
+=== Preventivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[6],[-],[-],[6]),
+    ([Edis Hodja],         [-],[-],[-],[-],[7],[-],[7]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[7],[-],[7]),
+    ([Giovanni Angelo Marco Bronte],[-],[3],[-],[2],[-],[-],[5]),
+    ([Ines Iadadi],        [3],[-],[-],[2],[-],[-],[5]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[-],[2],[5],[7]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*3*],[*0*],[*10*],[*16*],[*5*],[*37*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 13]
+)
