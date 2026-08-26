@@ -100,7 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.7.0], [2026/08/21], [Alberto Canavese], [], [Aggiunta delle sezioni Sprint 12: dalla 4.13.1 alla 4.13.8],
+    [1.7.0], [2026/08/21], [Alberto Canavese], [Giovanni Bronte], [Aggiunta delle sezioni Sprint 12: dalla 4.13.1 alla 4.13.8],
     [1.6.1], [2026/08/18], [Giovanni Bronte], [Alberto Canavese], [Correzioni varie allo sprint 11],
     [1.6.0], [2026/08/16], [Giovanni Bronte], [Alberto Canavese], [Aggiunta delle sezioni Sprint 11: dalla 4.12.1 alla 4.12.8],
     [1.5.1], [2026/08/07], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiunta delle sezioni Sprint 10: 4.11.5, 4.11.6, 4.11.7, 4.11.8],
@@ -1517,13 +1517,13 @@ Lo sprint ha portato l'MVP a un livello di sviluppo avanzato: sono state complet
 
 - *RO-4*: la gestione asincrona dei numerosi branch attivi sulla repository si è rivelata più onerosa del previsto, generando sovrapposizioni tra le attività di più membri e rendendo laboriosa l'integrazione dei contributi. Il gruppo ha mitigato il rischio riorganizzando la struttura dei branch e ricorrendo ai canali di comunicazione rapidi per segnalare tempestivamente gli interventi in corso.
 
-- *RO-1*: le ore effettivamente impiegate per il ruolo di Programmatore hanno superato di un'unità quelle preventivate. Lo scostamento, concentrato sull'attività di Leonardo Lorenzin, è riconducibile al maggior carico richiesto dal completamento del back-end e dalla risoluzione dei conflitti emersi durante l'integrazione dei branch. Il gruppo terrà conto di questa evidenza nella calibrazione delle stime dei prossimi sprint.
+- *RO-1*: le ore effettivamente impiegate per il ruolo di Programmatore hanno superato di un'unità quelle preventivate. Lo scostamento è riconducibile al maggior carico richiesto dal completamento del back-end e dalla risoluzione dei conflitti emersi durante l'integrazione dei branch. Il gruppo terrà conto di questa evidenza nella calibrazione delle stime dei prossimi sprint.
 
 - *RI-1*: gli impegni personali legati al periodo estivo hanno comportato lievi disomogeneità nella disponibilità oraria di alcuni membri; tuttavia, la flessibilità del gruppo ha permesso di assorbire la situazione senza particolari impatti sulla tabella di marcia.
 
 #pagebreak()
 ==== Criticità emerse
-La criticità principale dello sprint ha riguardato la gestione asincrona dei branch sulla repository: il numero di attività implementative portate avanti in parallelo ha reso difficile mantenere allineate le diverse linee di sviluppo, con conseguenti sovrapposizioni e con la necessità di dedicare tempo aggiuntivo alla risoluzione dei conflitti in fase di integrazione. Il gruppo è intervenuto riorganizzando la gestione dei branch e definendo in modo più netto la corrispondenza tra branch e attività, in modo da prevenire il ripetersi del problema nei prossimi sprint. Proprio il tempo aggiuntivo richiesto da questa attività, unito alla mole di lavoro necessaria per ultimare il back-end, ha portato Leonardo Lorenzin a superare di un'ora il proprio preventivo, unico scostamento registrato nello sprint. Il rischio tecnico *RT-1*, individuato in fase di pianificazione, non si è invece concretizzato: l'esperienza maturata negli sprint precedenti ha permesso di completare il back-end e la sua integrazione senza blocchi rilevanti.
+La criticità principale dello sprint ha riguardato la gestione asincrona dei branch sulla repository: il numero di attività implementative portate avanti in parallelo ha reso difficile mantenere allineate le diverse linee di sviluppo, con conseguenti sovrapposizioni e con la necessità di dedicare tempo aggiuntivo alla risoluzione dei conflitti in fase di integrazione. Il gruppo è intervenuto riorganizzando la gestione dei branch e definendo in modo più netto la corrispondenza tra branch e attività, in modo da prevenire il ripetersi del problema nei prossimi sprint. Proprio il tempo aggiuntivo richiesto da questa attività, unito alla mole di lavoro necessaria per ultimare il back-end, hanno portato a superare di un'ora il preventivo, unico scostamento registrato nello sprint. Il rischio tecnico *RT-1*, individuato in fase di pianificazione, non si è invece concretizzato: l'esperienza maturata negli sprint precedenti ha permesso di completare il back-end e la sua integrazione senza blocchi rilevanti.
 
 === Consuntivo
 
