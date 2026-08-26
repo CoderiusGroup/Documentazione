@@ -99,7 +99,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.0.6], [2026/08/21], [Edis Hodja], [], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 12],
+    [1.0.6], [2026/08/21], [Edis Hodja], [Giovanni Bronte], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 12],
     [1.0.5], [2026/08/14], [Leonardo Lorenzin], [Alberto Canavese], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 11],
     [1.0.4], [2026/08/09], [Alberto Canavese], [Filippo Zonta Rocha], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 10],
     [1.0.3], [2026/07/24], [Giovanni Bronte], [Edis Hodja], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 9],
