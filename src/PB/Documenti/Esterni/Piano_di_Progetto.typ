@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.6.1*]
+  #text(size: 20pt)[*Versione 1.8.1*]
 ]
 #pagebreak()
 
@@ -100,6 +100,9 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.8.1], [2026/08/28], [Ines Iadadi], [], 
+    [Aggiunta delle sezioni Sprint 13: dalla 4.14.5 alla 4.14.8],
+[1.8.0], [2026/08/21], [Ines Iadadi], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 13: dalla 4.14.1 alla 4.14.4],
     [1.7.0], [2026/08/21], [Alberto Canavese], [Giovanni Bronte], [Aggiunta delle sezioni Sprint 12: dalla 4.13.1 alla 4.13.8],
     [1.6.1], [2026/08/18], [Giovanni Bronte], [Alberto Canavese], [Correzioni varie allo sprint 11],
     [1.6.0], [2026/08/16], [Giovanni Bronte], [Alberto Canavese], [Aggiunta delle sezioni Sprint 11: dalla 4.12.1 alla 4.12.8],
@@ -1588,8 +1591,6 @@ Le attività principali pianificate per questo sprint sono:
 
 === Preventivo
 
-=== Preventivo
-
 #figure(
   tabella-ore((
     ([Alberto Canavese],   [-],[-],[-],[6],[-],[-],[6]),
@@ -1602,3 +1603,50 @@ Le attività principali pianificate per questo sprint sono:
   )),
     caption: [Preventivo ore per membro - Sprint 13]
 )
+
+=== Retrospettiva
+Lo sprint ha portato l'MVP a uno stato pressoché completo: sono stati implementati i requisiti obbligatori e gran parte dei requisiti desiderabili, con la sola parte di rifinitura estetica dell'interfaccia ancora da completare. È stata inoltre conclusa la stesura della Specifica Tecnica ed è stata avviata la stesura del Manuale Utente, con la redazione della relativa introduzione. In parallelo il gruppo ha proseguito l'aggiornamento dei documenti Piano di Progetto e Piano di Qualifica, mantenendo la coerenza tra la documentazione e lo stato di avanzamento dell'implementazione.
+
+=== Rischi incontrati
+
+- *RT-1*: il rischio di disallineamenti in fase di integrazione delle funzionalità sviluppate in parallelo non si è concretizzato; il consolidamento delle parti residue dell'MVP è proceduto senza criticità rilevanti.
+
+- *RI-1*: gli impegni personali legati al periodo estivo hanno comportato lievi disomogeneità nella disponibilità oraria di alcuni membri; la flessibilità del gruppo ha comunque permesso di assorbire la situazione senza impatti significativi sulla tabella di marcia.
+
+#pagebreak()
+==== Criticità emerse
+Non sono emerse criticità particolarmente rilevanti nel corso dello sprint. Il completamento dei requisiti obbligatori ha richiesto un'ora aggiuntiva rispetto al preventivo per il ruolo di Programmatore, così come il ruolo di Verificatore, per garantire una copertura adeguata delle verifiche sulle funzionalità completate. Un'ora aggiuntiva è stata dedicata al ruolo di Progettista per la conclusione della prima stesura della Specifica Tecnica. Il gruppo non prevede che questi lievi scostamenti abbiano impatti sulla pianificazione dei prossimi sprint.
+
+=== Consuntivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[7#text(fill: red)[(+1)]],[-],[-],[7]),
+    ([Edis Hodja],         [-],[-],[-],[-],[8#text(fill: red)[(+1)]],[-],[8]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[7],[-],[7]),
+    ([Giovanni Angelo Marco Bronte],[-],[3],[-],[2],[-],[-],[5]),
+    ([Ines Iadadi],        [3],[-],[-],[2],[-],[-],[5]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[-],[2],[6#text(fill: red)[(+1)]],[8]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*3*],[*0*],[*11*],[*17*],[*6*],[*40*]),
+  )),
+    caption: [Consuntivo ore per membro - Sprint 13]
+)
+
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [3], [90€], [5], [150€],
+    [Amministratore], [20], [3], [60€], [1], [20€],
+    [Analista], [25], [0], [0€], [5], [125€],
+    [Progettista], [25], [11], [275€], [27], [675€],
+    [Programmatore], [15], [17], [255€], [14], [210€],
+    [Verificatore], [15], [6], [90€], [26], [390€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*40*], [*770€*], [*78*], [*1570€*],
+  )
+  ]
