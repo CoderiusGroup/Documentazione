@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.7.0*]
+  #text(size: 20pt)[*Versione 0.8.0*]
 ]
 #pagebreak()
 
@@ -100,6 +100,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.8.0], [2026/08/28], [Alberto Canavese], [], [Stesura della sezione 4 - Design pattern],
     [0.7.0], [2026/08/22], [Ines Iadadi], [], [Stesura della sezione Backend 3.6],
     [0.6.0], [2026/08/13], [Filippo Zonta Rocha], [], [Stesura della sezione 3.5],
     [0.5.0], [2026/08/10], [Edis Hodja], [], [Stesura della sezione 3.4],
@@ -898,6 +899,141 @@ Ruolo: istanza di esecuzione della valutazione per un device, con la memoria del
 * Responsabilità:* tenere l'indice dei decision tree e abilitare operazioni di ricerca, importazione ed esportazione.
 
 === Vincoli e regole di integrità*/
+
+#pagebreak()
+= Design pattern
+
+== Criteri di scelta
+
+I pattern documentati in questa sezione non sono stati selezionati a priori da un catalogo, ma
+individuati a partire dai problemi concretamente emersi nella progettazione del prodotto. Ciascuno
+di essi risponde ad almeno uno dei seguenti obiettivi, coerenti con l'organizzazione a livelli
+descritta nelle sezioni precedenti:
+
+- *Verificabilità*: consentire il collaudo della logica applicativa senza richiedere una rete attiva, un'interfaccia grafica montata o file reali sul disco.
+- *Assenza di logica applicativa ai bordi*: mantenere pagine e rotte prive di decisioni, in coerenza con il vincolo di dipendenza a senso unico fra i livelli.
+- *Estendibilità rispetto ai requisiti EN 18031*: permettere l'introduzione di nuovi requisiti e di nuovi formati di scambio senza riprogettare i moduli esistenti.
+- *Unicità del punto di verità*: evitare la duplicazione di logiche di validazione o di trasformazione dei dati in punti diversi del sistema.
+
+Si sottolinea che nessuna scelta è motivata dalla previsione di un'infrastruttura distribuita.
+L'applicazione opera interamente in locale e la condivisione dei decision tree modificati avviene
+all'esterno dell'applicativo, mediante esportazione e distribuzione manuale dei file, come
+stabilito con la proponente nella riunione del 28 luglio 2026 (decisione VE-7.1).
+
+Per ciascun pattern sono indicati il problema affrontato, la soluzione adottata e i moduli
+concretamente coinvolti. Tutti i pattern qui documentati sono realizzati nel codice del prodotto;
+la sezione si chiude con quelli che non trovano applicazione, corredati della motivazione tecnica
+che ne esclude l'adozione.
+
+== Pattern architetturali
+
+I pattern architetturali che governano la struttura complessiva del sistema sono già stati motivati
+nelle sezioni precedenti e vengono qui richiamati per completezza:
+
+- *Client-Server*: separazione tra il client React e il server Flask, entrambi eseguiti in locale come container distinti e coordinati da Docker Compose.
+- *Layered Architecture*: organizzazione interna in livelli con dipendenza a senso unico, in sei livelli lato frontend e quattro lato backend.
+- *REST stateless*: assenza di stato di sessione lato server; ogni richiesta contiene tutte le informazioni necessarie alla propria elaborazione.
+- *Monolite containerizzato*: distribuzione come singolo backend e singolo frontend, in luogo di una scomposizione in servizi indipendenti.
+
+== Pattern di progettazione adottati
+
+=== Adapter
+
+- *Problema*: la logica applicativa incontra in tre punti un meccanismo tecnico la cui interfaccia è espressa nei termini della tecnologia e non in quelli del problema: la funzione `fetch` per il dialogo con il backend locale, la libreria di notifica per i messaggi all'utente, i moduli `pathlib` e `json` per la lettura dei file di catalogo. Se tali interfacce penetrassero nei service, ogni collaudo della logica applicativa richiederebbe un backend in esecuzione, un'interfaccia grafica montata e file reali sul disco, e la verifica dei casi di errore diventerebbe impraticabile.
+
+- *Soluzione*: definire un'interfaccia stabile espressa nei termini del dominio applicativo e realizzarla con una classe che ne traduce le chiamate nell'interfaccia, incompatibile, del meccanismo sottostante.
+- *Applicazione nel progetto*: il pattern è applicato ai tre confini tecnici del sistema.
+  - `FetchApiClient` realizza l'interfaccia `ApiClientService`, che dichiara le operazioni `get`, `post`, `put` e `delete` tipizzate. Il metodo privato `request()` concentra la costruzione dell'indirizzo, la serializzazione del corpo e la traduzione degli esiti: un fallimento di rete e una risposta non riuscita diventano entrambi un `ApiError`, che espone il messaggio e lo stato numerico quando disponibile.
+  - `NotificationManager` realizza l'interfaccia `NotificationService`, delegando alla libreria _react-hot-toast_ la gestione di coda, timer di scomparsa automatica e impilamento dei messaggi.
+  - `JsonDecisionTreeRepository` realizza l'interfaccia `IDecisionTreeRepository`, traducendo le operazioni `get()`, `save()`, `delete()` e `list()`, espresse in termini di dominio, in letture e scritture dei file di catalogo. La motivazione architetturale che circoscrive questa interfaccia al solo decision tree è discussa in @principio-repository.
+- *Conseguenze*: il beneficio è verificabile nel codice esistente. I test del `DecisionTreeService` non accedono al disco perché sostituiscono l'adattatore con la classe `FakeDecisionTreeRepository`, che realizza la medesima interfaccia mantenendo gli alberi in memoria; analogamente i test di `FetchApiClient` verificano il trattamento delle risposte di errore senza alcun backend in esecuzione. L'interfaccia sul catalogo non è motivata dalla previsione di un archivio centralizzato — ipotesi esclusa dalla decisione VE-7.1 — bensì da questa verificabilità e dalla necessità, prevista dai casi d'uso di modifica del decision tree, di scrivere gli alberi su disco attraverso un unico punto di accesso. Ne discende una regola vincolante per l'implementazione: ogni comunicazione con il backend deve transitare per `ApiClientService`. L'esportazione del decision tree, che allo stato attuale invoca `fetch` direttamente, dovrà essere ricondotta a tale regola.
+
+=== Facade
+
+- *Problema*: diverse operazioni che l'utente percepisce come unitarie sono in realtà sequenze articolate. L'importazione di un dispositivo da file richiede il riconoscimento del formato, la lettura asincrona tramite `FileReader`, l'interpretazione del contenuto, la validazione dello schema e infine l'invio al backend dei metadati del device e di ciascun asset. Esporre tale sequenza alle viste le legherebbe a dettagli estranei alla presentazione e ne impedirebbe il riuso da parte di viste diverse.
+
+- *Soluzione*: raggruppare la sequenza dietro un'unica operazione di alto livello, espressa nel linguaggio del caso d'uso, che coordini internamente i collaboratori necessari.
+- *Applicazione nel progetto*: lato client, `importDeviceFromFile(file)` racchiude l'intera sequenza di importazione e restituisce alla vista il solo esito. I custom hook assolvono la funzione analoga verso il Presentation Layer: `useSessionRunner()` coordina le fasi della valutazione guidata, il caricamento e l'idratazione dell'albero e la registrazione dell'esito, esponendo alla pagina soltanto lo stato e le azioni necessarie; `useResult()` e `useSessionModify()` operano allo stesso modo per la consultazione degli esiti e per la ripresa dei requisiti. Lato server, `DecisionTreeService.get_tree()` racchiude in una sola chiamata l'accesso al catalogo, la gestione dell'assenza del dato (`DecisionTreeNotFoundError`) e la normalizzazione dell'albero, mentre `create_device()` e `create_asset()` costituiscono il punto unico di validazione delle rispettive entità, condiviso dal percorso di creazione manuale e da quello di importazione.
+- *Conseguenze*: pagine e rotte restano prive di logica applicativa e si limitano, rispettivamente, a renderizzare e a deserializzare, delegare e serializzare. L'unicità del punto di validazione evita che due percorsi diversi applichino allo stesso concetto regole divergenti.
+
+=== Factory Method
+
+- *Problema*: un'istanza di Flask creata come oggetto globale a livello di modulo verrebbe condivisa da tutti i test della suite, con il rischio concreto che configurazione e stato residuo si propaghino da un test al successivo, producendo esiti dipendenti dall'ordine di esecuzione. Un problema affine riguarda la costruzione delle entità di dominio a partire dal contenuto dei file di catalogo, dove la classe da istanziare dipende dal dato ricevuto.
+
+- *Soluzione*: delegare a una funzione dedicata la costruzione dell'oggetto, invocabile più volte per ottenere istanze indipendenti, e concentrare in essa la decisione sulla classe concreta da istanziare.
+- *Applicazione nel progetto*: `create_app()` costruisce e configura una nuova istanza di `Flask`, registrando i blueprint e i collaboratori. `create_decision_tree_blueprint(service)` e `create_assets_blueprint(service)` costruiscono i rispettivi blueprint a partire dal service ricevuto: la factory è impiegata esattamente dove un collaboratore deve essere iniettato, mentre il blueprint dei device, le cui rotte invocano direttamente le funzioni di validazione e non dipendono da alcun collaboratore costruito a runtime, è registrato senza factory. Sul versante del dominio, `normalize_tree()` costruisce l'entità `DecisionTree` a partire dal contenuto grezzo del file e delega a `_normalize_node()` la scelta fra `QuestionNode` e `LeafNode` in base al campo `type` del nodo.
+- *Conseguenze*: ogni test dispone di un'istanza isolata dell'applicazione; `create_app()` è l'unico punto del backend in cui compaiono i nomi delle classi concrete, cosicché la direzione delle dipendenze è verificabile ispezionando un solo file; l'eventuale introduzione di una nuova tipologia di nodo, richiesta da un'evoluzione della norma, riguarderebbe la sola funzione `_normalize_node()`.
+
+=== Observer
+
+- *Problema*: lo stato condiviso fra più viste — il dispositivo in lavorazione, la sessione di valutazione, l'albero corrente — deve provocare l'aggiornamento dei soli componenti effettivamente interessati, senza che i moduli che modificano lo stato debbano conoscere i componenti che lo consumano.
+
+- *Soluzione*: i consumatori si registrano presso il detentore dello stato, che notifica automaticamente ogni variazione ai soli osservatori interessati.
+- *Applicazione nel progetto*: gli store Zustand `DeviceStore`, `SessionStore` e `TreeStore` costituiscono i soggetti osservati; i componenti si registrano tramite hook selettori, come `useSessionStore((state) => state.session)`, che circoscrivono la sottoscrizione alla sola porzione di stato utilizzata. Le modifiche avvengono unicamente attraverso le azioni tipizzate esposte da ciascuno store: `setDevice`, `addAsset`, `updateAsset` e `removeAsset` per `DeviceStore`; `start`, `resume`, `syncProgress`, `completeCurrent`, `select` e `reopen` per `SessionStore`; `loadTree`, `hydrate`, `answer`, `goBack` e `goForward` per `TreeStore`.
+- *Conseguenze*: il flusso dei dati resta unidirezionale e ogni variazione di stato è riconducibile a un'azione esplicita e tracciabile. La suddivisione per area funzionale, in luogo di un unico store globale, estende allo stato condiviso la separazione delle responsabilità adottata a livello di moduli, mentre la granularità dei selettori evita i re-render indiscriminati. Gli store non sono del tutto indipendenti: `DeviceStore` invoca la reimpostazione di `SessionStore` quando il dispositivo viene sostituito o modificato, poiché una sessione di valutazione riferita a un dispositivo che non esiste più produrrebbe esiti privi di significato. Si tratta di una dipendenza deliberata e a senso unico, che realizza un vincolo di dominio anziché un accoppiamento accidentale.
+
+=== Proxy
+
+- *Problema*: il pattern risponde nel prodotto a due esigenze distinte, entrambe riconducibili al controllo dell'accesso a una risorsa. Da un lato l'albero decisionale di un requisito viene richiesto ripetutamente nel corso di una valutazione, mentre si tratta di dati di catalogo immutabili per l'intera durata della sessione. Dall'altro alcune pagine presuppongono l'esistenza di una sessione attiva e non possono essere raggiunte direttamente per indirizzo, pena l'accesso a una vista priva dei dati che le danno senso.
+
+- *Soluzione*: interporre fra il chiamante e la risorsa un sostituto che ne espone la medesima interfaccia e ne governa l'accesso, aggiungendovi la conservazione del risultato oppure la verifica delle precondizioni.
+- *Applicazione nel progetto*: nella variante con conservazione, `DecisionTreeService` avvolge le proprie chiamate in `queryClient.fetchQuery()`, che restituisce il risultato già ottenuto per la medesima chiave anziché ripetere la richiesta. La configurazione dichiara `staleTime` e `gcTime` illimitati e disabilita i ritentativi, coerentemente con la natura immutabile del dato: il proxy serve a non rileggere più volte lo stesso catalogo, non a compensare l'inaffidabilità della comunicazione. L'accesso alla rete continua ad avvenire tramite l'adattatore `ApiClientService`, che il service riceve nel costruttore. Nella variante con verifica delle precondizioni, il componente `RequireSession` avvolge le pagine di esecuzione e di modifica della sessione: presenta al router la stessa interfaccia della pagina protetta e ne consente il rendering solo in presenza di una sessione, reindirizzando altrimenti alla pagina iniziale.
+- *Conseguenze*: i service applicativi non contengono logica di conservazione dei risultati e le pagine non contengono controlli di accesso; entrambi i sostituti sono rimovibili senza modificare il codice che protegge. Si segnala che la conservazione dei risultati è utilizzata in modo imperativo e non attraverso gli hook della libreria: l'applicazione non monta alcun provider, e il proxy resta pertanto confinato all'Infrastructure Layer.
+
+=== Strategy
+
+- *Problema*: il dispositivo e i suoi asset devono poter essere scritti e riletti in formati diversi, oggi JSON e CSV. La decisione VE-7.1 accresce il peso di questa funzionalità: poiché i decision tree modificati non si sincronizzano fra le installazioni ma vengono esportati e distribuiti manualmente, i file di scambio sono il canale con cui gli utenti si trasmettono il lavoro svolto. Governare la varietà dei formati con una struttura condizionale interna al modulo di importazione ed esportazione comporterebbe di modificarlo a ogni nuova esigenza, con conseguente rischio di regressione sui formati già funzionanti.
+
+- *Soluzione*: definire una famiglia di algoritmi intercambiabili dietro un'interfaccia comune e selezionare a runtime l'implementazione corrispondente al formato richiesto.
+- *Applicazione nel progetto*: l'interfaccia `DeviceFileFormat` dichiara l'estensione, il tipo di contenuto e le due operazioni simmetriche `serialize(device)` e `parse(text)`; le implementazioni concrete `jsonDeviceFormat` e `csvDeviceFormat` le realizzano per i rispettivi formati, ciascuna con le proprie regole di interpretazione — nel caso del formato tabellare, l'intestazione attesa, la codifica dei campi contenenti separatori e la rappresentazione degli asset su righe successive. La funzione `formatForFile(file)` seleziona la strategia in base al file fornito dall'utente; `importDeviceFromFile()` e `exportDevice()` la utilizzano senza conoscerne l'implementazione.
+- *Conseguenze*: l'aggiunta di un formato richiede la sola introduzione di una nuova implementazione dell'interfaccia, senza modifiche ai moduli chiamanti né alle viste, e ciascuna strategia è verificabile con unit test indipendenti dalle altre. L'esportazione del decision tree, realizzata lato server, non adotta allo stato attuale il medesimo criterio e determina il formato con una struttura condizionale interna alla rotta: l'estensione della strategia a quel percorso è la naturale prosecuzione del pattern qui documentato.
+
+== Tabella riassuntiva
+
+#table(
+  columns: (auto, auto, 1fr),
+  align: (left, center, left),
+  fill: (x, y) => if y == 0 { blue.lighten(70%) },
+  [*Pattern*], [*Ambito*], [*Moduli coinvolti*],
+
+  [Adapter], [Frontend, Backend],
+  [`ApiClientService`/`FetchApiClient`, `NotificationService`/`NotificationManager`, `IDecisionTreeRepository`/`JsonDecisionTreeRepository`],
+
+  [Facade], [Frontend, Backend],
+  [`importDeviceFromFile()`, hook applicativi (`useSessionRunner`, `useResult`, `useSessionModify`), `DecisionTreeService`, `create_device()`, `create_asset()`],
+
+  [Factory Method], [Backend],
+  [`create_app()`, `create_decision_tree_blueprint()`, `create_assets_blueprint()`, `normalize_tree()`, `_normalize_node()`],
+
+  [Observer], [Frontend],
+  [`DeviceStore`, `SessionStore`, `TreeStore` e relativi hook selettori],
+
+  [Proxy], [Frontend],
+  [`queryClient` su `DecisionTreeService`, componente `RequireSession`],
+
+  [Strategy], [Frontend],
+  [`DeviceFileFormat`, `jsonDeviceFormat`, `csvDeviceFormat`, `formatForFile()`],
+)
+
+== Pattern non adottati
+
+Si documentano di seguito i pattern del catalogo di riferimento che non trovano applicazione nel
+prodotto, con la motivazione tecnica che ne esclude l'adozione.
+
+- *Abstract Factory.* Il pattern risulterebbe giustificato in presenza di famiglie di oggetti correlati da costruire in modo coordinato, ad esempio qualora il sistema dovesse supportare più meccanismi di persistenza alternativi, ciascuno con il proprio insieme di collaboratori. Il backend prevede una sola famiglia di componenti e una sola sorgente dati, per cui il Factory Method già adottato è sufficiente e l'introduzione di una fabbrica astratta aggiungerebbe un livello di indirezione privo di variabilità da governare.
+
+- *Builder.* Il candidato più prossimo è la costruzione della disposizione a grafo dell'albero decisionale, che a partire dalla struttura dei nodi produce un oggetto articolato in nodi posizionati, archi, numero di colonne e profondità. Tale costruzione conduce però a un'unica rappresentazione e non prevede alcuna variante: mancando una reale separazione fra processo e rappresentazione, un Director non avrebbe variabilità da coordinare, e una funzione pura assolve il compito in modo più diretto e più facilmente verificabile.
+
+- *Command.* La navigazione all'indietro e la modifica delle risposte già fornite si presterebbero alla reificazione di ciascuna risposta in un oggetto dotato di operazione inversa. Il prodotto conserva invece la sola sequenza delle risposte unitamente a un cursore di posizione, ricalcolando il nodo corrente per riesecuzione del percorso a partire dalla radice, come realizzato dalla regola pura `resolveNodeId()`. Le risposte sono operazioni pure e prive di effetti collaterali, per cui la riesecuzione produce lo stesso risultato dell'annullamento, a fronte di una struttura più semplice e direttamente serializzabile nel file di sessione.
+
+- *Decorator.* Il pattern consentirebbe di arricchire un oggetto di responsabilità aggiuntive mediante una classe che ne realizzi l'interfaccia delegando all'istanza decorata. Le due responsabilità trasversali presenti nel prodotto — la conservazione dei risultati e il controllo delle precondizioni di accesso — non aggiungono comportamento a un oggetto delegando a esso, ma ne governano l'accesso: la loro descrizione corretta è il Proxy, già adottato.
+
+- *Iterator.* Un iteratore sulle coppie asset-requisito da valutare consentirebbe di nascondere ai moduli di esecuzione la struttura interna del piano di valutazione. Il piano prodotto da `buildPlan()` è tuttavia una lista percorsa per indice e per ricerca diretta, e i casi d'uso di ripresa e di modifica richiedono l'accesso a un elemento arbitrario, non il solo avanzamento sequenziale che l'interfaccia di un iteratore offrirebbe.
+
+- *Singleton.* Le istanze del servizio dei decision tree e del gestore della conservazione dei risultati sono di fatto uniche, ottenute istanziandole una sola volta nel rispettivo modulo. Non si è tuttavia introdotto il controllo esplicito dell'istanziazione previsto dal pattern: esso attribuirebbe alla classe la responsabilità del proprio ciclo di vita, ostacolandone la sostituzione nei test, mentre l'unicità è già garantita dalla valutazione unica dei moduli. `DecisionTreeService` conserva infatti un costruttore che accetta un adattatore alternativo, proprietà che il pattern renderebbe inutilizzabile.
+
+- *Template Method.* Il pattern consentirebbe di fattorizzare uno scheletro comune fra algoritmi affini. Il candidato più prossimo è il metodo privato che nel client di comunicazione concentra invio, traduzione degli errori e interpretazione della risposta per tutti i verbi supportati; si tratta però di una funzione di supporto invocata dai metodi pubblici, non di uno scheletro con passi ridefinibili da sottoclassi, e nel prodotto non esiste alcuna gerarchia di ereditarietà che ne giustifichi l'introduzione.
+
 
 = Tracciamento
 
