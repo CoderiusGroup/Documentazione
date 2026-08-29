@@ -100,9 +100,9 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.8.1], [2026/08/28], [Ines Iadadi], [], 
+    [1.8.1], [2026/08/28], [Ines Iadadi], [Leonardo Lorenzin], 
     [Aggiunta delle sezioni Sprint 13: dalla 4.14.5 alla 4.14.8],
-[1.8.0], [2026/08/21], [Ines Iadadi], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 13: dalla 4.14.1 alla 4.14.4],
+    [1.8.0], [2026/08/21], [Ines Iadadi], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 13: dalla 4.14.1 alla 4.14.4],
     [1.7.0], [2026/08/21], [Alberto Canavese], [Giovanni Bronte], [Aggiunta delle sezioni Sprint 12: dalla 4.13.1 alla 4.13.8],
     [1.6.1], [2026/08/18], [Giovanni Bronte], [Alberto Canavese], [Correzioni varie allo sprint 11],
     [1.6.0], [2026/08/16], [Giovanni Bronte], [Alberto Canavese], [Aggiunta delle sezioni Sprint 11: dalla 4.12.1 alla 4.12.8],
@@ -1291,7 +1291,7 @@ La principale criticità riscontrata durante lo sprint ha riguardato l'avvio del
   inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
   [*Inizio:*],        [2026/08/01],
   [*Fine prevista:*], [2026/08/07],
-  /*[*Fine reale:*],    [2026/08/07],*/
+  [*Fine reale:*],    [2026/08/07],
 )
 #v(0.3em)
 
@@ -1543,6 +1543,7 @@ La criticità principale dello sprint ha riguardato la gestione asincrona dei br
     caption: [Consuntivo ore per membro - Sprint 12]
 )
 
+#pagebreak()
 === Risorse rimanenti
 #align(center)[
   #table(
@@ -1571,16 +1572,16 @@ La criticità principale dello sprint ha riguardato la gestione asincrona dei br
   inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
   [*Inizio:*],        [2026/08/22],
   [*Fine prevista:*], [2026/08/28],
-  [*Fine reale:*],    [],
+  [*Fine reale:*],    [2026/08/28],
 )
 #v(0.3em)
 
 === Attività pianificate
-Proseguendo il lavoro avviato nello sprint precedente, il gruppo concentra questo sprint sul completamento dell'implementazione dei requisiti obbligatori nell'MVP e sulla conclusione della stesura della Specifica Tecnica.
+Proseguendo il lavoro avviato nello sprint precedente, il gruppo concentra questo sprint sul completamento dell'implementazione dei requisiti obbligatori nell'MVP e sull'avanzamento della stesura della Specifica Tecnica.
 Le attività principali pianificate per questo sprint sono:
 
 - Giungere a uno stato avanzato dell'MVP, consolidando le funzionalità sviluppate e le relative integrazioni e implementando la navigazione degli alberi decisionali.
-- Continuare e concludere l'aggiornamento della Specifica Tecnica.
+- Continuare l'aggiornamento della Specifica Tecnica.
 - Iniziare la stesura del Manuale Utente.
 
 === Rischi attesi
@@ -1605,17 +1606,15 @@ Le attività principali pianificate per questo sprint sono:
 )
 
 === Retrospettiva
-Lo sprint ha portato l'MVP a uno stato pressoché completo: sono stati implementati i requisiti obbligatori e gran parte dei requisiti desiderabili, con la sola parte di rifinitura estetica dell'interfaccia ancora da completare. È stata inoltre conclusa la stesura della Specifica Tecnica ed è stata avviata la stesura del Manuale Utente, con la redazione della relativa introduzione. In parallelo il gruppo ha proseguito l'aggiornamento dei documenti Piano di Progetto e Piano di Qualifica, mantenendo la coerenza tra la documentazione e lo stato di avanzamento dell'implementazione.
+Lo sprint ha portato l'MVP a uno stato pressoché completo: sono stati implementati i requisiti obbligatori e gran parte dei requisiti desiderabili, con la sola parte di rifinitura estetica dell'interfaccia ancora da completare. È stata inoltre continuata la stesura della Specifica Tecnica ed è stata avviata la stesura del Manuale Utente, con la redazione della relativa introduzione. In parallelo il gruppo ha proseguito l'aggiornamento dei documenti Piano di Progetto e Piano di Qualifica, mantenendo la coerenza tra la documentazione e lo stato di avanzamento dell'implementazione.
 
 === Rischi incontrati
-
-- *RT-1*: il rischio di disallineamenti in fase di integrazione delle funzionalità sviluppate in parallelo non si è concretizzato; il consolidamento delle parti residue dell'MVP è proceduto senza criticità rilevanti.
 
 - *RI-1*: gli impegni personali legati al periodo estivo hanno comportato lievi disomogeneità nella disponibilità oraria di alcuni membri; la flessibilità del gruppo ha comunque permesso di assorbire la situazione senza impatti significativi sulla tabella di marcia.
 
 #pagebreak()
 ==== Criticità emerse
-Non sono emerse criticità particolarmente rilevanti nel corso dello sprint. Il completamento dei requisiti obbligatori ha richiesto un'ora aggiuntiva rispetto al preventivo per il ruolo di Programmatore, così come il ruolo di Verificatore, per garantire una copertura adeguata delle verifiche sulle funzionalità completate. Un'ora aggiuntiva è stata dedicata al ruolo di Progettista per la conclusione della prima stesura della Specifica Tecnica. Il gruppo non prevede che questi lievi scostamenti abbiano impatti sulla pianificazione dei prossimi sprint.
+Non sono emerse criticità particolarmente rilevanti nel corso dello sprint. Il completamento dei requisiti obbligatori ha richiesto un'ora aggiuntiva rispetto al preventivo per il ruolo di Programmatore, così come il ruolo di Verificatore, per garantire una copertura adeguata delle verifiche sulle funzionalità completate. Un'ora aggiuntiva è stata dedicata al ruolo di Progettista per la continuazione della stesura della Specifica Tecnica. Il gruppo non prevede che questi lievi scostamenti abbiano impatti sulla pianificazione dei prossimi sprint.
 
 === Consuntivo
 
