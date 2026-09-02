@@ -80,7 +80,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-    #text(size: 20pt)[*Versione 1.0.6*]
+    #text(size: 20pt)[*Versione 1.0.7*]
 ]
 #pagebreak()
 
@@ -99,7 +99,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.0.7], [2026/08/31], [Giovanni Bronte], [], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 13],
+    [1.0.7], [2026/08/31], [Giovanni Bronte], [Leonardo Lorenzin], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 13],
     [1.0.6], [2026/08/21], [Edis Hodja], [Giovanni Bronte], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 12],
     [1.0.5], [2026/08/14], [Leonardo Lorenzin], [Alberto Canavese], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 11],
     [1.0.4], [2026/08/09], [Alberto Canavese], [Filippo Zonta Rocha], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 10],
@@ -755,7 +755,7 @@ Le metriche che richiedono la disponibilità di codice sorgente — tra cui Code
 
 == MPC-01, MPC-02, MPC-03 — Planned Value, Earned Value, Actual Cost
 
-I valori sono cumulativi: ogni sprint riporta il totale progressivo dall'inizio del progetto. Poiché tutti e undici gli sprint si sono conclusi entro le date previste, l'Earned Value coincide con il Planned Value cumulativo.
+I valori sono cumulativi: ogni sprint riporta il totale progressivo dall'inizio del progetto. Poiché tutti e tredici gli sprint si sono conclusi entro le date previste, l'Earned Value coincide con il Planned Value cumulativo.
 
 #cruscotto-table(
   [Andamento di PV, EV e AC per sprint (valori cumulativi)],
@@ -781,9 +781,9 @@ I valori sono cumulativi: ogni sprint riporta il totale progressivo dall'inizio 
   supplement: [Figura],
 )
 
-Tutti e trdici gli sprint si sono conclusi entro le date previste (fine reale = fine prevista), confermando il pieno allineamento tra lavoro pianificato ed eseguito. 
+Tutti e tredici gli sprint si sono conclusi entro le date previste (fine reale = fine prevista), confermando il pieno allineamento tra lavoro pianificato ed eseguito. 
 
-Al termine dello Sprint 13, lo scostamento cumulativo si attesta a 285€ a favore del progetto: nello Sprint 13 il consuntivo (770€) ha superato di 85€ il preventivo (685€) a causa del maggiore carico implementativo, ma i costi effettivi complessivi (AC) rimangono ampiamente inferiori al Planned Value (PV). Questo andamento indica una stima iniziale delle ore  accurata e una gestione del budget efficiente lungo tutta la fase RTB e nel corso della PB.
+Al termine dello Sprint 13, lo scostamento cumulativo si attesta a 230€ a favore del progetto: nello Sprint 13 il consuntivo (715€) ha superato di 85€ il preventivo (685€) a causa del maggiore carico implementativo, ma i costi effettivi complessivi (AC) rimangono ampiamente inferiori al Planned Value (PV). Questo andamento indica una stima iniziale delle ore  accurata e una gestione del budget efficiente lungo tutta la fase RTB e nel corso della PB.
 #pagebreak()
 == MPC-04, MPC-05 — Schedule Performance Index, Cost Performance Index
 
@@ -864,7 +864,7 @@ ETC = EAC − AC. Rappresenta la stima del costo ancora necessario per portare a
   [10], [3.165], [$<= 3.999$ ✓],
   [11], [2.564], [$<= 3.262$ ✓],
   [12], [1.987], [$<= 2.574$ ✓],
-  [13], [1.310], [$<= 1.886$ ✓],
+  [13], [1.310], [$<= 1.727$ ✓],
 )
 
 L'ETC decresce regolarmente sprint dopo sprint (da €9.617 nello Sprint 1 a €1.310 nello Sprint 13), confermando la progressione costante delle attività e la corretta imputazione dei costi. Al termine dello Sprint 13 la stima del costo residuo si mantiene inferiore al budget ancora disponibile, lasciando un margine di €353 per il completamento delle attività della Product Baseline.
@@ -897,7 +897,7 @@ RSI = (NR − NRC) / NR, dove NR è il numero di requisiti definiti e NRC il num
   supplement: [Figura],
 )
 
-Nello Sprint 1 tutti gli otto requisiti iniziali sono risultati stabili (RSI = 1,000). Nello Sprint 2 due requisiti sui 26 definiti sono stati revisionati a seguito di un approfondimento delle specifiche EN 18031 durante la stesura dell'Analisi dei Requisiti (RSI = 0,923). Nello Sprint 3, con 34 requisiti totali e le stesse due modifiche pregresse non ripetute, l'indice è risalito a 0,941: la crescita del documento di analisi non ha comportato ulteriori instabilità retroattive. Nello Sprint 4 il documento è cresciuto fino a 42 casi d'uso senza nuove modifiche retroattive, portando l'indice a 0,952. Nello Sprint 5, durante la finalizzazione dell'Analisi dei Requisiti, il numero di casi d'uso si è assestato a 43 — l'UC-44, introdotto temporaneamente, è stato successivamente eliminato — ed è stato revisionato l'UC-31, con l'RSI a 0,930. Nello Sprint 6 non sono state apportate ulteriori modifiche ai casi d'uso e l'indice è rimasto stabile a 0,930, sempre ampiamente al di sopra della soglia di 0,7. Nello Sprint 8 sono stati revisionati quattro requisiti (UC4.1.2, UC10, UC22.4, UC30.2) sui 43 totali, portando l'RSI a 0,907: il valore resta comunque ampiamente al di sopra della soglia di accettabilità. Nello Sprint 9 non sono stati modificati requisiti, poiché gli ultimi interventi conseguenti alla revisione RTB erano già stati completati nello sprint precedente; l'indice è quindi risalito a 1,000. Anche negli Sprint 10, 11, 12 e 13, dedicati al proseguimento della Specifica Tecnica, all'avanzamento dell'MVP e al completamento delle attività della Product Baseline, l'insieme dei casi d'uso è rimasto invariato e nessun requisito è stato revisionato: l'RSI si conferma pari a 1,000. La stabilità dei requisiti su tre sprint consecutivi indica che la base di analisi consolidata in fase RTB ha retto pienamente il confronto con lo sviluppo e l'implementazione del software.
+Nello Sprint 1 tutti gli otto requisiti iniziali sono risultati stabili (RSI = 1,000). Nello Sprint 2 due requisiti sui 26 definiti sono stati revisionati a seguito di un approfondimento delle specifiche EN 18031 durante la stesura dell'Analisi dei Requisiti (RSI = 0,923). Nello Sprint 3, con 34 requisiti totali e le stesse due modifiche pregresse non ripetute, l'indice è risalito a 0,941: la crescita del documento di analisi non ha comportato ulteriori instabilità retroattive. Nello Sprint 4 il documento è cresciuto fino a 42 casi d'uso senza nuove modifiche retroattive, portando l'indice a 0,952. Nello Sprint 5, durante la finalizzazione dell'Analisi dei Requisiti, il numero di casi d'uso si è assestato a 43 — l'UC-44, introdotto temporaneamente, è stato successivamente eliminato — ed è stato revisionato l'UC-31, con l'RSI a 0,930. Nello Sprint 6 non sono state apportate ulteriori modifiche ai casi d'uso e l'indice è rimasto stabile a 0,930, sempre ampiamente al di sopra della soglia di 0,7. Nello Sprint 8 sono stati revisionati quattro requisiti (UC4.1.2, UC10, UC22.4, UC30.2) sui 43 totali, portando l'RSI a 0,907: il valore resta comunque ampiamente al di sopra della soglia di accettabilità. Nello Sprint 9 non sono stati modificati requisiti, poiché gli ultimi interventi conseguenti alla revisione RTB erano già stati completati nello sprint precedente; l'indice è quindi risalito a 1,000. Anche negli Sprint 10, 11, 12 e 13, dedicati al proseguimento della Specifica Tecnica, all'avanzamento dell'MVP e al completamento delle attività della Product Baseline, l'insieme dei casi d'uso è rimasto invariato e nessun requisito è stato revisionato: l'RSI si conferma pari a 1,000. La stabilità dei requisiti su cinque sprint consecutivi indica che la base di analisi consolidata in fase RTB ha retto pienamente il confronto con lo sviluppo e l'implementazione del software.
 
 == MPC-09, MPC-10 — Indice di Gulpease, Correttezza Ortografica
 
@@ -956,7 +956,7 @@ Tuttavia, la media aggregata dell'MVP nello Sprint 13 si attesta al 93,5%, un ri
 
 == MPC-13 — Quality Metrics Satisfied
 
-Percentuale di metriche misurabili che rientrano nel range accettabile. Sono escluse dal calcolo: TSR e Code Coverage (MPC-11, MPC-12), non applicabili in assenza di codice prodotto definitivo; Indice di Gulpease (MPC-09) e Correttezza Ortografica (MPC-10), tracciati qualitativamente sui documenti ma non inclusi nel computo aggregato del cruscotto automatico per sprint.
+Percentuale di metriche misurabili che rientrano nel range accettabile. Test Pass Rate e Code Coverage (MPC-11, MPC-12) entrano nel computo a partire dallo Sprint 9, contestualmente all'avvio dello sviluppo dell'MVP; negli sprint precedenti sono escluse perché non applicabili in assenza di codice. Restano sempre escluse dal computo aggregato del cruscotto automatico l'Indice di Gulpease (MPC-09) e la Correttezza Ortografica (MPC-10), tracciati qualitativamente sui documenti.
 
 #cruscotto-table(
   [Andamento di Quality Metrics Satisfied per sprint],
@@ -969,9 +969,9 @@ Percentuale di metriche misurabili che rientrano nel range accettabile. Sono esc
   [6], [9], [9], [100%], [$>= 80%$ ✓],
   [7], [9], [9], [100%], [$>= 80%$ ✓],
   [8], [9], [9], [100%], [$>= 80%$ ✓],
-  [9], [9], [9], [100%], [$>= 80%$ ✓],
-  [10], [9], [9], [100%], [$>= 80%$ ✓],
-  [11], [9], [9], [100%], [$>= 80%$ ✓],
+  [9], [11], [11], [100%], [$>= 80%$ ✓],
+  [10], [11], [11], [100%], [$>= 80%$ ✓],
+  [11], [11], [11], [100%], [$>= 80%$ ✓],
   [12], [11], [11], [100%], [$>= 80%$ ✓],
   [13], [11], [11], [100%], [$>= 80%$ ✓],
 )
@@ -982,7 +982,7 @@ Percentuale di metriche misurabili che rientrano nel range accettabile. Sono esc
   supplement: [Figura],
 )
 
-Il Quality Metrics Satisfied è rimasto al 100% in tutti e tredici gli sprint: ogni metrica inclusa nel computo ha rispettato la propria soglia di accettazione. Le undici metriche considerate sono MPC-01..08 e MPC-14 (metriche EVM, RSI e Time Efficiency). Con l'aggiunta delle metriche MPC-11 e MPC-12, tutte le misure di qualità hanno continuato a rispettare i propri standard di accettazione, consolidando un Quality Metrics Satisfied al 100% per l'intero periodo.
+Il Quality Metrics Satisfied è rimasto al 100% in tutti e tredici gli sprint: ogni metrica inclusa nel computo ha rispettato la propria soglia di accettazione. Nei primi otto sprint le metriche considerate sono nove — MPC-01..08 e MPC-14 (metriche EVM, RSI e Time Efficiency). A partire dallo Sprint 9, con l'avvio dello sviluppo dell'MVP, si aggiungono al computo MPC-11 e MPC-12 (Test Pass Rate e Code Coverage), portando a undici le metriche misurabili: anche queste hanno sempre rispettato i propri standard di accettazione, consolidando un Quality Metrics Satisfied al 100% per l'intero periodo.
 
 #pagebreak()
 
@@ -1014,7 +1014,7 @@ Time Efficiency (TE) = (Ore Previste Cumulative / Ore Effettive Cumulative) × 1
   supplement: [Figura],
 )
 
-La Time Efficiency si mantiene tra il 100,0% (Sprint 1 e 2) e il 104,8% (Sprint 8), sempre ampiamente al di sopra della soglia dell'80%, attestandosi al 102,0% al termine dello Sprint 13. Su base cumulativa il team ha impiegato 444 ore effettive a fronte delle 453 preventivate (−9 ore, circa un -2,0%): uno scostamento contenuto e a favore del progetto, indicativo di un'elevata accuratezza delle stime orarie. Nello Sprint 13 alle 37 ore preventivate ne sono corrisposte 40 effettive (+3 ora, assorbite dal ruolo di Programmatore, Progettista e Verificatore a fronte del maggiore carico implementativo), uno scostamento minimo che conferma la maturazione metodologica e la stabilità raggiunta dal team nella pianificazione delle attività.
+La Time Efficiency si mantiene tra il 100,0% (Sprint 1 e 2) e il 104,8% (Sprint 8), sempre ampiamente al di sopra della soglia dell'80%, attestandosi al 102,0% al termine dello Sprint 13. Su base cumulativa il team ha impiegato 444 ore effettive a fronte delle 453 preventivate (−9 ore, circa un -2,0%): uno scostamento contenuto e a favore del progetto, indicativo di un'elevata accuratezza delle stime orarie. Nello Sprint 13 alle 37 ore preventivate ne sono corrisposte 40 effettive (+3 ore, assorbite dal ruolo di Programmatore, Progettista e Verificatore a fronte del maggiore carico implementativo), uno scostamento minimo che conferma la maturazione metodologica e la stabilità raggiunta dal team nella pianificazione delle attività.
 
 == Metriche di qualità di prodotto (MPD)
 
@@ -1290,6 +1290,7 @@ Oltre alle criticità organizzative analizzate sprint per sprint, il team ha val
     [12], [RO-4], [Conflitti e divergenze nella repository per lo sviluppo su branch distinti], [Riorganizzazione della gestione dei branch e intensificazione delle comunicazioni sugli interventi in corso],
     [12], [RI-1], [Disponibilità oraria disomogenea nella settimana di Ferragosto], [Ridistribuzione flessibile del carico di lavoro tra i membri presenti per assorbire le assenze temporanee],
     [12], [RO-1], [Scostamento delle stime (Programmatore) per la risoluzione dei conflitti], [Assorbimento del lieve scostamento orario e calibrazione per gli sprint successivi],
+    [13], [RI-1], [Disponibilità non uniforme nel periodo estivo per impegni personali di alcuni membri], [Ridistribuzione flessibile dei task tra i membri presenti per assorbire i lievi rallentamenti],
   ),
   caption: [Sintesi dei problemi rilevati e delle azioni correttive per sprint],
   supplement: [Tabella],
