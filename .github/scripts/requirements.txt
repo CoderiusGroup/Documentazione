@@ -1,0 +1,4 @@
+# Dipendenze degli script di automazione (.github/scripts/).
+# La versione di matplotlib e' fissata di proposito: versioni diverse possono
+# rendere i grafici in modo leggermente diverso, generando commit a vuoto.
+matplotlib==3.10.3

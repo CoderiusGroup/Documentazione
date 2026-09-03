@@ -91,13 +91,22 @@ def aggiorna_html():
         "RTB_INTERNI": [],
         "RTB_VERBALI_INTERNI": [],
         "PB_PRINCIPALI": [],
+        "PB_ESTERNI": [],
+        "PB_VERBALI_ESTERNI": [],
+        "PB_INTERNI": [],
+        "PB_VERBALI_INTERNI": [],
         "DIARIO_BORDO": []
     }
 
     for file_path in BASE_DIR.rglob("*.pdf"):
-        percorso_str = file_path.as_posix()
-        
-        if "website" in percorso_str or ".github" in percorso_str:
+        percorso_relativo = file_path.relative_to(BASE_DIR)
+        percorso_str = percorso_relativo.as_posix()
+
+        # Ignora le cartelle nascoste (.github, .git, worktree locali...): altrimenti
+        # una copia del repo dentro la cartella di lavoro duplica tutte le card.
+        if any(parte.startswith(".") for parte in percorso_relativo.parts):
+            continue
+        if "website" in percorso_str:
             continue
         if "Verbali/Esterni" in percorso_str and not file_path.stem.endswith("_firmato"):
             continue
@@ -123,7 +132,16 @@ def aggiorna_html():
                 categorie["RTB_PRINCIPALI"].append(card_html)
 
         elif "PB" in percorso_str:
-            categorie["PB_PRINCIPALI"].append(card_html)
+            if "Verbali/Interni" in percorso_str:
+                categorie["PB_VERBALI_INTERNI"].append(card_html)
+            elif "Verbali/Esterni" in percorso_str:
+                categorie["PB_VERBALI_ESTERNI"].append(card_html)
+            elif "Documenti/Interni" in percorso_str:
+                categorie["PB_INTERNI"].append(card_html)
+            elif "Documenti/Esterni" in percorso_str:
+                categorie["PB_ESTERNI"].append(card_html)
+            else:
+                categorie["PB_PRINCIPALI"].append(card_html)
 
         elif "DiariDiBordo" in percorso_str:
             categorie["DIARIO_BORDO"].append(card_html)

@@ -1,0 +1,196 @@
+{
+  "descrizione": "Storico degli errori ortografici per sprint. Append-only: gli sprint conclusi non vengono piu' ricalcolati, cosi' correggere un refuso oggi abbassa lo sprint corrente e non riscrive il passato. Aggiornato da .github/scripts/storico_metriche.py.",
+  "sprint": [
+    {
+      "numero": 1,
+      "fine": "2026-04-21",
+      "aggiornato": "2026-07-31",
+      "documenti": {
+        "Verbali": {
+          "errori": 0,
+          "parole_segnalate": []
+        }
+      }
+    },
+    {
+      "numero": 2,
+      "fine": "2026-05-01",
+      "aggiornato": "2026-07-31",
+      "documenti": {
+        "Norme di progetto": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Verbali": {
+          "errori": 0,
+          "parole_segnalate": []
+        }
+      }
+    },
+    {
+      "numero": 3,
+      "fine": "2026-05-15",
+      "aggiornato": "2026-07-31",
+      "documenti": {
+        "Analisi dei requisiti": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Norme di progetto": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Piano di qualifica": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Verbali": {
+          "errori": 0,
+          "parole_segnalate": []
+        }
+      }
+    },
+    {
+      "numero": 4,
+      "fine": "2026-05-29",
+      "aggiornato": "2026-07-31",
+      "documenti": {
+        "Analisi dei requisiti": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Norme di progetto": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Piano di qualifica": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Verbali": {
+          "errori": 3,
+          "parole_segnalate": [
+            "Aggiornarmento",
+            "IInes",
+            "documeto"
+          ]
+        }
+      }
+    },
+    {
+      "numero": 5,
+      "fine": "2026-06-12",
+      "aggiornato": "2026-07-31",
+      "documenti": {
+        "Analisi dei requisiti": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Norme di progetto": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Piano di qualifica": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Verbali": {
+          "errori": 2,
+          "parole_segnalate": [
+            "Aggiornarmento",
+            "documeto"
+          ]
+        }
+      }
+    },
+    {
+      "numero": 6,
+      "fine": "2026-06-26",
+      "aggiornato": "2026-07-31",
+      "documenti": {
+        "Analisi dei requisiti": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Norme di progetto": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Piano di qualifica": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Verbali": {
+          "errori": 3,
+          "parole_segnalate": [
+            "Aggiornarmento",
+            "Ianadi",
+            "documeto"
+          ]
+        }
+      }
+    },
+    {
+      "numero": 7,
+      "fine": "2026-07-10",
+      "aggiornato": "2026-07-31",
+      "documenti": {
+        "Analisi dei requisiti": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Norme di progetto": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Piano di progetto": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Piano di qualifica": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Verbali": {
+          "errori": 3,
+          "parole_segnalate": [
+            "Aggiornarmento",
+            "Ianadi",
+            "documeto"
+          ]
+        }
+      }
+    },
+    {
+      "numero": 8,
+      "fine": "2026-07-24",
+      "aggiornato": "2026-07-31",
+      "documenti": {
+        "Analisi dei requisiti": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Norme di progetto": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Piano di progetto": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Piano di qualifica": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Verbali": {
+          "errori": 3,
+          "parole_segnalate": [
+            "Aggiornarmento",
+            "Ianadi",
+            "documeto"
+          ]
+        }
+      }
+    }
+  ]
+}

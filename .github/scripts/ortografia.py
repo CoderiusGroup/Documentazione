@@ -222,52 +222,62 @@ def preprocess_for_spellcheck(text: str) -> str:
 # ---------------------------------------------------------------------------
 
 def load_wordlist() -> set[str]:
-    """
-    Carica la lista di parole da ignorare (termini tecnici, anglicismi, nomi propri). 
-    Inizializza con un set di nomi propri e termini di progetto hardcoded,
-    ed estende con eventuali termini dal file .github/scripts/wordlist.txt.
-    """
-    # Whitelist di base aggiornata (incluso l'ultimo set di cognomi trovati)
-    words = {
-        # Team, Professori e Nomi
+    words_raw = {
+        # --- Team, Nomi, Aziende e Brand ---
         "edis", "hodja", "bronte", "zonta", "filippo", "giovanni", "leonardo",
-        "vardanega", "cardin", "fiorese", "rocha", "lorenzin", "iadadi",
+        "vardanega", "cardin", "fiorese", "rocha", "lorenzin", "iadadi", "ferrarin",
+        "coderius", "coderiusgroup", "bluewind", "athesys", "monokee", "nexum", "eggon",
+        "amazon", "google", "apple", "microsoft", "srl", "realizzativa",
         
-        # Aziende, Enti e Brand
-        "coderius", "coderiusgroup", "bluewind", "athesys", "monokee", "nexum", 
-        "eggon", "amazon", "google", "srl",
+        # --- Tecnologie, Web, Strumenti e Linguaggi ---
+        "backend", "frontend", "framework", "javascript", "python", "docker", 
+        "containerization", "containerizzazione", "deployment", "localhost", 
+        "chrome", "mozilla", "firefox", "edge", "git", "cloud", "storage", 
+        "dashboard", "app", "issue", "issues", "vue", "react", "flask", "fastapi",
+        "telegram", "discord", "excel", "meet", "comprehend", "plantuml", "figma",
+        "typ", "src", "gulpease", "nrob", "planned", "value", "earned", "actual",
+        "cost", "at", "completion", "upright", "sec", "projects", "actions", "main", 
+        "whatsapp", 
         
-        # Tecnologie e Strumenti
-        "comprehend", "excel", "telegram", "discord", "react", "vue", "flask", 
-        "fastapi", "plantuml", "figma", "meet", "typ", "src",
+        # --- Terminologia Informatica / Inglese tecnico ---
+        "layout", "mapping", "template", "stack", "interface", "local", "form",
+        "security", "financial", "function", "text", "size", "wireless", "block",
+        "above", "undo", "mockup", "step", "call", "tracking", "report", "reports",
+        "fix", "update", "new", "pass", "fail", "yes", "have", "not", "applicable",
+        "confidence", "proof", "concept", "poc", "access", "control", "mechanism",
+        "authentication", "automated", "verification", "system", "group", "wordlist",
         
-        # Acronimi di Progetto
-        "poc", "adr", "pdp", "ob",
+        # --- Metodologia di Progetto e Documentazione ---
+        "milestone", "stakeholder", "decision", "tree", "way", "working", 
+        "asset", "assets", "testing", "brainstorming", "proattiva", "cybersecurity",
+        "bluetooth", "iot", "slide", "analysis", "technical", "documentation",
+        "plans", "packaging", "parsing", "parameters", "configuration",
+        "workflow", "effort", "efficiency", "failure", "density", "statement",
+        "coverage", "cyclomatic", "complexity", "instability", "index", "smell",
+        "coupling", "afferent", "efferent", "attrattività", "testabilità", 
+        "installabilità", "deploy", "robbs", "nrobs", "nrop", "tpes", "coefficient",
+        "tracciabilità", "recuperabilità", "apprendibilità", "analizzabilità",
+        "automiglioramento", "breakable", "stability", "quality", "metrics",
+        "error", "response", "process", "lead", "indiceradice", "indiceannidato",
+        "adr", "pdp", "ndp", "ob", "nrops", "versionamento", "customizzato", 
         
-        # Parole troncate dagli apostrofi (causa regex)
-        "sull", "dall", "all", "nell", "dell", "quest",
+        # --- Parole inglesi comuni (falsi positivi di Aspell ITA) ---
+        "of", "to", "tool", "tools", "true", "times", "feature", "satisfied", "it",
         
-        # Inglesismi, Codice e Gergo Tecnico
-        "versionamento", "group", "block", "above", "update", "automated", 
-        "verification", "pass", "fail", "not", "applicable", "layout", "mapping", 
-        "access", "control", "mechanism", "authentication", "proof", "concept", 
-        "tracking", "system", "template", "fix", "new", "report", "it", "text", 
-        "size", "wireless", "interface", "local", "form", "security", "financial", 
-        "function", "undo", "have", "mockup", "call", "stack", "step", "gulpease", 
-        "wordlist", "effort",
-        
-        # Termini italiani non riconosciuti dal dizionario base
-        "tracciabilità", "recuperabilità", "apprendibilità"
+        # --- Parole troncate dall'apostrofo ---
+        "sull", "dall", "all", "nell", "dell", "quest"
     }
+    
+    # Forza tutte le parole in minuscolo per evitare discrepanze con w.lower()
+    words = {w.lower() for w in words_raw}
 
-    if not WORDLIST_FILE.exists():
-        return words
-
-    with open(WORDLIST_FILE, encoding="utf-8") as f:
-        for line in f:
-            word = line.strip()
-            if word and not word.startswith("#"):
-                words.add(word.lower())
+    # Carica da file esterno se esiste
+    if WORDLIST_FILE.exists():
+        with open(WORDLIST_FILE, encoding="utf-8") as f:
+            for line in f:
+                word = line.strip()
+                if word and not word.startswith("#"):
+                    words.add(word.lower())
     return words
 
 
