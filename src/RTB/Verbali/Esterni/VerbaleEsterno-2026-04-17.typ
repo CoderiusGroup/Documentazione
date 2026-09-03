@@ -44,7 +44,7 @@
     #v(2em)
     #text(size: 1.6em, weight: "bold")[Incontro con #azienda]
     #v(4em)
-    #text(size: 20pt)[*Versione 1.0.0*]
+    #text(size: 20pt)[*Versione 1.0.1*]
   ]
   pagebreak()
 
@@ -64,7 +64,8 @@
       ),
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
-      [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],  
+      [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+      [1.0.1], [2026/06/08], [Filippo Zonta Rocha], [Ines Iadadi], [Correzione numerazione codici decisioni],  
       [1.0.0], [2026/04/21], [Leonardo Lorenzin], [], [Approvazione del  verbale],
       [0.2.0], [2026/04/17], [Filippo Zonta Rocha], [Leonardo Lorenzin], [Correzione di errori e refusi presenti nella prima stesura del verbale],
       [0.1.0], [2026/04/17], [Edis Hodja], [Filippo Zonta Rocha], [Prima stesura del verbale]
@@ -186,10 +187,10 @@ Al termine della riunione, il team si è riunito internamente tramite il canale 
     columns: (auto, 1fr),
     align: (center, left),
     [*Codice*], [*Descrizione*],
-    [VE-4.1], [Approfondimento backend tra Flask e FastAPI],
-    [VE-4.2], [Aggiornamento del contenuto e della terminologia all'interno del glossario di progetto],
-    [VE-4.3], [Definire un template standard per la creazione delle issue su GitHub],
-    [VE-4.4], [Individuazione documenti necessari per la RTB]
+    [VE-2.1], [Approfondimento backend tra Flask e FastAPI],
+    [VE-2.2], [Aggiornamento del contenuto e della terminologia all'interno del glossario di progetto],
+    [VE-2.3], [Definire un template standard per la creazione delle issue su GitHub],
+    [VE-2.4], [Individuazione documenti necessari per la RTB]
   )
 
 #pagebreak()
@@ -202,10 +203,10 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-4.1], [Ricerca e relativo studio dei framework backend tra Flask e FastAPI], [Team], [VE-4.1],
-    [TD-4.2], [Aggiornamento della terminologia all'interno del glossario], [Giovanni Bronte], [VE-4.2],
-    [TD-4.3], [Stabilire un formato unico e coerente per le issue], [Edis Hodja], [VE-4.3],
-    [TD-4.4], [Individuare quali ulteriori documenti è necessario iniziare a produrre in vista della RTB], [Team], [VE-4.4],
+    [TD-2.1], [Ricerca e relativo studio dei framework backend tra Flask e FastAPI], [Team], [VE-2.1],
+    [TD-2.2], [Aggiornamento della terminologia all'interno del glossario], [Giovanni Bronte], [VE-2.2],
+    [TD-2.3], [Stabilire un formato unico e coerente per le issue], [Edis Hodja], [VE-2.3],
+    [TD-2.4], [Individuare quali ulteriori documenti è necessario iniziare a produrre in vista della RTB], [Team], [VE-2.4],
   )
 ]
 #v(6em)

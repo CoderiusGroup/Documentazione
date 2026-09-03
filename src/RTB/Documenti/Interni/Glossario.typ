@@ -8,13 +8,12 @@
       #set text(size: 9pt, fill: luma(100))
       #grid(
         columns: (1fr, 1fr),
-        align(left)[Glossario],
-        align(right)[Coderius Group]
+        align(left)[Glossario], align(right)[Coderius Group],
       )
       #v(-0.5em)
       #line(length: 100%, stroke: 0.4pt + luma(150))
     ]
-  }
+  },
 )
 
 #set text(font: "Libertinus Serif", size: 12pt, lang: "it")
@@ -53,8 +52,9 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    
+
     [0.1.0], [2026/04/15], [Bronte Giovanni], [Ines Iadadi], [Prima stesura del documento],
+    [0.2.0], [2026/04/15], [Alberto Canavese], [Filippo Zonta Rocha], [Aggiunti termini e definizioni],
   )
 ]
 
@@ -79,7 +79,7 @@ Il presente documento ha lo scopo di definire in modo univoco i termini tecnici,
 
 #for (word, desc) in terms.pairs().sorted(key: it => lower(it.at(0))) {
   let first-letter = upper(word.at(0))
-  
+
   context {
     if first-letter != current-letter.get() {
       current-letter.update(first-letter)

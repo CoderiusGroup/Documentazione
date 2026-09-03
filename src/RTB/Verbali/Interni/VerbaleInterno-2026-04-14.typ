@@ -49,7 +49,7 @@
         *Luogo:* #luogo ],
     )
     #v(4em)
-    #text(size: 20pt)[*Versione 0.3.0*]
+    #text(size: 20pt)[*Versione 1.0.1*]
   ]
   pagebreak()
 
@@ -70,7 +70,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.3.0], [2026/04/15], [Filippo Zonta Rocha], [Filippo Zonta Rocha], [Validazione finale],
+      [1.0.1], [2026/05/26], [Edis Hodja], [Giovanni Bronte], [Correzione codici e decisione di riferimento],
+      [1.0.0], [2026/04/15], [Filippo Zonta Rocha], [], [Validazione finale],
       [0.2.0], [2026/04/15], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiornamento contenuti e correzione refusi],
       [0.1.0], [2026/04/14], [Alberto Canavese], [Leonardo Lorenzin], [Prima stesura del verbale],
     )
@@ -147,9 +148,9 @@ Per il backend, le opzioni basate su Python prese in considerazione sono: *Flask
     columns: (auto, 1fr),
     align: (center, left),
     [*Codice*], [*Descrizione*],
-    [VI-3.1], [Il glossario sarà aggiornato periodicamente e modificato alla fine di ogni sprint.],
-    [VI-3.2], [Sviluppo di un'applicazione web-based utilizzando React per il frontend.],
-    [VI-3.3],
+    [VI-2.1], [Il glossario sarà aggiornato periodicamente e modificato alla fine di ogni sprint.],
+    [VI-2.2], [Sviluppo di un'applicazione web-based utilizzando React per il frontend.],
+    [VI-2.3],
     [La scelta della tecnologia per il backend avverrà in seguito previa valutazione da parte del gruppo di Flask e FastAPI.],
   )
 ]
@@ -170,11 +171,11 @@ Elenco dei compiti assegnati ai membri del team in vista della prossima riunione
     columns: (auto, 1fr, auto, auto),
     align: (center, left, center, center),
     [*Codice*], [*Descrizione*], [*Assegnatari*], [*Decisione di riferimento*],
-    [TD-3.1], [Prima stesura del glossario], [Giovanni Angelo Marco Bronte], [VI-3.1],
-    [TD-3.2], [Aggiornamento del sito per rendere disponibile la consultazione del glossario], [Ines Iadadi], [VI-3.1],
-    [TD-3.3],
+    [TD-2.1], [Prima stesura del glossario], [Giovanni Angelo Marco Bronte], [VI-2.1],
+    [TD-2.2], [Aggiornamento del sito per rendere disponibile la consultazione del glossario], [Ines Iadadi], [VI-2.1],
+    [TD-2.3],
     [Approfondimento delle tecnologie relative al backend per sostenere la discussione decisionale],
     [Tutti i membri],
-    [VI-3.3],
+    [VI-2.3],
   )
 ]

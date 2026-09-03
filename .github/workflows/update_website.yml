@@ -1,12 +1,22 @@
 name: Aggiorna Sito Documentazione
 
 on:
+  # Parte solo DOPO che "Compila Documenti Typst" ha finito e spinto i PDF.
+  # Il vecchio trigger su push di '**/*.pdf' faceva partire i due workflow in
+  # parallelo sullo stesso push: entrambi committano su main, e quello piu'
+  # lento (la compilazione Typst) si vedeva rifiutare il push.
   workflow_run:
     workflows: ["Compila Documenti Typst"]
     types:
       - completed
-    branches: 
+    branches:
       - main
+  workflow_dispatch:
+
+# Stesso gruppo di compile_typst.yml: i due non scrivono mai su main insieme.
+concurrency:
+  group: commit-automatico-refs/heads/main
+  cancel-in-progress: false
 
 jobs:
   aggiorna-html:
@@ -14,7 +24,7 @@ jobs:
     permissions:
       contents: write
 
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Scarica la repository
         uses: actions/checkout@v4
