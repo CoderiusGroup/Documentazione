@@ -756,9 +756,9 @@ Queste proprietà sono essenziali per supportare i test di regressione: se un er
 #v(0.5em)
 I test di unità verificano una singola unità di codice (funzione, metodo o componente) in isolamento, sostituendo le sue dipendenze con dei fake o dei mock. Nel backend vengono realizzati con _pytest_, nel frontend con _Vitest_. I file di test sono colocati accanto al codice sorgente che verificano, seguendo la convenzione `test_*.py` per il backend e `*.test.ts`/`*.test.tsx` per il frontend.
 
-===== Test di integrazione
+===== Test di integrità
 #v(0.5em)
-I test di integrazione verificano la corretta interazione tra più componenti reali del sistema, senza sostituire le dipendenze interne con mock: nel backend attraversano rotta HTTP, servizio e repository tramite il test client dell'applicazione; nel frontend coinvolgono pagina, store e client API insieme. Adottano gli stessi strumenti e la stessa convenzione di nomenclatura dei test di unità.
+I test di integrità verificano la corretta interazione tra più componenti reali del sistema, senza sostituire le dipendenze interne con mock: nel backend attraversano rotta HTTP, servizio e repository tramite il test client dell'applicazione; nel frontend coinvolgono pagina, store e client API insieme. Adottano gli stessi strumenti e la stessa convenzione di nomenclatura dei test di unità.
 
 Entrambe le tipologie sono state introdotte a partire dallo Sprint 9, con l'avvio dello sviluppo dell'MVP, e vengono eseguite automaticamente dalla pipeline CI a ogni push o Pull Request, con soglie di accettazione tracciate nel Piano di Qualifica tramite le metriche MPC-11 (Test Pass Rate) e MPC-12 (Code Coverage).
 
