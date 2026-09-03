@@ -137,8 +137,9 @@
 
 == Scopo del documento
 Il presente documento descrive l'architettura logica e infrastrutturale del sistema
-sviluppato dal gruppo Coderius per il capitolato C1 _Automated EN 18031 Compliance
-Verification_.
+sviluppato dal gruppo Coderius per il #link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[#text(
+    fill: blue,
+  )[Capitolato C1 - _Automated EN18031 Compliance Verification_, Bluewind S.r.l.]].
 
 Nel dettaglio, gli obiettivi preposti per questo documento sono:
 
@@ -149,7 +150,8 @@ Nel dettaglio, gli obiettivi preposti per questo documento sono:
 - *Promuovere la manutenibilità a lungo termine:* fornire direttive chiare al team di sviluppo per rendere la base di codice facilmente interpretabile, supportando così agevolmente le future iterazioni, correzioni ed espansioni del sistema.
 
 == Scopo del prodotto
-Il prodotto mira ad automatizzare e digitalizzare il processo di verifica della conformitàdei dispositivi radio alla normativa di sicurezza EN 18031, come richiesto dal capitolato *Automated EN18031 Compliance Verification* proposto da Bluewind S.r.l. L'obiettivo è sostituire le attuali procedure manuali, spesso dispendiose in termini di tempo e soggette a errore umano, con una soluzione software moderna ed efficiente.
+Il prodotto mira ad automatizzare e digitalizzare il processo di verifica della conformità dei dispositivi radio alla normativa di sicurezza EN 18031, come richiesto dal capitolato *Automated EN18031 Compliance Verification* proposto da Bluewind S.r.l.
+\ L'obiettivo è sostituire le attuali procedure manuali, spesso dispendiose in termini di tempo e soggette ad errore umano, con una soluzione software moderna ed efficiente.
 
 Le funzioni principali offerte dal prodotto sono le seguenti:
 
@@ -159,7 +161,7 @@ Le funzioni principali offerte dal prodotto sono le seguenti:
   automaticamente i requisiti della norma applicabili sulla base della sua tipologia.
 
 - *Esecuzione dei decision tree*: per ogni coppia asset-requisito il sistema esegue
-  l'albero decisionale corrispondente, riconducendo l'interazione a una sequenza di domande
+  l'albero decisionale corrispondente, riconducendo l'interazione ad una sequenza di domande
   a risposta binaria affiancata dalla rappresentazione grafica dell'albero, che evidenzia il
   nodo corrente e il percorso già intrapreso.
 
@@ -168,7 +170,7 @@ Le funzioni principali offerte dal prodotto sono le seguenti:
   era stato interrotto. È inoltre possibile riaprire un requisito già valutato insieme a
   quelli che da esso dipendono.
 
-- *Consultazione e esportazione degli esiti*: gli esiti dei singoli requisiti sono
+- *Consultazione ed esportazione degli esiti*: gli esiti dei singoli requisiti sono
   aggregati a livello di asset e di dispositivo e restano risalibili fino alla sequenza di
   domande e risposte che li ha determinati. Il sistema produce inoltre un report di
   conformità finale in formato PDF, contenente per ciascuna coppia asset-requisito l'esito
@@ -178,14 +180,14 @@ Le funzioni principali offerte dal prodotto sono le seguenti:
   degli alberi decisionali disponibili, consultabili in forma grafica, ampliabile
   importando nuovi alberi in formato JSON o CSV ed esportabile nei medesimi formati.
 
-Il prodotto è concepito come strumento interno alla proponente, opera interamente in locale e non prevede autenticazione né archiviazione centralizzata. Lo scabio dei dati fra installazioni viene affidato all'esportazione e all'importazione di file.
+Il prodotto è concepito come strumento interno alla proponente, opera interamente in locale e non prevede autenticazione né archiviazione centralizzata. Lo scambio dei dati fra installazioni viene affidato all'esportazione e all'importazione di file.
 
 #pagebreak()
 
 == Glossario
 Al fine di evitare ambiguità e incomprensioni legate alla terminologia tecnica presente in questo documento e nel resto della documentazione prodotta dal gruppo Coderius, è stato redatto un apposito glossario. 
 
-Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è contrassegnato nel testo da una "G" a pedice (es. _termine_#sub[G]). Cliccando sull'indicatore, il lettore verrà reindirizzato direttamente alla definizione corrispondente all'interno del documento #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Interni/Glossario.pdf")[*Glossario*].
+Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è contrassegnato nel testo da una "G" a pedice (es. _termine_#sub[G]). Cliccando sull'indicatore, il lettore verrà reindirizzato direttamente alla definizione corrispondente all'interno del documento #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Interni/Glossario.pdf")[#text(fill: blue,)[*Glossario*]].
 
 == Riferimenti
 === Riferimenti normativi
@@ -200,7 +202,10 @@ Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è cont
 - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf")[#text(
     fill: blue,
   )[Slide IS A.A. 2025/2026 - _Regolamento del progetto didattico_]]
-- Norma EN 18031 — _Common security requirements for radio equipment_.
+- #link("https://www.etsi.org/standards-search#page=1&search=EN%2018031")[#text(
+    fill: blue,
+  )[Norma EN 18031 — _Common security requirements for radio equipment_]]
+
 === Riferimenti informativi
 
 - #link("https://www.math.unipd.it/~rcardin/swea/2023/Diagrammi%20delle%20Classi.pdf")[#text(
@@ -255,7 +260,7 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
   standard e nella maturità dell'ecosistema di test.],
 
     [TypeScript],
-    [6.0],
+    [6.0.2],
     [Metalinguaggio open source sviluppato da Microsoft che si basa su JavaScript, aggiungendovi la tipizzazione statica. Nel nostro progetto è utilizzato per lo sviluppo del frontend assieme alla libreria React: l'introduzione dei tipi garantisce maggiore robustezza, facilita la manutenibilità del codice nel tempo e permette di intercettare numerosi errori già in fase di compilazione.],
 )
 
@@ -277,19 +282,6 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
   [Estensione di Flask che gestisce le intestazioni _Cross-Origin Resource Sharing_.
   È necessaria in ambiente di sviluppo, dove client e server sono serviti da due origini
   distinte.],
-
-  [React],
-  [19.2],
-  [Libreria per la costruzione di interfacce utente a componenti, impiegata per l'intero
-  frontend. Il modello dichiarativo e la composizione per componenti permettono di
-  mantenere la logica di presentazione separata da quella applicativa, delegata a hook
-  dedicati.],
-
-  [React Router],
-  [7.18],
-  [Libreria di instradamento lato client per React. Associa a ciascuna vista un percorso
-  proprio e consente di applicare guardie di accesso alle pagine che richiedono
-  precondizioni, come l'esistenza di una sessione di valutazione attiva.],
 )
 
 == Librerie
@@ -301,8 +293,13 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     [*Tecnologia*], [*Versione*], [*Descrizione*],
 
     [React],
-    [19.2.7],
-    [React è una libreria completa, molto flessibile e permette la creazione e la gestione dell'interfaccia utente. Nel nostro progetto viene utilizzato per le varie librerie che permettono di gestire l'interfaccia utente al meglio.],
+    [19.2.8],
+    [Libreria JavaScript per la costruzione di interfacce utente tramite componenti dichiarativi. Nel progetto costituisce la base del frontend, insieme a React Router, Zustand e alle altre librerie dell’ecosistema.],
+    [React Router],
+    [7.18.2],
+    [Libreria di instradamento lato client per React. Associa a ciascuna vista un percorso
+    proprio e consente di applicare guardie di accesso alle pagine che richiedono
+    precondizioni, come l'esistenza di una sessione di valutazione attiva.],
     [React Flow],
     [12.11],
     [Libreria per la rappresentazione interattiva di grafi e diagrammi a nodi in applicazioni
@@ -321,8 +318,7 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     di conformità finale, la cui struttura è dichiarata come componente `ReportDocument` e
     resa in un documento scaricabile dall'utente. La generazione avviene interamente nel
     client, coerentemente con il criterio di possesso del dato illustrato in
-    @motivazioni-architettura: il report si fonda esclusivamente su dispositivo e sessione,
-    che risiedono nel client.],
+    @motivazioni-architettura: il report viene generato nel client utilizzando il dispositivo, la sessione e i decision tree resi disponibili dal catalogo.],
     [Zustand],
     [5.0],
     [Libreria minimale per la gestione dello stato globale in applicazioni React. Gli store
@@ -356,7 +352,7 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     [*Tecnologia*], [*Versione*], [*Descrizione*],
 
     [Vite],
-    [8.2],
+    [8.2.0],
     [Vite è diventato lo standard de facto dell'ecosistema frontend. È il motore ufficiale dietro i framework moderni come Vue, e i template ufficiali di React.
     È inoltre molto più veloce a creare il server rispetto ad altri strumenti simili ed è anche molto facile da implementare grazie alla sua configurazione minima richiesta. 
     ],
@@ -420,16 +416,16 @@ sono discusse nella sezione
     [*Tecnologia*], [*Versione*], [*Descrizione*],
 
     [Docker],
-    [3.1.3],
+    [28.5.1],
     [Piattaforma open source che consente agli sviluppatori di creare, implementare, eseguire, aggiornare e gestire i container. 
     I container sono componenti standardizzati ed eseguibili che combinano il codice sorgente dell'applicazione con le librerie e le dipendenze del sistema operativo necessarie per eseguire tale codice in qualsiasi ambiente.
     ],
     [Docker Compose],
-  [/],
-  [Strumento di orchestrazione dei container. Il file `docker-compose.yml` descrive i due
-  servizi, la rete privata che li collega, l'esposizione delle porte verso l'ospite
-  (8080 per il frontend, 5000 per il backend) e il montaggio della cartella dei decision
-  tree come volume.],
+    [2.40.0],
+    [Strumento di orchestrazione dei container. Il file `docker-compose.yml` descrive i due
+    servizi, la rete privata che li collega, l'esposizione delle porte verso l'ospite
+    (8080 per il frontend, 5000 per il backend) e il montaggio della cartella dei decision
+    tree come volume.],
 
   [Nginx],
   [1.27],
@@ -482,20 +478,20 @@ Il prodotto si compone di due unità distribuibili:
 
 - un *server* Flask scritto in Python 3.12, che espone un'API REST: valida i dati in
   ingresso, possiede il catalogo dei decision tree e ne governa il caricamento,
-  l'importazione, l'esportazione e la derivazione dei requisiti applicabili a un tipo di
+  l'importazione, l'esportazione e la derivazione dei requisiti applicabili ad un tipo di
   asset.
 
 La ripartizione delle responsabilità fra le due unità segue il criterio del possesso del
 dato, discusso nella @persistenza. Il server possiede il catalogo dei decision tree, che
 mette a disposizione dell'utente; non possiede invece né il dispositivo né la sessione di
 valutazione, che l'utente porta al sistema e riporta via sotto forma di file. Ne consegue
-che la navigazione lungo l'albero avviene interamente nel client; rispondere a una domanda
+che la navigazione lungo l'albero avviene interamente nel client; rispondere ad una domanda
 del decision tree non comporta alcuna richiesta al server, poiché l'albero è stato
 scaricato per intero all'ingresso nel requisito.
 
 Al server ci si rivolge esclusivamente per ottenere un decision tree o l'elenco del
 catalogo, importare o esportare un decision tree, risolvere gli identificativi di
-dispositivo e asset e derivare i requisiti applicabili a un tipo di asset. Ogni altra
+dispositivo e asset e derivare i requisiti applicabili ad un tipo di asset. Ogni altra
 operazione, come l'avanzamento nell'albero, calcolo degli esiti aggregati, salvataggio e ripresa
 della sessione, esportazione del dispositivo, viene svolta nel client.
 
@@ -586,8 +582,7 @@ sostituibilità. Il disaccoppiamento esplicito fra interfaccia e implementazione
 là dove esiste una ragione concreta per prevedere un'implementazione alternativa (l'accesso al catalogo dei decision tree, la comunicazione HTTP, la presentazione delle
 notifiche) e omesso altrove.
 
-Analogamente, lato client i service applicativi scrivono direttamente sugli store anziché
-passare da un'astrazione intermedia, mantenendo comunque il vincolo di dipendenza a senso
+Analogamente, lato client gli hook applicativi accedono direttamente agli store anziché passare da un'astrazione intermedia, mantenendo comunque il vincolo di dipendenza a senso
 unico.
 
 == Pattern architetturali adottati
@@ -695,8 +690,7 @@ che la navigazione lungo l'albero avviene interamente nel client e che il server
 conserva né dispositivi né sessioni.
 
 Il criterio produce due conseguenze verificabili: nessuna richiesta di rete è necessaria
-per rispondere a una domanda del decision tree, e l'utente conserva il pieno controllo dei
-propri dati, che non transitano né permangono su alcun archivio condiviso. Quest'ultima
+per rispondere a una domanda del decision tree, e l'utente conserva il pieno controllo dei propri dati, che non vengono persistiti né conservati in un archivio condiviso dal server. Quest'ultima
 proprietà è coerente con la natura di strumento interno del prodotto e con la decisione
 VE-7.1.
 
@@ -817,7 +811,7 @@ I pattern architetturali che governano la struttura complessiva del sistema sono
 nelle sezioni precedenti e vengono qui richiamati per completezza:
 
 - *Client-Server*: separazione tra il client React e il server Flask, entrambi eseguiti in locale come container distinti e coordinati da Docker Compose.
-- *Layered Architecture*: organizzazione interna in livelli con dipendenza a senso unico, in sei livelli lato frontend e quattro lato backend.
+- *Layered Architecture*: organizzazione interna in livelli con dipendenza a senso unico, in cinque livelli lato frontend e quattro lato backend.
 - *REST stateless*: assenza di stato di sessione lato server; ogni richiesta contiene tutte le informazioni necessarie alla propria elaborazione.
 - *Monolite containerizzato*: distribuzione come singolo backend e singolo frontend, in luogo di una scomposizione in servizi indipendenti.
 
@@ -848,7 +842,7 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
 - *Problema*: diverse operazioni che l'utente percepisce come unitarie sono in realtà sequenze articolate. L'importazione di un dispositivo da file richiede il riconoscimento del formato, la lettura asincrona tramite `FileReader`, l'interpretazione del contenuto, la validazione dello schema e infine l'invio al backend dei metadati del device e di ciascun asset. Esporre tale sequenza alle viste le legherebbe a dettagli estranei alla presentazione e ne impedirebbe il riuso da parte di viste diverse.
 
 - *Soluzione*: raggruppare la sequenza dietro un'unica operazione di alto livello, espressa nel linguaggio del caso d'uso, che coordini internamente i collaboratori necessari.
-- *Applicazione nel progetto*: lato client, `importDeviceFromFile(file)` racchiude l'intera sequenza di importazione e restituisce alla vista il solo esito. I custom hook assolvono la funzione analoga verso il Presentation Layer: `useSessionRunner()` coordina le fasi della valutazione guidata, il caricamento e l'idratazione dell'albero e la registrazione dell'esito, esponendo alla pagina soltanto lo stato e le azioni necessarie; `useResult()` e `useSessionModify()` operano allo stesso modo per la consultazione degli esiti e per la ripresa dei requisiti. Lato server, `DecisionTreeService.get_tree()` racchiude in una sola chiamata l'accesso al catalogo, la gestione dell'assenza del dato (`DecisionTreeNotFoundError`) e la normalizzazione dell'albero, mentre `create_device()` e `create_asset()` costituiscono il punto unico di validazione delle rispettive entità, condiviso dal percorso di creazione manuale e da quello di importazione.
+- *Applicazione nel progetto*: lato client, `importDeviceFromFile(file)` racchiude l'intera sequenza di importazione e restituisce alla vista il dispositivo costruito insieme al payload originale. I custom hook assolvono la funzione analoga verso il Presentation Layer: `useSessionRunner()` coordina le fasi della valutazione guidata, il caricamento e l'idratazione dell'albero e la registrazione dell'esito, esponendo alla pagina soltanto lo stato e le azioni necessarie; `useResult()` e `useSessionModify()` operano allo stesso modo per la consultazione degli esiti e per la ripresa dei requisiti. Lato server, `DecisionTreeService.get_tree()` racchiude in una sola chiamata l'accesso al catalogo, la gestione dell'assenza del dato (`DecisionTreeNotFoundError`) e la normalizzazione dell'albero, mentre `create_device()` e `create_asset()` costituiscono il punto unico di validazione delle rispettive entità, condiviso dal percorso di creazione manuale e da quello di importazione.
 - *Conseguenze*: pagine e rotte restano prive di logica applicativa e si limitano, rispettivamente, a renderizzare e a deserializzare, delegare e serializzare. L'unicità del punto di validazione evita che due percorsi diversi applichino allo stesso concetto regole divergenti.
 
 ==== Factory Method
