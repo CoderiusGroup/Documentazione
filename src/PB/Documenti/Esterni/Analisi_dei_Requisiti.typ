@@ -53,7 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.2.0], [2026/07/24], [Filippo Zonta Rocha], [], [Correzioni a seguito della revisione RTB],
+    [1.2.0], [2026/09/01], [Filippo Zonta Rocha], [], [Controllo generale e modifiche minori UC20],
     [1.1.0], [2026/07/24], [Ines Iadadi], [Leonardo Lorenzin], [Correzioni a seguito della revisione RTB],
     [1.0.0], [2026/06/26], [Edis Hodja], [], [Approvazione del documento],
     [0.7.0], [2026/06/12], [Giovanni Bronte], [Edis Hodja], [Modifiche a sintassi di alcuni UC, aggiunta di link mancanti e modificati alcuni UC nei requisiti],
