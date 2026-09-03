@@ -33,7 +33,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.0.1*]
+  #text(size: 20pt)[*Versione 1.1.0*]
 ]
 
 #pagebreak()
@@ -53,6 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.1.0], [2026/09/02], [Filippo Zonta Rocha], [], [Aggiornamento migliorativo,\ aggiunta sezione 2.4, 2.5, 2.6],
     [1.0.1], [2026/07/03], [Edis Hodja], [Filippo Zonta Rocha], [Aggiornamento contenuti della descrizione relativa ai ruoli],
     [1.0.0], [2026/06/23], [Edis Hodja], [], [Approvazione del documento],
     [0.10.1], [2026/06/13], [Giovanni Bronte], [Edis Hodja], [Modifiche alle tabelle delle metriche],
@@ -461,6 +462,73 @@ Il gruppo si impegna a partecipare alle milestone di avanzamento previste:
 
 - *RTB (Requirements and Technology Baseline)*: momento di revisione che prevede la consegna della documentazione e la presentazione di un *Proof of Concept* (PoC) per dimostrare la fattibilità tecnica della soluzione scelta;
 - *PB (Product Baseline)*: fase finale che prevede la consegna della documentazione tecnica completa e la presentazione dell'applicazione funzionante per la verifica della conformità allo standard *EN 18031*.
+
+== Progettazione del prodotto
+
+L'attività di progettazione del prodotto è svolta dai progettisti del gruppo, che si occupano di definire l'architettura e la struttura del software, garantendo che il sistema sia modulare, scalabile e facilmente manutenibile. La progettazione avviene in due fasi principali:
+
+- *Scelta delle tecnologie*: definizione degli strumenti, dei linguaggi di programmazione e dei framework da utilizzare per lo sviluppo del software, tenendo conto delle esigenze del progetto e delle competenze del team.
+
+- *Progettazione dell'architettura*: definizione dei componenti principali del sistema delineando la struttura logica e man mano definendo nel dettaglio le singole unità software, le loro responsabilità e le interazioni tra di esse.
+
+Si tratta di un processo collaborativo che collide con le idee e le competenze dei membri del team, con l'obiettivo di creare un prodotto finale coerente.
+
+Il processo si raggiunge attraverso l'adozione di design pattern e di best practice di ingegneria del software, che permettono di ottenere un'architettura solida scalabile e facilmente manutenibile. 
+
+Per mantenere la coerenza progettuale vengono definiti i test che saranno successivamente utilizzati per verificare il corretto funzionamento del sistema e la loro conformità ai requisiti.
+
+== Codifica del prodotto
+L'attività di codifica del prodotto è svolta dai programmatori del gruppo, che si occupano di implementare le funzionalità definite nella fase di progettazione. La codifica avviene seguendo le linee guida stabilite nelle *Norme di Progetto*, che includono convenzioni di nomenclatura, standard di stile e best practice di programmazione.
+
+- *Convenzione della nomenclatura*:
+  - Classi: i nomi delle classi seguono la convenzione PascalCase sia nel front end che nel back end.
+  - Metodi, funzioni e variabili: i nomi dei metodi, delle funzioni e delle variabili seguono la convenzione CamelCase  nel front end e Snakecase nel back end.
+  - Costanti: Uppersnake.
+  - Nomi File: CalmelCase nel front end e Snakecase nel backend.
+
+- *Formattazione e linting*:
+  
+  - Per garantire uniformità  di stile il codice è sottoposto a controlli automatici di formattazione e stile tramite strumenti di linting integrati nella pipeline continuos integration: ogni Pull Request viene verificata e il merge è bloccato in caso di violazione delle convenzioni stabilite. Un file di configurazione condiviso (.editorconfig) uniforma le regole editoriali di base.
+
+- *Best practice*:
+  
+  - Logica di dominio separata da framework/infrastruttura.
+
+  - Lint e test locali obbligatori prima della PR.
+
+  - Approvazione di un membro del team prima del merge.
+
+- *Lingua e commenti*:
+
+  - Identificatori di codice (classi, funzioni, variabili) sempre in inglese.
+
+  - Commenti, messaggi utente e stringhe di errore rivolte all'utente sempre in italiano.
+
+  - Nessun docstring/JSDoc: codice autoesplicativo tramite naming, commento solo per motivare scelte non ovvie.
+
+  - Convenzione di tracciabilità: i commenti citano l'identificativo del caso d'uso.
+
+  - La stessa convenzione (commenti italiani) si estende ai workflow continuos integration.
+
+== Tecnologie selezionate
+- Python: utilizzato come linguaggio di programmazione ad alto livello orientato agli oggetti per la realizzazione della logica di backend. È stato scelto per la sua versatilità e l' ampia disponibilità di risorse.
+
+- React: utilizzato come framework per la realizzazione della logica di frontend.
+
+- Flask: utilizzato come micro-framework per la realizzazione della logica di backend. Ritenuto più adatto alle esigenze del progetto.
+
+- Docker: utilizzato per la containerizzazione dell'vapplicazione, garantendo stabilità tra gli ambienti di sviluppo e produzione.
+
+- Git: utilizzato come sistema di controllo di versione distribuito per tracciare le modifiche al codice sorgente e facilitare la collaborazione tra i membri del team.
+
+- GitHub: utilizzato come piattaforma di hosting per il repository Git, consentendo la gestione delle pull request, delle issue e della documentazione/codice del progetto.
+
+- GitHub Actions: utilizzato per l'automazione dei processi di build, test e deployment, integrando la pipeline di continuous integration (CI).
+
+- Visual Studio Code: IDE utilizzato come ambiente di sviluppo condiviso.
+
+Per un approfondimento sulle tecnologie scelte, si rimanda al documento #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Esterni/Specifica_Tecnica.pdf")[#underline(text(fill: blue)[Specifica Tecnica])].
+
 = Processi di Supporto
 #v(0.5em)
 La seguente sezione descrive i processi di supporto secondo lo standard *ISO/IEC 12207*, che hanno lo scopo di garantire una gestione efficace, il controllo e la qualità delle attività del ciclo di vita del progetto.
@@ -684,6 +752,25 @@ Lo strumento principale di questa tecnica è il _test_, che per essere efficace 
 
 Queste proprietà sono essenziali per supportare i test di regressione: se un errore precedentemente risolto dovesse ripresentarsi, l'automazione permette di individuarlo tempestivamente e determinare quale modifica lo abbia reintrodotto.
 
+===== Test di unità
+#v(0.5em)
+I test di unità verificano una singola unità di codice (funzione, metodo o componente) in isolamento, sostituendo le sue dipendenze con dei fake o dei mock. Nel backend vengono realizzati con _pytest_, nel frontend con _Vitest_. I file di test sono colocati accanto al codice sorgente che verificano, seguendo la convenzione `test_*.py` per il backend e `*.test.ts`/`*.test.tsx` per il frontend.
+
+===== Test di integrazione
+#v(0.5em)
+I test di integrazione verificano la corretta interazione tra più componenti reali del sistema, senza sostituire le dipendenze interne con mock: nel backend attraversano rotta HTTP, servizio e repository tramite il test client dell'applicazione; nel frontend coinvolgono pagina, store e client API insieme. Adottano gli stessi strumenti e la stessa convenzione di nomenclatura dei test di unità.
+
+Entrambe le tipologie sono state introdotte a partire dallo Sprint 9, con l'avvio dello sviluppo dell'MVP, e vengono eseguite automaticamente dalla pipeline CI a ogni push o Pull Request, con soglie di accettazione tracciate nel Piano di Qualifica tramite le metriche MPC-11 (Test Pass Rate) e MPC-12 (Code Coverage).
+
+===== Test di regressione
+I test di regressione verificano che le modifiche apportate al codice non abbiano introdotto regressioni, ovvero malfunzionamenti in funzionalità precedentemente corrette.
+
+===== Test di sistema
+I test di sistema verificano il comportamento del sistema nel suo complesso, se rispettano i requisiti funzionali e qualitativi definiti nel capitolato di progetto. Vengono eseguiti in un ambiente di test che simula quello di produzione, con l'obiettivo di individuare eventuali problemi prima del rilascio finale.
+
+===== Test di accettazione
+I test di accettazione verificano che il sistema soddisfi i requisiti funzionali e qualitativi definiti nel capitolato di progetto.
+
 == Validazione
 #v(0.5em)
 Il processo di validazione rappresenta la fase conclusiva attraverso cui si accerta che il prodotto sviluppato soddisfi i requisiti definiti dalla proponente e risponda correttamente agli obiettivi del progetto. La validazione ha lo scopo di verificare che il sistema realizzato sia conforme alle esigenze espresse nel capitolato e che le funzionalità implementate risultino adeguate al contesto applicativo finale.
@@ -825,18 +912,6 @@ L'infrastruttura di sviluppo comprende l'insieme degli strumenti, degli ambienti
 - *GitHub*: Piattaforma per la repository di gruppo, issue tracking system e integrazione continua;
 - *Google Docs*: Sistema per la stesura di domande e brainstorming su tematiche affrontate durante gli incontri interni.
 - *Python*: Linguaggio di programmazione utilizzato per alcune automazioni;
-=== Infrastruttura di sviluppo
-#v(0.5em)
-L'infrastruttura di sviluppo comprende l'insieme degli strumenti, degli ambienti e delle configurazioni adottate dal gruppo per garantire un processo di sviluppo standardizzato, ripetibile e facilmente manutenibile nel tempo. In particolare, il team utilizza i seguenti strumenti:
-
-- *Discord*: canale di comunicazione vocale e testuale principale, impiegato per gli incontri interni e il confronto in tempo reale sulle attività quotidiane;
-- *WhatsApp*: canale di messaggistica istantanea per comunicazioni rapide, notifiche urgenti e brainstorming informale;
-- *Zoom*: piattaforma di videoconferenza utilizzata per la discussione dei _Diari di Bordo_ con il committente e per le riunioni di allineamento con la proponente;
-- *Typst*: linguaggio di markup e sistema di composizione editoriale utilizzato per la redazione e la compilazione della documentazione di progetto;
-- *Git*: sistema di versionamento distribuito per il tracciamento delle modifiche a codice e documenti;
-- *GitHub*: piattaforma per la repository di gruppo, issue tracking system e integrazione continua;
-- *Google Docs*: sistema per la stesura di domande e brainstorming su tematiche affrontate durante gli incontri interni.
-- *Python*: linguaggio di programmazione  utilizzato per lo sviluppo di script e alcune automazioni.
 
 === Gestione dell'ambiente di lavoro
 #v(0.5em)
@@ -1008,7 +1083,7 @@ Per ogni metrica, il gruppo deve definire:
 - *Soglia di Ottimalità*: valore target per un prodotto di eccellenza.
 
 == Metriche di Qualità del Processo
-#let metrica(id, nome, formula, desc) = {
+#let metrica(id, nome, formula, desc, soglia-acc: [da definire], soglia-ott: [da definire]) = {
   block(width: 100%, breakable: false, [
     #table(
       columns: (3cm, 1fr),
@@ -1018,6 +1093,8 @@ Per ogni metrica, il gruppo deve definire:
       [*Metrica*], [*#id - #nome*],
       [*Descrizione*], [#desc],
       [*Formula*], [#align(center)[#formula]],
+      [*Soglia di Accettabilità*], [#soglia-acc],
+      [*Soglia di Ottimalità*], [#soglia-ott],
     )
     #v(0.5em)
   ])
@@ -1026,51 +1103,53 @@ Per ogni metrica, il gruppo deve definire:
 === Processi Primari
 I processi primari comprendono tutte le attività legate direttamente al ciclo di vita del prodotto software. Per valutarne l'andamento, l'efficienza e la conformità agli obiettivi prefissati, vengono utilizzate metriche quantitative in grado di monitorare l'avanzamento dei lavori, l'allocazione delle risorse e la qualità di ciò che viene prodotto.\ L'analisi di questi indicatori consente di individuare eventuali scostamenti e applicare correzioni mirate per garantire il rispetto dei vincoli di progetto.
 
+#nota[I range accettabili e desiderabili per ciascuna metrica sono definiti nel documento #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Esterni/Piano_di_Qualifica.pdf")[#underline(text(fill: blue)[Piano di Qualifica])].\ Le metriche di seguito presentate definiscono formule, leggende e criteri di misurazione comuni a tutti i progetti.]
+
 #metrica(
-  "MPC-01", "Planned Value (PV)", 
-  $ "PV" = "BAC" * % "lavoro pianificato" $, 
-  "Valore del lavoro pianificato da completare entro una determinata data."
+  "MPC-01", "Planned Value (PV)",
+  $ "PV" = "BAC" * % "lavoro pianificato" $,
+  "Valore del lavoro pianificato da completare entro una determinata data.",
 )
 
 #metrica(
-  "MPC-02", "Earned Value (EV)", 
-  $ "EV" = "BAC" * % "lavoro completato" $, 
-  "Valore del lavoro effettivamente completato in  conformità con il budget previsto."
+  "MPC-02", "Earned Value (EV)",
+  $ "EV" = "BAC" * % "lavoro completato" $,
+  "Valore del lavoro effettivamente completato in  conformità con il budget previsto.",
 )
 
 #metrica(
-  "MPC-03", "Actual Cost (AC)", 
-  $ "AC" = sum "costi sostenuti" $, 
-  "Costo totale effettivamente sostenuto fino alla data corrente."
+  "MPC-03", "Actual Cost (AC)",
+  $ "AC" = sum "costi sostenuti" $,
+  "Costo totale effettivamente sostenuto fino alla data corrente.",
 )
 
 #metrica(
-  "MPC-04", "Schedule Performance Index (SPI)", 
-  $ "SPI" = "EV" / "PV" $, 
-  "Indica l'efficienza temporale. Se < 1, il progetto è in ritardo."
+  "MPC-04", "Schedule Performance Index (SPI)",
+  $ "SPI" = "EV" / "PV" $,
+  "Indica l'efficienza temporale. Se < 1, il progetto è in ritardo.",
 )
 
 #metrica(
-  "MPC-05", "Cost Performance Index (CPI)", 
-  $ "CPI" = "EV" / "AC" $, 
-  "Indica l'efficienza economica. Se < 1, il progetto è fuori budget."
+  "MPC-05", "Cost Performance Index (CPI)",
+  $ "CPI" = "EV" / "AC" $,
+  "Indica l'efficienza economica. Se < 1, il progetto è fuori budget.",
 )
 
 #metrica(
-  "MPC-06", "Estimate at Completion (EAC)", 
-  $ "EAC" = "BAC" / "CPI" $, 
-  "Proiezione del costo totale finale basata sulla performance attuale."
+  "MPC-06", "Estimate at Completion (EAC)",
+  $ "EAC" = "BAC" / "CPI" $,
+  "Proiezione del costo totale finale basata sulla performance attuale.",
 )
 
 #metrica(
-  "MPC-07", "Estimate to Complete (ETC)", 
-  $ "ETC" = "EAC" - "AC" $, 
-  "Costo stimato necessario per completare il lavoro rimanente."
+  "MPC-07", "Estimate to Complete (ETC)",
+  $ "ETC" = "EAC" - "AC" $,
+  "Costo stimato necessario per completare il lavoro rimanente.",
 )
 
 #metrica(
-  "MPC-08", 
-  "Requirements Stability Index (RSI)", 
+  "MPC-08",
+  "Requirements Stability Index (RSI)",
   [
     #$ "RSI" = ("NRI" - ("NC" + "NRC" + "NRA")) / "NRI" $
     #v(0.8em)
@@ -1082,8 +1161,8 @@ I processi primari comprendono tutte le attività legate direttamente al ciclo d
       - *NRC*: Numero di Requisiti Cancellati \
       - *NRA*: Numero di Requisiti Aggiunti
     ]
-  ], 
-  "Misura la stabilità dei requisiti nel tempo, valutando l'impatto di modifiche, cancellazioni o aggiunte rispetto al set iniziale."
+  ],
+  "Misura la stabilità dei requisiti nel tempo, valutando l'impatto di modifiche, cancellazioni o aggiunte rispetto al set iniziale.",
 )
 
 === Processi di Supporto
@@ -1091,7 +1170,7 @@ I processi di supporto raccolgono tutte le attività che servono a tenere sotto 
 Il loro scopo principale è seguire l'andamento dei lavori così da individuare tempestivamente eventuali scostamenti rispetto a quanto pianificato, e poterli correggere prima che diventino critici.
 
 #metrica(
-  "MPC-09", "Indice di Gulpease", 
+  "MPC-09", "Indice di leggibilità Gulpease",
   [
     #$ "IG" = 89 + (300 * "NF" - 10 * "NL") / "NP" $
     #v(0.8em)
@@ -1102,12 +1181,12 @@ Il loro scopo principale è seguire l'andamento dei lavori così da individuare 
       - *NL*: Numero di Lettere \
       - *NP*: Numero di Parole
     ]
-  ], 
-  "Valuta la leggibilità di un testo in lingua italiana. Un indice basso indica un testo troppo complesso per il target di riferimento."
+  ],
+  "Valuta la leggibilità di un testo in lingua italiana. Un indice basso indica un testo troppo complesso per il target di riferimento.",
 )
 
 #metrica(
-  "MPC-10", "Correttezza Ortografica", 
+  "MPC-10", "Accuratezza Ortografica",
   [
     #$ "CO" = 1000 * ("NE" / "NP") $
     #v(0.8em)
@@ -1117,12 +1196,12 @@ Il loro scopo principale è seguire l'andamento dei lavori così da individuare 
       - *NE*: Numero di Errori ortografici \
       - *NP*: Numero di Parole
     ]
-  ], 
-  "Rileva la densità di errori linguistici nei documenti. Il calcolo viene normalizzato su 1000 parole per facilitare il confronto tra documenti di diversa lunghezza."
+  ],
+  "Rileva la densità di errori linguistici nei documenti. Il calcolo viene normalizzato su 1000 parole per facilitare il confronto tra documenti di diversa lunghezza.",
 )
 
 #metrica(
-  "MPC-11", "Test Success Rate", 
+  "MPC-11", "Test Pass Rate",
   [
     #$ "TSR" = ("NTS" / "NTT") * 100 $
     #v(0.8em)
@@ -1132,12 +1211,12 @@ Il loro scopo principale è seguire l'andamento dei lavori così da individuare 
       - *NTS*: Numero di Test Superati \
       - *NTT*: Numero Totale dei Test eseguiti
     ]
-  ], 
-  "Indica la percentuale di test automatizzati che hanno prodotto un esito positivo rispetto al totale dei test previsti."
+  ],
+  "Indica la percentuale di test automatizzati che hanno prodotto un esito positivo rispetto al totale dei test previsti.",
 )
 
 #metrica(
-  "MPC-12", "Code Coverage", 
+  "MPC-12", "Code Coverage",
   [
     #$ "CC" = ("NLT" / "NLTOT") * 100 $
     #v(0.8em)
@@ -1147,12 +1226,12 @@ Il loro scopo principale è seguire l'andamento dei lavori così da individuare 
       - *NLT*: Numero di linee di codice testate \
       - *NLTOT*: Numero di linee di codice totali
     ]
-  ], 
-  "Indica la percentuale di linee di codice sorgente effettivamente eseguite durante l'esecuzione della suite di test automatizzati."
+  ],
+  "Indica la percentuale di linee di codice sorgente effettivamente eseguite durante l'esecuzione della suite di test automatizzati.",
 )
 
 #metrica(
-  "MPC-13", "Quality Metrics Satisfied", 
+  "MPC-13", "Quality Metrics Satisfied",
   [
     #$ "QMS" = ("NMS" / "NMT") * 100 $
     #v(0.8em)
@@ -1162,14 +1241,14 @@ Il loro scopo principale è seguire l'andamento dei lavori così da individuare 
       - *NMS*: Numero di Metriche Soddisfatte \
       - *NMT*: Numero di Metriche Totali monitorate
     ]
-  ], 
-  "Rappresenta la percentuale complessiva delle metriche di qualità che rientrano nei range accettabili definiti nelle presenti Norme."
+  ],
+  "Rappresenta la percentuale complessiva delle metriche di qualità che rientrano nei range accettabili definiti nel Piano di Qualifica.",
 )
 === Processi Organizzativi
 Questi processi riguardano la dimensione organizzativa del gruppo: dalla definizione degli standard interni alla gestione della qualità, dallo sviluppo delle competenze al miglioramento continuo. Le metriche associate misurano conformità ed efficacia dei processi di governance, con l'obiettivo di garantire la sostenibilità e la maturità del modello di sviluppo nel tempo.
 
 #metrica(
-  "MPC-14", "Time Efficiency", 
+  "MPC-14", "Time Efficiency",
   [
     #$ "TE" = ("OPC" / "OEC") * 100 $
     #v(0.8em)
@@ -1179,53 +1258,53 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *OPC*: Ore Previste Cumulative (pianificate) \
       - *OEC*: Ore Effettive Cumulative (impiegate realmente)
     ]
-  ], 
-  "Indica il rapporto tra il tempo pianificato e quello effettivamente consumato. Un valore inferiore al 100% segnala che il team sta impiegando più tempo del previsto per le attività."
+  ],
+  "Indica il rapporto tra il tempo pianificato e quello effettivamente consumato. Un valore inferiore al 100% segnala che il team sta impiegando più tempo del previsto per le attività.",
 )
 
 #metrica(
-  "MPD-01", "Requisiti Obbligatori Soddisfatti", 
+  "MPD-01", "Requisiti Obbligatori Soddisfatti",
   [#$ "RObbS" = ("NRObS" / "NROb") * 100 $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
       *Legenda:* \
-      - *NROS*: Numero Requisiti Obbligatori Soddisfatti \
-      - *NRO*: Numero Totale Requisiti Obbligatori
+      - *NRObS*: Numero Requisiti Obbligatori Soddisfatti \
+      - *NROb*: Numero Totale Requisiti Obbligatori
     ]
-  ], 
-  "Indica la percentuale di requisiti essenziali implementati correttamente. È un indicatore critico per il rilascio del prodotto."
+  ],
+  "Indica la percentuale di requisiti obbligatori implementati correttamente. È un indicatore critico per il rilascio del prodotto.",
 )
 
 #metrica(
-  "MPD-02", "Requisiti Desiderabili Soddisfatti", 
-  [#$ "RObbS" = ("NRDS" / "NRD") * 100 $
+  "MPD-02", "Requisiti Desiderabili Soddisfatti",
+  [#$ "RDesS" = ("NRDS" / "NRD") * 100 $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
       *Legenda:* \
-      - *NROS*: Numero Requisiti Desiderabili Soddisfatti \
-      - *NRO*: Numero Totale Requisiti Desiderabili
+      - *NRDS*: Numero Requisiti Desiderabili Soddisfatti \
+      - *NRD*: Numero Totale Requisiti Desiderabili
     ]
-  ], 
-  "Indica la percentuale di requisiti essenziali implementati correttamente. È un indicatore critico per il rilascio del prodotto."
+  ],
+  "Indica la percentuale di requisiti desiderabili implementati correttamente, aumentando il valore del prodotto senza essere indispensabili al rilascio.",
 )
 
 #metrica(
-  "MPD-03", "Requisiti Opzionali Soddisfatti", 
-  [#$ "RObbS" = ("NROpS" / "NROp") * 100 $
+  "MPD-03", "Requisiti Opzionali Soddisfatti",
+  [#$ "ROpS" = ("NROpS" / "NROp") * 100 $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
       *Legenda:* \
-      - *NROS*: Numero Requisiti Opzionali Soddisfatti \
-      - *NRO*: Numero Totale Requisiti Opzionali
+      - *NROpS*: Numero Requisiti Opzionali Soddisfatti \
+      - *NROp*: Numero Totale Requisiti Opzionali
     ]
-  ], 
-  "Indica la percentuale di requisiti essenziali implementati correttamente. È un indicatore critico per il rilascio del prodotto."
+  ],
+  "Indica la percentuale di requisiti opzionali implementati, realizzati solo a fronte del completamento del resto del lavoro pianificato.",
 )
 
 === Affidabilità
 
 #metrica(
-  "MPD-04", "Failure Density", 
+  "MPD-04", "Failure Density",
   [#$ "FD" = "NF" / "KLOC" $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
@@ -1233,12 +1312,12 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *NF*: Numero di Failure rilevate \
       - *KLOC*: Migliaia di Linee di Codice
     ]
-  ], 
-  "Misura la densità di guasti del sistema rispetto alla dimensione del codice sorgente."
+  ],
+  "Misura la densità di guasti del sistema rispetto alla dimensione del codice sorgente.",
 )
 
 #metrica(
-  "MPD-05", "Statement Coverage", 
+  "MPD-05", "Statement Coverage",
   [#$ "SC" = ("IT" / "ITOT") * 100 $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
@@ -1246,27 +1325,27 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *IT*: Istruzioni Testate dai test automatizzati \
       - *ITOT*: Istruzioni Totali nel codice
     ]
-  ], 
-  "Percentuale di istruzioni del codice sorgente coperte dall'esecuzione dei test."
+  ],
+  "Percentuale di istruzioni del codice sorgente coperte dall'esecuzione dei test.",
 )
 
 #metrica(
-  "MPD-06", "Branch Coverage", 
-  [#$ "SC" = ("IT" / "ITOT") * 100 $
+  "MPD-06", "Branch Coverage",
+  [#$ "BC" = ("BT" / "BTOT") * 100 $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
       *Legenda:* \
-      - *IT*: Istruzioni Testate dai test automatizzati \
-      - *ITOT*: Istruzioni Totali nel codice
+      - *BT*: Rami (branch) Testati dai test automatizzati \
+      - *BTOT*: Rami (branch) Totali nel codice
     ]
-  ], 
-  "Percentuale di rami del codice che sono coperti da Test automatizzati"
+  ],
+  "Percentuale di rami del codice che sono coperti da Test automatizzati.",
 )
 
 === Usabilità
 
 #metrica(
-  "MPD-07", "Error Rate", 
+  "MPD-07", "Error Rate",
   [#$ "ER" = ("NET" / "NAT") *100 $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
@@ -1274,12 +1353,12 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *NET*: Numero di Errori Totali
       - *NAT*: Numero di Azioni Totali
     ]
-  ], 
-  "Percentuale di errori rispetto al numero di azioni"
+  ],
+  "Percentuale di errori rispetto al numero di azioni.",
 )
 
 #metrica(
-  "MPD-08", "Time To Complete Task", 
+  "MPD-08", "Time To Complete Task",
   [#$ "TCT" = ("TO" + 4 * "TP" + "TPes") / 6 $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
@@ -1288,22 +1367,22 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *TP*: Tempo Probabile \
       - *TPes*: Tempo Pessimista
     ]
-  ], 
-  "Stima il tempo medio necessario a un utente per completare correttamente un'operazione specifica."
+  ],
+  "Stima il tempo medio necessario a un utente per completare correttamente un'operazione specifica.",
 )
 
 === Efficienza
 
 #metrica(
-  "MPD-09", "Response Time", 
-  [$ "RT" <= t $], 
-  "Tempo impiegato dal sistema per fornire una risposta a seguito di un input dell'utente."
+  "MPD-09", "Response Time",
+  [$ "RT" <= t $],
+  "Tempo impiegato dal sistema per fornire una risposta a seguito di un input dell'utente.",
 )
 
 === Manutenibilità
 
 #metrica(
-  "MPD-10", "Coefficient of Coupling", 
+  "MPD-10", "Coefficient of Coupling",
   [#$ "COC" = "ND"/"NC" $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
@@ -1312,12 +1391,12 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *ND*: Numero di Dipendenze
       - *NC*: Numero di Componenti
     ]
-  ], 
-  "Numero di dipendenza tra i componenti del sistema"
+  ],
+  "Numero di dipendenza tra i componenti del sistema.",
 )
 
 #metrica(
-  "MPD-11", "Cyclomatic Complexity", 
+  "MPD-11", "Cyclomatic Complexity",
   [#$ v(G) = E - N + 2P $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
@@ -1326,12 +1405,12 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *N*: Numero di nodi del grafo \
       - *P*: Numero di componenti connesse
     ]
-  ], 
-  "Quantifica la complessità logica del codice contando il numero di percorsi indipendenti."
+  ],
+  "Quantifica la complessità logica del codice contando il numero di percorsi indipendenti.",
 )
 
 #metrica(
-  "MPD-12", "Instability Index", 
+  "MPD-12", "Instability Index",
   [#$ I = "Ce" / ("Ce" + "Ca") $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
@@ -1339,12 +1418,12 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *Ce*: Classi esterne da cui il modulo dipende (Efferent) \
       - *Ca*: Classi esterne che dipendono dal modulo (Afferent)
     ]
-  ], 
-  "Misura la resilienza di un modulo al cambiamento. Un valore vicino a 0 indica massima stabilità."
+  ],
+  "Misura la resilienza di un modulo al cambiamento. Un valore vicino a 0 indica massima stabilità.",
 )
 
 #metrica(
-  "MPD-13", "Code Smell", 
+  "MPD-13", "Code Smell",
   [#$ "CS" = "NCS" / "KLOC" $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
@@ -1353,5 +1432,5 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
       - *KLOC*: Migliaia di Linee di Codice
     ]
   ],
-  "Indica la densità di potenziali problemi di design o violazioni delle best practice di codifica."
+  "Indica la densità di potenziali problemi di design o violazioni delle best practice di codifica.",
 )
