@@ -33,7 +33,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(3em)
-  #text(size: 20pt)[*Versione 1.1.0*]
+  #text(size: 20pt)[*Versione 1.2.0*]
 ]
 
 #pagebreak()
@@ -53,6 +53,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.2.0], [2026/07/24], [Filippo Zonta Rocha], [], [Correzioni a seguito della revisione RTB],
     [1.1.0], [2026/07/24], [Ines Iadadi], [Leonardo Lorenzin], [Correzioni a seguito della revisione RTB],
     [1.0.0], [2026/06/26], [Edis Hodja], [], [Approvazione del documento],
     [0.7.0], [2026/06/12], [Giovanni Bronte], [Edis Hodja], [Modifiche a sintassi di alcuni UC, aggiunta di link mancanti e modificati alcuni UC nei requisiti],
@@ -1280,7 +1281,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - La sessione di valutazione è attiva.
   - L'utente ha selezionato un asset dalla dashboard.
 
-- *Postcondizioni:* I requisiti dell'asset sono stati valutati e i relativi esiti registrati.
+- *Postcondizioni:* Tutti i requisiti dell'asset sono stati valutati; per ciascun requisito è stato registrato un esito e tali esiti sono stati salvati nel sistema.
 
 - *Scenario principale:*
   + Il sistema mostra le informazioni dell'asset. #link(<uc20.1>)[(UC-20.1)]
@@ -1289,10 +1290,10 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + I passi 2-3 si ripetono fino alla valutazione di tutti i requisiti.
 
 - *Inclusioni:*
-  - #link(<uc20.1>)[UC-20.1: Visualizzazione asset in valutazione]
-  - #link(<uc20.2>)[UC-20.2: Visualizzazione lista requisiti in valutazione]
+  - #link(<uc20.1>)[UC-20.1: Consultazione informazioni dell'asset in valutazione]
+  - #link(<uc20.2>)[UC-20.2: Consultazione elenco requisiti dell'asset]
 
-=== UC-20.1: Visualizzazione asset in valutazione <uc20.1>
+=== UC-20.1: Consultazione informazioni dell'asset in valutazione <uc20.1>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -1311,7 +1312,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
     - la sensibilità;
     - lo stato di valutazione.
 
-=== UC-20.2: Visualizzazione lista requisiti in valutazione <uc20.2>
+=== UC-20.2: Consultazione elenco requisiti dell'asset <uc20.2>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -1329,9 +1330,9 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
     di valutazione. #link(<uc20.2.1>)[(UC-20.2.1)]
 
 - *Inclusioni:*
-  - #link(<uc20.2.1>)[UC-20.2.1: Visualizzazione singolo requisito nella lista in valutazione]
+  - #link(<uc20.2.1>)[UC-20.2.1: Consultazione stato del requisito nell'elenco in valutazione]
 
-==== UC-20.2.1: Visualizzazione singolo requisito nella lista in valutazione <uc20.2.1>
+==== UC-20.2.1: Consultazione stato del requisito nell'elenco in valutazione <uc20.2.1>
 #v(1em)
 - *Attore primario:* Utente
 
