@@ -84,7 +84,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.8.0*]
+  #text(size: 20pt)[*Versione 0.9.0*]
 ]
 #pagebreak()
 
@@ -103,6 +103,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+
+    [0.9.0], [2026/09/01], [Ines Iadadi], [], [Modifica alla struttura del documento e aggiornamento della sezione 2],
     [0.8.0], [2026/08/28], [Alberto Canavese], [], [Stesura della sezione 4 - Design pattern],
     [0.7.0], [2026/08/22], [Ines Iadadi], [], [Stesura della sezione Backend 3.6],
     [0.6.0], [2026/08/13], [Filippo Zonta Rocha], [], [Stesura della sezione 3.5],
@@ -133,42 +135,71 @@
 = Introduzione
 
 == Scopo del documento
-La presente documentazione è redatta con il fine di illustrare in modo esaustivo l'architettura, sia logica che infrastrutturale, del sistema concepito dal gruppo *Coderius*. \ La *Specifica Tecnica* si pone come linea guida vincolante per l'intera fase di implementazione, fungendo da ponte tra l'#underline(text(fill: blue)[#link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Esterni/Analisi_dei_Requisiti.pdf")[Analisi dei Requisiti]]) e la realizzazione concreta del software, per assicurarne solidità e coerenza strutturale.
+Il presente documento descrive l'architettura logica e infrastrutturale del sistema
+sviluppato dal gruppo Coderius per il capitolato C1 _Automated EN 18031 Compliance
+Verification_.
 
 Nel dettaglio, gli obiettivi preposti per questo documento sono:
 
-- *Motivare l'infrastruttura tecnologica:* argomentare le ragioni dietro la scelta degli strumenti di sviluppo (inclusi Python, React, Flask e Vite), selezionati per rispondere appieno ai criteri di flessibilità, performance e scalabilità richiesti dal progetto.
+- *Motivare l'infrastruttura tecnologica:* argomentare le ragioni dietro la scelta degli strumenti di sviluppo, selezionati per rispondere appieno ai criteri di flessibilità, performance e scalabilità richiesti dal progetto.
 
 - *Strutturare la logica applicativa e i design pattern:* mappare l'organizzazione interna dei moduli e i loro flussi di comunicazione, dimostrando come i pattern implementati favoriscano la creazione di codice disaccoppiato e orientato al testing.
-- *Pianificare la strategia di deployment:* definire le modalità di distribuzione dell'applicativo e l'allocazione delle sue parti all'interno degli ambienti operativi, sfruttando la containerizzazione offerta da Docker.
+- *Pianificare la strategia di deployment:* definire le modalità di distribuzione dell'applicativo e l'allocazione delle sue parti all'interno degli ambienti operativi.
 - *Promuovere la manutenibilità a lungo termine:* fornire direttive chiare al team di sviluppo per rendere la base di codice facilmente interpretabile, supportando così agevolmente le future iterazioni, correzioni ed espansioni del sistema.
 
 == Scopo del prodotto
-Il prodotto mira ad automatizzare e digitalizzare il processo di verifica della conformità alla normativa di sicurezza EN 18031, come richiesto dal capitolato *Automated EN18031 Compliance Verification* proposto da Bluewind S.r.l. L'obiettivo è sostituire le attuali procedure manuali, spesso dispendiose in termini di tempo e soggette a errore umano, con una soluzione software moderna ed efficiente.
+Il prodotto mira ad automatizzare e digitalizzare il processo di verifica della conformitàdei dispositivi radio alla normativa di sicurezza EN 18031, come richiesto dal capitolato *Automated EN18031 Compliance Verification* proposto da Bluewind S.r.l. L'obiettivo è sostituire le attuali procedure manuali, spesso dispendiose in termini di tempo e soggette a errore umano, con una soluzione software moderna ed efficiente.
 
-Il sistema permetterà di valutare sistematicamente i requisiti di sicurezza per i dispositivi, elaborando esiti certi e tracciabili attraverso l'esecuzione di alberi decisionali. Tramite un'interfaccia utente web fluida e reattiva, il prodotto finale ottimizzerà i tempi operativi della proponente, garantendo al contempo un elevato standard di affidabilità nella validazione dei dati.
+Le funzioni principali offerte dal prodotto sono le seguenti:
+
+- *Definizione del dispositivo*: il sistema consente di descrivere il dispositivo da
+  valutare e gli asset che lo compongono, creandoli tramite interfaccia web
+  oppure importandoli da file nei formati JSON e CSV. Per ciascun asset il sistema deriva
+  automaticamente i requisiti della norma applicabili sulla base della sua tipologia.
+
+- *Esecuzione dei decision tree*: per ogni coppia asset-requisito il sistema esegue
+  l'albero decisionale corrispondente, riconducendo l'interazione a una sequenza di domande
+  a risposta binaria affiancata dalla rappresentazione grafica dell'albero, che evidenzia il
+  nodo corrente e il percorso già intrapreso.
+
+- *Gestione della sessione di valutazione*: lo stato della valutazione può essere salvato
+  su file in formato JSON in qualsiasi momento e ripreso successivamente dal punto in cui
+  era stato interrotto. È inoltre possibile riaprire un requisito già valutato insieme a
+  quelli che da esso dipendono.
+
+- *Consultazione e esportazione degli esiti*: gli esiti dei singoli requisiti sono
+  aggregati a livello di asset e di dispositivo e restano risalibili fino alla sequenza di
+  domande e risposte che li ha determinati. Il sistema produce inoltre un report di
+  conformità finale in formato PDF, contenente per ciascuna coppia asset-requisito l'esito
+  e il percorso logico seguito.
+
+- *Gestione del catalogo dei decision tree*: il sistema mette a disposizione un catalogo
+  degli alberi decisionali disponibili, consultabili in forma grafica, ampliabile
+  importando nuovi alberi in formato JSON o CSV ed esportabile nei medesimi formati.
+
+Il prodotto è concepito come strumento interno alla proponente, opera interamente in locale e non prevede autenticazione né archiviazione centralizzata. Lo scabio dei dati fra installazioni viene affidato all'esportazione e all'importazione di file.
 
 #pagebreak()
 
 == Glossario
 Al fine di evitare ambiguità e incomprensioni legate alla terminologia tecnica presente in questo documento e nel resto della documentazione prodotta dal gruppo Coderius, è stato redatto un apposito glossario. 
 
-Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è contrassegnato nel testo da una "G" a pedice (es. _termine_#sub[G]). Cliccando sull'indicatore, il lettore verrà reindirizzato direttamente alla definizione corrispondente all'interno del documento #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Glossario.pdf")[*Glossario*].
+Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è contrassegnato nel testo da una "G" a pedice (es. _termine_#sub[G]). Cliccando sull'indicatore, il lettore verrà reindirizzato direttamente alla definizione corrispondente all'interno del documento #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Interni/Glossario.pdf")[*Glossario*].
 
 == Riferimenti
-
+=== Riferimenti normativi
 - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[#text(
     fill: blue,
   )[Capitolato C1 - _Automated EN18031 Compliance Verification_, Bluewind S.r.l.]]
 
-- #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Norme_di_Progetto.pdf")[#text(
+- #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Interni/Norme_di_Progetto.pdf")[#text(
     fill: blue,
   )[Norme di Progetto - Coderius Group]]
 
 - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf")[#text(
     fill: blue,
   )[Slide IS A.A. 2025/2026 - _Regolamento del progetto didattico_]]
-
+- Norma EN 18031 — _Common security requirements for radio equipment_.
 === Riferimenti informativi
 
 - #link("https://www.math.unipd.it/~rcardin/swea/2023/Diagrammi%20delle%20Classi.pdf")[#text(
@@ -204,7 +235,7 @@ Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è cont
   - #link("https://testing-library.com/docs/react-testing-library/intro/")[#underline[#text(fill: blue)[React Testing Library Documentation]]]
 
 #pagebreak()
-= Tecnologie
+= Tecnologie <tecnologie>
 Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del capitolato *Automated EN18031 Compliance Verification*.
 
 == Linguaggi di programmazione 
@@ -217,15 +248,17 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
 
     [Python],
     [3.12],
-    [Python è un linguaggio di programmazione ad alto livello, orientato ad oggetti, adatto, tra gli altri usi, a sviluppare applicazioni distribuite, scripting, computazione numerica e system testing. 
-    Nel nostro progetto è stato scelto per la gestione del lato backend dato che è il linguaggio prediletto dalla proponente e per la sua estrema versatilità.],
+    [Linguaggio ad alto livello, interpretato e multi-paradigma, impiegato per la
+  realizzazione del backend. La scelta risponde a un vincolo del capitolato, essendo il
+  linguaggio prediletto dalla proponente, e trova conferma nella ricchezza della libreria
+  standard e nella maturità dell'ecosistema di test.],
 
     [TypeScript],
-    [5.4],
-    [TypeScript è un metalinguaggio open source sviluppato da Microsoft che si basa su JavaScript, aggiungendovi la tipizzazione statica. Nel nostro progetto è utilizzato per lo sviluppo del frontend assieme alla libreria React: l'introduzione dei tipi garantisce maggiore robustezza, facilita la manutenibilità del codice nel tempo e permette di intercettare numerosi errori già in fase di compilazione.],
+    [6.0],
+    [Metalinguaggio open source sviluppato da Microsoft che si basa su JavaScript, aggiungendovi la tipizzazione statica. Nel nostro progetto è utilizzato per lo sviluppo del frontend assieme alla libreria React: l'introduzione dei tipi garantisce maggiore robustezza, facilita la manutenibilità del codice nel tempo e permette di intercettare numerosi errori già in fase di compilazione.],
 )
 
-== Frameworks
+== Framework
 
 #table(
     columns: (auto, 1fr, 6fr),
@@ -235,39 +268,27 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
 
     [Flask],
     [3.1.3],
-    [Flask è un micro-framework Web scritto in Python, è progettato per essere rapido e semplice, offrendo al contempo la possibilità di essere utilizzato per applicazioni complesse.
+    [Micro-framework Web scritto in Python, è progettato per essere rapido e semplice, offrendo al contempo la possibilità di essere utilizzato per applicazioni complesse.
     È inoltre molto semplice da imparare, flessibile e ha buone performance.
     ],
-)
+    [Flask-CORS],
+  [6.0],
+  [Estensione di Flask che gestisce le intestazioni _Cross-Origin Resource Sharing_.
+  È necessaria in ambiente di sviluppo, dove client e server sono serviti da due origini
+  distinte.],
 
-== Strumenti di build
+  [React],
+  [19.2],
+  [Libreria per la costruzione di interfacce utente a componenti, impiegata per l'intero
+  frontend. Il modello dichiarativo e la composizione per componenti permettono di
+  mantenere la logica di presentazione separata da quella applicativa, delegata a hook
+  dedicati.],
 
-#table(
-    columns: (auto, 1fr, 6fr),
-    align: center + horizon,
-    fill: (x, y) => if y == 0 { blue.lighten(70%) },
-    [*Tecnologia*], [*Versione*], [*Descrizione*],
-
-    [Vite],
-    [8.0.16],
-    [Vite è diventato lo standard de facto dell'ecosistema frontend. È il motore ufficiale dietro i framework moderni come Vue, e i template ufficiali di React.
-    È inoltre molto più veloce a creare il server rispetto ad altri strumenti simili ed è anche molto facile da implementare grazie alla sua configurazione minima richiesta. 
-    ],
-)
-
-== Deployment
-
-#table(
-    columns: (auto, 1fr, 6fr),
-    align: center + horizon,
-    fill: (x, y) => if y == 0 { blue.lighten(70%) },
-    [*Tecnologia*], [*Versione*], [*Descrizione*],
-
-    [Docker],
-    [3.1.3],
-    [Docker è una piattaforma open source che consente agli sviluppatori di creare, implementare, eseguire, aggiornare e gestire i container. 
-    I container sono componenti standardizzati ed eseguibili che combinano il codice sorgente dell'applicazione con le librerie e le dipendenze del sistema operativo necessarie per eseguire tale codice in qualsiasi ambiente.
-    ],
+  [React Router],
+  [7.18],
+  [Libreria di instradamento lato client per React. Associa a ciascuna vista un percorso
+  proprio e consente di applicare guardie di accesso alle pagine che richiedono
+  precondizioni, come l'esistenza di una sessione di valutazione attiva.],
 )
 
 == Librerie
@@ -281,22 +302,141 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     [React],
     [19.2.7],
     [React è una libreria completa, molto flessibile e permette la creazione e la gestione dell'interfaccia utente. Nel nostro progetto viene utilizzato per le varie librerie che permettono di gestire l'interfaccia utente al meglio.],
+    [React Flow],
+    [12.11],
+    [Libreria per la rappresentazione interattiva di grafi e diagrammi a nodi in applicazioni
+    React, distribuita nel pacchetto `@xyflow/react`. Nel prodotto è impiegata per la
+    visualizzazione del decision tree, con i nodi resi come componenti React personalizzati e
+    supporto nativo a spostamento e ingrandimento della vista. La libreria non determina la
+    disposizione dei nodi, che resta affidata alla regola pura `treeLayout` del Domain Layer:
+    riceve le posizioni già calcolate e si occupa della sola resa grafica. Poiché la
+    rappresentazione è di sola consultazione, spostamento e connessione dei nodi sono
+    disabilitati.],
 
+    [React PDF],
+    [4.9],
+    [Libreria per la generazione di documenti PDF a partire da componenti React, distribuita
+    nel pacchetto `@react-pdf/renderer`. Nel prodotto è impiegata per la produzione del report
+    di conformità finale, la cui struttura è dichiarata come componente `ReportDocument` e
+    resa in un documento scaricabile dall'utente. La generazione avviene interamente nel
+    client, coerentemente con il criterio di possesso del dato illustrato in
+    @motivazioni-architettura: il report si fonda esclusivamente su dispositivo e sessione,
+    che risiedono nel client.],
     [Zustand],
-    [/],
-    [Zustand è una libreria minimale per la gestione dello stato globale in applicazioni React: gli store si definiscono tramite funzioni hook, senza richiedere Provider né il boilerplate legato ad azioni e reducer tipico di altre soluzioni. Nel nostro progetto viene utilizzato per implementare gli store separati per area funzionale (DeviceStore, SessionStore, TreeStore, ResultStore, UIStore) del frontend.],
+    [5.0],
+    [Libreria minimale per la gestione dello stato globale in applicazioni React. Gli store
+  si definiscono come funzioni hook, senza richiedere componenti _Provider_ né il
+  _boilerplate_ di azioni e _reducer_ tipico di altre soluzioni. Nel prodotto realizza i
+  tre store separati per area funzionale (`DeviceStore`, `SessionStore`, `TreeStore`).],
 
     [Zod],
-    [/],
-    [Zod è una libreria per la definizione e validazione di schemi dati, con inferenza automatica dei tipi TypeScript a partire dallo schema stesso. Nel nostro progetto viene utilizzata nel Domain Layer del frontend per validare la struttura dei dati in ingresso (dispositivi, asset) prima che vengano elaborati dal resto dell'applicazione.],
+    [4.4],
+    [Libreria per la definizione e validazione di schemi dati, con inferenza automatica dei tipi TypeScript a partire dallo schema stesso. Nel nostro progetto viene utilizzata nel Domain Layer del frontend per validare la struttura dei dati in ingresso (dispositivi, asset) prima che vengano elaborati dal resto dell'applicazione.],
 
     [react-hot-toast],
-    [/],
-    [react-hot-toast è una libreria leggera per la gestione di notifiche toast in applicazioni React, con supporto nativo a coda, timer di auto-dismiss e stacking dei messaggi. Nel nostro progetto viene utilizzata nell'Infrastructure Layer del frontend come implementazione concreta dietro l'interfaccia NotificationService.],
+    [2.6],
+    [Libreria leggera per la gestione di notifiche toast in applicazioni React, con supporto nativo a coda, timer di auto-dismiss e stacking dei messaggi. Nel nostro progetto viene utilizzata nell'Infrastructure Layer del frontend come implementazione concreta dietro l'interfaccia `NotificationService`.],
 
     [TanStack Query],
-    [/],
-    [TanStack Query è una libreria per la gestione dello stato server-side in applicazioni React: si occupa di caching, retry con backoff e deduplica delle richieste in volo. Nel nostro progetto viene utilizzata nell'Infrastructure Layer del frontend per orchestrare le chiamate al decision tree sopra FetchApiClient, senza sostituirlo.],
+    [5.101],
+    [Libreria per la gestione dello stato di origine remota in applicazioni React, con
+  supporto a memorizzazione dei risultati, deduplicazione delle richieste in volo e
+  ritentativi. Nel prodotto è impiegata in modo imperativo tramite `queryClient`, senza
+  montare alcun _provider_, per evitare che lo stesso decision tree venga richiesto più
+  volte nel corso di una valutazione.],
+)
+
+== Strumenti di build e sviluppo
+
+#table(
+    columns: (auto, 1fr, 6fr),
+    align: center + horizon,
+    fill: (x, y) => if y == 0 { blue.lighten(70%) },
+    [*Tecnologia*], [*Versione*], [*Descrizione*],
+
+    [Vite],
+    [8.2],
+    [Vite è diventato lo standard de facto dell'ecosistema frontend. È il motore ufficiale dietro i framework moderni come Vue, e i template ufficiali di React.
+    È inoltre molto più veloce a creare il server rispetto ad altri strumenti simili ed è anche molto facile da implementare grazie alla sua configurazione minima richiesta. 
+    ],
+    [Node.js],
+  [22],
+  [Ambiente di esecuzione JavaScript, impiegato per l'esecuzione degli strumenti di
+  sviluppo e per la fase di build dell'immagine Docker del frontend.],
+
+  [ESLint],
+  [10.8],
+  [Analizzatore statico per JavaScript e TypeScript, configurato con `typescript-eslint`
+  per l'applicazione delle regole di codifica stabilite dalle Norme di Progetto. È
+  eseguito automaticamente nella pipeline di integrazione continua.],
+
+  [Ruff],
+  [/],
+  [Analizzatore statico e formattatore per Python. Nel prodotto è configurato con una
+  lunghezza massima di riga di 100 caratteri ed è eseguito in integrazione continua nelle
+  modalità `ruff check` e `ruff format --check`.],
+)
+
+== Persistenza dei dati <persistenza>
+
+Il sistema non impiega alcun sistema di gestione di basi di dati. La scelta è coerente con
+la natura del dominio applicativo: l'unica collezione di dati posseduta dal sistema è il
+catalogo dei decision tree, un insieme ristretto di documenti strutturati, di sola lettura
+durante l'esecuzione di una valutazione e privo di relazioni da interrogare.
+
+#table(
+  columns: (auto, 1fr, 6fr),
+  align: center + horizon,
+  fill: (x, y) => if y == 0 { blue.lighten(70%) },
+  [*Tecnologia*], [*Versione*], [*Descrizione*],
+
+  [JSON],
+  [RFC 8259],
+  [Formato di scambio dati impiegato in tre ruoli distinti: rappresentazione dei decision
+  tree nella cartella `backend/data/decision_trees/`, corpo delle richieste e delle
+  risposte dell'API REST, e formato di esportazione e importazione di dispositivi e
+  sessioni di valutazione.],
+
+  [CSV],
+  [RFC 4180],
+  [Formato tabellare impiegato come formato alternativo di scambio per i dispositivi e per
+  i decision tree, secondo quanto richiesto dai requisiti RF-Ob05, RF-Ob21, RF-Ob79 e
+  RF-D23.],
+)
+
+Il dispositivo in lavorazione e la sessione di valutazione non sono mai scritti su disco
+dal server: risiedono nello stato del client per l'intera durata del lavoro e vengono
+esportati su file su richiesta dell'utente. Le implicazioni architetturali di questa scelta
+sono discusse nella sezione 
+@architettura.
+
+== Deployment
+
+#table(
+    columns: (auto, 1fr, 6fr),
+    align: center + horizon,
+    fill: (x, y) => if y == 0 { blue.lighten(70%) },
+    [*Tecnologia*], [*Versione*], [*Descrizione*],
+
+    [Docker],
+    [3.1.3],
+    [Piattaforma open source che consente agli sviluppatori di creare, implementare, eseguire, aggiornare e gestire i container. 
+    I container sono componenti standardizzati ed eseguibili che combinano il codice sorgente dell'applicazione con le librerie e le dipendenze del sistema operativo necessarie per eseguire tale codice in qualsiasi ambiente.
+    ],
+    [Docker Compose],
+  [/],
+  [Strumento di orchestrazione dei container. Il file `docker-compose.yml` descrive i due
+  servizi, la rete privata che li collega, l'esposizione delle porte verso l'ospite
+  (8080 per il frontend, 5000 per il backend) e il montaggio della cartella dei decision
+  tree come volume.],
+
+  [Nginx],
+  [1.27],
+  [Server HTTP impiegato nell'immagine del frontend per servire i file statici prodotti
+  dalla build e per inoltrare al backend le richieste dirette agli endpoint dell'API. La
+  presenza del _reverse proxy_ consente al client di rivolgersi a percorsi relativi,
+  rendendo indirizzo e porta del backend un dettaglio della configurazione di deployment
+  anziché del codice applicativo.],
 )
 
 #pagebreak()
@@ -315,628 +455,329 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
 
     [React Testing Library],
     [/],
-    [React Testing Library è una soluzione molto leggera per il testing di componenti React. Offre funzioni di utilità essenziali basate su react-dom e react-dom/test-utils, incoraggiando al contempo migliori pratiche di testing.],
+    [Libreria per il testing di componenti React. Offre funzioni di utilità essenziali basate su react-dom e react-dom/test-utils, incoraggiando al contempo migliori pratiche di testing.],
 
     [Pytest],
     [/],
-    [Pytest è un framework per il test di Python, che permette di scrivere test automatizzati in modo semplice e leggibile.]
+    [Framework per il test di Python, che permette di scrivere test automatizzati in modo semplice e leggibile.]
 )
 
+= Architettura del sistema <architettura>
 
-= Architettura
-== Panoramica e stile architetturale
+== Architettura generale
 
-L'applicazione è strutturata secondo il paradigma *Client-Server*, con una distinzione precisa tra il livello che gestisce l'interazione con l'utente e quello che si occupa della logica applicativa e della persistenza. Tenere separate queste due responsabilità permette di far evolvere ciascuna parte in modo autonomo e di ridurre le dipendenze reciproche tra le tecnologie impiegate.
+=== Architettura logica <architettura-logica>
 
-Concretamente, il prodotto è composto da un client *React*, che costituisce l'intera interfaccia grafica, e da un server *Flask* scritto in Python 3.12, che raccoglie la logica di business e amministra i dati. Il primo si occupa di mostrare le viste, raccogliere e validare gli input, tenere traccia dello stato di navigazione e rendere interattiva la consultazione dei decision tree e degli esiti. Il secondo espone le funzionalità applicative, verifica la correttezza dei dati in ingresso, coordina l'importazione e l'esportazione dei file *JSON* e produce i report finali nei formati *JSON* e *PDF*.
+Il sistema adotta il paradigma *Client-Server*, con una separazione netta fra la componente
+che gestisce l'interazione con l'utente e quella che ospita la logica applicativa e il
+possesso dei dati. Tenere distinte le due responsabilità consente di far evolvere ciascuna
+parte in modo autonomo e riduce le dipendenze reciproche fra le tecnologie impiegate.
+
+Il prodotto si compone di due unità distribuibili:
+
+- un *client* React, che costituisce l'intera interfaccia grafica: presenta le viste,
+  raccoglie e valida gli input, conserva lo stato della valutazione in corso, esegue la
+  navigazione lungo il decision tree e produce i file di esportazione;
+
+- un *server* Flask scritto in Python 3.12, che espone un'API REST: valida i dati in
+  ingresso, possiede il catalogo dei decision tree e ne governa il caricamento,
+  l'importazione, l'esportazione e la derivazione dei requisiti applicabili a un tipo di
+  asset.
+
+La ripartizione delle responsabilità fra le due unità segue il criterio del possesso del
+dato, discusso nella @persistenza. Il server possiede il catalogo dei decision tree, che
+mette a disposizione dell'utente; non possiede invece né il dispositivo né la sessione di
+valutazione, che l'utente porta al sistema e riporta via sotto forma di file. Ne consegue
+che la navigazione lungo l'albero avviene interamente nel client; rispondere a una domanda
+del decision tree non comporta alcuna richiesta al server, poiché l'albero è stato
+scaricato per intero all'ingresso nel requisito.
+
+Al server ci si rivolge esclusivamente per ottenere un decision tree o l'elenco del
+catalogo, importare o esportare un decision tree, risolvere gli identificativi di
+dispositivo e asset e derivare i requisiti applicabili a un tipo di asset. Ogni altra
+operazione, come l'avanzamento nell'albero, calcolo degli esiti aggregati, salvataggio e ripresa
+della sessione, esportazione del dispositivo, viene svolta nel client.
+
+Internamente ciascuna unità è organizzata a livelli con dipendenza a senso unico,
+secondo quanto descritto in @decomposizione.
+
+La collocazione del report nel client si fonda unicamente su dispositivo, sessione di valutazione e alberi dei requisiti
+esaminati, dati che risiedono nel client. Produrlo lato server avrebbe richiesto di
+trasmettere l'intera sessione a un componente che non la possiede, introducendo uno stato
+applicativo in contrasto con il carattere stateless dell'API. Non è stato pertanto
+introdotto alcun endpoint dedicato.
 
 === Modalità di comunicazione
-Client e server restano deliberatamente indipendenti e dialogano esclusivamente attraverso chiamate *HTTP* secondo lo stile architetturale *REST*. Ogni operazione di lettura, creazione o modifica delle risorse (dispositivi, decision tree, sessioni di valutazione, risultati)  si traduce in una richiesta del frontend verso gli endpoint esposti dal backend, con i dati veicolati in formato *JSON*.
 
-Si tratta di uno scambio *stateless*: il server non conserva alcuno stato di sessione tra una richiesta e la successiva, e ogni chiamata deve contenere tutte le informazioni necessarie alla propria elaborazione. Questa impostazione è coerente con la scelta di non adottare un database relazionale: la persistenza è affidata alla lettura e alla scrittura di file *JSON* sul filesystem del server, sia per i dispositivi importati sia per i decision tree e le sessioni di valutazione.
-
-Il client, da parte sua, ignora completamente come tali dati vengano archiviati o come venga eseguita la logica di valutazione dei singoli nodi: si limita a rispettare i contratti stabiliti dalle API, che rappresentano l'unico punto di contatto tra le due componenti e l'unica fonte di verità condivisa.
-
-== Architettura di deployment
-Il sistema viene distribuito come applicazione monolitica — un singolo backend *Flask* e un singolo frontend *React* — anziché come insieme di microservizi indipendenti, con i due container orchestrati tramite *Docker Compose*.
-
-Questa scelta è coerente con la natura del dominio applicativo: il sistema elabora un dispositivo alla volta all'interno di una singola sessione di valutazione, senza richiedere l'elaborazione concorrente di grandi volumi di richieste né la scalabilità orizzontale indipendente delle sue parti. La separazione tra client e server, unita all'organizzazione interna a layer descritta nelle sezioni successive, è già sufficiente a garantire la modularità e il disaccoppiamento necessari, senza dover ricorrere a una scomposizione fisica in servizi separati.
-
-Adottare i microservizi in questo contesto introdurrebbe una complessità infrastrutturale sproporzionata rispetto ai benefici, a fronte di un dominio applicativo ben delimitato. Un'architettura monolitica containerizzata risulta invece più semplice da avviare, interrompere e manutenere, richiede meno risorse computazionali e consente cicli di deploy più rapidi: caratteristiche che meglio si adattano sia alle dimensioni del team di sviluppo, sia al carattere di strumento interno del prodotto.
-
-== Frontend
-
-Il frontend è realizzato come *Single Page Application* in React. Le pagine non contengono logica di business: si limitano a comporre la UI e a delegare recupero dati, validazioni e transizioni di stato a hook applicativi dedicati, i quali a loro volta si appoggiano su store di stato condiviso e su service per orchestrare i casi d'uso principali (gestione di device e asset, esecuzione guidata del test di conformità, produzione e consultazione dei risultati). Per mantenere il codice manutenibile e facilmente estendibile con nuovi requisiti EN 18031, l'applicazione è organizzata secondo un'architettura a livelli, in cui ogni livello ha una responsabilità unica e dipende solo da quelli sottostanti. Nella sezione seguente sono riportati i livelli individuati e le principali scelte tecnologiche adottate per ciascuno.
-
-=== Organizzazione a livelli
-Il frontend è organizzato in sei livelli, ciascuno con una responsabilità unica:
-
-- *Presentation Layer*:  Pagine e componenti React con instradamento basato su React Router.
-
-- *Application Layer*: Custom Hooks e Service dedicati all'orchestrazione dei casi d'uso.
-- *State Management*: Store distribuiti per area funzionale (DeviceStore, SessionStore, TreeStore, ResultStore, UIStore) basati su Zustand.
-- *Infrastructure Layer*: Gestione comunicazione HTTP tramite fetch nativo incapsulato e mapping degli errori unico.
-- *Domain Layer*:  Entità di business (Device, Asset, DecisionTree, Node), validazione dei dati tramite Zod e logica di esecuzione/ripresa (treeRules).
-- *Shared*: Soluzioni custom per componenti UI (evitando l'introduzione di librerie UI pesanti); la validazione dei dati è affidata a Zod nel Domain Layer.
-
-La dipendenza tra livelli è a senso unico: Presentation dipende da Application, Application dipende
-da State/Domain/Infrastructure, mentre Domain non dipende da nessun altro livello. Questo vincolo è
-quello che permette di sostituire un dettaglio tecnico (es. il client HTTP) senza toccare le
-pagine, ed è il criterio guida usato nelle scelte descritte di seguito.
-
-Si è deliberatamente scelto di non applicare una separazione esagonale rigorosa in ogni punto: i
-service applicativi possono scrivere direttamente sugli store invece di passare sempre da
-un'astrazione intermedia aggiuntiva, mantenendo nonostante ciò il vincolo di dipendenza a senso unico  rispettato.
-
-==== Presentation Layer
-
-Il Presentation Layer raggruppa le pagine dell'applicazione (HomeView, DeviceFormView, DeviceAssetManagementView, AssetFormView, DeviceSummaryView, SessionRunnerView, ModifySessionView, ResultView) e i componenti UI che le compongono. Ogni pagina corrisponde all'ingresso di un caso d'uso specifico e si limita a comporre elementi visuali, senza contenere logica di validazione o chiamate dirette al backend: ogni decisione viene delegata al layer applicativo sottostante tramite hook dedicati. L'instradamento tra le pagine è affidato a React Router, che associa a ciascuna vista un percorso proprio e permette di applicare guardie di accesso (route guard) alle pagine che richiedono precondizioni — ad esempio impedire l'apertura di SessionRunnerView se non è stato prima definito un device attivo. Il layer non mantiene alcuno stato condiviso tra viste: legge dati e funzioni esposti dagli hook e si occupa solo di renderizzarli e di inoltrare gli eventi generati dall'utente.
-
-==== Application Layer
-
-L'Application Layer contiene gli hook applicativi e i service che orchestrano i casi d'uso. Ogni hook incapsula un flusso operativo specifico (navigazione dalla home, gestione asset, esecuzione della sessione di valutazione, export) ed espone alle pagine solo lo stato e le funzioni necessarie a renderlo, nascondendo la sequenza di chiamate a service e store sottostanti. I service applicativi centralizzano operazioni che hanno senso indipendentemente da una singola vista: il servizio di sessione coordina creazione, risposta, navigazione e ripresa del test; il servizio degli alberi decisionali si occupa di caricamento e normalizzazione; il servizio device gestisce le operazioni su device e asset; il servizio di export produce i file scaricabili. 
-==== State Management
-
-Lo stato condiviso tra più pagine è distribuito su cinque store distinti per area funzionale (DeviceStore, SessionStore, TreeStore, ResultStore, UIStore), ciascuno implementato come store *Zustand* indipendente. /*Zustand è stato scelto rispetto a un approccio basato su React Context + useReducer perché evita la ricreazione di Provider annidati e i re-render indiscriminati tipici del Context quando lo stato cambia, mantenendo comunque store separati per responsabilità invece di un unico store monolitico.*/ Ogni store definisce uno stato iniziale, un insieme di azioni tipizzate che ne descrivono le uniche modifiche ammesse, e un hook selettore dedicato attraverso cui i componenti leggono i dati senza conoscere la forma interna dello store. Questa organizzazione impedisce che lo stato venga alterato da un punto qualsiasi del codice, facendo sì che ogni cambiamento passi da un'azione esplicita, tracciabile e riconducibile a un preciso caso d'uso gestito dal layer applicativo.
-
-==== Infrastructure Layer
-
-L'Infrastructure Layer racchiude i dettagli tecnici dietro interfacce stabili usate dal layer applicativo. FetchApiClient realizza la comunicazione HTTP tramite fetch nativo, esposto ai service tramite l'interfaccia ApiClientService. Sopra questo livello, *TanStack Query* orchestra le chiamate al decision tree occupandosi di cache, retry e deduplica delle richieste, senza che i service debbano gestirle manualmente; una funzione di mapping degli errori converte i fallimenti di rete o di protocollo in errori applicativi tipizzati, in modo che il resto dell'applicazione non debba mai interpretare direttamente uno stato HTTP o un'eccezione di rete. In particolare, TanStack Query utilizza FetchApiClient tramite un adapter/fetcher dedicato: in questo modo la serializzazione dei payload e il mapping degli errori restano centralizzati nell'Infrastructure Layer. Da questo ne deriva che ogni comunicazione con il backend deve transitare per ApiClientService, affinché serializzazione e traduzione degli errori restino concentrate in un unico punto e nessun modulo applicativo interpreti direttamente uno stato HTTP.
-NotificationManager realizza in modo analogo la consegna concreta delle notifiche dietro l'interfaccia NotificationService, appoggiandosi alla libreria *react-hot-toast* per la gestione di coda, timer di auto-dismiss e stacking dei messaggi.
-
-==== Domain Layer
-
-Il Domain Layer rappresenta il problema applicativo in modo indipendente da React, dal routing e dal backend. Le entità Device e Asset incapsulano i propri dati ed espongono metodi per la gestione degli asset e l'assegnazione dei requisiti, mantenendosi internamente coerenti; Node e DecisionTree offrono una rappresentazione tipizzata di domanda/foglia e dell'albero di valutazione, con una funzione di conversione esplicita dal payload restituito dal backend. Le regole pure treeRules determinano se un requisito è ancora riprendibile o va considerato concluso, mentre la validazione della struttura dei dati in ingresso è affidata a schemi *Zod*, così da individuare payload malformati prima che raggiungano il resto dell'applicazione.
-
-=== Moduli applicativi del frontend /*Elementi costitutivi del frontend*/
-Le sezioni precedenti hanno definito i livelli architetturali del frontend e le relative scelte
-tecnologiche. Questa sezione ne descrive l'implementazione concreta: le pagine, gli hook, i service, gli store e le entità del, con ruolo e responsabilità di ciascun modulo.
-==== Pagine dell'applicazione
-
-Il Presentation Layer è composto da nove pagine, ciascuna corrispondente a un caso d'uso
-specifico del flusso di valutazione, dalla creazione del device fino alla consultazione dei
-risultati finali. Di seguito è riportato il ruolo di ciascuna pagina: 
-
-- *HomePage*: permette di creare un nuovo device, caricarne uno esistente o riprendere una sessione di valutazione già avviata.
-
-- *DeviceFormPage*: raccolta e validazione dei dati descrittivi del device.
-- *DeviceAssetManagementPage*: gestione dell'elenco degli asset associati al device (aggiunta, modifica, rimozione).
-- *AssetFormPage*: creazione o modifica di un singolo asset e assegnazione dei requisiti EN 18031 da valutare.
-- *DeviceSummaryPage*: riepilogo di device e asset prima di avviare la valutazione.
-- *SessionRunnerPage*: presenta la domanda corrente del decision tree e gestisce la navigazione tra le risposte.
-- *ModifySessionPage*: permette di scegliere quale requisito/asset riprendere o rifare all'interno di una sessione in corso.
-- *ResultPage*: mostra i risultati aggregati della valutazione e ne consente l'esportazione.
-- *DecisionTreeCatalogPage*: elenca i decision tree disponibili e ne presenta il dettaglio, consentendone l'esportazione in formato JSON o CSV.
-
-Componenti riutilizzabili:
-
-- *Esito*: etichetta che rappresenta lo stato di valutazione con un codice colore.
-- *GrafoDecisionTree*: visualizzazione dell'albero decisionale per un requisito.
-- *RequireSession*: controllo di accesso alle pagine che richiedono una sessione attiva; se la sessione non c'è, riporta l'utente alla pagina iniziale.
-
-#v(1em)
-#figure(
-  image("../../../images/specifica_tecnica/diagramma_pagine.png", width: 100%),
-  caption: [Diagramma delle pagine],
-)
-
-
-
-==== Orchestrazione applicativa
-
-La logica operativa non sta nelle pagine, ma in due famiglie di moduli: gli hook, che servono una
-pagina sola, e i service, che raccolgono operazioni utili in più punti dell'applicazione.
-
-Gli *hook* espongono alla pagina soltanto lo stato da mostrare e le azioni da collegare ai comandi,
-tenendo per sé la sequenza di passaggi che li produce.
-
-- *useSessionRunner*: conduce la valutazione guidata, dalla scelta dell'asset e del requisito fino alla registrazione dell'esito. Si occupa anche di caricare l'albero al momento giusto e di riportare il percorso al punto in cui era, quando si riprende una sessione interrotta.
-- *useResult*: gestisce la consultazione degli esiti, permettendo di scendere dall'asset al singolo requisito e ricostruendo la sequenza di domande e risposte che ha portato a quel risultato.
-- *useSessionModify*: prepara la ripresa o la rivalutazione di un requisito e calcola quali altri requisiti dipendono da esso, perché rifacendolo vanno rifatti anche quelli.
-
-I *service* raccolgono le operazioni che hanno senso al di fuori di una singola pagina.
-
-- *DeviceService*: creazione, importazione da file, modifica di un asset ed esportazione del dispositivo. Non conserva nulla in modo permanente: il dispositivo vive nello stato del client per tutta la durata del lavoro, e il backend non lo scrive su disco.
-- *DecisionTreeService*: recupera l'elenco degli alberi e il singolo albero, e avvia l'esportazione di un albero. Riceve dall'esterno il componente che dialoga con il backend, così da poter essere collaudato sostituendolo con una versione finta.
-- *SessionService*: si occupa del file di sessione, che produce al momento del salvataggio e rilegge, validandolo, al momento della ripresa.
-- *deviceFileFormats*: raccoglie i formati con cui il dispositivo può essere scritto e riletto, oggi JSON e CSV, ciascuno con le proprie regole di scrittura e di lettura.
-- *ReportService*: produce il report di conformità al termine della valutazione. Recupera gli alberi dei requisiti esaminati — una sola volta ciascuno, anche quando lo stesso requisito ricorre su più asset — compone i dati del report e li consegna all'utente nel formato scelto.
-- *reportFormats*: raccoglie i formati in cui il report può essere scritto, secondo lo stesso schema di `deviceFileFormats`. A differenza di quest'ultimo prevede la sola scrittura, perché un report si produce e non si rilegge.
-
-Hook e service si appoggiano all'Infrastructure Layer per dialogare con il backend e per mostrare i
-messaggi all'utente.
-/*
-#block(
-  width: 100%,
-  fill: yellow.lighten(85%),
-  stroke: 1.5pt + yellow.darken(25%),
-  inset: 11pt,
-  radius: 3pt,
-)[
-  *NOTA INTERNA AL GRUPPO — PUNTO DA CHIARIRE CON LA PROPONENTE* \
-  #v(0.3em)
-  Il report di conformità è qui progettato ma non ancora realizzato. Prima di implementarlo va
-  chiarito che cosa si intenda, in RF-Ob80, per *«esito aggregato del decision tree»*.
-  L'interpretazione adottata in questa sezione è l'esito complessivo di un requisito su tutti gli
-  asset del dispositivo a cui si applica, ottenuto con la stessa riduzione già impiegata per lo
-  stato di asset e dispositivo.
-  #v(0.3em)
-  Va confermata prima di procedere, perché un'interpretazione diversa cambia la forma dei dati del
-  report e con essa entrambe le strategie di scrittura. La decisione VE-7.3 affida al gruppo la
-  struttura del report con validazione della proponente, e VE-7.4 prevede l'invio di un'anteprima
-  via posta elettronica: è quella la sede in cui chiudere il punto.
-  #v(0.3em)
-  *Questo riquadro va rimosso una volta ottenuta la conferma.*
-]*/
-
-==== Stato applicativo
-
-Le informazioni condivise fra più pagine sono raccolte in tre contenitori, uno per area funzionale.
-
-- *DeviceStore*: il dispositivo in lavorazione con i suoi asset, e le operazioni per aggiungerne, modificarne o rimuoverne uno.
-- *SessionStore*: la sessione di valutazione, cioè l'elenco delle coppie asset-requisito da esaminare, quale sia quella in corso, il percorso svolto su ciascuna e l'esito raggiunto.
-- *TreeStore*: l'albero del requisito in corso, il nodo su cui ci si trova e la sequenza delle risposte date, con un cursore che permette di tornare indietro e riavanzare senza perdere le risposte successive.
-
-Ogni componente dichiara quale porzione di queste informazioni gli serve, e viene aggiornato solo
-quando cambia quella: legge cioè attraverso un selettore, senza dipendere da come il contenitore è
-fatto internamente. Le modifiche passano tutte da azioni dichiarate, mai da scritture dirette.
-
-I tre contenitori non sono del tutto indipendenti: quando il dispositivo viene sostituito o
-modificato, `DeviceStore` azzera `SessionStore`. È voluto — una valutazione riferita a un
-dispositivo che nel frattempo è cambiato darebbe risultati privi di significato.
-
-==== Modello di dominio e validazione
-
-Il dominio è descritto da entità che non sanno nulla né dell'interfaccia né del backend.
-
-- *Device* e *Asset*: il dispositivo e i beni da valutare, con i rispettivi dati descrittivi e, per l'asset, i requisiti assegnati.
-- *DecisionTree* e *Node*: l'albero di un requisito e i suoi nodi, che sono domande con due rami oppure foglie con un esito.
-- *Session*: la valutazione nel suo insieme. Contiene le singole valutazioni asset-requisito, ciascuna con il proprio stato, l'esito e il percorso di risposte che vi ha condotto.
-
-Accanto alle entità stanno le regole, scritte come funzioni pure e quindi verificabili da sole.
-
-- *treeRules*: percorre l'albero. Ricava il nodo corrente ripercorrendo le risposte dalla radice, riconosce quando si è arrivati a una foglia e con quale esito, e ricostruisce la sequenza di domande e risposte da mostrare nei risultati.
-- *sessionRules*: governa la valutazione. Costruisce l'elenco delle coppie asset-requisito da esaminare, calcola l'avanzamento e determina quali requisiti dipendono da quello che si sta rifacendo. Riassume inoltre più esiti in uno solo, secondo una priorità fissa che fa prevalere il fallimento e la valutazione in corso sugli esiti positivi: da qui si ricavano lo stato di un asset, quello dell'intero dispositivo e quello di un singolo requisito su tutti gli asset a cui si applica.
-- *treeLayout*: dispone i nodi in colonne e livelli per il disegno del grafo, senza occuparsi di come verranno poi rappresentati.
-- *reportRules*: compone il report a partire dalla sessione e dagli alberi già recuperati. Per ogni coppia asset-requisito raccoglie i dati dell'asset, il nome del requisito, l'esito e la sequenza di domande e risposte percorsa, affiancandovi l'esito complessivo del requisito sul dispositivo. Non accede né alla rete né ai contenitori di stato, e si presta quindi a essere verificata da sola.
-
-I dati che entrano nell'applicazione — quelli scritti dall'utente e quelli che arrivano dal backend
-o da un file — sono controllati con schemi *Zod*, che ne verificano la forma prima che raggiungano
-il resto del codice.
-
-==== Dettagli infrastrutturali
-
-L'Infrastructure Layer tiene separati i meccanismi tecnici dal comportamento dell'applicazione.
-
-- *ApiClientService* e *FetchApiClient*: l'interfaccia con cui il resto del codice chiede dati al backend e la sua realizzazione concreta. Compone l'indirizzo, prepara il corpo della richiesta e traduce ogni fallimento — sia una rete assente sia una risposta di errore — in un `ApiError`, che porta con sé il messaggio e, quando c'è, il codice di stato.
-- *queryClient*: conserva gli alberi già richiesti, così che chiedere due volte lo stesso requisito non produca due richieste. I dati non scadono e i tentativi ripetuti sono disattivati, perché gli alberi non cambiano durante una sessione di lavoro.
-- *NotificationService* e *NotificationManager*: l'interfaccia per avvisare l'utente e la sua realizzazione, che si appoggia a `react-hot-toast` per coda, scomparsa automatica e sovrapposizione dei messaggi.
-- *downloadFile*: consegna al browser un contenuto già pronto perché l'utente lo salvi. Raccoglie in un punto solo il meccanismo usato da tutte le esportazioni — dispositivo, sessione, albero decisionale e report — che altrimenti verrebbe ripetuto in ciascun service.
-
-Grazie a questa separazione, sostituire il modo in cui si parla con il backend o si mostrano gli
-avvisi non tocca né le pagine né i service.
-
-==== Flussi applicativi
-
-Il flusso dei dati va in una sola direzione. Le pagine non modificano lo stato condiviso né parlano
-con il backend: raccolgono l'azione dell'utente e la passano all'hook, che decide cosa fare. Se
-serve un dato che il client non ha, l'hook lo chiede al service, che a sua volta passa
-dall'Infrastructure Layer; altrimenti agisce direttamente sui contenitori di stato. In entrambi i
-casi la modifica avviene attraverso un'azione dichiarata, e i componenti in ascolto si aggiornano
-di conseguenza.
-
-Vale la pena precisare quando il backend viene interpellato e quando no. Rispondere a una domanda
-del decision tree *non* comporta alcuna richiesta al server: l'albero viene scaricato una volta
-sola, all'ingresso nel requisito, e da lì in avanti la navigazione avviene interamente nel client.
-Al backend ci si rivolge per ottenere un albero, per l'elenco del catalogo, per far risolvere gli
-identificativi di dispositivo e asset e per derivare i requisiti applicabili a un tipo di asset.
-
-I flussi principali sono i seguenti.
-
-- *Nuova valutazione*: da HomePage si passa a DeviceFormPage per i dati del dispositivo, quindi a DeviceAssetManagementPage e AssetFormPage per gli asset, infine a DeviceSummaryPage per il riepilogo. Il dispositivo resta nel DeviceStore per tutto il percorso.
-- *Importazione di un dispositivo*: il formato del file viene riconosciuto dall'estensione, il contenuto viene letto e controllato con Zod, poi i dati del dispositivo e quelli di ciascun asset vengono inviati al backend, che assegna gli identificativi mancanti e ricava i requisiti applicabili.
-- *Avvio della valutazione*: da DeviceSummaryPage si entra in SessionRunnerPage; la sessione viene creata a partire dall'elenco delle coppie asset-requisito ricavate dagli asset del dispositivo. Se una sessione compatibile è già in corso, viene ripresa invece di ricominciare.
-- *Esecuzione del decision tree*: scelto il requisito, l'albero viene caricato e il percorso riportato al punto in cui era. Ogni risposta aggiorna il percorso nel client; la sessione viene allineata a ogni passo, così che un salvataggio colga sempre lo stato corrente. Arrivati a una foglia, l'esito viene registrato e si torna all'elenco dei requisiti dell'asset.
-- *Ripresa e modifica*: ModifySessionPage permette di scegliere un requisito già chiuso e rifarlo; insieme a esso vengono riaperti i requisiti che ne dipendono, perché il loro esito potrebbe cambiare.
-- *Consultazione degli esiti*: quando tutte le coppie sono state valutate, SessionRunnerPage lascia il posto a ResultPage, dove si può scendere dall'asset al requisito e rivedere le domande e le risposte che hanno portato all'esito.
-- *Salvataggio e ripresa da file*: la sessione può essere scaricata come file in qualsiasi momento e ricaricata da HomePage per riprendere il lavoro.
-- *Esportazione*: il dispositivo viene scritto in JSON o CSV dal client; l'albero decisionale viene invece prodotto dal backend, che risponde all'endpoint di esportazione nel formato richiesto.
-- *Report di conformità*: da ResultPage, a valutazione conclusa, il ReportService recupera gli alberi dei requisiti esaminati, li passa a reportRules perché ne componga i dati e affida a reportFormats la scrittura nel formato scelto. Il report è prodotto interamente nel client, dove risiedono gli unici dati su cui si fonda: il backend non conserva né il dispositivo né la sessione, e coinvolgerlo richiederebbe di inviargli l'intera sessione senza alcun vantaggio.
-
-#v(1em)
-
-#figure(
-  image("../../../images/specifica_tecnica/seq_avanzamento_albero.png", width: 100%),
-  caption: [Diagramma di sequenza dell'avanzamento nell'albero decisionale],
-)
-
-#v(1em)
-
-== Elementi principali del dominio
-
-Questa microsezione definisce le entità principali del dominio che costituiscono il nucleo funzionale dell'applicazione. L'obiettivo è chiarire i concetti di business su cui si basa la valutazione di conformità EN 18031 e il rapporto tra essi, senza introdurre dettagli tecnici marginali al design del prodotto.
-
-=== Classi principali
-
-=== Device
-
-- *Ruolo*: rappresenta il dispositivo sottoposto a valutazione e aggrega gli asset a esso associati.
-
-- *Attributi principali*:
-  - id: string — identificatore univoco del dispositivo (UUID o codice interno).
-  - nome: string — denominazione leggibile del dispositivo.
-  - sistemaOperativo: string — stringa descrittiva del sistema operativo.
-  - descrizione: string — descrizione testuale e note contestuali.
-  - assetIds: string[] — elenco degli identificativi degli asset associati.
-
-- *Metodi principali*:
-  - addAsset(asset: Asset): void — associa un asset al dispositivo (aggiorna assetIds).
-  - removeAsset(assetId: string): void — rimuove l'associazione di un asset.
-  - validateMetadata(): boolean — verifica la presenza dei campi obbligatori per l'avvio della valutazione.
-  - toPayload(): object — serializza lo stato del device in formato JSON per trasmissione o persistenza.
-
-*Responsabilità*: raccogliere i dati descrittivi del dispositivo, gestire l'elenco degli asset e fornire operazioni di serializzazione e validazione dei metadati.
-
- *UC rilevanti*: UC-4, UC-7, UC-10, UC-11.
-
-=== Asset
-
- *Ruolo*: rappresenta un elemento del device soggetto a valutazione (es. interfaccia di rete, credenziali, registro accessi).
-
- *Attributi principali*:
-  - id: string — identificatore univoco dell'asset.
-  - nome: string — denominazione leggibile dell'asset.
-  - tipo: string — categoria funzionale (es. "network", "security", "privacy", "financial").
-  - descrizione: string — descrizione testuale dell'asset.
-  - sensibile: boolean — flag che indica se l'asset tratta dati sensibili.
-  - requisiti: string[] — elenco dei codici requisito selezionati per l'asset.
-  - stato: enum { non_valutato, in_corso, PASS, FAIL, NOT_APPLICABLE } — stato sintetico per visualizzazione e aggregazione.
-
- *Metodi principali*:
-  - assignRequirement(code: string): void — associa un requisito all'asset.
-  - removeRequirement(code: string): void — rimuove un requisito assegnato.
-  - setState(result): void — aggiorna lo stato di valutazione dell'asset.
-  - summary(): object — restituisce un oggetto sintetico per visualizzazione in elenco.
-
-*Responsabilità*: mantenere metadati e requisiti associati, esporre operazioni di aggiornamento dello stato e fornire rappresentazioni per la UI.
-
-*UC rilevanti*: UC-12, UC-14, UC-15, UC-16, UC-18.
-
-=== DecisionTree
-
- *Ruolo*: rappresenta l'albero decisionale che guida la valutazione di un requisito EN 18031.
-
- *Attributi principali:*
-  - requisito: string — codice del requisito (es. "ACM-1").
-  - nome: string — titolo descrittivo del requisito.
-  - versione: string — versione del decision tree.
-  - applicabileA: string[] — tipi di asset a cui il tree è applicabile.
-  - dipendenze: string[] — altri requisiti da cui questo requisito dipende.
-  - radice: string — id del nodo radice.
-  - nodi: Node[] — collezione dei nodi in formato piatto.
-
-* Metodi principali:*
-  - findNode(id: string): Node | null — restituisce il nodo corrispondente all'identificatore.
-  - validateIntegrity(): { ok: boolean, errors: string[] } — verifica unicità degli id, presenza della radice e assenza di riferimenti orfani.
-  - normalize(rawPayload): DecisionTree — converte un payload di importazione in una struttura valida.
-  - export(): object — serializza l'albero per esportazione.
-* Responsabilità:* fornire accesso e operazioni di consistenza sulla struttura dell'albero, oltre a funzioni di import/export.
-
-* UC rilevanti:* UC-29, UC-30, UC-38, UC-42.
-
-=== Node (Nodo)
-
-Ruolo: elemento atomico dell'albero; può rappresentare una domanda o una foglia di conclusione.
-
- *Attributi principali:*
-  - id: string — identificatore del nodo.
-  - tipo: enum { domanda | foglia } — distingue nodi di decisione e nodi di esito.
-  - testo: string — testo della domanda o del messaggio esplicativo.
-  - rami?: { sì: string, no: string } — mappe ad id di nodo (solo per domande).
-  - esito?: enum { PASS | FAIL | NOT_APPLICABLE } — esito assegnato (solo per foglie).
-
- *Metodi principali*:
- - isQuestion(): boolean — ritorna true se il nodo è di tipo domanda.
- - nextNode(answer: 'yes'|'no'): string | null — restituisce l'id del nodo successivo per il ramo scelto.
-  - toString(): string — rappresentazione testuale utile per logging e spiegazioni.
-
-* Responsabilità*: determinare il comportamento locale del nodo nell'esecuzione del decision tree e fornire metodi di navigazione.
-
-* UC rilevanti:* UC-22, UC-23, UC-32..UC-34.
-
-=== Session (Sessione di valutazione)
-
-Ruolo: istanza di esecuzione della valutazione per un device, con la memoria del percorso seguito e lo stato della procedura.
-
-*Attributi principali:*
-  - id: string — identificatore univoco della sessione.
-  - deviceId: string — riferimento al device valutato.
-  - currentAssetId: string — id dell'asset attualmente in valutazione.
-  - currentRequirement: string — codice del requisito corrente.
-  - percorso: { nodo: string, domanda: string, risposta: 'yes'|'no' } — sequenza delle risposte registrate.
-  - stato: enum { attiva | salvata | completata } — stato della sessione.
-  - createdAt: timestamp
-  - updatedAt: timestamp
-
-*Metodi principali:*
-  - start(deviceId: string): Session — inizializza una nuova sessione per il device.
-  - recordAnswer(nodeId: string, answer: 'yes'|'no'): { nextNodeId?: string, partialResult?: Result } — registra la risposta e calcola il passo successivo.
-  - resume(sessionId: string): Session — carica lo stato di una sessione salvata.
-  - save(): void — persiste lo stato corrente della sessione.
-  - undoLastAnswer(): void — rimuove l'ultima mossa dal percorso e ripristina lo stato conseguente.
-
-*Responsabilità*: orchestrare il flusso di esecuzione del decision tree per i vari asset e requisiti, mantenere la cronologia delle scelte e offrire operazioni di salvataggio e ripresa.
-
-*UC rilevanti*: UC-19, UC-20, UC-25, UC-26.
-
-=== Result (Esito)
-
-*Ruolo:* rappresenta il risultato della conformità per una coppia asset, requisito e l'aggregazione degli esiti per asset.
-
- *Attributi principali:*
-  - assetId: string — riferimento all'asset valutato.
-  - requisito: string — codice del requisito valutato.
-  - esito: enum { PASS | FAIL | NOT_APPLICABLE } — esito assegnato.
-  - motivazione: string — spiegazione testuale dell'esito (opzionale).
-
-*Metodi principali:*
-  - toReportEntry(): object — converte l'esito in un formato adatto all'export.
-  - mergeWith(other: Result): Result — unisce informazioni per aggregare esiti a livello di asset.
-
-* Responsabilità:* rappresentare e serializzare i risultati della valutazione e supportare l'aggregazione per il reporting.
-
-* UC rilevanti:* UC-27, UC-28.
-
-=== Catalog (Catalogo degli alberi)
-
-*Ruolo:* indice dei decision tree disponibili, utile a selezionare, importare e consultare i requisiti e i rispettivi alberi.
-
-*Attributi principali:*
-  - entries: { requisito: string, nome: string, nodi: number, dipendenze: string[] }
-  
-* Metodi principali:*
-  - listTrees(): CatalogEntry[] — restituisce l'elenco sintetico degli alberi disponibili.
-  - loadTree(requirement: string): DecisionTree — carica la struttura completa del tree richiesto.
-  - importTree(file): DecisionTree — importa un albero da file e ne verifica la validità.
-  - exportTree(requirement: string): object — prepara la struttura per l'esportazione.
-
-* Responsabilità:* tenere l'indice dei decision tree e abilitare operazioni di ricerca, importazione ed esportazione.
-
-* UC rilevanti:* UC-29, UC-30, UC-38, UC-42.
-
-=== Vincoli e regole di integrità
-
-- Un nodo deve avere un identificatore univoco all'interno del medesimo decision tree (RF-Op14).
-- Non è consentita l'eliminazione del nodo radice (RF-Op12 / UC-39).
-- L'aggiunta di un nodo che introduca dipendenze circolari tra requisiti deve essere impedita (RF-Op04 / UC-40.1).
-- I rami non collegati possono essere trasformati in nodi foglia con un esito assegnato (RF-Op15 / UC-32.3).
-- Le modifiche strutturali di un decision tree devono poter essere annullate (RF-Op16 / UC-37).
-
-Queste regole definiscono l'integrità del dominio applicativo e devono essere rispettate sia nella modellazione concettuale sia nell'implementazione concreta del prodotto.
-
-== Backend
-
-Il backend è realizzato come applicazione Flask scritta in Python 3.12, esposta come singola API REST stateless. Lato backend l'applicazione è organizzata secondo un'architettura a livelli, in cui ogni livello ha una responsabilità unica e dipende solo da quelli sottostanti, con l'obiettivo di isolare la logica di dominio dai dettagli di framework e di persistenza e di renderla verificabile in modo indipendente tramite unit test.
-
-=== Organizzazione a livelli
-
-Il backend è organizzato in quattro livelli:
-
-- *Presentation Layer*: blueprint Flask che espongono gli endpoint REST.
-- *Application Layer*: service che orchestrano i casi d'uso.
-- *Domain Layer*: entità (Device, Node, DecisionTree) e regole pure (treeRules), senza alcuna dipendenza da Flask, da repository o dal filesystem.
-- *Persistence Layer*: interfacce e implementazioni concrete di accesso ai dati.
-
-La dipendenza tra livelli è a senso unico: Presentation dipende da Application, Application dipende da Domain e da Persistence, mentre Domain non dipende da nessun altro livello. Questa direzione è ciò che permette di sostituire un dettaglio tecnico (es. il meccanismo di persistenza) senza toccare le route, ed è verificata dai test di dominio, che non richiedono alcun contesto applicativo Flask per essere eseguiti.
-
-Si è scelta un'architettura a livelli invece di un'architettura esagonale applicata rigorosamente. Il dominio applicativo del backend è delimitato: un solo meccanismo di persistenza su filesystem, un'unica API REST esposta al client React, per cui l'introduzione di porte e adapter espliciti per ogni dipendenza tecnica aggiungerebbe indirezione senza un beneficio proporzionato in termini di sostituibilità. L'unico punto in cui il disaccoppiamento esplicito interfaccia/implementazione è sfruttato è l'accesso ai decision tree, dove esiste più di una ragione concreta per prevedere un'implementazione alternativa. Per le altre dipendenze tecniche, l'architettura a livelli è già sufficiente a garantire la separazione delle responsabilità e la testabilità del dominio, senza introdurre overhead architetturale non giustificato dalle dimensioni del team e del progetto.
-
-==== Presentation Layer
-
-Il Presentation Layer raggruppa i blueprint Flask che espongono gli endpoint REST del sistema. Ogni route riceve la richiesta HTTP, delega l'elaborazione al service applicativo di competenza e traduce il risultato restituito in una risposta HTTP con il codice di stato appropriato. Le route non contengono logica di business ma si limitano a deserializzare il payload in ingresso, invocare il service e serializzare la risposta, in modo analogo a come le pagine del frontend non contengono logica di validazione o di navigazione. L'applicazione viene composta tramite una application factory, che registra i blueprint e la configurazione, così da poter istanziare istanze isolate dell'app nei test.
-
-==== Application Layer
-
-L'Application Layer contiene i service che orchestrano i casi d'uso, in modo simmetrico ai service applicativi del frontend. Ogni service centralizza un'area di responsabilità del dominio applicativo:
-
-- *DeviceService*: valida i soli metadati di un device in ingresso (nome, sistema operativo, descrizione) e ne costruisce l'entità, rispettando l'`id` se fornito o generandone uno con `uuid4` altrimenti. È l'unico punto di validazione del device, condiviso sia dal percorso di creazione manuale sia da quello di importazione così da evitare due logiche di validazione divergenti per lo stesso concetto.
-- *AssetService*: valida i campi di un asset (nome, tipo, descrizione, sensitibilità) e ne deriva automaticamente i requisiti applicabili quando non forniti esplicitamente: interroga `DecisionTreeService.list_requirement_ids_for_type()`, che scansiona l'intero catalogo di decision tree posseduto dal backend e restituisce gli id dei requisiti il cui campo `appliesTo` include il tipo dell'asset. 
-- *DecisionTreeService*: carica un decision tree tramite il repository dedicato, ne verifica l'integrità strutturale e lo normalizza prima di restituirlo al chiamante. Espone inoltre `list_requirement_ids_for_type()`, usato da `AssetService` per la derivazione dei requisiti.
-
-I service dipendono sia dal Domain Layer sia dal Persistence Layer, e sono quindi il livello in cui la logica di business pura (nel dominio) viene combinata con l'accesso ai dati (nella persistenza).
-
-Va precisato che la ragione per cui Asset ha un endpoint proprio non è la stessa che regola l'id: l'id di un Asset resta comunque un vincolo puramente locale al proprio device (nessun'altra entità lo referenzia in modo indipendente, coerentemente col fatto che il routing non usa mai un `:id` di asset). La necessità di un endpoint per Asset nasce dalla necessità di derivazione dei requisiti applicabili, che è logica di dominio server-side e non un'esigenza di identità.
-
-==== Domain Layer
-
-Il Domain Layer rappresenta le entità del problema applicativo in modo indipendente da Flask, dalle route e dal meccanismo di persistenza. Le entità Device, Node e DecisionTree e le regole pure treeRules qui definite sono concettualmente le stesse descritte per il frontend nella sezione @elementi-dominio, ma nella loro forma lato server: non contengono alcuna dipendenza da librerie web o di accesso a file, il che le rende testabili con semplici unit test che non richiedono di avviare un'istanza dell'applicazione Flask. Le regole treeRules lato server determinano la validità strutturale di un albero (unicità degli id, presenza della radice, assenza di riferimenti orfani) e sono condivise concettualmente, ma non nel codice, con le regole equivalenti applicate lato client durante la navigazione.
-
-==== Persistence Layer <principio-repository>
-
-Il Persistence Layer isola i dettagli di accesso ai dati dietro interfacce, seguendo un principio deliberatamente selettivo: un repository esiste solo per le entità che il backend possiede autonomamente, non per ogni entità di dominio. Il decision tree è l'unico dato che il sistema possiede e mette a disposizione dell'utente (e non viceversa): per questo motivo `IDecisionTreeRepository` e la sua implementazione concreta `JsonDecisionTreeRepository` sono l'unica coppia interfaccia/implementazione del backend. `JsonDecisionTreeRepository` legge i file JSON in `backend/data/decision_trees/` , che costituiscono dati seed dell'applicazione e non dati generati a runtime dall'utente. L'interfaccia `IDecisionTreeRepository` dichiara `save()`, `delete()`, `get()` e `list()` (quest'ultimo usato da `AssetService` per la derivazione dei requisiti).
-
-Device non ha repository in quanto è un dato che l'utente porta al sistema (creazione manuale o import) e riporta via (export, o incorporato in una sessione), mai una collezione posseduta e servita per id dal backend. Per questo `POST /devices` è stateless, il device non viene mai scritto su disco dal backend, e vive per l'intera durata della sessione solo nel DeviceStore del frontend. Lo stesso vale per Asset dal punto di vista della persistenza anche se, a differenza del Device, Asset ha un endpoint e un service dedicati.
-
-=== Dettaglio dei moduli applicativi del backend
-
-==== Endpoint REST <endpoint-rest>
-
-La seguente tabella riassume gli endpoint esposti dal backend, distinguendo quelli già implementati da quelli pianificati. Per gli endpoint pianificati, il verbo e il percorso indicati sono un'ipotesi di lavoro coerente con le convenzioni REST già in uso, non ancora verificata in fase di implementazione.
-
-#table(
-  columns: (auto, 2fr, 1fr, 1fr),
-  align: (center, left, left, center),
-  fill: (x, y) => if y == 0 { blue.lighten(70%) },
-  [*Metodo*], [*Percorso*], [*Descrizione*], [*Stato*],
-  [POST], [`/devices`],
-  [Valida i metadati obbligatori di un device (nome, sistema operativo, descrizione), rispetta l'`id` se fornito o ne genera uno con `uuid4` altrimenti, restituisce l'entità serializzata (con `assets` sempre vuoto: gli asset non fanno parte di questo payload). Nessuna scrittura su disco. Contratto unico condiviso dalla creazione manuale (UC-4) e dall'importazione (UC-2): il file importato viene validato nella sua forma da Zod lato client, ma i soli metadati del device vengono comunque sottoposti a questo stesso endpoint per la risoluzione dell'id.],
-  [Implementato],
-
-  [POST], [`/assets`],
-  [Valida i campi di un asset (nome, tipo, descrizione, `sensitive`) e ne deriva automaticamente i requisiti applicabili (campo `requirements`) quando non forniti esplicitamente, interrogando l'intero catalogo di decision tree tramite `DecisionTreeService`. Rispetta l'`id` se fornito, altrimenti ne genera uno con `uuid4`. Nessuna scrittura su disco.],
-  [Implementato],
-
-  [GET], [`/decision-trees/{requirementId}`],
-  [Carica il decision tree del requisito indicato tramite `JsonDecisionTreeRepository`, ne normalizza la struttura e lo restituisce.],
-  [Implementato],
-)
-
-==== Flussi applicativi principali
-
-- *Creazione di un device*: il client invia i metadati raccolti in DeviceFormView a `POST /devices`; la route delega a `DeviceService`, che valida i campi tramite le regole del Domain Layer e genera un id se assente; la risposta serializzata viene restituita al client, che la mantiene nel proprio DeviceStore. Gli asset vengono poi aggiunti in DeviceAssetManagementView/AssetFormView senza ulteriori scritture lato server.
-- *Importazione di un device (JSON)*: il client acquisisce il file, lo valida nella sua interezza (metadati e asset) con gli schemi Zod del Domain Layer frontend; solo i metadati del device vengono poi inviati a `POST /devices`, con lo stesso contratto della creazione manuale, per la risoluzione dell'id (rispettato se presente nel file); il client ricompone il device risolto con gli asset già validati localmente e popola il DeviceStore.
-- *Creazione di un asset*: il client invia i dati raccolti in AssetFormView a `POST /assets`; la route delega ad `AssetService`, che valida i campi e, se `requirements` non è specificato, chiede a `DecisionTreeService` di derivarli scansionando il catalogo dei decision tree; l'asset risolto viene restituito al client, che lo aggiunge alla lista asset del device corrente nel DeviceStore.
-- *Caricamento di un decision tree*: il client richiede `GET /decision-trees/{requirementId}`; la route delega a `DecisionTreeService`, che si appoggia a `JsonDecisionTreeRepository` per leggere il file seed corrispondente, ne verifica l'integrità tramite `validateIntegrity()` e restituisce la struttura normalizzata; TanStack Query, lato client, si occupa di cache e deduplica di questa chiamata.
-
-=== Testing
-
-I test del backend sono organizzati in una cartella `tests/` separata, a specchio della struttura di `src/` — la convenzione idiomatica per progetti Pytest, deliberatamente diversa da quella adottata nel frontend (test colocati accanto al file testato), dove invece si segue la convenzione idiomatica Vitest. Il Domain Layer, non avendo dipendenze da Flask o dal filesystem, è verificabile con semplici unit test; i service sono verificati con test che sostituiscono il repository con un'implementazione o un doppio di test; le route sono verificate con test di integrazione tramite il test client di Flask. La qualità del codice è inoltre verificata tramite `ruff check` e `ruff format --check` in CI.
-
-== Elementi principali del dominio <elementi-dominio>
-
-Questa microsezione definisce le entità principali del dominio che costituiscono il nucleo funzionale dell'applicazione. L'obiettivo è chiarire i concetti di business su cui si basa la valutazione di conformità EN 18031 e il rapporto tra essi, senza introdurre dettagli tecnici marginali al design del prodotto.
-
-=== Classi principali
-
-/*=== Device
-
-- *Ruolo*: rappresenta il dispositivo sottoposto a valutazione e aggrega gli asset a esso associati.
-
-- *Attributi principali*:
-  - id: string — identificatore univoco del dispositivo (UUID o codice interno).
-  - nome: string — denominazione leggibile del dispositivo.
-  - sistemaOperativo: string — stringa descrittiva del sistema operativo.
-  - descrizione: string — descrizione testuale e note contestuali.
-  - assetIds: string[] — elenco degli identificativi degli asset associati.
-
-- *Metodi principali*:
-  - addAsset(asset: Asset): void — associa un asset al dispositivo (aggiorna assetIds).
-  - removeAsset(assetId: string): void — rimuove l'associazione di un asset.
-  - validateMetadata(): boolean — verifica la presenza dei campi obbligatori per l'avvio della valutazione.
-  - toPayload(): object — serializza lo stato del device in formato JSON per trasmissione o persistenza.
-
-*Responsabilità*: raccogliere i dati descrittivi del dispositivo, gestire l'elenco degli asset e fornire operazioni di serializzazione e validazione dei metadati.
-
-=== Asset
-
- *Ruolo*: rappresenta un elemento del device soggetto a valutazione (es. interfaccia di rete, credenziali, registro accessi).
-
- *Attributi principali*:
-  - id: string — identificatore univoco dell'asset.
-  - nome: string — denominazione leggibile dell'asset.
-  - tipo: string — categoria funzionale (es. "network", "security", "privacy", "financial").
-  - descrizione: string — descrizione testuale dell'asset.
-  - sensibile: boolean — flag che indica se l'asset tratta dati sensibili.
-  - requisiti: string[] — elenco dei codici requisito selezionati per l'asset.
-  - stato: enum { non_valutato, in_corso, PASS, FAIL, NOT_APPLICABLE } — stato sintetico per visualizzazione e aggregazione.
-
- *Metodi principali*:
-  - assignRequirement(code: string): void — associa un requisito all'asset.
-  - removeRequirement(code: string): void — rimuove un requisito assegnato.
-  - setState(result): void — aggiorna lo stato di valutazione dell'asset.
-  - summary(): object — restituisce un oggetto sintetico per visualizzazione in elenco.
-
-*Responsabilità*: mantenere metadati e requisiti associati, esporre operazioni di aggiornamento dello stato e fornire rappresentazioni per la UI.
-
-=== DecisionTree
-
- *Ruolo*: rappresenta l'albero decisionale che guida la valutazione di un requisito EN 18031.
-
- *Attributi principali:*
-  - requisito: string — codice del requisito (es. "ACM-1").
-  - nome: string — titolo descrittivo del requisito.
-  - versione: string — versione del decision tree.
-  - applicabileA: string[] — tipi di asset a cui il tree è applicabile.
-  - dipendenze: string[] — altri requisiti da cui questo requisito dipende.
-  - radice: string — id del nodo radice.
-  - nodi: Node[] — collezione dei nodi in formato piatto.
-
-* Metodi principali:*
-  - findNode(id: string): Node | null — restituisce il nodo corrispondente all'identificatore.
-  - validateIntegrity(): { ok: boolean, errors: string[] } — verifica unicità degli id, presenza della radice e assenza di riferimenti orfani.
-  - normalize(rawPayload): DecisionTree — converte un payload di importazione in una struttura valida.
-  - export(): object — serializza l'albero per esportazione.
-* Responsabilità:* fornire accesso e operazioni di consistenza sulla struttura dell'albero, oltre a funzioni di import/export.
-
-
-=== Node (Nodo)
-
-Ruolo: elemento atomico dell'albero; può rappresentare una domanda o una foglia di conclusione.
-
- *Attributi principali:*
-  - id: string — identificatore del nodo.
-  - tipo: enum { domanda | foglia } — distingue nodi di decisione e nodi di esito.
-  - testo: string — testo della domanda o del messaggio esplicativo.
-  - rami?: { sì: string, no: string } — mappe ad id di nodo (solo per domande).
-  - esito?: enum { PASS | FAIL | NOT_APPLICABLE } — esito assegnato (solo per foglie).
-
- *Metodi principali*:
- - isQuestion(): boolean — ritorna true se il nodo è di tipo domanda.
- - nextNode(answer: 'yes'|'no'): string | null — restituisce l'id del nodo successivo per il ramo scelto.
-  - toString(): string — rappresentazione testuale utile per logging e spiegazioni.
-
-* Responsabilità*: determinare il comportamento locale del nodo nell'esecuzione del decision tree e fornire metodi di navigazione.
-
-=== Session (Sessione di valutazione)
-
-Ruolo: istanza di esecuzione della valutazione per un device, con la memoria del percorso seguito e lo stato della procedura.
-
-*Attributi principali:*
-  - id: string — identificatore univoco della sessione.
-  - deviceId: string — riferimento al device valutato.
-  - currentAssetId: string — id dell'asset attualmente in valutazione.
-  - currentRequirement: string — codice del requisito corrente.
-  - percorso: { nodo: string, domanda: string, risposta: 'yes'|'no' } — sequenza delle risposte registrate.
-  - stato: enum { attiva | salvata | completata } — stato della sessione.
-  - createdAt: timestamp
-  - updatedAt: timestamp
-
-*Metodi principali:*
-  - start(deviceId: string): Session — inizializza una nuova sessione per il device.
-  - recordAnswer(nodeId: string, answer: 'yes'|'no'): { nextNodeId?: string, partialResult?: Result } — registra la risposta e calcola il passo successivo.
-  - resume(sessionId: string): Session — carica lo stato di una sessione salvata.
-  - save(): void — persiste lo stato corrente della sessione.
-  - undoLastAnswer(): void — rimuove l'ultima mossa dal percorso e ripristina lo stato conseguente.
-
-*Responsabilità*: orchestrare il flusso di esecuzione del decision tree per i vari asset e requisiti, mantenere la cronologia delle scelte e offrire operazioni di salvataggio e ripresa.
-
-=== Result (Esito)
-
-*Ruolo:* rappresenta il risultato della conformità per una coppia asset, requisito e l'aggregazione degli esiti per asset.
-
- *Attributi principali:*
-  - assetId: string — riferimento all'asset valutato.
-  - requisito: string — codice del requisito valutato.
-  - esito: enum { PASS | FAIL | NOT_APPLICABLE } — esito assegnato.
-  - motivazione: string — spiegazione testuale dell'esito (opzionale).
-
-*Metodi principali:*
-  - toReportEntry(): object — converte l'esito in un formato adatto all'export.
-  - mergeWith(other: Result): Result — unisce informazioni per aggregare esiti a livello di asset.
-
-* Responsabilità:* rappresentare e serializzare i risultati della valutazione e supportare l'aggregazione per il reporting.
-
-=== Catalog (Catalogo degli alberi)
-
-*Ruolo:* indice dei decision tree disponibili, utile a selezionare, importare e consultare i requisiti e i rispettivi alberi.
-
-*Attributi principali:*
-  - entries: { requisito: string, nome: string, nodi: number, dipendenze: string[] }
-  
-* Metodi principali:*
-  - listTrees(): CatalogEntry[] — restituisce l'elenco sintetico degli alberi disponibili.
-  - loadTree(requirement: string): DecisionTree — carica la struttura completa del tree richiesto.
-  - importTree(file): DecisionTree — importa un albero da file e ne verifica la validità.
-  - exportTree(requirement: string): object — prepara la struttura per l'esportazione.
-
-* Responsabilità:* tenere l'indice dei decision tree e abilitare operazioni di ricerca, importazione ed esportazione.
-
-=== Vincoli e regole di integrità*/
-
-#pagebreak()
-= Design pattern
-
-== Criteri di scelta
+Client e server dialogano esclusivamente attraverso richieste *HTTP* secondo lo stile
+architetturale *REST*, con i dati veicolati in formato JSON. Fa eccezione l'importazione
+di un decision tree, che trasmette il file come `multipart/form-data`, e la sua
+esportazione, che restituisce `text/csv` quando richiesto in tale formato.
+
+Lo scambio è stateless in quanto il server non conserva alcuno stato di sessione fra una richiesta
+e la successiva, e ogni chiamata contiene tutte le informazioni necessarie alla propria
+elaborazione. Questa impostazione è dovuta al fatto che dispositivo e sessione risiedono
+nel client e di conseguenza non vi è alcuno stato conversazionale da mantenere lato server.
+
+Il client non conosce l'indirizzo del server. `FetchApiClient` è costruito con un
+`baseUrl` vuoto e compone quindi percorsi relativi (`/devices`, `/assets`,
+`/decision-trees`), che raggiungono il backend grazie a un *reverse proxy*:
+
+- in sviluppo è il server di Vite, la cui configurazione inoltra i percorsi dell'API a
+  `http://localhost:5000`;
+- in produzione è Nginx, che nell'immagine del frontend serve i file statici della
+  build e inoltra i medesimi percorsi al servizio `backend` sulla rete privata dei
+  container.
+
+L'indirizzo e la porta del backend sono pertanto un dettaglio della configurazione di
+deployment e non compaiono nel codice applicativo. L'estensione Flask-CORS resta
+necessaria per gli scenari di esecuzione in cui client e server sono serviti da origini
+distinte.
+
+Il client ignora completamente il modo in cui i dati sono archiviati sul server e il modo
+in cui la validità di un albero viene verificata: si attiene ai contratti stabiliti dagli
+endpoint, che costituiscono l'unico punto di contatto fra le due componenti e l'unica fonte
+di verità condivisa. Gli endpoint sono elencati in @endpoint-rest.
+
+=== Architettura di deployment
+
+Il sistema è distribuito come applicazione *monolitica containerizzata*: un solo servizio
+di backend e un solo servizio di frontend, orchestrati tramite Docker Compose e collegati
+da una rete privata.
+
+/*#figure(
+  image("../../../images/specifica_tecnica/diagramma_deployment.png", width: 100%),
+  caption: [Diagramma di deployment],
+)*/
+
+I due servizi sono così configurati:
+
+- *backend*: immagine derivata da `python:3.12-slim`, espone la porta 5000 e monta la
+  cartella `backend/data` come volume, cosicché i decision tree importati dall'utente
+  persistano fra i riavvii del container;
+- *frontend*: immagine costruita in due fasi che espone la porta 80 del container sulla porta 8080 dell'ospite.
+
+La scelta di un monolite in luogo di una scomposizione in microservizi è coerente con la
+natura del dominio applicativo: il sistema elabora un dispositivo alla volta all'interno di
+una singola sessione di valutazione, per un solo utente, senza richiedere né elaborazione
+concorrente di grandi volumi di richieste né scalabilità orizzontale indipendente delle
+parti. L'adozione di microservizi introdurrebbe una complessità infrastrutturale
+sproporzionata a fronte di un dominio ben delimitato.
+
+La separazione fra client e server, unita all'organizzazione interna a livelli, è già
+sufficiente a garantire modularità e disaccoppiamento senza ricorrere a una scomposizione
+fisica. Un monolite containerizzato risulta inoltre più semplice da avviare e arrestare,
+richiede meno risorse computazionali e consente cicli di rilascio più rapidi:
+caratteristiche adatte sia alle dimensioni del gruppo, sia al carattere di strumento
+interno del prodotto.
+
+== Stile architetturale
+
+Entrambe le unità adottano internamente un'*architettura a livelli* (_Layered
+Architecture_), con dipendenza a senso unico dai livelli superiori verso quelli inferiori.
+Il livello di dominio non dipende da alcun altro livello.
+
+Si è deliberatamente evitata l'applicazione rigorosa di un'architettura esagonale. Il
+dominio applicativo è delimitato ad un solo meccanismo di persistenza su filesystem, una sola
+API REST esposta a un solo tipo di client. Introdurre porte e adattatori espliciti per ogni
+dipendenza tecnica aggiungerebbe indirezione senza un beneficio proporzionato in termini di
+sostituibilità. Il disaccoppiamento esplicito fra interfaccia e implementazione è adottato
+là dove esiste una ragione concreta per prevedere un'implementazione alternativa (l'accesso al catalogo dei decision tree, la comunicazione HTTP, la presentazione delle
+notifiche) e omesso altrove.
+
+Analogamente, lato client i service applicativi scrivono direttamente sugli store anziché
+passare da un'astrazione intermedia, mantenendo comunque il vincolo di dipendenza a senso
+unico.
+
+== Pattern architetturali adottati
+
+=== Client-Server
+
+Il pattern è realizzato dalla separazione fra il client React e il server Flask, eseguiti
+come container distinti e comunicanti tramite HTTP. È discusso in @architettura-logica.
+
+=== Layered Architecture
+
+L'organizzazione interna di entrambe le unità in livelli con dipendenza a senso unico è il
+vincolo strutturale portante del prodotto. È ciò che permette di sostituire un dettaglio
+tecnico senza
+toccare la logica applicativa, ed è verificabile: i test del dominio non richiedono alcun
+contesto applicativo Flask né alcun componente React montato per essere eseguiti. La
+composizione dei livelli è descritta in @decomposizione.
+
+=== REST stateless
+
+Il server non mantiene stato di sessione fra le richieste. Ogni chiamata è
+autosufficiente, il che rende le rotte verificabili in isolamento e rimuove ogni vincolo di
+ordine fra le richieste.
+
+=== Repository
+
+Il pattern, appartenente al catalogo di Fowler, interpone fra Application Layer e sorgente
+dei dati un'interfaccia che espone le operazioni sulla collezione come se questa fosse
+disponibile in memoria.
+
+Nel prodotto è applicato secondo un principio deliberatamente selettivo: un repository
+esiste solo per le entità che il backend possiede autonomamente, non per ogni entità di
+dominio. Il catalogo dei decision tree è l'unico dato che il sistema possiede e mette a
+disposizione dell'utente, e per esso esistono l'interfaccia `IDecisionTreeRepository` —
+che dichiara `get()`, `save()`, `delete()` e `list()` — e l'implementazione concreta
+`JsonDecisionTreeRepository`, che legge e scrive i file JSON in
+`backend/data/decision_trees/`.
+
+`Device` e `Asset` non dispongono di un repository: non sono collezioni possedute e servite
+per identificativo dal server, ma dati che l'utente porta al sistema e riporta via. Di
+conseguenza `POST /devices` è privo di effetti sul disco e il dispositivo vive per l'intera
+durata del lavoro nel solo `DeviceStore` del client.
+
+Il beneficio è verificabile nel codice: i test di `DecisionTreeService` sostituiscono
+l'implementazione concreta con `FakeDecisionTreeRepository`, che realizza la medesima
+interfaccia mantenendo gli alberi in memoria, consentendo di collaudare la logica
+applicativa senza alcun accesso al disco.
+
+=== Dependency Injection
+
+Il principio prevede che un componente riceva i propri collaboratori dall'esterno anziché
+istanziarli, cosicché il grafo degli oggetti sia composto in un unico punto del sistema.
+
+Lato *backend* il principio è applicato integralmente: `create_app()` è l'unico punto in
+cui compaiono i nomi delle classi concrete, e costruisce il repository, lo inietta nel
+`DecisionTreeService` e passa quest'ultimo alle factory dei blueprint. La direzione delle
+dipendenze è pertanto verificabile ispezionando un solo file.
+
+Lato *frontend* l'applicazione è parziale, e costituisce il principale debito
+architetturale individuato:
+
+- `DeviceService` istanzia direttamente `FetchApiClient` a livello di modulo;
+- `DecisionTreeService` accetta un'implementazione di `ApiClientService` nel costruttore,
+  ma ne dichiara una concreta come valore predefinito;
+- `DecisionTreeService.exportTree()` invoca `fetch` direttamente, eludendo l'interfaccia
+  `ApiClientService`.
+
+Le prime due condizioni non compromettono la verificabilità ma introducono una dipendenza in fase di compilazione dalla classe
+concreta, in violazione del principio di inversione delle dipendenze. La terza è una
+violazione della regola secondo cui ogni comunicazione con il backend transita per
+`ApiClientService`.
+
+== Motivazioni della scelta architetturale <motivazioni-architettura>
+
+Le decisioni architetturali descritte nelle sezioni precedenti sono qui raccolte con la
+rispettiva motivazione, così da rendere esplicito il ragionamento che le ha prodotte e i
+vincoli entro cui sono state prese. Ciascuna è stata valutata rispetto alle alternative
+disponibili, non adottata per consuetudine.
+
+=== Architettura a livelli anziché esagonale
+
+L'architettura esagonale avrebbe imposto la definizione di porte e adattatori espliciti per
+ogni dipendenza tecnica. Il dominio applicativo è però delimitato: un solo meccanismo di
+persistenza, una sola API esposta a un solo tipo di client, nessuna previsione di sorgenti
+dati alternative. In tali condizioni l'introduzione sistematica di astrazioni aggiungerebbe
+indirezione senza variabilità da governare.
+
+L'architettura a livelli garantisce gli stessi due benefici che qui interessano —
+separazione delle responsabilità e verificabilità del dominio in isolamento — a un costo
+strutturale inferiore. Il disaccoppiamento esplicito fra interfaccia e implementazione è
+stato adottato in modo *selettivo*, nei tre punti in cui esiste una ragione concreta per
+prevedere una realizzazione alternativa: l'accesso al catalogo dei decision tree, la
+comunicazione HTTP e la presentazione delle notifiche.
+
+=== Ripartizione delle responsabilità secondo il possesso del dato
+
+La ripartizione fra client e server non segue la separazione convenzionale fra
+presentazione e logica di business, ma il criterio del possesso del dato: il server ospita
+ciò che il sistema possiede e mette a disposizione dell'utente, il client ciò che l'utente
+porta al sistema e riporta via.
+
+Il catalogo dei decision tree è dato del sistema; il dispositivo e la sessione di
+valutazione sono dell'utente, che li crea, li esporta su file e li reimporta. Ne discende
+che la navigazione lungo l'albero avviene interamente nel client e che il server non
+conserva né dispositivi né sessioni.
+
+Il criterio produce due conseguenze verificabili: nessuna richiesta di rete è necessaria
+per rispondere a una domanda del decision tree, e l'utente conserva il pieno controllo dei
+propri dati, che non transitano né permangono su alcun archivio condiviso. Quest'ultima
+proprietà è coerente con la natura di strumento interno del prodotto e con la decisione
+VE-7.1.
+
+=== Assenza di una base di dati
+
+L'unica collezione posseduta dal sistema è il catalogo dei decision tree: un insieme
+ristretto di documenti strutturati, di sola lettura durante una valutazione e privo di
+relazioni da interrogare. Un sistema di gestione di basi di dati risolverebbe problemi che
+il prodotto non presenta — interrogazione relazionale, accesso concorrente in scrittura,
+integrità referenziale — introducendo un terzo servizio da avviare e configurare su
+ciascuna postazione.
+
+La persistenza su file JSON mantiene il catalogo ispezionabile e modificabile con strumenti
+ordinari, proprietà utile in un contesto in cui gli alberi sono scambiati manualmente fra
+installazioni.
+
+=== Interfaccia REST stateless
+
+L'assenza di stato conversazionale lato server non è una scelta indipendente, ma la
+conseguenza diretta del criterio di possesso del dato: poiché dispositivo e sessione
+risiedono nel client, non esiste alcuno stato da mantenere fra una richiesta e la
+successiva. Ne deriva che ogni rotta è verificabile in isolamento e che non sussiste alcun
+vincolo di ordine fra le chiamate.
+
+=== Monolite containerizzato anziché microservizi
+
+Il sistema elabora un dispositivo alla volta, per un solo utente, senza elaborazione
+concorrente di grandi volumi né necessità di scalare le parti in modo indipendente. Una
+scomposizione in servizi introdurrebbe comunicazione fra servizi, individuazione dei
+servizi e coerenza dei dati distribuiti: complessità infrastrutturale priva di
+contropartita.
+
+La separazione fra client e server, unita all'organizzazione interna a livelli, fornisce
+già la modularità necessaria senza richiedere una scomposizione fisica. La
+containerizzazione garantisce inoltre che l'ambiente di esecuzione sia il medesimo su ogni
+postazione, requisito rilevante per un prodotto avviato localmente da utenti che non sono
+sviluppatori.
+
+== Limiti dell'architettura <limiti-architettura>
+
+Le scelte descritte comportano limiti che si ritiene corretto dichiarare. Nessuno di essi
+compromette il soddisfacimento dei requisiti, ma ciascuno delimita il campo entro cui il
+prodotto può evolvere senza una revisione architetturale.
+
+*Il vincolo di dipendenza fra livelli è una disciplina, non una proprietà imposta.* Né
+Flask né React impediscono a un modulo di un livello superiore di invocare direttamente un
+meccanismo tecnico: nulla vieta a una pagina di chiamare `fetch`. Il vincolo è presidiato
+dalle convenzioni di codifica e dalla revisione fra pari, non dagli strumenti. Che si tratti
+di un limite reale è dimostrato dal caso di `DecisionTreeService.exportTree()`, che invoca
+`fetch` eludendo l'interfaccia `ApiClientService` //(@dependency-injection).
+
+*La logica di valutazione risiede nel client.* La navigazione dell'albero, il calcolo degli
+esiti aggregati e la gestione della sessione sono realizzati in TypeScript e non sono
+raggiungibili dall'esterno. L'introduzione di un secondo tipo di client — un'applicazione
+mobile, un'interfaccia a riga di comando, un'integrazione con sistemi della proponente —
+richiederebbe di reimplementare tale logica oppure di spostarla lato server, con una
+revisione del criterio di possesso del dato.
+
+*Il modello di dominio è duplicato in due linguaggi.* Le entità esistono in TypeScript e in
+Python senza generazione automatica dell'una dall'altra: la coerenza è presidiata
+unicamente dal contratto degli endpoint e dai test. Una divergenza fra le due
+rappresentazioni non è rilevata da alcuno strumento in fase di compilazione.
+
+*L'assenza di base di dati esclude l'interrogazione trasversale.* Ogni operazione che
+percorra l'intero catalogo — come la derivazione dei requisiti applicabili a un tipo di
+asset — richiede la lettura di tutti i file. Il costo è trascurabile con alcune decine di
+documenti, ma l'introduzione di funzionalità di ricerca o di filtraggio sul catalogo
+imporrebbe di riconsiderare la decisione.
+
+*L'assenza di persistenza dei dati dell'utente sposta su di lui la responsabilità della
+conservazione.* Un dispositivo o una sessione non esportati su file vanno perduti alla
+chiusura dell'applicazione. È una conseguenza accettata del criterio di possesso del dato e
+della decisione VE-7.1, non un difetto di realizzazione, ma va tenuta presente nella
+redazione del Manuale Utente.
+
+*Il monolite non consente scalabilità indipendente delle parti.* La condizione è irrilevante
+nello scenario d'uso previsto, in cui un'installazione serve un solo utente per volta, ma
+lo diverrebbe qualora il prodotto fosse esposto come servizio condiviso.
+
+== Design pattern
+
+=== Criteri di scelta
 
 I pattern documentati in questa sezione non sono stati selezionati a priori da un catalogo, ma
 individuati a partire dai problemi concretamente emersi nella progettazione del prodotto. Ciascuno
@@ -950,8 +791,7 @@ descritta nelle sezioni precedenti:
 
 Si sottolinea che nessuna scelta è motivata dalla previsione di un'infrastruttura distribuita.
 L'applicazione opera interamente in locale e la condivisione dei decision tree modificati avviene
-all'esterno dell'applicativo, mediante esportazione e distribuzione manuale dei file, come
-stabilito con la proponente nella riunione del 28 luglio 2026 (decisione VE-7.1).
+all'esterno dell'applicativo, mediante esportazione e distribuzione manuale dei file.
 
 Il perimetro di questa sezione è costituito dai pattern del catalogo di Gamma, Helm, Johnson e
 Vlissides che presentano attinenza con il problema affrontato, integrati dal solo Repository, che
@@ -970,7 +810,7 @@ concretamente coinvolti. Tutti i pattern qui documentati sono realizzati nel cod
 la sezione si chiude con quelli che non trovano applicazione, corredati della motivazione tecnica
 che ne esclude l'adozione.
 
-== Pattern architetturali
+=== Pattern architetturali
 
 I pattern architetturali che governano la struttura complessiva del sistema sono già stati motivati
 nelle sezioni precedenti e vengono qui richiamati per completezza:
@@ -980,9 +820,9 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
 - *REST stateless*: assenza di stato di sessione lato server; ogni richiesta contiene tutte le informazioni necessarie alla propria elaborazione.
 - *Monolite containerizzato*: distribuzione come singolo backend e singolo frontend, in luogo di una scomposizione in servizi indipendenti.
 
-== Pattern di progettazione adottati
+=== Pattern di progettazione adottati
 
-=== Adapter
+==== Adapter
 
 - *Problema*: la logica applicativa incontra in due punti un meccanismo tecnico la cui interfaccia è espressa nei termini della tecnologia e non in quelli del problema: la funzione `fetch` per il dialogo con il backend, la libreria di notifica per i messaggi all'utente. Se tali interfacce penetrassero nei service, ogni collaudo della logica applicativa richiederebbe un backend in esecuzione o un'interfaccia grafica montata, e la verifica dei casi di errore diventerebbe impraticabile.
 
@@ -993,15 +833,16 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
 - *Conseguenze*: I test di `FetchApiClient` verificano il trattamento delle risposte di errore senza alcun backend in esecuzione. Da questo ne cosegue che ogni comunicazione con il backend deve transitare per `ApiClientService`. L'esportazione del decision tree, che allo stato attuale invoca `fetch` direttamente, dovrà essere ricondotta a tale regola.
 
 
-=== Repository
+==== Repository
 
 - *Problema*: il catalogo dei decision tree è l'unico insieme di dati che il backend possiede e mette a disposizione dell'utente, e vi accede oggi leggendo file JSON dal filesystem. Se i service invocassero direttamente i moduli di accesso al filesystem, il criterio di reperimento dei dati risulterebbe disseminato in ogni punto che ne ha bisogno e la logica applicativa sarebbe collaudabile soltanto predisponendo file reali su disco a ogni esecuzione della suite, rendendo di fatto impraticabile la verifica dei casi di errore.
 
 - *Soluzione*: interporre fra Application Layer e sorgente dei dati un'interfaccia che espone le operazioni sulla collezione di entità come se questa fosse disponibile in memoria, nascondendo al chiamante il meccanismo di accesso effettivo.
-- *Applicazione nel progetto*: l'interfaccia astratta `IDecisionTreeRepository` dichiara i metodi `get()`, `save()`, `delete()` e `list()`; l'implementazione concreta `JsonDecisionTreeRepository` li realizza leggendo e scrivendo i file contenuti in `backend/data/decision_trees/`. Il `DecisionTreeService` riceve l'interfaccia nel costruttore e ignora completamente la natura della sorgente, tanto nel reperimento del singolo albero quanto nelle operazioni che percorrono l'intero catalogo, come la derivazione dei requisiti applicabili a un tipo di asset. Coerentemente con il principio selettivo enunciato in @principio-repository, questa è l'unica coppia interfaccia/implementazione del backend: Device e Asset non dispongono di un repository, non essendo collezioni possedute e servite dal server ma dati che l'utente porta al sistema e riporta via.
+- *Applicazione nel progetto*: l'interfaccia astratta `IDecisionTreeRepository` dichiara i metodi `get()`, `save()`, `delete()` e `list()`; l'implementazione concreta `JsonDecisionTreeRepository` li realizza leggendo e scrivendo i file contenuti in `backend/data/decision_trees/`. Il `DecisionTreeService` riceve l'interfaccia nel costruttore e ignora completamente la natura della sorgente, tanto nel reperimento del singolo albero quanto nelle operazioni che percorrono l'intero catalogo, come la derivazione dei requisiti applicabili a un tipo di asset. Coerentemente con il principio selettivo enunciato in //@principio-repository
+, questa è l'unica coppia interfaccia/implementazione del backend: Device e Asset non dispongono di un repository, non essendo collezioni possedute e servite dal server ma dati che l'utente porta al sistema e riporta via.
 - *Conseguenze*: il beneficio è verificabile nel codice esistente, dove i test del `DecisionTreeService` sostituiscono l'implementazione concreta con la classe `FakeDecisionTreeRepository`, che realizza la medesima interfaccia mantenendo gli alberi in memoria e consente quindi di collaudare la logica applicativa senza alcun accesso al disco. L'interfaccia non è motivata dalla previsione di un archivio centralizzato — ipotesi esclusa dalla decisione VE-7.1 — bensì da questa verificabilità e dalla necessità, prevista dai casi d'uso di modifica del decision tree, di scrivere gli alberi su disco attraverso un unico punto di accesso.
 
-=== Facade
+==== Facade
 
 - *Problema*: diverse operazioni che l'utente percepisce come unitarie sono in realtà sequenze articolate. L'importazione di un dispositivo da file richiede il riconoscimento del formato, la lettura asincrona tramite `FileReader`, l'interpretazione del contenuto, la validazione dello schema e infine l'invio al backend dei metadati del device e di ciascun asset. Esporre tale sequenza alle viste le legherebbe a dettagli estranei alla presentazione e ne impedirebbe il riuso da parte di viste diverse.
 
@@ -1009,7 +850,7 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
 - *Applicazione nel progetto*: lato client, `importDeviceFromFile(file)` racchiude l'intera sequenza di importazione e restituisce alla vista il solo esito. I custom hook assolvono la funzione analoga verso il Presentation Layer: `useSessionRunner()` coordina le fasi della valutazione guidata, il caricamento e l'idratazione dell'albero e la registrazione dell'esito, esponendo alla pagina soltanto lo stato e le azioni necessarie; `useResult()` e `useSessionModify()` operano allo stesso modo per la consultazione degli esiti e per la ripresa dei requisiti. Lato server, `DecisionTreeService.get_tree()` racchiude in una sola chiamata l'accesso al catalogo, la gestione dell'assenza del dato (`DecisionTreeNotFoundError`) e la normalizzazione dell'albero, mentre `create_device()` e `create_asset()` costituiscono il punto unico di validazione delle rispettive entità, condiviso dal percorso di creazione manuale e da quello di importazione.
 - *Conseguenze*: pagine e rotte restano prive di logica applicativa e si limitano, rispettivamente, a renderizzare e a deserializzare, delegare e serializzare. L'unicità del punto di validazione evita che due percorsi diversi applichino allo stesso concetto regole divergenti.
 
-=== Factory Method
+==== Factory Method
 
 - *Problema*: un'istanza di Flask creata come oggetto globale a livello di modulo verrebbe condivisa da tutti i test della suite, con il rischio concreto che configurazione e stato residuo si propaghino da un test al successivo, producendo esiti dipendenti dall'ordine di esecuzione. Un problema affine riguarda la costruzione delle entità di dominio a partire dal contenuto dei file di catalogo, dove la classe da istanziare dipende dal dato ricevuto.
 
@@ -1025,7 +866,7 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
 - *Applicazione nel progetto*: gli store Zustand `DeviceStore`, `SessionStore` e `TreeStore` costituiscono i soggetti osservati; i componenti si registrano tramite hook selettori, come `useSessionStore((state) => state.session)`, che circoscrivono la sottoscrizione alla sola porzione di stato utilizzata. Le modifiche avvengono unicamente attraverso le azioni tipizzate esposte da ciascuno store: `setDevice`, `updateDeviceDetails`, `addAsset`, `updateAsset` e `removeAsset` per `DeviceStore`; `start`, `ensureSession`, `resume`, `syncProgress`, `completeCurrent`, `select` e `reopen` per `SessionStore`; `loadTree`, `hydrate`, `answer`, `goBack` e `goForward` per `TreeStore`. Ciascuno store espone inoltre `reset`, che ne ripristina lo stato iniziale.
 - *Conseguenze*: il flusso dei dati resta unidirezionale e ogni variazione di stato è riconducibile a un'azione esplicita e tracciabile. La suddivisione per area funzionale, in luogo di un unico store globale, estende allo stato condiviso la separazione delle responsabilità adottata a livello di moduli, mentre la granularità dei selettori evita i re-render indiscriminati. Gli store non sono del tutto indipendenti: `DeviceStore` invoca la reimpostazione di `SessionStore` quando il dispositivo viene sostituito o modificato, poiché una sessione di valutazione riferita a un dispositivo che non esiste più produrrebbe esiti privi di significato. Si tratta di una dipendenza deliberata e a senso unico, che realizza un vincolo di dominio anziché un accoppiamento accidentale.
 
-=== Proxy
+==== Proxy
 
 - *Problema*: il pattern risponde nel prodotto a due esigenze distinte, entrambe riconducibili al controllo dell'accesso a una risorsa. Da un lato l'albero decisionale di un requisito viene richiesto ripetutamente nel corso di una valutazione, mentre si tratta di dati di catalogo immutabili per l'intera durata della sessione. Dall'altro alcune pagine presuppongono l'esistenza di una sessione attiva e non possono essere raggiunte direttamente per indirizzo, pena l'accesso a una vista priva dei dati che le danno senso.
 
@@ -1033,7 +874,7 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
 - *Applicazione nel progetto*: nella variante con conservazione, `DecisionTreeService` avvolge le proprie chiamate in `queryClient.fetchQuery()`, che restituisce il risultato già ottenuto per la medesima chiave anziché ripetere la richiesta. La configurazione dichiara `staleTime` e `gcTime` illimitati e disabilita i ritentativi, coerentemente con la natura immutabile del dato: il proxy serve a non rileggere più volte lo stesso catalogo, non a compensare l'inaffidabilità della comunicazione. L'accesso alla rete continua ad avvenire tramite l'interfaccia `ApiClientService`, che il service riceve nel costruttore. Nella variante con verifica delle precondizioni, il componente `RequireSession` avvolge le pagine di esecuzione e di modifica della sessione: presenta al router la stessa interfaccia della pagina protetta e ne consente il rendering solo in presenza di una sessione, reindirizzando altrimenti alla pagina iniziale.
 - *Conseguenze*: i service applicativi non contengono logica di conservazione dei risultati e le pagine non contengono controlli di accesso; entrambi i sostituti sono rimovibili senza modificare il codice che protegge. Si segnala che la conservazione dei risultati è utilizzata in modo imperativo e non attraverso gli hook della libreria: l'applicazione non monta alcun provider, e il proxy resta pertanto confinato all'Infrastructure Layer.
 
-=== Strategy
+==== Strategy
 
 - *Problema*: il dispositivo e i suoi asset devono poter essere scritti e riletti in formati diversi, oggi JSON e CSV. La decisione VE-7.1 accresce il peso di questa funzionalità: poiché i decision tree modificati non si sincronizzano fra le installazioni ma vengono esportati e distribuiti manualmente, i file di scambio sono il canale con cui gli utenti si trasmettono il lavoro svolto. Governare la varietà dei formati con una struttura condizionale interna al modulo di importazione ed esportazione comporterebbe di modificarlo a ogni nuova esigenza, con conseguente rischio di regressione sui formati già funzionanti.
 
@@ -1041,7 +882,7 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
 - *Applicazione nel progetto*: l'interfaccia `DeviceFileFormat` dichiara l'estensione, il tipo di contenuto e le due operazioni simmetriche `serialize(device)` e `parse(text)`; le implementazioni concrete `jsonDeviceFormat` e `csvDeviceFormat` le realizzano per i rispettivi formati, ciascuna con le proprie regole di interpretazione — nel caso del formato tabellare, l'intestazione attesa, la codifica dei campi contenenti separatori e la rappresentazione degli asset su righe successive. La funzione `formatForFile(file)` seleziona la strategia in base al file fornito dall'utente; `importDeviceFromFile()` e `exportDevice()` la utilizzano senza conoscerne l'implementazione.
 - *Conseguenze*: l'aggiunta di un formato richiede la sola introduzione di una nuova implementazione dell'interfaccia, senza modifiche ai moduli chiamanti né alle viste, e ciascuna strategia è verificabile con unit test indipendenti dalle altre. 
 
-== Tabella riassuntiva
+=== Tabella riassuntiva
 
 #table(
   columns: (auto, auto, 1fr),
@@ -1070,8 +911,539 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
   [Strategy], [Frontend],
   [`DeviceFileFormat`, `jsonDeviceFormat`, `csvDeviceFormat`, `formatForFile()`],
 )
+#pagebreak()
+= Decomposizione del sistema <decomposizione>
 
-/* == Pattern non adottati
+Questa sezione descrive l'organizzazione interna delle due unità del sistema. Per ciascun
+livello sono indicati i moduli che lo compongono, la responsabilità di ciascuno e le
+dipendenze verso gli altri livelli. Le entità di dominio sono trattate separatamente in
+@diagrammi-classi.
+
+== Diagramma dei package
+
+/*#figure(
+  image("../../../images/specifica_tecnica/diagramma_package.png", width: 100%),
+  caption: [Diagramma dei package del sistema],
+)*/
+
+== Frontend
+
+Il frontend è realizzato come *Single Page Application* in React. Le pagine non contengono
+logica di business: compongono l'interfaccia e delegano recupero dei dati, validazioni e
+transizioni di stato a hook applicativi dedicati, che a loro volta si appoggiano su store
+condivisi e su service.
+
+=== Organizzazione a livelli
+
+Il frontend è organizzato in cinque livelli:
+
+#table(
+  columns: (auto, 1fr),
+  align: (left, left),
+  fill: (x, y) => if y == 0 { blue.lighten(70%) },
+  [*Livello*], [*Contenuto*],
+  [Presentation], [Pagine e componenti React, instradamento con React Router.],
+  [Application], [Hook applicativi e service che orchestrano i casi d'uso.],
+  [State Management], [Store Zustand distribuiti per area funzionale.],
+  [Infrastructure], [Comunicazione HTTP, memorizzazione dei risultati, notifiche.],
+  [Domain], [Entità di business, regole pure, schemi di validazione Zod.],
+)
+
+La dipendenza fra livelli è a senso unico: Presentation dipende da Application; Application
+dipende da State, Domain e Infrastructure; Domain non dipende da alcun altro livello. È
+questo vincolo a rendere sostituibile un dettaglio tecnico senza toccare le pagine.
+
+=== Presentation Layer
+
+Il livello comprende nove pagine, ciascuna corrispondente all'ingresso di un caso d'uso.
+
+- *HomePage*: creazione di un nuovo dispositivo, importazione da file o ripresa di una sessione salvata.
+
+- *DeviceFormPage*: raccolta dei dati descrittivi del dispositivo, in creazione o in modifica.
+- *DeviceAssetManagementPage*: gestione dell'elenco degli asset associati al dispositivo.
+- *AssetFormPage*: creazione o modifica di un asset e assegnazione dei requisiti da valutare.
+- *DeviceSummaryPage*: riepilogo di dispositivo e asset prima dell'avvio della valutazione.
+- *SessionRunnerPage*: presentazione della domanda corrente e navigazione fra le risposte.
+- *ModifySessionPage*: scelta del requisito da riprendere o rivalutare.
+- *ResultPage*: consultazione degli esiti e loro esportazione.
+- *DecisionTreeCatalogPage*: elenco dei decision tree disponibili, dettaglio, importazione ed esportazione.
+
+I componenti riutilizzabili sono tre:
+
+- *Esito*: etichetta che rappresenta lo stato di valutazione con un codice colore.
+
+- *GrafoDecisionTree*: rappresentazione grafica dell'albero, con evidenziazione del nodo corrente e del percorso già intrapreso.
+- *RequireSession*: componente di guardia che avvolge le pagine richiedenti una sessione attiva e reindirizza alla pagina iniziale in sua assenza.
+
+L'instradamento è definito in `App.tsx`, che associa a ciascuna vista un percorso e applica
+`RequireSession` alle rotte `/session` e `/session/modify`.
+
+#figure(
+  image("../../../images/specifica_tecnica/diagramma_pagine.png", width: 100%),
+  caption: [Diagramma delle pagine],
+)
+
+=== Application Layer
+
+La logica operativa risiede in due famiglie di moduli: gli *hook*, al servizio di una sola
+pagina, e i *service*, che raccolgono operazioni utili in più punti.
+
+Gli hook espongono alla pagina il solo stato da mostrare e le azioni da collegare ai
+comandi, trattenendo la sequenza di passaggi che li produce.
+
+- *useSessionRunner*: conduce la valutazione guidata, dalla selezione dell'asset e del requisito fino alla registrazione dell'esito; carica l'albero al momento opportuno e riporta il percorso al punto raggiunto quando una sessione viene ripresa.
+
+- *useResult*: gestisce la consultazione degli esiti, consentendo di scendere dall'asset al singolo requisito e ricostruendo la sequenza di domande e risposte che ha condotto al risultato.
+- *useSessionModify*: prepara la ripresa o la rivalutazione di un requisito e determina quali altri requisiti ne dipendono, poiché rifacendolo vanno rifatti anche quelli.
+
+I service raccolgono le operazioni indipendenti dalla singola pagina.
+
+- *DeviceService*: creazione manuale, importazione da file, creazione e modifica di un asset, esportazione del dispositivo. È realizzato come insieme di funzioni esportate anziché come classe.
+
+- *DecisionTreeService*: recupero dell'elenco del catalogo e del singolo albero, importazione ed esportazione. È l'unico service realizzato come classe e riceve nel costruttore l'implementazione di `ApiClientService`, così da poter essere collaudato con un doppio di test.
+- *SessionService*: produzione e rilettura validata del file di sessione, e ri-esportazione delle regole di costruzione del piano di valutazione.
+- *deviceFileFormats*: raccoglie i formati con cui il dispositivo può essere scritto e riletto, oggi JSON e CSV, ciascuno con le proprie regole di serializzazione e interpretazione.
+
+=== State Management
+
+Lo stato condiviso fra più pagine è distribuito su tre store Zustand indipendenti.
+
+#table(
+  columns: (auto, 1fr, 1.4fr),
+  align: (left, left, left),
+  fill: (x, y) => if y == 0 { blue.lighten(70%) },
+  [*Store*], [*Stato*], [*Azioni*],
+  [`DeviceStore`],
+  [Dispositivo in lavorazione e relativo payload.],
+  [`setDevice`, `updateDeviceDetails`, `addAsset`, `updateAsset`, `removeAsset`, `reset`],
+
+  [`SessionStore`],
+  [Sessione di valutazione: coppie asset-requisito, coppia corrente, percorsi ed esiti.],
+  [`start`, `ensureSession`, `resume`, `syncProgress`, `completeCurrent`, `select`, `reopen`, `reset`],
+
+  [`TreeStore`],
+  [Albero del requisito corrente, nodo attuale, cronologia delle risposte e cursore.],
+  [`loadTree`, `hydrate`, `answer`, `goBack`, `goForward`, `reset`],
+)
+
+Ogni componente dichiara tramite un selettore la porzione di stato che gli occorre e viene
+aggiornato solo quando quella porzione cambia. Le modifiche passano esclusivamente da
+azioni dichiarate, mai da scritture dirette.
+
+I tre store non sono del tutto indipendenti: quando il dispositivo viene sostituito o
+modificato, `DeviceStore` azzera `SessionStore`. Si tratta di una dipendenza deliberata e a
+senso unico, che realizza un vincolo di dominio — una valutazione riferita a un dispositivo
+nel frattempo mutato produrrebbe esiti privi di significato.
+
+Il cursore di `TreeStore` merita una precisazione: `goBack` e `goForward` spostano la
+posizione lungo la cronologia senza scartare le risposte successive, che vengono invalidate
+solo quando l'utente risponde diversamente a un nodo già risposto.
+
+=== Infrastructure Layer
+
+- *ApiClientService* e *FetchApiClient*: l'interfaccia con cui il resto del codice richiede dati al backend e la sua realizzazione concreta su `fetch`. Il metodo privato `request()` concentra la composizione dell'indirizzo, la serializzazione del corpo e la traduzione degli esiti: tanto un'assenza di rete quanto una risposta non riuscita diventano un `ApiError`, che espone il messaggio e, quando disponibile, il codice di stato.
+
+- *queryClient*: istanza di TanStack Query impiegata in modo imperativo per conservare gli alberi già richiesti. La configurazione disabilita scadenza e ritentativi, coerentemente con la natura immutabile del dato durante una sessione.
+- *NotificationService* e *NotificationManager*: l'interfaccia per avvisare l'utente e la sua realizzazione su `react-hot-toast`.
+
+Grazie a questa separazione, sostituire il modo in cui si dialoga con il backend o si
+presentano gli avvisi non tocca né le pagine né i service.
+
+=== Domain Layer
+
+Il livello rappresenta il problema applicativo in modo indipendente da React, dal routing e
+dal backend. Comprende le entità — descritte in //@diagrammi-classi — e tre insiemi di regole
+scritte come funzioni pure, e quindi verificabili in isolamento.
+
+- *treeRules*: percorre l'albero. `resolveNodeId()` ricava il nodo corrente ripercorrendo le risposte dalla radice, `currentOutcome()` e `isRequirementComplete()` riconoscono il raggiungimento di una foglia, `describePath()` ricostruisce la sequenza di domande e risposte da presentare nei risultati.
+
+- *sessionRules*: governa la valutazione. `buildPlan()` costruisce l'elenco delle coppie asset-requisito, `getEvaluationProgress()` calcola l'avanzamento, `transitiveDependents()` determina quali requisiti dipendono da quello in corso di rivalutazione. Le funzioni `getEvaluationStatus()`, `getAssetStatus()` e `getDeviceStatus()` riassumono più esiti in uno solo secondo una priorità fissa che fa prevalere il fallimento e la valutazione in corso sugli esiti positivi.
+- *treeLayout*: dispone i nodi in colonne e livelli per il disegno del grafo, producendo coordinate astratte e non pixel, così da restare indipendente dalla tecnologia di rendering.
+
+La validazione dei dati in ingresso — input dell'utente, risposte del backend, contenuto
+dei file importati — è affidata a schemi *Zod* definiti accanto alle entità.
+
+=== Flussi applicativi
+
+Il flusso dei dati è unidirezionale. Le pagine non modificano lo stato condiviso né
+dialogano con il backend: raccolgono l'azione dell'utente e la inoltrano all'hook, che
+decide come procedere. Se occorre un dato che il client non possiede, l'hook lo richiede al
+service, che passa dall'Infrastructure Layer; altrimenti agisce direttamente sugli store.
+
+I flussi principali sono i seguenti.
+
+- *Nuova valutazione*: da HomePage si passa a DeviceFormPage per i dati del dispositivo, quindi a DeviceAssetManagementPage e AssetFormPage per gli asset, infine a DeviceSummaryPage per il riepilogo. Il dispositivo resta nel `DeviceStore` per tutto il percorso.
+
+- *Importazione di un dispositivo*: il formato è riconosciuto dall'estensione tramite `formatForFile()`, il contenuto è letto e validato con Zod, quindi i metadati del dispositivo e ciascun asset sono inviati al backend, che assegna gli identificativi mancanti e deriva i requisiti applicabili.
+- *Avvio della valutazione*: da DeviceSummaryPage si entra in SessionRunnerPage; la sessione è creata a partire dal piano prodotto da `buildPlan()`. Se una sessione compatibile è già in corso, `ensureSession()` la riprende anziché ricominciare.
+- *Esecuzione del decision tree*: scelto il requisito, l'albero è caricato e il percorso riportato al punto raggiunto tramite `hydrate()`. Ogni risposta aggiorna il percorso nel client e allinea la sessione, cosicché un salvataggio colga sempre lo stato corrente. Raggiunta una foglia, l'esito è registrato con `completeCurrent()`.
+- *Ripresa e modifica*: ModifySessionPage consente di riaprire un requisito già chiuso; insieme a esso `reopen()` riapre i requisiti che ne dipendono, il cui esito potrebbe cambiare.
+- *Consultazione degli esiti*: valutate tutte le coppie, ResultPage consente di scendere dall'asset al requisito e rivedere domande e risposte.
+- *Salvataggio e ripresa da file*: la sessione può essere scaricata in qualsiasi momento e ricaricata da HomePage, previa validazione dello schema.
+- *Esportazione*: il dispositivo è scritto in JSON o CSV dal client; il decision tree è prodotto dal backend, che risponde all'endpoint di esportazione nel formato richiesto.
+
+#figure(
+  image("../../../images/specifica_tecnica/seq_avanzamento_albero.png", width: 100%),
+  caption: [Diagramma di sequenza dell'avanzamento nell'albero decisionale],
+)
+
+== Backend
+
+Il backend è un'applicazione Flask esposta come singola API REST stateless, organizzata in
+quattro livelli.
+
+=== Organizzazione a livelli
+
+#table(
+  columns: (auto, 1fr),
+  align: (left, left),
+  fill: (x, y) => if y == 0 { blue.lighten(70%) },
+  [*Livello*], [*Contenuto*],
+  [Presentation], [Blueprint Flask che espongono gli endpoint REST.],
+  [Application], [Service che orchestrano i casi d'uso.],
+  [Domain], [Entità e loro regole, senza dipendenze da Flask o dal filesystem.],
+  [Persistence], [Interfaccia e implementazione di accesso al catalogo.],
+)
+
+Presentation dipende da Application, Application da Domain e Persistence, Domain da nulla.
+La direzione è verificata dai test di dominio, che non richiedono alcun contesto
+applicativo Flask.
+
+=== Presentation Layer
+
+Il livello raggruppa quattro blueprint. Ogni rotta riceve la richiesta, delega
+l'elaborazione al service competente e traduce l'esito in una risposta HTTP con il codice
+di stato appropriato, senza contenere logica di business.
+
+L'applicazione è composta da `create_app()`, che costruisce il repository, lo inietta nel
+`DecisionTreeService` e passa quest'ultimo alle factory dei blueprint che ne hanno bisogno.
+Il blueprint dei dispositivi, le cui rotte invocano direttamente la funzione di validazione
+e non dipendono da collaboratori costruiti a runtime, è registrato senza factory.
+
+=== Application Layer
+
+- *`create_device()`*: valida i metadati del dispositivo (nome, sistema operativo, descrizione) e ne costruisce l'entità, rispettando l'`id` se fornito o generandone uno con `uuid4`. È il punto unico di validazione, condiviso dalla creazione manuale e dall'importazione.
+
+- *`create_asset()`*: valida i campi dell'asset e, quando `requirements` non è fornito, deriva i requisiti applicabili interrogando `DecisionTreeService.list_requirement_ids_for_type()`.
+- *`DecisionTreeService`*: unica classe del livello. Carica un albero tramite il repository, ne verifica l'integrità e lo normalizza; espone inoltre `list_trees()`, `list_requirement_ids_for_type()` e `import_tree()`.
+
+Le prime due sono realizzate come funzioni esportate anziché come classi, non avendo stato
+né collaboratori da conservare fra le invocazioni.
+
+=== Domain Layer
+
+Il livello comprende le entità `Device`, `Asset`, `Node` — con le specializzazioni
+`QuestionNode` e `LeafNode` — `DecisionTree` e `Session`, tutte realizzate come dataclass
+immutabili prive di dipendenze da librerie web o di accesso ai file. Le operazioni di
+navigazione sono definite come metodi delle entità: `DecisionTree.get_node()` reperisce un
+nodo per identificatore, `Node.next()` restituisce il successore per il ramo scelto,
+`Node.verdict()` l'esito di una foglia.
+
+`Session` e le strutture correlate (`PathStep`, `Evaluation`, `Current`) sono definite lato
+server per rappresentare il file di sessione, ma non sono esposte da alcuna rotta: la
+sessione è gestita interamente dal client.
+
+=== Persistence Layer <principio-repository>
+
+Il livello isola l'accesso ai dati dietro l'interfaccia `IDecisionTreeRepository`,
+realizzata da `JsonDecisionTreeRepository` sui file in `backend/data/decision_trees/`. Il
+principio selettivo che governa l'esistenza di un solo repository è discusso in @architettura.
+
+=== Endpoint REST <endpoint-rest>
+
+#table(
+  columns: (auto, 1.5fr, 2.5fr),
+  align: (center, left, left),
+  fill: (x, y) => if y == 0 { blue.lighten(70%) },
+  [*Metodo*], [*Percorso*], [*Descrizione*],
+
+  [GET], [`/health`],
+  [Verifica di disponibilità del servizio.],
+
+  [POST], [`/devices`],
+  [Valida i metadati del dispositivo, risolve l'`id` e restituisce l'entità serializzata
+  con `assets` sempre vuoto. Nessuna scrittura su disco. Contratto condiviso da creazione
+  manuale e importazione.],
+
+  [POST], [`/assets`],
+  [Valida i campi dell'asset e ne deriva i requisiti applicabili quando non forniti,
+  interrogando il catalogo. Risolve l'`id`. Nessuna scrittura su disco.],
+
+  [GET], [`/decision-trees`],
+  [Restituisce l'elenco sintetico dei decision tree disponibili.],
+
+  [GET], [`/decision-trees/{requirementId}`],
+  [Carica il decision tree indicato, ne verifica l'integrità e lo restituisce normalizzato.
+  Risponde 404 se assente.],
+
+  [POST], [`/decision-trees/import`],
+  [Riceve un file JSON o CSV come `multipart/form-data`, ne valida la struttura e lo
+  registra nel catalogo tramite il repository. Risponde 400 in caso di struttura non
+  valida.],
+
+  [GET], [`/decision-trees/{requirementId}/export`],
+  [Restituisce il decision tree nel formato indicato dal parametro `format`, `json` o
+  `csv`.],
+)
+
+=== Testing
+
+I test del backend risiedono in una cartella `tests/` separata, a specchio di `src/`,
+secondo la convenzione idiomatica di Pytest; il frontend adotta invece la convenzione
+idiomatica di Vitest, con i test collocati accanto al file verificato. Il Domain Layer è
+verificato con unit test; i service con test che sostituiscono il repository con
+`FakeDecisionTreeRepository`; le rotte con test di integrazione tramite il client di test
+di Flask. La qualità del codice è verificata in integrazione continua tramite `ruff` lato
+backend ed `eslint` lato frontend.
+
+= Diagrammi delle classi <diagrammi-classi>
+
+== Criteri di rappresentazione
+
+Questa sezione descrive la struttura statica del dominio applicativo, cioè le entità che
+rappresentano i concetti di business su cui si fonda la valutazione di conformità
+EN 18031 e le relazioni che le legano. I moduli che orchestrano i casi d'uso — pagine,
+hook, service, store, rotte — sono trattati in @decomposizione e non compaiono qui.
+
+Il dominio esiste in due realizzazioni distinte, una per ciascuna unità del sistema. Non
+si tratta di una duplicazione accidentale: le due forme rispondono a esigenze diverse e
+presentano differenze deliberate, discusse in @corrispondenza-domini.
+
+Nelle schede che seguono sono riportati, per ciascuna entità, il ruolo, gli attributi con
+il rispettivo tipo, i metodi che portano comportamento e la responsabilità complessiva.
+Sono deliberatamente omessi i metodi di accesso ai singoli campi, che nel frontend sono
+_getter_ e nel backend proprietà di sola lettura: elencarli non aggiungerebbe informazione
+alla struttura. La corrispondenza fra entità e requisiti è riportata in //@tracciamento.
+
+== Dominio frontend
+
+/*#figure(
+  image("../../../images/specifica_tecnica/classi_dominio_frontend.png", width: 100%),
+  caption: [Diagramma delle classi del dominio frontend],
+)*/
+
+Tutte le entità del dominio frontend sono *immutabili*: i campi sono dichiarati privati
+tramite la sintassi dei campi privati di JavaScript (`#campo`) e le operazioni di modifica
+non alterano l'istanza, ma restituiscono una nuova istanza con il valore aggiornato. Da qui
+la convenzione di denominazione `with*` adottata per tali metodi. L'immutabilità garantisce
+che nessun modulo possa alterare uno stato condiviso in modo non tracciabile e si combina
+con la propagazione delle modifiche degli store, che rilevano il cambiamento per identità
+del riferimento.
+
+Ciascuna entità è affiancata da uno o più schemi *Zod* che ne descrivono la forma attesa e
+dai quali sono derivati i tipi TypeScript corrispondenti. Il metodo statico `create()`
+costituisce l'unico punto di costruzione a partire da dati esterni: valida il dato grezzo
+contro lo schema e costruisce l'istanza solo se la validazione ha successo.
+
+=== Device
+
+*Ruolo*: rappresenta il dispositivo sottoposto a valutazione e aggrega gli asset che lo
+compongono.
+
+*Attributi*
+- `id: string` — identificatore univoco, assegnato dal backend o presente nel file importato.
+- `name: string` — denominazione del dispositivo.
+- `operatingSystem: string` — sistema operativo del dispositivo.
+- `description: string` — descrizione testuale.
+- `assets: Asset[]` — gli asset associati, in composizione.
+
+*Metodi*
+- `withDetails(patch): Device` — restituisce un dispositivo con i dati descrittivi aggiornati.
+- `withAssets(assets): Device`, `withAssetAdded(asset): Device`, `withAssetUpdated(asset): Device`, `withAssetRemoved(assetId): Device` — restituiscono un dispositivo con l'elenco degli asset modificato.
+- `buildPlan(): { assetId, requirementId }[]` — costruisce l'elenco delle coppie asset-requisito da valutare, percorrendo gli asset e i requisiti assegnati a ciascuno.
+- `toJSON(): object` — produce la rappresentazione serializzabile, usata dall'esportazione e dal file di sessione.
+- `create(raw): Device` — costruisce l'entità validando il dato grezzo con `DeviceSchema`.
+
+*Responsabilità*: raccogliere i dati descrittivi del dispositivo, custodire l'elenco degli
+asset e derivare il piano di valutazione che costituisce il punto di partenza di ogni
+sessione.
+
+*Schemi associati*: `DeviceSchema` (forma completa), `DeviceCreateSchema` (dati raccolti
+nel form di creazione), `DeviceImportSchema` (forma attesa in un file importato, con `id`
+facoltativo e asset annidati).
+
+=== Asset
+
+*Ruolo*: rappresenta un elemento del dispositivo soggetto a valutazione, al quale sono
+associati i requisiti EN 18031 applicabili.
+
+*Attributi*
+- `id: string` — identificatore univoco all'interno del dispositivo.
+- `name: string` — denominazione dell'asset.
+- `type: AssetType` — categoria funzionale, ristretta ai valori `network`, `security`, `privacy` e `financial`.
+- `description: string` — descrizione testuale.
+- `sensitive: boolean` — indica se l'asset tratta dati sensibili.
+- `requirements?: string[]` — codici dei requisiti assegnati, derivati dal backend in base al tipo.
+
+*Metodi*
+- `withDetails(patch): Asset` — restituisce un asset con i dati descrittivi aggiornati, conservando i requisiti assegnati.
+- `toJSON(): object` — produce la rappresentazione serializzabile.
+- `create(raw): Asset` — costruisce l'entità validando il dato grezzo con `AssetSchema`.
+
+*Responsabilità*: custodire i metadati dell'asset e i requisiti a esso applicabili.
+
+L'asset non conserva il proprio stato di valutazione: quello stato appartiene alla sessione
+ed è calcolato da `getAssetStatus()` a partire dalle valutazioni registrate. La scelta evita
+che la stessa informazione esista in due luoghi con il rischio di divergere.
+
+=== DecisionTree
+
+*Ruolo*: rappresenta l'albero decisionale che guida la valutazione di un requisito.
+
+*Attributi*
+- `requirementId: string` — codice del requisito, conforme all'espressione regolare che ne descrive il formato.
+- `requirementName: string` — denominazione estesa del requisito.
+- `version?: string` — versione dell'albero, nel formato a tre numeri.
+- `appliesTo?: string[]` — tipi di asset ai quali il requisito si applica; è il campo su cui il backend deriva i requisiti applicabili.
+- `dependencies?: string[]` — requisiti dai quali questo dipende.
+- `rootNode: string` — identificatore del nodo radice.
+- `nodes: Node[]` — collezione dei nodi in forma piatta.
+- `message?: string` — messaggio restituito dal backend a seguito di un'importazione.
+
+*Metodi*
+- `getNode(id): Node` — restituisce il nodo corrispondente all'identificatore, sollevando un errore se assente.
+- `toJSON(): object`, `create(raw): DecisionTree` — come per le altre entità.
+
+*Responsabilità*: rappresentare la struttura dell'albero e consentirne l'accesso per
+identificatore, operazione richiesta a ogni passo della navigazione.
+
+I nodi sono conservati in una *lista piatta* e i collegamenti sono espressi per
+identificatore, anziché in una struttura di contenimento ricorsiva. La ragione decisiva è
+che rami distinti devono poter convergere sullo stesso nodo, situazione presente negli
+alberi della norma: una struttura di contenimento richiederebbe di duplicare il nodo
+condiviso in ciascun ramo che lo raggiunge, con il rischio che le copie divergano. La forma
+piatta coincide inoltre con quella dei file di catalogo, evitando una conversione
+strutturale a ogni serializzazione.
+
+=== Node, QuestionNode e LeafNode
+
+*Ruolo*: elemento atomico dell'albero. Un nodo è una domanda con due rami oppure una foglia
+che porta un esito.
+
+Il dominio frontend non adotta una gerarchia di ereditarietà: `QuestionNode` e `LeafNode`
+sono classi indipendenti che realizzano il medesimo contratto `NodeContract`, e il tipo
+`Node` è definito come loro *unione discriminata* sul campo `type`. La scelta è motivata
+dal sistema dei tipi: l'unione discriminata consente al compilatore di restringere il tipo
+in base al valore di `type`, cosicché una verifica come `node.type === "leaf"` renda
+accessibile il campo `outcome` senza conversioni esplicite. Una classe base astratta con
+`extends` non offrirebbe questa proprietà.
+
+*QuestionNode*
+- `id: string`, `text: string`, `branches: { yes: string, no: string }`.
+- `next(answer: boolean): string` — restituisce l'identificatore del nodo successivo per il ramo scelto.
+- `verdict(): null` — un nodo domanda non porta esito.
+
+*LeafNode*
+- `id: string`, `outcome: Outcome`, `text?: string`, dove `Outcome` è ristretto a `PASS`, `FAIL` e `NOT_APPLICABLE`.
+- `next(): string` — solleva un errore, non esistendo un successore.
+- `verdict(): Outcome` — restituisce l'esito assegnato.
+
+La funzione `createNode(raw)` sceglie la classe concreta da istanziare in base al campo
+`type` del dato grezzo.
+=== Session
+
+*Ruolo*: rappresenta la valutazione nel suo insieme: quali coppie asset-requisito devono
+essere esaminate, quale è in corso, quale percorso è stato seguito su ciascuna e con quale
+esito.
+
+*Attributi*
+- `id: string` — identificatore della sessione.
+- `savedAt: string` — istante dell'ultimo salvataggio.
+- `status: "in_progress" | "completed"` — stato complessivo.
+- `device: Device` — il dispositivo valutato, incorporato per intero nella sessione.
+- `decisionTreeVersions?: Record<string, string>` — versione dell'albero impiegata per ciascun requisito.
+- `current?: Current` — coppia asset-requisito in corso e nodo raggiunto.
+- `evaluations: Evaluation[]` — una voce per ciascuna coppia del piano.
+
+*Metodi*
+- `selectEvaluation(assetId, requirementId): Session` — attiva una coppia e apre l'albero dall'inizio (UC-19).
+- `reopenEvaluation(assetId, requirementId, dependents): Session` — riporta a "non valutato" la coppia indicata e quelle che ne dipendono transitivamente (UC-27.2).
+- `syncProgress(nodeId, path): Session` — registra nodo corrente e percorso parziale senza chiudere la valutazione.
+- `completeCurrent(outcome, path): Session` — registra l'esito raggiunto; la sessione passa a "completata" quando tutte le valutazioni lo sono (UC-23).
+- `matchesPlan(device): boolean` — verifica che le valutazioni coprano esattamente il piano attuale del dispositivo, condizione che rende la sessione riprendibile così com'è (UC-26).
+- `withSavedAt()`, `withEvaluations()`, `withDevice()` — restituiscono una sessione con il rispettivo campo aggiornato.
+
+*Responsabilità*: custodire lo stato complessivo della valutazione e le transizioni ammesse
+fra i suoi stati, garantendo che ogni modifica produca una sessione coerente.
+
+La sessione *incorpora* il dispositivo anziché referenziarlo per identificatore: il file di
+sessione è così autosufficiente e può essere ripreso senza disporre altrove del
+dispositivo. `matchesPlan()` verifica al momento della ripresa che il dispositivo
+incorporato produca lo stesso piano, condizione senza la quale la sessione non sarebbe più
+significativa.
+
+Le strutture `Evaluation`, `Current` e `PathStep` restano dati puri, definiti come tipi
+derivati dai rispettivi schemi e non come classi: non possiedono comportamento proprio né
+invarianti da proteggere oltre alla forma, che è già garantita dalla validazione.
+
+== Dominio backend
+
+/*#figure(
+  image("../../../images/specifica_tecnica/classi_dominio_backend.png", width: 100%),
+  caption: [Diagramma delle classi del dominio backend],
+)*/
+
+Le entità del backend sono realizzate come dataclass immutabili, con
+campi privati esposti tramite proprietà di sola lettura. La costruzione a partire da dati
+esterni avviene tramite i metodi di classe `create()`, che validano i campi obbligatori e
+sollevano `InvalidDeviceDataError` o `InvalidAssetDataError` in caso di dato non conforme.
+
+- *Device* — `id`, `name`, `operating_system`, `description`, `assets`. Il metodo `create(data)` verifica la presenza dei campi obbligatori e risolve l'identificatore, rispettandolo se fornito o generandolo con `uuid4` altrimenti.
+
+- *Asset* — `id`, `name`, `type`, `description`, `sensitive`, `requirements`. Il tipo è rappresentato dall'enumerazione `AssetType`, che espone `from_string()` per la conversione dal valore testuale ricevuto.
+- *DecisionTree* — `requirement_id`, `requirement_name`, `root_node`, `nodes`, `version`, `applies_to`, `dependencies`. Il metodo `get_node(node_id)` reperisce un nodo per identificatore.
+- *Node* — classe astratta che dichiara la proprietà `id` e i metodi `next(answer)` e `verdict()`. È specializzata da `QuestionNode`, che espone `text` e `branches` e realizza la navigazione, e da `LeafNode`, che espone `outcome` e restituisce l'esito. L'enumerazione `NodeOutcome` rappresenta i tre esiti ammessi, la dataclass `Branches` la coppia di rami.
+- *Session*, con le strutture correlate `Evaluation`, `Current` e `PathStep` — rappresenta il file di sessione. Nessuna rotta la espone: è definita per completezza del modello, ma la sessione è gestita interamente dal client.
+
+== Corrispondenza fra i due domini <corrispondenza-domini>
+
+Le due realizzazioni descrivono i medesimi concetti, ma differiscono in tre punti, ciascuno
+per una ragione precisa.
+
+*Rappresentazione dei nodi.* Il backend adotta una gerarchia di ereditarietà a partire da
+una classe astratta; il frontend un'unione discriminata su un contratto comune. La
+differenza discende dai rispettivi sistemi dei tipi: il restringimento del tipo su un campo
+discriminante è una proprietà di TypeScript senza equivalente diretto in Python, dove
+l'ereditarietà con metodi astratti è la costruzione idiomatica.
+
+*Presenza della sessione.* `Session` esiste su entrambi i lati, ma solo il frontend la
+utilizza. La definizione lato server documenta la forma del file di sessione senza che
+alcuna rotta la impieghi, coerentemente con il criterio di possesso del dato: la sessione
+appartiene all'utente, non al sistema.
+
+*Estensione del comportamento.* Le entità del frontend espongono più comportamento —
+costruzione del piano, transizioni della sessione — perché è nel client che risiede la
+logica di valutazione. Le entità del backend si limitano alla validazione in ingresso e
+alla navigazione dell'albero, che sono le sole responsabilità del server.
+
+Le due realizzazioni non sono generate l'una dall'altra né condividono codice: la coerenza
+fra esse è garantita dal contratto degli endpoint, che costituisce l'unica fonte di verità
+condivisa. Il presidio di tale coerenza è discusso in //@endpoint-rest.
+
+== Vincoli e regole di integrità
+
+Le seguenti regole definiscono l'integrità del dominio e sono verificate dal backend in
+fase di validazione di un albero, all'atto del caricamento e dell'importazione.
+
+- Ogni nodo possiede un identificatore univoco all'interno del medesimo decision tree.
+
+- Il nodo radice dichiarato deve esistere fra i nodi dell'albero.
+- Ogni ramo di un nodo domanda deve puntare a un nodo esistente: non sono ammessi riferimenti pendenti.
+- Un nodo domanda deve possedere testo non vuoto ed entrambi i rami; un nodo foglia deve possedere un esito fra `PASS`, `FAIL` e `NOT_APPLICABLE`.
+- Il codice del requisito deve rispettare il formato previsto.
+- L'albero non deve contenere cicli.
+
+Le regole relative alla modifica strutturale di un decision tree — divieto di eliminare il
+nodo radice, prevenzione delle dipendenze circolari fra requisiti, trasformazione dei rami
+non collegati in nodi foglia, annullamento delle modifiche — discendono da requisiti
+opzionali non ancora realizzati e saranno documentate contestualmente alla loro
+implementazione.
+
+ 
+#pagebreak()
+
+
+ /*== Pattern non adottati
 
 Si documentano di seguito i pattern del catalogo di riferimento che non trovano applicazione nel
 prodotto, con la motivazione tecnica che ne esclude l'adozione.
@@ -1091,20 +1463,17 @@ prodotto, con la motivazione tecnica che ne esclude l'adozione.
 - *Singleton.* Le istanze del servizio dei decision tree e del gestore della conservazione dei risultati sono di fatto uniche, ottenute istanziandole una sola volta nel rispettivo modulo. Non si è tuttavia introdotto il controllo esplicito dell'istanziazione previsto dal pattern: esso attribuirebbe alla classe la responsabilità del proprio ciclo di vita, ostacolandone la sostituzione nei test, mentre l'unicità è già garantita dalla valutazione unica dei moduli. `DecisionTreeService` conserva infatti un costruttore che accetta un'implementazione alternativa di `ApiClientService`, proprietà che il pattern renderebbe inutilizzabile.
 
 - *Template Method.* Il pattern consentirebbe di fattorizzare uno scheletro comune fra algoritmi affini. Il candidato più prossimo è il metodo privato che nel client di comunicazione concentra invio, traduzione degli errori e interpretazione della risposta per tutti i verbi supportati; si tratta però di una funzione di supporto invocata dai metodi pubblici, non di uno scheletro con passi ridefinibili da sottoclassi, e nel prodotto non esiste alcuna gerarchia di ereditarietà che ne giustifichi l'introduzione.
-
 */
-= Tracciamento
+= Tracciamento dei requisiti <tracciamento>
 
-== Stato dei requisiti funzionali
 
-La tabella seguente riporta i requisiti funzionali individuati nell'#underline(text(fill: blue)[#link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Esterni/Analisi_dei_Requisiti.pdf")[Analisi dei Requisiti]]) e il relativo stato di soddisfacimento rispetto alla progettazione descritta nel presente documento. I codici mantengono la classificazione per priorità adottata in sede di analisi: obbligatori (RF-Ob), desiderabili (RF-D) e opzionali (RF-Op).
 
 #table(
   columns: (auto, 1fr, auto),
   align: (center, left, center),
   fill: (x, y) => if y == 0 { blue.lighten(70%) },
   table.header(
-    [Codice], [Descrizione], [Stato],
+    [*Codice*], [*Descrizione*], [*Stato*],
   ),
   [RF-Ob01], [Il sistema deve permettere l'inserimento di un nuovo dispositivo all'interno della piattaforma.], [Soddisfatto],
   [RF-Ob02], [Il sistema deve permettere l'importazione di un dispositivo tramite un file di configurazione in formato JSON o CSV.], [Soddisfatto],
@@ -1150,7 +1519,7 @@ La tabella seguente riporta i requisiti funzionali individuati nell'#underline(t
   [RF-Ob42], [Il sistema deve mostrare la lista dei requisiti da valutare associati all'asset.], [Soddisfatto],
   [RF-Ob43], [Il sistema deve mostrare il codice identificativo e lo stato di valutazione di ogni requisito nella lista.], [Soddisfatto],
   [RF-Ob44], [Il sistema deve permettere l'eliminazione definitiva di un asset da un dispositivo.], [Soddisfatto],
-  [RF-Ob45], [Il sistema deve permettere l'esecuzione di una sessione di valutazione di conformità per un dispositivo.], [Soddisfatto],
+  [RF-Ob45], [Il sistema deve permettere l'esecuzione di una sessione di], [Soddisfatto],
   [RF-Ob46], [Il sistema deve mostrare una dashboard di valutazione con la lista degli asset, il loro stato, e il progresso della sessione in tempo reale.], [Soddisfatto],
   [RF-Ob47], [Il sistema deve consentire la selezione e l'avvio della valutazione dei requisiti di un singolo asset.], [Soddisfatto],
   [RF-Ob48], [Il sistema deve mostrare il nome, il tipo, la descrizione, la sensibilità e lo stato di valutazione dell'asset selezionato per la valutazione.], [Soddisfatto],
@@ -1185,7 +1554,28 @@ La tabella seguente riporta i requisiti funzionali individuati nell'#underline(t
   [RF-Ob77], [Il sistema deve permettere l'esportazione di un file di un decision tree in formato JSON o CSV.], [Soddisfatto],
   [RF-Ob78], [Il sistema deve consentire l'esportazione di un decision tree in formato JSON.], [Soddisfatto],
   [RF-Ob79], [Il sistema deve consentire l'esportazione di un decision tree in formato CSV.], [Soddisfatto],
-  [RF-Ob80], [Il sistema deve generare un report di conformità finale contenente, per ogni coppia asset-requisito, l'esito del requisito, l'esito aggregato del decision tree e il percorso logico seguito.], [Non soddisfatto],
+  [RF-Ob80], [Il sistema deve generare un report di conformità finale contenente, per ogni coppia asset-requisito, l'esito del requisito, l'esito aggregato del decision tree e il percorso logico seguito.], [Soddisfatto],
+)
+
+*Copertura*: 80 requisiti soddisfatti su 80 (100%).
+
+Il requisito non soddisfatto è: `RF-Ob80`, relativo alla generazione del report di
+conformità finale. La funzionalità è progettata ma non ancora realizzata: la sua
+collocazione architetturale e l'interpretazione di «esito aggregato del decision tree» sono
+punti aperti, discussi in @architettura-logica.
+
+== Requisiti funzionali desiderabili
+
+Introducono funzionalità a valore aggiunto che migliorano la fluidità del flusso operativo,
+senza costituire condizione bloccante per l'utilizzo del prodotto.
+
+#table(
+  columns: (auto, 1fr, auto),
+  align: (center, left, center),
+  fill: (x, y) => if y == 0 { blue.lighten(70%) },
+  table.header(
+    [*Codice*], [*Descrizione*], [*Stato*],
+  ),
   [RF-D01], [Il sistema deve permettere l'annullamento della procedura di inserimento di un dispositivo, ripristinando lo stato precedente.], [Soddisfatto],
   [RF-D02], [Il sistema deve permettere l'annullamento della procedura di modifica di un dispositivo, scartando i dati inseriti e mantenendo invariati quelli preesistenti.], [Soddisfatto],
   [RF-D03], [Il sistema deve permettere l'annullamento della procedura di eliminazione di un dispositivo durante la fase di richiesta di conferma.], [Soddisfatto],
@@ -1209,6 +1599,28 @@ La tabella seguente riporta i requisiti funzionali individuati nell'#underline(t
   [RF-D21], [Il sistema deve permettere la selezione del file sorgente per l'importazione di un decision tree.], [Soddisfatto],
   [RF-D22], [Il sistema deve supportare l'importazione di un decision tree da file in formato JSON.], [Soddisfatto],
   [RF-D23], [Il sistema deve supportare l'importazione di un decision tree da file in formato CSV.], [Soddisfatto],
+)
+
+*Copertura*: 22 requisiti soddisfatti su 23 (95.7%).
+
+Il requisito non soddisfatto è: `RF-D09`, relativo alla navigazione verso un nodo
+successivo già risposto. La transizione corrispondente è realizzata nel `TreeStore`, che
+espone l'operazione `goForward` e conserva le risposte successive al cursore, ma il comando
+non è ancora esposto nell'interfaccia: il requisito è pertanto da considerarsi non
+soddisfatto dal punto di vista dell'utente.
+
+== Requisiti funzionali opzionali
+
+Estendono la piattaforma con funzionalità ausiliarie e di raffinamento, gradite ma non
+essenziali ai fini della validazione dell'applicazione.
+
+#table(
+  columns: (auto, 1fr, auto),
+  align: (center, left, center),
+  fill: (x, y) => if y == 0 { blue.lighten(70%) },
+  table.header(
+    [*Codice*], [*Descrizione*], [*Stato*],
+  ),
   [RF-Op01], [Il sistema deve mostrare la notifica dell'avvenuto salvataggio intermedio della sessione di valutazione.], [Non soddisfatto],
   [RF-Op02], [Il sistema deve permettere l'aggiunta manuale di una dipendenza tra requisiti all'interno di un decision tree.], [Non soddisfatto],
   [RF-Op03], [Il sistema deve permettere la rimozione di una dipendenza tra requisiti da un decision tree.], [Non soddisfatto],
@@ -1230,11 +1642,10 @@ La tabella seguente riporta i requisiti funzionali individuati nell'#underline(t
   [RF-Op19], [Il sistema deve permettere l'annullamento delle modifiche effettuate su un decision tree, ripristinando lo stato iniziale del grafo.], [Non soddisfatto],
   [RF-Op20], [Il sistema deve permettere la modifica della destinazione di un collegamento tra nodi (Yes/No).], [Non soddisfatto],
   [RF-Op21], [Il sistema deve permettere la modifica strutturale di un decision tree esistente.], [Non soddisfatto],
-  [RF-Op22], [Il sistema deve consentire il download del report di conformità in formato PDF.], [Non soddisfatto],
+  [RF-Op22], [Il sistema deve consentire il download del report di conformità in formato PDF.], [Soddisfatto],
   [RF-Op23], [Il sistema deve consentire il download del report di conformità in formato JSON.], [Non soddisfatto],
   [RF-Op24], [Il sistema deve consentire il download del report di conformità in formato CSV.], [Non soddisfatto],
   [RF-Op25], [Il sistema deve mostrare la giustificazione testuale del risultato raggiunto al termine dell'esecuzione del decision tree.], [Non soddisfatto],
   [RF-Op26], [Il sistema deve permettere l'inserimento di una giustificazione testuale per l'esito della coppia asset-requisito al termine dell'esecuzione del decision tree.], [Non soddisfatto],
 )
-
 
