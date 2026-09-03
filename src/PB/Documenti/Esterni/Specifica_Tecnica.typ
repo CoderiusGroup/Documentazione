@@ -242,7 +242,7 @@ Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è cont
 
 #pagebreak()
 = Tecnologie <tecnologie>
-Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del capitolato *Automated EN18031 Compliance Verification*.
+Nella seguente sezione vengono descritte le tecnologie usate per lo sviluppo del capitolato *Automated EN18031 Compliance Verification*.
 
 == Linguaggi di programmazione 
 
@@ -801,7 +801,7 @@ progettazione e non di un pattern del catalogo, e come tale è descritto contest
 Method, che ne costituisce il luogo di applicazione, anziché in una scheda propria.
 
 Per ciascun pattern sono indicati il problema affrontato, la soluzione adottata e i moduli
-concretamente coinvolti. Tutti i pattern qui documentati sono realizzati nel codice del prodotto;
+concretamente coinvolti. Tutti i pattern documentati in questa sezione sono stati individuati in corrispondenza di meccanismi effettivamente presenti nel codice.;
 la sezione si chiude con quelli che non trovano applicazione, corredati della motivazione tecnica
 che ne esclude l'adozione.
 
@@ -823,9 +823,9 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
 
 - *Soluzione*: definire un'interfaccia stabile espressa nei termini del dominio applicativo e realizzarla con una classe che ne traduce le chiamate nell'interfaccia, incompatibile, del meccanismo sottostante.
 - *Applicazione nel progetto*: il pattern è applicato a due confini tecnici del sistema.
-  - `FetchApiClient` realizza l'interfaccia `ApiClientService`, che dichiara le operazioni `get`, `post`, `put` e `delete` tipizzate. Il metodo privato `request()` concentra la costruzione dell'indirizzo, la serializzazione del corpo e la traduzione degli esiti: un fallimento di rete e una risposta non riuscita diventano entrambi un `ApiError`, che espone il messaggio e lo stato numerico quando disponibile.
+  - `FetchApiClient` realizza l'interfaccia `ApiClientService`, che dichiara le operazioni `get`, `post`, `postFormData`, `put` e `delete` tipizzate. Il metodo privato `request()` concentra la costruzione dell'indirizzo, la serializzazione del corpo e la traduzione degli esiti: un fallimento di rete e una risposta non riuscita diventano entrambi un `ApiError`, che espone il messaggio e lo stato numerico quando disponibile.
   - `NotificationManager` realizza l'interfaccia `NotificationService`, delegando alla libreria _react-hot-toast_ la gestione di coda, timer di scomparsa automatica e impilamento dei messaggi.
-- *Conseguenze*: I test di `FetchApiClient` verificano il trattamento delle risposte di errore senza alcun backend in esecuzione. Da questo ne cosegue che ogni comunicazione con il backend deve transitare per `ApiClientService`. L'esportazione del decision tree, che allo stato attuale invoca `fetch` direttamente, dovrà essere ricondotta a tale regola.
+- *Conseguenze*: I test di `FetchApiClient` verificano il trattamento delle risposte di errore senza alcun backend in esecuzione. Da questo ne consegue che ogni comunicazione con il backend deve transitare per `ApiClientService`. L'esportazione del decision tree, che allo stato attuale invoca `fetch` direttamente, dovrà essere ricondotta a tale regola.
 
 
 ==== Repository
@@ -1001,7 +1001,7 @@ I service raccolgono le operazioni indipendenti dalla singola pagina.
 
 === State Management
 
-Lo stato condiviso fra più pagine è distribuito su tre store Zustand indipendenti.
+Lo stato condiviso fra più pagine è distribuito su tre store Zustand separati per area funzionale, collegati da una dipendenza controllata fra DeviceStore e SessionStore.
 
 #table(
   columns: (auto, 1fr, 1.4fr),
@@ -1039,6 +1039,19 @@ solo quando l'utente risponde diversamente a un nodo già risposto.
 - *ApiClientService* e *FetchApiClient*: l'interfaccia con cui il resto del codice richiede dati al backend e la sua realizzazione concreta su `fetch`. Il metodo privato `request()` concentra la composizione dell'indirizzo, la serializzazione del corpo e la traduzione degli esiti: tanto un'assenza di rete quanto una risposta non riuscita diventano un `ApiError`, che espone il messaggio e, quando disponibile, il codice di stato.
 
 - *queryClient*: istanza di TanStack Query impiegata in modo imperativo per conservare gli alberi già richiesti. La configurazione disabilita scadenza e ritentativi, coerentemente con la natura immutabile del dato durante una sessione.
+
+- *ReportService* e *reportData*: il report di conformità viene costruito
+  interamente nel client. `reportData` raccoglie dal dispositivo e dalla sessione gli
+  esiti delle valutazioni, gli stati aggregati di asset e dispositivo e i percorsi logici
+  seguiti. Quando necessario, recupera dal catalogo i decision tree associati ai requisiti
+  per ricostruire le domande e le risposte del percorso.
+
+  `ReportService` utilizza questi dati per generare il documento PDF tramite la libreria
+  `@react-pdf/renderer`. La struttura grafica del documento è definita dal componente
+  `ReportDocument`, mentre il file prodotto viene reso disponibile per il download
+  dell'utente. Questa soluzione evita di trasferire la sessione al backend, che non la
+  possiede né la conserva.
+
 - *NotificationService* e *NotificationManager*: l'interfaccia per avvisare l'utente e la sua realizzazione su `react-hot-toast`.
 
 Grazie a questa separazione, sostituire il modo in cui si dialoga con il backend o si
