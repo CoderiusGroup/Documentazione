@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.3.0*]
+  #text(size: 20pt)[*Versione 1.8.1*]
 ]
 #pagebreak()
 
@@ -100,7 +100,18 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.3.0], [2026/07/13], [Edis Hodja], [], [Aggiunta delle sezioni Sprint 8: 4.9.1, 4.9.2, 4.9.3, 4.9.4, 4.9.5],
+    [1.8.1], [2026/08/28], [Ines Iadadi], [Leonardo Lorenzin], 
+    [Aggiunta delle sezioni Sprint 13: dalla 4.14.5 alla 4.14.8],
+    [1.8.0], [2026/08/21], [Ines Iadadi], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 13: dalla 4.14.1 alla 4.14.4],
+    [1.7.0], [2026/08/21], [Alberto Canavese], [Giovanni Bronte], [Aggiunta delle sezioni Sprint 12: dalla 4.13.1 alla 4.13.8],
+    [1.6.1], [2026/08/18], [Giovanni Bronte], [Alberto Canavese], [Correzioni varie allo sprint 11],
+    [1.6.0], [2026/08/16], [Giovanni Bronte], [Alberto Canavese], [Aggiunta delle sezioni Sprint 11: dalla 4.12.1 alla 4.12.8],
+    [1.5.1], [2026/08/07], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiunta delle sezioni Sprint 10: 4.11.5, 4.11.6, 4.11.7, 4.11.8],
+    [1.5.0], [2026/08/03], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiunta delle sezioni Sprint 10: 4.11.1, 4.11.2, 4.11.3, 4.11.4],
+    [1.4.1], [2026/07/31], [Ines Iadadi], [Edis Hodja], [Aggiunta delle sezioni Sprint 9: 4.10.5, 4.10.6, 4.10.7, 4.10.8],
+    [1.4.0], [2026/07/25], [Ines Iadadi], [Edis Hodja], [Aggiunta delle sezioni Sprint 9: 4.10.1, 4.10.2, 4.10.3, 4.10.4],
+    [1.3.1], [2026/07/25], [Edis Hodja], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 8: 4.9.6, 4.9.7, 4.9.8],
+    [1.3.0], [2026/07/13], [Edis Hodja], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 8: 4.9.1, 4.9.2, 4.9.3, 4.9.4, 4.9.5],
     [1.2.1], [2026/07/13], [Edis Hodja], [Leonardo Lorenzin], [Aggiunta della sezione relativa al sommario finale RTB],
     [1.2.0], [2026/07/10], [Leonardo Lorenzin], [Filippo Zonta Rocha], [Aggiunta delle sezioni Sprint 7: 4.7.5, 4.7.6, 4.7.7, 4.7.8 e correzione refusi],
     [1.1.0], [2026/06/30], [Leonardo Lorenzin], [Alberto Canavese], [Aggiunta delle sezioni Sprint 7: 4.7.1, 4.7.2, 4.7.3, 4.7.4],
@@ -1112,8 +1123,6 @@ Durante questo periodo, l'impegno del team si articolerà nelle seguenti attivit
 
 === Rischi attesi
 
-=== Rischi attesi
-
 - *RT-1*: Poiché il focus principale di questo sprint è la fase transitoria di "palestra" sulle tecnologie Flask e React, l'inesperienza pratica del team con questi framework rappresenta il rischio tecnico principale. Pur essendo un rischio atteso e noto, lo scopo stesso di questa attività di autoformazione è proprio quello di mitigarlo prima di iniziare l'effettivo sviluppo dell'MVP.
 - *RO-3*: Tra le attività principali vi è il contatto con Bluewind per fissare un incontro esplorativo sulla progettazione architetturale. Considerando il periodo, c'è il rischio di riscontrare difficoltà o ritardi nel trovare una disponibilità condivisa per la call a causa dell'avvicinarsi delle ferie aziendali o degli impegni della proponente.
 - *RI-1*: Lo sprint si svolge in un periodo dell'anno critico, caratterizzato dalla fase finale della sessione estiva degli esami o dall'inizio di impegni personali e lavorativi estivi. È altamente probabile una disponibilità ridotta o asimmetrica tra i membri del gruppo, che potrebbe rallentare lo studio individuale o le correzioni documentali.
@@ -1132,3 +1141,511 @@ Durante questo periodo, l'impegno del team si articolerà nelle seguenti attivit
   )),
     caption: [Preventivo ore per membro - Sprint 8]
 )
+
+=== Consuntivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[6],[-],[-],[6]),
+    ([Edis Hodja], [3#text(fill: green)[(-1)]],[-],[-],[-],[-],[-],[3]),
+    ([Filippo Zonta Rocha],[-],[4],[-],[-],[-],[-],[4]),
+    ([Giovanni Angelo Marco Bronte],    [-],[-],[-],[5#text(fill: green)[(-1)]],[-],[-],[5]),
+    ([Ines Iadadi],        [-],[-],[4],[-],[-],[-],[4]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[-],[-],[5],[5]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*4*],[*4*],[*11*],[*0*],[*5*],[*27*]),
+  )),
+    caption: [Consuntivo ore per membro - Sprint 8]
+)
+
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [3], [ 90€], [22], [660€],
+    [Amministratore], [20], [4], [80€], [16], [320€],
+    [Analista], [25], [4], [100€], [5], [125€],
+    [Progettista], [25], [11], [275€], [74], [1850€],
+    [Programmatore], [15], [0], [0€], [71], [1065€],
+    [Verificatore], [15], [5], [75€], [54], [810€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*27*], [*620€*], [*242*], [*4830€*],
+  )
+]
+
+=== Rischi incontrati
+- *RI-1*: Durante lo sprint si è verificata una riduzione della disponibilità di alcuni membri del gruppo, dovuta alla concomitanza con la fase conclusiva della sessione estiva degli esami e con l'inizio di impegni personali e lavorativi tipici del periodo estivo. Questa situazione ha determinato una disponibilità non uniforme all'interno del team, rallentando in alcuni momenti le attività di studio individuale, revisione della documentazione e coordinamento delle attività previste dallo sprint. Il gruppo ha mitigato l'impatto del rischio attraverso una pianificazione più flessibile delle attività e una redistribuzione del carico di lavoro tra i membri disponibili.
+
+=== Retrospettiva
+Durante questo sprint il gruppo ha avviato la fase di "palestra" successiva al completamento della milestone Requirements and Technology Baseline (RTB). Le attività si sono concentrate sull'autoformazione tecnica mediante lo studio delle tecnologie selezionate, sul miglioramento del Way of Working, sull'avvio del confronto con l'azienda proponente per definire le future scelte architetturali e sull'aggiornamento della documentazione recependo le correzioni emerse dalla revisione della RTB.
+
+==== Criticità emerse
+La principale criticità riscontrata durante lo sprint è stata la ridotta disponibilità di alcuni membri del gruppo, dovuta alla concomitanza con la sessione estiva degli esami e con impegni personali e lavorativi. Tale situazione ha reso difficoltosa la partecipazione simultanea di tutti i componenti durante alcune riunioni e nei momenti decisionali più rilevanti, rallentando il confronto e la condivisione delle scelte. Per limitare l'impatto di questa criticità, il gruppo ha mantenuto una comunicazione costante tramite gli strumenti di collaborazione adottati e ha condiviso tempestivamente gli esiti delle decisioni con i membri assenti.
+
+== Sprint 9
+
+=== Periodo
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/07/24],
+  [*Fine prevista:*], [2026/07/31],
+  [*Fine reale:*],    [2026/07/31],
+)
+#v(0.3em)
+
+=== Attività pianificate
+
+Il gruppo avvia in questo sprint le prime attività operative di consolidamento e sviluppo. A differenza dei periodi precedenti, dedicati principalmente alla stesura di documentazione estesa, le attività pianificate risultano più numerose e brevi, in quanto circoscritte al consolidamento di scelte già discusse con la proponente e all'avvio di attività di sviluppo puntuali. Per questo motivo si è scelto di ridurre la durata dello sprint a una settimana, così da poter verificare con maggiore frequenza l'avanzamento delle prime attività di sviluppo e reagire tempestivamente a eventuali criticità.
+
+Le attività principali pianificate sono:
+
+- *Consolidamento delle scelte architetturali*: formalizzazione delle decisioni progettuali tramite confronto con Bluewind, verificandone la coerenza con i requisiti individuati nell'Analisi dei Requisiti.
+
+- *Avvio della Specifica Tecnica*: prima stesura dei contenuti relativi all'architettura del sistema, ai componenti principali e alle loro interazioni.
+
+- *Avvio dello sviluppo dell'MVP*: implementazione delle prime funzionalità di base.
+
+
+=== Rischi attesi
+
+- *RT-1*: Nonostante la fase di autoformazione svolta nello Sprint 8, l'inesperienza pratica del team con lo stack tecnologico in un contesto di sviluppo reale rimane un rischio tecnico rilevante, soprattutto nelle prime attività implementative dell'MVP.
+
+- *RO-1*: La durata ridotta dello sprint aumenta il rischio di imprecisioni nella pianificazione e nella stima delle attività, potendo richiedere un riadattamento del carico di lavoro nei prossimi sprint.
+
+- *RO-2*: Trattandosi del primo sprint di sviluppo effettivo dopo la fase  di "palestra", vi è il rischio che alcune attività pianificate  non vengano completate entro la settimana, data la scarsa esperienza pregressa con task di sviluppo reali su queste tecnologie.
+
+- *RI-1*: Il periodo estivo comporta il rischio di una disponibilità ridotta o non uniforme tra i membri del gruppo a causa di impegni personali.
+
+=== Preventivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[-],[6],[-],[6]),
+    ([Edis Hodja],         [-],[-],[-],[-],[-],[4],[4]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[5],[-],[-],[5]),
+    ([Giovanni Angelo Marco Bronte],[-],[3],[-],[-],[-],[-],[3]),
+    ([Ines Iadadi],        [4],[-],[-],[-],[-],[-],[4]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[5],[-],[-],[5]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*4*],[*3*],[*0*],[*10*],[*6*],[*4*],[*27*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 9]
+)
+
+=== Retrospettiva
+Durante questo sprint il gruppo ha avviato le prime attività operative di consolidamento e sviluppo, a seguito della fase di "palestra" svolta nello Sprint precedente. È proseguito il confronto con Bluewind, che ha permesso di consolidare le scelte architetturali già discusse. È stata inoltre avviata la stesura della Specifica Tecnica e sono state avviate le prime attività di sviluppo dell'MVP.
+
+=== Rischi incontrati
+- *RT-1*: L'inesperienza pratica del team con lo stack tecnologico si è manifestata nelle prime attività implementative dell'MVP, rallentando in alcuni momenti l'avvio dello sviluppo. Il gruppo ha mitigato il rischio facendo ricorso al confronto interno e alla documentazione ufficiale consultata durante la fase di autoformazione dello Sprint 8.
+
+- *RO-1*: La durata ridotta dello sprint ha reso più delicata la stima delle attività, generando alcune imprecisioni rispetto al preventivo. Il gruppo ha gestito lo scostamento riadattando il carico di lavoro tra i membri coinvolti.
+
+
+==== Criticità emerse
+La principale criticità riscontrata durante lo sprint ha riguardato l'avvio dello sviluppo dell'MVP, per il quale l'inesperienza pratica del team con lo stack tecnologico ha reso necessario un maggiore tempo di adattamento rispetto a quanto preventivato.
+
+=== Consuntivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[-],[6],[-],[6]),
+    ([Edis Hodja],         [-],[-],[-],[-],[-],[4],[4]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[4#text(fill: green)[(-1)]],[-],[-],[4]),
+    ([Giovanni Angelo Marco Bronte],[-],[3],[-],[-],[-],[-],[3]),
+    ([Ines Iadadi],        [4],[-],[-],[-],[-],[-],[4]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[6#text(fill: red)[(+1)]],[-],[-],[6]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*4*],[*3*],[*0*],[*10*],[*6*],[*4*],[*27*]),
+  )),
+    caption: [Consuntivo ore per membro - Sprint 9]
+)
+
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [4], [120€], [18], [540€],
+    [Amministratore], [20], [3], [60€], [13], [260€],
+    [Analista], [25], [0], [0€], [5], [125€],
+    [Progettista], [25], [10], [250€], [64], [1600€],
+    [Programmatore], [15], [6], [90€], [65], [975€],
+    [Verificatore], [15], [4], [60€], [50], [750€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*27*], [*580€*], [*215*], [*4250€*],
+  )
+  ]
+
+#pagebreak()
+
+== Sprint 10
+
+=== Periodo
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/08/01],
+  [*Fine prevista:*], [2026/08/07],
+  [*Fine reale:*],    [2026/08/07],
+)
+#v(0.3em)
+
+=== Attività pianificate
+
+In seguito alla conclusione dello sprint precedente, che ha permesso di definire la struttura architetturale di base del sistema, il gruppo in questo sprint si concentra sulla stesura dettagliata della documentazione tecnica e sull'avanzamento pratico dell'MVP. Si è deciso di mantenere sprint settimanali per garantire un monitoraggio più efficiente e costante dell'avanzamento.
+
+Le attività principali pianificate sono:
+
+- *Continuazione della Specifica Tecnica*: proseguimento della stesura dei contenuti relativi all'architettura del sistema, ai componenti principali e alle loro interazioni.
+
+- *Avanzamento dello sviluppo dell'MVP*: implementazione e consolidamento delle funzionalità di base dell'applicazione web, integrando i primi moduli software.
+- *Rifinimento architetturale*: eventuale revisione o aggiustamento delle scelte architetturali a fronte delle prime evidenze emerse durante la fase di codifica dell'MVP.
+
+
+=== Rischi attesi
+
+- *RT-1*: Analogamente allo sprint precedente, l'inesperienza pratica del team con lo stack tecnologico in un contesto di sviluppo reale rimane un rischio tecnico rilevante. 
+
+- *RO-1*: Il mantenimento dello sprint di una sola settimana continua a generare il rischio di imprecisioni nella pianificazione e nella stima delle attività, con la possibilità di un riadattamento del carico di lavoro nei prossimi sprint.
+
+- *RI-1*: Il periodo estivo comporta il rischio di una disponibilità ridotta o non uniforme tra i membri del gruppo a causa di impegni personali.
+
+=== Preventivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[3],[-],[-],[-],[-],[3]),
+    ([Edis Hodja],         [-],[-],[-],[7],[-],[-],[7]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[-],[6],[6]),
+    ([Giovanni Angelo Marco Bronte],[-],[-],[-],[-],[6],[-],[6]),
+    ([Ines Iadadi],        [-],[-],[-],[-],[6],[-],[6]),
+    ([Leonardo Lorenzin],  [4],[-],[-],[-],[-],[-],[4]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*4*],[*3*],[*0*],[*7*],[*12*],[*6*],[*32*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 10]
+)
+
+=== Retrospettiva
+Durante questo sprint il gruppo ha proseguito con le attività di stesura documentale e sviluppo, consolidando il flusso di lavoro avviato nello Sprint precedente. È proseguita la stesura della Specifica Tecnica, permettendo di dettagliare i componenti del sistema e le loro interazioni. Contestualmente, lo sviluppo dell'MVP ha fatto un ulteriore passo avanti, affiancato da un continuo rifinimento delle scelte architetturali a fronte delle evidenze emerse durante la codifica. La durata settimanale dello sprint si è confermata adeguata per monitorare costantemente l'avanzamento dei lavori.
+
+=== Rischi incontrati
+
+- *RO-1*: Il mantenimento dello sprint di una sola settimana ha confermato la delicatezza nella stima delle attività, richiedendo un costante monitoraggio per evitare scostamenti significativi rispetto alla pianificazione.
+
+- *RI-1*: Gli impegni personali dovuti  al periodo estivo hanno comportato lievi disomogeneità nella disponibilità oraria di alcuni membri; tuttavia, la flessibilità del gruppo ha permesso di assorbire la situazione senza particolari impatti sulla tabella di marcia.
+
+#pagebreak()
+==== Criticità emerse
+Pur non essendosi verificate criticità bloccanti, la combinazione tra la durata settimanale dello sprint e alcune concomitanze personali legate al periodo estivo ha richiesto un monitoraggio costante nella gestione quotidiana delle attività. È stato infatti necessario un riallineamento frequente per ripartire queste ultime ed evitare rallentamenti nel flusso operativo.
+
+
+=== Consuntivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[3],[-],[-],[-],[-],[3]),
+    ([Edis Hodja],         [-],[-],[-],[6#text(fill: green)[(-1)]],[-],[-],[6]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[-],[6],[6]),
+    ([Giovanni Angelo Marco Bronte],[-],[-],[-],[-],[7#text(fill: red)[(+1)]],[-],[7]),
+    ([Ines Iadadi],        [-],[-],[-],[-],[6],[-],[6]),
+    ([Leonardo Lorenzin],  [4],[-],[-],[-],[-],[-],[4]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*4*],[*3*],[*0*],[*6*],[*13*],[*6*],[*32*]),
+  )),
+    caption: [Consuntivo ore per membro - Sprint 10]
+)
+
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [4], [120€], [14], [420€],
+    [Amministratore], [20], [3], [60€], [10], [200€],
+    [Analista], [25], [0], [0€], [5], [125€],
+    [Progettista], [25], [6], [150€], [58], [1450€],
+    [Programmatore], [15], [13], [195€], [52], [780€],
+    [Verificatore], [15], [6], [90€], [44], [660€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*32*], [*615€*], [*183*], [*3635€*],
+  )
+  ]
+
+
+== Sprint 11
+
+=== Periodo
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/08/08],
+  [*Fine prevista:*], [2026/08/14],
+  [*Fine reale:*],    [2026/08/14],
+)
+#v(0.3em)
+
+=== Attività pianificate
+Dopo aver consolidato le scelte architetturali e avviato lo sviluppo dell'MVP, il gruppo si concentra in questo sprint sulla continua redazione della Specifica Tecnica e sul proseguimento dello sviluppo dell'applicazione web.
+Le attività principali pianificate per questo sprint sono:
+
+- Continuazione della stesura della Specifica Tecnica, con attenzione alla descrizione dei componenti principali e delle loro interazioni.
+- Proseguimento dello sviluppo dell'MVP, con l'implementazione e il consolidamento delle funzionalità principali dell'applicazione.
+- Miglioramento della pagina iniziale e dei documenti visualizzati sul sito, al fine di rendere più chiara e accessibile la presentazione del progetto.
+
+=== Rischi attesi
+
+- *RT-1*: Analogamente allo sprint precedente, l'inesperienza pratica del team con lo stack tecnologico in un contesto di sviluppo reale rimane un rischio tecnico rilevante. 
+
+- *RI-1*: Il periodo estivo comporta il rischio di una disponibilità ridotta o non uniforme tra i membri del gruppo a causa di impegni personali.
+
+=== Preventivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[-],[-],[6],[6]),
+    ([Edis Hodja],         [-],[-],[-],[6],[-],[-],[6]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[6],[-],[-],[6]),
+    ([Giovanni Angelo Marco Bronte],[3],[-],[-],[-],[-],[-],[3]),
+    ([Ines Iadadi],        [-],[-],[-],[-],[7],[-],[7]),
+    ([Leonardo Lorenzin],  [-],[3],[-],[-],[-],[-],[3]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*3*],[*0*],[*12*],[*7*],[*6*],[*31*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 11]
+)
+
+=== Retrospettiva
+Questo sprint ha visto il proseguimento della stesura della Specifica Tecnica, con un approfondimento delle scelte architetturali definite dai progettisti e la loro concreta applicazione nell’MVP. In parallelo, il team ha aggiornato i documenti fondamentali della fase PB del progetto, assicurando coerenza tra la documentazione prodotta e lo stato di avanzamento dell’implementazione.
+
+=== Rischi incontrati
+
+- *RI-1*: Gli impegni personali dovuti  al periodo estivo hanno comportato lievi disomogeneità nella disponibilità oraria di alcuni membri; tuttavia, la flessibilità del gruppo ha permesso di assorbire la situazione senza particolari impatti sulla tabella di marcia.
+
+#pagebreak()
+==== Criticità emerse
+Non sono emerse criticità particolarmente rilevanti; tuttavia, la temporanea assenza di alcuni membri del team ha comportato un lieve ritardo in alcune attività rispetto alla pianificazione. Il gruppo ha comunque gestito il problema ridistribuendo correttamente i compiti tra i membri disponibili, evitando un impatto significativo sullo sprint. Inoltre, l’inesperienza pratica del team con lo stack tecnologico non si è rivelata una criticità rilevante durante questo sprint.
+
+
+
+=== Consuntivo
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[-],[-],[6],[6]),
+    ([Edis Hodja],         [-],[-],[-],[6],[-],[-],[6]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[7#text(fill: red)[(+1)]],[-],[-],[7]),
+    ([Giovanni Angelo Marco Bronte],[3],[-],[-],[-],[-],[-],[3]),
+    ([Ines Iadadi],        [-],[-],[-],[-],[7],[-],[7]),
+    ([Leonardo Lorenzin],  [-],[3],[-],[-],[-],[-],[3]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*3*],[*0*],[*13*],[*7*],[*6*],[*32*]),
+  )),
+    caption: [Consuntivo ore per membro - Sprint 11]
+)
+
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [3], [90€], [11], [330€],
+    [Amministratore], [20], [3], [60€], [7], [140€],
+    [Analista], [25], [0], [0€], [5], [125€],
+    [Progettista], [25], [13], [325€], [45], [1125€],
+    [Programmatore], [15], [7], [105€], [45], [675€],
+    [Verificatore], [15], [6], [90€], [38], [570€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*32*], [*670€*], [*151*], [*2965€*],
+  )
+  ]
+
+
+
+== Sprint 12
+
+=== Periodo
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/08/15],
+  [*Fine prevista:*], [2026/08/21],
+  [*Fine reale:*],    [2026/08/21],
+)
+#v(0.3em)
+
+=== Attività pianificate
+Dopo aver consolidato nello sprint precedente le funzionalità principali dell'applicazione, il gruppo dedica questo sprint al completamento delle parti ancora mancanti dell'MVP e alla loro integrazione, affiancando alle attività di sviluppo una revisione dell'organizzazione del lavoro sulla repository.
+Le attività principali pianificate per questo sprint sono:
+
+- Completamento della gestione dell'esito e del recupero di sessione, in modo da permettere all'utente di riprendere una verifica interrotta senza perdere i dati già inseriti.
+- Completamento dei test di integrazione e rifinitura dell'interfaccia grafica, per garantire il corretto funzionamento congiunto dei moduli sviluppati e migliorare l'esperienza d'uso dell'applicazione.
+- Completamento del back-end e della sua integrazione con l'applicazione, così da disporre di un flusso funzionante end-to-end.
+- Riorganizzazione della gestione dei branch della repository, al fine di evitare sovrapposizioni tra le attività svolte in parallelo dai diversi membri del gruppo.
+
+=== Rischi attesi
+
+- *RT-1*: il completamento del back-end e la sua integrazione con il front-end costituiscono le attività tecnicamente più complesse affrontate finora; l'inesperienza pratica del team con lo stack tecnologico rimane pertanto un rischio rilevante.
+
+- *RO-4*: lo sviluppo in parallelo di più funzionalità su branch distinti aumenta il rischio di sovrapposizioni e disallineamenti tra i membri del gruppo, con possibili conflitti in fase di integrazione del codice.
+
+- *RI-1*: la collocazione dello sprint nella settimana di Ferragosto comporta il rischio di una disponibilità ridotta o non uniforme tra i membri del gruppo a causa di impegni personali.
+
+=== Preventivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [3],[-],[-],[-],[-],[-],[3]),
+    ([Edis Hodja],         [-],[3],[-],[-],[-],[-],[3]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[6],[-],[6]),
+    ([Giovanni Angelo Marco Bronte],[-],[-],[-],[-],[-],[6],[6]),
+    ([Ines Iadadi],        [-],[-],[-],[7],[-],[-],[7]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[-],[7],[-],[7]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*3*],[*0*],[*7*],[*13*],[*6*],[*32*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 12]
+)
+
+=== Retrospettiva
+Lo sprint ha portato l'MVP a un livello di sviluppo avanzato: sono state completate la gestione dell'esito e il recupero di sessione, i test di integrazione e la rifinitura dell'interfaccia grafica, ed è stato ultimato il back-end con la relativa integrazione nell'applicazione. In parallelo il gruppo ha aggiornato tutti i documenti inerenti al progetto, ovvero il Piano di Qualifica, la Specifica Tecnica e il Piano di Progetto, mantenendo la coerenza tra quanto prodotto e lo stato effettivo dell'implementazione. Nel corso dello sprint si è inoltre svolto un incontro di aggiornamento con l'azienda proponente Bluewind S.r.l., nel quale il team ha illustrato lo stato di avanzamento dell'MVP e raccolto le indicazioni della proponente. Infine, è stata rivista l'organizzazione dei branch della repository, così da ridurre le sovrapposizioni tra le attività portate avanti in parallelo.
+
+=== Rischi incontrati
+
+- *RO-4*: la gestione asincrona dei numerosi branch attivi sulla repository si è rivelata più onerosa del previsto, generando sovrapposizioni tra le attività di più membri e rendendo laboriosa l'integrazione dei contributi. Il gruppo ha mitigato il rischio riorganizzando la struttura dei branch e ricorrendo ai canali di comunicazione rapidi per segnalare tempestivamente gli interventi in corso.
+
+- *RO-1*: le ore effettivamente impiegate per il ruolo di Programmatore hanno superato di un'unità quelle preventivate. Lo scostamento è riconducibile al maggior carico richiesto dal completamento del back-end e dalla risoluzione dei conflitti emersi durante l'integrazione dei branch. Il gruppo terrà conto di questa evidenza nella calibrazione delle stime dei prossimi sprint.
+
+- *RI-1*: gli impegni personali legati al periodo estivo hanno comportato lievi disomogeneità nella disponibilità oraria di alcuni membri; tuttavia, la flessibilità del gruppo ha permesso di assorbire la situazione senza particolari impatti sulla tabella di marcia.
+
+#pagebreak()
+==== Criticità emerse
+La criticità principale dello sprint ha riguardato la gestione asincrona dei branch sulla repository: il numero di attività implementative portate avanti in parallelo ha reso difficile mantenere allineate le diverse linee di sviluppo, con conseguenti sovrapposizioni e con la necessità di dedicare tempo aggiuntivo alla risoluzione dei conflitti in fase di integrazione. Il gruppo è intervenuto riorganizzando la gestione dei branch e definendo in modo più netto la corrispondenza tra branch e attività, in modo da prevenire il ripetersi del problema nei prossimi sprint. Proprio il tempo aggiuntivo richiesto da questa attività, unito alla mole di lavoro necessaria per ultimare il back-end, hanno portato a superare di un'ora il preventivo, unico scostamento registrato nello sprint. Il rischio tecnico *RT-1*, individuato in fase di pianificazione, non si è invece concretizzato: l'esperienza maturata negli sprint precedenti ha permesso di completare il back-end e la sua integrazione senza blocchi rilevanti.
+
+=== Consuntivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [3],[-],[-],[-],[-],[-],[3]),
+    ([Edis Hodja],         [-],[3],[-],[-],[-],[-],[3]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[6],[-],[6]),
+    ([Giovanni Angelo Marco Bronte],[-],[-],[-],[-],[-],[6],[6]),
+    ([Ines Iadadi],        [-],[-],[-],[7],[-],[-],[7]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[-],[8#text(fill: red)[(+1)]],[-],[8]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*3*],[*0*],[*7*],[*14*],[*6*],[*33*]),
+  )),
+    caption: [Consuntivo ore per membro - Sprint 12]
+)
+
+#pagebreak()
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [3], [90€], [8], [240€],
+    [Amministratore], [20], [3], [60€], [4], [80€],
+    [Analista], [25], [0], [0€], [5], [125€],
+    [Progettista], [25], [7], [175€], [38], [950€],
+    [Programmatore], [15], [14], [210€], [31], [465€],
+    [Verificatore], [15], [6], [90€], [32], [480€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*33*], [*625€*], [*118*], [*2340€*],
+  )
+  ]
+
+  == Sprint 13
+
+=== Periodo
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/08/22],
+  [*Fine prevista:*], [2026/08/28],
+  [*Fine reale:*],    [2026/08/28],
+)
+#v(0.3em)
+
+=== Attività pianificate
+Proseguendo il lavoro avviato nello sprint precedente, il gruppo concentra questo sprint sul completamento dell'implementazione dei requisiti obbligatori nell'MVP e sull'avanzamento della stesura della Specifica Tecnica.
+Le attività principali pianificate per questo sprint sono:
+
+- Giungere a uno stato avanzato dell'MVP, consolidando le funzionalità sviluppate e le relative integrazioni e implementando la navigazione degli alberi decisionali.
+- Continuare l'aggiornamento della Specifica Tecnica.
+- Iniziare la stesura del Manuale Utente.
+
+=== Rischi attesi
+
+- *RT-1*: la finalizzazione delle funzionalità residue dell'MVP richiede il consolidamento di parti sviluppate in parallelo nei branch, con un rischio di disallineamenti in fase di integrazione.
+
+- *RI-1*: gli impegni personali legati al periodo estivo potrebbero comportare una disponibilità oraria non uniforme tra i membri del gruppo.
+
+=== Preventivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[6],[-],[-],[6]),
+    ([Edis Hodja],         [-],[-],[-],[-],[7],[-],[7]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[7],[-],[7]),
+    ([Giovanni Angelo Marco Bronte],[-],[3],[-],[2],[-],[-],[5]),
+    ([Ines Iadadi],        [3],[-],[-],[2],[-],[-],[5]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[-],[2],[5],[7]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*3*],[*0*],[*10*],[*16*],[*5*],[*37*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 13]
+)
+
+=== Retrospettiva
+Lo sprint ha portato l'MVP a uno stato pressoché completo: sono stati implementati i requisiti obbligatori e gran parte dei requisiti desiderabili, con la sola parte di rifinitura estetica dell'interfaccia ancora da completare. È stata inoltre continuata la stesura della Specifica Tecnica ed è stata avviata la stesura del Manuale Utente, con la redazione della relativa introduzione. In parallelo il gruppo ha proseguito l'aggiornamento dei documenti Piano di Progetto e Piano di Qualifica, mantenendo la coerenza tra la documentazione e lo stato di avanzamento dell'implementazione.
+
+=== Rischi incontrati
+
+- *RI-1*: gli impegni personali legati al periodo estivo hanno comportato lievi disomogeneità nella disponibilità oraria di alcuni membri; la flessibilità del gruppo ha comunque permesso di assorbire la situazione senza impatti significativi sulla tabella di marcia.
+
+#pagebreak()
+==== Criticità emerse
+Non sono emerse criticità particolarmente rilevanti nel corso dello sprint. Il completamento dei requisiti obbligatori ha richiesto un'ora aggiuntiva rispetto al preventivo per il ruolo di Programmatore, così come il ruolo di Verificatore, per garantire una copertura adeguata delle verifiche sulle funzionalità completate. Un'ora aggiuntiva è stata dedicata al ruolo di Progettista per la continuazione della stesura della Specifica Tecnica. Il gruppo non prevede che questi lievi scostamenti abbiano impatti sulla pianificazione dei prossimi sprint.
+
+=== Consuntivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[7#text(fill: red)[(+1)]],[-],[-],[7]),
+    ([Edis Hodja],         [-],[-],[-],[-],[8#text(fill: red)[(+1)]],[-],[8]),
+    ([Filippo Zonta Rocha],[-],[-],[-],[-],[7],[-],[7]),
+    ([Giovanni Angelo Marco Bronte],[-],[3],[-],[2],[-],[-],[5]),
+    ([Ines Iadadi],        [3],[-],[-],[2],[-],[-],[5]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[-],[2],[6#text(fill: red)[(+1)]],[8]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*3*],[*0*],[*11*],[*17*],[*6*],[*40*]),
+  )),
+    caption: [Consuntivo ore per membro - Sprint 13]
+)
+
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [3], [90€], [5], [150€],
+    [Amministratore], [20], [3], [60€], [1], [20€],
+    [Analista], [25], [0], [0€], [5], [125€],
+    [Progettista], [25], [11], [275€], [27], [675€],
+    [Programmatore], [15], [17], [255€], [14], [210€],
+    [Verificatore], [15], [6], [90€], [26], [390€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*40*], [*770€*], [*78*], [*1570€*],
+  )
+  ]
