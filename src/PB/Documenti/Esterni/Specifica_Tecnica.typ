@@ -104,6 +104,7 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
 
+    [0.9.0], [2026/09/01], [Alberto Canavese], [], [Stesura sezione 7: "Requisiti di sistema"],
     [0.9.0], [2026/09/01], [Ines Iadadi], [], [Modifica alla struttura del documento e aggiornamento della sezione 2],
     [0.8.0], [2026/08/28], [Alberto Canavese], [], [Stesura della sezione 4 - Design pattern],
     [0.7.0], [2026/08/22], [Ines Iadadi], [], [Stesura della sezione Backend 3.6],
@@ -1466,7 +1467,26 @@ prodotto, con la motivazione tecnica che ne esclude l'adozione.
 */
 = Tracciamento dei requisiti <tracciamento>
 
+In questa sezione è riportato lo stato di copertura dei requisiti funzionali individuati
+nell'#underline(text(fill: blue)[#link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Esterni/Analisi_dei_Requisiti.pdf")[Analisi dei Requisiti]]),
+rispetto a quanto realizzato nel prodotto descritto dal presente documento. Per ciascun
+requisito sono riportati il codice identificativo, la descrizione e lo stato.
 
+Gli stati impiegati sono due:
+
+- *Soddisfatto*: il requisito è realizzato nel prodotto ed è verificabile attraverso l'uso dell'applicazione.
+
+- *Non soddisfatto*: il requisito non è realizzato nella versione corrente del prodotto.
+
+I codici mantengono la classificazione per priorità adottata in sede di analisi:
+obbligatori (RF-Ob), desiderabili (RF-D) e opzionali (RF-Op). Le sezioni che seguono ne
+riportano lo stato distintamente per ciascuna categoria.
+
+== Requisiti funzionali obbligatori
+
+Costituiscono il nucleo funzionale imprescindibile del prodotto: il loro soddisfacimento è
+condizione necessaria affinché l'applicazione risponda ai bisogni primari espressi dalla
+proponente.
 
 #table(
   columns: (auto, 1fr, auto),
@@ -1649,3 +1669,128 @@ essenziali ai fini della validazione dell'applicazione.
   [RF-Op26], [Il sistema deve permettere l'inserimento di una giustificazione testuale per l'esito della coppia asset-requisito al termine dell'esecuzione del decision tree.], [Non soddisfatto],
 )
 
+*Copertura*: 1 requisito soddisfatto su 26 (3.8%).
+
+Il solo requisito soddisfatto della categoria è `RF-Op22`, download del report in formato
+PDF. Gli altri requisiti opzionali riguardano in prevalenza la modifica strutturale dei
+decision tree, l'esportazione del report negli altri formati e funzionalità accessorie di consultazione. La loro realizzazione è
+subordinata al completamento dei requisiti obbligatori e desiderabili e alla disponibilità
+di tempo residuo, secondo quanto stabilito in sede di pianificazione.
+
+= Requisiti di sistema <requisiti-sistema>
+
+Il prodotto è distribuito come applicazione web locale containerizzata. I requisiti riportati in questa
+sezione si riferiscono pertanto alla macchina che ospita i container e al browser
+impiegato per accedere all'interfaccia; non è previsto alcun server remoto né alcuna
+infrastruttura condivisa.
+
+Si distinguono due scenari con esigenze differenti: la costruzione delle immagini, che
+avviene una sola volta e richiede il collegamento a Internet, e l'esecuzione ordinaria,
+che avviene interamente in locale.
+
+== Requisiti hardware
+
+I valori riportati sono stati rilevati su un'installazione funzionante del prodotto.
+
+#table(
+  columns: (1.4fr, 1fr, 1fr),
+  align: (left, center, center),
+  fill: (x, y) => if y == 0 { blue.lighten(70%) },
+  table.header(
+    [*Risorsa*], [*Rilevato*], [*Consigliato*],
+  ),
+  [Memoria occupata dai container], [42 MiB], [—],
+  [Memoria complessiva della macchina], [—], [4 GB],
+  [Spazio per le immagini], [288 MB], [—],
+  [Spazio complessivo su disco], [—], [2 GB],
+  [Catalogo dei decision tree], [40 KB], [—],
+)
+
+L'occupazione di memoria dei due container è di 22 MiB per il backend e 20 MiB per
+il frontend. Si mantiene stabile durante l'uso. La ragione è che il servizio
+di frontend si limita a servire file statici tramite Nginx, mentre l'applicazione vera e
+propria è eseguita dal browser dell'utente. Il consumo di risorse significativo è pertanto
+quello del browser, non quello dei container, ed è il motivo per cui la memoria complessiva
+consigliata è di 4 GB in modo da essere sufficiente a ospitare il motore di containerizzazione,
+il browser e il sistema operativo.
+
+Le immagini prodotte occupano complessivamente 288 MB, di cui 212 MB per il backend e
+76,1 MB per il frontend. Lo spazio consigliato di 2 GB tiene conto dei livelli temporanei
+generati durante la costruzione delle immagini, in particolare le dipendenze di sviluppo
+del frontend, assenti dall'immagine finale grazie alla costruzione in due fasi e del
+margine necessario alla crescita del catalogo dei decision tree, che l'utente può ampliare
+tramite importazione.
+
+Il catalogo dei decision tree occupa allo stato attuale 40 KB, essendo costituito da
+documenti JSON di dimensioni ridotte. La sua crescita è lineare nel numero di alberi
+importati e non pone vincoli di rilievo.
+
+Nessun limite di risorse è dichiarato nel file di orchestrazione: i container utilizzano
+quanto reso disponibile dal motore di containerizzazione.
+
+== Requisiti software
+
+#table(
+  columns: (1.2fr, 1fr, 2fr),
+  align: (left, left, left),
+  fill: (x, y) => if y == 0 { blue.lighten(70%) },
+  table.header(
+    [*Componente*], [*Versione*], [*Note*],
+  ),
+
+  [Sistema operativo], [—],
+  [Qualsiasi sistema in grado di eseguire Docker: distribuzioni Linux, macOS, Windows.],
+
+  [Docker Engine], [20.10 o successiva],
+  [Necessario per la costruzione e l'esecuzione dei container. Su macOS e Windows è
+  fornito da Docker Desktop.],
+
+  [Docker Compose], [v2],
+  [Impiegato per l'orchestrazione dei due servizi tramite il file `docker-compose.yml`.],
+
+  [Browser web], [—],
+  [Necessario per accedere all'interfaccia. I browser supportati sono indicati di seguito.],
+)
+
+Sulla macchina ospite non è richiesta l'installazione né di Python né di Node.js: entrambi
+gli ambienti di esecuzione sono contenuti nelle rispettive immagini. Il backend è costruito
+a partire da `python:3.12-slim`, il frontend è compilato con `node:22-alpine` e distribuito
+su `nginx:1.27-alpine`; l'ambiente di compilazione non è presente nell'immagine finale.
+
+Il requisito di vincolo RV-Ob02 stabilisce la compatibilità con le ultime due versioni
+principali di Google Chrome, Mozilla Firefox, Apple Safari e Microsoft Edge. Il prodotto è
+realizzato con tecnologie web standard e non impiega funzionalità sperimentali o specifiche
+di un singolo motore di rendering.
+
+== Requisiti di rete
+
+L'esecuzione del prodotto non richiede alcun collegamento a Internet. Client e server comunicano sulla rete privata creata da Docker Compose, e l'interfaccia è raggiungibile
+dall'ospite all'indirizzo `http://localhost:8080`.
+
+Le porte seguenti devono essere disponibili sulla macchina ospite:
+
+#table(
+  columns: (auto, auto, 1fr),
+  align: (center, center, left),
+  fill: (x, y) => if y == 0 { blue.lighten(70%) },
+  table.header(
+    [*Porta*], [*Servizio*], [*Utilizzo*],
+  ),
+  [8080], [frontend],
+  [Accesso all'interfaccia utente. Corrisponde alla porta 80 del container, sulla quale è
+  in ascolto Nginx.],
+  [5000], [backend],
+  [Accesso diretto all'API REST. Non necessaria all'uso ordinario, poiché le richieste
+  dell'interfaccia sono inoltrate al backend da Nginx sulla rete privata; è esposta per
+  finalità di collaudo e diagnosi.],
+)
+
+Il collegamento a Internet è necessario unicamente in fase di *costruzione* delle immagini,
+per il recupero delle immagini base e delle dipendenze applicative dai rispettivi registri.
+Una volta costruite, le immagini possono essere eseguite su una macchina isolata dalla rete
+esterna.
+
+L'assenza di dipendenze da servizi remoti è coerente con la natura del prodotto: i dati
+dell'utente non transitano né permangono su alcun archivio esterno, e lo scambio di
+dispositivi, sessioni e decision tree fra installazioni avviene mediante esportazione e
+importazione di file.
