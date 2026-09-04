@@ -104,6 +104,7 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
 
+    [0.9.0], [2026/09/01], [Alberto Canavese], [], [Stesura sezione 7: "Requisiti di sistema"],
     [0.9.0], [2026/09/01], [Ines Iadadi], [], [Modifica alla struttura del documento e aggiornamento della sezione 2],
     [0.8.0], [2026/08/28], [Alberto Canavese], [], [Stesura della sezione 4 - Design pattern],
     [0.7.0], [2026/08/22], [Ines Iadadi], [], [Stesura della sezione Backend 3.6],
