@@ -270,6 +270,36 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
+    table.header(table.cell(colspan: 2, fill:luma(230), align: center)[*Specifica Tecnica*]),
+    [*Redattore*], [Progettisti],
+    [*Tipo di documento*], [Esterno],
+    [*Scopo*], [Documento essenziale per la pianificazione e la realizzazione del software, che descrive l'architettura del sistema, i componenti principali e le loro interazioni.],
+  ),
+  caption: [Descrizione del documento "Specifica Tecnica"],
+  supplement: [Tabella],
+  numbering: "1",
+)
+
+#figure(
+  table(
+    columns: (auto, 1fr),
+    align: (left, left),
+    stroke: 0.5pt,
+    table.header(table.cell(colspan: 2, fill:luma(230), align: center)[*Manuale Utente*]),
+    [*Redattore*], [Programmatori],
+    [*Tipo di documento*], [Esterno],
+    [*Scopo*], [Il manuale utente è importante per garantire che gli utenti finali la comprensione del flusso dell'applicazione e delle funzionalità disponibili, fornendo istruzioni chiare e dettagliate per l'utilizzo del software.],
+  ),
+  caption: [Descrizione del documento "Manuale Utente"],
+  supplement: [Tabella],
+  numbering: "1",
+)
+
+#figure(
+  table(
+    columns: (auto, 1fr),
+    align: (left, left),
+    stroke: 0.5pt,
     table.header(table.cell(colspan: 2, fill:luma(230), align: center)[*Lettera di candidatura*]),
     [*Redattore*], [Responsabile],
     [*Tipo di documento*], [Esterno],
