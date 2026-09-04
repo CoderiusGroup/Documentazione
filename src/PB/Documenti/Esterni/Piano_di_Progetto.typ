@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.8.1*]
+  #text(size: 20pt)[*Versione 1.9.0*]
 ]
 #pagebreak()
 
@@ -100,6 +100,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.9.0], [2026/09/04], [Giovanni Bronte], [], 
+    [Aggiunta delle sezioni Sprint 14: dalla 4.15.1 alla 4.15.8],
     [1.8.1], [2026/08/28], [Ines Iadadi], [Leonardo Lorenzin], 
     [Aggiunta delle sezioni Sprint 13: dalla 4.14.5 alla 4.14.8],
     [1.8.0], [2026/08/21], [Ines Iadadi], [Leonardo Lorenzin], [Aggiunta delle sezioni Sprint 13: dalla 4.14.1 alla 4.14.4],
@@ -1647,5 +1649,98 @@ Non sono emerse criticità particolarmente rilevanti nel corso dello sprint. Il 
     [Programmatore], [15], [17], [255€], [14], [210€],
     [Verificatore], [15], [6], [90€], [26], [390€],
     table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*40*], [*770€*], [*78*], [*1570€*],
+  )
+  ]
+
+
+== Sprint 14
+
+=== Periodo
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/08/29],
+  [*Fine prevista:*], [2026/09/05],
+  [*Fine reale:*],    [2026/09/05],
+)
+#v(0.3em)
+
+=== Attività pianificate
+
+Lo Sprint 14 è stato dedicato al completamento dell'MVP e della documentazione prevista per la milestone PB, in vista della presentazione finale all'azienda proponente.
+Le attività pianificate sono state:
+
+- Completamento dell'MVP, incluse le rifiniture grafiche dell'interfaccia;
+- Completamento del Manuale Utente;
+- Aggiornamento del Piano di Progetto e del Piano di Qualifica;
+- Aggiornamento del Glossario;
+- Aggiornamento delle Norme di Progetto e dell'Analisi dei Requisiti alla luce delle ultime modifiche apportate al prodotto;
+=== Rischi attesi
+
+- *RO-4*: La quantità di attività ancora da completare e la necessità di coordinare sviluppo, aggiornamento documentale e verifiche  potrebbero causare ritardi nel caso in cui il team non riuscisse a organizzare efficacemente il lavoro.
+
+
+=== Preventivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[3],[5],[-],[8]),
+    ([Edis Hodja],         [-],[-],[-],[-],[-],[7],[7]),
+    ([Filippo Zonta Rocha],[-],[2],[3],[-],[-],[-],[5]),
+    ([Giovanni Angelo Marco Bronte],[3],[-],[-],[-],[-],[5],[8]),
+    ([Ines Iadadi],        [-],[-],[-],[5],[-],[-],[5]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[-],[4],[-],[4]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*2*],[*3*],[*8*],[*9*],[*12*],[*37*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 14]
+)
+
+=== Retrospettiva
+
+Nel corso dello sprint il team ha completato l'MVP, incluse le rifiniture grafiche dell'interfaccia, e lo ha presentato all'azienda proponente, ricevendo un riscontro positivo.
+Sono stati inoltre completati e aggiornati i documenti fondamentali della fase PB, tra cui il Piano di Progetto, il Piano di Qualifica, il Glossario, le Norme di Progetto e l'Analisi dei Requisiti.
+Nel corso dello sprint è stata inoltre rivista la distribuzione delle ore residue tra i ruoli: due ore sono state trasferite rispettivamente dal ruolo di Progettista e da quello di Verificatore al ruolo di Amministratore, in considerazione delle attività ancora necessarie per il completamento della documentazione.
+Il rischio *RO-4* non si è concretizzato, poiché il team è riuscito a coordinare efficacemente le attività e a rispettare gli obiettivi dello sprint. Si è invece verificato il rischio *RO-1*, dovuto a una stima iniziale non sufficiente per alcune attività di sviluppo.
+
+=== Rischi incontrati
+- *RO-1*: Le attività di completamento dell'MVP, in particolare le rifiniture grafiche e la stesura del Manuale Utente, hanno richiesto più ore di quelle inizialmente preventivate per il ruolo di Programmatore. Il gruppo ha gestito lo scostamento utilizzando parte delle ore residue disponibili e riorganizzando la distribuzione delle risorse.
+
+#pagebreak()
+==== Criticità emerse
+La principale criticità dello sprint ha riguardato la stima delle attività assegnate al ruolo di Programmatore. Il completamento delle rifiniture grafiche dell'MVP e la stesura del Manuale Utente hanno richiesto un impegno superiore rispetto a quanto previsto.
+Lo scostamento è stato comunque contenuto e non ha avuto conseguenze sulla consegna, grazie alla disponibilità di ore residue e alla riorganizzazione tempestiva delle attività. Non sono emerse ulteriori criticità rilevanti.
+
+=== Consuntivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[3],[6#text(fill: red)[(+1)]],[-],[9]),
+    ([Edis Hodja],         [-],[-],[-],[-],[-],[7],[7]),
+    ([Filippo Zonta Rocha],[-],[2],[3],[-],[-],[-],[5]),
+    ([Giovanni Angelo Marco Bronte],[3],[-],[-],[-],[-],[5],[8]),
+    ([Ines Iadadi],        [-],[-],[-],[5],[-],[-],[5]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[-],[5#text(fill: red)[(+1)]],[-],[5]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*3*],[*2*],[*3*],[*8*],[*11*],[*12*],[*39*]),
+  )),
+    caption: [Consuntivo ore per membro - Sprint 14]
+)
+
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [3], [90€], [2], [60€],
+    [Amministratore], [20], [2], [40€], [3], [60€],
+    [Analista], [25], [3], [75€], [2], [50€],
+    [Progettista], [25], [8], [200€], [17], [475€],
+    [Programmatore], [15], [11], [255€], [3], [45€],
+    [Verificatore], [15], [12], [180€], [12], [210€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*39*], [*840€*], [*39*], [*900€*],
   )
   ]
