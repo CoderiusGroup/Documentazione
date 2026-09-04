@@ -80,7 +80,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-    #text(size: 20pt)[*Versione 1.0.7*]
+    #text(size: 20pt)[*Versione 1.0.8*]
 ]
 #pagebreak()
 
@@ -99,6 +99,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.0.8], [2026/09/04], [Filippo Zonta Rocha], [], [Aggiornamento metriche di qualità \ Aggiunti test],
     [1.0.7], [2026/08/31], [Giovanni Bronte], [Leonardo Lorenzin], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 13],
     [1.0.6], [2026/08/21], [Edis Hodja], [Giovanni Bronte], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 12],
     [1.0.5], [2026/08/14], [Leonardo Lorenzin], [Alberto Canavese], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 11],
@@ -552,7 +553,7 @@ I test di sistema verificano il comportamento complessivo del sistema rispetto a
 La seguente tabella riporta il tracciamento bidirezionale completo: ogni test di sistema è associato al requisito funzionale che verifica e, attraverso di esso, al caso d'uso dell'Analisi dei Requisiti da cui il requisito deriva. La corrispondenza uno-a-uno tra test e requisiti garantisce la copertura totale dei requisiti funzionali (77 obbligatori, 23 desiderabili, 23 opzionali).
 
 #let tracc-table(..rows) = table(
-  columns: (1.6cm, 2.6cm, 1fr),
+  columns: (1.6cm, 2.6cm, 1fr,),
   align: (center, center, left),
   stroke: (x, y) => (
     bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
@@ -716,18 +717,75 @@ I test di accettazione validano il prodotto finale rispetto ai requisiti concord
   [TA-10], [Verificare che l'utente possa esportare un decision tree nel formato previsto.],                                                                                                                [RF-Ob74], [NI],
 )
 
-/*== Test di Unità
+== Test di Unità
 
-I test di unità verificano il comportamento delle singole unità di codice (funzioni, metodi) in isolamento. Saranno definiti e implementati durante le attività della Product Baseline (PB).
+I test di unità verificano il comportamento delle singole unità di codice (funzioni pure, azioni degli store, schemi di validazione, servizi e regole di dominio del backend) in isolamento, senza dipendenze da rete o interfaccia grafica. Sono implementati con Vitest nel frontend e con Pytest nel backend, ed eseguiti automaticamente in integrazione continua a ogni push e pull request. La colonna "Requisito" riporta i requisiti funzionali coperti da ciascuna unità; alcune unità di natura puramente architetturale (la route guard RequireSession, il client HTTP FetchApiClient) non tracciano un requisito funzionale diretto e riportano invece il pattern architetturale che realizzano — Proxy e Adapter — documentato nella Specifica Tecnica.
 
-== Test di Integrazione
+#test-table(
+  [Test di Unità],
+  [TU-01], [Verificare che la costruzione del piano di valutazione generi una coppia (asset, requisito) per ciascun requisito degli asset del dispositivo.], [RF-Ob45], [S],
+  [TU-02], [Verificare che lo schema di validazione del dispositivo accetti dati identificativi corretti e rifiuti quelli non conformi.], [RF-Ob09, RF-Ob13], [S],
+  [TU-03], [Verificare che lo schema di validazione dell'asset accetti tipo e sensibilità ammessi e rifiuti valori non validi.], [RF-Ob28, RF-Ob30], [S],
+  [TU-04], [Verificare la validazione dei dati dell'asset forniti in fase di creazione.], [RF-Ob13, RF-Ob26], [S],
+  [TU-05], [Verificare il calcolo dello stato di valutazione di requisito, asset e dispositivo, con la priorità che fa prevalere FAIL e "in corso" sugli esiti positivi.], [RF-Ob18, RF-Ob35, RF-Ob41, RF-Ob43], [S],
+  [TU-06], [Verificare il calcolo del progresso della sessione (asset completati sul totale e requisiti completati per l'asset corrente).], [RF-Ob46], [S],
+  [TU-07], [Verificare il riconoscimento della compatibilità tra una sessione e il piano del dispositivo, cioè la coincidenza delle coppie asset-requisito.], [RF-Ob45], [S],
+  [TU-08], [Verificare il calcolo delle dipendenze transitive di un requisito e la riapertura a cascata dei requisiti dipendenti sullo stesso asset.], [RF-Ob47, RF-Ob52], [S],
+  [TU-09], [Verificare la navigazione dell'albero: risoluzione del nodo corrente dal percorso, riconoscimento della foglia con il relativo esito e ricostruzione della sequenza di domande e risposte.], [RF-Ob53, RF-Ob55, RF-Ob60, RF-Ob65], [S],
+  [TU-10], [Verificare la disposizione dei nodi dell'albero in colonne e livelli per il disegno del grafo.], [RF-Ob58, RF-Ob72], [S],
+  [TU-11], [Verificare che il servizio dei decision tree carichi il singolo albero, ne fornisca l'elenco e ne gestisca esportazione e importazione.], [RF-Ob53, RF-Ob66, RF-Ob77, RF-D20], [S],
+  [TU-12], [Verificare la produzione del file di sessione e la sua rilettura validata in fase di ripresa.], [RF-Ob61, RF-Ob62, RF-Ob71], [S],
+  [TU-13], [Verificare la serializzazione e la lettura del dispositivo in formato JSON.], [RF-Ob04, RF-Ob20], [S],
+  [TU-14], [Verificare la serializzazione e la lettura del dispositivo in formato CSV, inclusa la rappresentazione degli asset.], [RF-Ob05, RF-Ob21], [S],
+  [TU-15], [Verificare la selezione del formato di file in base all'estensione fornita dall'utente.], [RF-Ob03], [S],
+  [TU-16], [Verificare la composizione dei dati del report, con esito e percorso logico per ogni coppia asset-requisito valutata.], [RF-Ob64, RF-Ob65, RF-Ob80], [S],
+  [TU-17], [Verificare le azioni dello store del dispositivo: aggiunta, modifica e rimozione di un asset e modifica dei dati del dispositivo.], [RF-Ob25, RF-Ob44, RF-D11, RF-D15], [S],
+  [TU-18], [Verificare le azioni della sessione: avvio, selezione della coppia, registrazione dell'esito, completamento e ripresa.], [RF-Ob45, RF-Ob47, RF-Ob55], [S],
+  [TU-19], [Verificare le azioni dell'albero: caricamento, idratazione dallo stato salvato e registrazione della risposta.], [RF-Ob55], [S],
+  [TU-20], [Verificare la navigazione al nodo precedente e a quello successivo mantenendo le risposte già fornite.], [RF-D07, RF-D09], [S],
+  [TU-21], [Verificare la modifica di una risposta a un nodo già risposto con l'invalidazione delle risposte successive.], [RF-D10], [S],
+  [TU-22], [Verificare che la trasformazione del layout in grafo produca nodi con testo ed esito, archi con etichetta Sì/No, l'evidenziazione del nodo corrente e del percorso e la modalità di sola lettura.], [RF-Ob58, RF-Ob59, RF-Ob72, RF-Ob73, RF-Ob74, RF-Ob75], [S],
+  [TU-23], [Verificare che la guardia di accesso consenta il rendering delle pagine di sessione solo in presenza di una sessione attiva, reindirizzando altrimenti alla pagina iniziale.], [Proxy], [S],
+  [TU-24], [Verificare che il client HTTP componga la richiesta e traduca sia i fallimenti di rete sia le risposte di errore in un errore applicativo tipizzato.], [Adapter], [S],
+  [TU-25], [Verificare che la validazione strutturale di un decision tree accetti alberi ben formati e rifiuti id duplicati, radice mancante, riferimenti pendenti, cicli e nodi irraggiungibili.], [RF-Ob53, RF-D20], [S],
+  [TU-26], [Verificare che il servizio asset validi i campi dell'asset, generi l'id quando assente e derivi i requisiti applicabili dal tipo.], [RF-Ob26, RF-Ob28, RF-Ob42], [S],
+  [TU-27], [Verificare la serializzazione e il parsing di un decision tree in formato JSON e CSV, con rifiuto dei contenuti malformati.], [RF-Ob77, RF-Ob78, RF-Ob79, RF-D20], [S],
+  [TU-28], [Verificare le regole di navigazione dell'albero lato server: recupero di un nodo, avanzamento sul ramo affermativo e negativo ed esito del nodo foglia.], [RF-Ob53, RF-Ob55, RF-Ob60], [S],
+  [TU-29], [Verificare che il repository dei decision tree recuperi un albero, ne elenchi gli identificativi e gestisca scrittura ed eliminazione dei file.], [RF-Ob53, RF-Ob66], [S],
+  [TU-30], [Verificare che gli alberi seed si normalizzino senza errori, abbiano la radice e almeno una foglia PASS e una FAIL, e che i rami puntino a nodi esistenti.], [RF-Ob53], [S],
+  [TU-31], [Verificare che il servizio dei decision tree normalizzi l'albero recuperato dal repository e segnali l'assenza del dato richiesto.], [RF-Ob53], [S],
+)
 
-I test di integrazione verificano la corretta interazione tra i componenti del sistema (frontend, backend, persistenza dei dati). Saranno definiti e implementati durante le attività della Product Baseline (PB).
+== Test di Integrità
+
+I test di integrità verificano la corretta interazione tra più componenti del sistema. Nel frontend esercitano l'intera pagina insieme ai propri hook, store e service, simulando le sole chiamate di rete; nel backend verificano gli endpoint REST end-to-end tramite il test client di Flask, dalla route al service fino al repository. Sono eseguiti automaticamente in integrazione continua a ogni push e pull request. La colonna "Requisito" riporta i requisiti funzionali coperti da ciascuno scenario; l'endpoint di health check, di natura infrastrutturale, riporta "Infrastruttura".
+
+#test-table(
+  [Test di Integrità],
+  [TI-01], [Verificare, a partire dalla home, la navigazione alla creazione del dispositivo, l'importazione da file JSON e CSV con conservazione degli asset e la ripresa di una sessione salvata da file.], [RF-Ob02, RF-Ob04, RF-Ob05, RF-Ob62], [S],
+  [TI-02], [Verificare la creazione del dispositivo dal form con validazione dei campi obbligatori, la precompilazione in modalità modifica e l'annullamento senza salvataggio.], [RF-Ob08, RF-Ob13, RF-D11, RF-D02], [S],
+  [TI-03], [Verificare l'elenco degli asset con nome, tipo e stato di valutazione, il dettaglio espandibile con i requisiti e l'aggiunta, la modifica e l'eliminazione di un asset.], [RF-Ob31, RF-Ob35, RF-Ob43, RF-Ob44], [S],
+  [TI-04], [Verificare la creazione di un asset con derivazione dei requisiti dal backend, la modifica in locale al variare del tipo e l'annullamento senza persistere.], [RF-Ob25, RF-D15, RF-D05], [S],
+  [TI-05], [Verificare lo stato aggregato del dispositivo, l'esportazione in JSON e CSV e l'eliminazione con e senza backup, inclusi gli annullamenti in fase di conferma.], [RF-Ob18, RF-Ob20, RF-Ob21, RF-Ob22, RF-Ob24, RF-D03], [S],
+  [TI-06], [Verificare il flusso guidato di valutazione dalla dashboard all'esito con ritorno alla vista asset, la visualizzazione delle dipendenze, la ripresa di una sessione interrotta e l'uscita anticipata.], [RF-Ob45, RF-Ob46, RF-Ob52, RF-Ob62, RF-Ob69], [S],
+  [TI-07], [Verificare la consultazione dei risultati con drill-down da asset a requisito e percorso logico, e l'esportazione del report in PDF con la gestione dell'errore.], [RF-Ob63, RF-Ob64, RF-Ob70, RF-Ob80], [S],
+  [TI-08], [Verificare l'elenco dei requisiti per ciascun asset e la rivalutazione di un requisito completato con l'invalidazione a cascata dei requisiti che ne dipendono.], [RF-Ob49, RF-Ob52], [S],
+  [TI-09], [Verificare l'elenco e il dettaglio dei decision tree con il grafo, l'esportazione in JSON e CSV, l'importazione da JSON e CSV e l'eliminazione con conferma.], [RF-Ob66, RF-Ob68, RF-Ob72, RF-Ob77, RF-D20], [S],
+  [TI-10], [Verificare l'instradamento tra le pagine e il ripristino del DeviceStore alla ripresa di una sessione salvata.], [RF-Ob62], [S],
+  [TI-11], [Verificare l'endpoint POST /devices: generazione dell'id quando assente, rispetto dell'id fornito e validazione dei metadati obbligatori.], [RF-Ob08, RF-Ob13], [S],
+  [TI-12], [Verificare l'endpoint POST /assets: derivazione dei requisiti applicabili dal tipo, generazione dell'id e validazione dei campi.], [RF-Ob25, RF-Ob28, RF-Ob42], [S],
+  [TI-13], [Verificare gli endpoint dei decision tree: lettura del singolo albero, elenco, esportazione JSON/CSV, importazione JSON/CSV con validazione strutturale ed eliminazione.], [RF-Ob53, RF-Ob66, RF-Ob77, RF-D20], [S],
+  [TI-14], [Verificare che l'endpoint di health check risponda correttamente.], [Infrastruttura], [S],
+)
 
 == Test di Regressione
 
-I test di regressione accertano che le modifiche apportate al codice durante lo sviluppo non introducano regressioni nelle funzionalità già verificate. Saranno definiti e implementati durante le attività della Product Baseline (PB).
-*/
+I test di regressione accertano che le modifiche apportate al codice durante lo sviluppo non introducano regressioni nelle funzionalità già verificate. Non costituiscono un insieme di casi distinto: la suite di regressione coincide con l'intera batteria di test di unità (sezione 3.4) e di integrazione (sezione 3.5), rieseguita per intero a ogni cambiamento.
+
+L'esecuzione è automatizzata in integrazione continua: i workflow di frontend e di backend, attivati a ogni push e ad ogni pull request, eseguono l'analisi statica (lint e controllo di tipi e formattazione), l'intera suite di test con la misura della copertura e la build del prodotto. Una modifica viene integrata soltanto se tutti i test continuano a superare con esito positivo, così che ogni regressione sia intercettata prima dell'inclusione nel ramo principale.
+
+L'esito complessivo della regressione è monitorato dalle metriche di prodotto Test Pass Rate (MPC-11) e Code Coverage (MPC-12), definite nella sezione 2 e aggiornate a ogni sprint nel cruscotto di valutazione.
+
 = Cruscotto di valutazione
 
 La presente sezione costituisce il quadro di monitoraggio quantitativo del progetto e viene aggiornata iterativamente al termine di ogni sprint, registrando l'evoluzione delle metriche di qualità definite nella sezione 2 con il progredire delle attività. I dati economici e orari sono ricavati dal documento #link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Esterni/Piano_di_Progetto.pdf")[*Piano di Progetto*] ; il Budget at Completion (BAC) del progetto è pari a *€ 10.680* per *522 ore* totali.
@@ -921,8 +979,8 @@ L'analisi relativa agli errori ortografici evidenzia che il team ha curato con a
 
 Queste metriche, non applicabili nelle fasi inziali del progetto, vengono misurate a partire dallo Sprint 9 contestualmente all'avvio dello sviluppo del Minimum Viable Product (MVP). Poiché l'architettura è suddivisa in due componenti principali, le metriche vengono tracciate separatamente per il Frontend (React) e il Backend (Python).
 
-- **Test Pass Rate (MPC-11):** calcolato come rapporto percentuale tra i test (unitari e di integrazione) eseguiti con successo e il totale dei test lanciati.
-- **Code Coverage (MPC-12):** percentuale delle istruzioni del codice sorgente eseguite durante i test, misurata tramite i report di `Vitest` (Frontend) e `pytest-cov` (Backend).
+- *Test Pass Rate (MPC-11):* calcolato come rapporto percentuale tra i test (unitari e di integrazione) eseguiti con successo e il totale dei test lanciati.
+- *Code Coverage (MPC-12):* percentuale delle istruzioni del codice sorgente eseguite durante i test, misurata tramite i report di `Vitest` (Frontend) e `pytest-cov` (Backend).
 
 #cruscotto-table(
   [Andamento di Test Pass Rate per sprint],
@@ -936,7 +994,7 @@ Queste metriche, non applicabili nelle fasi inziali del progetto, vengono misura
 
 I dati evidenziano un'estrema solidità del codice prodotto. 
 
-Fin dall'inizio dell'implementazione, il **Test Pass Rate** aggregato (MPC-11) si è mantenuto costantemente al 100% in entrambi i moduli, superando ampiamente la soglia di accettabilità e raggiungendo sempre il valore ottimo. Il numero di test è cresciuto costantemente, arrivando nello Sprint 13 a ben 218 test complessivi (133 sul frontend e 85 sul backend), tutti superati con successo.
+Fin dall'inizio dell'implementazione, il *Test Pass Rate* aggregato (MPC-11) si è mantenuto costantemente al 100% in entrambi i moduli, superando ampiamente la soglia di accettabilità e raggiungendo sempre il valore ottimo. Il numero di test è cresciuto costantemente, arrivando nello Sprint 13 a ben 218 test complessivi (133 sul frontend e 85 sul backend), tutti superati con successo.
 
 #cruscotto-table(
   [Andamento di Code Coverage per sprint],
@@ -948,7 +1006,7 @@ Fin dall'inizio dell'implementazione, il **Test Pass Rate** aggregato (MPC-11) s
   [13], [89,0%], [98,0%], [93,5%], [$>= 70%$ ✓],
 )
 
-Anche la **Code Coverage** (MPC-12) testimonia l'efficacia delle pratiche di testing adottate dal team. Dopo il 100% registrato nello Sprint 9 (dovuto alla scarsità di codice all'avvio), il valore si è stabilizzato. Nel backend la copertura è rimasta altissima, toccando il 98% nello Sprint 13. Nel frontend, l'aggiunta di componenti UI complessi e logiche di interazione tra lo Sprint 11 e 12 ha abbassato la copertura all'85,4%. 
+Anche la *Code Coverage* (MPC-12) testimonia l'efficacia delle pratiche di testing adottate dal team. Dopo il 100% registrato nello Sprint 9 (dovuto alla scarsità di codice all'avvio), il valore si è stabilizzato. Nel backend la copertura è rimasta altissima, toccando il 98% nello Sprint 13. Nel frontend, l'aggiunta di componenti UI complessi e logiche di interazione tra lo Sprint 11 e 12 ha abbassato la copertura all'85,4%. 
 
 Tuttavia, la media aggregata dell'MVP nello Sprint 13 si attesta al 93,5%, un risultato ottimale che si colloca ampiamente al di sopra del livello accettabile e supera la soglia del valore ottimo ($>= 90%$), garantendo che la stragrande maggioranza del codice sviluppato venga effettivamente validata durante l'esecuzione delle pipeline di CI/CD.
 
@@ -1022,36 +1080,178 @@ Le metriche di prodotto definite nella sezione 2 non sono misurabili in questa f
 
 #figure(
   table(
-    columns: (2cm, 1fr, 4cm),
-    align: (center, left, center),
+    columns: (2cm, 1fr, 4cm, 4cm),
+    align: (center, left, center, center),
     stroke: (x, y) => (
       bottom: if y == 0 { 1pt } else { 0.4pt + luma(150) },
       left: 0.4pt + luma(150),
-      right: if x == 2 { 0.4pt + luma(150) } else { none },
+      right: if x == 3 { 0.4pt + luma(150) } else { none },
       top: if y == 0 { 0.4pt + luma(150) } else { none },
     ),
     inset: 8pt,
     fill: (x, y) => if y == 0 { luma(230) } else if calc.rem(y, 2) == 0 { luma(248) } else { none },
-    [*Codice*], [*Metrica*], [*Stato RTB*],
-    [MPD-01], [Requisiti obbligatori soddisfatti],  [Non disponibile],
-    [MPD-02], [Requisiti desiderabili soddisfatti],  [Non disponibile],
-    [MPD-03], [Requisiti opzionali soddisfatti],     [Non disponibile],
-    [MPD-04], [Failure Density],                     [Non disponibile],
-    [MPD-05], [Statement Coverage],                  [Non disponibile],
-    [MPD-06], [Branch Coverage],                     [Non disponibile],
-    [MPD-07], [Error Rate],                          [Non disponibile],
-    [MPD-08], [Time to Complete Task],               [Non disponibile],
-    [MPD-09], [Response Time],                       [Non disponibile],
-    [MPD-10], [Coefficient of Coupling],             [Non disponibile],
-    [MPD-11], [Cyclomatic Complexity],               [Non disponibile],
-    [MPD-12], [Instability Index],                   [Non disponibile],
-    [MPD-13], [Code Smell],                          [Non disponibile],
+    [*Codice*], [*Metrica*], [*Stato RTB*], [*Stato PB*],
+    [MPD-01], [Requisiti obbligatori soddisfatti],   [Non Disponibile], [Disponibile],
+    [MPD-02], [Requisiti desiderabili soddisfatti],  [Non Disponibile], [Disponibile],
+    [MPD-03], [Requisiti opzionali soddisfatti],     [Non Disponibile], [Disponibile],
+    [MPD-04], [Failure Density],                     [Non Disponibile], [Non Disponibile],
+    [MPD-05], [Statement Coverage],                  [Non Disponibile], [Disponibile],
+    [MPD-06], [Branch Coverage],                     [Non Disponibile], [Disponibile],
+    [MPD-07], [Error Rate],                          [Non Disponibile], [Non Disponibile],
+    [MPD-08], [Time to Complete Task],               [Non Disponibile], [Non Disponibile],
+    [MPD-09], [Response Time],                       [Non Disponibile], [Non Disponibile],
+    [MPD-10], [Coefficient of Coupling],             [Non Disponibile], [Non Disponibile],
+    [MPD-11], [Cyclomatic Complexity],               [Non Disponibile], [Disponibile],
+    [MPD-12], [Instability Index],                   [Non Disponibile], [Non Disponibile],
+    [MPD-13], [Code Smell],                          [Non Disponibile], [Disponibile],
   ),
-  caption: [Stato delle metriche di prodotto in fase RTB],
+  caption: [Stato delle metriche di prodotto in fase RTB e PB],
   supplement: [Tabella],
 )
 
-Tutte le misurazioni relative a funzionalità, affidabilità, usabilità, efficienza e manutenibilità del prodotto saranno rilevate a partire dalla Product Baseline, contestualmente all'avvio delle attività di sviluppo e all'implementazione del Proof of Concept.
+=== MPD-01 — Soddisfacimento dei requisiti obbligatori
+
+La metrica misura la percentuale di requisiti obbligatori implementati e correttamente soddisfatti rispetto al totale dei requisiti obbligatori definiti nell'Analisi dei Requisiti. Rappresenta il livello minimo di conformità del prodotto e costituisce il primo criterio di completezza funzionale.
+
+MPD-01 = (Requisiti Obbligatori Soddisfatti / Requisiti Obbligatori Totali) × 100. Misura la percentuale di requisiti obbligatori implementati correttamente rispetto al totale definito.
+
+#cruscotto-table(
+  [Dati iniziali per MPD-01],
+  ("Sprint", "Requisiti obbligatori soddisfatti", "Totale requisiti obbligatori", "Percentuale", "Stato"),
+  [PB], [—], [—], [—], [Da aggiornare],
+)
+
+#figure(
+  image("../../../images/cruscotto/placeholder.png", width: 90%),
+  caption: [Soddisfacimento dei requisiti obbligatori],
+  supplement: [Figura],
+)
+
+=== MPD-02 — Soddisfacimento dei requisiti desiderabili
+
+La metrica valuta il livello di copertura dei requisiti desiderabili, ossia quelle funzionalità aggiuntive che aumentano la qualità e la completezza del prodotto ma non sono indispensabili per la sua corretta esecuzione.
+
+MPD-02 = (Requisiti Desiderabili Soddisfatti / Requisiti Desiderabili Totali) × 100. Misura la percentuale di requisiti desiderabili implementati rispetto al totale definito.
+
+#cruscotto-table(
+  [Dati iniziali per MPD-02],
+  ("Sprint", "Requisiti desiderabili soddisfatti", "Totale requisiti desiderabili", "Percentuale", "Stato"),
+  [PB], [—], [—], [—], [Da aggiornare],
+)
+
+#figure(
+  image("../../../images/cruscotto/placeholder.png", width: 90%),
+  caption: [Soddisfacimento dei requisiti desiderabili],
+  supplement: [Figura],
+)
+
+=== MPD-03 — Soddisfacimento dei requisiti opzionali
+
+La metrica misura la quota di requisiti opzionali effettivamente implementati. Poiché tale categoria è valorizzata in funzione della disponibilità di tempo e risorse, il suo obiettivo è misurare il grado di estensione del prodotto rispetto a funzionalità aggiuntive non essenziali.
+
+MPD-03 = (Requisiti Opzionali Soddisfatti / Requisiti Opzionali Totali) × 100. Misura la percentuale di requisiti opzionali implementati rispetto al totale definito.
+
+#cruscotto-table(
+  [Dati iniziali per MPD-03],
+  ("Sprint", "Requisiti opzionali soddisfatti", "Totale requisiti opzionali", "Percentuale", "Stato"),
+  [PB], [—], [—], [—], [Da aggiornare],
+)
+
+#figure(
+  image("../../../images/cruscotto/placeholder.png", width: 90%),
+  caption: [Soddisfacimento dei requisiti opzionali],
+  supplement: [Figura],
+)
+
+
+=== MPD-05 — Statement Coverage
+
+La metrica verifica la percentuale di statement del codice sorgente raggiunti durante l'esecuzione dei test automatizzati. Un valore elevato indica che le funzionalità implementate sono state esercitate in modo sufficientemente ampio e che il rischio di difetti non osservati è ridotto.
+
+MPD-05 = (Statement Eseguiti / Statement Totali) × 100. Misura la percentuale di statement del codice sorgente raggiunti durante l'esecuzione dei test.
+
+#cruscotto-table(
+  [Statement Coverage per sprint],
+  ("Sprint", "Statement Coverage", "Esito"),
+  [9],  [100,0%], [Ottimo],
+  [10], [95,2%],  [Ottimo],
+  [11], [94,3%],  [Accettabile],
+  [12], [91,7%],  [Accettabile],
+  [13], [93,5%],  [Accettabile],
+)
+
+#figure(
+  image("../../../images/cruscotto/mpd05_statement_coverage.png", width: 90%),
+  caption: [Andamento della Statement Coverage per sprint],
+  supplement: [Figura],
+)
+
+=== MPD-06 — Branch Coverage
+
+La metrica misura la percentuale di rami decisionali del codice attraversati durante i test. Essa è particolarmente utile per valutare la solidità delle logiche condizionali e la capacità del sistema di esercitare i diversi percorsi di esecuzione.
+
+MPD-06 = (Branch Coperti / Branch Totali) × 100. Misura la percentuale di rami decisionali del codice attraversati durante i test.
+
+#cruscotto-table(
+  [Branch Coverage per sprint],
+  ("Sprint", "Branch Coverage", "Esito"),
+  [9],  [N/D],    [N/D],
+  [10], [88,88%], [Ottimo],
+  [11], [80,21%], [Ottimo],
+  [12], [79,25%], [Accettabile],
+  [13], [80,27%], [Ottimo],
+)
+
+#figure(
+  image("../../../images/cruscotto/mpd06_branch_coverage.png", width: 90%),
+  caption: [Andamento della Branch Coverage per sprint],
+  supplement: [Figura],
+)
+
+=== MPD-11 — Cyclomatic Complexity
+
+La metrica misura la complessità ciclomatica di una funzione o modulo come stima del numero di percorsi decisionali distinti. Un valore troppo elevato indica un codice difficile da testare, mantenere e modificare senza introdurre errori.
+
+MPD-11 = E - N + 2P. Misura la complessità ciclomatica del codice, dove E è il numero di archi, N il numero di nodi e P il numero di componenti connessi.
+
+#cruscotto-table(
+  [Cyclomatic Complexity media per sprint],
+  ("Sprint", "Complessità ciclomatica media", "Esito"),
+  [9],  [N/D],  [N/D],
+  [10], [1,45], [Ottimo],
+  [11], [1,52], [Ottimo],
+  [12], [1,67], [Ottimo],
+  [13], [2,29], [Ottimo],
+)
+
+#figure(
+  image("../../../images/cruscotto/mpd11_cyclomatic_complexity.png", width: 90%),
+  caption: [Andamento della Cyclomatic Complexity per sprint],
+  supplement: [Figura],
+)
+=== MPD-13 — Code Smell
+
+La metrica quantifica il numero di code smell rilevati nel codice sorgente attraverso analisi statica. La presenza di smell ripetuti è spesso indice di debolezze strutturali, ridotta leggibilità e maggiore probabilità di bug nel tempo.
+
+MPD-13 = Numero Totale di Code Smell Rilevati. Misura la quantità di problematiche di qualità strutturale presenti nel codice sorgente.
+
+#cruscotto-table(
+  [Code Smell per sprint],
+  ("Sprint", "Code Smell (per KLOC)", "Esito"),
+  [9],  [N/D],  [N/D],
+  [10], [1,10], [Ottimo],
+  [11], [0,92], [Ottimo],
+  [12], [0,99], [Ottimo],
+  [13], [3,33], [Ottimo],
+)
+
+#figure(
+  image("../../../images/cruscotto/mpd13_code_smell.png", width: 90%),
+  caption: [Andamento della Code Smell per sprint],
+  supplement: [Figura],
+)
+
+
 
 #pagebreak()
 
