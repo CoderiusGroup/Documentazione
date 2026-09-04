@@ -104,12 +104,12 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
 
-    [0.9.0], [2026/09/01], [Alberto Canavese], [], [Stesura sezione 7: "Requisiti di sistema"],
-    [0.9.0], [2026/09/01], [Ines Iadadi], [], [Modifica alla struttura del documento e aggiornamento della sezione 2],
-    [0.8.0], [2026/08/28], [Alberto Canavese], [], [Stesura della sezione 4 - Design pattern],
-    [0.7.0], [2026/08/22], [Ines Iadadi], [], [Stesura della sezione Backend 3.6],
-    [0.6.0], [2026/08/13], [Filippo Zonta Rocha], [], [Stesura della sezione 3.5],
-    [0.5.0], [2026/08/10], [Edis Hodja], [], [Stesura della sezione 3.4],
+    [0.7.0], [2026/09/01], [Alberto Canavese], [], [Stesura sezione 7: "Requisiti di sistema"],
+    [0.6.0], [2026/09/01], [Ines Iadadi], [], [Modifica alla struttura del documento e aggiornamento della sezione 2],
+    [0.5.0], [2026/08/28], [Alberto Canavese], [], [Stesura della sezione 4 - Design pattern],
+    [0.4.3], [2026/08/22], [Ines Iadadi], [], [Stesura della sezione Backend 3.6],
+    [0.4.2], [2026/08/13], [Filippo Zonta Rocha], [], [Stesura della sezione 3.5],
+    [0.4.1], [2026/08/10], [Edis Hodja], [], [Stesura della sezione 3.4],
     [0.4.0], [2026/07/29], [Leonardo Lorenzin], [Edis Hodja], [Stesura iniziale della sezione 3],
     [0.3.0], [2026/07/24], [Giovanni Bronte], [Leonardo Lorenzin], [Stesura della sezione 2],
     [0.2.0], [2026/07/24], [Alberto Canavese], [Leonardo Lorenzin], [Stesura della sezione 1],
@@ -278,7 +278,7 @@ Nella seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     È inoltre molto semplice da imparare, flessibile e ha buone performance.
     ],
     [Flask-CORS],
-  [6.0],
+  [/],
   [Estensione di Flask che gestisce le intestazioni _Cross-Origin Resource Sharing_.
   È necessaria in ambiente di sviluppo, dove client e server sono serviti da due origini
   distinte.],
@@ -801,7 +801,7 @@ progettazione e non di un pattern del catalogo, e come tale è descritto contest
 Method, che ne costituisce il luogo di applicazione, anziché in una scheda propria.
 
 Per ciascun pattern sono indicati il problema affrontato, la soluzione adottata e i moduli
-concretamente coinvolti. Tutti i pattern documentati in questa sezione sono stati individuati in corrispondenza di meccanismi effettivamente presenti nel codice.;
+concretamente coinvolti. Tutti i pattern documentati in questa sezione sono stati individuati in corrispondenza di meccanismi effettivamente presenti nel codice;
 la sezione si chiude con quelli che non trovano applicazione, corredati della motivazione tecnica
 che ne esclude l'adozione.
 
@@ -963,12 +963,25 @@ Il livello comprende nove pagine, ciascuna corrispondente all'ingresso di un cas
 - *ResultPage*: consultazione degli esiti e loro esportazione.
 - *DecisionTreeCatalogPage*: elenco dei decision tree disponibili, dettaglio, importazione ed esportazione.
 
-I componenti riutilizzabili sono tre:
+I componenti condivisi principali comprendono:
 
-- *Esito*: etichetta che rappresenta lo stato di valutazione con un codice colore.
+- *Page*: layout comune delle pagine e gestione del titolo e della navigazione.
 
-- *GrafoDecisionTree*: rappresentazione grafica dell'albero, con evidenziazione del nodo corrente e del percorso già intrapreso.
-- *RequireSession*: componente di guardia che avvolge le pagine richiedenti una sessione attiva e reindirizza alla pagina iniziale in sua assenza.
+- *Loading*: indicatore dello stato di caricamento.
+
+- *Field*: componente riutilizzabile per la presentazione dei campi dei form.
+
+- *StatusBadge*: etichetta per la rappresentazione degli stati.
+
+- *NoActiveSession*: messaggio e azione mostrati quando non esiste una sessione attiva.
+
+- *Esito*: etichetta che rappresenta lo stato di valutazione.
+
+- *GrafoDecisionTree*: rappresentazione grafica dell'albero, con evidenziazione del nodo
+  corrente e del percorso già intrapreso.
+
+- *RequireSession*: componente di guardia che avvolge le pagine richiedenti una sessione
+  attiva e reindirizza alla pagina iniziale in sua assenza.
 
 L'instradamento è definito in `App.tsx`, che associa a ciascuna vista un percorso e applica
 `RequireSession` alle rotte `/session` e `/session/modify`.
@@ -1140,9 +1153,10 @@ né collaboratori da conservare fra le invocazioni.
 
 === Domain Layer
 
-Il livello comprende le entità `Device`, `Asset`, `Node` — con le specializzazioni
-`QuestionNode` e `LeafNode` — `DecisionTree` e `Session`, tutte realizzate come dataclass
-immutabili prive di dipendenze da librerie web o di accesso ai file. Le operazioni di
+Il livello comprende le entità `Device`, `Asset`, `DecisionTree` e `Session`, realizzate
+come dataclass immutabili, oltre alla classe astratta `Node` e alle dataclass concrete
+`QuestionNode` e `LeafNode`. Le entità non dipendono da librerie web né dall'accesso
+diretto ai file. Le operazioni di
 navigazione sono definite come metodi delle entità: `DecisionTree.get_node()` reperisce un
 nodo per identificatore, `Node.next()` restituisce il successore per il ramo scelto,
 `Node.verdict()` l'esito di una foglia.
@@ -1189,6 +1203,10 @@ principio selettivo che governa l'esistenza di un solo repository è discusso in
   registra nel catalogo tramite il repository. Risponde 400 in caso di struttura non
   valida.],
 
+  [DELETE], [`/decision-trees/{requirementId}`],
+  [Elimina definitivamente dal catalogo il decision tree indicato. Risponde 404 se
+  l'albero non esiste e 204 in caso di eliminazione riuscita.],
+
   [GET], [`/decision-trees/{requirementId}/export`],
   [Restituisce il decision tree nel formato indicato dal parametro `format`, `json` o
   `csv`.],
@@ -1230,10 +1248,10 @@ alla struttura. La corrispondenza fra entità e requisiti è riportata in //@tra
   caption: [Diagramma delle classi del dominio frontend],
 )*/
 
-Tutte le entità del dominio frontend sono *immutabili*: i campi sono dichiarati privati
-tramite la sintassi dei campi privati di JavaScript (`#campo`) e le operazioni di modifica
-non alterano l'istanza, ma restituiscono una nuova istanza con il valore aggiornato. Da qui
-la convenzione di denominazione `with*` adottata per tali metodi. L'immutabilità garantisce
+Le entità del dominio frontend sono progettate secondo un modello immutabile a livello
+dell'oggetto: le proprietà sono private e le operazioni di modifica restituiscono nuove
+istanze invece di modificare direttamente i campi. Le collezioni contenute nelle entità
+sono gestite secondo questa convenzione dagli store e dai metodi `with*`. L'immutabilità garantisce
 che nessun modulo possa alterare uno stato condiviso in modo non tracciabile e si combina
 con la propagazione delle modifiche degli store, che rilevano il cambiamento per identità
 del riferimento.
@@ -1546,7 +1564,7 @@ proponente.
   [RF-Ob42], [Il sistema deve mostrare la lista dei requisiti da valutare associati all'asset.], [Soddisfatto],
   [RF-Ob43], [Il sistema deve mostrare il codice identificativo e lo stato di valutazione di ogni requisito nella lista.], [Soddisfatto],
   [RF-Ob44], [Il sistema deve permettere l'eliminazione definitiva di un asset da un dispositivo.], [Soddisfatto],
-  [RF-Ob45], [Il sistema deve permettere l'esecuzione di una sessione di], [Soddisfatto],
+  [RF-Ob45], [Il sistema deve permettere l'esecuzione di una sessione di valutazione], [Soddisfatto],
   [RF-Ob46], [Il sistema deve mostrare una dashboard di valutazione con la lista degli asset, il loro stato, e il progresso della sessione in tempo reale.], [Soddisfatto],
   [RF-Ob47], [Il sistema deve consentire la selezione e l'avvio della valutazione dei requisiti di un singolo asset.], [Soddisfatto],
   [RF-Ob48], [Il sistema deve mostrare il nome, il tipo, la descrizione, la sensibilità e lo stato di valutazione dell'asset selezionato per la valutazione.], [Soddisfatto],
@@ -1586,11 +1604,6 @@ proponente.
 
 *Copertura*: 80 requisiti soddisfatti su 80 (100%).
 
-Il requisito non soddisfatto è: `RF-Ob80`, relativo alla generazione del report di
-conformità finale. La funzionalità è progettata ma non ancora realizzata: la sua
-collocazione architetturale e l'interpretazione di «esito aggregato del decision tree» sono
-punti aperti, discussi in @architettura-logica.
-
 == Requisiti funzionali desiderabili
 
 Introducono funzionalità a valore aggiunto che migliorano la fluidità del flusso operativo,
@@ -1611,7 +1624,7 @@ senza costituire condizione bloccante per l'utilizzo del prodotto.
   [RF-D06], [Il sistema deve permettere l'annullamento della procedura di eliminazione di un asset durante la fase di richiesta di conferma.], [Soddisfatto],
   [RF-D07], [Il sistema deve permettere la navigazione al nodo precedente del decision tree, mostrando la risposta già fornita senza invalidare le risposte successive.], [Soddisfatto],
   [RF-D08], [Il sistema deve permettere il salvataggio intermedio dello stato della sessione di valutazione.], [Soddisfatto],
-  [RF-D09], [Il sistema deve permettere all'utente di navigare verso il nodo successivo precedentemente già risposto durante l'esecuzione del decision tree.], [Non soddisfatto],
+  [RF-D09], [Il sistema deve permettere all'utente di navigare verso il nodo successivo precedentemente già risposto durante l'esecuzione del decision tree.], [Soddisfatto],
   [RF-D10], [Il sistema deve permettere la modifica della risposta a un nodo già risposto, invalidando le risposte successive al nodo corrente.], [Soddisfatto],
   [RF-D11], [Il sistema deve permettere la modifica delle informazioni anagrafiche di un dispositivo esistente.], [Soddisfatto],
   [RF-D12], [Il sistema deve consentire la modifica del nome del dispositivo.], [Soddisfatto],
@@ -1628,13 +1641,7 @@ senza costituire condizione bloccante per l'utilizzo del prodotto.
   [RF-D23], [Il sistema deve supportare l'importazione di un decision tree da file in formato CSV.], [Soddisfatto],
 )
 
-*Copertura*: 22 requisiti soddisfatti su 23 (95.7%).
-
-Il requisito non soddisfatto è: `RF-D09`, relativo alla navigazione verso un nodo
-successivo già risposto. La transizione corrispondente è realizzata nel `TreeStore`, che
-espone l'operazione `goForward` e conserva le risposte successive al cursore, ma il comando
-non è ancora esposto nell'interfaccia: il requisito è pertanto da considerarsi non
-soddisfatto dal punto di vista dell'utente.
+*Copertura*: 23 requisiti soddisfatti su 23 (100%).
 
 == Requisiti funzionali opzionali
 
@@ -1660,7 +1667,7 @@ essenziali ai fini della validazione dell'applicazione.
   [RF-Op10], [Il sistema deve validare la struttura dell'albero modificato secondo i vincoli di consistenza predefiniti.], [Non soddisfatto],
   [RF-Op11], [Il sistema deve impedire il salvataggio e mostrare un errore se l'albero non è binario o mancano foglie PASS/FAIL.], [Non soddisfatto],
   [RF-Op12], [Il sistema deve impedire l'eliminazione del nodo radice di un decision tree mostrando un errore.], [Non soddisfatto],
-  [RF-Op13], [Il sistema deve consentire l'eliminazione definitiva di un decision tree.], [Non soddisfatto],
+  [RF-Op13], [Il sistema deve consentire l'eliminazione definitiva di un decision tree.], [Soddisfatto],
   [RF-Op14], [Il sistema deve bloccare l'inserimento e mostrare un messaggio di errore se il codice del nodo è già presente nel decision tree.], [Non soddisfatto],
   [RF-Op15], [Il sistema deve permettere all'utente di assegnare un esito (PASS, FAIL o NOT APPLICABLE) ai rami non collegati di un nodo appena aggiunto o modificato nel decision tree, trasformandoli in nodi foglia.], [Non soddisfatto],
   [RF-Op16], [Il sistema deve assegnare l'esito PASS al ramo non collegato selezionato dall'utente, creando un nodo foglia PASS.], [Non soddisfatto],
@@ -1676,13 +1683,15 @@ essenziali ai fini della validazione dell'applicazione.
   [RF-Op26], [Il sistema deve permettere l'inserimento di una giustificazione testuale per l'esito della coppia asset-requisito al termine dell'esecuzione del decision tree.], [Non soddisfatto],
 )
 
-*Copertura*: 1 requisito soddisfatto su 26 (3.8%).
+*Copertura*: 2 requisiti soddisfatti su 26 (7.7%).
 
-Il solo requisito soddisfatto della categoria è `RF-Op22`, download del report in formato
-PDF. Gli altri requisiti opzionali riguardano in prevalenza la modifica strutturale dei
-decision tree, l'esportazione del report negli altri formati e funzionalità accessorie di consultazione. La loro realizzazione è
-subordinata al completamento dei requisiti obbligatori e desiderabili e alla disponibilità
-di tempo residuo, secondo quanto stabilito in sede di pianificazione.
+I requisiti soddisfatti della categoria sono `RF-Op13`, relativo all'eliminazione di un
+decision tree, e `RF-Op22`, relativo al download del report in formato PDF. Gli altri
+requisiti opzionali riguardano in prevalenza la modifica strutturale dei decision tree,
+l'esportazione del report negli altri formati e funzionalità accessorie di consultazione.
+La loro realizzazione è subordinata al completamento dei requisiti obbligatori e
+desiderabili e alla disponibilità di tempo residuo, secondo quanto stabilito in sede di
+pianificazione.
 
 = Requisiti di sistema <requisiti-sistema>
 
@@ -1714,7 +1723,7 @@ I valori riportati sono stati rilevati su un'installazione funzionante del prodo
 )
 
 L'occupazione di memoria dei due container è di 22 MiB per il backend e 20 MiB per
-il frontend. Si mantiene stabile durante l'uso. La ragione è che il servizio
+il frontend. Nel test effettuato non sono state osservate variazioni significative durante l'uso.. La ragione è che il servizio
 di frontend si limita a servire file statici tramite Nginx, mentre l'applicazione vera e
 propria è eseguita dal browser dell'utente. Il consumo di risorse significativo è pertanto
 quello del browser, non quello dei container, ed è il motivo per cui la memoria complessiva
