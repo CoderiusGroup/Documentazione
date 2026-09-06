@@ -79,7 +79,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.1.0*]
+  #text(size: 20pt)[*Versione 0.2.0*]
 ]
 #pagebreak()
 
@@ -98,7 +98,9 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.1.0], [2026/09/06], [Alberto Canavese], [], [Stesura Sezioni 1,2]
+    [0.2.0], [2026/09/06], [Leonardo Lorenzin], [], [Stesura Sezione 3],
+    [0.1.0], [2026/09/06], [Alberto Canavese], [], [Stesura Sezioni 1 e 2]
+    
   )
 ]
 #pagebreak()
@@ -324,5 +326,141 @@ L'applicazione è indipendente dal sistema operativo, poiché viene eseguita in 
 - macOS 12 o successivo;
 - distribuzioni Linux recenti a 64 bit.
 
+= Installazione
+
+La procedura consiste nel verificare la presenza di Docker, ottenere il codice
+dell'applicazione e avviare i container. Al termine l'applicazione è raggiungibile dal
+browser all'indirizzo `http://localhost:8080`.
+
+== Verifica di Docker
+
+Aprire un terminale e digitare:
+
+```bash
+docker --version
+```
+
+Se il comando restituisce un numero di versione (ad esempio `Docker version 28.5.1, build ...`)
+Docker è installato. Verificare anche la presenza di Docker Compose v2:
+
+```bash
+docker compose version
+```
+
+Se uno dei due comandi restituisce un errore, installare Docker seguendo la guida ufficiale
+(#link("https://docs.docker.com/get-started/get-docker/")) e, su Windows e macOS, avviare
+_Docker Desktop_ prima di proseguire.
+
+/*#screenshot[Verifica della versione di Docker dal terminale]*/
+
+#pagebreak()
+== Download dell'applicazione
+
+Il codice dell'applicazione si ottiene in uno dei due modi seguenti.
+
+/ Con Git: clonare il repository del progetto.
+
+```bash
+git clone https://github.com/CoderiusGroup/MVP.git
+```
+
+/ Senza Git: dalla pagina del repository, scaricare l'archivio `.zip` ed estrarlo in una
+  cartella a scelta.
+
+Al termine, posizionarsi nella cartella principale del progetto (`MVP`, oppure `MVP-main`
+se si è estratto l'archivio ZIP):
+
+```bash
+cd MVP
+```
+
+Non è richiesta alcuna configurazione preliminare: non è necessario creare né
+modificare file di ambiente. La cartella contiene già tutto il necessario, incluso il
+catalogo iniziale dei decision tree.
+
+== Avvio dei container
+
+Dalla cartella principale del progetto, eseguire:
+
+```bash
+docker compose up --build
+```
+
+Il comando costruisce le immagini (operazione richiesta solo la prima volta o dopo un
+aggiornamento del codice; richiede alcuni minuti) e avvia i due container
+dell'applicazione. Il terminale resta occupato e mostra i log dei servizi.
+
+Gli avvii successivi, se le immagini sono già state costruite, possono usare la forma
+abbreviata:
+
+```bash
+docker compose up
+```
+
+/*#screenshot[Log di avvio dei container nel terminale]*/
+
+== Primo accesso all'applicazione
+
+Quando nel terminale i servizi risultano avviati, aprire il browser e visitare:
+
+```
+http://localhost:8080
+```
+
+Viene mostrata la *pagina iniziale* dell'applicazione /*(@sec-home)*/, pronta all'uso.
+
+Se la porta 8080 o la porta 5000 risultano già occupate da un altro programma,
+l'avvio dei container fallisce. Chiudere il programma in conflitto oppure liberare le porte
+prima di riprovare.
+
+#pagebreak()
+== Arresto e riavvio
+
+- Per *arrestare* l'applicazione, tornare nel terminale in cui è in esecuzione e premere
+  `Ctrl` + `C`. In alternativa, da un altro terminale nella stessa cartella:
+
+```bash
+docker compose down
+```
+
+- Per *riavviare* l'applicazione in un secondo momento, ripetere dalla cartella del
+  progetto:
+
+```bash
+docker compose up
+```
+
+I decision tree del catalogo (comprese le modifiche apportate dall'utente) vengono
+conservati tra un riavvio e l'altro. I dispositivi e le sessioni non salvati su file, invece,
+non sopravvivono alla chiusura del browser.
+
+/* 
+== Avvio in modalità sviluppo (facoltativo) <sec-dev>
+
+Questa modalità è pensata per chi deve modificare il codice e non è necessaria per il
+normale utilizzo. Richiede Python 3.12 e Node.js 22.
+
+/ Servizio applicativo: dalla cartella `backend`,
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev]"
+flask --app src.app:create_app run
+```
+
+  Il servizio resta in ascolto sulla porta 5000.
+
+/ Interfaccia web: dalla cartella `frontend`,
+
+```bash
+npm ci
+npm run dev
+```
+
+  Aprire quindi l'indirizzo indicato da Vite nel terminale (tipicamente
+  `http://localhost:5173`). L'interfaccia inoltra automaticamente le richieste al servizio
+  sulla porta 5000.
+  */
 
 
