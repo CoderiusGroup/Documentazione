@@ -84,7 +84,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.9.0*]
+  #text(size: 20pt)[*Versione 0.7.1*]
 ]
 #pagebreak()
 
@@ -104,8 +104,9 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
 
-    [0.7.0], [2026/09/01], [Alberto Canavese], [], [Stesura sezione 7: "Requisiti di sistema"],
-    [0.6.0], [2026/09/01], [Ines Iadadi], [], [Modifica alla struttura del documento e aggiornamento della sezione 2],
+    [0.7.1], [2026/09/04], [Edis Hodja], [], [Revisione dell'architettura e correzione di refusi tecnici],
+    [0.7.0], [2026/09/01], [Alberto Canavese], [Edis Hodja], [Stesura sezione 7: "Requisiti di sistema"],
+    [0.6.0], [2026/09/01], [Ines Iadadi], [Edis Hodja], [Modifica alla struttura del documento e aggiornamento della sezione 2],
     [0.5.0], [2026/08/28], [Alberto Canavese], [], [Stesura della sezione 4 - Design pattern],
     [0.4.3], [2026/08/22], [Ines Iadadi], [], [Stesura della sezione Backend 3.6],
     [0.4.2], [2026/08/13], [Filippo Zonta Rocha], [], [Stesura della sezione 3.5],
@@ -273,7 +274,7 @@ Nella seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     [*Tecnologia*], [*Versione*], [*Descrizione*],
 
     [Flask],
-    [3.1.3],
+    [/],
     [Micro-framework Web scritto in Python, è progettato per essere rapido e semplice, offrendo al contempo la possibilità di essere utilizzato per applicazioni complesse.
     È inoltre molto semplice da imparare, flessibile e ha buone performance.
     ],
@@ -1103,11 +1104,6 @@ I flussi principali sono i seguenti.
 - *Salvataggio e ripresa da file*: la sessione può essere scaricata in qualsiasi momento e ricaricata da HomePage, previa validazione dello schema.
 - *Esportazione*: il dispositivo è scritto in JSON o CSV dal client; il decision tree è prodotto dal backend, che risponde all'endpoint di esportazione nel formato richiesto.
 
-#figure(
-  image("../../../images/specifica_tecnica/seq_avanzamento_albero.png", width: 100%),
-  caption: [Diagramma di sequenza dell'avanzamento nell'albero decisionale],
-)
-
 == Backend
 
 Il backend è un'applicazione Flask esposta come singola API REST stateless, organizzata in
@@ -1146,7 +1142,7 @@ e non dipendono da collaboratori costruiti a runtime, è registrato senza factor
 - *`create_device()`*: valida i metadati del dispositivo (nome, sistema operativo, descrizione) e ne costruisce l'entità, rispettando l'`id` se fornito o generandone uno con `uuid4`. È il punto unico di validazione, condiviso dalla creazione manuale e dall'importazione.
 
 - *`create_asset()`*: valida i campi dell'asset e, quando `requirements` non è fornito, deriva i requisiti applicabili interrogando `DecisionTreeService.list_requirement_ids_for_type()`.
-- *`DecisionTreeService`*: unica classe del livello. Carica un albero tramite il repository, ne verifica l'integrità e lo normalizza; espone inoltre `list_trees()`, `list_requirement_ids_for_type()` e `import_tree()`.
+- *`DecisionTreeService`*: unica classe del livello. Carica un albero tramite il repository, ne verifica l'integrità e lo normalizza; espone inoltre `list_trees()`, `list_requirement_ids_for_type()` e `import_tree()` e `delete_tree()`.
 
 Le prime due sono realizzate come funzioni esportate anziché come classi, non avendo stato
 né collaboratori da conservare fra le invocazioni.
@@ -1706,7 +1702,7 @@ che avviene interamente in locale.
 
 == Requisiti hardware
 
-I valori riportati sono stati rilevati su un'installazione funzionante del prodotto.
+I valori riportati sono indicativi e possono variare in funzione del sistema operativo, della versione di Docker e della quantità di dati presenti nel catalogo.
 
 #table(
   columns: (1.4fr, 1fr, 1fr),
