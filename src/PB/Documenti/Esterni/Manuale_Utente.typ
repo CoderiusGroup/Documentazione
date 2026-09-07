@@ -79,7 +79,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.2.0*]
+  #text(size: 20pt)[*Versione 0.3.0*]
 ]
 #pagebreak()
 
@@ -98,6 +98,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.3.0], [2026/09/07], [Alberto Canavese], [], [Stesura dalla sezione 4 alla sezione 4.6],
     [0.2.0], [2026/09/06], [Leonardo Lorenzin], [], [Stesura Sezione 3],
     [0.1.0], [2026/09/06], [Alberto Canavese], [], [Stesura Sezioni 1 e 2]
     
@@ -120,20 +121,33 @@
 // Funzioni di supporto al contenuto
 // ---------------------------------------------------------
 
-#let screenshot(didascalia) = figure(
-  rect(
-    width: 100%,
-    height: 190pt,
-    fill: luma(240),
-    stroke: 0.5pt + luma(160),
-    inset: 12pt,
-  )[
-    #align(center + horizon)[
-      #text(fill: luma(90))[*Segnaposto screenshot*] \
-      #v(0.2em)
-      #text(fill: luma(110), size: 10pt)[#didascalia]
+// Screenshot / figura.
+//   #screenshot[Didascalia]                              -> segnaposto grigio
+//   #screenshot(file: "../../../images/manualeUtente/x.png")[Didascalia]
+//   #screenshot(file: "...", width: 70%)[Didascalia]      -> larghezza personalizzata
+#let screenshot(didascalia, file: none, width: 85%) = figure(
+  if file == none {
+    rect(
+      width: 100%,
+      height: 190pt,
+      fill: luma(240),
+      stroke: 0.5pt + luma(160),
+      inset: 12pt,
+    )[
+      #align(center + horizon)[
+        #text(fill: luma(90))[*Segnaposto screenshot*] \
+        #v(0.2em)
+        #text(fill: luma(110), size: 10pt)[#didascalia]
+      ]
     ]
-  ],
+  } else {
+    block(
+      stroke: 0.5pt + luma(180),
+      radius: 2pt,
+      clip: true,
+      image(file, width: width),
+    )
+  },
   caption: didascalia,
   kind: image,
   supplement: [Figura],
@@ -407,7 +421,7 @@ Quando nel terminale i servizi risultano avviati, aprire il browser e visitare:
 http://localhost:8080
 ```
 
-Viene mostrata la *pagina iniziale* dell'applicazione /*(@sec-home)*/, pronta all'uso.
+Viene mostrata la *pagina iniziale* dell'applicazione(@sec-home), pronta all'uso.
 
 Se la porta 8080 o la porta 5000 risultano già occupate da un altro programma,
 l'avvio dei container fallisce. Chiudere il programma in conflitto oppure liberare le porte
@@ -434,33 +448,356 @@ I decision tree del catalogo (comprese le modifiche apportate dall'utente) vengo
 conservati tra un riavvio e l'altro. I dispositivi e le sessioni non salvati su file, invece,
 non sopravvivono alla chiusura del browser.
 
-/* 
-== Avvio in modalità sviluppo (facoltativo) <sec-dev>
+= Istruzioni per l'uso
 
-Questa modalità è pensata per chi deve modificare il codice e non è necessaria per il
-normale utilizzo. Richiede Python 3.12 e Node.js 22.
+Questa sezione descrive nel dettaglio ogni schermata e ogni operazione
+dell'applicazione, nell'ordine tipico di utilizzo.
 
-/ Servizio applicativo: dalla cartella `backend`,
+== Pagina iniziale <sec-home>
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -e ".[dev]"
-flask --app src.app:create_app run
-```
+La pagina iniziale, intitolata *Gestione Valutazione Dispositivi*, è il punto di partenza
+per tutte le attività. Presenta quattro riquadri:
 
-  Il servizio resta in ascolto sulla porta 5000.
+#figure(
+  table(
+    columns: (auto, 1fr),
+    align: (left, left),
+    stroke: 0.5pt + luma(150),
+    inset: 7pt,
+    fill: (x, y) => if y == 0 { luma(235) } else { none },
+    [*Riquadro*], [*Azione*],
+    [Nuovo dispositivo], [Il pulsante *Crea nuovo dispositivo* apre il modulo di creazione manuale (@sec-crea-dispositivo).],
+    [Importa dispositivo da JSON o CSV], [Il pulsante *Scegli un file* apre la finestra di selezione file del sistema operativo per caricare un dispositivo salvato in precedenza (@sec-importa-dispositivo).],
+    [Riprendi una sessione salvata], [Il pulsante *Scegli un file* apre la finestra di selezione file per caricare una sessione di valutazione salvata /*(@sec-riprendi)*/.],
+    [Catalogo decision tree], [Il pulsante *Apri catalogo decision tree* apre il catalogo degli alberi di decisione /*(@sec-catalogo)*/.],
+  ),
+  caption: [Azioni disponibili nella pagina iniziale],
+)
 
-/ Interfaccia web: dalla cartella `frontend`,
+#screenshot(file: "../../../images/manualeUtente/pagina-iniziale.png")[
+  Pagina iniziale con i quattro riquadri di azione
+]
 
-```bash
-npm ci
-npm run dev
-```
+== Convenzioni dell'interfaccia
 
-  Aprire quindi l'indirizzo indicato da Vite nel terminale (tipicamente
-  `http://localhost:5173`). L'interfaccia inoltra automaticamente le richieste al servizio
-  sulla porta 5000.
-  */
+=== Notifiche
+
+L'esito delle operazioni viene comunicato tramite brevi messaggi temporanei ("toast") che
+compaiono per pochi secondi. I messaggi di conferma (ad esempio "Dispositivo creato
+correttamente") e i messaggi di errore (ad esempio "Errore di rete: impossibile contattare
+il server") usano stili diversi ma spariscono automaticamente.
+
+=== Navigazione
+
+Le schermate diverse dalla pagina iniziale presentano in alto a sinistra un collegamento
+di ritorno (freccia "←") con un'etichetta che indica la destinazione (ad esempio
+*Torna alla Home* o *Torna alla gestione asset*). L'applicazione funziona a pagina singola:
+è consigliabile usare i comandi di navigazione interni anziché il pulsante "Indietro" del
+browser, che potrebbe far perdere il lavoro non salvato.
+
+=== Indicatori di stato <sec-stati>
+
+Accanto a dispositivi, asset e requisiti compare un'etichetta colorata ("badge") che ne
+sintetizza lo stato di valutazione:
+
+#figure(
+  table(
+    columns: (auto, 1fr),
+    align: (left, left),
+    stroke: 0.5pt + luma(150),
+    inset: 7pt,
+    fill: (x, y) => if y == 0 { luma(235) } else { none },
+    [*Stato*], [*Significato*],
+    [Non valutato], [La valutazione non è ancora stata avviata.],
+    [In corso], [Il decision tree è stato iniziato ma non ancora concluso.],
+    [PASS], [Esito positivo: il requisito è soddisfatto.],
+    [FAIL], [Esito negativo: il requisito non è soddisfatto.],
+    [Non applicabile], [Il requisito non si applica all'asset (foglia `NOT APPLICABLE`).],
+    [Nessun requisito applicabile], [All'asset non è associato alcun requisito da valutare.],
+  ),
+  caption: [Stati di valutazione mostrati dai badge],
+)
+
+Per un asset o per l'intero dispositivo, il badge mostra l'*esito aggregato*, calcolato
+dando priorità agli stati nell'ordine: `FAIL`, poi "In corso", poi "Non valutato", poi
+`PASS`, poi "Non applicabile". In pratica un asset risulta `PASS` solo quando tutti i suoi
+requisiti sono `PASS` o "Non applicabile"; è sufficiente un solo `FAIL` perché l'asset, e
+quindi il dispositivo, risultino `FAIL`.
+
+== Creazione di un dispositivo <sec-crea-dispositivo>
+
+=== Inserimento dei dati del dispositivo
+
+Dal pulsante *Crea nuovo dispositivo* si apre il modulo *Crea un nuovo dispositivo*, con
+tre campi:
+
+#figure(
+  table(
+    columns: (auto, auto, 1fr),
+    align: (left, center, left),
+    stroke: 0.5pt + luma(150),
+    inset: 7pt,
+    fill: (x, y) => if y == 0 { luma(235) } else { none },
+    [*Campo*], [*Obbligatorio*], [*Note*],
+    [Nome], [Sì], [Da 1 a 100 caratteri.],
+    [Sistema operativo], [Sì], [Da 1 a 100 caratteri.],
+    [Descrizione], [Sì], [Da 1 a 1000 caratteri.],
+  ),
+  caption: [Campi del modulo di creazione del dispositivo],
+)
+
+Premendo *Salva e procedi agli asset* il dispositivo viene creato e si passa alla schermata
+di *Gestione asset* (@sec-gestione-asset). Se un campo obbligatorio non è valido viene
+mostrato un messaggio di errore e il dispositivo non viene creato.
+
+#screenshot(file: "../../../images/manualeUtente/creazione-dispositivo.png")[Modulo di creazione di un nuovo dispositivo]
+
+=== Gestione degli asset <sec-gestione-asset>
+
+La schermata *Gestione asset* mostra il nome del dispositivo in lavorazione e l'elenco dei
+suoi asset. Da qui è possibile:
+
+- *Aggiungi asset*: apre il modulo di creazione di un nuovo asset (@sec-crea-asset);
+- *Visualizza dettaglio dispositivo*: apre il *Riepilogo dispositivo* (@sec-riepilogo).
+  Il pulsante è disabilitato finché non è presente almeno un asset;
+- per ciascun asset in elenco: *Modifica* e *Rimuovi*;
+- fare clic sul nome di un asset per espanderne il dettaglio.
+
+Il dettaglio espanso di un asset riporta descrizione, indicazione se l'asset è sensibile,
+stato di valutazione e l'elenco dei requisiti applicabili, ognuno con il proprio stato.
+
+#screenshot(file: "../../../images/manualeUtente/gestione-asset.png")[Schermata di gestione degli asset con un asset espanso]
+
+=== Aggiunta di un asset <sec-crea-asset>
+
+Il modulo *Nuovo Asset* contiene i campi seguenti:
+
+#figure(
+  table(
+    columns: (auto, 1fr),
+    align: (left, left),
+    stroke: 0.5pt + luma(150),
+    inset: 7pt,
+    fill: (x, y) => if y == 0 { luma(235) } else { none },
+    [*Campo*], [*Note*],
+    [Nome], [Obbligatorio, da 1 a 100 caratteri.],
+    [Tipo], [Da scegliere tra `Network`, `Security`, `Privacy`, `Financial`. Predefinito: `Network`.],
+    [Descrizione], [Obbligatoria, da 1 a 1000 caratteri.],
+    [Asset sensibile], [Casella da spuntare se l'asset è sensibile.],
+  ),
+  caption: [Campi del modulo di creazione di un asset],
+)
+
+Premendo *Invia* l'asset viene creato e aggiunto all'elenco. Se il nome o la descrizione
+sono vuoti compare il messaggio "Dati asset non validi" e l'asset non viene creato.
+
+#screenshot(file: "../../../images/manualeUtente/creazione-asset.png")[Modulo di creazione di un asset]
+
+=== Requisiti applicabili e loro derivazione <sec-derivazione> DA VALUTARE
+
+Quando si crea un asset l'applicazione deriva automaticamente i requisiti in base al tipo dell'asset:
+associa all'asset tutti i decision tree del catalogo che si applicano a quel tipo.
+
+Nel catalogo iniziale tutti i decision tree si applicano ai tipi `network` e `security`.
+Di conseguenza:
+
+- un asset di tipo *Network* o *Security* riceve l'intero elenco dei requisiti del catalogo
+  iniziale (`ACM-1`, `ACM-2`, `AUM-1-1`, `AUM-1-2`, `AUM-2`, `AUM-3`, `AUM-4`, `AUM-5-1`,
+  `AUM-5-2`, `AUM-6`);
+- un asset di tipo *Privacy* o *Financial* non riceve alcun requisito e viene mostrato con
+  lo stato "Nessun requisito applicabile".
+
+Modificando in seguito il *tipo* di un asset, l'elenco dei requisiti applicabili
+viene ricalcolato in base al nuovo tipo. Le modifiche agli altri campi (nome, descrizione,
+sensibilità) non toccano i requisiti.
+
+=== Modifica di un asset
+
+Il pulsante *Modifica* accanto a un asset apre il modulo *Modifica Asset*, identico a
+quello di creazione ma precompilato. Premendo il tasto di conferma le modifiche vengono salvate.
+
+- Se il tipo non cambia, la modifica è immediata e i requisiti restano invariati.
+- Se il tipo cambia, i requisiti applicabili vengono riderivati dal nuovo tipo
+  (@sec-derivazione).
+
+=== Rimozione di un asset
+
+Il pulsante *Rimuovi* accanto a un asset chiede conferma ("Confermi l'eliminazione
+dell'asset?") e, se confermato, lo elimina dall'elenco.
+
+== Importazione di un dispositivo da file <sec-importa-dispositivo>
+
+Dal riquadro *Importa dispositivo da JSON o CSV* della pagina iniziale, il pulsante
+*Scegli un file* consente di caricare un dispositivo salvato in precedenza.  Sono ammessi
+file con estensione `.json` o `.csv` /*conformi ai formati descritti in (@sec-formati)*/.
+
+Al termine del caricamento l'applicazione segnala "Dispositivo caricato correttamente" e
+apre la schermata di *Gestione asset* con il dispositivo importato e i suoi asset, se presenti. In caso di file non valido viene mostrato un messaggio di errore e il dispositivo
+non viene caricato /*(@sec-errori)*/.
+
+
+== Riepilogo del dispositivo <sec-riepilogo>
+
+La schermata *Riepilogo dispositivo* si raggiunge dalla gestione asset con il pulsante
+*Visualizza dettaglio dispositivo*.
+
+=== Dati e stato
+
+La schermata mostra ID, nome, sistema operativo, descrizione e lo *stato* del dispositivo
+(esito aggregato, @sec-stati).
+
+I pulsanti disponibili sono:
+
+- *Avvia valutazione*: avvia (o riprende) la sessione di valutazione e apre la schermata di
+  esecuzione (@sec-valutazione).
+- *Gestisci asset*: torna alla schermata di gestione asset;
+- *Modifica dispositivo*: apre il modulo di modifica dei dati anagrafici.
+- *Esportazione dispositivo*: permette di esportare il dispositivo in formato JSON o CSV.
+- *Eliminazione del dispositivo*: permette di eliminare il dispositivo dalla memoria, con o senza
+  backup.
+
+
+#screenshot(file: "../../../images/manualeUtente/riepilogo-dispositivo.png")[Schermata di riepilogo del dispositivo]
+
+=== Esportazione del dispositivo
+
+I pulsanti *Esporta in JSON* ed *Esporta in CSV* scaricano immediatamente il dispositivo
+corrente, con tutti i suoi asset, in un file nominato con l'identificativo del dispositivo. Il file esportato può essere ricaricato in seguito
+tramite *Importa dispositivo* (@sec-importa-dispositivo).
+
+=== Modifica dei dati del dispositivo
+
+Il pulsante *Modifica dispositivo* apre il modulo *Modifica dispositivo*, precompilato con
+i dati correnti. Premendo *Salva modifiche* si torna al riepilogo con i dati aggiornati.
+
+=== Eliminazione del dispositivo
+
+Nella parte inferiore del riepilogo sono presenti due pulsanti:
+
+- *Elimina dispositivo*: previa conferma ("Confermi l'eliminazione definitiva del
+  dispositivo? L'operazione non è reversibile."), rimuove il dispositivo dalla memoria e
+  riporta alla pagina iniziale;
+- *Elimina con backup*: previa conferma, scarica prima un file JSON di backup del
+  dispositivo e poi lo rimuove.
+
+== Esecuzione di una valutazione di conformità <sec-valutazione>
+
+=== Avvio della valutazione
+
+Dal riepilogo del dispositivo, il pulsante *Avvia valutazione* crea la sessione e apre la
+schermata di esecuzione. La sessione contiene una *valutazione per ogni coppia
+asset--requisito* derivata dal dispositivo; tutte partono dallo stato "Non valutato".
+
+
+Se nessun asset del dispositivo ha requisiti applicabili, la sessione risulta
+immediatamente conclusa e si viene portati direttamente alla schermata dei risultati
+/*(@sec-risultati)*/.
+
+=== Cruscotto di avanzamento
+
+La prima schermata della valutazione è il cruscotto, intitolato *Valutazione dispositivo*.
+Riporta:
+
+- il numero di *asset completati sul totale*;
+- se una coppia è in esame, l'asset e il requisito correnti con il numero di requisiti
+  completati per quell'asset;
+- l'elenco di tutti gli asset del dispositivo, ciascuno con tipo, badge di stato e pulsante
+  *Valuta*.
+
+#screenshot(file: "../../../images/manualeUtente/cruscotto-avanzamento.png")[Cruscotto di avanzamento della valutazione]
+
+=== Scheda dell'asset
+
+Premendo *Valuta* su un asset si apre la sua scheda, che mostra tipo, descrizione,
+sensibilità e stato dell'asset, seguiti dall'elenco dei *Requisiti* applicabili. Ogni
+requisito ha un badge di stato e un pulsante:
+
+- *Apri*: apre il dettaglio del requisito;
+- *Completato* (disabilitato): il requisito è già stato valutato in questa sessione.
+
+
+Il collegamento *← Torna alla dashboard* riporta al cruscotto.
+
+
+
+#screenshot(file: "../../../images/manualeUtente/scheda-asset.png")[Scheda di un asset con l'elenco dei requisiti]
+
+=== Dettaglio del requisito e dipendenze
+
+Il dettaglio del requisito mostra il codice e il nome esteso del requisito e la sezione
+*Dipendenze*, che elenca gli altri requisiti da cui quello corrente dipende, ciascuno con
+lo stato della corrispondente valutazione per l'asset in esame (oppure "Nessuna
+dipendenza").
+
+Le dipendenze hanno valore *informativo*: aiutano a decidere l'ordine di valutazione ma
+non vengono imposte dall'applicazione. Il pulsante *Avvia decision tree* è sempre
+disponibile e apre l'albero di decisione del requisito.
+
+#screenshot(file: "../../../images/manualeUtente/dettaglio-requisito.png")[Dettaglio di un requisito con la sezione Dipendenze]
+
+=== Esecuzione del decision tree
+
+Durante l'esecuzione dell'albero, la schermata riporta in alto l'asset e il requisito in
+esame. Al centro viene mostrato un *nodo* alla volta:
+
+- *Nodo domanda*: sono visualizzati il codice del nodo e il testo della domanda, con i
+  pulsanti *Sì* e *No*. La risposta fa avanzare l'albero lungo la diramazione
+  corrispondente.
+- *Nodo foglia*: è visualizzato l'*esito* raggiunto (`PASS`, `FAIL` o `N/A`), con l'eventuale
+  testo esplicativo e il pulsante *Conferma esito*.
+
+#screenshot(file: "../../../images/manualeUtente/esecuzione-DT.png")[Nodo domanda del decision tree con i pulsanti Sì / No]
+
+=== Navigazione tra le domande
+
+Sotto l'area del nodo sono presenti i pulsanti *Indietro* e *Avanti*:
+
+- *Indietro* riporta alla domanda precedente, permettendo di rivedere o cambiare una
+  risposta;
+- *Avanti* è disponibile solo per ripercorrere in avanti le domande a cui si è già
+  risposto (ad esempio dopo aver usato *Indietro*).
+
+Se, tornando indietro, si fornisce a una domanda una risposta *diversa* da quella
+data in precedenza, il percorso successivo a quel punto viene scartato: le domande
+seguenti dovranno essere ripercorse. Questo perché il percorso viene registrato via via che
+si procede. Il pulsante *Avanti* in quel caso resta disabilitato.
+
+#pagebreak()
+
+=== Il grafo del decision tree
+
+Sotto la domanda corrente è mostrato il *grafo* dell'intero albero di decisione. I nodi
+già attraversati e il nodo corrente sono evidenziati, così come le diramazioni percorse;
+i restanti nodi sono in trasparenza. Il grafo dispone di comandi per adattare la vista
+(zoom e adattamento automatico) e serve solo alla consultazione: non è possibile
+rispondere alle domande facendo clic sui nodi.
+
+#screenshot(file: "../../../images/manualeUtente/grafo-DT.png")[Grafo del decision tree con evidenziato il percorso seguito]
+
+=== Conferma dell'esito
+
+Quando si raggiunge un nodo foglia, il pulsante *Conferma esito* registra l'esito per la
+coppia asset--requisito corrente e riporta alla scheda dell'asset, dove il requisito
+appena valutato risulta "Completato". Si prosegue quindi con il requisito successivo o si
+torna al cruscotto per scegliere un altro asset.
+
+Quando tutte le coppie asset--requisito sono state completate, la sessione passa allo
+stato "conclusa" e viene mostrata la schermata dei risultati /*(@sec-risultati)*/.
+
+=== Salvataggio della sessione
+
+Il pulsante *Salva sessione*, presente nella barra inferiore durante tutta la valutazione,
+scarica un file JSON con lo stato completo della sessione (dispositivo, avanzamento,
+risposte date fino a quel momento). Il file può essere ricaricato in seguito dalla pagina iniziale
+/*(@sec-riprendi)*/.
+
+=== Uscita dalla valutazione
+
+Il pulsante *Esci dal test* apre una richiesta di conferma con tre opzioni:
+
+- *Salva ed esci*: scarica il file di sessione e poi torna alla pagina iniziale;
+- *Esci senza salvare*: torna alla pagina iniziale scartando lo stato della sessione in
+  memoria;
+- *Annulla*: chiude la richiesta e resta nella valutazione.
 
 
