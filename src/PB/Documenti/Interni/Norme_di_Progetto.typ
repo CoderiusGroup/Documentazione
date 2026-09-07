@@ -503,9 +503,38 @@ L'attività di progettazione del prodotto è svolta dai progettisti del gruppo, 
 
 Si tratta di un processo collaborativo che collide con le idee e le competenze dei membri del team, con l'obiettivo di creare un prodotto finale coerente.
 
-Il processo si raggiunge attraverso l'adozione di design pattern e di best practice di ingegneria del software, che permettono di ottenere un'architettura solida scalabile e facilmente manutenibile. 
+Il processo si raggiunge attraverso l'adozione di design pattern e di best practice di ingegneria del software, che permettono di ottenere un'architettura solida scalabile e facilmente manutenibile.
 
-Per mantenere la coerenza progettuale vengono definiti i test che saranno successivamente utilizzati per verificare il corretto funzionamento del sistema e la loro conformità ai requisiti.
+=== Design pattern utilizzati (MVP)
+
+Nell'ambito dell'MVP si adottano pattern che facilitano modularità, testabilità e tracciabilità della logica di valutazione dei requisiti EN 18031. I pattern principali applicati nel codice e descritti nella Specifica Tecnica sono:
+
+- Repository
+  - Incapsula l'accesso alla sorgente dei decision tree (es. JsonDecisionTreeRepository). Favorisce la sostituibilità della sorgente dati (file, DB, mock) e la testabilità.
+
+- Service Layer
+  - Concentra la logica applicativa (es. DecisionTreeService): orchestrazione di validazione, normalizzazione e persistenza. Mantiene i controller/route privi di logica di dominio.
+
+- Domain Model e Polimorfismo
+  - Rappresentazione esplicita delle entità del dominio (DecisionTree, Node, QuestionNode, LeafNode) tramite dataclass immutabili e interfacce/astrazioni che permettono comportamento polimorfico /* (es. Node.next(), Node.verdict()). */
+
+- Strategy / Format
+  - Parsing/serializzazione dei decision tree è implementato con un'astrazione (DecisionTreeFormat) e concrete strategy (JsonDecisionTreeFormat, CsvDecisionTreeFormat). Consente aggiunta di nuovi formati senza modificare la logica di servizio.
+
+- Factory/Helper
+  - Funzioni factory (es. format_for_filename, format_by_name) per risolvere l'implementazione concreta da utilizzare a runtime.
+
+- Dependency Injection (esplicita)
+  - I componenti (service, repository) ricevono le dipendenze via costruttore per facilitare mocking e test unitari.
+
+- Validator (Pattern di convalida)
+  - Validazione strutturale e topologica dei decision tree (validate_raw_tree) separata dalla logica di parsing e dalla persistenza: migliora la robustezza e la tracciabilità degli errori.
+
+/*Esempi pratici (MVP): il backend mantiene
+- repository per i decision tree (sostituibile con mock nei test),
+- service che effettua normalizzazione e validazione,
+- formati separati per import/export (JSON/CSV) e relative factory.  */
+
 
 == Codifica del prodotto
 L'attività di codifica del prodotto è svolta dai programmatori del gruppo, che si occupano di implementare le funzionalità definite nella fase di progettazione. La codifica avviene seguendo le linee guida stabilite nelle *Norme di Progetto*, che includono convenzioni di nomenclatura, standard di stile e best practice di programmazione.
@@ -540,7 +569,7 @@ L'attività di codifica del prodotto è svolta dai programmatori del gruppo, che
 
   - La stessa convenzione (commenti italiani) si estende ai workflow continuos integration.
 
-== Tecnologie selezionate
+== Strumenti Utilizzati
 - Python: utilizzato come linguaggio di programmazione ad alto livello orientato agli oggetti per la realizzazione della logica di backend. È stato scelto per la sua versatilità e l' ampia disponibilità di risorse.
 
 - React: utilizzato come framework per la realizzazione della logica di frontend.
@@ -556,6 +585,8 @@ L'attività di codifica del prodotto è svolta dai programmatori del gruppo, che
 - GitHub Actions: utilizzato per l'automazione dei processi di build, test e deployment, integrando la pipeline di continuous integration (CI).
 
 - Visual Studio Code: IDE utilizzato come ambiente di sviluppo condiviso.
+
+- Draw.io: utilizzato per la creazione di diagrammi UML e schemi architetturali.
 
 Per un approfondimento sulle tecnologie scelte, si rimanda al documento #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Esterni/Specifica_Tecnica.pdf")[#underline(text(fill: blue)[Specifica Tecnica])].
 
