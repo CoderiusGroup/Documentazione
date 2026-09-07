@@ -108,7 +108,7 @@
     [0.7.0], [2026/09/01], [Alberto Canavese], [Edis Hodja], [Stesura sezione 7: "Requisiti di sistema"],
     [0.6.0], [2026/09/01], [Ines Iadadi], [Edis Hodja], [Modifica alla struttura del documento e aggiornamento della sezione 2],
     [0.5.0], [2026/08/28], [Alberto Canavese], [], [Stesura della sezione 4 - Design pattern],
-    [0.4.3], [2026/08/22], [Ines Iadadi], [], [Stesura della sezione Backend 3.6],
+    [0.4.3], [2026/08/22], [Ines Iadadi], [Giovanni Bronte], [Stesura della sezione Backend 3.6],
     [0.4.2], [2026/08/13], [Filippo Zonta Rocha], [], [Stesura della sezione 3.5],
     [0.4.1], [2026/08/10], [Edis Hodja], [], [Stesura della sezione 3.4],
     [0.4.0], [2026/07/29], [Leonardo Lorenzin], [Edis Hodja], [Stesura iniziale della sezione 3],
