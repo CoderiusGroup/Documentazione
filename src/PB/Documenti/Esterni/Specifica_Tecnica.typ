@@ -84,7 +84,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.9.0*]
+  #text(size: 20pt)[*Versione 0.7.1*]
 ]
 #pagebreak()
 
@@ -104,12 +104,13 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
 
-    [0.9.0], [2026/09/01], [Alberto Canavese], [], [Stesura sezione 7: "Requisiti di sistema"],
-    [0.9.0], [2026/09/01], [Ines Iadadi], [], [Modifica alla struttura del documento e aggiornamento della sezione 2],
-    [0.8.0], [2026/08/28], [Alberto Canavese], [], [Stesura della sezione 4 - Design pattern],
-    [0.7.0], [2026/08/22], [Ines Iadadi], [], [Stesura della sezione Backend 3.6],
-    [0.6.0], [2026/08/13], [Filippo Zonta Rocha], [], [Stesura della sezione 3.5],
-    [0.5.0], [2026/08/10], [Edis Hodja], [], [Stesura della sezione 3.4],
+    [0.7.1], [2026/09/04], [Edis Hodja], [], [Revisione dell'architettura e correzione di refusi tecnici],
+    [0.7.0], [2026/09/01], [Alberto Canavese], [Edis Hodja], [Stesura sezione 7: "Requisiti di sistema"],
+    [0.6.0], [2026/09/01], [Ines Iadadi], [Edis Hodja], [Modifica alla struttura del documento e aggiornamento della sezione 2],
+    [0.5.0], [2026/08/28], [Alberto Canavese], [Leonardo Lorenzin], [Stesura della sezione 4 - Design pattern],
+    [0.4.3], [2026/08/22], [Ines Iadadi], [Giovanni Bronte], [Stesura della sezione Backend 3.6],
+    [0.4.2], [2026/08/13], [Filippo Zonta Rocha], [], [Stesura della sezione 3.5],
+    [0.4.1], [2026/08/10], [Edis Hodja], [], [Stesura della sezione 3.4],
     [0.4.0], [2026/07/29], [Leonardo Lorenzin], [Edis Hodja], [Stesura iniziale della sezione 3],
     [0.3.0], [2026/07/24], [Giovanni Bronte], [Leonardo Lorenzin], [Stesura della sezione 2],
     [0.2.0], [2026/07/24], [Alberto Canavese], [Leonardo Lorenzin], [Stesura della sezione 1],
@@ -137,8 +138,9 @@
 
 == Scopo del documento
 Il presente documento descrive l'architettura logica e infrastrutturale del sistema
-sviluppato dal gruppo Coderius per il capitolato C1 _Automated EN 18031 Compliance
-Verification_.
+sviluppato dal gruppo Coderius per il #link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[#text(
+    fill: blue,
+  )[Capitolato C1 - _Automated EN18031 Compliance Verification_, Bluewind S.r.l.]].
 
 Nel dettaglio, gli obiettivi preposti per questo documento sono:
 
@@ -149,7 +151,8 @@ Nel dettaglio, gli obiettivi preposti per questo documento sono:
 - *Promuovere la manutenibilità a lungo termine:* fornire direttive chiare al team di sviluppo per rendere la base di codice facilmente interpretabile, supportando così agevolmente le future iterazioni, correzioni ed espansioni del sistema.
 
 == Scopo del prodotto
-Il prodotto mira ad automatizzare e digitalizzare il processo di verifica della conformitàdei dispositivi radio alla normativa di sicurezza EN 18031, come richiesto dal capitolato *Automated EN18031 Compliance Verification* proposto da Bluewind S.r.l. L'obiettivo è sostituire le attuali procedure manuali, spesso dispendiose in termini di tempo e soggette a errore umano, con una soluzione software moderna ed efficiente.
+Il prodotto mira ad automatizzare e digitalizzare il processo di verifica della conformità dei dispositivi radio alla normativa di sicurezza EN 18031, come richiesto dal capitolato *Automated EN18031 Compliance Verification* proposto da Bluewind S.r.l.
+\ L'obiettivo è sostituire le attuali procedure manuali, spesso dispendiose in termini di tempo e soggette ad errore umano, con una soluzione software moderna ed efficiente.
 
 Le funzioni principali offerte dal prodotto sono le seguenti:
 
@@ -159,7 +162,7 @@ Le funzioni principali offerte dal prodotto sono le seguenti:
   automaticamente i requisiti della norma applicabili sulla base della sua tipologia.
 
 - *Esecuzione dei decision tree*: per ogni coppia asset-requisito il sistema esegue
-  l'albero decisionale corrispondente, riconducendo l'interazione a una sequenza di domande
+  l'albero decisionale corrispondente, riconducendo l'interazione ad una sequenza di domande
   a risposta binaria affiancata dalla rappresentazione grafica dell'albero, che evidenzia il
   nodo corrente e il percorso già intrapreso.
 
@@ -168,7 +171,7 @@ Le funzioni principali offerte dal prodotto sono le seguenti:
   era stato interrotto. È inoltre possibile riaprire un requisito già valutato insieme a
   quelli che da esso dipendono.
 
-- *Consultazione e esportazione degli esiti*: gli esiti dei singoli requisiti sono
+- *Consultazione ed esportazione degli esiti*: gli esiti dei singoli requisiti sono
   aggregati a livello di asset e di dispositivo e restano risalibili fino alla sequenza di
   domande e risposte che li ha determinati. Il sistema produce inoltre un report di
   conformità finale in formato PDF, contenente per ciascuna coppia asset-requisito l'esito
@@ -178,14 +181,14 @@ Le funzioni principali offerte dal prodotto sono le seguenti:
   degli alberi decisionali disponibili, consultabili in forma grafica, ampliabile
   importando nuovi alberi in formato JSON o CSV ed esportabile nei medesimi formati.
 
-Il prodotto è concepito come strumento interno alla proponente, opera interamente in locale e non prevede autenticazione né archiviazione centralizzata. Lo scabio dei dati fra installazioni viene affidato all'esportazione e all'importazione di file.
+Il prodotto è concepito come strumento interno alla proponente, opera interamente in locale e non prevede autenticazione né archiviazione centralizzata. Lo scambio dei dati fra installazioni viene affidato all'esportazione e all'importazione di file.
 
 #pagebreak()
 
 == Glossario
 Al fine di evitare ambiguità e incomprensioni legate alla terminologia tecnica presente in questo documento e nel resto della documentazione prodotta dal gruppo Coderius, è stato redatto un apposito glossario. 
 
-Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è contrassegnato nel testo da una "G" a pedice (es. _termine_#sub[G]). Cliccando sull'indicatore, il lettore verrà reindirizzato direttamente alla definizione corrispondente all'interno del documento #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Interni/Glossario.pdf")[*Glossario*].
+Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è contrassegnato nel testo da una "G" a pedice (es. _termine_#sub[G]). Cliccando sull'indicatore, il lettore verrà reindirizzato direttamente alla definizione corrispondente all'interno del documento #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Interni/Glossario.pdf")[#text(fill: blue,)[*Glossario*]].
 
 == Riferimenti
 === Riferimenti normativi
@@ -200,7 +203,10 @@ Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è cont
 - #link("https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf")[#text(
     fill: blue,
   )[Slide IS A.A. 2025/2026 - _Regolamento del progetto didattico_]]
-- Norma EN 18031 — _Common security requirements for radio equipment_.
+- #link("https://www.etsi.org/standards-search#page=1&search=EN%2018031")[#text(
+    fill: blue,
+  )[Norma EN 18031 — _Common security requirements for radio equipment_]]
+
 === Riferimenti informativi
 
 - #link("https://www.math.unipd.it/~rcardin/swea/2023/Diagrammi%20delle%20Classi.pdf")[#text(
@@ -237,7 +243,7 @@ Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è cont
 
 #pagebreak()
 = Tecnologie <tecnologie>
-Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del capitolato *Automated EN18031 Compliance Verification*.
+Nella seguente sezione vengono descritte le tecnologie usate per lo sviluppo del capitolato *Automated EN18031 Compliance Verification*.
 
 == Linguaggi di programmazione 
 
@@ -255,7 +261,7 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
   standard e nella maturità dell'ecosistema di test.],
 
     [TypeScript],
-    [6.0],
+    [6.0.2],
     [Metalinguaggio open source sviluppato da Microsoft che si basa su JavaScript, aggiungendovi la tipizzazione statica. Nel nostro progetto è utilizzato per lo sviluppo del frontend assieme alla libreria React: l'introduzione dei tipi garantisce maggiore robustezza, facilita la manutenibilità del codice nel tempo e permette di intercettare numerosi errori già in fase di compilazione.],
 )
 
@@ -268,28 +274,15 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     [*Tecnologia*], [*Versione*], [*Descrizione*],
 
     [Flask],
-    [3.1.3],
+    [/],
     [Micro-framework Web scritto in Python, è progettato per essere rapido e semplice, offrendo al contempo la possibilità di essere utilizzato per applicazioni complesse.
     È inoltre molto semplice da imparare, flessibile e ha buone performance.
     ],
     [Flask-CORS],
-  [6.0],
+  [/],
   [Estensione di Flask che gestisce le intestazioni _Cross-Origin Resource Sharing_.
   È necessaria in ambiente di sviluppo, dove client e server sono serviti da due origini
   distinte.],
-
-  [React],
-  [19.2],
-  [Libreria per la costruzione di interfacce utente a componenti, impiegata per l'intero
-  frontend. Il modello dichiarativo e la composizione per componenti permettono di
-  mantenere la logica di presentazione separata da quella applicativa, delegata a hook
-  dedicati.],
-
-  [React Router],
-  [7.18],
-  [Libreria di instradamento lato client per React. Associa a ciascuna vista un percorso
-  proprio e consente di applicare guardie di accesso alle pagine che richiedono
-  precondizioni, come l'esistenza di una sessione di valutazione attiva.],
 )
 
 == Librerie
@@ -301,8 +294,13 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     [*Tecnologia*], [*Versione*], [*Descrizione*],
 
     [React],
-    [19.2.7],
-    [React è una libreria completa, molto flessibile e permette la creazione e la gestione dell'interfaccia utente. Nel nostro progetto viene utilizzato per le varie librerie che permettono di gestire l'interfaccia utente al meglio.],
+    [19.2.8],
+    [Libreria JavaScript per la costruzione di interfacce utente tramite componenti dichiarativi. Nel progetto costituisce la base del frontend, insieme a React Router, Zustand e alle altre librerie dell’ecosistema.],
+    [React Router],
+    [7.18.2],
+    [Libreria di instradamento lato client per React. Associa a ciascuna vista un percorso
+    proprio e consente di applicare guardie di accesso alle pagine che richiedono
+    precondizioni, come l'esistenza di una sessione di valutazione attiva.],
     [React Flow],
     [12.11],
     [Libreria per la rappresentazione interattiva di grafi e diagrammi a nodi in applicazioni
@@ -321,8 +319,7 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     di conformità finale, la cui struttura è dichiarata come componente `ReportDocument` e
     resa in un documento scaricabile dall'utente. La generazione avviene interamente nel
     client, coerentemente con il criterio di possesso del dato illustrato in
-    @motivazioni-architettura: il report si fonda esclusivamente su dispositivo e sessione,
-    che risiedono nel client.],
+    @motivazioni-architettura: il report viene generato nel client utilizzando il dispositivo, la sessione e i decision tree resi disponibili dal catalogo.],
     [Zustand],
     [5.0],
     [Libreria minimale per la gestione dello stato globale in applicazioni React. Gli store
@@ -356,7 +353,7 @@ Nelle seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     [*Tecnologia*], [*Versione*], [*Descrizione*],
 
     [Vite],
-    [8.2],
+    [8.2.0],
     [Vite è diventato lo standard de facto dell'ecosistema frontend. È il motore ufficiale dietro i framework moderni come Vue, e i template ufficiali di React.
     È inoltre molto più veloce a creare il server rispetto ad altri strumenti simili ed è anche molto facile da implementare grazie alla sua configurazione minima richiesta. 
     ],
@@ -420,16 +417,16 @@ sono discusse nella sezione
     [*Tecnologia*], [*Versione*], [*Descrizione*],
 
     [Docker],
-    [3.1.3],
+    [28.5.1],
     [Piattaforma open source che consente agli sviluppatori di creare, implementare, eseguire, aggiornare e gestire i container. 
     I container sono componenti standardizzati ed eseguibili che combinano il codice sorgente dell'applicazione con le librerie e le dipendenze del sistema operativo necessarie per eseguire tale codice in qualsiasi ambiente.
     ],
     [Docker Compose],
-  [/],
-  [Strumento di orchestrazione dei container. Il file `docker-compose.yml` descrive i due
-  servizi, la rete privata che li collega, l'esposizione delle porte verso l'ospite
-  (8080 per il frontend, 5000 per il backend) e il montaggio della cartella dei decision
-  tree come volume.],
+    [2.40.0],
+    [Strumento di orchestrazione dei container. Il file `docker-compose.yml` descrive i due
+    servizi, la rete privata che li collega, l'esposizione delle porte verso l'ospite
+    (8080 per il frontend, 5000 per il backend) e il montaggio della cartella dei decision
+    tree come volume.],
 
   [Nginx],
   [1.27],
@@ -482,20 +479,20 @@ Il prodotto si compone di due unità distribuibili:
 
 - un *server* Flask scritto in Python 3.12, che espone un'API REST: valida i dati in
   ingresso, possiede il catalogo dei decision tree e ne governa il caricamento,
-  l'importazione, l'esportazione e la derivazione dei requisiti applicabili a un tipo di
+  l'importazione, l'esportazione e la derivazione dei requisiti applicabili ad un tipo di
   asset.
 
 La ripartizione delle responsabilità fra le due unità segue il criterio del possesso del
 dato, discusso nella @persistenza. Il server possiede il catalogo dei decision tree, che
 mette a disposizione dell'utente; non possiede invece né il dispositivo né la sessione di
 valutazione, che l'utente porta al sistema e riporta via sotto forma di file. Ne consegue
-che la navigazione lungo l'albero avviene interamente nel client; rispondere a una domanda
+che la navigazione lungo l'albero avviene interamente nel client; rispondere ad una domanda
 del decision tree non comporta alcuna richiesta al server, poiché l'albero è stato
 scaricato per intero all'ingresso nel requisito.
 
 Al server ci si rivolge esclusivamente per ottenere un decision tree o l'elenco del
 catalogo, importare o esportare un decision tree, risolvere gli identificativi di
-dispositivo e asset e derivare i requisiti applicabili a un tipo di asset. Ogni altra
+dispositivo e asset e derivare i requisiti applicabili ad un tipo di asset. Ogni altra
 operazione, come l'avanzamento nell'albero, calcolo degli esiti aggregati, salvataggio e ripresa
 della sessione, esportazione del dispositivo, viene svolta nel client.
 
@@ -586,8 +583,7 @@ sostituibilità. Il disaccoppiamento esplicito fra interfaccia e implementazione
 là dove esiste una ragione concreta per prevedere un'implementazione alternativa (l'accesso al catalogo dei decision tree, la comunicazione HTTP, la presentazione delle
 notifiche) e omesso altrove.
 
-Analogamente, lato client i service applicativi scrivono direttamente sugli store anziché
-passare da un'astrazione intermedia, mantenendo comunque il vincolo di dipendenza a senso
+Analogamente, lato client gli hook applicativi accedono direttamente agli store anziché passare da un'astrazione intermedia, mantenendo comunque il vincolo di dipendenza a senso
 unico.
 
 == Pattern architetturali adottati
@@ -695,8 +691,7 @@ che la navigazione lungo l'albero avviene interamente nel client e che il server
 conserva né dispositivi né sessioni.
 
 Il criterio produce due conseguenze verificabili: nessuna richiesta di rete è necessaria
-per rispondere a una domanda del decision tree, e l'utente conserva il pieno controllo dei
-propri dati, che non transitano né permangono su alcun archivio condiviso. Quest'ultima
+per rispondere a una domanda del decision tree, e l'utente conserva il pieno controllo dei propri dati, che non vengono persistiti né conservati in un archivio condiviso dal server. Quest'ultima
 proprietà è coerente con la natura di strumento interno del prodotto e con la decisione
 VE-7.1.
 
@@ -807,7 +802,7 @@ progettazione e non di un pattern del catalogo, e come tale è descritto contest
 Method, che ne costituisce il luogo di applicazione, anziché in una scheda propria.
 
 Per ciascun pattern sono indicati il problema affrontato, la soluzione adottata e i moduli
-concretamente coinvolti. Tutti i pattern qui documentati sono realizzati nel codice del prodotto;
+concretamente coinvolti. Tutti i pattern documentati in questa sezione sono stati individuati in corrispondenza di meccanismi effettivamente presenti nel codice;
 la sezione si chiude con quelli che non trovano applicazione, corredati della motivazione tecnica
 che ne esclude l'adozione.
 
@@ -817,7 +812,7 @@ I pattern architetturali che governano la struttura complessiva del sistema sono
 nelle sezioni precedenti e vengono qui richiamati per completezza:
 
 - *Client-Server*: separazione tra il client React e il server Flask, entrambi eseguiti in locale come container distinti e coordinati da Docker Compose.
-- *Layered Architecture*: organizzazione interna in livelli con dipendenza a senso unico, in sei livelli lato frontend e quattro lato backend.
+- *Layered Architecture*: organizzazione interna in livelli con dipendenza a senso unico, in cinque livelli lato frontend e quattro lato backend.
 - *REST stateless*: assenza di stato di sessione lato server; ogni richiesta contiene tutte le informazioni necessarie alla propria elaborazione.
 - *Monolite containerizzato*: distribuzione come singolo backend e singolo frontend, in luogo di una scomposizione in servizi indipendenti.
 
@@ -829,9 +824,9 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
 
 - *Soluzione*: definire un'interfaccia stabile espressa nei termini del dominio applicativo e realizzarla con una classe che ne traduce le chiamate nell'interfaccia, incompatibile, del meccanismo sottostante.
 - *Applicazione nel progetto*: il pattern è applicato a due confini tecnici del sistema.
-  - `FetchApiClient` realizza l'interfaccia `ApiClientService`, che dichiara le operazioni `get`, `post`, `put` e `delete` tipizzate. Il metodo privato `request()` concentra la costruzione dell'indirizzo, la serializzazione del corpo e la traduzione degli esiti: un fallimento di rete e una risposta non riuscita diventano entrambi un `ApiError`, che espone il messaggio e lo stato numerico quando disponibile.
+  - `FetchApiClient` realizza l'interfaccia `ApiClientService`, che dichiara le operazioni `get`, `post`, `postFormData`, `put` e `delete` tipizzate. Il metodo privato `request()` concentra la costruzione dell'indirizzo, la serializzazione del corpo e la traduzione degli esiti: un fallimento di rete e una risposta non riuscita diventano entrambi un `ApiError`, che espone il messaggio e lo stato numerico quando disponibile.
   - `NotificationManager` realizza l'interfaccia `NotificationService`, delegando alla libreria _react-hot-toast_ la gestione di coda, timer di scomparsa automatica e impilamento dei messaggi.
-- *Conseguenze*: I test di `FetchApiClient` verificano il trattamento delle risposte di errore senza alcun backend in esecuzione. Da questo ne cosegue che ogni comunicazione con il backend deve transitare per `ApiClientService`. L'esportazione del decision tree, che allo stato attuale invoca `fetch` direttamente, dovrà essere ricondotta a tale regola.
+- *Conseguenze*: I test di `FetchApiClient` verificano il trattamento delle risposte di errore senza alcun backend in esecuzione. Da questo ne consegue che ogni comunicazione con il backend deve transitare per `ApiClientService`. L'esportazione del decision tree, che allo stato attuale invoca `fetch` direttamente, dovrà essere ricondotta a tale regola.
 
 
 ==== Repository
@@ -848,7 +843,7 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
 - *Problema*: diverse operazioni che l'utente percepisce come unitarie sono in realtà sequenze articolate. L'importazione di un dispositivo da file richiede il riconoscimento del formato, la lettura asincrona tramite `FileReader`, l'interpretazione del contenuto, la validazione dello schema e infine l'invio al backend dei metadati del device e di ciascun asset. Esporre tale sequenza alle viste le legherebbe a dettagli estranei alla presentazione e ne impedirebbe il riuso da parte di viste diverse.
 
 - *Soluzione*: raggruppare la sequenza dietro un'unica operazione di alto livello, espressa nel linguaggio del caso d'uso, che coordini internamente i collaboratori necessari.
-- *Applicazione nel progetto*: lato client, `importDeviceFromFile(file)` racchiude l'intera sequenza di importazione e restituisce alla vista il solo esito. I custom hook assolvono la funzione analoga verso il Presentation Layer: `useSessionRunner()` coordina le fasi della valutazione guidata, il caricamento e l'idratazione dell'albero e la registrazione dell'esito, esponendo alla pagina soltanto lo stato e le azioni necessarie; `useResult()` e `useSessionModify()` operano allo stesso modo per la consultazione degli esiti e per la ripresa dei requisiti. Lato server, `DecisionTreeService.get_tree()` racchiude in una sola chiamata l'accesso al catalogo, la gestione dell'assenza del dato (`DecisionTreeNotFoundError`) e la normalizzazione dell'albero, mentre `create_device()` e `create_asset()` costituiscono il punto unico di validazione delle rispettive entità, condiviso dal percorso di creazione manuale e da quello di importazione.
+- *Applicazione nel progetto*: lato client, `importDeviceFromFile(file)` racchiude l'intera sequenza di importazione e restituisce alla vista il dispositivo costruito insieme al payload originale. I custom hook assolvono la funzione analoga verso il Presentation Layer: `useSessionRunner()` coordina le fasi della valutazione guidata, il caricamento e l'idratazione dell'albero e la registrazione dell'esito, esponendo alla pagina soltanto lo stato e le azioni necessarie; `useResult()` e `useSessionModify()` operano allo stesso modo per la consultazione degli esiti e per la ripresa dei requisiti. Lato server, `DecisionTreeService.get_tree()` racchiude in una sola chiamata l'accesso al catalogo, la gestione dell'assenza del dato (`DecisionTreeNotFoundError`) e la normalizzazione dell'albero, mentre `create_device()` e `create_asset()` costituiscono il punto unico di validazione delle rispettive entità, condiviso dal percorso di creazione manuale e da quello di importazione.
 - *Conseguenze*: pagine e rotte restano prive di logica applicativa e si limitano, rispettivamente, a renderizzare e a deserializzare, delegare e serializzare. L'unicità del punto di validazione evita che due percorsi diversi applichino allo stesso concetto regole divergenti.
 
 ==== Factory Method
@@ -969,12 +964,25 @@ Il livello comprende nove pagine, ciascuna corrispondente all'ingresso di un cas
 - *ResultPage*: consultazione degli esiti e loro esportazione.
 - *DecisionTreeCatalogPage*: elenco dei decision tree disponibili, dettaglio, importazione ed esportazione.
 
-I componenti riutilizzabili sono tre:
+I componenti condivisi principali comprendono:
 
-- *Esito*: etichetta che rappresenta lo stato di valutazione con un codice colore.
+- *Page*: layout comune delle pagine e gestione del titolo e della navigazione.
 
-- *GrafoDecisionTree*: rappresentazione grafica dell'albero, con evidenziazione del nodo corrente e del percorso già intrapreso.
-- *RequireSession*: componente di guardia che avvolge le pagine richiedenti una sessione attiva e reindirizza alla pagina iniziale in sua assenza.
+- *Loading*: indicatore dello stato di caricamento.
+
+- *Field*: componente riutilizzabile per la presentazione dei campi dei form.
+
+- *StatusBadge*: etichetta per la rappresentazione degli stati.
+
+- *NoActiveSession*: messaggio e azione mostrati quando non esiste una sessione attiva.
+
+- *Esito*: etichetta che rappresenta lo stato di valutazione.
+
+- *GrafoDecisionTree*: rappresentazione grafica dell'albero, con evidenziazione del nodo
+  corrente e del percorso già intrapreso.
+
+- *RequireSession*: componente di guardia che avvolge le pagine richiedenti una sessione
+  attiva e reindirizza alla pagina iniziale in sua assenza.
 
 L'instradamento è definito in `App.tsx`, che associa a ciascuna vista un percorso e applica
 `RequireSession` alle rotte `/session` e `/session/modify`.
@@ -1007,7 +1015,7 @@ I service raccolgono le operazioni indipendenti dalla singola pagina.
 
 === State Management
 
-Lo stato condiviso fra più pagine è distribuito su tre store Zustand indipendenti.
+Lo stato condiviso fra più pagine è distribuito su tre store Zustand separati per area funzionale, collegati da una dipendenza controllata fra DeviceStore e SessionStore.
 
 #table(
   columns: (auto, 1fr, 1.4fr),
@@ -1045,6 +1053,19 @@ solo quando l'utente risponde diversamente a un nodo già risposto.
 - *ApiClientService* e *FetchApiClient*: l'interfaccia con cui il resto del codice richiede dati al backend e la sua realizzazione concreta su `fetch`. Il metodo privato `request()` concentra la composizione dell'indirizzo, la serializzazione del corpo e la traduzione degli esiti: tanto un'assenza di rete quanto una risposta non riuscita diventano un `ApiError`, che espone il messaggio e, quando disponibile, il codice di stato.
 
 - *queryClient*: istanza di TanStack Query impiegata in modo imperativo per conservare gli alberi già richiesti. La configurazione disabilita scadenza e ritentativi, coerentemente con la natura immutabile del dato durante una sessione.
+
+- *ReportService* e *reportData*: il report di conformità viene costruito
+  interamente nel client. `reportData` raccoglie dal dispositivo e dalla sessione gli
+  esiti delle valutazioni, gli stati aggregati di asset e dispositivo e i percorsi logici
+  seguiti. Quando necessario, recupera dal catalogo i decision tree associati ai requisiti
+  per ricostruire le domande e le risposte del percorso.
+
+  `ReportService` utilizza questi dati per generare il documento PDF tramite la libreria
+  `@react-pdf/renderer`. La struttura grafica del documento è definita dal componente
+  `ReportDocument`, mentre il file prodotto viene reso disponibile per il download
+  dell'utente. Questa soluzione evita di trasferire la sessione al backend, che non la
+  possiede né la conserva.
+
 - *NotificationService* e *NotificationManager*: l'interfaccia per avvisare l'utente e la sua realizzazione su `react-hot-toast`.
 
 Grazie a questa separazione, sostituire il modo in cui si dialoga con il backend o si
@@ -1082,11 +1103,6 @@ I flussi principali sono i seguenti.
 - *Consultazione degli esiti*: valutate tutte le coppie, ResultPage consente di scendere dall'asset al requisito e rivedere domande e risposte.
 - *Salvataggio e ripresa da file*: la sessione può essere scaricata in qualsiasi momento e ricaricata da HomePage, previa validazione dello schema.
 - *Esportazione*: il dispositivo è scritto in JSON o CSV dal client; il decision tree è prodotto dal backend, che risponde all'endpoint di esportazione nel formato richiesto.
-
-#figure(
-  image("../../../images/specifica_tecnica/seq_avanzamento_albero.png", width: 100%),
-  caption: [Diagramma di sequenza dell'avanzamento nell'albero decisionale],
-)
 
 == Backend
 
@@ -1126,16 +1142,17 @@ e non dipendono da collaboratori costruiti a runtime, è registrato senza factor
 - *`create_device()`*: valida i metadati del dispositivo (nome, sistema operativo, descrizione) e ne costruisce l'entità, rispettando l'`id` se fornito o generandone uno con `uuid4`. È il punto unico di validazione, condiviso dalla creazione manuale e dall'importazione.
 
 - *`create_asset()`*: valida i campi dell'asset e, quando `requirements` non è fornito, deriva i requisiti applicabili interrogando `DecisionTreeService.list_requirement_ids_for_type()`.
-- *`DecisionTreeService`*: unica classe del livello. Carica un albero tramite il repository, ne verifica l'integrità e lo normalizza; espone inoltre `list_trees()`, `list_requirement_ids_for_type()` e `import_tree()`.
+- *`DecisionTreeService`*: unica classe del livello. Carica un albero tramite il repository, ne verifica l'integrità e lo normalizza; espone inoltre `list_trees()`, `list_requirement_ids_for_type()` e `import_tree()` e `delete_tree()`.
 
 Le prime due sono realizzate come funzioni esportate anziché come classi, non avendo stato
 né collaboratori da conservare fra le invocazioni.
 
 === Domain Layer
 
-Il livello comprende le entità `Device`, `Asset`, `Node` — con le specializzazioni
-`QuestionNode` e `LeafNode` — `DecisionTree` e `Session`, tutte realizzate come dataclass
-immutabili prive di dipendenze da librerie web o di accesso ai file. Le operazioni di
+Il livello comprende le entità `Device`, `Asset`, `DecisionTree` e `Session`, realizzate
+come dataclass immutabili, oltre alla classe astratta `Node` e alle dataclass concrete
+`QuestionNode` e `LeafNode`. Le entità non dipendono da librerie web né dall'accesso
+diretto ai file. Le operazioni di
 navigazione sono definite come metodi delle entità: `DecisionTree.get_node()` reperisce un
 nodo per identificatore, `Node.next()` restituisce il successore per il ramo scelto,
 `Node.verdict()` l'esito di una foglia.
@@ -1182,6 +1199,10 @@ principio selettivo che governa l'esistenza di un solo repository è discusso in
   registra nel catalogo tramite il repository. Risponde 400 in caso di struttura non
   valida.],
 
+  [DELETE], [`/decision-trees/{requirementId}`],
+  [Elimina definitivamente dal catalogo il decision tree indicato. Risponde 404 se
+  l'albero non esiste e 204 in caso di eliminazione riuscita.],
+
   [GET], [`/decision-trees/{requirementId}/export`],
   [Restituisce il decision tree nel formato indicato dal parametro `format`, `json` o
   `csv`.],
@@ -1223,10 +1244,10 @@ alla struttura. La corrispondenza fra entità e requisiti è riportata in //@tra
   caption: [Diagramma delle classi del dominio frontend],
 )*/
 
-Tutte le entità del dominio frontend sono *immutabili*: i campi sono dichiarati privati
-tramite la sintassi dei campi privati di JavaScript (`#campo`) e le operazioni di modifica
-non alterano l'istanza, ma restituiscono una nuova istanza con il valore aggiornato. Da qui
-la convenzione di denominazione `with*` adottata per tali metodi. L'immutabilità garantisce
+Le entità del dominio frontend sono progettate secondo un modello immutabile a livello
+dell'oggetto: le proprietà sono private e le operazioni di modifica restituiscono nuove
+istanze invece di modificare direttamente i campi. Le collezioni contenute nelle entità
+sono gestite secondo questa convenzione dagli store e dai metodi `with*`. L'immutabilità garantisce
 che nessun modulo possa alterare uno stato condiviso in modo non tracciabile e si combina
 con la propagazione delle modifiche degli store, che rilevano il cambiamento per identità
 del riferimento.
@@ -1539,7 +1560,7 @@ proponente.
   [RF-Ob42], [Il sistema deve mostrare la lista dei requisiti da valutare associati all'asset.], [Soddisfatto],
   [RF-Ob43], [Il sistema deve mostrare il codice identificativo e lo stato di valutazione di ogni requisito nella lista.], [Soddisfatto],
   [RF-Ob44], [Il sistema deve permettere l'eliminazione definitiva di un asset da un dispositivo.], [Soddisfatto],
-  [RF-Ob45], [Il sistema deve permettere l'esecuzione di una sessione di], [Soddisfatto],
+  [RF-Ob45], [Il sistema deve permettere l'esecuzione di una sessione di valutazione], [Soddisfatto],
   [RF-Ob46], [Il sistema deve mostrare una dashboard di valutazione con la lista degli asset, il loro stato, e il progresso della sessione in tempo reale.], [Soddisfatto],
   [RF-Ob47], [Il sistema deve consentire la selezione e l'avvio della valutazione dei requisiti di un singolo asset.], [Soddisfatto],
   [RF-Ob48], [Il sistema deve mostrare il nome, il tipo, la descrizione, la sensibilità e lo stato di valutazione dell'asset selezionato per la valutazione.], [Soddisfatto],
@@ -1579,11 +1600,6 @@ proponente.
 
 *Copertura*: 80 requisiti soddisfatti su 80 (100%).
 
-Il requisito non soddisfatto è: `RF-Ob80`, relativo alla generazione del report di
-conformità finale. La funzionalità è progettata ma non ancora realizzata: la sua
-collocazione architetturale e l'interpretazione di «esito aggregato del decision tree» sono
-punti aperti, discussi in @architettura-logica.
-
 == Requisiti funzionali desiderabili
 
 Introducono funzionalità a valore aggiunto che migliorano la fluidità del flusso operativo,
@@ -1604,7 +1620,7 @@ senza costituire condizione bloccante per l'utilizzo del prodotto.
   [RF-D06], [Il sistema deve permettere l'annullamento della procedura di eliminazione di un asset durante la fase di richiesta di conferma.], [Soddisfatto],
   [RF-D07], [Il sistema deve permettere la navigazione al nodo precedente del decision tree, mostrando la risposta già fornita senza invalidare le risposte successive.], [Soddisfatto],
   [RF-D08], [Il sistema deve permettere il salvataggio intermedio dello stato della sessione di valutazione.], [Soddisfatto],
-  [RF-D09], [Il sistema deve permettere all'utente di navigare verso il nodo successivo precedentemente già risposto durante l'esecuzione del decision tree.], [Non soddisfatto],
+  [RF-D09], [Il sistema deve permettere all'utente di navigare verso il nodo successivo precedentemente già risposto durante l'esecuzione del decision tree.], [Soddisfatto],
   [RF-D10], [Il sistema deve permettere la modifica della risposta a un nodo già risposto, invalidando le risposte successive al nodo corrente.], [Soddisfatto],
   [RF-D11], [Il sistema deve permettere la modifica delle informazioni anagrafiche di un dispositivo esistente.], [Soddisfatto],
   [RF-D12], [Il sistema deve consentire la modifica del nome del dispositivo.], [Soddisfatto],
@@ -1621,13 +1637,7 @@ senza costituire condizione bloccante per l'utilizzo del prodotto.
   [RF-D23], [Il sistema deve supportare l'importazione di un decision tree da file in formato CSV.], [Soddisfatto],
 )
 
-*Copertura*: 22 requisiti soddisfatti su 23 (95.7%).
-
-Il requisito non soddisfatto è: `RF-D09`, relativo alla navigazione verso un nodo
-successivo già risposto. La transizione corrispondente è realizzata nel `TreeStore`, che
-espone l'operazione `goForward` e conserva le risposte successive al cursore, ma il comando
-non è ancora esposto nell'interfaccia: il requisito è pertanto da considerarsi non
-soddisfatto dal punto di vista dell'utente.
+*Copertura*: 23 requisiti soddisfatti su 23 (100%).
 
 == Requisiti funzionali opzionali
 
@@ -1653,7 +1663,7 @@ essenziali ai fini della validazione dell'applicazione.
   [RF-Op10], [Il sistema deve validare la struttura dell'albero modificato secondo i vincoli di consistenza predefiniti.], [Non soddisfatto],
   [RF-Op11], [Il sistema deve impedire il salvataggio e mostrare un errore se l'albero non è binario o mancano foglie PASS/FAIL.], [Non soddisfatto],
   [RF-Op12], [Il sistema deve impedire l'eliminazione del nodo radice di un decision tree mostrando un errore.], [Non soddisfatto],
-  [RF-Op13], [Il sistema deve consentire l'eliminazione definitiva di un decision tree.], [Non soddisfatto],
+  [RF-Op13], [Il sistema deve consentire l'eliminazione definitiva di un decision tree.], [Soddisfatto],
   [RF-Op14], [Il sistema deve bloccare l'inserimento e mostrare un messaggio di errore se il codice del nodo è già presente nel decision tree.], [Non soddisfatto],
   [RF-Op15], [Il sistema deve permettere all'utente di assegnare un esito (PASS, FAIL o NOT APPLICABLE) ai rami non collegati di un nodo appena aggiunto o modificato nel decision tree, trasformandoli in nodi foglia.], [Non soddisfatto],
   [RF-Op16], [Il sistema deve assegnare l'esito PASS al ramo non collegato selezionato dall'utente, creando un nodo foglia PASS.], [Non soddisfatto],
@@ -1669,13 +1679,15 @@ essenziali ai fini della validazione dell'applicazione.
   [RF-Op26], [Il sistema deve permettere l'inserimento di una giustificazione testuale per l'esito della coppia asset-requisito al termine dell'esecuzione del decision tree.], [Non soddisfatto],
 )
 
-*Copertura*: 1 requisito soddisfatto su 26 (3.8%).
+*Copertura*: 2 requisiti soddisfatti su 26 (7.7%).
 
-Il solo requisito soddisfatto della categoria è `RF-Op22`, download del report in formato
-PDF. Gli altri requisiti opzionali riguardano in prevalenza la modifica strutturale dei
-decision tree, l'esportazione del report negli altri formati e funzionalità accessorie di consultazione. La loro realizzazione è
-subordinata al completamento dei requisiti obbligatori e desiderabili e alla disponibilità
-di tempo residuo, secondo quanto stabilito in sede di pianificazione.
+I requisiti soddisfatti della categoria sono `RF-Op13`, relativo all'eliminazione di un
+decision tree, e `RF-Op22`, relativo al download del report in formato PDF. Gli altri
+requisiti opzionali riguardano in prevalenza la modifica strutturale dei decision tree,
+l'esportazione del report negli altri formati e funzionalità accessorie di consultazione.
+La loro realizzazione è subordinata al completamento dei requisiti obbligatori e
+desiderabili e alla disponibilità di tempo residuo, secondo quanto stabilito in sede di
+pianificazione.
 
 = Requisiti di sistema <requisiti-sistema>
 
@@ -1690,7 +1702,7 @@ che avviene interamente in locale.
 
 == Requisiti hardware
 
-I valori riportati sono stati rilevati su un'installazione funzionante del prodotto.
+I valori riportati sono indicativi e possono variare in funzione del sistema operativo, della versione di Docker e della quantità di dati presenti nel catalogo.
 
 #table(
   columns: (1.4fr, 1fr, 1fr),
@@ -1707,7 +1719,7 @@ I valori riportati sono stati rilevati su un'installazione funzionante del prodo
 )
 
 L'occupazione di memoria dei due container è di 22 MiB per il backend e 20 MiB per
-il frontend. Si mantiene stabile durante l'uso. La ragione è che il servizio
+il frontend. Nel test effettuato non sono state osservate variazioni significative durante l'uso.. La ragione è che il servizio
 di frontend si limita a servire file statici tramite Nginx, mentre l'applicazione vera e
 propria è eseguita dal browser dell'utente. Il consumo di risorse significativo è pertanto
 quello del browser, non quello dei container, ed è il motivo per cui la memoria complessiva
