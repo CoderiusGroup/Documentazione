@@ -79,7 +79,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.3.0*]
+  #text(size: 20pt)[*Versione 0.4.0*]
 ]
 #pagebreak()
 
@@ -98,6 +98,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [0.4.0], [2026/09/08], [Leonardo Lorenzin], [], [Stesura dalla sezione 4.7 alla sezione 4.10],
     [0.3.0], [2026/09/07], [Alberto Canavese], [], [Stesura dalla sezione 4 alla sezione 4.6],
     [0.2.0], [2026/09/06], [Leonardo Lorenzin], [], [Stesura Sezione 3],
     [0.1.0], [2026/09/06], [Alberto Canavese], [], [Stesura Sezioni 1 e 2]
@@ -117,14 +118,10 @@
 #show link: set text(fill: blue)
 #show link: underline
 
-// ---------------------------------------------------------
-// Funzioni di supporto al contenuto
-// ---------------------------------------------------------
+#show figure: set block(above: 2em, below: 2em)
+#set figure(gap: 1em)
 
-// Screenshot / figura.
-//   #screenshot[Didascalia]                              -> segnaposto grigio
-//   #screenshot(file: "../../../images/manualeUtente/x.png")[Didascalia]
-//   #screenshot(file: "...", width: 70%)[Didascalia]      -> larghezza personalizzata
+
 #let screenshot(didascalia, file: none, width: 85%) = figure(
   if file == none {
     rect(
@@ -169,9 +166,7 @@
   breakable: true,
 )[#text(size: 9.5pt)[#it]]
 
-// ---------------------------------------------------------
-// Contenuto del Manuale Utente
-// ---------------------------------------------------------
+
 
 = Introduzione
 
@@ -365,8 +360,6 @@ Se uno dei due comandi restituisce un errore, installare Docker seguendo la guid
 (#link("https://docs.docker.com/get-started/get-docker/")) e, su Windows e macOS, avviare
 _Docker Desktop_ prima di proseguire.
 
-/*#screenshot[Verifica della versione di Docker dal terminale]*/
-
 #pagebreak()
 == Download dell'applicazione
 
@@ -411,7 +404,6 @@ abbreviata:
 docker compose up
 ```
 
-/*#screenshot[Log di avvio dei container nel terminale]*/
 
 == Primo accesso all'applicazione
 
@@ -487,6 +479,8 @@ compaiono per pochi secondi. I messaggi di conferma (ad esempio "Dispositivo cre
 correttamente") e i messaggi di errore (ad esempio "Errore di rete: impossibile contattare
 il server") usano stili diversi ma spariscono automaticamente.
 
+#pagebreak()
+
 === Navigazione
 
 Le schermate diverse dalla pagina iniziale presentano in alto a sinistra un collegamento
@@ -523,6 +517,8 @@ dando priorità agli stati nell'ordine: `FAIL`, poi "In corso", poi "Non valutat
 `PASS`, poi "Non applicabile". In pratica un asset risulta `PASS` solo quando tutti i suoi
 requisiti sono `PASS` o "Non applicabile"; è sufficiente un solo `FAIL` perché l'asset, e
 quindi il dispositivo, risultino `FAIL`.
+
+#pagebreak()
 
 == Creazione di un dispositivo <sec-crea-dispositivo>
 
@@ -581,7 +577,7 @@ Il modulo *Nuovo Asset* contiene i campi seguenti:
     fill: (x, y) => if y == 0 { luma(235) } else { none },
     [*Campo*], [*Note*],
     [Nome], [Obbligatorio, da 1 a 100 caratteri.],
-    [Tipo], [Da scegliere tra `Network`, `Security`, `Privacy`, `Financial`. Predefinito: `Network`.],
+    [Tipo], [Da scegliere tra `Network`, `Security`, `Privacy`, `Financial`.],
     [Descrizione], [Obbligatoria, da 1 a 1000 caratteri.],
     [Asset sensibile], [Casella da spuntare se l'asset è sensibile.],
   ),
@@ -593,7 +589,7 @@ sono vuoti compare il messaggio "Dati asset non validi" e l'asset non viene crea
 
 #screenshot(file: "../../../images/manualeUtente/creazione-asset.png")[Modulo di creazione di un asset]
 
-=== Requisiti applicabili e loro derivazione <sec-derivazione> DA VALUTARE
+=== Requisiti applicabili e loro derivazione <sec-derivazione>
 
 Quando si crea un asset l'applicazione deriva automaticamente i requisiti in base al tipo dell'asset:
 associa all'asset tutti i decision tree del catalogo che si applicano a quel tipo.
@@ -602,8 +598,7 @@ Nel catalogo iniziale tutti i decision tree si applicano ai tipi `network` e `se
 Di conseguenza:
 
 - un asset di tipo *Network* o *Security* riceve l'intero elenco dei requisiti del catalogo
-  iniziale (`ACM-1`, `ACM-2`, `AUM-1-1`, `AUM-1-2`, `AUM-2`, `AUM-3`, `AUM-4`, `AUM-5-1`,
-  `AUM-5-2`, `AUM-6`);
+  iniziale;
 - un asset di tipo *Privacy* o *Financial* non riceve alcun requisito e viene mostrato con
   lo stato "Nessun requisito applicabile".
 
@@ -634,6 +629,8 @@ file con estensione `.json` o `.csv` /*conformi ai formati descritti in (@sec-fo
 Al termine del caricamento l'applicazione segnala "Dispositivo caricato correttamente" e
 apre la schermata di *Gestione asset* con il dispositivo importato e i suoi asset, se presenti. In caso di file non valido viene mostrato un messaggio di errore e il dispositivo
 non viene caricato /*(@sec-errori)*/.
+
+#pagebreak()
 
 
 == Riepilogo del dispositivo <sec-riepilogo>
@@ -735,6 +732,8 @@ disponibile e apre l'albero di decisione del requisito.
 
 #screenshot(file: "../../../images/manualeUtente/dettaglio-requisito.png")[Dettaglio di un requisito con la sezione Dipendenze]
 
+#pagebreak()
+
 === Esecuzione del decision tree
 
 Durante l'esecuzione dell'albero, la schermata riporta in alto l'asset e il requisito in
@@ -791,6 +790,8 @@ scarica un file JSON con lo stato completo della sessione (dispositivo, avanzame
 risposte date fino a quel momento). Il file può essere ricaricato in seguito dalla pagina iniziale
 /*(@sec-riprendi)*/.
 
+#pagebreak()
+
 === Uscita dalla valutazione
 
 Il pulsante *Esci dal test* apre una richiesta di conferma con tre opzioni:
@@ -799,5 +800,173 @@ Il pulsante *Esci dal test* apre una richiesta di conferma con tre opzioni:
 - *Esci senza salvare*: torna alla pagina iniziale scartando lo stato della sessione in
   memoria;
 - *Annulla*: chiude la richiesta e resta nella valutazione.
+
+== Consultazione dei risultati <sec-risultati>
+
+La schermata *Valutazione completata* si apre automaticamente al termine della valutazione
+e ogni volta che si carica dalla pagina iniziale una sessione già conclusa.
+
+=== Esiti possibili
+
+Ogni coppia asset--requisito ha uno dei tre esiti:
+
+#figure(
+  table(
+    columns: (auto, 1fr),
+    align: (left, left),
+    stroke: 0.5pt + luma(150),
+    inset: 7pt,
+    fill: (x, y) => if y == 0 { luma(235) } else { none },
+    [*Esito*], [*Significato*],
+    [PASS], [Il requisito è soddisfatto per quell'asset.],
+    [FAIL], [Il requisito non è soddisfatto per quell'asset.],
+    [NOT APPLICABLE], [Il requisito non si applica a quell'asset.],
+  ),
+  caption: [Esiti di una singola valutazione],
+)
+
+=== Esito aggregato di asset e dispositivo
+
+L'esito di un *asset* è la sintesi degli esiti dei suoi requisiti; l'esito del
+*dispositivo* è la sintesi degli esiti dei suoi asset, secondo le regole di priorità
+descritte in @sec-stati. In termini di conformità:
+
+- il dispositivo risulta `PASS` quando *ogni* verifica applicabile è `PASS` oppure
+  `NOT APPLICABLE`: in tal caso il dispositivo è considerato conforme;
+- la presenza di *anche una sola* verifica `FAIL` rende il dispositivo `FAIL`, quindi non
+  conforme;
+
+
+=== Dettaglio del percorso logico
+
+La schermata dei risultati consente un drill-down:
+
++ l'elenco iniziale mostra gli asset del dispositivo, ciascuno con il proprio esito e un
+  pulsante *Dettaglio*;
++ il dettaglio di un asset mostra tipo, esito e l'elenco dei requisiti, ognuno con esito e
+  pulsante *Dettaglio*;
++ il dettaglio di un requisito mostra l'esito e il *Percorso logico*: la sequenza ordinata
+  delle domande poste e delle risposte date ("Sì" / "No") che ha condotto all'esito.
+
+#screenshot(file: "../../../images/manualeUtente/dettaglio-percorso.png")[Dettaglio di un requisito con il percorso logico domande--risposte]
+
+=== Esportazione del report PDF
+
+Il pulsante *Esporta report PDF* genera e scarica un documento in formato PDF intitolato *Report di conformità EN 18031*.
+
+
+=== Salvataggio della sessione conclusa
+
+Anche dalla schermata dei risultati il pulsante *Salva sessione* scarica il file JSON della
+sessione. Ricaricando questo file dalla pagina iniziale si
+torna direttamente a questa schermata di consultazione.
+
+#pagebreak()
+
+== Ripresa di una sessione salvata <sec-riprendi>
+
+Dal riquadro *Riprendi una sessione salvata* della pagina iniziale, il pulsante
+*Scegli un file* consente di caricare un file di sessione (`.json`) salvato in precedenza.
+
+
+=== Sessione interrotta
+
+Se la sessione era *in corso*, dopo il caricamento ("Sessione ripresa correttamente")
+l'applicazione riporta al punto in cui si era interrotta: al cruscotto di avanzamento
+oppure direttamente all'interno del decision tree, se una valutazione era a metà. Le
+risposte già date vengono ripristinate e si può proseguire normalmente.
+
+#screenshot(file: "../../../images/manualeUtente/sessione-interrotta.png")[Ripresa di una sessione interrotta: il cruscotto mostra l'avanzamento salvato]
+
+=== Sessione conclusa
+
+Se la sessione era *conclusa*, il caricamento apre la schermata *Valutazione completata*
+(@sec-risultati), da cui si possono consultare gli esiti ed esportare il report.
+
+#pagebreak()
+
+== Catalogo dei decision tree <sec-catalogo>
+
+Dalla pagina iniziale, *Apri catalogo decision tree* apre la schermata *Decision Tree
+disponibili*.
+
+=== Consultazione del catalogo
+
+Il catalogo iniziale contiene dieci decision tree della famiglia EN 18031 relativa al
+controllo degli accessi e all'autenticazione:
+
+#screenshot(file: "../../../images/manualeUtente/catalogo-DT.png")[Catalogo dei decision tree]
+
+
+
+#pagebreak()
+
+=== Struttura di un decision tree
+
+Una volta selezionato un decision tree, è possibile visualizzarne le informazioni in dettaglio e il relaivo grafo. 
+
+#screenshot(file: "../../../images/manualeUtente/dettaglio-DT.png")[Scheda di dettaglio di un decision tree con il grafo]
+
+=== Importazione di un decision tree
+
+I pulsanti *Importa JSON* e *Importa CSV* aprono la finestra di selezione file. Il file
+deve avere l'estensione corretta e una struttura valida.  L'esito
+possibile è:
+
+- *nuovo albero*: messaggio "Decision Tree importato correttamente"; il requisito viene
+  aggiunto al catalogo e selezionato;
+- *albero già presente*: messaggio "Decision Tree presente e aggiornato"; la definizione
+  esistente viene sostituita da quella importata.
+
+#pagebreak()
+
+=== Esportazione di un decision tree
+
+Con un decision tree selezionato, i pulsanti *Esporta JSON* ed *Esporta CSV* ne scaricano
+l'istanza in un file.
+
+=== Eliminazione di un decision tree
+
+Il pulsante *Elimina decision tree* chiede conferma tramite un alert del broswer e, se confermato, rimuove l'albero dal catalogo.
+
+== Possibili errori e soluzioni <sec-errori>
+
+=== Server non raggiungibile
+
+Nel caso in cui il servizio applicativo non è in esecuzione o non è raggiungibile viene mostrato un messaggio di errore: 
+"Errore di rete: impossibile contattare il server".
+
+=== File del dispositivo non valido
+
+Nel caso in cui il file selezionato per l'importazione di un dispositivo non sia valido, vengono mostrati messaggi di errore specifici a seconda del problema riscontrato:
+- "Formato file non supportato: usa JSON o CSV"
+- "Il file non è in formato JSON"
+- "Il file non contiene un dispositivo valido"
+- "Il file CSV non ha l'intestazione attesa"
+
+
+=== File di sessione non valido
+
+Nel caso in cui il file selezionato per la ripresa di una sessione non sia valido, vengono mostrati messaggi di errore specifici a seconda del problema riscontrato:
+
+- "Il file caricato non è un JSON valido"
+- "Il file non contiene una sessione valida".
+
+
+=== Decision tree non importabile
+
+Nel caso in cui il file selezionato per l'importazione di un decision tree non sia valido, vengono mostrati messaggi di errore specifici a seconda del problema riscontrato:
+- "Il file selezionato non è un JSON"
+- "Il file selezionato non è un CSV"
+- "Impossibile importare il decision tree. Verificare il formato e la struttura del file."
+
+=== Campi del modulo non compilati
+
+Nel caso in cui l'utente tenti di salvare un dispositivo o un asset senza compilare tutti i campi obbligatori, vengono mostrati messaggi di errore specifici a seconda del campo mancante:
+
+- "Il campo Nome è obbligatorio" (dispositivo)
+- "Il campo Sistema operativo è obbligatorio" (dispositivo)
+- "Il campo Descrizione è obbligatorio" (dispositivo)
+- "Dati asset non validi" (asset)
 
 
