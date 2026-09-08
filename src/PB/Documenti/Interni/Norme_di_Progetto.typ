@@ -1456,16 +1456,17 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
 
 #metrica(
   "MPD-11", "Cyclomatic Complexity",
-  [#$ v(G) = E - N + 2P $
+  [#$ "MPD-11" = ("Funzioni con" v(G) <= 10) / ("Funzioni totali") times 100 $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
       *Legenda:* \
+      - *v(G) = E - N + 2P*: complessità ciclomatica della singola funzione \
       - *E*: Numero di archi del grafo di controllo \
       - *N*: Numero di nodi del grafo \
       - *P*: Numero di componenti connesse
     ]
   ],
-  "Quantifica la complessità logica del codice contando il numero di percorsi indipendenti.",
+  "Quantifica la complessità logica del codice: v(G) conta i percorsi indipendenti di ciascuna funzione. La metrica riporta la percentuale di funzioni entro la soglia di complessità raccomandata (v(G) ≤ 10).",
 )
 
 #metrica(
