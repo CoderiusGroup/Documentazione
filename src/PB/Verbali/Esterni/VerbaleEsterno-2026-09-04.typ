@@ -112,7 +112,7 @@ In merito all'importazione di sessioni di valutazione salvate, è stato chiarito
 Riguardo alla gestione strutturale dei decision tree, il team ha specificato di aver realizzato le sole funzioni di importazione, esportazione ed eliminazione. I requisiti opzionali relativi alla modifica dei decision tree non sono stati implementati, in quanto il gruppo ha scelto di concentrarsi sulla solidità dei requisiti obbligatori e desiderabili.
 
 == Illustrazione della struttura del codice
-Il team ha presentato ai referenti di Bluewind la repository del MVP, illustrando l'organizzazione architetturale del prodotto e in particolare la separazione fra frontend e backend. Sono state inoltre esposte le tecnologie adottate, come documentate nella Specifica Tecnica.
+Il team ha presentato ai referenti di Bluewind la repository dell'MVP, illustrando l'organizzazione architetturale del prodotto e in particolare la separazione fra frontend e backend. Sono state inoltre esposte le tecnologie adottate, come documentate nella Specifica Tecnica.
 È stato concordato che il team fornirà ai referenti il collegamento alla repository, così da consentire loro l'accesso diretto al codice sorgente.
 
 
@@ -121,7 +121,7 @@ Su richiesta della proponente, il team ha delineato un bilancio ampiamente posit
 
 
 = Conclusione 
-L'incontro si è concluso con esito positivo: i referenti di Bluewind hanno valutato positivamente l'MVP, confermando che l'applicativo soddisfa pienamente i requisiti concordati. 
+L'incontro si è concluso con *l'approvazione* da parte dell'azienda proponente: i referenti di Bluewind hanno valutato positivamente l'MVP, confermando che l'applicativo soddisfa pienamente i requisiti concordati. 
 
 
 
