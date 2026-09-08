@@ -84,7 +84,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.7.1*]
+  #text(size: 20pt)[*Versione 0.7.2*]
 ]
 #pagebreak()
 
@@ -104,6 +104,7 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
 
+    [0.7.2], [2026/09/08], [Giovanni Bronte], [], [Correzione refusi e aggiunte minori],
     [0.7.1], [2026/09/04], [Edis Hodja], [], [Revisione dell'architettura e correzione di refusi tecnici],
     [0.7.0], [2026/09/01], [Alberto Canavese], [Edis Hodja], [Stesura sezione 7: "Requisiti di sistema"],
     [0.6.0], [2026/09/01], [Ines Iadadi], [Edis Hodja], [Modifica alla struttura del documento e aggiornamento della sezione 2],
@@ -1253,9 +1254,10 @@ con la propagazione delle modifiche degli store, che rilevano il cambiamento per
 del riferimento.
 
 Ciascuna entità è affiancata da uno o più schemi *Zod* che ne descrivono la forma attesa e
-dai quali sono derivati i tipi TypeScript corrispondenti. Il metodo statico `create()`
-costituisce l'unico punto di costruzione a partire da dati esterni: valida il dato grezzo
-contro lo schema e costruisce l'istanza solo se la validazione ha successo.
+dai quali sono derivati i tipi TypeScript corrispondenti. Un metodo statico di classe costituisce l'unico punto di costruzione a partire da dati esterni:
+valida il dato grezzo contro lo schema e costruisce l'istanza solo se la validazione ha successo.
+Si chiama *create()* in Device, Asset e DecisionTree, e *parse()* in Session, dove il dato
+di partenza è un file di sessione anziché una risposta del backend.
 
 === Device
 
@@ -1270,6 +1272,7 @@ compongono.
 - `assets: Asset[]` — gli asset associati, in composizione.
 
 *Metodi*
+- `get(Attributo): Attributo`
 - `withDetails(patch): Device` — restituisce un dispositivo con i dati descrittivi aggiornati.
 - `withAssets(assets): Device`, `withAssetAdded(asset): Device`, `withAssetUpdated(asset): Device`, `withAssetRemoved(assetId): Device` — restituiscono un dispositivo con l'elenco degli asset modificato.
 - `buildPlan(): { assetId, requirementId }[]` — costruisce l'elenco delle coppie asset-requisito da valutare, percorrendo gli asset e i requisiti assegnati a ciascuno.
@@ -1350,15 +1353,23 @@ in base al valore di `type`, cosicché una verifica come `node.type === "leaf"` 
 accessibile il campo `outcome` senza conversioni esplicite. Una classe base astratta con
 `extends` non offrirebbe questa proprietà.
 
+*NodeContract* — il contratto realizzato da entrambe le classi concrete:
+- `id: string` — identificatore univoco del nodo all'interno dell'albero.
+- `type: "question" | "leaf"` — discriminante dell'unione, sulla quale il compilatore restringe il tipo.
+- `next(answer: boolean): string` — identificatore del nodo successivo.
+- `verdict(): Outcome | null` — esito del nodo, se ne porta uno.
+
 *QuestionNode*
-- `id: string`, `text: string`, `branches: { yes: string, no: string }`.
+- `id: string`, `type: "question"`, `text: string`, `branches: { yes: string, no: string }`.
 - `next(answer: boolean): string` — restituisce l'identificatore del nodo successivo per il ramo scelto.
 - `verdict(): null` — un nodo domanda non porta esito.
+- `toJSON(): object` — produce la forma piatta del nodo, impiegata da `DecisionTree.toJSON()`.
 
 *LeafNode*
-- `id: string`, `outcome: Outcome`, `text?: string`, dove `Outcome` è ristretto a `PASS`, `FAIL` e `NOT_APPLICABLE`.
+- `id: string`, `type: "leaf"`, `outcome: Outcome`, `text?: string`, dove `Outcome` è ristretto a `PASS`, `FAIL` e `NOT_APPLICABLE`.
 - `next(): string` — solleva un errore, non esistendo un successore.
 - `verdict(): Outcome` — restituisce l'esito assegnato.
+- `toJSON(): object` — come per `QuestionNode`.
 
 La funzione `createNode(raw)` sceglie la classe concreta da istanziare in base al campo
 `type` del dato grezzo.
@@ -1379,11 +1390,13 @@ esito.
 
 *Metodi*
 - `selectEvaluation(assetId, requirementId): Session` — attiva una coppia e apre l'albero dall'inizio (UC-19).
-- `reopenEvaluation(assetId, requirementId, dependents): Session` — riporta a "non valutato" la coppia indicata e quelle che ne dipendono transitivamente (UC-27.2).
 - `syncProgress(nodeId, path): Session` — registra nodo corrente e percorso parziale senza chiudere la valutazione.
 - `completeCurrent(outcome, path): Session` — registra l'esito raggiunto; la sessione passa a "completata" quando tutte le valutazioni lo sono (UC-23).
 - `matchesPlan(device): boolean` — verifica che le valutazioni coprano esattamente il piano attuale del dispositivo, condizione che rende la sessione riprendibile così com'è (UC-26).
 - `withSavedAt()`, `withEvaluations()`, `withDevice()` — restituiscono una sessione con il rispettivo campo aggiornato.
+- `toJSON(): object` — produce la rappresentazione serializzabile della sessione, con il dispositivo a sua volta serializzato; è la forma scritta nel file di sessione.
+- `start(device, id, savedAt): Session` — costruisce una sessione nuova a partire dal piano del dispositivo, generando una valutazione in stato "non valutato" per ciascuna coppia asset-requisito e attivando la prima. Se il piano è vuoto la sessione nasce già completata (UC-19).
+- `parse(raw): Session` — ricostruisce una sessione dal contenuto di un file caricato dall'utente, validandolo con `SessionSchema` (UC-26).
 
 *Responsabilità*: custodire lo stato complessivo della valutazione e le transizioni ammesse
 fra i suoi stati, garantendo che ogni modifica produca una sessione coerente.
@@ -1414,7 +1427,7 @@ sollevano `InvalidDeviceDataError` o `InvalidAssetDataError` in caso di dato non
 
 - *Asset* — `id`, `name`, `type`, `description`, `sensitive`, `requirements`. Il tipo è rappresentato dall'enumerazione `AssetType`, che espone `from_string()` per la conversione dal valore testuale ricevuto.
 - *DecisionTree* — `requirement_id`, `requirement_name`, `root_node`, `nodes`, `version`, `applies_to`, `dependencies`. Il metodo `get_node(node_id)` reperisce un nodo per identificatore.
-- *Node* — classe astratta che dichiara la proprietà `id` e i metodi `next(answer)` e `verdict()`. È specializzata da `QuestionNode`, che espone `text` e `branches` e realizza la navigazione, e da `LeafNode`, che espone `outcome` e restituisce l'esito. L'enumerazione `NodeOutcome` rappresenta i tre esiti ammessi, la dataclass `Branches` la coppia di rami.
+- *Node* — classe astratta che dichiara la proprietà `id` e i metodi `next(answer)` e `verdict()`. È specializzata da `QuestionNode`, che espone `type`, `text` e `branches` e realizza la navigazione, e da `LeafNode`, che espone `type`, `outcome` e `text` e restituisce l'esito. L'enumerazione `NodeOutcome` rappresenta i tre esiti ammessi ed espone `from_string()` per la conversione dal valore testuale letto dai file di catalogo, simmetricamente ad `AssetType`; la dataclass `Branches` rappresenta la coppia di rami.
 - *Session*, con le strutture correlate `Evaluation`, `Current` e `PathStep` — rappresenta il file di sessione. Nessuna rotta la espone: è definita per completezza del modello, ma la sessione è gestita interamente dal client.
 
 == Corrispondenza fra i due domini <corrispondenza-domini>
