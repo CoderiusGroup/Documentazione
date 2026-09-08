@@ -8,6 +8,13 @@ on:
       - '!src/templates/**'
   workflow_dispatch:
 
+# Un solo workflow per volta puo' scrivere su main: senza questo vincolo due
+# esecuzioni sovrapposte generano commit divergenti e la seconda non riesce a
+# spingere.
+concurrency:
+  group: commit-automatico-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,6 +23,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # storia completa: serve al rebase prima del push
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -63,8 +72,30 @@ jobs:
 
           done
 
-      - name: Commit e Push dei PDF e metriche
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "docs: aggiornamento automatico PDF, grafici e metriche [skip ci]"
-          file_pattern: '**/*.pdf src/metrics/*.json src/images/cruscotto/**/*.png'
+      - name: Commit e Push dei PDF, grafici e metriche
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A -- '*.pdf' 'src/metrics/*.json' 'src/images/cruscotto/*.png'
+          if git diff --cached --quiet; then
+            echo "Niente da aggiornare."
+            exit 0
+          fi
+          git commit -m "docs: aggiornamento automatico PDF, grafici e metriche [skip ci]"
+
+          # Nel frattempo qualcun altro puo' aver spinto sul branch (un altro
+          # workflow, o una persona): ci si riallinea e si ritenta, invece di
+          # buttare via il lavoro di tutto il giro.
+          for tentativo in 1 2 3; do
+            if git pull --rebase origin "$GITHUB_REF_NAME" \
+               && git push origin "HEAD:$GITHUB_REF_NAME"; then
+              echo "Push riuscito al tentativo $tentativo."
+              exit 0
+            fi
+            echo "Push non riuscito, ritento ($tentativo/3)..."
+            sleep 5
+          done
+
+          echo "::error::Non sono riuscito a spingere dopo 3 tentativi."
+          exit 1
