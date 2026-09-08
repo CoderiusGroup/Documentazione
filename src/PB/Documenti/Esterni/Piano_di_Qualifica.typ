@@ -80,7 +80,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-    #text(size: 20pt)[*Versione 1.0.8*]
+    #text(size: 20pt)[*Versione 1.0.9*]
 ]
 #pagebreak()
 
@@ -99,6 +99,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.0.9], [2026/09/07], [Filippo Zonta Rocha], [], [Aggiornamento metriche e aggiunta sezione relativa allo sprint 14],
     [1.0.8], [2026/09/04], [Filippo Zonta Rocha], [], [Aggiornamento metriche di qualità, \ Aggiunti test],
     [1.0.7], [2026/08/31], [Giovanni Bronte], [Leonardo Lorenzin], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 13],
     [1.0.6], [2026/08/21], [Edis Hodja], [Giovanni Bronte], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 12],
@@ -228,7 +229,7 @@ Rientrano tra i processi primari tutte le attività direttamente connesse al cic
   [MPC-04], [Schedule Performance Index],  [Da $0.9$ in su],               [Pari o oltre $1.0$],
   [MPC-05], [Cost Performance Index],      [Da $0.9$ in su],               [Pari o oltre $1.0$],
   [MPC-06], [Estimate at Completion],      [Entro $1.1 * "BAC"$],          [Non oltre $"BAC"$],
-  [MPC-07], [Estimate to Complete],        [Entro $("BAC" - "AC") * 1.1$], [Non oltre $"BAC" - "AC"$],
+  [MPC-07], [Estimate to Complete],        [Entro $("EAC" - "AC") * 1.1$], [Non oltre $"EAC" - "AC"$],
 )
 
 ==== Sviluppo
@@ -843,6 +844,7 @@ I valori sono cumulativi: ogni sprint riporta il totale progressivo dall'inizio 
   [11], [2026/08/14], [8.015], [8.015], [7.715],
   [12], [2026/08/21], [8.625], [8.625], [8.340],
   [13], [2026/08/28], [9.340], [9.340], [9.110],
+  [14], [2026/09/05], [10.030], [10.030], [9.875]
 )
 
 #figure(
@@ -851,9 +853,9 @@ I valori sono cumulativi: ogni sprint riporta il totale progressivo dall'inizio 
   supplement: [Figura],
 )
 
-Tutti e tredici gli sprint si sono conclusi entro le date previste (fine reale = fine prevista), confermando il pieno allineamento tra lavoro pianificato ed eseguito. 
+Tutti e quattordici gli sprint si sono conclusi entro le date previste (fine reale = fine prevista), confermando il pieno allineamento tra lavoro pianificato ed eseguito. 
 
-Al termine dello Sprint 13, lo scostamento cumulativo si attesta a 230€ a favore del progetto: nello Sprint 13 il consuntivo (715€) ha superato di 85€ il preventivo (685€) a causa del maggiore carico implementativo, ma i costi effettivi complessivi (AC) rimangono ampiamente inferiori al Planned Value (PV). Questo andamento indica una stima iniziale delle ore  accurata e una gestione del budget efficiente lungo tutta la fase RTB e nel corso della PB.
+Al termine dello Sprint 14, lo scostamento cumulativo si è ridotto a 155€ a favore del progetto: nello Sprint 14 il consuntivo (765€) ha superato di 45€ il preventivo (720€)rimanendo con  i costi effettivi complessivi (AC) rimangono ancora inferiori al Planned Value (PV). Questo andamento indica una stima iniziale delle ore  accurata e una gestione del budget efficiente lungo tutta la fase RTB e attualmente nelle fasi finali della PB.
 #pagebreak()
 == MPC-04, MPC-05 — Schedule Performance Index, Cost Performance Index
 
@@ -875,6 +877,7 @@ SPI = EV / PV. CPI = EV / AC. Valori prossimi a 1 indicano rispetto di tempi e b
   [11], [1,000], [$>= 0.9$ ✓], [1,039], [$>= 0.9$ ✓],
   [12], [1,000], [$>= 0.9$ ✓], [1,034], [$>= 0.9$ ✓],
   [13], [1,000], [$>= 0.9$ ✓], [1,025], [$>= 0.9$ ✓],
+  [14], [1,000], [$>= 0.9$ ✓], [1,015], [$>= 0.9$ ✓],
 )
 
 #figure(
@@ -883,7 +886,7 @@ SPI = EV / PV. CPI = EV / AC. Valori prossimi a 1 indicano rispetto di tempi e b
   supplement: [Figura],
 )
 
-SPI = 1,000 in tutti e tredici gli sprint: il team ha rispettato perfettamente le scadenze pianificate, senza mai accumulare ritardi. Il CPI, superiore all'unità in ogni sprint, evidenzia un costante risparmio di costo rispetto al lavoro prodotto. Dopo una lieve flessione nello Sprint 2 (1,015), l'indicatore segue una tendenza di crescita fino al picco dello Sprint 7 (1,086), per poi assestarsi su valori leggermente inferiori negli Sprint 9, 10, 11, 12 e 13 (1,048, 1,046, 1,039, 1,034, 1,025), man mano che il margine accumulato viene diluito su una base di lavoro cumulativa più ampia. L'andamento omogeneo dei due indicatori suggerisce che le stime iniziali fossero realistiche e che l'esecuzione sia stata disciplinata.
+SPI = 1,000 in tutti e quattordici gli sprint: il team ha rispettato perfettamente le scadenze pianificate, senza mai accumulare ritardi. Il CPI, superiore all'unità in ogni sprint, evidenzia un costante risparmio di costo rispetto al lavoro prodotto. Dopo una lieve flessione nello Sprint 2 (1,015), l'indicatore segue una tendenza di crescita fino al picco dello Sprint 7 (1,086), per poi assestarsi su valori leggermente inferiori negli Sprint 9, 10, 11, 12 , 13 e 14 (1,048, 1,046, 1,039, 1,034, 1,025, 1,015), man mano che il margine accumulato viene diluito su una base di lavoro cumulativa più ampia. L'andamento omogeneo dei due indicatori suggerisce che le stime iniziali fossero realistiche e che l'esecuzione sia stata disciplinata.
 
 == MPC-06 — Estimate at Completion
 
@@ -905,6 +908,7 @@ EAC = BAC / CPI. Rappresenta la stima del costo finale del progetto sulla base d
   [11], [1,039], [10.279],  [10.680], [-401 (-3,8%)], [$<= 1.1 times "BAC"$ (110%) ✓],
   [12], [1,034], [10.327],  [10.680], [-353 (-3,3%)], [$<= 1.1 times "BAC"$ (110%) ✓],
   [13], [1,025], [10.420],  [10.680], [-260 (-2.4%)], [$<= 1.1 times "BAC"$ (110%) ✓],
+  [14], [1,015], [10.522],  [10.680], [-158 (-1,5%)], [$<= 1.1 times "BAC"$ (110%) ✓],
 )
 
 #figure(
@@ -913,7 +917,7 @@ EAC = BAC / CPI. Rappresenta la stima del costo finale del progetto sulla base d
   supplement: [Figura],
 )
 
-L'EAC si mantiene costantemente al di sotto del BAC (€10.680), con uno scostamento che cresce da −€178 (Sprint 1) a −€440 (Sprint 6) man mano che l'efficienza di costo si consolida. Durante lo Sprint 7, l'EAC scende ulteriormente a €9.834, con uno scostamento di −€846 (−7,9%), a seguito di un incremento del CPI a 1,086. Nello Sprint 8 l'EAC risale leggermente a €10.134, con uno scostamento di −€546 (−5,1%), in corrispondenza di un lieve calo del CPI a 1,054. La stessa tendenza prosegue negli Sprint 9, 10, 11, 12 e 13, con l'EAC a €10.191 (−€489, −4,6%), a €10.210 (−€470, −4,4%) a €10.279 (−€401, −3,8%), a €10.327 (−€353, −3,3%) e a €10.420 (−€260, −2,4%): il riassorbimento è coerente con il rientro del CPI verso l'unità e non segnala un peggioramento dell'efficienza, bensì la progressiva diluizione del margine su una base cumulativa più ampia. In ogni caso, il valore stimato rimane sempre al di sotto della soglia di accettabilità (≤ 110% del BAC).
+L'EAC si mantiene costantemente al di sotto del BAC (€10.680), con uno scostamento che cresce da −€178 (Sprint 1) a −€440 (Sprint 6) man mano che l'efficienza di costo si consolida. Durante lo Sprint 7, l'EAC scende ulteriormente a €9.834, con uno scostamento di −€846 (−7,9%), a seguito di un incremento del CPI a 1,086. Nello Sprint 8 l'EAC risale leggermente a €10.134, con uno scostamento di −€546 (−5,1%), in corrispondenza di un lieve calo del CPI a 1,054. La stessa tendenza prosegue negli Sprint dal 9 al 14, con l'EAC a €10.191 (−€489, −4,6%), a €10.210 (−€470, −4,4%) a €10.279 (−€401, −3,8%), a €10.327 (−€353, −3,3%), a €10.420 (−€260, −2,4%) e a €10.522 (−€158, −1,5%): il riassorbimento è coerente con il rientro del CPI verso l'unità e non segnala un peggioramento dell'efficienza, bensì la progressiva diluizione del margine su una base cumulativa più ampia. In ogni caso, il valore stimato rimane sempre al di sotto della soglia di accettabilità (≤ 110% del BAC).
 
 == MPC-07 — Estimate to Complete
 
@@ -935,9 +939,10 @@ ETC = EAC − AC. Rappresenta la stima del costo ancora necessario per portare a
   [11], [2.564], [$<= 3.262$ ✓],
   [12], [1.987], [$<= 2.574$ ✓],
   [13], [1.310], [$<= 1.727$ ✓],
+  [14], [647], [$<= 1.712$ ✓]
 )
 
-L'ETC decresce regolarmente sprint dopo sprint (da €9.617 nello Sprint 1 a €1.310 nello Sprint 13), confermando la progressione costante delle attività e la corretta imputazione dei costi. Al termine dello Sprint 13 la stima del costo residuo si mantiene inferiore al budget ancora disponibile, lasciando un margine di €353 per il completamento delle attività della Product Baseline.
+L'ETC decresce regolarmente sprint dopo sprint (da €9.617 nello Sprint 1 a €647 nello Sprint 14), confermando la progressione costante delle attività e la corretta imputazione dei costi. Al termine dello Sprint 14 la stima del costo residuo si mantiene inferiore al budget ancora disponibile.
 
 == MPC-08 — Requirements Stability Index
 
@@ -959,6 +964,7 @@ RSI = (NR − NRC) / NR, dove NR è il numero di requisiti definiti e NRC il num
   [11], [43], [0], [1,000], [$>= 0.7$ ✓],
   [12], [43], [0], [1,000], [$>= 0.7$ ✓],
   [13], [43], [0], [1,000], [$>= 0.7$ ✓],
+  [14], [43], [1], [0,976], [$>= 0.7$ ✓],
 )
 
 #figure(
@@ -968,6 +974,7 @@ RSI = (NR − NRC) / NR, dove NR è il numero di requisiti definiti e NRC il num
 )
 
 Nello Sprint 1 tutti gli otto requisiti iniziali sono risultati stabili (RSI = 1,000). Nello Sprint 2 due requisiti sui 26 definiti sono stati revisionati a seguito di un approfondimento delle specifiche EN 18031 durante la stesura dell'Analisi dei Requisiti (RSI = 0,923). Nello Sprint 3, con 34 requisiti totali e le stesse due modifiche pregresse non ripetute, l'indice è risalito a 0,941: la crescita del documento di analisi non ha comportato ulteriori instabilità retroattive. Nello Sprint 4 il documento è cresciuto fino a 42 casi d'uso senza nuove modifiche retroattive, portando l'indice a 0,952. Nello Sprint 5, durante la finalizzazione dell'Analisi dei Requisiti, il numero di casi d'uso si è assestato a 43 — l'UC-44, introdotto temporaneamente, è stato successivamente eliminato — ed è stato revisionato l'UC-31, con l'RSI a 0,930. Nello Sprint 6 non sono state apportate ulteriori modifiche ai casi d'uso e l'indice è rimasto stabile a 0,930, sempre ampiamente al di sopra della soglia di 0,7. Nello Sprint 8 sono stati revisionati quattro requisiti (UC4.1.2, UC10, UC22.4, UC30.2) sui 43 totali, portando l'RSI a 0,907: il valore resta comunque ampiamente al di sopra della soglia di accettabilità. Nello Sprint 9 non sono stati modificati requisiti, poiché gli ultimi interventi conseguenti alla revisione RTB erano già stati completati nello sprint precedente; l'indice è quindi risalito a 1,000. Anche negli Sprint 10, 11, 12 e 13, dedicati al proseguimento della Specifica Tecnica, all'avanzamento dell'MVP e al completamento delle attività della Product Baseline, l'insieme dei casi d'uso è rimasto invariato e nessun requisito è stato revisionato: l'RSI si conferma pari a 1,000. La stabilità dei requisiti su cinque sprint consecutivi indica che la base di analisi consolidata in fase RTB ha retto pienamente il confronto con lo sviluppo e l'implementazione del software.
+Si è registrata solo una modifica formale per l'UC20 durante lo sprint 14.
 
 == MPC-09, MPC-10 — Indice di Gulpease, Correttezza Ortografica
 
@@ -1002,11 +1009,12 @@ Queste metriche, non applicabili nelle fasi inziali del progetto, vengono misura
   [11], [27], [27 (100%)], [60], [60 (100%)], [100%], [$>= 90%$ ✓],
   [12], [83], [83 (100%)], [85], [85 (100%)], [100%], [$>= 90%$ ✓],
   [13], [133], [133 (100%)], [85], [85 (100%)], [100%], [$>= 90%$ ✓],
+  [14], [177], [177 (100%)], [133], [133 (100%)], [100%], [$>= 90%$ ✓],
 )
 
 I dati evidenziano un'estrema solidità del codice prodotto. 
 
-Fin dall'inizio dell'implementazione, il *Test Pass Rate* aggregato (MPC-11) si è mantenuto costantemente al 100% in entrambi i moduli, superando ampiamente la soglia di accettabilità e raggiungendo sempre il valore ottimo. Il numero di test è cresciuto costantemente, arrivando nello Sprint 13 a ben 218 test complessivi (133 sul frontend e 85 sul backend), tutti superati con successo.
+Fin dall'inizio dell'implementazione, il *Test Pass Rate* aggregato (MPC-11) si è mantenuto costantemente al 100% in entrambi i moduli, superando ampiamente la soglia di accettabilità e raggiungendo sempre il valore ottimo. Il numero di test è cresciuto costantemente, arrivando nello Sprint 13 a ben 218 test complessivi (133 sul frontend e 85 sul backend), tutti superati con successo. Continua il trend anche nello sprint 14, tutti superati con esito positivo.
 
 #cruscotto-table(
   [Andamento di Code Coverage per sprint],
@@ -1016,11 +1024,13 @@ Fin dall'inizio dell'implementazione, il *Test Pass Rate* aggregato (MPC-11) si 
   [11], [91,7%], [97,0%], [94,3%], [$>= 70%$ ✓],
   [12], [85,4%], [98,0%], [91,7%], [$>= 70%$ ✓],
   [13], [89,0%], [98,0%], [93,5%], [$>= 70%$ ✓],
+  [14], [88,6%], [92,1%], [90,4%], [$>= 70%$ ✓],
 )
 
 Anche la *Code Coverage* (MPC-12) testimonia l'efficacia delle pratiche di testing adottate dal team. Dopo il 100% registrato nello Sprint 9 (dovuto alla scarsità di codice all'avvio), il valore si è stabilizzato. Nel backend la copertura è rimasta altissima, toccando il 98% nello Sprint 13. Nel frontend, l'aggiunta di componenti UI complessi e logiche di interazione tra lo Sprint 11 e 12 ha abbassato la copertura all'85,4%. 
 
 Tuttavia, la media aggregata dell'MVP nello Sprint 13 si attesta al 93,5%, un risultato ottimale che si colloca ampiamente al di sopra del livello accettabile e supera la soglia del valore ottimo ($>= 90%$), garantendo che la stragrande maggioranza del codice sviluppato venga effettivamente validata durante l'esecuzione delle pipeline di CI/CD.
+A seguito delle ultime modifiche al codice, nello Sprint 14 la copertura media aggregata si attesta al 90,4%, confermando la solidità del codice e la qualità dei test.
 
 #pagebreak()
 
@@ -1044,6 +1054,7 @@ Percentuale di metriche misurabili che rientrano nel range accettabile. Test Pas
   [11], [11], [11], [100%], [$>= 80%$ ✓],
   [12], [11], [11], [100%], [$>= 80%$ ✓],
   [13], [11], [11], [100%], [$>= 80%$ ✓],
+  [14], [11], [11], [100%], [$>= 80%$ ✓],
 )
 
 #figure(
@@ -1076,6 +1087,7 @@ Time Efficiency (TE) = (Ore Previste Cumulative / Ore Effettive Cumulative) × 1
   [11], [384], [371], [103,5%], [$>= 80%$ ✓],
   [12], [416], [404], [103,0%], [$>= 80%$ ✓],
   [13], [453], [444], [102,0%], [$>= 80%$ ✓],
+  [14], [488], [484], [100,8%], [$>= 80%$ ✓],
 )
 
 #figure(
@@ -1085,6 +1097,7 @@ Time Efficiency (TE) = (Ore Previste Cumulative / Ore Effettive Cumulative) × 1
 )
 
 La Time Efficiency si mantiene tra il 100,0% (Sprint 1 e 2) e il 104,8% (Sprint 8), sempre ampiamente al di sopra della soglia dell'80%, attestandosi al 102,0% al termine dello Sprint 13. Su base cumulativa il team ha impiegato 444 ore effettive a fronte delle 453 preventivate (−9 ore, circa un -2,0%): uno scostamento contenuto e a favore del progetto, indicativo di un'elevata accuratezza delle stime orarie. Nello Sprint 13 alle 37 ore preventivate ne sono corrisposte 40 effettive (+3 ore, assorbite dal ruolo di Programmatore, Progettista e Verificatore a fronte del maggiore carico implementativo), uno scostamento minimo che conferma la maturazione metodologica e la stabilità raggiunta dal team nella pianificazione delle attività.
+Nello sprint 14 si conferma il trend positivo, che vede avvicinarsi la fine del progetto, con 484 ore effettive a fronte delle 488 preventivate (+4 ore, circa un +0,8%).
 
 == Metriche di qualità di prodotto (MPD)
 
@@ -1205,6 +1218,7 @@ MPD-05 = (Statement Eseguiti / Statement Totali) × 100. Misura la percentuale d
   [11], [94,3%],  [Accettabile],
   [12], [91,7%],  [Accettabile],
   [13], [93,5%],  [Accettabile],
+  [14], [90,4%],  [Accettabile]
 )
 
 #figure(
@@ -1227,6 +1241,7 @@ MPD-06 = (Branch Coperti / Branch Totali) × 100. Misura la percentuale di rami 
   [11], [80,21%], [Ottimo],
   [12], [79,25%], [Accettabile],
   [13], [80,27%], [Ottimo],
+  [14], [78,96%], [Accettabile],
 )
 
 #figure(
@@ -1453,6 +1468,16 @@ Nel tredicesimo sprint (22/08/2026–28/08/2026), il team ha portato l’MVP a u
 === Azioni intraprese
 - La consolidata flessibilità del team ha permesso di assorbire le assenze legate al periodo estivo con un'opportuna ridistribuzione dei task tra i presenti.
 
+== Sprint 14 — Retrospettiva e azioni correttive
+Nel quattordicesimo sprint (29/08/2026–05/09/2026),
+Il team ha completato l’MVP, ultimando le attività di rifinitura estetica dell’interfaccia e completando la stesura del Manuale Utente. Parallelamente, sono stati aggiornati i principali documenti della PB, ossia il Piano di Qualifica e il Piano di Progetto.
+Inoltre aggiornati anche Glossario e Norme di progetto per rispecchiare lo stato terminale del progetto.
+
+=== Problemi rilevati
+-* RO-1— Le attività di completamento dell'MVP*, in particolare le rifiniture grafiche e la stesura del Manuale Utente, hanno richiesto più ore di quelle inizialmente preventivate per il ruolo di Programmatore.
+
+=== Azioni intraprese
+-Il gruppo ha gestito lo scostamento utilizzando parte delle ore residue disponibili e riorganizzando la distribuzione delle risorse.
 
 == Valutazione sugli strumenti di lavoro
 
@@ -1520,6 +1545,7 @@ Oltre alle criticità organizzative analizzate sprint per sprint, il team ha val
     [12], [RI-1], [Disponibilità oraria disomogenea nella settimana di Ferragosto], [Ridistribuzione flessibile del carico di lavoro tra i membri presenti per assorbire le assenze temporanee],
     [12], [RO-1], [Scostamento delle stime (Programmatore) per la risoluzione dei conflitti], [Assorbimento del lieve scostamento orario e calibrazione per gli sprint successivi],
     [13], [RI-1], [Disponibilità non uniforme nel periodo estivo per impegni personali di alcuni membri], [Ridistribuzione flessibile dei task tra i membri presenti per assorbire i lievi rallentamenti],
+    [14], [RO-1], [Le attività di completamento dell'MVP, hanno richiesto più ore di quelle inizialmente preventivate.], [Il gruppo ha gestito lo scostamento utilizzando parte delle ore residue disponibili e riorganizzando la distribuzione delle risorse.],
   ),
   caption: [Sintesi dei problemi rilevati e delle azioni correttive per sprint],
   supplement: [Tabella],
