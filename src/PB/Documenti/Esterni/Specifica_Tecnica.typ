@@ -1272,7 +1272,7 @@ compongono.
 - `assets: Asset[]` — gli asset associati, in composizione.
 
 *Metodi*
-- `get(Attributo): Attributo`
+- Get: `id(): string, name(): string, operatingSystem(): string, description(): string, assets(): Asset[]`: restituisce il corrispondente attributo richiesto
 - `withDetails(patch): Device` — restituisce un dispositivo con i dati descrittivi aggiornati.
 - `withAssets(assets): Device`, `withAssetAdded(asset): Device`, `withAssetUpdated(asset): Device`, `withAssetRemoved(assetId): Device` — restituiscono un dispositivo con l'elenco degli asset modificato.
 - `buildPlan(): { assetId, requirementId }[]` — costruisce l'elenco delle coppie asset-requisito da valutare, percorrendo gli asset e i requisiti assegnati a ciascuno.
@@ -1301,6 +1301,7 @@ associati i requisiti EN 18031 applicabili.
 - `requirements?: string[]` — codici dei requisiti assegnati, derivati dal backend in base al tipo.
 
 *Metodi*
+- Get: `id(): string, name(): string, type(): AssetType, description(): string, sensitive(): boolean, requirements?: string[]`: restituisce il corrispondente attributo richiesto
 - `withDetails(patch): Asset` — restituisce un asset con i dati descrittivi aggiornati, conservando i requisiti assegnati.
 - `toJSON(): object` — produce la rappresentazione serializzabile.
 - `create(raw): Asset` — costruisce l'entità validando il dato grezzo con `AssetSchema`.
@@ -1326,6 +1327,7 @@ che la stessa informazione esista in due luoghi con il rischio di divergere.
 - `message?: string` — messaggio restituito dal backend a seguito di un'importazione.
 
 *Metodi*
+- Get:`requirementId():string, requirementName(): string, version(): string , appliesTo(): string[], dependencies(): string[] , rootNode(): string, nodes() Node[], message(): string `: restituisce il corrispondente attributo richiesto
 - `getNode(id): Node` — restituisce il nodo corrispondente all'identificatore, sollevando un errore se assente.
 - `toJSON(): object`, `create(raw): DecisionTree` — come per le altre entità.
 
@@ -1354,25 +1356,37 @@ accessibile il campo `outcome` senza conversioni esplicite. Una classe base astr
 `extends` non offrirebbe questa proprietà.
 
 *NodeContract* — il contratto realizzato da entrambe le classi concrete:
+
+*Attributi*
 - `id: string` — identificatore univoco del nodo all'interno dell'albero.
 - `type: "question" | "leaf"` — discriminante dell'unione, sulla quale il compilatore restringe il tipo.
+*Metodi*
 - `next(answer: boolean): string` — identificatore del nodo successivo.
 - `verdict(): Outcome | null` — esito del nodo, se ne porta uno.
 
 *QuestionNode*
+
+*Attributi*
 - `id: string`, `type: "question"`, `text: string`, `branches: { yes: string, no: string }`.
 - `next(answer: boolean): string` — restituisce l'identificatore del nodo successivo per il ramo scelto.
+*Metodi*
+- Get: `id(): string, type(): string, branches(): Branches`: restituisce il corrispondente attributo richiesto
 - `verdict(): null` — un nodo domanda non porta esito.
 - `toJSON(): object` — produce la forma piatta del nodo, impiegata da `DecisionTree.toJSON()`.
 
 *LeafNode*
+
+*Attributi*
 - `id: string`, `type: "leaf"`, `outcome: Outcome`, `text?: string`, dove `Outcome` è ristretto a `PASS`, `FAIL` e `NOT_APPLICABLE`.
+*Metodi*
+- Get: `id(): string, type(): string, outcome(): Outcome, text(): string | undefined`: restituisce il corrispondente attributo richiesto
 - `next(): string` — solleva un errore, non esistendo un successore.
 - `verdict(): Outcome` — restituisce l'esito assegnato.
 - `toJSON(): object` — come per `QuestionNode`.
 
 La funzione `createNode(raw)` sceglie la classe concreta da istanziare in base al campo
 `type` del dato grezzo.
+
 === Session
 
 *Ruolo*: rappresenta la valutazione nel suo insieme: quali coppie asset-requisito devono
@@ -1389,6 +1403,7 @@ esito.
 - `evaluations: Evaluation[]` — una voce per ciascuna coppia del piano.
 
 *Metodi*
+- Get: `id(): string, savedAt(): string, status(): SessionStatus, deviec(): Device, devisionTreeVersione(): Record<string, string>, current(): Current | undefined, evaluations() Evaluation[]`: restituisce il corrispondente attributo richiesto
 - `selectEvaluation(assetId, requirementId): Session` — attiva una coppia e apre l'albero dall'inizio (UC-19).
 - `syncProgress(nodeId, path): Session` — registra nodo corrente e percorso parziale senza chiudere la valutazione.
 - `completeCurrent(outcome, path): Session` — registra l'esito raggiunto; la sessione passa a "completata" quando tutte le valutazioni lo sono (UC-23).
