@@ -100,6 +100,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.9.1], [2026/09/08], [Giovanni Bronte], [Edis Hodja], 
+    [Correzione refusi e aggiornamento tabella risorse rimanenti sprint 14],
     [1.9.0], [2026/09/04], [Giovanni Bronte], [Edis Hodja], 
     [Aggiunta delle sezioni Sprint 14: dalla 4.15.1 alla 4.15.8],
     [1.8.1], [2026/08/28], [Ines Iadadi], [Leonardo Lorenzin], 
@@ -709,7 +711,7 @@ Naturalmente i restanti documenti saranno ancora in via di sviluppo, prossimi a 
 === Preventivo
 #figure(
   tabella-ore((
-    ([Alberto Canavese],   [-],[4],[-],[-],[-],[],[4]),
+    ([Alberto Canavese],   [-],[4],[-],[-],[-],[-],[4]),
     ([Edis Hodja],         [6],[-],[-],[-],[-],[-],[6]),
     ([Filippo Zonta Rocha],[-],[-],[7],[-],[-],[-],[7]),
     ([Giovanni Angelo Marco Bronte],    [-],[-],[-],[-],[-],[7],[7]),
@@ -1699,7 +1701,7 @@ Le attività pianificate sono state:
 
 Nel corso dello sprint il team ha completato l'MVP, incluse le rifiniture grafiche dell'interfaccia, e lo ha presentato all'azienda proponente, ricevendo un riscontro positivo.
 Sono stati inoltre, completati e aggiornati i documenti fondamentali della fase PB, tra cui il Piano di Progetto, il Piano di Qualifica, il Glossario, le Norme di Progetto e l'Analisi dei Requisiti.
-Nel corso dello sprint è stata inoltre rivista la distribuzione delle ore residue tra i ruoli: due ore sono state trasferite rispettivamente dal ruolo di Progettista e da quello di Verificatore al ruolo di Amministratore, in considerazione delle attività ancora necessarie per il completamento della documentazione.
+Nel corso dello sprint è stata inoltre rivista la distribuzione delle ore residue tra i ruoli: sono state trasferite due ore dal ruolo di Progettista e due ore da quello di Verificatore al ruolo di Amministratore, per un totale di quattro ore aggiunte all'Amministratore.
 
 Il rischio *RO-4* non si è concretizzato, poiché il team è riuscito a coordinare efficacemente le attività e a rispettare gli obiettivi dello sprint. Si è invece, verificato il rischio *RO-1*, dovuto a una stima iniziale non sufficiente per alcune attività di sviluppo.
 
@@ -1740,9 +1742,9 @@ Lo scostamento è stato comunque contenuto e non ha avuto conseguenze sulla cons
     [Responsabile], [30], [3], [90€], [2], [60€],
     [Amministratore], [20], [2], [40€], [3], [60€],
     [Analista], [25], [3], [75€], [2], [50€],
-    [Progettista], [25], [8], [200€], [17], [475€],
+    [Progettista], [25], [8], [200€], [17], [425€],
     [Programmatore], [15], [12], [180€], [2], [30€],
-    [Verificatore], [15], [12], [180€], [12], [210€],
-    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*40*], [*765€*], [*39*], [*885*],
+    [Verificatore], [15], [12], [180€], [12], [180€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*40*], [*765€*], [*38*], [*805€*],
   )
-  ]
+]
