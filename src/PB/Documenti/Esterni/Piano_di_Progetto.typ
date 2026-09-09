@@ -1565,7 +1565,7 @@ La criticità principale dello sprint ha riguardato la gestione asincrona dei br
   )
   ]
 
-  == Sprint 13
+== Sprint 13
 
 === Periodo
 #table(
