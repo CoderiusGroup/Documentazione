@@ -818,16 +818,9 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
 - *Problema*: diverse operazioni che l'utente percepisce come unitarie sono in realtà sequenze articolate. L'importazione di un dispositivo da file richiede il riconoscimento del formato, la lettura asincrona tramite `FileReader`, l'interpretazione del contenuto, la validazione dello schema e infine l'invio al backend dei metadati del device e di ciascun asset. Esporre tale sequenza alle viste le legherebbe a dettagli estranei alla presentazione e ne impedirebbe il riuso da parte di viste diverse.
 
 - *Soluzione*: raggruppare la sequenza dietro un'unica operazione di alto livello, espressa nel linguaggio del caso d'uso, che coordini internamente i collaboratori necessari.
-- *Applicazione nel progetto*: lato client, `importDeviceFromFile(file)` racchiude l'intera sequenza di importazione e restituisce alla vista il dispositivo costruito insieme al payload originale. Analogamente, `exportReportPdf(session)` racchiude la produzione del report di conformità: la raccolta dei dati dalla sessione con il reperimento degli alberi necessari, la resa del documento PDF e la consegna del file all'utente, esponendo alla pagina una sola operazione asincrona. I custom hook assolvono la funzione analoga verso il Presentation Layer: `useSessionRunner()` coordina le fasi della valutazione guidata, il caricamento e l'idratazione dell'albero e la registrazione dell'esito, esponendo alla pagina soltanto lo stato e le azioni necessarie; `useResult()` opera allo stesso modo per la consultazione degli esiti. Lato server, `DecisionTreeService.get_tree()` racchiude in una sola chiamata l'accesso al catalogo, la gestione dell'assenza del dato (`DecisionTreeNotFoundError`) e la normalizzazione dell'albero, mentre `create_device()` e `create_asset()` costituiscono il punto d'ingresso unico per la costruzione delle rispettive entità, condiviso dal percorso di creazione manuale e da quello di importazione: entrambi delegano la validazione ai metodi statici del dominio, e `create_asset()` vi aggiunge la sola risoluzione dei requisiti predefiniti, che richiede l'accesso al catalogo.
+- *Applicazione nel progetto*: lato client, `importDeviceFromFile(file)` racchiude l'intera sequenza di importazione e restituisce alla vista il dispositivo costruito insieme al payload originale. Analogamente, `exportReportPdf(session)` racchiude la produzione del report di conformità: la raccolta dei dati dalla sessione con il reperimento degli alberi necessari, la resa del documento PDF e la consegna del file all'utente, esponendo alla pagina una sola operazione asincrona. I custom hook assolvono la funzione analoga verso il Presentation Layer: `useSessionRunner()` coordina le fasi della valutazione guidata, il caricamento e l'idratazione dell'albero e la registrazione dell'esito, esponendo alla pagina soltanto lo stato e le azioni necessarie; `useResult()` opera allo stesso modo per la consultazione degli esiti. Lato server, `DecisionTreeService.get_tree()` racchiude in una sola chiamata l'accesso al catalogo, la gestione dell'assenza del dato (`DecisionTreeNotFoundError`) e la normalizzazione dell'albero.
+
 - *Conseguenze*: pagine e rotte restano prive di logica applicativa e si limitano, rispettivamente, a renderizzare e a deserializzare, delegare e serializzare. L'unicità del punto di validazione evita che due percorsi diversi applichino allo stesso concetto regole divergenti.
-
-==== Factory Method
-
-- *Problema*: i nodi di un decision tree provengono dai file di catalogo in forma piatta, e la classe da istanziare dipende dal dato ricevuto: un nodo che dichiara i propri rami è una domanda, uno che dichiara un esito è una foglia. Se la decisione fosse presa nei punti di utilizzo, ogni modulo che percorre l'albero dovrebbe conoscere entrambe le classi concrete e replicare il medesimo controllo, e l'introduzione di una nuova tipologia di nodo richiederebbe di intervenire in ciascuno di essi.
-
-- *Soluzione*: concentrare in una funzione dedicata la decisione sulla classe concreta da istanziare, restituendo al chiamante un'istanza utilizzabile attraverso il solo contratto comune.
-- *Applicazione nel progetto*: le funzioni `_normalize_node()` e `createNode()` ricevono il nodo grezzo e scelgono fra `QuestionNode` e `LeafNode` in base al campo `type`, restituendo un'istanza che i chiamanti impiegano attraverso le sole operazioni `next()` e `verdict()`. Il pattern è declinato nella variante parametrica, ovvero la classe concreta è determinata da un valore ricevuto anziché da una sottoclasse del creatore, coerentemente con i paradigmi modulari di TypeScript e Python, che non richiedono una gerarchia di fabbriche dedicate per ottenere il medesimo effetto.
-- *Conseguenze*: i moduli che percorrono l'albero non ispezionano il tipo del nodo: in `treeRules.ts` la funzione `currentOutcome()` si limita a invocare `node.verdict()`, che restituisce l'esito per una foglia e nulla per una domanda. L'introduzione di una nuova tipologia di nodo, richiesta da un'eventuale evoluzione della norma, riguarderebbe la sola funzione di costruzione e la nuova classe. La costruzione delle restanti entità di dominio segue un criterio analogo ma senza scelta di tipo, attraverso i metodi statici descritti in @diagrammi-classi, mentre la composizione del grafo degli oggetti applicativi è trattata in @architettura come applicazione della Dependency Injection.
 
 ==== Observer
 
@@ -839,12 +832,10 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
 
 ==== Proxy
 
-- *Problema*: il pattern risponde nel prodotto a due esigenze distinte, entrambe riconducibili al controllo dell'accesso a una risorsa. Da un lato l'albero decisionale di un requisito viene richiesto ripetutamente nel corso di una valutazione, mentre si tratta di dati di catalogo immutabili per l'intera durata della sessione. Dall'altro la pagina di esecuzione presuppone l'esistenza di una sessione attiva e non può essere raggiunta direttamente per indirizzo.
-
-
-- *Soluzione*: interporre fra il chiamante e la risorsa un sostituto che ne espone la medesima interfaccia e ne governa l'accesso, aggiungendovi la conservazione del risultato oppure la verifica delle precondizioni.
-- *Applicazione nel progetto*: la variante con verifica delle precondizioni è realizzata nella sua forma piena dal componente `RequireSession`, che avvolge la pagina di esecuzione della sessione: presenta al router la stessa interfaccia della pagina protetta e ne consente il rendering solo in presenza di una sessione, reindirizzando altrimenti alla pagina iniziale. La variante con conservazione del risultato è invece delegata a _TanStack Query_: `DecisionTreeService` avvolge le proprie chiamate in `queryClient.fetchQuery()`, che restituisce il risultato già ottenuto per la medesima chiave anziché ripetere la richiesta. La configurazione dichiara `staleTime` e `gcTime` illimitati e disabilita i ritentativi, coerentemente con la natura immutabile del dato: la conservazione serve a non rileggere più volte lo stesso catalogo, non a compensare l'inaffidabilità della comunicazione. L'accesso alla rete continua ad avvenire tramite l'interfaccia `ApiClientService`, che il service riceve nel costruttore.
-- *Conseguenze*: le pagine non contengono controlli di accesso e i service applicativi non contengono logica di conservazione dei risultati; entrambi i meccanismi sono rimovibili senza modificare il codice che governano. Le due applicazioni non hanno tuttavia lo stesso grado di aderenza al pattern: `RequireSession` ne realizza la struttura, essendo un sostituto interposto fra il router e la pagina e a questa sostituibile, mentre la conservazione dei risultati ne applica il principio senza la struttura, poiché `queryClient.fetchQuery()` è invocato all'interno dei metodi del service e non esiste una coppia di implementazioni intercambiabili dietro un'interfaccia comune. La libreria è inoltre utilizzata in modo imperativo e non attraverso i propri hook: l'applicazione non monta alcun provider, e il meccanismo resta pertanto confinato all'Infrastructure Layer.
+Problema: la pagina di esecuzione della sessione presuppone l'esistenza di una sessione attiva e non può essere raggiunta direttamente per indirizzo, pena l'accesso a una vista priva dei dati che le danno senso.
+Soluzione: interporre fra il router e la pagina un sostituto che ne espone la medesima interfaccia e ne verifica le precondizioni prima di consentirne il rendering.
+Applicazione nel progetto: il componente RequireSession avvolge la pagina di esecuzione della sessione. Presenta al router la stessa interfaccia della pagina protetta e ne consente il rendering solo in presenza di una sessione, reindirizzando altrimenti alla pagina iniziale.
+Conseguenze: la pagina protetta non contiene alcun controllo di accesso proprio; il meccanismo di verifica è isolato in RequireSession ed è rimovibile senza modificare il codice che governa. Essendo un sostituto interposto fra il router e la pagina, con la medesima interfaccia e a questa sostituibile, l'applicazione realizza la struttura piena del pattern.
 
 ==== Strategy
 
@@ -871,16 +862,16 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
   [`IDecisionTreeRepository`, `JsonDecisionTreeRepository`, `DecisionTreeService`],
 
   [Facade], [Frontend, Backend],
-  [`importDeviceFromFile()`, `exportReportPdf()`, hook applicativi (`useSessionRunner`, `useResult`), `DecisionTreeService`, `create_device()`, `create_asset()`],
+  [`importDeviceFromFile()`, `exportReportPdf()`, hook applicativi (`useSessionRunner`, `useResult`), `DecisionTreeService`],
 
-  [Factory Method], [Frontend, Backend],
+  [Simple-Factory], [Frontend, Backend],
   [`create_app()`, `create_decision_tree_blueprint()`, `create_assets_blueprint()`, `normalize_tree()`, `_normalize_node()`, `createNode()`, metodi statici di costruzione delle entità di dominio, `from_string()` dei tipi enumerati],
 
   [Observer], [Frontend],
   [`DeviceStore`, `SessionStore`, `TreeStore` e relativi hook selettori],
 
   [Proxy], [Frontend],
-  [componente `RequireSession`, `queryClient` su `DecisionTreeService`],
+  [componente `RequireSession`],
 
   [Strategy], [Frontend, Backend],
   [`DeviceFileFormat`, `jsonDeviceFormat`, `csvDeviceFormat`, `formatForFile()`; `DecisionTreeFormat`, `JsonDecisionTreeFormat`, `CsvDecisionTreeFormat`, `format_by_name()`, `format_for_filename()`],
@@ -1592,10 +1583,6 @@ navigazione sono definite come metodi delle entità: `DecisionTree.get_node()` r
 nodo per identificatore, `Node.next()` restituisce il successore per il ramo scelto,
 `Node.verdict()` l'esito di una foglia.
 
-`Session` e le strutture correlate (`PathStep`, `Evaluation`, `Current`) sono definite lato
-server per rappresentare il file di sessione, ma non sono esposte da alcuna rotta: la
-sessione è gestita interamente dal client.
-
 === Persistence Layer <principio-repository>
 
 Il livello isola l'accesso ai dati dietro l'interfaccia `IDecisionTreeRepository`,
@@ -2224,35 +2211,6 @@ classe astratta e le due classi concrete la specializzano.
 - `get_node(node_id): Node` : reperisce un nodo per identificatore, sollevando `KeyError` se
   assente.
 
-=== PathStep, Evaluation, Current e Session
-
-*Ruolo*: rappresentano il file di sessione. Sono definite per completezza del modello, ma
-nessuna rotta le espone: la sessione è gestita interamente dal client.
-
-Tutti i campi sono pubblici, trattandosi di strutture dati prive di comportamento e di
-invarianti da proteggere.
-
-*PathStep*
-- `node_id: str` : nodo attraversato.
-- `answer: Answer` : risposta fornita, `"yes"` o `"no"`.
-
-*Evaluation*
-- `asset_id: str`, `requirement_id: str` : coppia valutata.
-- `status: EvaluationStatus` : `"not_evaluated"`, `"in_progress"` o `"completed"`.
-- `outcome: NodeOutcome | None` : esito raggiunto.
-- `justification: str | None` : giustificazione testuale.
-- `path: list[PathStep]` : percorso seguito.
-
-*Current*
-- `asset_id: str`, `requirement_id: str`, `node_id: str` : coppia in corso e nodo raggiunto.
-
-*Session*
-- `id: str`, `saved_at: str` : identificatore e istante di salvataggio.
-- `status: SessionStatus` : `"in_progress"` o `"completed"`.
-- `device: Device` : dispositivo valutato, incorporato per intero.
-- `evaluations: list[Evaluation]` : una voce per ciascuna coppia del piano.
-- `decision_tree_versions: dict[str, str]` : versione dell'albero impiegata per requisito.
-- `current: Current | None` : coppia in corso.
 == Corrispondenza fra i due domini <corrispondenza-domini>
 
 Le due realizzazioni descrivono i medesimi concetti, ma differiscono in tre punti, ciascuno
