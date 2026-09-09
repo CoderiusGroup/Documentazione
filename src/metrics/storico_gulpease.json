@@ -201,6 +201,38 @@
           "frasi": 862
         }
       }
+    },
+    {
+      "numero": 14,
+      "fine": "2026-09-05",
+      "aggiornato": "2026-09-09",
+      "documenti": {
+        "Analisi dei requisiti": {
+          "parole": 13242,
+          "lettere": 80231,
+          "frasi": 1281
+        },
+        "Norme di progetto": {
+          "parole": 9513,
+          "lettere": 60727,
+          "frasi": 474
+        },
+        "Piano di progetto": {
+          "parole": 10238,
+          "lettere": 62819,
+          "frasi": 504
+        },
+        "Piano di qualifica": {
+          "parole": 9100,
+          "lettere": 52454,
+          "frasi": 420
+        },
+        "Verbali": {
+          "parole": 24211,
+          "lettere": 143177,
+          "frasi": 1109
+        }
+      }
     }
   ]
 }
