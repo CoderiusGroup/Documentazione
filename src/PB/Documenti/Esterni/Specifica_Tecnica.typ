@@ -893,13 +893,6 @@ Questa sezione descrive l'organizzazione interna delle due unità del sistema. P
 livello sono indicati i moduli che lo compongono, la responsabilità di ciascuno e le
 dipendenze verso gli altri livelli.
 
-== Diagramma dei package
-
-/*#figure(
-  image("../../../images/specifica_tecnica/diagramma_package.png", width: 100%),
-  caption: [Diagramma dei package del sistema],
-)*/
-
 == Frontend
 
 Il frontend è realizzato come *Single Page Application* in React. Le pagine non contengono
@@ -927,7 +920,10 @@ La dipendenza fra livelli è a senso unico: Presentation dipende da Application;
 dipende da State, Domain e Infrastructure; Domain non dipende da alcun altro livello. È
 questo vincolo a rendere sostituibile un dettaglio tecnico senza toccare le pagine.
 
-=== Presentation Layer
+#figure(
+  image("../../../images/specifica_tecnica/frontend/design_frontend.png", width: 70%),
+  caption: [Diagramma a blocchi dei livelli del frontend],
+)
 
 === Presentation Layer
 
@@ -945,6 +941,12 @@ Il livello comprende otto pagine. Sette di esse corrispondono a una rotta dell'a
   dipendenze, esecuzione dell'albero decisionale — governate da `useSessionRunner`.
 - *ResultPage*: consultazione degli esiti e loro esportazione.
 - *DecisionTreeCatalogPage*: elenco dei decision tree disponibili, dettaglio, importazione, esportazione ed eliminazione.
+
+#figure(
+  image("../../../images/specifica_tecnica/diagramma_pagine.png", width: 100%),
+  caption: [Diagramma delle pagine],
+)
+
 I componenti condivisi principali comprendono:
 
 - *Page*: layout comune delle pagine e gestione del titolo e della navigazione.
@@ -967,11 +969,6 @@ I componenti condivisi principali comprendono:
 
 L'instradamento è definito in `App.tsx`, che associa un percorso a sette delle otto pagine e
 applica `RequireSession` alla rotta `/session`.
-
-#figure(
-  image("../../../images/specifica_tecnica/diagramma_pagine.png", width: 100%),
-  caption: [Diagramma delle pagine],
-)
 
 === Application Layer
 
@@ -1559,6 +1556,11 @@ Presentation dipende da Application, Application da Domain e Persistence, Domain
 La direzione è verificata dai test di dominio, che non richiedono alcun contesto
 applicativo Flask.
 
+#figure(
+  image("../../../images/specifica_tecnica/backend/design_backend.png", width: 70%),
+  caption: [useResult: hook application],
+)
+
 === Presentation Layer
 
 Il livello raggruppa quattro blueprint. Ogni rotta riceve la richiesta, delega
@@ -1662,11 +1664,6 @@ Funzione factory che costruisce e configura l'istanza di Flask.
 È l'unico punto del backend in cui compaiono i nomi delle classi concrete: la direzione delle
 dipendenze è pertanto verificabile ispezionando un solo file. La costruzione ripetibile
 consente inoltre a ciascun test di disporre di un'istanza isolata.
-
-===== health_bp
-
-Blueprint che espone `GET /health` per la verifica di disponibilità del servizio. Non dipende
-da alcun collaboratore ed è registrato direttamente.
 
 ===== devices_bp
 
@@ -1868,6 +1865,11 @@ di partenza è un file di sessione anziché una risposta del backend.
 
 === Device
 
+#figure(
+  image("../../../images/specifica_tecnica/frontend/device.png", width: 55%),
+  caption: [Device: classe frontend],
+)
+
 *Ruolo*: rappresenta il dispositivo sottoposto a valutazione e aggrega gli asset che lo
 compongono.
 
@@ -1896,6 +1898,11 @@ facoltativo e asset annidati).
 
 === Asset
 
+#figure(
+  image("../../../images/specifica_tecnica/frontend/asset.png", width: 100%),
+  caption: [Device: classe frontend],
+)
+
 *Ruolo*: rappresenta un elemento del dispositivo soggetto a valutazione, al quale sono
 associati i requisiti EN 18031 applicabili.
 
@@ -1920,6 +1927,11 @@ ed è calcolato da `getAssetStatus()` a partire dalle valutazioni registrate. La
 che la stessa informazione esista in due luoghi con il rischio di divergere.
 
 === DecisionTree
+
+#figure(
+  image("../../../images/specifica_tecnica/frontend/decision_tree.png", width: 55%),
+  caption: [Device: classe frontend],
+)
 
 *Ruolo*: rappresenta l'albero decisionale che guida la valutazione di un requisito.
 
