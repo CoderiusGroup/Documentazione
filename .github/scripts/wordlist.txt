@@ -162,3 +162,29 @@ folders
 link
 links
 screenshot
+
+# ── Database ─────────────────────────────────────────────────────────────────
+MongoDB
+PostgreSQL
+
+# ── Piattaforme, runtime e sistemi operativi ─────────────────────────────────
+Android
+iOS
+macOS
+Windows
+Node
+
+# ── Prodotti e nomi propri ───────────────────────────────────────────────────
+Guardian
+
+# ── Terminologia tecnica / locuzioni inglesi ─────────────────────────────────
+alert
+Common
+for
+equipment
+MiB
+Mentoring
+Profilazione
+
+# ── Italiano tecnico ─────────────────────────────────────────────────────────
+ampliabile
