@@ -108,7 +108,10 @@ def aggiorna_html():
             continue
         if "website" in percorso_str:
             continue
-        if "Verbali/Esterni" in percorso_str and not file_path.stem.endswith("_firmato"):
+        # Dei verbali esterni si pubblica solo la versione firmata. Il suffisso
+        # e' stato scritto sia come "_firmato" (RTB) sia come "-firmato" (PB):
+        # si accettano entrambi.
+        if "Verbali/Esterni" in percorso_str and not file_path.stem.endswith(("_firmato", "-firmato")):
             continue
         card_html = genera_card_html(file_path)
         if "Candidatura" in percorso_str:
