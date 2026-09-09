@@ -776,7 +776,7 @@ I valori sono cumulativi: ogni sprint riporta il totale progressivo dall'inizio 
 )
 
 #figure(
-  image("../../../images/cruscotto/pv_ev_ac.png", width: 90%),
+  image("../../../images/cruscotto/PB/pv_ev_ac.png", width: 90%),
   caption: [Andamento di PV, EV e AC cumulativi per sprint],
   supplement: [Figura],
 )
@@ -808,7 +808,7 @@ SPI = EV / PV. CPI = EV / AC. Valori prossimi a 1 indicano rispetto di tempi e b
 )
 
 #figure(
-  image("../../../images/cruscotto/cpi_spi.png", width: 90%),
+  image("../../../images/cruscotto/PB/cpi_spi.png", width: 90%),
   caption: [Andamento di CPI e SPI per sprint],
   supplement: [Figura],
 )
@@ -838,7 +838,7 @@ EAC = BAC / CPI. Rappresenta la stima del costo finale del progetto sulla base d
 )
 
 #figure(
-  image("../../../images/cruscotto/eac.png", width: 90%),
+  image("../../../images/cruscotto/PB/eac.png", width: 90%),
   caption: [Andamento dell'EAC rispetto al BAC per sprint],
   supplement: [Figura],
 )
@@ -892,7 +892,7 @@ RSI = (NR − NRC) / NR, dove NR è il numero di requisiti definiti e NRC il num
 )
 
 #figure(
-  image("../../../images/cruscotto/rsi.png", width: 90%),
+  image("../../../images/cruscotto/PB/rsi.png", width: 90%),
   caption: [Andamento del Requirements Stability Index per sprint],
   supplement: [Figura],
 )
@@ -902,7 +902,7 @@ Nello Sprint 1 tutti gli otto requisiti iniziali sono risultati stabili (RSI = 1
 == MPC-09, MPC-10 — Indice di Gulpease, Correttezza Ortografica
 
 #figure(
-  image("../../../images/cruscotto/grafico_gulpease.png", width: 90%),
+  image("../../../images/cruscotto/PB/grafico_gulpease.png", width: 90%),
   caption: [Andamento dell'Indice di Gulpease dei documenti],
   supplement: [Figura],
 )
@@ -910,7 +910,7 @@ Nello Sprint 1 tutti gli otto requisiti iniziali sono risultati stabili (RSI = 1
 Dal grafico si osserva un moderato miglioramento complessivo dell'Indice di Gulpease per la documentazione prodotta. Pur registrando una fisiologica flessione nella leggibilità di alcuni documenti divenuti più complessi, come le Norme di Progetto, a fronte di altri sensibilmente migliorati, come l'Analisi dei Requisiti, i valori si mantengono per tutti i testi al di sopra della soglia di accettabilità. Questo andamento riflette l'impegno del team nel preservare una buona chiarezza espositiva.
 
 #figure(
-  image("../../../images/cruscotto/grafico_errori_ortografici.png", width: 90%),
+  image("../../../images/cruscotto/PB/grafico_errori_ortografici.png", width: 90%),
   caption: [Andamento degli errori ortografici nei documenti],
   supplement: [Figura],
 )
@@ -977,7 +977,7 @@ Percentuale di metriche misurabili che rientrano nel range accettabile. Test Pas
 )
 
 #figure(
-  image("../../../images/cruscotto/qms.png", width: 90%),
+  image("../../../images/cruscotto/PB/qms.png", width: 90%),
   caption: [Andamento del Quality Metrics Satisfied per sprint],
   supplement: [Figura],
 )
@@ -1009,7 +1009,7 @@ Time Efficiency (TE) = (Ore Previste Cumulative / Ore Effettive Cumulative) × 1
 )
 
 #figure(
-  image("../../../images/cruscotto/time_efficiency.png", width: 90%),
+  image("../../../images/cruscotto/PB/time_efficiency.png", width: 90%),
   caption: [Andamento della Time Efficiency per sprint],
   supplement: [Figura],
 )
