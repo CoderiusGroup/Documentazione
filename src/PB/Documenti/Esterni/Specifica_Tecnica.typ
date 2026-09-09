@@ -1900,7 +1900,7 @@ facoltativo e asset annidati).
 
 #figure(
   image("../../../images/specifica_tecnica/frontend/asset.png", width: 100%),
-  caption: [Device: classe frontend],
+  caption: [Asset: classe frontend],
 )
 
 *Ruolo*: rappresenta un elemento del dispositivo soggetto a valutazione, al quale sono
@@ -1930,7 +1930,7 @@ che la stessa informazione esista in due luoghi con il rischio di divergere.
 
 #figure(
   image("../../../images/specifica_tecnica/frontend/decision_tree.png", width: 55%),
-  caption: [Device: classe frontend],
+  caption: [DecisionTree: classe frontend],
 )
 
 *Ruolo*: rappresenta l'albero decisionale che guida la valutazione di un requisito.
@@ -1962,6 +1962,11 @@ piatta coincide inoltre con quella dei file di catalogo, evitando una conversion
 strutturale a ogni serializzazione.
 
 === Node, QuestionNode e LeafNode
+
+#figure(
+  image("../../../images/specifica_tecnica/frontend/node.png", width: 100%),
+  caption: [Node, QuestionNode e LeafNode: classe frontend],
+)
 
 *Ruolo*: elemento atomico dell'albero. Un nodo è una domanda con due rami oppure una foglia
 che porta un esito.
@@ -2007,6 +2012,11 @@ La funzione `createNode(raw)` sceglie la classe concreta da istanziare in base a
 `type` del dato grezzo.
 
 === Session
+
+#figure(
+  image("../../../images/specifica_tecnica/frontend/session.png", width: 55%),
+  caption: [Session: classe frontend],
+)
 
 *Ruolo*: rappresenta la valutazione nel suo insieme: quali coppie asset-requisito devono
 essere esaminate, quale è in corso, quale percorso è stato seguito su ciascuna e con quale
@@ -2076,6 +2086,11 @@ Derivando da `str`, i membri sono direttamente serializzabili senza conversione 
 
 === Device
 
+#figure(
+  image("../../../images/specifica_tecnica/backend/device.png", width: 55%),
+  caption: [Device: classe backend],
+)
+
 *Ruolo*: rappresenta il dispositivo sottoposto a valutazione e aggrega i propri asset.
 
 *Attributi*
@@ -2098,6 +2113,11 @@ condiviso dalla creazione manuale e dall'importazione.
 
 === Asset
 
+#figure(
+  image("../../../images/specifica_tecnica/backend/asset.png", width: 55%),
+  caption: [Asset: classe backend],
+)
+
 *Ruolo*: rappresenta un elemento del dispositivo soggetto a valutazione.
 
 *Attributi*
@@ -2118,6 +2138,11 @@ condiviso dalla creazione manuale e dall'importazione.
 
 === NodeOutcome
 
+#figure(
+  image("../../../images/specifica_tecnica/backend/nodeoutcome.png", width: 55%),
+  caption: [NodeOutcome: classe backend],
+)
+
 *Ruolo*: enumerazione dei tre esiti che una foglia può portare.
 
 *Valori*
@@ -2136,6 +2161,11 @@ condiviso dalla creazione manuale e dall'importazione.
 - `no: str` : identificatore del nodo successivo per la risposta negativa.
 
 === Node, QuestionNode e LeafNode
+
+#figure(
+  image("../../../images/specifica_tecnica/backend/node.png", width: 100%),
+  caption: [Node: classe backend],
+)
 
 *Ruolo*: elemento atomico dell'albero. Un nodo è una domanda con due rami oppure una foglia
 che porta un esito.
@@ -2173,6 +2203,11 @@ classe astratta e le due classi concrete la specializzano.
 - `verdict(): NodeOutcome | None` : restituisce l'esito assegnato.
 
 === DecisionTree
+
+#figure(
+  image("../../../images/specifica_tecnica/backend/decisiontree.png", width: 55%),
+  caption: [DecisionTree: classe backend],
+)
 
 *Ruolo*: rappresenta l'albero decisionale che guida la valutazione di un requisito.
 
