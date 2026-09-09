@@ -84,7 +84,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.7.3*]
+  #text(size: 20pt)[*Versione 0.7.4*]
 ]
 #pagebreak()
 
@@ -104,6 +104,7 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
 
+    [0.7.4], [2026/09/09], [Edis Hodja], [], [Aggiornamento diagrammi e figure: 3, 4, 5, 7, 8, 9, 10, 11, 12],
     [0.7.3], [2026/09/08], [Leonardo Lorenzin], [Ines Iadadi], [Aggiornamento sezione 3.6],
     [0.7.2], [2026/09/08], [Giovanni Bronte], [Ines Iadadi], [Correzione refusi e aggiunte minori],
     [0.7.1], [2026/09/04], [Edis Hodja], [Ines Iadadi], [Revisione dell'architettura e correzione di refusi tecnici],
