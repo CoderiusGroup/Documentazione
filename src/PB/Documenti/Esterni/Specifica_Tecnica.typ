@@ -1353,10 +1353,10 @@ circoscrivono la sottoscrizione alla sola porzione di stato utilizzata.
 
 ===== DeviceStore
 
-/*#figure(
-  image("../../../images/specifica_tecnica/DeviceStore.png", width: 70%),
-  caption: [DeviceStore: store state management],
-)*/
+#figure(
+  image("../../../images/specifica_tecnica/frontend/device_store.png", width: 55%),
+  caption: [DeviceStore: Store state management],
+)
 
 Store del dispositivo in lavorazione e dei suoi asset.
 
@@ -1380,10 +1380,10 @@ sessione se il piano è invariato, preservandone l'avanzamento.
 
 ===== SessionStore
 
-/*#figure(
-  image("../../../images/specifica_tecnica/SessionStore.png", width: 70%),
-  caption: [SessionStore: store state management],
-)*/
+#figure(
+  image("../../../images/specifica_tecnica/frontend/session_store.png", width: 55%),
+  caption: [SessionStore: Store state management],
+)
 
 Store della sessione di valutazione.
 
@@ -1404,10 +1404,10 @@ Store della sessione di valutazione.
 
 ===== TreeStore
 
-/*#figure(
-  image("../../../images/specifica_tecnica/TreeStore.png", width: 70%),
-  caption: [TreeStore: store state management],
-)*/
+#figure(
+  image("../../../images/specifica_tecnica/frontend/tree_store.png", width: 55%),
+  caption: [TreeStore: Store state management],
+)
 
 Store dell'albero decisionale in esecuzione e della navigazione al suo interno.
 
@@ -1756,10 +1756,10 @@ realizzazione dell'interfaccia.
 
 ===== IDecisionTreeRepository
 
-/*#figure(
-  image("../../../images/specifica_tecnica/IDecisionTreeRepository.png", width: 70%),
+#figure(
+  image("../../../images/specifica_tecnica/backend/decisiontree_service.png", width: 55%),
   caption: [IDecisionTreeRepository: interfaccia persistence],
-)*/
+)
 
 Classe astratta che dichiara le operazioni sul catalogo come se esso fosse disponibile in
 memoria.
