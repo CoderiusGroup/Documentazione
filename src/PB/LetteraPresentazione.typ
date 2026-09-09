@@ -147,7 +147,7 @@ Sono consultabili i seguenti documenti:
 )
 
 #v(1em)
-Per la realizzazione del progetto la spesa totale sostenuta risulta essere di /**10.680 €*/ a fornte dei *10.680 €* preventivati durante la candidatura.
+Per la realizzazione del progetto la spesa totale sostenuta risulta essere di *10.405 €* a fornte dei *10.680 €* preventivati durante la candidatura.
 
 Cordiali saluti,
 
