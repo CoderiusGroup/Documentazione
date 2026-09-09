@@ -54,6 +54,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+
+    [0.5.0], [2026/09/08], [Giovanni Bronte], [], [Aggiunti termini e definizioni],
     [0.4.0], [2026/07/15], [Ines Iadadi], [], [Aggiunte definizioni],
     [0.3.0], [2026/06/23], [Leonardo Lorenzin], [Edis Hodja], [Aggiunti termini e definizioni],
     [0.2.0], [2026/05/11], [Alberto Canavese], [Filippo Zonta Rocha], [Aggiunti termini e definizioni],
