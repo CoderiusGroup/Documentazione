@@ -98,10 +98,10 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [0.4.0], [2026/09/08], [Leonardo Lorenzin], [], [Stesura dalla sezione 4.7 alla sezione 4.10],
-    [0.3.0], [2026/09/07], [Alberto Canavese], [], [Stesura dalla sezione 4 alla sezione 4.6],
-    [0.2.0], [2026/09/06], [Leonardo Lorenzin], [], [Stesura Sezione 3],
-    [0.1.0], [2026/09/06], [Alberto Canavese], [], [Stesura Sezioni 1 e 2]
+    [0.4.0], [2026/09/08], [Leonardo Lorenzin], [Giovanni Bronte], [Stesura dalla sezione 4.7 alla sezione 4.10],
+    [0.3.0], [2026/09/07], [Alberto Canavese], [Giovanni Bronte], [Stesura dalla sezione 4 alla sezione 4.6],
+    [0.2.0], [2026/09/06], [Leonardo Lorenzin], [Giovanni Bronte], [Stesura Sezione 3],
+    [0.1.0], [2026/09/06], [Alberto Canavese], [Giovanni Bronte], [Stesura Sezioni 1 e 2]
     
   )
 ]
@@ -387,7 +387,7 @@ catalogo iniziale dei decision tree.
 
 == Avvio dei container
 
-Dalla cartella principale del progetto, eseguire:
+Prima di tutto bisogna assicurarsi di avviare l'applicazione Desktop di Docker installata, dopo averlo fatto, dalla cartella principale del progetto, eseguire:
 
 ```bash
 docker compose up --build
@@ -648,7 +648,7 @@ I pulsanti disponibili sono:
 - *Avvia valutazione*: avvia (o riprende) la sessione di valutazione e apre la schermata di
   esecuzione (@sec-valutazione).
 - *Gestisci asset*: torna alla schermata di gestione asset;
-- *Modifica dispositivo*: apre il modulo di modifica dei dati anagrafici.
+- *Modifica dispositivo*: apre il modulo di modifica dei dati del dispositivo.
 - *Esportazione dispositivo*: permette di esportare il dispositivo in formato JSON o CSV.
 - *Eliminazione del dispositivo*: permette di eliminare il dispositivo dalla memoria, con o senza
   backup.
