@@ -1,282 +1,343 @@
 [
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "AnalisiCapitolati 2026 03 13",
-    "errors": 50,
+    "errors": 44,
     "sample": [
       "produrrannò",
-      "Packaging",
       "Guardian",
       "Profilazione",
       "MongoDB",
       "PostgreSQL",
-      "Actions",
       "Mentoring",
       "Node",
-      "coverage"
+      "iOS",
+      "Android",
+      "alert"
     ]
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "DichiarazioneImpegni 2026 03 20",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "LetteraPresentazione 2026 03 20",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleEsterno 2026 03 16",
-    "errors": 3,
-    "sample": [
-      "customizzato",
-      "confidence",
-      "Ferrarin"
-    ]
+    "errors": 0,
+    "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleEsterno 2026 03 17",
-    "errors": 2,
-    "sample": [
-      "tool",
-      "tool"
-    ]
+    "errors": 0,
+    "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleInterno 2026 03 09",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleInterno 2026 03 18",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleInterno 2026 03 25",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
-    "document": "Piano di Progetto",
-    "errors": 4,
-    "sample": [
-      "proattiva",
-      "Bluetooth",
-      "Slide",
-      "Slide"
-    ]
-  },
-  {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "Analisi dei Requisiti",
-    "errors": 3,
-    "sample": [
-      "Yes",
-      "Packaging",
-      "containerizzazione"
-    ]
+    "errors": 0,
+    "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "Piano di Progetto",
-    "errors": 4,
-    "sample": [
-      "proattiva",
-      "Bluetooth",
-      "Slide",
-      "Slide"
-    ]
+    "errors": 0,
+    "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "Piano di Qualifica",
-    "errors": 51,
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-09-09",
+    "commit": "ab8408a",
+    "document": "Specifica Tecnica",
+    "errors": 16,
     "sample": [
-      "automiglioramento",
-      "breakable",
-      "true",
-      "Planned",
-      "Value",
-      "Earned",
-      "Value",
-      "Actual",
-      "Cost",
-      "Index"
+      "conformitàdei",
+      "risalibili",
+      "ampliabile",
+      "scabio",
+      "Common",
+      "for",
+      "equipment",
+      "MiB",
+      "macOS",
+      "Windows"
     ]
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "Norme di Progetto",
-    "errors": 20,
+    "errors": 2,
     "sample": [
-      "Attrattività",
-      "NdP",
-      "Analizzabilità",
-      "Testabilità",
-      "Installabilità",
-      "RObbS",
-      "NRObS",
-      "NROb",
-      "RObbS",
-      "RObbS"
+      "RDesS",
+      "ROpS"
     ]
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
+    "document": "VerbaleEsterno 2026 07 28",
+    "errors": 1,
+    "sample": [
+      "preview"
+    ]
+  },
+  {
+    "date": "2026-09-09",
+    "commit": "ab8408a",
+    "document": "VerbaleEsterno 2026 08 21",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-09-09",
+    "commit": "ab8408a",
+    "document": "VerbaleEsterno 2026 09 04",
+    "errors": 2,
+    "sample": [
+      "Viable",
+      "live"
+    ]
+  },
+  {
+    "date": "2026-09-09",
+    "commit": "ab8408a",
+    "document": "VerbaleInterno 2026 07 13",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-09-09",
+    "commit": "ab8408a",
+    "document": "VerbaleInterno 2026 07 27",
+    "errors": 1,
+    "sample": [
+      "relatice"
+    ]
+  },
+  {
+    "date": "2026-09-09",
+    "commit": "ab8408a",
+    "document": "VerbaleInterno 2026 08 03",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-09-09",
+    "commit": "ab8408a",
+    "document": "VerbaleInterno 2026 08 10",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-09-09",
+    "commit": "ab8408a",
+    "document": "VerbaleInterno 2026 08 18",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-09-09",
+    "commit": "ab8408a",
+    "document": "VerbaleInterno 2026 08 24",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-09-09",
+    "commit": "ab8408a",
+    "document": "VerbaleInterno 2026 08 31",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-09-09",
+    "commit": "ab8408a",
+    "document": "Analisi dei Requisiti",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-09-09",
+    "commit": "ab8408a",
+    "document": "Piano di Progetto",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-09-09",
+    "commit": "ab8408a",
+    "document": "Piano di Qualifica",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-09-09",
+    "commit": "ab8408a",
+    "document": "Norme di Progetto",
+    "errors": 0,
+    "sample": []
+  },
+  {
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "LetteraPresentazione",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleEsterno 2026 04 03",
-    "errors": 1,
-    "sample": [
-      "Storage"
-    ]
+    "errors": 0,
+    "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleEsterno 2026 04 17",
-    "errors": 8,
-    "sample": [
-      "parameters",
-      "configuration",
-      "Technical",
-      "Documentation",
-      "Technical",
-      "Documentation",
-      "Plans",
-      "Reports"
-    ]
+    "errors": 0,
+    "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleEsterno 2026 05 04",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleEsterno 2026 05 18",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleEsterno 2026 06 03",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleEsterno 2026 06 16",
-    "errors": 2,
-    "sample": [
-      "app",
-      "containerization"
-    ]
+    "errors": 0,
+    "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleInterno 2026 03 31",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleInterno 2026 04 14",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleInterno 2026 04 21",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleInterno 2026 05 04",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleInterno 2026 05 13",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleInterno 2026 05 18",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleInterno 2026 05 25",
-    "errors": 3,
+    "errors": 2,
     "sample": [
       "documeto",
-      "brainstorming",
       "Aggiornarmento"
     ]
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleInterno 2026 05 29",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleInterno 2026 06 08",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleInterno 2026 06 12",
     "errors": 1,
     "sample": [
@@ -284,22 +345,22 @@
     ]
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleInterno 2026 06 23",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleInterno 2026 06 26",
     "errors": 0,
     "sample": []
   },
   {
-    "date": "2026-07-14",
-    "commit": "5cde7a3",
+    "date": "2026-09-09",
+    "commit": "ab8408a",
     "document": "VerbaleInterno 2026 07 08",
     "errors": 0,
     "sample": []
