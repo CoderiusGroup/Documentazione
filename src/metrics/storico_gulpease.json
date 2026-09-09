@@ -203,34 +203,167 @@
       }
     },
     {
-      "numero": 14,
-      "fine": "2026-09-05",
-      "aggiornato": "2026-09-09",
+      "numero": 9,
+      "fine": "2026-07-31",
+      "aggiornato": "2026-09-10",
+      "ricostruito": true,
       "documenti": {
         "Analisi dei requisiti": {
-          "parole": 13242,
-          "lettere": 80231,
-          "frasi": 1281
+          "parole": 13173,
+          "lettere": 79861,
+          "frasi": 1268
         },
         "Norme di progetto": {
-          "parole": 9513,
-          "lettere": 60727,
-          "frasi": 474
+          "parole": 8877,
+          "lettere": 56834,
+          "frasi": 428
         },
         "Piano di progetto": {
-          "parole": 10238,
-          "lettere": 62819,
-          "frasi": 504
+          "parole": 6708,
+          "lettere": 40842,
+          "frasi": 338
         },
         "Piano di qualifica": {
-          "parole": 9100,
-          "lettere": 52454,
-          "frasi": 420
+          "parole": 7484,
+          "lettere": 42303,
+          "frasi": 364
         },
         "Verbali": {
-          "parole": 24211,
-          "lettere": 143177,
-          "frasi": 1109
+          "parole": 18107,
+          "lettere": 106721,
+          "frasi": 862
+        }
+      }
+    },
+    {
+      "numero": 10,
+      "fine": "2026-08-07",
+      "aggiornato": "2026-09-10",
+      "ricostruito": true,
+      "documenti": {
+        "Analisi dei requisiti": {
+          "parole": 13173,
+          "lettere": 79861,
+          "frasi": 1268
+        },
+        "Norme di progetto": {
+          "parole": 8877,
+          "lettere": 56834,
+          "frasi": 428
+        },
+        "Piano di progetto": {
+          "parole": 6708,
+          "lettere": 40842,
+          "frasi": 338
+        },
+        "Piano di qualifica": {
+          "parole": 7484,
+          "lettere": 42303,
+          "frasi": 364
+        },
+        "Verbali": {
+          "parole": 20519,
+          "lettere": 121311,
+          "frasi": 971
+        }
+      }
+    },
+    {
+      "numero": 11,
+      "fine": "2026-08-14",
+      "aggiornato": "2026-09-10",
+      "ricostruito": true,
+      "documenti": {
+        "Analisi dei requisiti": {
+          "parole": 13173,
+          "lettere": 79861,
+          "frasi": 1268
+        },
+        "Norme di progetto": {
+          "parole": 8877,
+          "lettere": 56834,
+          "frasi": 428
+        },
+        "Piano di progetto": {
+          "parole": 6708,
+          "lettere": 40842,
+          "frasi": 338
+        },
+        "Piano di qualifica": {
+          "parole": 7484,
+          "lettere": 42303,
+          "frasi": 364
+        },
+        "Verbali": {
+          "parole": 21030,
+          "lettere": 124312,
+          "frasi": 989
+        }
+      }
+    },
+    {
+      "numero": 12,
+      "fine": "2026-08-21",
+      "aggiornato": "2026-09-10",
+      "ricostruito": true,
+      "documenti": {
+        "Analisi dei requisiti": {
+          "parole": 13173,
+          "lettere": 79861,
+          "frasi": 1268
+        },
+        "Norme di progetto": {
+          "parole": 8877,
+          "lettere": 56834,
+          "frasi": 428
+        },
+        "Piano di progetto": {
+          "parole": 6708,
+          "lettere": 40842,
+          "frasi": 338
+        },
+        "Piano di qualifica": {
+          "parole": 7484,
+          "lettere": 42303,
+          "frasi": 364
+        },
+        "Verbali": {
+          "parole": 23018,
+          "lettere": 136041,
+          "frasi": 1063
+        }
+      }
+    },
+    {
+      "numero": 13,
+      "fine": "2026-08-28",
+      "aggiornato": "2026-09-10",
+      "ricostruito": true,
+      "documenti": {
+        "Analisi dei requisiti": {
+          "parole": 13173,
+          "lettere": 79861,
+          "frasi": 1268
+        },
+        "Norme di progetto": {
+          "parole": 8877,
+          "lettere": 56834,
+          "frasi": 428
+        },
+        "Piano di progetto": {
+          "parole": 6708,
+          "lettere": 40842,
+          "frasi": 338
+        },
+        "Piano di qualifica": {
+          "parole": 7484,
+          "lettere": 42303,
+          "frasi": 364
+        },
+        "Verbali": {
+          "parole": 23795,
+          "lettere": 140600,
+          "frasi": 1085
         }
       }
     }
