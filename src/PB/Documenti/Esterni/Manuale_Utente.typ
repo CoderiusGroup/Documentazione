@@ -79,7 +79,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 0.4.0*]
+  #text(size: 20pt)[*Versione 1.0.0*]
 ]
 #pagebreak()
 
@@ -98,6 +98,7 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [1.0.0], [2026/09/10], [Giovanni Bronte], [], [Approvazione del documento],
     [0.4.0], [2026/09/08], [Leonardo Lorenzin], [Giovanni Bronte], [Stesura dalla sezione 4.7 alla sezione 4.10],
     [0.3.0], [2026/09/07], [Alberto Canavese], [Giovanni Bronte], [Stesura dalla sezione 4 alla sezione 4.6],
     [0.2.0], [2026/09/06], [Leonardo Lorenzin], [Giovanni Bronte], [Stesura Sezione 3],
@@ -335,6 +336,8 @@ L'applicazione è indipendente dal sistema operativo, poiché viene eseguita in 
 - macOS 12 o successivo;
 - distribuzioni Linux recenti a 64 bit.
 
+#pagebreak()
+
 = Installazione
 
 La procedura consiste nel verificare la presenza di Docker, ottenere il codice
@@ -360,7 +363,6 @@ Se uno dei due comandi restituisce un errore, installare Docker seguendo la guid
 (#link("https://docs.docker.com/get-started/get-docker/")) e, su Windows e macOS, avviare
 _Docker Desktop_ prima di proseguire.
 
-#pagebreak()
 == Download dell'applicazione
 
 Il codice dell'applicazione si ottiene in uno dei due modi seguenti.
@@ -385,6 +387,7 @@ Non è richiesta alcuna configurazione preliminare: non è necessario creare né
 modificare file di ambiente. La cartella contiene già tutto il necessario, incluso il
 catalogo iniziale dei decision tree.
 
+#pagebreak()
 == Avvio dei container
 
 Prima di tutto bisogna assicurarsi di avviare l'applicazione Desktop di Docker installata, dopo averlo fatto, dalla cartella principale del progetto, eseguire:
@@ -419,7 +422,6 @@ Se la porta 8080 o la porta 5000 risultano già occupate da un altro programma,
 l'avvio dei container fallisce. Chiudere il programma in conflitto oppure liberare le porte
 prima di riprovare.
 
-#pagebreak()
 == Arresto e riavvio
 
 - Per *arrestare* l'applicazione, tornare nel terminale in cui è in esecuzione e premere
@@ -439,6 +441,8 @@ docker compose up
 I decision tree del catalogo (comprese le modifiche apportate dall'utente) vengono
 conservati tra un riavvio e l'altro. I dispositivi e le sessioni non salvati su file, invece,
 non sopravvivono alla chiusura del browser.
+
+#pagebreak()
 
 = Istruzioni per l'uso
 
@@ -479,7 +483,6 @@ compaiono per pochi secondi. I messaggi di conferma (ad esempio "Dispositivo cre
 correttamente") e i messaggi di errore (ad esempio "Errore di rete: impossibile contattare
 il server") usano stili diversi ma spariscono automaticamente.
 
-#pagebreak()
 
 === Navigazione
 
@@ -488,7 +491,7 @@ di ritorno (freccia "←") con un'etichetta che indica la destinazione (ad esemp
 *Torna alla Home* o *Torna alla gestione asset*). L'applicazione funziona a pagina singola:
 è consigliabile usare i comandi di navigazione interni anziché il pulsante "Indietro" del
 browser, che potrebbe far perdere il lavoro non salvato.
-
+#pagebreak()
 === Indicatori di stato <sec-stati>
 
 Accanto a dispositivi, asset e requisiti compare un'etichetta colorata ("badge") che ne
@@ -519,7 +522,6 @@ requisiti sono `PASS` o "Non applicabile"; è sufficiente un solo `FAIL` perché
 quindi il dispositivo, risultino `FAIL`.
 
 #pagebreak()
-
 == Creazione di un dispositivo <sec-crea-dispositivo>
 
 === Inserimento dei dati del dispositivo
@@ -619,18 +621,16 @@ quello di creazione ma precompilato. Premendo il tasto di conferma le modifiche 
 
 Il pulsante *Rimuovi* accanto a un asset chiede conferma ("Confermi l'eliminazione
 dell'asset?") e, se confermato, lo elimina dall'elenco.
-
+#pagebreak()
 == Importazione di un dispositivo da file <sec-importa-dispositivo>
 
 Dal riquadro *Importa dispositivo da JSON o CSV* della pagina iniziale, il pulsante
 *Scegli un file* consente di caricare un dispositivo salvato in precedenza.  Sono ammessi
-file con estensione `.json` o `.csv` /*conformi ai formati descritti in (@sec-formati)*/.
+file con estensione `.json` o `.csv`.
 
 Al termine del caricamento l'applicazione segnala "Dispositivo caricato correttamente" e
 apre la schermata di *Gestione asset* con il dispositivo importato e i suoi asset, se presenti. In caso di file non valido viene mostrato un messaggio di errore e il dispositivo
-non viene caricato /*(@sec-errori)*/.
-
-#pagebreak()
+non viene caricato.
 
 
 == Riepilogo del dispositivo <sec-riepilogo>
@@ -731,8 +731,6 @@ non vengono imposte dall'applicazione. Il pulsante *Avvia decision tree* è semp
 disponibile e apre l'albero di decisione del requisito.
 
 #screenshot(file: "../../../images/manualeUtente/dettaglio-requisito.png")[Dettaglio di un requisito con la sezione Dipendenze]
-
-#pagebreak()
 
 === Esecuzione del decision tree
 
@@ -929,7 +927,7 @@ l'istanza in un file.
 
 Il pulsante *Elimina decision tree* chiede conferma tramite un alert del broswer e, se confermato, rimuove l'albero dal catalogo.
 
-== Possibili errori e soluzioni <sec-errori>
+== Possibili errori <sec-errori>
 
 === Server non raggiungibile
 
