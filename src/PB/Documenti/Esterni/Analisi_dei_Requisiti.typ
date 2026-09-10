@@ -33,7 +33,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(3em)
-  #text(size: 20pt)[*Versione 1.2.0*]
+  #text(size: 20pt)[*Versione 2.0.0*]
 ]
 
 #pagebreak()
@@ -53,7 +53,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.2.0], [2026/09/01], [Filippo Zonta Rocha], [], [Controllo generale e modifiche minori UC20],
+    [2.0.0], [2026/09/09], [Edis Hodja], [], [Approvazione del documento],
+    [1.2.0], [2026/09/01], [Filippo Zonta Rocha], [Edis Hodja], [Controllo generale e modifiche minori UC20],
     [1.1.0], [2026/07/24], [Ines Iadadi], [Leonardo Lorenzin], [Correzioni a seguito della revisione RTB],
     [1.0.0], [2026/06/26], [Edis Hodja], [], [Approvazione del documento],
     [0.7.0], [2026/06/12], [Giovanni Bronte], [Edis Hodja], [Modifiche a sintassi di alcuni UC, aggiunta di link mancanti e modificati alcuni UC nei requisiti],
@@ -119,32 +120,33 @@ Il presente documento è stato redatto facendo riferimento, ove applicabile, all
 
 Sono state inoltre considerate le indicazioni metodologiche fornite nell’ambito del corso di Ingegneria del Software, al fine di garantire coerenza nella definizione, organizzazione e tracciabilità dei requisiti.
 
+Le fonti online sono indicate con l'URL e la data di consultazione; per i documenti in formato PDF
+sono riportati la versione o l'edizione disponibile e le sezioni consultate.
+
 #heading(level: 3, numbering: none)[Riferimenti Normativi]
 #v(2pt)
 - #text(blue)[#underline(link(
     "https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1p.pdf",
-  )[C1: Automated EN18031 Compliance Verification - Bluewind S.r.l.])]
+  )[Capitolato C1: Automated EN18031 Compliance Verification - Bluewind S.r.l.])]
 #v(2pt)
 - #text(blue)[#underline(link(
     "https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf",
-  )[Regolamento del Progetto Didattico a.a. 2025-2026])]
+  )[Regolamento del Progetto Didattico, edizione a.a. 2025-2026])]
 #v(2pt)
 
 #heading(level: 3, numbering: none)[Riferimenti Informativi]
 #v(2pt)
-- #text(blue)[#underline([Glossario di Progetto])] //da aggiungere quando si inizierà la stesura
+- #text(blue)[#underline(link(
+    "https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Interni/Glossario.pdf",
+  )[Glossario di Progetto - Versione 1.0.0])]
 #v(2pt)
 - Dispense del corso di Ingegneria del Software 2025/2026:#v(1pt)
   - #text(blue)[#underline(link(
       "https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T05.pdf",
-    )[Analisi dei Requisiti])] #v(3pt)
+    )[Analisi dei Requisiti a.a. 2025-2026])] #v(3pt)
   - #text(blue)[#underline(link(
       "https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf",
     )[Diagrammi degli Use Case (UML)])] #v(3pt)
-  - #text(blue)[#underline(link(
-      "https://kurzy.kpi.fei.tuke.sk/zsi/resources/CockburnBookDraft.pdf",
-    )[A. Cockburn, Writing Effective Use Cases])] #v(3pt)
-  - #text(blue)[#underline(link("https://www.omg.org/spec/UML/2.5.1/PDF")[OMG UML 2.5.1 Specification])]
 
 = Descrizione del prodotto
 
@@ -446,6 +448,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Scenario principale:*
   + L'utente inserisce in un campo di testo libero il sistema operativo per il nuovo dispositivo.
+  + Il sistema verifica che il campo non sia vuoto.
 
 
 === UC-4.1.3: Inserimento descrizione dispositivo  <uc4.1.3>
@@ -663,11 +666,12 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - L'utente sta visualizzando il dispositivo.
   - Non è in corso la sessione di valutazione.
 
-- *Postcondizioni:* L'utente ha scaricato il file contenente i dati del dispositivo e degli asset associati.
+- *Postcondizioni:* Il sistema ha reso disponibile per il download il file contenente i dati del dispositivo e degli asset associati nel formato selezionato.
 
 - *Scenario principale:*
   + L'utente seleziona la funzionalità di esportazione dei dati del dispositivo.
-  + Il sistema genera il file, nel formato richiesto, contenente i dati del dispositivo e degli asset associati.
+  + L'utente seleziona il formato di esportazione tra JSON e CSV.
+  + Il sistema genera il file contenente i dati del dispositivo e degli asset associati nel formato selezionato.
   + L'utente scarica il file generato.
 
 - *Specializzazioni:*
@@ -1233,7 +1237,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + L'utente seleziona la funzionalità di avvio della valutazione del dispositivo.
   + Il sistema mostra la dashboard di valutazione. #link(<uc19.1>)[(UC-19.1)]
   + L'utente seleziona un asset dalla dashboard.
-  + Il sistema avvia la valutazione dell'asset selezionato. #link(<uc20>)[(UC-20)]
+  + Il sistema mostra l'asset selezionato per la valutazione. #link(<uc20>)[(UC-20)]
   + I passi 2-4 si ripetono fino alla valutazione di tutti gli asset.
 
 - *Scenari alternativi:*
@@ -1241,7 +1245,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
 
 - *Inclusioni:*
   - #link(<uc19.1>)[UC-19.1: Visualizzazione dashboard di valutazione]
-  - #link(<uc20>)[UC-20: Valutazione di un asset]
+  - #link(<uc20>)[UC-20: Visualizzazione asset in valutazione]
 
 - *Estensioni:*
   - #link(<uc24>)[UC-24: Uscita anticipata dal test]
@@ -1269,11 +1273,11 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   + Il sistema mostra il numero di requisiti completati per l'asset corrente.
 
 
-== UC-20: Valutazione di un asset <uc20>
+== UC-20: Visualizzazione asset in valutazione <uc20>
 #v(1em)
 #figure(
   image("../../../images/diagrammiUML/UC20.png", width: 100%),
-  caption: [UC-20 : Valutazione di un asset],
+  caption: [UC-20 : Visualizzazione asset in valutazione],
 )
 - *Attore primario:* Utente
 
@@ -1281,19 +1285,19 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - La sessione di valutazione è attiva.
   - L'utente ha selezionato un asset dalla dashboard.
 
-- *Postcondizioni:* Tutti i requisiti dell'asset sono stati valutati; per ciascun requisito è stato registrato un esito e tali esiti sono stati salvati nel sistema.
+- *Postcondizioni:* L'utente ha visualizzato le informazioni dell'asset e l'elenco dei requisiti da valutare.
 
 - *Scenario principale:*
-  + Il sistema mostra le informazioni dell'asset. #link(<uc20.1>)[(UC-20.1)]
-  + Il sistema mostra la lista dei requisiti da valutare. #link(<uc20.2>)[(UC-20.2)]
+  + L'utente visualizza le informazioni dell'asset in valutazione. #link(<uc20.1>)[(UC-20.1)]
+  + L'utente visualizza la lista dei requisiti da valutare. #link(<uc20.2>)[(UC-20.2)]
   + L'utente seleziona un requisito da valutare.
   + I passi 2-3 si ripetono fino alla valutazione di tutti i requisiti.
 
 - *Inclusioni:*
-  - #link(<uc20.1>)[UC-20.1: Consultazione informazioni dell'asset in valutazione]
-  - #link(<uc20.2>)[UC-20.2: Consultazione elenco requisiti dell'asset]
+  - #link(<uc20.1>)[UC-20.1: Visualizzazione in dettaglio asset in valutazione]
+  - #link(<uc20.2>)[UC-20.2: Visualizzazione elenco requisiti dell'asset]
 
-=== UC-20.1: Consultazione informazioni dell'asset in valutazione <uc20.1>
+=== UC-20.1: Visualizzazione in dettaglio asset in valutazione <uc20.1>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -1301,7 +1305,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
   - La sessione di valutazione è attiva
   - L'utente ha selezionato un asset dalla dashboard.
 
-- *Postcondizioni:* L'utente ha visualizzato le informazioni
+- *Postcondizioni:* L'utente ha visualizzato in dettaglio le informazioni
   dell'asset selezionato.
 
 - *Scenario principale:*
@@ -1312,7 +1316,7 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
     - la sensibilità;
     - lo stato di valutazione.
 
-=== UC-20.2: Consultazione elenco requisiti dell'asset <uc20.2>
+=== UC-20.2: Visualizzazione elenco requisiti dell'asset <uc20.2>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -1330,9 +1334,9 @@ A seguito dell'analisi del capitolato e per mantenere il sistema focalizzato sug
     di valutazione. #link(<uc20.2.1>)[(UC-20.2.1)]
 
 - *Inclusioni:*
-  - #link(<uc20.2.1>)[UC-20.2.1: Consultazione stato del requisito nell'elenco in valutazione]
+  - #link(<uc20.2.1>)[UC-20.2.1: Visualizzazione stato del requisito nell'elenco in valutazione]
 
-==== UC-20.2.1: Consultazione stato del requisito nell'elenco in valutazione <uc20.2.1>
+==== UC-20.2.1: Visualizzazione stato del requisito nell'elenco in valutazione <uc20.2.1>
 #v(1em)
 - *Attore primario:* Utente
 
@@ -2722,6 +2726,7 @@ I requisiti di qualità definiscono i criteri di validazione, gli standard metri
   [RQ-Ob06], [Il codice sorgente del prodotto deve essere documentato tramite un Manuale Tecnico, e deve essere prodotta una documentazione di progetto comprendente requisiti, architettura, scelte tecnologiche e metodologia di sviluppo.], [#text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[Capitolato C1 - Sezione 7])]],
   [RQ-Ob07], [La gestione del ciclo di vita del progetto e l'organizzazione delle attività del team devono adottare un approccio Agile, garantendo iterazioni regolari e flessibilità.], [#text(blue)[#underline(link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Documenti/Interni/Norme_di_Progetto.pdf")[Norme di Progetto v1.0.0 - Sezione 4.2.2])]],
   [RQ-Ob08], [Il sistema deve utilizzare Git come software di controllo di versione distribuito per la gestione del codice sorgente.], [#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-06-16_firmato.pdf")[#text(fill: blue)[#underline[Verbale Esterno]]]],
+  [RQ-Ob09], [Il sistema deve utilizzare Docker per la containerizzazione e il deployment dell'applicazione.], [#text(blue)[#underline(link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-06-16_firmato.pdf")[Verbale Esterno del 2026-06-16, versione 1.0.0])]],
 )
 
 #pagebreak()
@@ -2742,9 +2747,8 @@ I requisiti di vincolo definiscono le restrizioni tecniche, le piattaforme e gli
   ),
 
   [RV-Ob01], [La logica di backend deve essere sviluppata in linguaggio Python 3.x e la gestione dei relativi pacchetti software deve essere strutturata tramite Python Packaging utilizzando il file pyproject.toml.], [#text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[Capitolato C1 - Sezione 4])]],
-  [RV-Ob02], [L'applicazione deve essere distribuita e fruibile sotto forma di applicazione web locale accessibile all'indirizzo localhost, garantendo la piena compatibilità operativa sulle ultime due versioni principali dei browser moderni (Google Chrome, Mozilla Firefox, Apple Safari, Microsoft Edge).], [#text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[Capitolato C1 - Sezione 4])]],
+  [RV-Ob02], [L'applicazione deve essere distribuita e fruibile sotto forma di applicazione web locale accessibile all'indirizzo localhost, garantendo la piena compatibilità operativa sulle ultime due versioni principali dei browser moderni.], [#text(blue)[#underline(link("https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1.pdf")[Capitolato C1 - Sezione 4])]],
   [RV-Ob03], [L'interfaccia utente (frontend) dell'applicazione web deve essere realizzata utilizzando la libreria React.], [#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-06-16_firmato.pdf")[#text(fill: blue)[#underline[Verbale Esterno]]]],
-  [RV-Ob04], [Il sistema deve utilizzare Docker per la containerizzazione e il deployment dell'applicazione.], [#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-06-16_firmato.pdf")[#text(fill: blue)[#underline[Verbale Esterno]]]],
   [RV-Ob05], [La logica di backend deve essere sviluppata utilizzando il framework Flask.], [#link("https://coderiusgroup.github.io/Documentazione/docs/RTB/Verbali/Esterni/VerbaleEsterno-2026-06-16_firmato.pdf")[#text(fill: blue)[#underline[Verbale Esterno]]]],
 )
 
@@ -2904,8 +2908,8 @@ La seguente tabella riassume quantitativamente i requisiti individuati all'inter
     ),
 
     [Funzionali (RF)], [80], [23], [26], [129],
-    [Qualità (RQ)], [8], [0], [0], [8],
-    [Vincolo (RV)], [5], [0], [0], [5],
+    [Qualità (RQ)], [9], [0], [0], [9],
+    [Vincolo (RV)], [4], [0], [0], [4],
 
     [*Totali*], [*93*], [*23*], [*26*], [*142*],
   )

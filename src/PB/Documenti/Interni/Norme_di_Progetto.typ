@@ -33,7 +33,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.1.0*]
+  #text(size: 20pt)[*Versione 2.0.0*]
 ]
 
 #pagebreak()
@@ -53,7 +53,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.1.0], [2026/09/02], [Filippo Zonta Rocha], [], [Aggiornamento migliorativo,\ aggiunta sezione 2.4, 2.5, 2.6],
+    [2.0.0], [2026/09/10], [Edis Hodja], [], [Approvazione del documento],
+    [1.1.0], [2026/09/02], [Filippo Zonta Rocha], [Edis Hodja], [Aggiornamento migliorativo e aggiunta sezione 2.4, 2.5, 2.6],
     [1.0.1], [2026/07/03], [Edis Hodja], [Filippo Zonta Rocha], [Aggiornamento contenuti della descrizione relativa ai ruoli],
     [1.0.0], [2026/06/23], [Edis Hodja], [], [Approvazione del documento],
     [0.10.1], [2026/06/13], [Giovanni Bronte], [Edis Hodja], [Modifiche alle tabelle delle metriche],
@@ -270,6 +271,36 @@ Le attività legate al processo di fornitura si concretizzano nella redazione e 
     columns: (auto, 1fr),
     align: (left, left),
     stroke: 0.5pt,
+    table.header(table.cell(colspan: 2, fill:luma(230), align: center)[*Specifica Tecnica*]),
+    [*Redattore*], [Progettisti],
+    [*Tipo di documento*], [Esterno],
+    [*Scopo*], [Documento essenziale per la pianificazione e la realizzazione del software, che descrive l'architettura del sistema, i componenti principali e le loro interazioni.],
+  ),
+  caption: [Descrizione del documento "Specifica Tecnica"],
+  supplement: [Tabella],
+  numbering: "1",
+)
+
+#figure(
+  table(
+    columns: (auto, 1fr),
+    align: (left, left),
+    stroke: 0.5pt,
+    table.header(table.cell(colspan: 2, fill:luma(230), align: center)[*Manuale Utente*]),
+    [*Redattore*], [Programmatori],
+    [*Tipo di documento*], [Esterno],
+    [*Scopo*], [Il manuale utente è importante per garantire che gli utenti finali la comprensione del flusso dell'applicazione e delle funzionalità disponibili, fornendo istruzioni chiare e dettagliate per l'utilizzo del software.],
+  ),
+  caption: [Descrizione del documento "Manuale Utente"],
+  supplement: [Tabella],
+  numbering: "1",
+)
+
+#figure(
+  table(
+    columns: (auto, 1fr),
+    align: (left, left),
+    stroke: 0.5pt,
     table.header(table.cell(colspan: 2, fill:luma(230), align: center)[*Lettera di candidatura*]),
     [*Redattore*], [Responsabile],
     [*Tipo di documento*], [Esterno],
@@ -473,9 +504,7 @@ L'attività di progettazione del prodotto è svolta dai progettisti del gruppo, 
 
 Si tratta di un processo collaborativo che collide con le idee e le competenze dei membri del team, con l'obiettivo di creare un prodotto finale coerente.
 
-Il processo si raggiunge attraverso l'adozione di design pattern e di best practice di ingegneria del software, che permettono di ottenere un'architettura solida scalabile e facilmente manutenibile. 
-
-Per mantenere la coerenza progettuale vengono definiti i test che saranno successivamente utilizzati per verificare il corretto funzionamento del sistema e la loro conformità ai requisiti.
+Il processo si raggiunge attraverso l'adozione di design pattern e di best practice di ingegneria del software, che permettono di ottenere un'architettura solida scalabile e facilmente manutenibile.
 
 == Codifica del prodotto
 L'attività di codifica del prodotto è svolta dai programmatori del gruppo, che si occupano di implementare le funzionalità definite nella fase di progettazione. La codifica avviene seguendo le linee guida stabilite nelle *Norme di Progetto*, che includono convenzioni di nomenclatura, standard di stile e best practice di programmazione.
@@ -510,7 +539,7 @@ L'attività di codifica del prodotto è svolta dai programmatori del gruppo, che
 
   - La stessa convenzione (commenti italiani) si estende ai workflow continuos integration.
 
-== Tecnologie selezionate
+== Strumenti Utilizzati
 - Python: utilizzato come linguaggio di programmazione ad alto livello orientato agli oggetti per la realizzazione della logica di backend. È stato scelto per la sua versatilità e l' ampia disponibilità di risorse.
 
 - React: utilizzato come framework per la realizzazione della logica di frontend.
@@ -526,6 +555,8 @@ L'attività di codifica del prodotto è svolta dai programmatori del gruppo, che
 - GitHub Actions: utilizzato per l'automazione dei processi di build, test e deployment, integrando la pipeline di continuous integration (CI).
 
 - Visual Studio Code: IDE utilizzato come ambiente di sviluppo condiviso.
+
+- Draw.io: utilizzato per la creazione di diagrammi UML e schemi architetturali.
 
 Per un approfondimento sulle tecnologie scelte, si rimanda al documento #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Esterni/Specifica_Tecnica.pdf")[#underline(text(fill: blue)[Specifica Tecnica])].
 
@@ -1395,16 +1426,17 @@ Questi processi riguardano la dimensione organizzativa del gruppo: dalla definiz
 
 #metrica(
   "MPD-11", "Cyclomatic Complexity",
-  [#$ v(G) = E - N + 2P $
+  [#$ "MPD-11" = ("Funzioni con" v(G) <= 10) / ("Funzioni totali") times 100 $
     #v(0.8em) #set text(size: 0.85em)
     #align(left)[
       *Legenda:* \
+      - *v(G) = E - N + 2P*: complessità ciclomatica della singola funzione \
       - *E*: Numero di archi del grafo di controllo \
       - *N*: Numero di nodi del grafo \
       - *P*: Numero di componenti connesse
     ]
   ],
-  "Quantifica la complessità logica del codice contando il numero di percorsi indipendenti.",
+  "Quantifica la complessità logica del codice: v(G) conta i percorsi indipendenti di ciascuna funzione. La metrica riporta la percentuale di funzioni entro la soglia di complessità raccomandata (v(G) ≤ 10).",
 )
 
 #metrica(
