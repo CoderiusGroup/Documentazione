@@ -80,7 +80,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-    #text(size: 20pt)[*Versione 1.1.2*]
+    #text(size: 20pt)[*Versione 2.0.0*]
 ]
 #pagebreak()
 
@@ -99,9 +99,10 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.1.2], [2026/09/11], [Filippo Zonta Rocha], [Giovanni Bronte], [Aggiornamento metriche e aggiunta sezione relativa allo sprint 15],
+    [2.0.0], [2026/09/10], [Edis Hodja], [], [Approvazione del documento],
+    [1.1.2], [2026/09/10], [Filippo Zonta Rocha], [Giovanni Bronte], [Aggiornamento metriche e aggiunta sezione relativa allo sprint 15],
     [1.1.1], [2026/09/07], [Filippo Zonta Rocha], [Giovanni Bronte], [Aggiornamento metriche e aggiunta sezione relativa allo sprint 14],
-    [1.1.0], [2026/09/04], [Filippo Zonta Rocha], [Giovanni Bronte], [Aggiornamento metriche di qualità, \ Aggiunti test],
+    [1.1.0], [2026/09/04], [Filippo Zonta Rocha], [Giovanni Bronte], [Aggiornamento metriche di qualità e aggiunti test],
     [1.0.7], [2026/08/31], [Giovanni Bronte], [Leonardo Lorenzin], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 13],
     [1.0.6], [2026/08/21], [Edis Hodja], [Giovanni Bronte], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 12],
     [1.0.5], [2026/08/14], [Leonardo Lorenzin], [Alberto Canavese], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 11],
