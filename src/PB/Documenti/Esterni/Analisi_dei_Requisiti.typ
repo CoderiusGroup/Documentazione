@@ -33,7 +33,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(3em)
-  #text(size: 20pt)[*Versione 1.2.0*]
+  #text(size: 20pt)[*Versione 2.0.0*]
 ]
 
 #pagebreak()
