@@ -171,7 +171,7 @@
   "MVP": [Minimum Viable Product: versione con il sottoinsieme minimo di funzionalità sufficiente a essere rilasciata e validata],
   "CORS": [Cross-Origin Resource Sharing: meccanismo con intestazioni HTTP che autorizza un client a richiedere risorse a un'origine diversa dalla propria.],
   "RSI": [Requirements Stability Index: metrica di processo sulla stabilità dei requisiti nel tempo.],
-  "PascalCase": [Ogni parola inizia in maiuscola, iniziale compresa (es. DecisionTree); usata per i nomi delle classi.],
+  "PascalCase": [Ogni parola inizia in maiuscola, iniziale compresa.],
   "Integrazione Continua (CI)": [Ogni modifica integrata attiva automaticamente build, analisi statica e test, bloccando il merge in caso di violazioni.],
   "Docker": [Piattaforma open source per creare, distribuire ed eseguire container.],
   "Repository (design pattern)": [Pattern che interpone tra logica applicativa e sorgente dati un'interfaccia che espone la collezione come se fosse in memoria, nascondendo il meccanismo di accesso.],
