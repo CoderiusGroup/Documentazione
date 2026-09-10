@@ -99,9 +99,9 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.1.2], [2026/09/11], [Filippo Zonta Rocha], [], [Aggiornamento metriche e aggiunta sezione relativa allo sprint 15],
-    [1.1.1], [2026/09/07], [Filippo Zonta Rocha], [], [Aggiornamento metriche e aggiunta sezione relativa allo sprint 14],
-    [1.1.0], [2026/09/04], [Filippo Zonta Rocha], [], [Aggiornamento metriche di qualità, \ Aggiunti test],
+    [1.1.2], [2026/09/11], [Filippo Zonta Rocha], [Giovanni Bronte], [Aggiornamento metriche e aggiunta sezione relativa allo sprint 15],
+    [1.1.1], [2026/09/07], [Filippo Zonta Rocha], [Giovanni Bronte], [Aggiornamento metriche e aggiunta sezione relativa allo sprint 14],
+    [1.1.0], [2026/09/04], [Filippo Zonta Rocha], [Giovanni Bronte], [Aggiornamento metriche di qualità, \ Aggiunti test],
     [1.0.7], [2026/08/31], [Giovanni Bronte], [Leonardo Lorenzin], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 13],
     [1.0.6], [2026/08/21], [Edis Hodja], [Giovanni Bronte], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 12],
     [1.0.5], [2026/08/14], [Leonardo Lorenzin], [Alberto Canavese], [Aggiornamento tabelle delle metriche e aggiunta sezione relativa allo sprint 11],
@@ -733,7 +733,7 @@ I test di accettazione validano il prodotto finale rispetto ai requisiti concord
 
 == Test di Unità
 
-I test di unità verificano il comportamento delle singole unità di codice (funzioni pure, azioni degli store, schemi di validazione, servizi e regole di dominio del backend) in isolamento, senza dipendenze da rete o interfaccia grafica. Sono implementati con Vitest nel frontend e con Pytest nel backend, ed eseguiti automaticamente in integrazione continua a ogni push e pull request. La colonna "Requisito" riporta i requisiti funzionali coperti da ciascuna unità; alcune unità di natura puramente architetturale (la route guard RequireSession, il client HTTP FetchApiClient) non tracciano un requisito funzionale diretto e riportano invece il pattern architetturale che realizzano — Proxy e Adapter — documentato nella Specifica Tecnica.
+I test di unità verificano il comportamento delle singole unità di codice (funzioni pure, azioni degli store, schemi di validazione, servizi e regole di dominio del backend) in isolamento, senza dipendenze da rete o interfaccia grafica. Sono implementati con Vitest nel frontend e con Pytest nel backend, ed eseguiti automaticamente in integrazione continua a ogni push e pull request. La colonna "Requisito" riporta i requisiti funzionali coperti da ciascuna unità; alcune unità di natura puramente architetturale (la route guard RequireSession, il client HTTP FetchApiClient) non tracciano un requisito funzionale diretto e riportano invece il pattern architetturale che realizzano — Adapter — documentato nella Specifica Tecnica.
 
 #test-table(
   [Test di Unità],
@@ -759,15 +759,14 @@ I test di unità verificano il comportamento delle singole unità di codice (fun
   [TU-20], [Verificare la navigazione al nodo precedente e a quello successivo mantenendo le risposte già fornite.], [RF-D07, RF-D09], [S],
   [TU-21], [Verificare la modifica di una risposta a un nodo già risposto con l'invalidazione delle risposte successive.], [RF-D10], [S],
   [TU-22], [Verificare che la trasformazione del layout in grafo produca nodi con testo ed esito, archi con etichetta Sì/No, l'evidenziazione del nodo corrente e del percorso e la modalità di sola lettura.], [RF-Ob58, RF-Ob59, RF-Ob72, RF-Ob73, RF-Ob74, RF-Ob75], [S],
-  [TU-23], [Verificare che la guardia di accesso consenta il rendering delle pagine di sessione solo in presenza di una sessione attiva, reindirizzando altrimenti alla pagina iniziale.], [Proxy], [S],
-  [TU-24], [Verificare che il client HTTP componga la richiesta e traduca sia i fallimenti di rete sia le risposte di errore in un errore applicativo tipizzato.], [Adapter], [S],
-  [TU-25], [Verificare che la validazione strutturale di un decision tree accetti alberi ben formati e rifiuti id duplicati, radice mancante, riferimenti pendenti, cicli e nodi irraggiungibili.], [RF-Ob53, RF-D20], [S],
-  [TU-26], [Verificare che il servizio asset validi i campi dell'asset, generi l'id quando assente e derivi i requisiti applicabili dal tipo.], [RF-Ob26, RF-Ob28, RF-Ob42], [S],
-  [TU-27], [Verificare la serializzazione e il parsing di un decision tree in formato JSON e CSV, con rifiuto dei contenuti malformati.], [RF-Ob77, RF-Ob78, RF-Ob79, RF-D20], [S],
-  [TU-28], [Verificare le regole di navigazione dell'albero lato server: recupero di un nodo, avanzamento sul ramo affermativo e negativo ed esito del nodo foglia.], [RF-Ob53, RF-Ob55, RF-Ob60], [S],
-  [TU-29], [Verificare che il repository dei decision tree recuperi un albero, ne elenchi gli identificativi e gestisca scrittura ed eliminazione dei file.], [RF-Ob53, RF-Ob66], [S],
-  [TU-30], [Verificare che gli alberi seed si normalizzino senza errori, abbiano la radice e almeno una foglia PASS e una FAIL, e che i rami puntino a nodi esistenti.], [RF-Ob53], [S],
-  [TU-31], [Verificare che il servizio dei decision tree normalizzi l'albero recuperato dal repository e segnali l'assenza del dato richiesto.], [RF-Ob53], [S],
+  [TU-23], [Verificare che il client HTTP componga la richiesta e traduca sia i fallimenti di rete sia le risposte di errore in un errore applicativo tipizzato.], [Adapter], [S],
+  [TU-24], [Verificare che la validazione strutturale di un decision tree accetti alberi ben formati e rifiuti id duplicati, radice mancante, riferimenti pendenti, cicli e nodi irraggiungibili.], [RF-Ob53, RF-D20], [S],
+  [TU-25], [Verificare che il servizio asset validi i campi dell'asset, generi l'id quando assente e derivi i requisiti applicabili dal tipo.], [RF-Ob26, RF-Ob28, RF-Ob42], [S],
+  [TU-26], [Verificare la serializzazione e il parsing di un decision tree in formato JSON e CSV, con rifiuto dei contenuti malformati.], [RF-Ob77, RF-Ob78, RF-Ob79, RF-D20], [S],
+  [TU-27], [Verificare le regole di navigazione dell'albero lato server: recupero di un nodo, avanzamento sul ramo affermativo e negativo ed esito del nodo foglia.], [RF-Ob53, RF-Ob55, RF-Ob60], [S],
+  [TU-28], [Verificare che il repository dei decision tree recuperi un albero, ne elenchi gli identificativi e gestisca scrittura ed eliminazione dei file.], [RF-Ob53, RF-Ob66], [S],
+  [TU-29], [Verificare che gli alberi seed si normalizzino senza errori, abbiano la radice e almeno una foglia PASS e una FAIL, e che i rami puntino a nodi esistenti.], [RF-Ob53], [S],
+  [TU-30], [Verificare che il servizio dei decision tree normalizzi l'albero recuperato dal repository e segnali l'assenza del dato richiesto.], [RF-Ob53], [S],
 )
 
 == Test di Integrità
@@ -1024,7 +1023,7 @@ Queste metriche, non applicabili nelle fasi inziali del progetto, vengono misura
 
 I dati evidenziano un'estrema solidità del codice prodotto. 
 
-Fin dall'inizio dell'implementazione, il *Test Pass Rate* aggregato (MPC-11) si è mantenuto costantemente al 100% in entrambi i moduli, superando ampiamente la soglia di accettabilità e raggiungendo sempre il valore ottimo. Il numero di test è cresciuto costantemente, arrivando nello Sprint 13 a ben 218 test complessivi (133 sul frontend e 85 sul backend), tutti superati con successo. Continua il trend anche nello sprint 14 e 15, tutti superati con esito positivo.
+Fin dall'inizio dell'implementazione, il *Test Pass Rate* aggregato (MPC-11) si è mantenuto costantemente al 100% in entrambi i moduli, superando ampiamente la soglia di accettabilità e raggiungendo sempre il valore ottimo. Il numero di test è cresciuto costantemente, arrivando nello Sprint 15 a ben 310 test complessivi (177 sul frontend e 133 sul backend), tutti superati con successo. Continua il trend anche nello sprint 14 e 15, tutti superati con esito positivo.
 
 #pagebreak()
 
@@ -1189,8 +1188,8 @@ MPD-02 = (Requisiti Desiderabili Soddisfatti / Requisiti Desiderabili Totali) ×
   [11], [3],  [23], [13,0%], [Non soddisfatto],
   [12], [5],  [23], [21,7%], [Non soddisfatto],
   [13], [13], [23], [56,5%], [Accettabile],
-  [14], [19], [23], [82,6%], [Ottimo],
-  [15], [19], [23], [82,6%], [Ottimo],
+  [14], [23], [23], [100%], [Ottimo],
+  [15], [23], [23], [100%], [Ottimo],
 )
 
 #figure(
