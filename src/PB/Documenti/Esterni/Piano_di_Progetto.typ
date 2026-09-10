@@ -81,7 +81,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.9.0*]
+  #text(size: 20pt)[*Versione 2.0.0*]
 ]
 #pagebreak()
 
@@ -100,6 +100,11 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
+    [2.0.0], [2026/09/10], [Ines Iadadi], [], [Approvazione del documento],
+    [1.10.1], [2026/09/10], [Edis Hodja], [Ines Iadadi], 
+    [Aggiunta della sezione relativa al sommario finale],
+    [1.10.0], [2026/09/10], [Edis Hodja], [Ines Iadadi], 
+    [Aggiunta delle sezioni Sprint 15: dalla 4.16.1 alla 4.16.8],
     [1.9.0], [2026/09/04], [Giovanni Bronte], [Edis Hodja], 
     [Aggiunta delle sezioni Sprint 14: dalla 4.15.1 alla 4.15.8],
     [1.8.1], [2026/08/28], [Ines Iadadi], [Leonardo Lorenzin], 
@@ -709,7 +714,7 @@ Naturalmente i restanti documenti saranno ancora in via di sviluppo, prossimi a 
 === Preventivo
 #figure(
   tabella-ore((
-    ([Alberto Canavese],   [-],[4],[-],[-],[-],[],[4]),
+    ([Alberto Canavese],   [-],[4],[-],[-],[-],[-],[4]),
     ([Edis Hodja],         [6],[-],[-],[-],[-],[-],[6]),
     ([Filippo Zonta Rocha],[-],[-],[7],[-],[-],[-],[7]),
     ([Giovanni Angelo Marco Bronte],    [-],[-],[-],[-],[-],[7],[7]),
@@ -1661,8 +1666,8 @@ Non sono emerse criticità particolarmente rilevanti nel corso dello sprint. Il 
   stroke: none,
   inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
   [*Inizio:*],        [2026/08/29],
-  [*Fine prevista:*], [2026/09/05],
-  [*Fine reale:*],    [2026/09/05],
+  [*Fine prevista:*], [2026/09/04],
+  [*Fine reale:*],    [2026/09/04],
 )
 #v(0.3em)
 
@@ -1699,7 +1704,7 @@ Le attività pianificate sono state:
 
 Nel corso dello sprint il team ha completato l'MVP, incluse le rifiniture grafiche dell'interfaccia, e lo ha presentato all'azienda proponente, ricevendo un riscontro positivo.
 Sono stati inoltre, completati e aggiornati i documenti fondamentali della fase PB, tra cui il Piano di Progetto, il Piano di Qualifica, il Glossario, le Norme di Progetto e l'Analisi dei Requisiti.
-Nel corso dello sprint è stata inoltre rivista la distribuzione delle ore residue tra i ruoli: due ore sono state trasferite rispettivamente dal ruolo di Progettista e da quello di Verificatore al ruolo di Amministratore, in considerazione delle attività ancora necessarie per il completamento della documentazione.
+Nel corso dello sprint è stata inoltre rivista la distribuzione delle ore residue tra i ruoli: sono state trasferite due ore dal ruolo di Progettista e due ore da quello di Verificatore al ruolo di Amministratore, per un totale di quattro ore aggiunte all'Amministratore.
 
 Il rischio *RO-4* non si è concretizzato, poiché il team è riuscito a coordinare efficacemente le attività e a rispettare gli obiettivi dello sprint. Si è invece, verificato il rischio *RO-1*, dovuto a una stima iniziale non sufficiente per alcune attività di sviluppo.
 
@@ -1740,9 +1745,181 @@ Lo scostamento è stato comunque contenuto e non ha avuto conseguenze sulla cons
     [Responsabile], [30], [3], [90€], [2], [60€],
     [Amministratore], [20], [2], [40€], [3], [60€],
     [Analista], [25], [3], [75€], [2], [50€],
-    [Progettista], [25], [8], [200€], [17], [475€],
+    [Progettista], [25], [8], [200€], [17], [425€],
     [Programmatore], [15], [12], [180€], [2], [30€],
     [Verificatore], [15], [12], [180€], [12], [210€],
-    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*40*], [*765€*], [*39*], [*885*],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*40*], [*765€*], [*38*], [*835€*],
   )
   ]
+
+== Sprint 15
+
+=== Periodo
+#table(
+  columns: (0.3fr, 1fr),
+  stroke: none,
+  inset: (left: 0pt, right: 0pt, top: 4pt, bottom: 4pt),
+  [*Inizio:*],        [2026/09/05],
+  [*Fine prevista:*], [2026/09/11],
+  [*Fine reale:*],    [-],
+)
+#v(0.3em)
+
+=== Attività pianificate
+
+Lo Sprint 15 costituisce l'ultimo sprint del progetto ed è dedicato alla chiusura delle
+attività documentali, alla verifica finale dei contenuti prodotti e alla validazione
+complessiva della documentazione di progetto.
+Le attività pianificate sono state:
+
+- Aggiornamento conclusivo del Piano di Progetto e del Piano di Qualifica;
+- Aggiornamento del Glossario e del sito web con la documentazione finale;
+- Verifica e validazione delle Norme di Progetto;
+- Verifica e validazione dell'Analisi dei Requisiti;
+- Verifica e validazione della Specifica Tecnica;
+- Controllo di coerenza tra i documenti, il prodotto realizzato e i requisiti tracciati;
+- Chiusura delle attività residue e preparazione della documentazione per la consegna finale (Lettera di Presentazione).
+
+=== Rischi attesi
+
+- *RO-4*: La concentrazione delle ultime verifiche documentali in un unico sprint potrebbe
+  causare ritardi nella consegna qualora emergessero incongruenze tra i documenti o fossero
+  necessarie correzioni estese.
+
+=== Preventivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[-],[1],[-],[1]),
+    ([Edis Hodja],         [2],[-],[-],[-],[-],[3],[5]),
+    ([Filippo Zonta Rocha],[-],[3],[-],[-],[-],[-],[3]),
+    ([Giovanni Angelo Marco Bronte],[-],[-],[-],[4],[-],[3],[7]),
+    ([Ines Iadadi],        [-],[-],[-],[-],[-],[6],[6]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[4],[1],[-],[5]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*2*],[*3*],[-],[*8*],[*2*],[*12*],[*27*]),
+  )),
+    caption: [Preventivo ore per membro - Sprint 15]
+)
+
+=== Retrospettiva
+
+Nel corso dello sprint il team ha completato l'aggiornamento del Piano di Progetto, del
+Piano di Qualifica, del Glossario e del sito web. Sono state inoltre concluse le attività
+di verifica e validazione delle Norme di Progetto, dell'Analisi dei Requisiti e della
+Specifica Tecnica, controllando la coerenza tra la documentazione, il prodotto realizzato
+e i requisiti soddisfatti.
+
+Lo sprint ha rappresentato la fase conclusiva del progetto: le attività residue sono state
+chiuse, la documentazione è stata predisposta per la consegna finale e il gruppo ha
+consolidato gli artefatti prodotti durante gli sprint precedenti.
+
+Il rischio *RO-4* non si è concretizzato, poiché le verifiche sono state distribuite tra i
+membri del gruppo e le correzioni individuate sono state gestite durante lo sprint.
+
+=== Rischi incontrati
+
+- *RI-1*: Gli impegni personali dovuti  al periodo hanno comportato lievi disomogeneità nella disponibilità oraria di alcuni membri; tuttavia, la flessibilità del gruppo ha permesso di assorbire la situazione senza particolari impatti sulla tabella di marcia.
+
+#pagebreak()
+==== Criticità emerse
+
+La principale criticità dello sprint ha riguardato la necessità di mantenere allineati più
+documenti aggiornati in parallelo. In particolare, la verifica della Specifica Tecnica ha
+richiesto un confronto con l'Analisi dei Requisiti, le Norme di Progetto e il prodotto
+realizzato.
+
+Le attività sono state comunque completate entro il termine previsto grazie alla
+distribuzione delle verifiche tra i membri del gruppo e alle revisioni incrociate. Non sono
+emerse ulteriori criticità rilevanti.
+
+=== Consuntivo
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese],   [-],[-],[-],[-],[1],[-],[1]),
+    ([Edis Hodja],         [2],[-],[-],[-],[-],[4#text(fill: red)[(+1)]],[6]),
+    ([Filippo Zonta Rocha],[-],[3],[-],[-],[-],[-],[3]),
+    ([Giovanni Angelo Marco Bronte],[-],[-],[-],[3#text(fill: green)[(-1)]],[-],[3],[6]),
+    ([Ines Iadadi],        [-],[-],[-],[-],[-],[5#text(fill: green)[(-1)]],[5]),
+    ([Leonardo Lorenzin],  [-],[-],[-],[5#text(fill: red)[(+1)]],[1],[-],[6]),
+    (table.cell(align: center, fill: luma(220))[*Totale*],[*2*],[*3*],[-],[*8*],[*2*],[*12*],[*27*]),
+  )),
+    caption: [Consuntivo ore per membro - Sprint 15]
+)
+
+=== Risorse rimanenti
+#align(center)[
+  #table(
+    columns: (1.5fr, auto, auto, auto, auto, auto),
+    align: (left, center, center, right, center, right),
+    stroke: 0.5pt + luma(100),
+    inset: (x: 8pt, y: 6pt),
+    [*Ruolo*], [*€/h*], [*Ore sprint*], [*Costo sprint*],
+    [*Ore residue*], [*Budget residuo*],
+    [Responsabile], [30], [2], [60€], [0], [0€],
+    [Amministratore], [20], [3], [60€], [0], [0€],
+    [Analista], [25], [-], [0€], [2], [50€],
+    [Progettista], [25], [8], [200€], [9], [225€],
+    [Programmatore], [15], [2], [30€], [0], [0€],
+    [Verificatore], [15], [12], [180€], [0], [0€],
+    table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*27*], [*530€*], [*11*], [*275€*],
+  )
+]
+
+#pagebreak()
+
+== Sommario finale di progetto
+
+In questa sezione viene presentato il quadro consuntivo definitivo dell'intero progetto a conclusione delle attività, aggregando i dati della fase di *Requirements and Technology Baseline (RTB)* con quelli della fase di *Product Baseline (PB)*. Vengono esposti il riepilogo orario per ciascun componente e ruolo e il consuntivo economico a confronto con il preventivo iniziale.
+
+=== Riepilogo orario complessivo (RTB + PB)
+
+La seguente tabella riporta la totalità delle ore effettivamente prestate da ciascun componente lungo tutti i 15 sprint di progetto, suddivise per il ruolo ricoperto.
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese], [13], [7], [8], [22], [13], [20], [83]),
+    ([Edis Hodja], [10], [11], [14], [12], [18], [21], [86]),
+    ([Filippo Zonta Rocha], [10], [9], [8], [11], [20], [25], [83]),
+    ([Giovanni Angelo Marco Bronte], [11], [13], [13], [10], [24], [10], [81]),
+    ([Ines Iadadi], [7], [7], [20], [19], [27], [12], [92]),
+    ([Leonardo Lorenzin], [9], [11], [7], [11], [16], [32], [86]),
+    (table.cell(align: center, fill: luma(220))[*Totali per ruolo*], [*60*], [*58*], [*70*], [*85*], [*118*], [*120*], [*511*]),
+  )),
+  caption: [Riepilogo ore complessive svolte per componente e per ruolo (Sprint 1 - 15)],
+)
+
+#pagebreak()
+
+=== Consuntivo economico complessivo
+
+La tabella sottostante confronta le ore e i costi effettivi sostenuti con il preventivo iniziale approvato, evidenziando il saldo orario e il risparmio economico finale ottenuto dal gruppo.
+
+#align(center)[
+  #figure(
+    table(
+      columns: (1.4fr, 0.9fr, 0.9fr, 1fr, 1.1fr, 1.1fr),
+      align: (left, center, center, center, center, center),
+      stroke: 0.5pt + luma(100),
+      table.header(
+        [*Ruolo*],
+        [*Costo (€/h)*],
+        [*Ore Prev.*],
+        [*Ore Eff.*],
+        [*Preventivo (€)*],
+        [*Consuntivo (€)*],
+      ),
+      [Responsabile], [30], [60], [60], [1.800], [1.800],
+      [Amministratore], [20], [58], [58], [1.160], [1.160],
+      [Analista], [25], [72], [70], [1.800], [1.750],
+      [Progettista], [25], [94], [85], [2.350], [2.125],
+      [Programmatore], [15], [118], [118], [1.770], [1.770],
+      [Verificatore], [15], [120], [120], [1.800], [1.800],
+      table.cell(colspan: 2, align: center, fill: luma(220))[*Totale complessivo*],
+      [*522*], [*511*], [*10.680*], [*10.405*],
+    ),
+    caption: [Consuntivo economico e orario complessivo di progetto (Sprint 1 - 15)],
+  )<tabella-consuntivo-finale>
+]
+
+A fronte di un budget iniziale approvato di *10.680,00 €* per un monte ore di *522 ore*, il gruppo Coderius ha concluso il progetto impiegando *511 ore totali* per un costo complessivo di *10.405,00 €*. Il progetto si chiude pertanto con un residuo non speso di *11 ore* (di cui 2 ore di Analista e 9 ore di Progettista) e un risparmio economico a favore della committenza pari a *275,00 €*.
