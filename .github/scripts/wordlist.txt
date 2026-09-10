@@ -188,3 +188,44 @@ Profilazione
 
 # ── Italiano tecnico ─────────────────────────────────────────────────────────
 ampliabile
+deduplica
+metadati
+
+# ── Librerie e strumenti (Specifica Tecnica) ─────────────────────────────────
+Zod
+Zustand
+Vitest
+Pytest
+Nginx
+
+# ── Pattern e terminologia architetturale ────────────────────────────────────
+Adapter
+Facade
+Factory
+Observer
+Proxy
+Strategy
+Method
+Creazionali
+Domain
+Infrastructure
+Layer
+blueprint
+
+# ── Terminologia tecnica / anglicismi (Specifica Tecnica) ────────────────────
+store
+source
+device
+devices
+Library
+Engine
+backoff
+boilerplate
+caching
+reducer
+retry
+scripting
+stacking
+timer
+normalize
+yml
