@@ -33,7 +33,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(3em)
-  #text(size: 20pt)[*Versione 0.4.0*]
+  #text(size: 20pt)[*Versione 0.6.0*]
 ]
 
 #pagebreak()
@@ -55,6 +55,7 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
 
+    [0.6.0], [2026/10/01], [Filippo Zonta Rocha], [], [Aggiunti termini e definizioni],
     [0.5.0], [2026/09/08], [Giovanni Bronte], [], [Aggiunti termini e definizioni],
     [0.4.0], [2026/07/15], [Ines Iadadi], [], [Aggiunte definizioni],
     [0.3.0], [2026/06/23], [Leonardo Lorenzin], [Edis Hodja], [Aggiunti termini e definizioni],
