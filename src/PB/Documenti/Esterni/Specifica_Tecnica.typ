@@ -104,7 +104,7 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
 
-    [0.7.4], [2026/09/09], [Edis Hodja], [], [Aggiornamento diagrammi e figure: 3, 4, 5, 7, 8, 9, 10, 11, 12],
+    [0.7.4], [2026/09/09], [Edis Hodja], [], [Aggiornamento diagrammi e figure],
     [0.7.3], [2026/09/08], [Leonardo Lorenzin], [Ines Iadadi], [Aggiornamento sezione 3.6],
     [0.7.2], [2026/09/08], [Giovanni Bronte], [Ines Iadadi], [Correzione refusi e aggiunte minori],
     [0.7.1], [2026/09/04], [Edis Hodja], [Ines Iadadi], [Revisione dell'architettura e correzione di refusi tecnici],
@@ -375,6 +375,8 @@ Nella seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
   modalità `ruff check` e `ruff format --check`.],
 )
 
+#pagebreak()
+
 == Persistenza dei dati <persistenza>
 
 Il sistema non impiega alcun sistema di gestione di basi di dati. La scelta è coerente con
@@ -460,6 +462,8 @@ sono discusse nella sezione
     [Framework per il test di Python, che permette di scrivere test automatizzati in modo semplice e leggibile.]
 )
 
+#pagebreak()
+
 = Architettura del sistema <architettura>
 
 == Architettura generale
@@ -541,11 +545,6 @@ di verità condivisa.
 Il sistema è distribuito come applicazione *monolitica containerizzata*: un solo servizio
 di backend e un solo servizio di frontend, orchestrati tramite Docker Compose e collegati
 da una rete privata.
-
-/*#figure(
-  image("../../../images/specifica_tecnica/diagramma_deployment.png", width: 100%),
-  caption: [Diagramma di deployment],
-)*/
 
 I due servizi sono così configurati:
 
@@ -795,14 +794,13 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
 
 ==== Adapter
 
-- *Problema*: la logica applicativa incontra in due punti un meccanismo tecnico la cui interfaccia è espressa nei termini della tecnologia e non in quelli del problema: la funzione `fetch` per il dialogo con il backend, la libreria di notifica per i messaggi all'utente. Se tali interfacce penetrassero nei service, ogni collaudo della logica applicativa richiederebbe un backend in esecuzione o un'interfaccia grafica montata, e la verifica dei casi di errore diventerebbe impraticabile.
+- *Problema*: fetch e la libreria di notifica espongono interfacce tecniche, non del dominio applicativo; se penetrassero nei service, il collaudo richiederebbe rete o interfaccia grafica reali.
 
-- *Soluzione*: definire un'interfaccia stabile espressa nei termini del dominio applicativo e realizzarla con una classe che, per delega anziché per ereditarietà, ne traduce le chiamate nell'interfaccia incompatibile del meccanismo sottostante. Si adotta quindi la variante _Object Adapter_: gli elementi da adattare sono una funzione globale (`fetch`) e un modulo importato (_react-hot-toast_), non classi da cui una gerarchia possa derivare.
+- *Soluzione*: definire un'interfaccia stabile e realizzarla con una classe che traduce le chiamate nel meccanismo sottostante. A differenza della forma classica, il target non preesiste all'adattatore ma è definito insieme a esso: resta un Object Adapter, applicato in funzione preventiva anziché su un'interfaccia di terze parti già data.
 
-- *Applicazione nel progetto*: il pattern è applicato a due confini tecnici del sistema.
-  - `FetchApiClient` realizza l'interfaccia `ApiClientService`, che dichiara le operazioni `get`, `post`, `postFormData` e `delete` tipizzate. Il metodo privato `request()` concentra la costruzione dell'indirizzo, l'interpretazione della risposta e la traduzione degli esiti: un fallimento di rete e una risposta non riuscita diventano entrambi un `ApiError`, che espone il messaggio e lo stato numerico quando disponibile.
-  - `NotificationManager` realizza l'interfaccia `NotificationService`, delegando alla libreria _react-hot-toast_ la gestione di coda, timer di scomparsa automatica e impilamento dei messaggi.
-- *Conseguenze*: i test di `FetchApiClient` verificano il trattamento delle risposte di errore senza alcun backend in esecuzione. Ne consegue che ogni comunicazione con il backend deve transitare per `ApiClientService`. L'esportazione del decision tree, che allo stato attuale invoca `fetch` direttamente, dovrà essere ricondotta a tale regola.
+- *Applicazione nel progetto*: FetchApiClient realizza ApiClientService; `request()` traduce assenza di rete e risposte non riuscite in ApiError. NotificationManager realizza NotificationService delegando a react-hot-toast, pur essendo il caso più debole: nessun chiamante dichiara il proprio collaboratore come NotificationService, tutti istanziano NotificationManager direttamente.
+
+- *Conseguenze*: i test di FetchApiClient verificano gli errori senza backend in esecuzione. Ogni comunicazione con il backend deve transitare per ApiClientService.
 
 
 ==== Repository
@@ -825,18 +823,23 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
 
 ==== Observer
 
-- *Problema*: lo stato condiviso fra più viste — il dispositivo in lavorazione, la sessione di valutazione, l'albero corrente — deve provocare l'aggiornamento dei soli componenti effettivamente interessati, senza che i moduli che modificano lo stato debbano conoscere i componenti che lo consumano.
+- *Problema* : lo stato condiviso fra più viste deve aggiornare i soli componenti interessati, senza che chi modifica lo stato conosca chi lo consuma.
 
-- *Soluzione*: i consumatori si registrano presso il detentore dello stato, che notifica automaticamente ogni variazione ai soli osservatori interessati.
-- *Applicazione nel progetto*: gli store Zustand `DeviceStore`, `SessionStore` e `TreeStore` costituiscono i soggetti osservati; i componenti si registrano tramite hook selettori, come `useSessionStore((state) => state.session)`, che circoscrivono la sottoscrizione alla sola porzione di stato utilizzata. Le modifiche avvengono unicamente attraverso le azioni tipizzate esposte da ciascuno store: `setDevice`, `updateDeviceDetails`, `addAsset`, `updateAsset` e `removeAsset` per `DeviceStore`; `start`, `ensureSession`, `resume`, `syncProgress`, `completeCurrent` e `select` per `SessionStore`; `loadTree`, `hydrate`, `answer`, `goBack` e `goForward` per `TreeStore`. Ciascuno store espone inoltre `reset`, che ne ripristina lo stato iniziale.
-- *Conseguenze*: il flusso dei dati resta unidirezionale e ogni variazione di stato è riconducibile a un'azione esplicita e tracciabile. La suddivisione per area funzionale, in luogo di un unico store globale, estende allo stato condiviso la separazione delle responsabilità adottata a livello di moduli, mentre la granularità dei selettori evita i re-render indiscriminati. Gli store non sono del tutto indipendenti: `DeviceStore` invoca la reimpostazione di `SessionStore` quando il dispositivo viene sostituito o modificato, poiché una sessione di valutazione riferita a un dispositivo che non esiste più produrrebbe esiti privi di significato. Si tratta di una dipendenza deliberata e a senso unico, che realizza un vincolo di dominio anziché un accoppiamento accidentale.
+- *Soluzione* : i consumatori si registrano presso il detentore dello stato, che li notifica a ogni variazione.
+
+- *Applicazione nel progetto*: DeviceStore, SessionStore e TreeStore sono i soggetti osservati. Zustand realizza sottoscrizione e notifica: `useStore(selector)` è l'atto di registrazione dell'osservatore, ad esempio `useSessionStore((state) => state.session)`.
+
+- *Conseguenze*: flusso unidirezionale, granularità dei selettori senza ri-rendering indiscriminati. La dipendenza fra DeviceStore e SessionStore è deliberata e realizza un vincolo di dominio.
 
 ==== Proxy
 
-Problema: la pagina di esecuzione della sessione presuppone l'esistenza di una sessione attiva e non può essere raggiunta direttamente per indirizzo, pena l'accesso a una vista priva dei dati che le danno senso.
-Soluzione: interporre fra il router e la pagina un sostituto che ne espone la medesima interfaccia e ne verifica le precondizioni prima di consentirne il rendering.
-Applicazione nel progetto: il componente RequireSession avvolge la pagina di esecuzione della sessione. Presenta al router la stessa interfaccia della pagina protetta e ne consente il rendering solo in presenza di una sessione, reindirizzando altrimenti alla pagina iniziale.
-Conseguenze: la pagina protetta non contiene alcun controllo di accesso proprio; il meccanismo di verifica è isolato in RequireSession ed è rimovibile senza modificare il codice che governa. Essendo un sostituto interposto fra il router e la pagina, con la medesima interfaccia e a questa sostituibile, l'applicazione realizza la struttura piena del pattern.
+- *Problema* : la pagina di esecuzione della sessione presuppone l'esistenza di una sessione attiva e non può essere raggiunta direttamente per indirizzo, pena l'accesso a una vista priva dei dati che le danno senso.
+
+- *Soluzione* : interporre fra il router e la pagina un sostituto che ne espone la medesima interfaccia e ne verifica le precondizioni prima di consentirne il rendering.
+
+- *Applicazione nel progetto*: il componente RequireSession avvolge la pagina di esecuzione della sessione. Presenta al router la stessa interfaccia della pagina protetta e ne consente il rendering solo in presenza di una sessione, reindirizzando altrimenti alla pagina iniziale.
+
+- *Conseguenze*: la pagina protetta non contiene alcun controllo di accesso proprio; il meccanismo di verifica è isolato in RequireSession ed è rimovibile senza modificare il codice che governa. Essendo un sostituto interposto fra il router e la pagina, con la medesima interfaccia e a questa sostituibile, l'applicazione realizza la struttura piena del pattern.
 
 ==== Strategy
 
@@ -864,9 +867,6 @@ Conseguenze: la pagina protetta non contiene alcun controllo di accesso proprio;
 
   [Facade], [Frontend, Backend],
   [`importDeviceFromFile()`, `exportReportPdf()`, hook applicativi (`useSessionRunner`, `useResult`), `DecisionTreeService`],
-
-  [Simple-Factory], [Frontend, Backend],
-  [`create_app()`, `create_decision_tree_blueprint()`, `create_assets_blueprint()`, `normalize_tree()`, `_normalize_node()`, `createNode()`, metodi statici di costruzione delle entità di dominio, `from_string()` dei tipi enumerati],
 
   [Observer], [Frontend],
   [`DeviceStore`, `SessionStore`, `TreeStore` e relativi hook selettori],
@@ -973,7 +973,6 @@ comandi, trattenendo la sequenza di passaggi che li produce.
 - *useSessionRunner*: conduce la valutazione guidata, dalla selezione dell'asset e del requisito fino alla registrazione dell'esito; carica l'albero al momento opportuno e riporta il percorso al punto raggiunto quando una sessione viene ripresa.
 
 - *useResult*: gestisce la consultazione degli esiti, consentendo di scendere dall'asset al singolo requisito e ricostruendo la sequenza di domande e risposte che ha condotto al risultato.
-- *useSessionModify*: prepara la ripresa o la rivalutazione di un requisito e determina quali altri requisiti ne dipendono, poiché rifacendolo vanno rifatti anche quelli.
 
 I service raccolgono le operazioni indipendenti dalla singola pagina.
 
@@ -1109,10 +1108,10 @@ non avendo stato da conservare fra le invocazioni.
 
 ===== DecisionTreeService
 
-/*#figure(
-  image("../../../images/specifica_tecnica/DecisionTreeService.png", width: 70%),
+#figure(
+  image("../../../images/specifica_tecnica/decision_tree_service.png", width: 70%),
   caption: [DecisionTreeService: classe application],
-)*/
+)
 
 Servizio di accesso al catalogo degli alberi decisionali. Unica classe fra i servizi, in
 quanto conserva il riferimento al client HTTP ricevuto in costruzione.
@@ -1136,10 +1135,10 @@ Il modulo esporta inoltre l'istanza condivisa `decisionTreeService`.
 
 ===== DeviceService
 
-/*#figure(
-  image("../../../images/specifica_tecnica/DeviceService.png", width: 70%),
+#figure(
+  image("../../../images/specifica_tecnica/device_service.png", width: 70%),
   caption: [DeviceService: modulo application],
-)*/
+)
 
 Modulo per la creazione, l'importazione e l'esportazione del dispositivo e dei suoi asset.
 
@@ -1160,10 +1159,10 @@ Modulo per la creazione, l'importazione e l'esportazione del dispositivo e dei s
 
 ===== SessionService
 
-/*#figure(
-  image("../../../images/specifica_tecnica/SessionService.png", width: 70%),
+#figure(
+  image("../../../images/specifica_tecnica/session_service.png", width: 70%),
   caption: [SessionService: modulo application],
-)*/
+)
 
 Modulo per la produzione e la rilettura del file di sessione.
 
@@ -1179,10 +1178,10 @@ Modulo per la produzione e la rilettura del file di sessione.
 
 ===== ReportService
 
-/*#figure(
-  image("../../../images/specifica_tecnica/ReportService.png", width: 70%),
+#figure(
+  image("../../../images/specifica_tecnica/report_service.png", width: 70%),
   caption: [ReportService: modulo application],
-)*/
+)
 
 Modulo per la produzione del report di conformità finale.
 
@@ -1195,10 +1194,10 @@ Modulo per la produzione del report di conformità finale.
 
 ===== reportData
 
-/*#figure(
-  image("../../../images/specifica_tecnica/reportData.png", width: 70%),
+#figure(
+  image("../../../images/specifica_tecnica/report_data.png", width: 70%),
   caption: [reportData: strutture del report],
-)*/
+)
 
 Modulo che raccoglie i dati del report a partire dalla sessione, separando la costruzione del
 contenuto dalla resa grafica. Definisce le strutture `ReportData`, `ReportAssetEntry`,
@@ -1220,10 +1219,10 @@ meccanismi tecnici esterni: comunicazione HTTP, conservazione dei risultati e no
 
 ===== ApiClientService
 
-/*#figure(
-  image("../../../images/specifica_tecnica/ApiClientService.png", width: 70%),
+#figure(
+  image("../../../images/specifica_tecnica/api_client_service.png", width: 70%),
   caption: [ApiClientService: interfaccia infrastructure],
-)*/
+)
 
 Interfaccia che dichiara le operazioni HTTP di cui la logica applicativa ha bisogno, espresse
 in termini tipizzati e indipendenti dal meccanismo sottostante.
@@ -1238,10 +1237,10 @@ L'interfaccia dichiara le sole operazioni effettivamente impiegate dai chiamanti
 
 ===== FetchApiClient
 
-/*#figure(
-  image("../../../images/specifica_tecnica/FetchApiClient.png", width: 70%),
+#figure(
+  image("../../../images/specifica_tecnica/fetch_api_client.png", width: 100%),
   caption: [FetchApiClient: classe infrastructure],
-)*/
+)
 
 Realizzazione concreta di `ApiClientService` fondata sulla funzione `fetch` del browser.
 
@@ -1258,10 +1257,10 @@ Realizzazione concreta di `ApiClientService` fondata sulla funzione `fetch` del 
 
 ===== ApiError
 
-/*#figure(
-  image("../../../images/specifica_tecnica/ApiError.png", width: 60%),
+#figure(
+  image("../../../images/specifica_tecnica/api_error.png", width: 60%),
   caption: [ApiError: classe infrastructure],
-)*/
+)
 
 Errore applicativo prodotto in luogo delle eccezioni tecniche della comunicazione HTTP.
 
@@ -1274,10 +1273,10 @@ dall'irraggiungibilità del server.
 
 ===== NotificationService
 
-/*#figure(
-  image("../../../images/specifica_tecnica/NotificationService.png", width: 70%),
+#figure(
+  image("../../../images/specifica_tecnica/notification_service.png", width: 70%),
   caption: [NotificationService: interfaccia infrastructure],
-)*/
+)
 
 Interfaccia per la segnalazione di esiti all'utente, indipendente dalla libreria impiegata.
 
@@ -1289,10 +1288,10 @@ Interfaccia per la segnalazione di esiti all'utente, indipendente dalla libreria
 
 ===== NotificationManager
 
-/*#figure(
-  image("../../../images/specifica_tecnica/NotificationManager.png", width: 70%),
+#figure(
+  image("../../../images/specifica_tecnica/notification_manager.png", width: 100%),
   caption: [NotificationManager: classe infrastructure],
-)*/
+)
 
 Realizzazione di `NotificationService` fondata su _react-hot-toast_, alla quale delega coda,
 temporizzatore di scomparsa e impilamento dei messaggi.
@@ -1302,10 +1301,10 @@ temporizzatore di scomparsa e impilamento dei messaggi.
 
 ===== queryClient
 
-/*#figure(
-  image("../../../images/specifica_tecnica/queryClient.png", width: 60%),
+#figure(
+  image("../../../images/specifica_tecnica/query_client.png", width: 60%),
   caption: [queryClient: configurazione infrastructure],
-)*/
+)
 
 Istanza di `QueryClient` impiegata per conservare i risultati già ottenuti dal catalogo.
 
@@ -1320,10 +1319,10 @@ Istanza di `QueryClient` impiegata per conservare i risultati già ottenuti dal 
 
 ===== deviceFileFormats
 
-/*#figure(
-  image("../../../images/specifica_tecnica/deviceFileFormats.png", width: 70%),
+#figure(
+  image("../../../images/specifica_tecnica/device_file_formats.png", width: 70%),
   caption: [deviceFileFormats: interfaccia e realizzazioni],
-)*/
+)
 
 Modulo che raccoglie i formati con cui il dispositivo può essere scritto e riletto, dietro
 un'interfaccia comune.
@@ -1440,11 +1439,6 @@ da mostrare e le azioni da collegare ai comandi.
 
 ===== useSessionRunner
 
-/*#figure(
-  image("../../../images/specifica_tecnica/useSessionRunner.png", width: 70%),
-  caption: [useSessionRunner: hook application],
-)*/
-
 Hook orchestratore della valutazione guidata. Governa l'avanzamento fra le quattro fasi
 dell'interfaccia — riepilogo, asset, dettaglio del requisito ed esecuzione dell'albero — e
 coordina il caricamento dell'albero con la registrazione degli esiti.
@@ -1492,11 +1486,6 @@ Le proprietà `canGoBack` e `canGoForward` derivano dalla posizione del cursore:
 è consentito soltanto sui nodi già risposti.
 
 ===== useResult
-
-/*#figure(
-  image("../../../images/specifica_tecnica/useResult.png", width: 70%),
-  caption: [useResult: hook application],
-)*/
 
 Hook per la consultazione degli esiti, che governa la discesa dall'asset al singolo requisito
 e la ricostruzione del percorso logico seguito.
@@ -1613,7 +1602,7 @@ realizzata da `JsonDecisionTreeRepository` sui file in `backend/data/decision_tr
   [Restituisce l'elenco sintetico dei decision tree disponibili.],
 
   [GET], [`/decision-trees/{requirementId}`],
-  [Carica il decision tree indicato, ne verifica l'integrità e lo restituisce normalizzato.
+  [Carica il decision tree indicato e lo restituisce normalizzato.
   Risponde 404 se assente.],
 
   [POST], [`/decision-trees/import`],
@@ -1635,10 +1624,10 @@ realizzata da `JsonDecisionTreeRepository` sui file in `backend/data/decision_tr
 
 ===== create_app
 
-/*#figure(
-  image("../../../images/specifica_tecnica/create_app.png", width: 70%),
+#figure(
+  image("../../../images/specifica_tecnica/create_app.png", width: 40%),
   caption: [create_app: composizione dell'applicazione],
-)*/
+)
 
 Funzione factory che costruisce e configura l'istanza di Flask.
 
@@ -1676,10 +1665,10 @@ importazione, lettura, eliminazione ed esportazione. Traduce `DecisionTreeNotFou
 
 ===== device_service
 
-/*#figure(
-  image("../../../images/specifica_tecnica/device_service.png", width: 70%),
+#figure(
+  image("../../../images/specifica_tecnica/device_service-create.png", width: 40%),
   caption: [device_service: modulo application],
-)*/
+)
 
 Modulo che espone `create_device(data) -> Device`, punto unico di costruzione validata del
 dispositivo, condiviso da creazione manuale e importazione. È realizzato come funzione, non
@@ -1687,10 +1676,10 @@ avendo stato né collaboratori da conservare.
 
 ===== asset_service
 
-/*#figure(
-  image("../../../images/specifica_tecnica/asset_service.png", width: 70%),
+#figure(
+  image("../../../images/specifica_tecnica/asset_service.png", width: 40%),
   caption: [asset_service: modulo application],
-)*/
+)
 
 Modulo che espone `create_asset(data, decision_tree_service) -> Asset`. Quando il campo
 `requirements` non è fornito, interroga `list_requirement_ids_for_type()` per derivare i
@@ -1699,10 +1688,10 @@ requisiti applicabili alla tipologia dell'asset, quindi delega la validazione ad
 
 ===== DecisionTreeService
 
-/*#figure(
-  image("../../../images/specifica_tecnica/DecisionTreeService_backend.png", width: 70%),
+#figure(
+  image("../../../images/specifica_tecnica/decision_tree_service_backend.png", width: 50%),
   caption: [DecisionTreeService: classe application],
-)*/
+)
 
 Unica classe del livello, in quanto conserva il riferimento al repository ricevuto in
 costruzione.
@@ -1726,10 +1715,10 @@ base al campo `type` del nodo.
 
 ===== decision_tree_format
 
-/*#figure(
+#figure(
   image("../../../images/specifica_tecnica/decision_tree_format.png", width: 70%),
   caption: [decision_tree_format: interfaccia e realizzazioni],
-)*/
+)
 
 Modulo che raccoglie i formati di scambio dei decision tree dietro un'interfaccia comune.
 
@@ -1753,6 +1742,11 @@ Entrambe le funzioni di selezione restituiscono un valore nullo se il formato no
 riconosciuto. L'aggiunta di un formato richiede la sola introduzione di una nuova
 realizzazione dell'interfaccia.
 
+==== Domain Layer
+
+===== decision_tree_validation
+
+
 ==== Persistence Layer
 
 ===== IDecisionTreeRepository
@@ -1773,10 +1767,10 @@ memoria.
 
 ===== JsonDecisionTreeRepository
 
-/*#figure(
-  image("../../../images/specifica_tecnica/JsonDecisionTreeRepository.png", width: 70%),
+#figure(
+  image("../../../images/specifica_tecnica/json_decision_tree_repository.png", width: 55%),
   caption: [JsonDecisionTreeRepository: classe persistence],
-)*/
+)
 
 Realizzazione dell'interfaccia su file JSON.
 
@@ -1831,11 +1825,6 @@ il rispettivo tipo, i metodi che portano comportamento e la responsabilità comp
 I metodi di accesso ai singoli campi sono riportati per completezza: nel frontend sono getter, nel backend proprietà di sola lettura
 
 == Dominio frontend
-
-/*#figure(
-  image("../../../images/specifica_tecnica/classi_dominio_frontend.png", width: 100%),
-  caption: [Diagramma delle classi del dominio frontend],
-)*/
 
 Le entità del dominio frontend sono progettate secondo un modello immutabile a livello
 dell'oggetto: le proprietà sono private e le operazioni di modifica restituiscono nuove
@@ -2045,11 +2034,6 @@ invarianti da proteggere oltre alla forma, che è già garantita dalla validazio
 
 == Dominio backend
 
-/*#figure(
-  image("../../../images/specifica_tecnica/classi_dominio_backend.png", width: 100%),
-  caption: [Diagramma delle classi del dominio backend],
-)*/
-
 Le entità del backend sono realizzate come dataclass immutabili (`frozen=True`). Le entità
 dotate di validazione — `Device`, `Asset`, `QuestionNode` e `LeafNode` — dichiarano i campi
 come privati secondo la convenzione del trattino basso ed espongono proprietà di sola lettura
@@ -2102,7 +2086,7 @@ condiviso dalla creazione manuale e dall'importazione.
 === Asset
 
 #figure(
-  image("../../../images/specifica_tecnica/backend/asset.png", width: 55%),
+  image("../../../images/specifica_tecnica/backend/asset.png", width: 80%),
   caption: [Asset: classe backend],
 )
 
@@ -2238,7 +2222,7 @@ condivisa.
 == Vincoli e regole di integrità
 
 Le seguenti regole definiscono l'integrità del dominio e sono verificate dal backend in
-fase di validazione di un albero, all'atto del caricamento e dell'importazione.
+fase di validazione di un albero, all'atto dell'importazione.
 
 - Ogni nodo possiede un identificatore univoco all'interno del medesimo decision tree.
 
