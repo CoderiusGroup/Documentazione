@@ -232,6 +232,11 @@
           "parole": 18107,
           "lettere": 106721,
           "frasi": 862
+        },
+        "Specifica tecnica": {
+          "parole": 2640,
+          "lettere": 16828,
+          "frasi": 137
         }
       }
     },
@@ -265,6 +270,11 @@
           "parole": 20519,
           "lettere": 121311,
           "frasi": 971
+        },
+        "Specifica tecnica": {
+          "parole": 2629,
+          "lettere": 16743,
+          "frasi": 136
         }
       }
     },
@@ -298,6 +308,11 @@
           "parole": 21030,
           "lettere": 124312,
           "frasi": 989
+        },
+        "Specifica tecnica": {
+          "parole": 3666,
+          "lettere": 23633,
+          "frasi": 207
         }
       }
     },
@@ -331,6 +346,11 @@
           "parole": 23018,
           "lettere": 136041,
           "frasi": 1063
+        },
+        "Specifica tecnica": {
+          "parole": 4683,
+          "lettere": 30195,
+          "frasi": 306
         }
       }
     },
@@ -364,6 +384,11 @@
           "parole": 23795,
           "lettere": 140600,
           "frasi": 1085
+        },
+        "Specifica tecnica": {
+          "parole": 8681,
+          "lettere": 55571,
+          "frasi": 462
         }
       }
     }
