@@ -395,7 +395,7 @@
     {
       "numero": 14,
       "fine": "2026-09-05",
-      "aggiornato": "2026-09-09",
+      "aggiornato": "2026-09-10",
       "documenti": {
         "Analisi dei requisiti": {
           "parole": 13242,
@@ -423,9 +423,9 @@
           "frasi": 748
         },
         "Verbali": {
-          "parole": 24211,
-          "lettere": 143177,
-          "frasi": 1109
+          "parole": 24646,
+          "lettere": 145717,
+          "frasi": 1124
         }
       }
     }

@@ -383,18 +383,15 @@
     {
       "numero": 14,
       "fine": "2026-09-05",
-      "aggiornato": "2026-09-09",
+      "aggiornato": "2026-09-10",
       "documenti": {
         "Analisi dei requisiti": {
           "errori": 0,
           "parole_segnalate": []
         },
         "Norme di progetto": {
-          "errori": 2,
-          "parole_segnalate": [
-            "RDesS",
-            "ROpS"
-          ]
+          "errori": 0,
+          "parole_segnalate": []
         },
         "Piano di progetto": {
           "errori": 0,
@@ -405,14 +402,11 @@
           "parole_segnalate": []
         },
         "Specifica tecnica": {
-          "errori": 7,
+          "errori": 3,
           "parole_segnalate": [
-            "Engine",
-            "Nginx",
             "conformitàdei",
             "risalibili",
-            "scabio",
-            "yml"
+            "scabio"
           ]
         },
         "Verbali": {
