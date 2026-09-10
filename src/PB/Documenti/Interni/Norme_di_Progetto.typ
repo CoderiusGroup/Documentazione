@@ -33,7 +33,7 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(4em)
-  #text(size: 20pt)[*Versione 1.1.0*]
+  #text(size: 20pt)[*Versione 2.0.0*]
 ]
 
 #pagebreak()
@@ -53,7 +53,8 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [1.1.0], [2026/09/02], [Filippo Zonta Rocha], [], [Aggiornamento migliorativo,\ aggiunta sezione 2.4, 2.5, 2.6],
+    [2.0.0], [2026/09/10], [Edis Hodja], [], [Approvazione del documento],
+    [1.1.0], [2026/09/02], [Filippo Zonta Rocha], [Edis Hodja], [Aggiornamento migliorativo e aggiunta sezione 2.4, 2.5, 2.6],
     [1.0.1], [2026/07/03], [Edis Hodja], [Filippo Zonta Rocha], [Aggiornamento contenuti della descrizione relativa ai ruoli],
     [1.0.0], [2026/06/23], [Edis Hodja], [], [Approvazione del documento],
     [0.10.1], [2026/06/13], [Giovanni Bronte], [Edis Hodja], [Modifiche alle tabelle delle metriche],
@@ -504,37 +505,6 @@ L'attività di progettazione del prodotto è svolta dai progettisti del gruppo, 
 Si tratta di un processo collaborativo che collide con le idee e le competenze dei membri del team, con l'obiettivo di creare un prodotto finale coerente.
 
 Il processo si raggiunge attraverso l'adozione di design pattern e di best practice di ingegneria del software, che permettono di ottenere un'architettura solida scalabile e facilmente manutenibile.
-
-=== Design pattern utilizzati (MVP)
-
-Nell'ambito dell'MVP si adottano pattern che facilitano modularità, testabilità e tracciabilità della logica di valutazione dei requisiti EN 18031. I pattern principali applicati nel codice e descritti nella Specifica Tecnica sono:
-
-- Repository
-  - Incapsula l'accesso alla sorgente dei decision tree (es. JsonDecisionTreeRepository). Favorisce la sostituibilità della sorgente dati (file, DB, mock) e la testabilità.
-
-- Service Layer
-  - Concentra la logica applicativa (es. DecisionTreeService): orchestrazione di validazione, normalizzazione e persistenza. Mantiene i controller/route privi di logica di dominio.
-
-- Domain Model e Polimorfismo
-  - Rappresentazione esplicita delle entità del dominio (DecisionTree, Node, QuestionNode, LeafNode) tramite dataclass immutabili e interfacce/astrazioni che permettono comportamento polimorfico /* (es. Node.next(), Node.verdict()). */
-
-- Strategy / Format
-  - Parsing/serializzazione dei decision tree è implementato con un'astrazione (DecisionTreeFormat) e concrete strategy (JsonDecisionTreeFormat, CsvDecisionTreeFormat). Consente aggiunta di nuovi formati senza modificare la logica di servizio.
-
-- Factory/Helper
-  - Funzioni factory (es. format_for_filename, format_by_name) per risolvere l'implementazione concreta da utilizzare a runtime.
-
-- Dependency Injection (esplicita)
-  - I componenti (service, repository) ricevono le dipendenze via costruttore per facilitare mocking e test unitari.
-
-- Validator (Pattern di convalida)
-  - Validazione strutturale e topologica dei decision tree (validate_raw_tree) separata dalla logica di parsing e dalla persistenza: migliora la robustezza e la tracciabilità degli errori.
-
-/*Esempi pratici (MVP): il backend mantiene
-- repository per i decision tree (sostituibile con mock nei test),
-- service che effettua normalizzazione e validazione,
-- formati separati per import/export (JSON/CSV) e relative factory.  */
-
 
 == Codifica del prodotto
 L'attività di codifica del prodotto è svolta dai programmatori del gruppo, che si occupano di implementare le funzionalità definite nella fase di progettazione. La codifica avviene seguendo le linee guida stabilite nelle *Norme di Progetto*, che includono convenzioni di nomenclatura, standard di stile e best practice di programmazione.
