@@ -95,7 +95,7 @@ Con la presente, il gruppo *Coderius* desidera comunicare l'intenzione di sottop
 
 proposto dall'azienda *Bluewind S.r.l.*
 
-In questo periodo il gruppo ha sviluppato il Minimun Viable Product, il quale è stato formalmente accettato dall'azienda come riportato nella sezione 4 del #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Verbali/Esterni/VerbaleEsterno-2026-05-04_firmato.pdf")[#underline(text(fill: blue)[Verbale esterno])] del 2026-09-04.
+In questo periodo il gruppo ha sviluppato il Minimum Viable Product, il quale è stato formalmente accettato dall'azienda come riportato nella sezione 4 del #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Verbali/Esterni/VerbaleEsterno-2026-09-04-firmato.pdf")[#underline(text(fill: blue)[Verbale esterno])] del 2026-09-04.
 
 È possibile visionare il codice sorgente dell’MVP al seguente indirizzo:
 
@@ -123,15 +123,15 @@ Sono consultabili i seguenti documenti:
 - #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Esterni/Specifica_Tecnica.pdf")[#underline(text(fill: blue)[Specifica Tecnica])]
 - #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Esterni/Manuale_Utente.pdf")[#underline(text(fill: blue)[Manuale Utente])]
 
-- #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Verbali/Esterni/VerbaleEsterno-2026-07-28_firmato.pdf")[#underline(text(fill: blue)[Verbale esterno del 2026-07-28])]
+- #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Verbali/Esterni/VerbaleEsterno-2026-07-28-firmato.pdf")[#underline(text(fill: blue)[Verbale esterno del 2026-07-28])]
 
-- #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Verbali/Esterni/VerbaleEsterno-2026-08-21_firmato.pdf")[#underline(text(fill: blue)[Verbale esterno del 2026-08-21])]
+- #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Verbali/Esterni/VerbaleEsterno-2026-08-21-firmato.pdf")[#underline(text(fill: blue)[Verbale esterno del 2026-08-21])]
 
-- #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Verbali/Esterni/VerbaleEsterno-2026-09-04_firmato.pdf")[#underline(text(fill: blue)[Verbale esterno del 2026-09-04])]],
+- #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Verbali/Esterni/VerbaleEsterno-2026-09-04-firmato.pdf")[#underline(text(fill: blue)[Verbale esterno del 2026-09-04])]],
 [
 - #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Verbali/Interni/VerbaleInterno-2026-07-13.pdf")[#underline(text(fill: blue)[Verbale interno del 2026-07-13])]
 
-- #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Interni/VerbaleInterno-2026-07-27.pdf")[#underline(text(fill: blue)[Verbale interno del 2026-07-27])]
+- #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Verbali/Interni/VerbaleInterno-2026-07-27.pdf")[#underline(text(fill: blue)[Verbale interno del 2026-07-27])]
 
 - #link("https://coderiusgroup.github.io/Documentazione/docs/PB/Verbali/Interni/VerbaleInterno-2026-08-03.pdf")[#underline(text(fill: blue)[Verbale interno del 2026-08-03])]
 
@@ -147,7 +147,7 @@ Sono consultabili i seguenti documenti:
 )
 
 #v(1em)
-Per la realizzazione del progetto la spesa totale sostenuta risulta essere di *10.405 €* a fornte dei *10.680 €* preventivati durante la candidatura.
+Per la realizzazione del progetto la spesa totale sostenuta risulta essere di *10.405 €* a fronte dei *10.680 €* preventivati durante la candidatura.
 
 Cordiali saluti,
 
