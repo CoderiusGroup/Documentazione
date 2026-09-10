@@ -831,16 +831,6 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
 
 - *Conseguenze*: flusso unidirezionale, granularità dei selettori senza ri-rendering indiscriminati. La dipendenza fra DeviceStore e SessionStore è deliberata e realizza un vincolo di dominio.
 
-==== Proxy
-
-- *Problema* : la pagina di esecuzione della sessione presuppone l'esistenza di una sessione attiva e non può essere raggiunta direttamente per indirizzo, pena l'accesso a una vista priva dei dati che le danno senso.
-
-- *Soluzione* : interporre fra il router e la pagina un sostituto che ne espone la medesima interfaccia e ne verifica le precondizioni prima di consentirne il rendering.
-
-- *Applicazione nel progetto*: il componente RequireSession avvolge la pagina di esecuzione della sessione. Presenta al router la stessa interfaccia della pagina protetta e ne consente il rendering solo in presenza di una sessione, reindirizzando altrimenti alla pagina iniziale.
-
-- *Conseguenze*: la pagina protetta non contiene alcun controllo di accesso proprio; il meccanismo di verifica è isolato in RequireSession ed è rimovibile senza modificare il codice che governa. Essendo un sostituto interposto fra il router e la pagina, con la medesima interfaccia e a questa sostituibile, l'applicazione realizza la struttura piena del pattern.
-
 ==== Strategy
 
 - *Problema*: due famiglie di dati devono poter essere scritte e rilette in formati diversi, oggi JSON e CSV: il dispositivo con i suoi asset e i decision tree del catalogo. La decisione VE-7.1 accresce il peso di questa funzionalità: poiché i decision tree modificati non si sincronizzano fra le installazioni ma vengono esportati e distribuiti manualmente, i file di scambio sono il canale con cui gli utenti si trasmettono il lavoro svolto. Governare la varietà dei formati con una struttura condizionale interna ai moduli di importazione ed esportazione comporterebbe di modificarli a ogni nuova esigenza, con conseguente rischio di regressione sui formati già funzionanti.
@@ -870,9 +860,6 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
 
   [Observer], [Frontend],
   [`DeviceStore`, `SessionStore`, `TreeStore` e relativi hook selettori],
-
-  [Proxy], [Frontend],
-  [componente `RequireSession`],
 
   [Strategy], [Frontend, Backend],
   [`DeviceFileFormat`, `jsonDeviceFormat`, `csvDeviceFormat`, `formatForFile()`; `DecisionTreeFormat`, `JsonDecisionTreeFormat`, `CsvDecisionTreeFormat`, `format_by_name()`, `format_for_filename()`],
