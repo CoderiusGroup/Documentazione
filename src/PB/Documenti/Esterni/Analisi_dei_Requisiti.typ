@@ -127,32 +127,26 @@ sono riportati la versione o l'edizione disponibile e le sezioni consultate.
 #v(2pt)
 - #text(blue)[#underline(link(
     "https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C1p.pdf",
-  )[Capitolato C1: Automated EN18031 Compliance Verification - Bluewind S.r.l., versione disponibile online, 2025, sezioni 4, 7 e 8, consultato il 2026/09/10])]
+  )[Capitolato C1: Automated EN18031 Compliance Verification - Bluewind S.r.l.])]
 #v(2pt)
 - #text(blue)[#underline(link(
     "https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf",
-  )[Regolamento del Progetto Didattico, edizione a.a. 2025-2026, consultato il 2026/09/10])]
+  )[Regolamento del Progetto Didattico, edizione a.a. 2025-2026])]
 #v(2pt)
 
 #heading(level: 3, numbering: none)[Riferimenti Informativi]
 #v(2pt)
 - #text(blue)[#underline(link(
     "https://coderiusgroup.github.io/Documentazione/docs/PB/Documenti/Interni/Glossario.pdf",
-  )[Glossario di Progetto, versione corrente pubblicata dal gruppo, consultato il 2026/09/10])]
+  )[Glossario di Progetto - Versione 1.0.0])]
 #v(2pt)
 - Dispense del corso di Ingegneria del Software 2025/2026:#v(1pt)
   - #text(blue)[#underline(link(
       "https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T05.pdf",
-    )[Analisi dei Requisiti, edizione a.a. 2025-2026, consultato il 2026/09/10])] #v(3pt)
+    )[Analisi dei Requisiti a.a. 2025-2026])] #v(3pt)
   - #text(blue)[#underline(link(
       "https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf",
-    )[Diagrammi degli Use Case (UML), versione online 2022, consultato il 2026/09/10])] #v(3pt)
-  - #text(blue)[#underline(link(
-      "https://kurzy.kpi.fei.tuke.sk/zsi/resources/CockburnBookDraft.pdf",
-    )[A. Cockburn, Writing Effective Use Cases, versione draft online, consultato il 2026/09/10])] #v(3pt)
-  - #text(blue)[#underline(link(
-      "https://www.omg.org/spec/UML/2.5.1/PDF",
-    )[OMG, UML 2.5.1 Specification, versione 2.5.1, consultato il 2026/09/10])]
+    )[Diagrammi degli Use Case (UML)])] #v(3pt)
 
 = Descrizione del prodotto
 
