@@ -422,6 +422,56 @@
           ]
         }
       }
+    },
+    {
+      "numero": 15,
+      "fine": "-",
+      "aggiornato": "2026-09-10",
+      "documenti": {
+        "Analisi dei requisiti": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Norme di progetto": {
+          "errori": 1,
+          "parole_segnalate": [
+            "ciclomatica"
+          ]
+        },
+        "Piano di progetto": {
+          "errori": 2,
+          "parole_segnalate": [
+            "Eff",
+            "Prev"
+          ]
+        },
+        "Piano di qualifica": {
+          "errori": 5,
+          "parole_segnalate": [
+            "evidenziazione",
+            "health",
+            "home",
+            "reset",
+            "seed"
+          ]
+        },
+        "Specifica tecnica": {
+          "errori": 0,
+          "parole_segnalate": []
+        },
+        "Verbali": {
+          "errori": 7,
+          "parole_segnalate": [
+            "Aggiornarmento",
+            "Ianadi",
+            "Viable",
+            "documeto",
+            "live",
+            "preview",
+            "relatice"
+          ]
+        }
+      }
     }
   ]
 }

@@ -428,6 +428,43 @@
           "frasi": 1124
         }
       }
+    },
+    {
+      "numero": 15,
+      "fine": "-",
+      "aggiornato": "2026-09-10",
+      "documenti": {
+        "Analisi dei requisiti": {
+          "parole": 13286,
+          "lettere": 80514,
+          "frasi": 1287
+        },
+        "Norme di progetto": {
+          "parole": 9641,
+          "lettere": 61579,
+          "frasi": 483
+        },
+        "Piano di progetto": {
+          "parole": 10972,
+          "lettere": 67275,
+          "frasi": 535
+        },
+        "Piano di qualifica": {
+          "parole": 11489,
+          "lettere": 67464,
+          "frasi": 561
+        },
+        "Specifica tecnica": {
+          "parole": 16217,
+          "lettere": 103958,
+          "frasi": 1066
+        },
+        "Verbali": {
+          "parole": 24646,
+          "lettere": 145717,
+          "frasi": 1124
+        }
+      }
     }
   ]
 }
