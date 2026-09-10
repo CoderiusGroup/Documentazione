@@ -968,6 +968,8 @@ I service raccolgono le operazioni indipendenti dalla singola pagina.
 - *DecisionTreeService*: recupero dell'elenco del catalogo e del singolo albero, importazione ed esportazione. È l'unico service realizzato come classe e riceve nel costruttore l'implementazione di `ApiClientService`, così da poter essere collaudato con un doppio di test.
 - *SessionService*: produzione e rilettura validata del file di sessione, e ri-esportazione delle regole di costruzione del piano di valutazione.
 - *deviceFileFormats*: raccoglie i formati con cui il dispositivo può essere scritto e riletto, oggi JSON e CSV, ciascuno con le proprie regole di serializzazione e interpretazione.
+- *readFiles*: legge i file in input
+- *downloadFile*: dato un file in input prende un Blob(Binary Large Object) e lo trasforma in un download del browser con un nome scelto. 
 
 === State Management
 
@@ -1143,6 +1145,7 @@ Modulo per la creazione, l'importazione e l'esportazione del dispositivo e dei s
 - `updateAsset(existingAsset, payload): Promise<Asset>`: aggiorna l'asset localmente se la
   tipologia non è mutata, interroga altrimenti il backend, poiché i requisiti applicabili
   dipendono dalla tipologia.
+- `saveDevice(payload: DeviceCreate): Promise<DeviceSaveResult>`:  è un metodo interno condiviso da `createDeviceManually()` per creare il device
 
 ===== SessionService
 
@@ -1187,7 +1190,7 @@ Modulo per la produzione del report di conformità finale.
 )
 
 Modulo che raccoglie i dati del report a partire dalla sessione, separando la costruzione del
-contenuto dalla resa grafica. Definisce le strutture `ReportData`, `ReportAssetEntry`,
+contenuto dalla resa grafica. Definisce le interfacce `ReportData`, `ReportAssetEntry`,
 `ReportRequirementEntry` e `ReportRequirementSummary`.
 
 *Attributi*
@@ -1286,6 +1289,9 @@ temporizzatore di scomparsa e impilamento dei messaggi.
 *Attributi*
 - Nessuno: la classe è priva di stato proprio.
 
+*Metodi*
+- `success(message: string): void, error(message: string): void, errorWithFallback(message: string): void`: implementazione dei metodi dell'interfaccia NotificationManager.
+
 ===== queryClient
 
 #figure(
@@ -1328,6 +1334,12 @@ un'interfaccia comune.
 *Funzioni*
 - `formatForFile(file): DeviceFileFormat | null`: seleziona il formato in base
   all'estensione, restituendo un valore nullo se non riconosciuta.
+- `serializeJson(device): string`: converte un oggetto Device in una stringa JSON leggibile, con indentazione di 2 spazi.
+- `parseJson(text): DeviceImport`: tenta di leggere una stringa JSON, la valida contro lo schema DeviceImportSchema, e lancia un errore se il contenuto non è un dispositivo valido.
+- `escapeCsvField(value): string`: prepara un campo CSV in modo sicuro, aggiungendo virgolette se il valore contiene virgole, virgolette o line breaks.
+- `parseCsvLine(line): string `: divide una riga CSV in campi, tenendo conto anche delle virgolette e dei valori contenenti virgole.
+- `serializeCsv(device): string`: costruisce una stringa CSV a partire da un Device, creando una riga di intestazione e una riga per ogni asset associato.
+- `parseCsv(text): DeviceImport`: legge il testo CSV, controlla intestazione e righe, trasforma i dati in un oggetto DeviceImport valido e lancia errori se il file non è nel formato atteso.
 
 L'aggiunta di un formato richiede la sola introduzione di una nuova realizzazione
 dell'interfaccia, senza modifiche ai moduli chiamanti.
@@ -1552,7 +1564,7 @@ né collaboratori da conservare fra le invocazioni.
 
 === Domain Layer
 
-Il livello comprende le entità `Device`, `Asset`, `DecisionTree` e `Session`, realizzate
+Il livello comprende le entità `Device`, `Asset` e `DecisionTree`, realizzate
 come dataclass immutabili, oltre alla classe astratta `Node` e alle dataclass concrete
 `QuestionNode` e `LeafNode`. Le entità non dipendono da librerie web né dall'accesso
 diretto ai file. Le operazioni di
