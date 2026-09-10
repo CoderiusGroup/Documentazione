@@ -63,7 +63,8 @@
       inset: 7pt,
       fill: (x, y) => if y == 0 { luma(230) } else { none },
       [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-      [0.1.0], [2026/09/09], [Leonardo Lorenzin], [], [Prima stesura della lettera di presentazione],
+      [1.0.0], [2026/09/10], [Edis Hodja], [], [Approvazione del documento],
+      [0.1.0], [2026/09/09], [Leonardo Lorenzin], [Edis Hodja], [Prima stesura della lettera di presentazione],
     )
   ]
 
