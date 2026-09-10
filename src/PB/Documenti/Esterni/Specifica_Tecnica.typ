@@ -104,7 +104,7 @@
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
 
-    [0.7.4], [2026/09/09], [Edis Hodja], [], [Aggiornamento diagrammi e figure],
+    [0.7.4], [2026/09/10], [Edis Hodja], [], [Aggiornamento diagrammi e figure],
     [0.7.3], [2026/09/08], [Leonardo Lorenzin], [Ines Iadadi], [Aggiornamento sezione 3.6],
     [0.7.2], [2026/09/08], [Giovanni Bronte], [Ines Iadadi], [Correzione refusi e aggiunte minori],
     [0.7.1], [2026/09/04], [Edis Hodja], [Ines Iadadi], [Revisione dell'architettura e correzione di refusi tecnici],
@@ -1745,6 +1745,29 @@ realizzazione dell'interfaccia.
 ==== Domain Layer
 
 ===== decision_tree_validation
+
+Modulo del Domain Layer che verifica l'integrità strutturale di un decision tree. Realizza
+per intero le regole elencate nel capitolo sui vincoli di integrità.
+
+*Attributi*
+- Nessuno: il modulo è realizzato come insieme di funzioni prive di stato.
+
+*Metodi*
+- `validate_shape(raw): None`: verifica la forma del dato grezzo: presenza e formato del
+  codice del requisito, del nome e del nodo radice; validità di ciascun nodo secondo il
+  proprio tipo (testo e rami per le domande, esito ammesso per le foglie); formato della
+  versione e delle tipologie di asset applicabili, quando presenti.
+- `validate_graph(nodes, root_node): None`: verifica la coerenza dell'albero come grafo:
+  assenza di identificatori duplicati, esistenza del nodo radice, assenza di collegamenti
+  verso nodi inesistenti, assenza di cicli e di nodi non raggiungibili dalla radice. La
+  visita è ricorsiva e distingue i nodi in corso di visita da quelli già conclusi, così da
+  rilevare un ciclo nel momento stesso in cui si richiude su un nodo ancora aperto.
+- `validate_raw_tree(raw): None`: applica in sequenza `validate_shape()` e
+  `validate_graph()`; è il punto unico invocato da `import_tree()`.
+
+Ciascuna funzione solleva `InvalidDecisionTreeError` con un messaggio specifico alla
+violazione riscontrata, cosicché la rotta possa restituire all'utente un errore
+comprensibile anziché un fallimento generico.
 
 
 ==== Persistence Layer
