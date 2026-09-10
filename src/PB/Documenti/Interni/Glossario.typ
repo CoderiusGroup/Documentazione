@@ -19,7 +19,6 @@
 #set text(font: "Libertinus Serif", size: 12pt, lang: "it")
 #show figure: set figure(supplement: none)
 
-// --- Frontespizio ---
 #align(center)[
   #v(8em)
   #image("../../../images/logoCoderius.jpg", width: 60%)
@@ -33,12 +32,11 @@
   #v(2pt)
   #link("mailto:coderius01@gmail.com")[coderius01\@gmail.com]
   #v(3em)
-  #text(size: 20pt)[*Versione 0.6.0*]
+  #text(size: 20pt)[*Versione 1.0.0*]
 ]
 
 #pagebreak()
 
-// --- Tabella di versionamento ---
 #heading(numbering: none, outlined: false)[Tabella di versionamento]
 #v(0.5cm)
 #align(center)[
@@ -54,15 +52,14 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-
-    [0.6.0], [2026/10/01], [Filippo Zonta Rocha], [], [Aggiunti termini e definizioni],
-    [0.5.0], [2026/09/08], [Giovanni Bronte], [], [Aggiunti termini e definizioni],
-    [0.4.0], [2026/07/15], [Ines Iadadi], [], [Aggiunte definizioni],
+    
+    [1.0.0], [2026/09/10], [Edis Hodja], [], [Approvazione del documento],
+    [0.5.0], [2026/09/08], [Giovanni Bronte], [Edis Hodja], [Aggiunti termini e definizioni],
+    [0.4.0], [2026/07/15], [Ines Iadadi], [Leonardo Lorenzin], [Aggiunte definizioni],
     [0.3.0], [2026/06/23], [Leonardo Lorenzin], [Edis Hodja], [Aggiunti termini e definizioni],
     [0.2.0], [2026/05/11], [Alberto Canavese], [Filippo Zonta Rocha], [Aggiunti termini e definizioni],
     [0.1.0], [2026/04/15], [Bronte Giovanni], [Ines Iadadi], [Prima stesura del documento],
   )
-  
 ]
 
 #pagebreak()
@@ -82,20 +79,35 @@ Il presente documento ha lo scopo di definire in modo univoco i termini tecnici,
 
 #pagebreak()
 
-#let current-letter = state("current-letter", "")
+#let alphabet = ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
+
+#let terms-by-letter = (:)
+#for letter in alphabet {
+  terms-by-letter.insert(letter, ())
+}
 
 #for (word, desc) in terms.pairs().sorted(key: it => lower(it.at(0))) {
-  let first-letter = upper(word.at(0))
+  let initial = upper(word.at(0))
+  if initial in terms-by-letter {
+    terms-by-letter.at(initial).push((word, desc))
+  }
+}
 
-  context {
-    if first-letter != current-letter.get() {
-      current-letter.update(first-letter)
-      heading(level: 1, numbering: none)[#first-letter]
-    }
+#for (index, letter) in alphabet.enumerate() {
+  if index > 0 {
+    pagebreak()
   }
 
-  block(width: 100%, breakable: true)[
-    *#word*: #desc
-  ]
-  v(0.8em)
+  heading(level: 1, numbering: none)[#letter]
+  v(1.5em)
+
+  let entries = terms-by-letter.at(letter)
+  if entries.len() > 0 {
+    for (word, desc) in entries {
+      block(width: 100%, breakable: true)[
+        *#word*: #desc
+      ]
+      v(0.8em)
+    }
+  }
 }
