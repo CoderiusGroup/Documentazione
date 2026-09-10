@@ -100,7 +100,10 @@
     inset: 7pt,
     fill: (x, y) => if y == 0 { luma(230) } else { none },
     [*Versione*], [*Data*], [*Autore*], [*Verificatore*], [*Descrizione*],
-    [2.0.0], [2026/09/], [Edis Hodja], [], 
+    [2.0.0], [2026/09/10], [Ines Iadadi], [], [Approvazione del documento],
+    [1.10.1], [2026/09/10], [Edis Hodja], [Ines Iadadi], 
+    [Aggiunta della sezione relativa al sommario finale],
+    [1.10.0], [2026/09/10], [Edis Hodja], [Ines Iadadi], 
     [Aggiunta delle sezioni Sprint 15: dalla 4.16.1 alla 4.16.8],
     [1.9.0], [2026/09/04], [Giovanni Bronte], [Edis Hodja], 
     [Aggiunta delle sezioni Sprint 14: dalla 4.15.1 alla 4.15.8],
@@ -1862,3 +1865,61 @@ emerse ulteriori criticità rilevanti.
     table.cell(colspan: 2, align: center, fill: luma(220))[*Totale*], [*27*], [*530€*], [*11*], [*275€*],
   )
 ]
+
+#pagebreak()
+
+== Sommario finale di progetto
+
+In questa sezione viene presentato il quadro consuntivo definitivo dell'intero progetto a conclusione delle attività, aggregando i dati della fase di *Requirements and Technology Baseline (RTB)* con quelli della fase di *Product Baseline (PB)*. Vengono esposti il riepilogo orario per ciascun componente e ruolo e il consuntivo economico a confronto con il preventivo iniziale.
+
+=== Riepilogo orario complessivo (RTB + PB)
+
+La seguente tabella riporta la totalità delle ore effettivamente prestate da ciascun componente lungo tutti i 15 sprint di progetto, suddivise per il ruolo ricoperto.
+
+#figure(
+  tabella-ore((
+    ([Alberto Canavese], [13], [7], [8], [22], [13], [20], [83]),
+    ([Edis Hodja], [10], [11], [14], [12], [18], [21], [86]),
+    ([Filippo Zonta Rocha], [10], [9], [8], [11], [20], [25], [83]),
+    ([Giovanni Angelo Marco Bronte], [11], [13], [13], [10], [24], [10], [81]),
+    ([Ines Iadadi], [7], [7], [20], [19], [27], [12], [92]),
+    ([Leonardo Lorenzin], [9], [11], [7], [11], [16], [32], [86]),
+    (table.cell(align: center, fill: luma(220))[*Totali per ruolo*], [*60*], [*58*], [*70*], [*85*], [*118*], [*120*], [*511*]),
+  )),
+  caption: [Riepilogo ore complessive svolte per componente e per ruolo (Sprint 1 - 15)],
+)
+
+#pagebreak()
+
+=== Consuntivo economico complessivo
+
+La tabella sottostante confronta le ore e i costi effettivi sostenuti con il preventivo iniziale approvato, evidenziando il saldo orario e il risparmio economico finale ottenuto dal gruppo.
+
+#align(center)[
+  #figure(
+    table(
+      columns: (1.4fr, 0.9fr, 0.9fr, 1fr, 1.1fr, 1.1fr),
+      align: (left, center, center, center, center, center),
+      stroke: 0.5pt + luma(100),
+      table.header(
+        [*Ruolo*],
+        [*Costo (€/h)*],
+        [*Ore Prev.*],
+        [*Ore Eff.*],
+        [*Preventivo (€)*],
+        [*Consuntivo (€)*],
+      ),
+      [Responsabile], [30], [60], [60], [1.800], [1.800],
+      [Amministratore], [20], [58], [58], [1.160], [1.160],
+      [Analista], [25], [72], [70], [1.800], [1.750],
+      [Progettista], [25], [94], [85], [2.350], [2.125],
+      [Programmatore], [15], [118], [118], [1.770], [1.770],
+      [Verificatore], [15], [120], [120], [1.800], [1.800],
+      table.cell(colspan: 2, align: center, fill: luma(220))[*Totale complessivo*],
+      [*522*], [*511*], [*10.680*], [*10.405*],
+    ),
+    caption: [Consuntivo economico e orario complessivo di progetto (Sprint 1 - 15)],
+  )<tabella-consuntivo-finale>
+]
+
+A fronte di un budget iniziale approvato di *10.680,00 €* per un monte ore di *522 ore*, il gruppo Coderius ha concluso il progetto impiegando *511 ore totali* per un costo complessivo di *10.405,00 €*. Il progetto si chiude pertanto con un residuo non speso di *11 ore* (di cui 2 ore di Analista e 9 ore di Progettista) e un risparmio economico a favore della committenza pari a *275,00 €*.
