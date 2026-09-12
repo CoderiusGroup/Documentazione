@@ -1513,7 +1513,7 @@ e la ricostruzione del percorso logico seguito.
 - `session`, `selectedAssetId`, `selectedRequirementId`, `pathQuestions`;
 - `selectAsset`, `selectRequirement`, `clearAsset`, `clearRequirement`.
 
-
+#pagebreak()
 == Backend
 
 Il backend è un'applicazione Flask esposta come singola API REST stateless, organizzata in
@@ -1538,7 +1538,7 @@ applicativo Flask.
 
 #figure(
   image("../../../images/specifica_tecnica/backend/design_backend.png", width: 70%),
-  caption: [useResult: hook application],
+  caption: [Backend: i quattro livelli e la direzione delle dipendenze],
 )
 
 === Presentation Layer
@@ -1552,12 +1552,15 @@ L'applicazione è composta da `create_app()`, che costruisce il repository, lo i
 Il blueprint dei dispositivi, le cui rotte invocano direttamente la funzione di validazione
 e non dipendono da collaboratori costruiti a runtime, è registrato senza factory.
 
+
 === Application Layer
 
 - *`create_device()`*: valida i metadati del dispositivo (nome, sistema operativo, descrizione) e ne costruisce l'entità, rispettando l'`id` se fornito o generandone uno con `uuid4`. È il punto unico di validazione, condiviso dalla creazione manuale e dall'importazione.
 
 - *`create_asset()`*: valida i campi dell'asset e, quando `requirements` non è fornito, deriva i requisiti applicabili interrogando `DecisionTreeService.list_requirement_ids_for_type()`.
-- *`DecisionTreeService`*: unica classe del livello. Carica un albero tramite il repository, ne verifica l'integrità e lo normalizza; espone inoltre `list_trees()`, `list_requirement_ids_for_type()` e `import_tree()` e `delete_tree()`.
+- *`DecisionTreeService`*: carica un albero tramite il repository, ne verifica l'integrità e lo normalizza; espone inoltre `list_trees()`, `list_requirement_ids_for_type()`, `import_tree()` e `delete_tree()`.
+- *`decision_tree_format`*: converte i decision tree da e verso i formati di scambio, secondo la strategia selezionata in importazione ed esportazione.
+
 
 Le prime due sono realizzate come funzioni esportate anziché come classi, non avendo stato
 né collaboratori da conservare fra le invocazioni.
@@ -1577,6 +1580,7 @@ nodo per identificatore, `Node.next()` restituisce il successore per il ramo sce
 Il livello isola l'accesso ai dati dietro l'interfaccia `IDecisionTreeRepository`,
 realizzata da `JsonDecisionTreeRepository` sui file in `backend/data/decision_trees/`.
 
+#pagebreak()
 === Endpoint REST <endpoint-rest>
 
 #table(
