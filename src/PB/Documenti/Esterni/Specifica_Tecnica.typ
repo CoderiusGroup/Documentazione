@@ -900,10 +900,11 @@ dipende da State, Domain e Infrastructure; Domain non dipende da alcun altro liv
 questo vincolo a rendere sostituibile un dettaglio tecnico senza toccare le pagine.
 
 #figure(
-  image("../../../images/specifica_tecnica/frontend/design_frontend.png", width: 70%),
+  image("../../../images/specifica_tecnica/frontend/design_frontend.png", width: 90%),
   caption: [Diagramma a blocchi dei livelli del frontend],
 )
 
+#pagebreak()
 === Presentation Layer
 
 Il livello comprende otto pagine. Sette di esse corrispondono a una rotta dell'applicazione;
@@ -926,6 +927,7 @@ Il livello comprende otto pagine. Sette di esse corrispondono a una rotta dell'a
   caption: [Diagramma delle pagine],
 )
 
+#pagebreak()
 I componenti condivisi principali comprendono:
 
 - *Page*: layout comune delle pagine e gestione del titolo e della navigazione.
@@ -968,8 +970,20 @@ I service raccolgono le operazioni indipendenti dalla singola pagina.
 - *DecisionTreeService*: recupero dell'elenco del catalogo e del singolo albero, importazione ed esportazione. È l'unico service realizzato come classe e riceve nel costruttore l'implementazione di `ApiClientService`, così da poter essere collaudato con un doppio di test.
 - *SessionService*: produzione e rilettura validata del file di sessione, e ri-esportazione delle regole di costruzione del piano di valutazione.
 - *deviceFileFormats*: raccoglie i formati con cui il dispositivo può essere scritto e riletto, oggi JSON e CSV, ciascuno con le proprie regole di serializzazione e interpretazione.
-- *readFiles*: legge i file in input
-- *downloadFile*: dato un file in input prende un Blob(Binary Large Object) e lo trasforma in un download del browser con un nome scelto. 
+- *readFile*: legge come testo il contenuto di un file selezionato dall'utente.
+- *downloadFile*: avvia nel browser il download di un `Blob` con il nome di file indicato; 
+
+- *ReportService* e *reportData*: il report di conformità viene costruito
+  interamente nel client. `reportData` raccoglie dal dispositivo e dalla sessione gli
+  esiti delle valutazioni, gli stati aggregati di asset e dispositivo e i percorsi logici
+  seguiti. Quando necessario, recupera dal catalogo i decision tree associati ai requisiti
+  per ricostruire le domande e le risposte del percorso.
+
+  `ReportService` utilizza questi dati per generare il documento PDF tramite la libreria
+  `@react-pdf/renderer`. La struttura grafica del documento è definita dal componente
+  `ReportDocument`, mentre il file prodotto viene reso disponibile per il download
+  dell'utente. Questa soluzione evita di trasferire la sessione al backend, che non la
+  possiede né la conserva.
 
 === State Management
 
@@ -1012,22 +1026,10 @@ solo quando l'utente risponde diversamente a un nodo già risposto.
 
 - *queryClient*: istanza di TanStack Query impiegata in modo imperativo per conservare gli alberi già richiesti. La configurazione disabilita scadenza e ritentativi, coerentemente con la natura immutabile del dato durante una sessione.
 
-- *ReportService* e *reportData*: il report di conformità viene costruito
-  interamente nel client. `reportData` raccoglie dal dispositivo e dalla sessione gli
-  esiti delle valutazioni, gli stati aggregati di asset e dispositivo e i percorsi logici
-  seguiti. Quando necessario, recupera dal catalogo i decision tree associati ai requisiti
-  per ricostruire le domande e le risposte del percorso.
-
-  `ReportService` utilizza questi dati per generare il documento PDF tramite la libreria
-  `@react-pdf/renderer`. La struttura grafica del documento è definita dal componente
-  `ReportDocument`, mentre il file prodotto viene reso disponibile per il download
-  dell'utente. Questa soluzione evita di trasferire la sessione al backend, che non la
-  possiede né la conserva.
-
 - *NotificationService* e *NotificationManager*: l'interfaccia per avvisare l'utente e la sua realizzazione su `react-hot-toast`.
 
-Grazie a questa separazione, sostituire il modo in cui si dialoga con il backend o si
-presentano gli avvisi non tocca né le pagine né i service.
+Grazie a questa separazione, sostituire il modo in cui si dialoga con il backend non tocca
+le pagine.
 
 === Domain Layer
 
