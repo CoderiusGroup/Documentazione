@@ -446,6 +446,22 @@ def formato_italiano(valore: float, decimali: int = 0) -> str:
 # Impostazioni comuni dei grafici
 # --------------------------------------------------------------------------- #
 
+def scrivi_etichette_x(ax, etichette: list[str]) -> None:
+    """Etichette dell'asse x leggibili anche con molti sprint.
+
+    Fino a 8 sprint stanno in orizzontale come prima; oltre, le etichette si
+    ruotano di 30° con allineamento a destra e corpo ridotto, così le due
+    righe «Sprint N / data» non si sovrappongono più tra loro.
+    """
+    numero = len(etichette)
+    ax.set_xticks(range(numero))
+    if numero <= 8:
+        ax.set_xticklabels(etichette, fontsize=11)
+    else:
+        ax.set_xticklabels(etichette, fontsize=9, rotation=30,
+                           ha="right", rotation_mode="anchor")
+
+
 def _nuova_figura(titolo: str, etichette_x: list[str], etichetta_y: str | None = None):
     fig, ax = plt.subplots(figsize=DIMENSIONE_FIGURA)
 
@@ -453,8 +469,7 @@ def _nuova_figura(titolo: str, etichette_x: list[str], etichetta_y: str | None =
     if etichetta_y:
         ax.set_ylabel(etichetta_y, fontsize=11)
 
-    ax.set_xticks(range(len(etichette_x)))
-    ax.set_xticklabels(etichette_x, fontsize=11)
+    scrivi_etichette_x(ax, etichette_x)
     ax.set_xlim(-0.35, len(etichette_x) - 0.65)
 
     ax.yaxis.grid(True, linestyle="--", linewidth=0.8, color=GRIGLIA)

@@ -206,12 +206,15 @@ def preprocess_for_spellcheck(text: str) -> str:
     - parole tutte maiuscole (acronimi: EN, MPC, UC, RTB, PDF…)
     - parole contenenti cifre (UC-1, v2.0, MPC-01…)
     - parole con trattino o punto interni (già coperte in parte)
+    - identificatori di codice camelCase/PascalCase (DeviceStore, useResult…)
     - URL e path
     """
     text = re.sub(r'https?://\S+', ' ', text)
     text = re.sub(r'\b[A-Z]{2,}\b', ' ', text)          # acronimi maiuscoli
     text = re.sub(r'\b\w*\d+\w*\b', ' ', text)          # parole con cifre
     text = re.sub(r'\b\w+[-./]\w+\b', ' ', text)        # codici con separatori
+    text = re.sub(r'\b\w*[a-zàèéìòù][A-Z]\w*\b', ' ', text)  # camelCase / PascalCase composto
+    text = re.sub(r'\b[A-Z]{2,}[a-zàèéìòù]\w*\b', ' ', text)  # acronimo + parola (UIStore, APIClient)
     text = re.sub(r'[^\w\s]', ' ', text)                 # simboli residui
     text = re.sub(r'\s+', ' ', text)
     return text.strip()

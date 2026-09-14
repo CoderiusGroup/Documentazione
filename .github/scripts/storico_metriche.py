@@ -52,6 +52,7 @@ from grafici_cruscotto import (                     # noqa: E402
     leggi_date_sprint,
     leggi_tabelle,
     ripulisci,
+    scrivi_etichette_x,
     trova_revisioni,
 )
 
@@ -76,6 +77,7 @@ COLORI = {
     "Norme di progetto": "#1f5c9e",
     "Piano di progetto": "#c0392b",
     "Piano di qualifica": "#d4881f",
+    "Specifica tecnica": "#8c564b",
     "Verbali": "#7d5ba6",
 }
 COLORE_RESIDUO = "#7f7f7f"
@@ -96,6 +98,8 @@ def categoria(percorso: Path | str) -> str | None:
         return "Piano di qualifica"
     if "analisi" in nome and "requisiti" in nome:
         return "Analisi dei requisiti"
+    if "specifica" in nome and "tecnica" in nome:
+        return "Specifica tecnica"
     if "piano" in nome and "progetto" in nome:
         return "Piano di progetto"
     return None
@@ -250,8 +254,7 @@ def _nuova_figura(titolo: str, etichette: list[str], etichetta_y: str):
     fig, ax = plt.subplots(figsize=DIMENSIONE_FIGURA)
     ax.set_title(titolo, fontsize=15, fontweight="bold", pad=16)
     ax.set_ylabel(etichetta_y, fontsize=11)
-    ax.set_xticks(range(len(etichette)))
-    ax.set_xticklabels(etichette, fontsize=11)
+    scrivi_etichette_x(ax, etichette)
     ax.set_xlim(-0.35, len(etichette) - 0.65)
     ax.yaxis.grid(True, linestyle="--", linewidth=0.8, color=GRIGLIA)
     ax.set_axisbelow(True)
