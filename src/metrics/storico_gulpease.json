@@ -432,7 +432,7 @@
     {
       "numero": 15,
       "fine": "-",
-      "aggiornato": "2026-09-12",
+      "aggiornato": "2026-09-14",
       "documenti": {
         "Analisi dei requisiti": {
           "parole": 13286,
@@ -455,8 +455,8 @@
           "frasi": 561
         },
         "Specifica tecnica": {
-          "parole": 16236,
-          "lettere": 104078,
+          "parole": 16227,
+          "lettere": 104045,
           "frasi": 1066
         },
         "Verbali": {
