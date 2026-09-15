@@ -112,8 +112,8 @@
     [0.6.0], [2026/09/01], [Ines Iadadi], [Edis Hodja], [Modifica alla struttura del documento e aggiornamento della sezione 2],
     [0.5.0], [2026/08/28], [Alberto Canavese], [Leonardo Lorenzin], [Stesura della sezione 4 - Design pattern],
     [0.4.3], [2026/08/22], [Ines Iadadi], [Giovanni Bronte], [Stesura della sezione Backend 3.6],
-    [0.4.2], [2026/08/13], [Filippo Zonta Rocha], [], [Stesura della sezione 3.5],
-    [0.4.1], [2026/08/10], [Edis Hodja], [], [Stesura della sezione 3.4],
+    [0.4.2], [2026/08/13], [Filippo Zonta Rocha], [Edis Hodja], [Stesura della sezione 3.5],
+    [0.4.1], [2026/08/10], [Edis Hodja], [Edis Hodja], [Stesura della sezione 3.4],
     [0.4.0], [2026/07/29], [Leonardo Lorenzin], [Edis Hodja], [Stesura iniziale della sezione 3],
     [0.3.0], [2026/07/24], [Giovanni Bronte], [Leonardo Lorenzin], [Stesura della sezione 2],
     [0.2.0], [2026/07/24], [Alberto Canavese], [Leonardo Lorenzin], [Stesura della sezione 1],
@@ -231,18 +231,17 @@ Ogni termine tecnico o di dominio che necessita di ulteriori chiarimenti è cont
     fill: blue,
   )[Slide IS A.A. 2025/2026 - _Progettazione Software_]]
 
-=== Documentazione delle tecnologie:
+=== Documentazione delle tecnologie
 
-  - #link("https://docs.python.org/3/")[#underline[#text(fill: blue)[Python 3 Official Documentation]]]
+- #link("https://docs.python.org/3.12/")[#underline[#text(fill: blue)[Python 3.12 Official Documentation]]]
 
-  - #link("https://www.typescriptlang.org/docs/")[#underline[#text(fill: blue)[TypeScript Official Documentation]]]
-  - #link("https://react.dev/")[#underline[#text(fill: blue)[React Official Documentation]]]
-  - #link("https://vite.dev/guide/")[#underline[#text(fill: blue)[Vite Getting Started Guide]]]
-  - #link("https://flask.palletsprojects.com/")[#underline[#text(fill: blue)[Flask Official Documentation]]]
-  - #link("https://docs.docker.com/")[#underline[#text(fill: blue)[Docker Documentation]]]
-  - #link("https://vitest.dev/")[#underline[#text(fill: blue)[Vitest Documentation]]]
-  - #link("https://testing-library.com/docs/react-testing-library/intro/")[#underline[#text(fill: blue)[React Testing Library Documentation]]]
-
+- #link("https://www.typescriptlang.org/docs/")[#underline[#text(fill: blue)[TypeScript 6.0 Official Documentation]]]
+- #link("https://react.dev/")[#underline[#text(fill: blue)[React 19.2 Official Documentation]]]
+- #link("https://vite.dev/guide/")[#underline[#text(fill: blue)[Vite 8.2 Getting Started Guide]]]
+- #link("https://flask.palletsprojects.com/en/stable/")[#underline[#text(fill: blue)[Flask 3.1 Official Documentation]]]
+- #link("https://docs.docker.com/")[#underline[#text(fill: blue)[Docker Documentation]]]
+- #link("https://vitest.dev/")[#underline[#text(fill: blue)[Vitest 4.1 Documentation]]]
+- #link("https://testing-library.com/docs/react-testing-library/intro/")[#underline[#text(fill: blue)[React Testing Library 16.3 Documentation]]]
 #pagebreak()
 = Tecnologie <tecnologie>
 Nella seguente sezione vengono descritte le tecnologie usate per lo sviluppo del capitolato *Automated EN18031 Compliance Verification*.
@@ -264,7 +263,7 @@ Nella seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
 
     [TypeScript],
     [6.0.2],
-    [Metalinguaggio open source sviluppato da Microsoft che si basa su JavaScript, aggiungendovi la tipizzazione statica. Nel nostro progetto è utilizzato per lo sviluppo del frontend assieme alla libreria React: l'introduzione dei tipi garantisce maggiore robustezza, facilita la manutenibilità del codice nel tempo e permette di intercettare numerosi errori già in fase di compilazione.],
+    [Metalinguaggio che si basa su JavaScript, aggiungendovi la tipizzazione statica. Nel nostro progetto è utilizzato per lo sviluppo del frontend assieme alla libreria React. L'introduzione dei tipi garantisce maggiore robustezza, facilita la manutenibilità del codice nel tempo e permette di intercettare numerosi errori già in fase di compilazione.],
 )
 
 == Framework
@@ -277,8 +276,8 @@ Nella seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
 
     [Flask],
     [3.1.3],
-    [Micro-framework Web scritto in Python, è progettato per essere rapido e semplice, offrendo al contempo la possibilità di essere utilizzato per applicazioni complesse.
-    È inoltre molto semplice da imparare, flessibile e ha buone performance.
+    [Micro-framework Web scritto in Python, è progettato per essere rapido, offrendo al contempo la possibilità di essere utilizzato per applicazioni complesse.
+    È flessibile e ha buone performance.
     ],
     [Flask-CORS],
   [6.0.5],
@@ -308,18 +307,14 @@ Nella seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
     [Libreria per la rappresentazione interattiva di grafi e diagrammi a nodi in applicazioni
     React, distribuita nel pacchetto `@xyflow/react`. Nel prodotto è impiegata per la
     visualizzazione del decision tree, con i nodi resi come componenti React personalizzati e
-    supporto nativo a spostamento e ingrandimento della vista. La libreria non determina la
-    disposizione dei nodi, che resta affidata alla regola pura `treeLayout` del Domain Layer:
-    riceve le posizioni già calcolate e si occupa della sola resa grafica. Poiché la
-    rappresentazione è di sola consultazione, spostamento e connessione dei nodi sono
-    disabilitati.],
+    supporto nativo a spostamento e ingrandimento della vista.],
 
     [React PDF],
     [4.9],
     [Libreria per la generazione di documenti PDF a partire da componenti React, distribuita
     nel pacchetto `@react-pdf/renderer`. Nel prodotto è impiegata per la produzione del report
     di conformità finale, la cui struttura è dichiarata come componente `ReportDocument` e
-    resa in un documento scaricabile dall'utente. La generazione avviene nel client, utilizzando il dispositivo, la sessione e i decision tree resi disponibili dal catalogo.],
+    resa in un documento scaricabile dall'utente.],
     [Zustand],
     [5.0],
     [Libreria minimale per la gestione dello stato globale in applicazioni React. Gli store
@@ -354,8 +349,8 @@ Nella seguente sezione vengono descritte le tecnologie usate per lo sviluppo del
 
     [Vite],
     [8.2.0],
-    [Vite è diventato lo standard de facto dell'ecosistema frontend. È il motore ufficiale dietro i framework moderni come Vue, e i template ufficiali di React.
-    È inoltre molto più veloce a creare il server rispetto ad altri strumenti simili ed è anche molto facile da implementare grazie alla sua configurazione minima richiesta. 
+    [Vite è il motore dietro i template ufficiali di React.
+    È inoltre molto più veloce a creare il server rispetto ad altri strumenti simili e richiede configurazione minima. 
     ],
     [Node.js],
   [22],
@@ -400,8 +395,7 @@ durante l'esecuzione di una valutazione e privo di relazioni da interrogare.
   [CSV],
   [RFC 4180],
   [Formato tabellare impiegato come formato alternativo di scambio per i dispositivi e per
-  i decision tree, secondo quanto richiesto dai requisiti RF-Ob05, RF-Ob21, RF-Ob79 e
-  RF-D23.],
+  i decision tree.],
 )
 
 Il dispositivo in lavorazione e la sessione di valutazione non sono mai scritti su disco
@@ -594,11 +588,7 @@ come container distinti e comunicanti tramite HTTP.
 === Layered Architecture
 
 L'organizzazione interna di entrambe le unità in livelli con dipendenza a senso unico è il
-vincolo strutturale portante del prodotto. È ciò che permette di sostituire un dettaglio
-tecnico senza
-toccare la logica applicativa, ed è verificabile: i test del dominio non richiedono alcun
-contesto applicativo Flask né alcun componente React montato per essere eseguiti. La
-composizione dei livelli è descritta in @decomposizione.
+vincolo strutturale portante del prodotto.
 
 === REST stateless
 
@@ -611,24 +601,14 @@ ordine fra le richieste.
 Il principio prevede che un componente riceva i propri collaboratori dall'esterno anziché
 istanziarli, cosicché il grafo degli oggetti sia composto in un unico punto del sistema.
 
-Lato *backend* il principio è applicato integralmente: `create_app()` è l'unico punto in
-cui compaiono i nomi delle classi concrete, e costruisce il repository, lo inietta nel
-`DecisionTreeService` e passa quest'ultimo alle factory dei blueprint. La direzione delle
-dipendenze è pertanto verificabile ispezionando un solo file.
+Lato backend è realizzato in `create_app()`, unico punto in cui compaiono i nomi delle
+classi concrete: costruisce il repository, lo inietta in `DecisionTreeService` e passa
+quest'ultimo alle factory dei blueprint. Lato frontend, `DecisionTreeService` riceve
+`ApiClientService` nel costruttore, con `FetchApiClient` come valore predefinito.
 
-Lato *frontend* l'applicazione è parziale, e costituisce il principale debito
-architetturale individuato:
-
-- `DeviceService` istanzia direttamente `FetchApiClient` a livello di modulo;
-- `DecisionTreeService` accetta un'implementazione di `ApiClientService` nel costruttore,
-  ma ne dichiara una concreta come valore predefinito;
-- `DecisionTreeService.exportTree()` invoca `fetch` direttamente, eludendo l'interfaccia
-  `ApiClientService`.
-
-Le prime due condizioni non compromettono la verificabilità ma introducono una dipendenza in fase di compilazione dalla classe
-concreta, in violazione del principio di inversione delle dipendenze. La terza è una
-violazione della regola secondo cui ogni comunicazione con il backend transita per
-`ApiClientService`.
+Il beneficio è verificabile nei test: sostituendo il repository o il client HTTP con un
+doppio che realizza la medesima interfaccia, la logica applicativa è collaudata senza
+alcun accesso al filesystem né alla rete, senza modificare il codice di produzione.
 
 == Motivazioni della scelta architetturale <motivazioni-architettura>
 
@@ -645,8 +625,7 @@ persistenza, una sola API esposta a un solo tipo di client, nessuna previsione d
 dati alternative. In tali condizioni l'introduzione sistematica di astrazioni aggiungerebbe
 indirezione senza variabilità da governare.
 
-L'architettura a livelli garantisce gli stessi due benefici che qui interessano —
-separazione delle responsabilità e verificabilità del dominio in isolamento — a un costo
+L'architettura a livelli garantisce gli stessi due benefici che qui interessano (separazione delle responsabilità e verificabilità del dominio in isolamento) a un costo
 strutturale inferiore. Il disaccoppiamento esplicito fra interfaccia e implementazione è
 stato adottato in modo *selettivo*, nei tre punti in cui esiste una ragione concreta per
 prevedere una realizzazione alternativa: l'accesso al catalogo dei decision tree, la
@@ -664,18 +643,15 @@ valutazione sono dell'utente, che li crea, li esporta su file e li reimporta. Ne
 che la navigazione lungo l'albero avviene interamente nel client e che il server non
 conserva né dispositivi né sessioni.
 
-Il criterio produce due conseguenze verificabili: nessuna richiesta di rete è necessaria
-per rispondere a una domanda del decision tree, e l'utente conserva il pieno controllo dei propri dati, che non vengono persistiti né conservati in un archivio condiviso dal server. Quest'ultima
-proprietà è coerente con la natura di strumento interno del prodotto e con la decisione
-VE-7.1.
+Il criterio produce due conseguenze verificabili, nessuna richiesta di rete è necessaria
+per rispondere a una domanda del decision tree e l'utente conserva il pieno controllo dei propri dati, che non vengono persistiti né conservati in un archivio condiviso dal server. 
 
 === Assenza di una base di dati
 
 L'unica collezione posseduta dal sistema è il catalogo dei decision tree: un insieme
 ristretto di documenti strutturati, di sola lettura durante una valutazione e privo di
 relazioni da interrogare. Un sistema di gestione di basi di dati risolverebbe problemi che
-il prodotto non presenta — interrogazione relazionale, accesso concorrente in scrittura,
-integrità referenziale — introducendo un terzo servizio da avviare e configurare su
+il prodotto non presenta introducendo un terzo servizio da avviare e configurare su
 ciascuna postazione.
 
 La persistenza su file JSON mantiene il catalogo ispezionabile e modificabile con strumenti
@@ -685,8 +661,8 @@ installazioni.
 === Interfaccia REST stateless
 
 L'assenza di stato conversazionale lato server non è una scelta indipendente, ma la
-conseguenza diretta del criterio di possesso del dato: poiché dispositivo e sessione
-risiedono nel client, non esiste alcuno stato da mantenere fra una richiesta e la
+conseguenza diretta del criterio di possesso del dato, poiché dispositivo e sessione
+risiedono nel client non esiste alcuno stato da mantenere fra una richiesta e la
 successiva. Ne deriva che ogni rotta è verificabile in isolamento e che non sussiste alcun
 vincolo di ordine fra le chiamate.
 
@@ -704,46 +680,22 @@ containerizzazione garantisce inoltre che l'ambiente di esecuzione sia il medesi
 postazione, requisito rilevante per un prodotto avviato localmente da utenti che non sono
 sviluppatori.
 
-== Limiti dell'architettura <limiti-architettura>
+== Limiti dell'architettura
 
-Le scelte descritte comportano limiti che si ritiene corretto dichiarare. Nessuno di essi
-compromette il soddisfacimento dei requisiti, ma ciascuno delimita il campo entro cui il
-prodotto può evolvere senza una revisione architetturale.
+Le scelte descritte comportano conseguenze accettate consapevolmente, non difetti di
+realizzazione.
 
-*Il vincolo di dipendenza fra livelli è una disciplina, non una proprietà imposta.* Né
-Flask né React impediscono a un modulo di un livello superiore di invocare direttamente un
-meccanismo tecnico: nulla vieta a una pagina di chiamare `fetch`. Il vincolo è presidiato
-dalle convenzioni di codifica e dalla revisione fra pari, non dagli strumenti. Che si tratti
-di un limite reale è dimostrato dal caso di `DecisionTreeService.exportTree()`, che invoca
-`fetch` eludendo l'interfaccia `ApiClientService`.
+*L'assenza di base di dati esclude l'interrogazione trasversale sul catalogo.* Il costo è
+trascurabile con alcune decine di documenti, l'introduzione di funzionalità di ricerca
+richiederebbe di riconsiderare la decisione.
 
-*La logica di valutazione risiede nel client.* La navigazione dell'albero, il calcolo degli
-esiti aggregati e la gestione della sessione sono realizzati in TypeScript e non sono
-raggiungibili dall'esterno. L'introduzione di un secondo tipo di client — un'applicazione
-mobile, un'interfaccia a riga di comando, un'integrazione con sistemi della proponente —
-richiederebbe di reimplementare tale logica oppure di spostarla lato server, con una
-revisione del criterio di possesso del dato.
-
-*Il modello di dominio è duplicato in due linguaggi.* Le entità esistono in TypeScript e in
-Python senza generazione automatica dell'una dall'altra: la coerenza è presidiata
-unicamente dal contratto degli endpoint e dai test. Una divergenza fra le due
-rappresentazioni non è rilevata da alcuno strumento in fase di compilazione.
-
-*L'assenza di base di dati esclude l'interrogazione trasversale.* Ogni operazione che
-percorra l'intero catalogo — come la derivazione dei requisiti applicabili a un tipo di
-asset — richiede la lettura di tutti i file. Il costo è trascurabile con alcune decine di
-documenti, ma l'introduzione di funzionalità di ricerca o di filtraggio sul catalogo
-imporrebbe di riconsiderare la decisione.
-
-*L'assenza di persistenza dei dati dell'utente sposta su di lui la responsabilità della
+*L'assenza di persistenza lato server sposta sull'utente la responsabilità della
 conservazione.* Un dispositivo o una sessione non esportati su file vanno perduti alla
-chiusura dell'applicazione. È una conseguenza accettata del criterio di possesso del dato e
-della decisione VE-7.1, non un difetto di realizzazione, ma va tenuta presente nella
-redazione del Manuale Utente.
+chiusura. È una conseguenza del criterio di possesso del dato,
+coerente con la natura di strumento locale del prodotto.
 
-*Il monolite non consente scalabilità indipendente delle parti.* La condizione è irrilevante
-nello scenario d'uso previsto, in cui un'installazione serve un solo utente per volta, ma
-lo diverrebbe qualora il prodotto fosse esposto come servizio condiviso.
+*Il monolite non consente scalabilità indipendente delle parti*, condizione irrilevante
+nello scenario d'uso che prevede un'installazione per un solo utente alla volta.
 
 == Design pattern
 
@@ -798,7 +750,7 @@ nelle sezioni precedenti e vengono qui richiamati per completezza:
 
 - *Soluzione*: definire un'interfaccia stabile e realizzarla con una classe che traduce le chiamate nel meccanismo sottostante. A differenza della forma classica, il target non preesiste all'adattatore ma è definito insieme a esso: resta un Object Adapter, applicato in funzione preventiva anziché su un'interfaccia di terze parti già data.
 
-- *Applicazione nel progetto*: FetchApiClient realizza ApiClientService; `request()` traduce assenza di rete e risposte non riuscite in ApiError. NotificationManager realizza NotificationService delegando a react-hot-toast, pur essendo il caso più debole: nessun chiamante dichiara il proprio collaboratore come NotificationService, tutti istanziano NotificationManager direttamente.
+- *Applicazione nel progetto*: NotificationManager realizza analogamente l'interfaccia       NotificationService, delegando a react-hot-toast la gestione di coda e impilamento dei messaggi. I chiamanti istanziano NotificationManager direttamente, senza dichiarare il collaboratore tramite l'interfaccia.
 
 - *Conseguenze*: i test di FetchApiClient verificano gli errori senza backend in esecuzione. Ogni comunicazione con il backend deve transitare per ApiClientService.
 
@@ -900,7 +852,7 @@ dipende da State, Domain e Infrastructure; Domain non dipende da alcun altro liv
 questo vincolo a rendere sostituibile un dettaglio tecnico senza toccare le pagine.
 
 #figure(
-  image("../../../images/specifica_tecnica/frontend/design_frontend.png", width: 90%),
+  image("../../../images/specifica_tecnica/frontend/design_frontend.png", width: 60%),
   caption: [Diagramma a blocchi dei livelli del frontend],
 )
 
@@ -916,9 +868,9 @@ Il livello comprende otto pagine. Sette di esse corrispondono a una rotta dell'a
 - *DeviceAssetManagementPage*: gestione dell'elenco degli asset associati al dispositivo.
 - *AssetFormPage*: creazione o modifica di un asset.
 - *DeviceSummaryPage*: riepilogo di dispositivo e asset prima dell'avvio della valutazione.
-- *SessionRunnerPage*: conduce l'intera valutazione guidata attraverso quattro fasi —
+- *SessionRunnerPage*: conduce l'intera valutazione guidata attraverso quattro fasi,
   riepilogo dell'avanzamento, selezione dell'asset, selezione del requisito con le relative
-  dipendenze, esecuzione dell'albero decisionale — governate da `useSessionRunner`.
+  dipendenze, esecuzione dell'albero decisionale.
 - *ResultPage*: consultazione degli esiti e loro esportazione.
 - *DecisionTreeCatalogPage*: elenco dei decision tree disponibili, dettaglio, importazione, esportazione ed eliminazione.
 
@@ -1013,7 +965,7 @@ azioni dichiarate, mai da scritture dirette.
 
 I tre store non sono del tutto indipendenti: quando il dispositivo viene sostituito o
 modificato, `DeviceStore` azzera `SessionStore`. Si tratta di una dipendenza deliberata e a
-senso unico, che realizza un vincolo di dominio — una valutazione riferita a un dispositivo
+senso unico, che realizza un vincolo di dominio. Una valutazione riferita a un dispositivo
 nel frattempo mutato produrrebbe esiti privi di significato.
 
 Il cursore di `TreeStore` merita una precisazione: `goBack` e `goForward` spostano la
@@ -1152,7 +1104,7 @@ Modulo per la creazione, l'importazione e l'esportazione del dispositivo e dei s
 ===== SessionService
 
 #figure(
-  image("../../../images/specifica_tecnica/session_service.png", width: 70%),
+  image("../../../images/specifica_tecnica/session_service.png", width: 60%),
   caption: [SessionService: modulo application],
 )
 
@@ -1171,7 +1123,7 @@ Modulo per la produzione e la rilettura del file di sessione.
 ===== ReportService
 
 #figure(
-  image("../../../images/specifica_tecnica/report_service.png", width: 70%),
+  image("../../../images/specifica_tecnica/report_service.png", width: 50%),
   caption: [ReportService: modulo application],
 )
 
@@ -1187,7 +1139,7 @@ Modulo per la produzione del report di conformità finale.
 ===== reportData
 
 #figure(
-  image("../../../images/specifica_tecnica/report_data.png", width: 70%),
+  image("../../../images/specifica_tecnica/report_data.png", width: 50%),
   caption: [reportData: strutture del report],
 )
 
@@ -1212,7 +1164,7 @@ meccanismi tecnici esterni: comunicazione HTTP, conservazione dei risultati e no
 ===== ApiClientService
 
 #figure(
-  image("../../../images/specifica_tecnica/api_client_service.png", width: 70%),
+  image("../../../images/specifica_tecnica/api_client_service.png", width: 50%),
   caption: [ApiClientService: interfaccia infrastructure],
 )
 
@@ -1250,7 +1202,7 @@ Realizzazione concreta di `ApiClientService` fondata sulla funzione `fetch` del 
 ===== ApiError
 
 #figure(
-  image("../../../images/specifica_tecnica/api_error.png", width: 60%),
+  image("../../../images/specifica_tecnica/api_error.png", width:45%),
   caption: [ApiError: classe infrastructure],
 )
 
@@ -1266,7 +1218,7 @@ dall'irraggiungibilità del server.
 ===== NotificationService
 
 #figure(
-  image("../../../images/specifica_tecnica/notification_service.png", width: 70%),
+  image("../../../images/specifica_tecnica/notification_service.png", width: 50%),
   caption: [NotificationService: interfaccia infrastructure],
 )
 
@@ -1281,7 +1233,7 @@ Interfaccia per la segnalazione di esiti all'utente, indipendente dalla libreria
 ===== NotificationManager
 
 #figure(
-  image("../../../images/specifica_tecnica/notification_manager.png", width: 100%),
+  image("../../../images/specifica_tecnica/notification_manager.png", width: 90%),
   caption: [NotificationManager: classe infrastructure],
 )
 
@@ -1297,7 +1249,7 @@ temporizzatore di scomparsa e impilamento dei messaggi.
 ===== queryClient
 
 #figure(
-  image("../../../images/specifica_tecnica/query_client.png", width: 60%),
+  image("../../../images/specifica_tecnica/query_client.png", width: 50%),
   caption: [queryClient: configurazione infrastructure],
 )
 
@@ -1441,7 +1393,7 @@ da mostrare e le azioni da collegare ai comandi.
 ===== useSessionRunner
 
 Hook orchestratore della valutazione guidata. Governa l'avanzamento fra le quattro fasi
-dell'interfaccia — riepilogo, asset, dettaglio del requisito ed esecuzione dell'albero — e
+dell'interfaccia (riepilogo, asset, dettaglio del requisito ed esecuzione dell'albero) e
 coordina il caricamento dell'albero con la registrazione degli esiti.
 
 *Parametri*
@@ -1539,8 +1491,8 @@ La direzione è verificata dai test di dominio, che non richiedono alcun contest
 applicativo Flask.
 
 #figure(
-  image("../../../images/specifica_tecnica/backend/design_backend.png", width: 70%),
-  caption: [Backend: i quattro livelli e la direzione delle dipendenze],
+  image("../../../images/specifica_tecnica/backend/design_backend.png", width: 60%),
+  caption: [useResult: hook application],
 )
 
 === Presentation Layer
@@ -1629,11 +1581,6 @@ realizzata da `JsonDecisionTreeRepository` sui file in `backend/data/decision_tr
 
 ===== create_app
 
-#figure(
-  image("../../../images/specifica_tecnica/create_app.png", width: 40%),
-  caption: [create_app: composizione dell'applicazione],
-)
-
 Funzione factory che costruisce e configura l'istanza di Flask.
 
 *Comportamento*
@@ -1670,21 +1617,11 @@ importazione, lettura, eliminazione ed esportazione. Traduce `DecisionTreeNotFou
 
 ===== device_service
 
-#figure(
-  image("../../../images/specifica_tecnica/device_service-create.png", width: 40%),
-  caption: [device_service: modulo application],
-)
-
 Modulo che espone `create_device(data) -> Device`, punto unico di costruzione validata del
 dispositivo, condiviso da creazione manuale e importazione. È realizzato come funzione, non
 avendo stato né collaboratori da conservare.
 
 ===== asset_service
-
-#figure(
-  image("../../../images/specifica_tecnica/asset_service.png", width: 40%),
-  caption: [asset_service: modulo application],
-)
 
 Modulo che espone `create_asset(data, decision_tree_service) -> Asset`. Quando il campo
 `requirements` non è fornito, interroga `list_requirement_ids_for_type()` per derivare i
@@ -1984,7 +1921,7 @@ in base al valore di `type`, cosicché una verifica come `node.type === "leaf"` 
 accessibile il campo `outcome` senza conversioni esplicite. Una classe base astratta con
 `extends` non offrirebbe questa proprietà.
 
-*NodeContract* — il contratto realizzato da entrambe le classi concrete:
+*NodeContract*: il contratto realizzato da entrambe le classi concrete:
 
 *Attributi*
 - `id: string` : identificatore univoco del nodo all'interno dell'albero.
@@ -2063,7 +2000,7 @@ invarianti da proteggere oltre alla forma, che è già garantita dalla validazio
 == Dominio backend
 
 Le entità del backend sono realizzate come dataclass immutabili (`frozen=True`). Le entità
-dotate di validazione — `Device`, `Asset`, `QuestionNode` e `LeafNode` — dichiarano i campi
+dotate di validazione (`Device`, `Asset`, `QuestionNode` e `LeafNode`) dichiarano i campi
 come privati secondo la convenzione del trattino basso ed espongono proprietà di sola lettura
 omonime; le strutture prive di invarianti da proteggere dichiarano invece campi pubblici. La
 costruzione a partire da dati esterni avviene tramite metodi di classe `create()`, che
